@@ -4,6 +4,9 @@
 ## Schematic
 
 
+![Schematic PIC16F286A controlling 8 LEDs](./schematic_PIC16F628A_8_Leds.jpg)
+
+
 
 
 ## Example 1
