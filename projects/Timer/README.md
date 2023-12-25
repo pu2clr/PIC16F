@@ -8,6 +8,10 @@
 
 
 
+## Prototype
+
+![Prototype PIC16F286A controlling 8 LEDs](./protoboard_01.jpg)
+
 
 ## Example 1
 
@@ -78,6 +82,9 @@ void main() {
 }
 
 ```
+
+
+
 
 
 
