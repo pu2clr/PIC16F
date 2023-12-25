@@ -1,5 +1,8 @@
 # Time Counter. 
 
+This project presents the circuit that uses the PIC16F628A with LEDs that can be controlled in various ways.
+
+
 
 ## Schematic
 
