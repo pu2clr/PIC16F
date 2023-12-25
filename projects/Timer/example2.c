@@ -1,18 +1,3 @@
-# Time Counter. 
-
-
-## Schematic
-
-
-
-
-## Example 1
-
-This project uses a PIC16F628A microcontroller to count time for 1 minute (60s). The system starts with 8 LEDs lit, and every 7.5 seconds, one LED turns off. After all the LEDs have turned off, the system waits for 15 seconds and then restarts the process.
-
-
-
-```cpp
 #include <xc.h>
 
 // Configuração do microcontrolador
@@ -33,24 +18,11 @@ void main() {
 
 
     while (1) {
-        PORTB =  0xFF; // Acende o LED
+        PORTB =  0x03; // Acende o LED
         for (int i = 0; i < 8; i++) {
-            __delay_ms(7500); // Espera 500 milissegundos
+            __delay_ms(500); // Espera 500 milissegundos
             PORTB = (unsigned char) (PORTB <<  1);
         }
-        __delay_ms(15000); // Espera 500 milissegundos
+        __delay_ms(1000); // Espera 500 milissegundos
     }
 }
-
-````
-
-
-## Example 2
-
-
-
-
-
-
-
-
