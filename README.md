@@ -84,7 +84,7 @@ Overall, the PICkit 3 is a powerful and versatile tool for anyone working with M
 
 
 
-### 0PICKit3 References
+### PICKit3 References
 
 * [PICkit™ 3 Programmer/Debugger User’s Guide](https://ww1.microchip.com/downloads/en/DeviceDoc/51795B.pdf)
 * [In-Circuit Serial Programming™ (ICSP™) Guide](https://ww1.microchip.com/downloads/en/DeviceDoc/30277d.pdf)
