@@ -5,6 +5,8 @@ This repository provides information on some microcontrollers from the MicroChip
 The __projects__ folder contains several projects involving circuits with the PIC16F628A and LEDs that may help beginners.
 
 
+Autor: Ricardo Lima Caratti
+
 
 
 ## Tools to program the PIC16FXXX
@@ -53,8 +55,6 @@ Once everything is set up, the programming process involves connecting the PIC m
 
 
 
-
-Autor: Ricardo Lima CAratti.
 
 
 
