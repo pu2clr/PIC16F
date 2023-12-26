@@ -8,13 +8,20 @@ A minimalist project to blink an LED using the PIC16F628A.
 ![Schematic PIC16F286A blink](./schematic_blink_pic16f28a.jpg)
 
 
+## Prototype
+
+
+![Prototype PIC16F286A blink](./pic16f628a_blink.jpg)
+
+
+
 ## Example
 
 
 ```cpp
 #include <xc.h>
 
-// Configuração do microcontrolador
+// 
 #pragma config FOSC = INTOSCIO  // Internal oscillator.
 #pragma config WDTE = OFF       // Watchdog Timer disabled 
 #pragma config PWRTE = OFF      // Power-up Timer disable
