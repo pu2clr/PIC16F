@@ -1,6 +1,9 @@
-# Microcontrollers PIC16F family  - Getting Started
+# PIC Journey: Navigating the World of Microchip's Microcontrollers
 
-This repository provides information on some microcontrollers from the MicroChip PIC16F series that can help people who are starting in this technology.
+Welcome to "PIC Journey: Navigating the World of Microchip's Microcontrollers".
+
+In this comprehensive learning series, we invite enthusiasts, students, and professionals alike to embark on an exciting voyage into the intricate world of PIC microcontrollers by Microchip Technology. Whether you're a beginner curious about the fundamentals or a seasoned tinkerer looking to expand your skillset, this journey is tailored for you.
+
 
 The __projects__ folder contains several projects involving circuits with the PIC16F628A and LEDs that may help beginners.
 
@@ -8,9 +11,35 @@ The __projects__ folder contains several projects involving circuits with the PI
 Autor: Ricardo Lima Caratti
 
 
+## Tools to program the PIC16FXXX 
 
-## Tools to program the PIC16FXXX
 
+### MPLAB X
+
+MPLAB X is an integrated development environment (IDE) produced by Microchip Technology for the development of embedded applications on PIC microcontrollers. MPLAB X is based on the open-source NetBeans platform and runs on Windows, macOS, and Linux operating systems, offering a versatile and user-friendly interface for developers.
+
+Key features of MPLAB X include:
+
+1. **Cross-Platform Support**: Compatible with multiple operating systems, allowing for a flexible development environment.
+
+2. **Advanced Editor**: Features like code completion, syntax highlighting, and a range of debugging tools aid in efficient code development.
+
+3. **Debugger Integration**: Supports in-circuit debugging and emulation for Microchip's microcontrollers and digital signal controllers.
+
+4. **Project Management Tools**: Simplifies the process of managing multiple project elements, including source files, libraries, and toolchains.
+
+5. **Compiler Integration**: Compatible with Microchip's MPLAB XC Compilers as well as other third-party compilers.
+
+6. **Version Control Support**: Offers support for popular version control systems for collaborative and organized development.
+
+7. **Extensibility**: Users can add new functionality or support for new devices through plugins.
+
+8. **Simulator**: Includes a simulator for virtual testing of code, which is useful for early stage development and troubleshooting.
+
+MPLAB X is widely used by professionals, hobbyists, and students due to its comprehensive features and the broad range of Microchip devices it supports. It's a crucial tool for anyone working on projects involving Microchip's microcontrollers or digital signal controllers.
+
+
+See [MPLAB® X Integrated Development Environment (IDE)](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide)
 
 
 ### K150
@@ -107,3 +136,8 @@ Source: [Pickit 3 Programmer/Debugger](https://components101.com/misc/pickit3-pr
 
 
 
+### Other Tools
+
+* [C Compiler Solution Suite](https://www.ccsinfo.com/compilers.php)
+* [SourceBoost IDE](http://www.sourceboost.com/CommonDownload.html)
+* [MikroElektronika MikroC](https://www.mikroe.com/mikroc-pic)
