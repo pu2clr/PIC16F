@@ -53,8 +53,34 @@ Once everything is set up, the programming process involves connecting the PIC m
 * [Tutorial](https://youtu.be/CuJEQqz99IQ?si=BY09ux4ct4F9OVSA)
 
 
+## PICKit3 and ICSP
 
 
+The PICkit 3 is a programmer and debugger for Microchip's PIC microcontrollers and dsPIC digital signal controllers. It is part of Microchip's suite of tools for developing and debugging embedded systems applications using their microcontrollers. Here are some key features of the PICkit 3:
+
+1. **Compatibility**: The PICkit 3 is compatible with a wide range of PIC microcontrollers and dsPIC digital signal controllers, making it a versatile tool for a broad array of development projects.
+
+2. **USB Interface**: It connects to a PC via USB, providing an easy and convenient way to program and debug microcontrollers without needing an external power supply.
+
+3. **In-Circuit Debugging**: The tool allows for in-circuit debugging, which means you can program, monitor, and debug your code directly on the target device while it is operating within your system. This feature is crucial for real-time testing and troubleshooting.
+
+4. **MPLAB IDE Integration**: It integrates seamlessly with Microchip's MPLAB Integrated Development Environment (IDE), offering a full range of development tools within a single platform. This integration simplifies the programming and debugging process.
+
+5. **Programming**: The PICkit 3 can be used to program microcontrollers with the user's application code. It supports a variety of programming modes and can program memory, EEPROM, and other components of the microcontroller.
+
+6. **Portability**: Its compact size makes it portable and convenient for use in various settings, from development labs to educational environments.
+
+7. **Advanced Features**: It supports advanced features like serial wire debugging and can provide power to the target board if needed.
+
+8. **Target Voltage Range**: The PICkit 3 can support a target voltage range of 2.0V to 6.0V.
+
+Overall, the PICkit 3 is a powerful and versatile tool for anyone working with Microchip's range of microcontrollers and digital signal controllers, from hobbyists and students to professional engineers.
+
+
+### The image below shows the PICKit3 and ICSP setup
+
+
+![PICKit3 and ICSP programming](./images/PICKit3_ICSP_01.jpg)
 
 
 
