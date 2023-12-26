@@ -83,6 +83,11 @@ Overall, the PICkit 3 is a powerful and versatile tool for anyone working with M
 ![PICKit3 and ICSP programming](./images/PICKit3_ICSP_01.jpg)
 
 
+### The image below shows the PICKit3 pinout
+
+![PICKit3 pinout](./images/pickit3_icsp_setup.png)
+
+
 
 ### PICKit3 References
 
