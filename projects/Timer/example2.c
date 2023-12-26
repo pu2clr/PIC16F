@@ -1,17 +1,16 @@
 #include <xc.h>
 
-// Configuração do microcontrolador
-#pragma config FOSC = INTOSCIO        // Oscilador interno
-#pragma config WDTE = OFF       // Watchdog Timer desativado
-#pragma config PWRTE = OFF      // Power-up Timer desativado
+#pragma config FOSC = INTOSCIO  // Internal Oscillator
+#pragma config WDTE = OFF       // Watchdog Timer disabled
+#pragma config PWRTE = OFF      // Power-up Timer disabled
 #pragma config MCLRE = ON       // MCLR pin function is digital input
-#pragma config BOREN = OFF       // Brown-out Reset habilitado
-#pragma config LVP = OFF        // Low Voltage Programming desativado
-#pragma config CPD = OFF        // Data EEPROM Memory Code Protection desativado
-// #pragma config WRT = OFF        // Flash Program Memory Write Enable
-#pragma config CP = OFF         // Flash Program Memory Code Protection desativado
+#pragma config BOREN = OFF       // Brown-out Reset enabled
+#pragma config LVP = OFF        // Low Voltage Programming disabled
+#pragma config CPD = OFF        // Data EEPROM Memory Code Protection disabled
+// #pragma config WRT = OFF     // Flash Program Memory Write Enabled
+#pragma config CP = OFF         // Flash Program Memory Code Protection disabled
 
-#define _XTAL_FREQ 4000000      // Frequência do oscilador externo
+#define _XTAL_FREQ 4000000      // Internal Oscillator Frequency
 
 void main() {
     TRISB = 0x00; // Configura PORTB como saída
