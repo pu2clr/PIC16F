@@ -87,6 +87,14 @@ Overall, the PICkit 3 is a powerful and versatile tool for anyone working with M
 
 ![PICKit3 pinout](./images/pickit3_icsp_setup.png)
 
+Source: [PICkit™ 3 Programmer/Debugger User’s Guide](https://ww1.microchip.com/downloads/en/DeviceDoc/51795B.pdf)
+
+
+### Other PICKit3 and PIC ICSP setup 
+
+![Pickit 3 Programmer/Debugger](./images/pickit3-microcontroller-connections.png)
+
+Source: [Pickit 3 Programmer/Debugger](https://components101.com/misc/pickit3-programmer-debugger-pinout-connections-datasheet)
 
 
 ### PICKit3 References
@@ -94,6 +102,8 @@ Overall, the PICkit 3 is a powerful and versatile tool for anyone working with M
 * [PICkit™ 3 Programmer/Debugger User’s Guide](https://ww1.microchip.com/downloads/en/DeviceDoc/51795B.pdf)
 * [In-Circuit Serial Programming™ (ICSP™) Guide](https://ww1.microchip.com/downloads/en/DeviceDoc/30277d.pdf)
 * [Diagram 01 - ICSP Wiring (PIC Series)](https://www.piccircuit.com/shop/pic-code/120-diagram-01-icsp-wiring-pic-series.html)
+* [Pickit 3 Programmer/Debugger](https://components101.com/misc/pickit3-programmer-debugger-pinout-connections-datasheet)
+
 
 
 
