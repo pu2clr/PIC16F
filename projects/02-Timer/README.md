@@ -9,6 +9,9 @@ This project presents the circuit that uses the PIC16F628A with LEDs that can be
 
 ![Schematic PIC16F286A controlling 8 LEDs](./schematic_PIC16F628A_8_Leds.jpg)
 
+<BR>
+
+![Basic Servo and PIC16F628A schematic](../../images/PIC16F628A_PINOUT.png)
 
 
 ## Prototype

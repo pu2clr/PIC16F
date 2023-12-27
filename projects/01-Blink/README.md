@@ -8,6 +8,11 @@ A minimalist project to blink an LED using the PIC16F628A.
 ![Schematic PIC16F286A blink](./schematic_blink_pic16f28a.jpg)
 
 
+<BR>
+
+![Basic Servo and PIC16F628A schematic](../../images/PIC16F628A_PINOUT.png)
+
+
 ## Prototype
 
 
