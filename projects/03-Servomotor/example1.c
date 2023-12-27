@@ -8,7 +8,6 @@
 #pragma config BOREN = ON       // Brown-out Reset enabled
 #pragma config LVP = OFF        // Low Voltage Programming disabled
 #pragma config CPD = OFF        // Data EE Memory code protection off
-#pragma config WRT = OFF        // Flash Program Memory write protection off
 #pragma config CP = OFF         // Flash Program Memory code protection off
 
 #define _XTAL_FREQ 4000000  // Internal Oscillator Frequency set to 4MHz

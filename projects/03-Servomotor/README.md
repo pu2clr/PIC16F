@@ -6,7 +6,7 @@
 
 ### Description of how to connect a servomotor to the PIC16F628A microcontroller
 
-1. **Signal Connection (PWM):** Connect the signal wire of the servo (usually the colored wire, not black or red) to the CCP1 pin of the PIC16F628A. This is pin 17, labeled as RB3/CCP1.
+1. **Signal Connection (PWM):** Connect the signal wire of the servo (usually the colored wire, not black or red) to the CCP1 pin of the PIC16F628A. This is pin 9, labeled as RB3/CCP1.
 
 2. **Power Supply (5V) and Ground (GND):** Connect the power wire of the servo (usually red) to a 5V power source. Connect the ground wire of the servo (usually black or brown) to the ground (GND). Ensure that the PIC16F628A is also properly connected to a 5V power source and ground.
 
@@ -22,6 +22,11 @@
 
 
 ![Basic Servo and PIC16F628A schematic](./schematic_servo_pic16f628a_01.jpg)
+
+<BR>
+
+![Basic Servo and PIC16F628A schematic](../../images/PIC16F628A_PINOUT.png)
+
 
 
 
