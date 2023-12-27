@@ -16,9 +16,7 @@ void main() {
     TRISB = 0;              // Set PORTB as output
     CCP1CON = 0b00001100;   // Configure PWM mode
     T2CON = 0b00000101;     // Enable Timer2 with prescaler of 4
-
     PR2 = 255;              // PWM Period
-
     while (1) {
         CCPR1L = 31;        // PWM value for servo position (adjust as needed)
         __delay_ms(1000);   // Wait for 1 second
