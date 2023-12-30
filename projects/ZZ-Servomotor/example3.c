@@ -16,19 +16,27 @@
 #define _XTAL_FREQ 4000000  // Define a frequência do oscilador interno como 4MHz
 
 void main() {
-    OSCCON = 0x60;  // Configura o oscilador interno para 4MHz
 
-    TRISC = 0;      // Configura PORTC como saída
+    unsigned char i;
+
+    OSCCON = 0x60; // Configura o oscilador interno para 4MHz
+
+    TRISC = 0; // Configura PORTC como saída
     CCP1CON = 0x0C; // Modo PWM
-    T2CON = 0x07;   // Timer2 ON, prescaler de 16
-    PR2 = 255;      // Periodo do PWM
+    T2CON = 0x07; // Timer2 ON, prescaler de 16
+    PR2 = 255; // Periodo do PWM
 
     while (1) {
-        // Ciclo de trabalho para a posição do servo
-        CCPR1L = 31;  // Ajuste conforme necessário para seu servo
-        __delay_ms(1000);
 
-        CCPR1L = 125; // Ajuste conforme necessário para seu servo
-        __delay_ms(1000);
+        for (i = 40; i < 120; i += 20) {
+            CCPR1L = i;
+            __delay_ms(1000);
+        }
+        __delay_ms(5000);
+        for (i = 40; i < 100; i += 5) {
+            CCPR1L = i;
+            __delay_ms(500);
+        }
+        __delay_ms(5000);
     }
 }
