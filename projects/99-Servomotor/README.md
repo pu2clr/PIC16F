@@ -40,6 +40,13 @@
 
 
 
+![Prototype PIC16F628A 1](./pic16F887_01.jpg)
+
+
+![Prototype PIC16F628A 2](./pic16F887_02.jpg)
+
+
+
 ### About the Servo
 
 
