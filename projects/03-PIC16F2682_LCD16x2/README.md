@@ -22,6 +22,8 @@
 
 ## References
 
+* [PIC - 16F628A - LCD16x2/20x4 (HD44780) Caractere Personalizado - MPLAB - XC8](https://www.youtube.com/watch?v=cSilHqW9k3U)
+* [Interfacing an LCD Display | MPLAB XC8 for Beginners Tutorial](https://youtu.be/u2VPLtELzZ4?si=RauXd0Ug4RccfLn9)
 * [Interfacing I2C LCD 16×2 Tutorial With PIC Microcontrollers | MPLAB XC8](https://deepbluembedded.com/interfacing-i2c-lcd-16x2-tutorial-with-pic-microcontrollers-mplab-xc8/)
 [16×2 LCD Interfacing with PIC Microcontroller – Examples](https://microcontrollerslab.com/lcd-interfacing-pic16f877a-microcontroller/)
 * [16*2 LCD Interfacing with PIC Microcontroller in 8-bit Mode](https://aticleworld.com/162-lcd-interfacing-with-pic-microcontroller-in-8-bit-mode/)
