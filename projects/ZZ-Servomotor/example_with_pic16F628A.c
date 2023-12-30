@@ -1,17 +1,16 @@
 #include <xc.h>
 
 // Configurações do chip
-#pragma config FOSC = INTOSCCLK  // Oscilador interno, CLKOUT no RA6
-// #pragma config FOSC = INTOSCIO // Oscilador interno, função de porta em RA6 e RA7
-#pragma config WDTE = OFF      // Desativa o Watchdog Timer
-#pragma config PWRTE = OFF     // Desativa o Timer de Power-up
-#pragma config MCLRE = ON      // Função do pino MCLR é entrada digital
-#pragma config BOREN = ON      // Ativa o Brown-out Reset
-#pragma config LVP = OFF       // Programação de baixa tensão desativada
-#pragma config CPD = OFF       // Proteção de código na memória de dados EE desativada
-#pragma config CP = OFF        // Proteção de código na memória de programa Flash desativada
+#pragma config FOSC = INTOSCCLK // Oscilador interno, CLKOUT no RA6
+#pragma config WDTE = OFF       // Desativa o Watchdog Timer
+#pragma config PWRTE = OFF      // Desativa o Timer de Power-up
+#pragma config MCLRE = ON       // Função do pino MCLR é entrada digital
+#pragma config BOREN = ON       // Ativa o Brown-out Reset
+#pragma config LVP = OFF        // Programação de baixa tensão desativada
+#pragma config CPD = OFF        // Proteção de código na memória de dados EE desativada
+#pragma config CP = OFF         // Proteção de código na memória de programa Flash desativada
 
-// #define _XTAL_FREQ 4000000 // Frequência do oscilador interno definida para 4MHz
+#define _XTAL_FREQ 4000000 // Frequência do oscilador interno definida para 4MHz
 
 void main()
 {
