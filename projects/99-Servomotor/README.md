@@ -1,5 +1,7 @@
 # Exanples with Servomotor
 
+**This example with Servo and PWM is still not complete. The experiments worked partially due to the lower frequency that I managed to achieve in the PIC16F628A and PIC16F887 to operate the servos, which was 243 Hz (some Servos did not respond well to this operating frequency); The same experiment performed on the ATMEGA328, for example, worked better. In this microcontroller, the operating frequency is around 50 Hz. I intend to return to this experiment to correct this.**
+
 
 ## Example 1 - Basic Servomotor controll 
  
