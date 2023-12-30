@@ -18,14 +18,25 @@
 
 
 
-### Schematic
+### Schematic PIC16F628A
 
 
-![Basic Servo and PIC16F628A schematic](./schematic_servo_pic16f628a_01.jpg)
+![Basic Servo and PIC16F628A schematic](./schematic_servo_pic16F628A.jpg)
 
 <BR>
 
 ![Basic Servo and PIC16F628A schematic](../../images/PIC16F628A_PINOUT.png)
+
+
+
+### Schematic PIC16F887
+
+
+![Basic Servo and PIC1887 schematic](./schematic_servo_pic16F887.jpg)
+
+<BR>
+
+![Basic Servo and PIC16F628A schematic](../../images/PIC16F887_PINOUT.png)
 
 
 
