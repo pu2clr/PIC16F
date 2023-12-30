@@ -41,6 +41,9 @@
 ![Basic Servo and PIC16F628A schematic](../../images/PIC16F887_PINOUT.png)
 
 
+![Prototype PIC16F628A](./pic16F887_00.jpg)
+
+
 
 ![Prototype PIC16F628A 1](./pic16F887_01.jpg)
 
