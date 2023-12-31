@@ -17,23 +17,15 @@
 | 16      | K    | Cathode for backlight LED (if present)              |
 
 
+## LCD 16x02 library for PIC16F family
 
+This folder contains an implementation of a C library for controlling the 16x2 LCD. See the [lcd_library](./lcd_library) folder .
 
 
 ## LCD 16x2 and PIC16F628A Interface 
 
 
-
-
-
-## I2C LCD 16x2 and PIC16F628A interface
-
-
-
-
-
-
-
+![LCD 16x2 and ## LCD 16x2 and PIC16F628A Interface circuit](./schematic_pic16f628a_lcd_16_2.jpg)
 
 
 
