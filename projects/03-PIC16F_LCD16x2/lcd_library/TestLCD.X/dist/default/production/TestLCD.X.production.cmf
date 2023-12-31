@@ -11,25 +11,25 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$dist/default/production/TestLCD.X.production.o
+$C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_12.o
+end_init CODE 0 0 0 1 2 1
+config CONFIG 4 2007 2007 1 2 1
+$dist/default/production\TestLCD.X.production.o
 cinit CODE 0 7EE 7EE 12 2 1
-text1 CODE 0 4E4 4E4 19 2 1
+text1 CODE 0 4EA 4EA 15 2 1
 text2 CODE 0 6EF 6EF FF 2 1
-text3 CODE 0 4FD 4FD 24 2 1
+text3 CODE 0 4FF 4FF 24 2 1
 text4 CODE 0 5A2 5A2 4F 2 1
-text5 CODE 0 4D3 4D3 11 2 1
+text5 CODE 0 4D9 4D9 11 2 1
 text6 CODE 0 5F1 5F1 FE 2 1
 text7 CODE 0 576 576 2C 2 1
 text8 CODE 0 54A 54A 2C 2 1
-maintext CODE 0 521 521 29 2 1
+maintext CODE 0 523 523 27 2 1
 cstackCOMMON COMMON 1 70 70 E 1 1
-cstackBANK0 BANK0 1 20 20 12 1 1
-idataBANK0 CODE 0 4CB 4CB 8 2 1
+cstackBANK0 BANK0 1 20 20 10 1 1
+idataBANK0 CODE 0 4D1 4D1 8 2 1
 strings STRING 0 1 1 C 2 1
-dataBANK0 BANK0 1 32 32 8 1 1
-config CONFIG 4 2007 2007 1 2 1
-$/tmp/xcaNzdLuk/driver_tmp_12.o
-end_init CODE 0 0 0 1 2 1
+dataBANK0 BANK0 1 30 30 8 1 1
 config CONFIG 4 2007 2007 1 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -37,23 +37,23 @@ config CONFIG 4 2007 2007 1 2 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 3A-6F 1
+RAM 38-6F 1
 RAM A0-EF 1
 RAM 120-14F 1
-BANK0 3A-6F 1
+BANK0 38-6F 1
 BANK1 A0-EF 1
 BANK2 120-14F 1
-CONST D-4CA 2
-ENTRY D-4CA 2
+CONST D-4D0 2
+ENTRY D-4D0 2
 IDLOC 2000-2003 2
-CODE D-4CA 2
+CODE D-4D0 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
 SFR3 180-1EF 1
 EEDATA 2100-217F 2
-STRCODE D-4CA 2
-STRING D-4CA 2
+STRCODE D-4D0 2
+STRING D-4D0 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -67,141 +67,141 @@ STRING D-4CA 2
 # are in ascending order of addresses.
 # All other numeric values are in decimal.
 %LINETAB
-$dist/default/production/TestLCD.X.production.o
-7EE cinit CODE >391:/tmp/xcaNzdLuk/driver_tmp_1.s
-7EE cinit CODE >394:/tmp/xcaNzdLuk/driver_tmp_1.s
-7EE cinit CODE >408:/tmp/xcaNzdLuk/driver_tmp_1.s
-7EF cinit CODE >409:/tmp/xcaNzdLuk/driver_tmp_1.s
-7F0 cinit CODE >410:/tmp/xcaNzdLuk/driver_tmp_1.s
-7F1 cinit CODE >411:/tmp/xcaNzdLuk/driver_tmp_1.s
-7F2 cinit CODE >412:/tmp/xcaNzdLuk/driver_tmp_1.s
-7F3 cinit CODE >413:/tmp/xcaNzdLuk/driver_tmp_1.s
-7F4 cinit CODE >414:/tmp/xcaNzdLuk/driver_tmp_1.s
-7F5 cinit CODE >415:/tmp/xcaNzdLuk/driver_tmp_1.s
-7F6 cinit CODE >416:/tmp/xcaNzdLuk/driver_tmp_1.s
-7F7 cinit CODE >417:/tmp/xcaNzdLuk/driver_tmp_1.s
-7F8 cinit CODE >418:/tmp/xcaNzdLuk/driver_tmp_1.s
-7F9 cinit CODE >419:/tmp/xcaNzdLuk/driver_tmp_1.s
-7FA cinit CODE >420:/tmp/xcaNzdLuk/driver_tmp_1.s
-7FB cinit CODE >421:/tmp/xcaNzdLuk/driver_tmp_1.s
-7FC cinit CODE >422:/tmp/xcaNzdLuk/driver_tmp_1.s
-7FD cinit CODE >423:/tmp/xcaNzdLuk/driver_tmp_1.s
-7FE cinit CODE >429:/tmp/xcaNzdLuk/driver_tmp_1.s
-7FE cinit CODE >431:/tmp/xcaNzdLuk/driver_tmp_1.s
-7FF cinit CODE >432:/tmp/xcaNzdLuk/driver_tmp_1.s
-54A text8 CODE >33:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-54A text8 CODE >34:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-54F text8 CODE >35:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-553 text8 CODE >35:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-556 text8 CODE >35:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-561 text8 CODE >36:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-562 text8 CODE >37:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-566 text8 CODE >37:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-569 text8 CODE >37:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-575 text8 CODE >39:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-576 text7 CODE >47:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-577 text7 CODE >48:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-588 text7 CODE >49:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-591 text7 CODE >50:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5A1 text7 CODE >51:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5F1 text6 CODE >61:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5F2 text6 CODE >63:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-603 text6 CODE >63:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-606 text6 CODE >63:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-610 text6 CODE >64:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-621 text6 CODE >64:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-624 text6 CODE >64:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-62E text6 CODE >65:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-63F text6 CODE >65:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-642 text6 CODE >65:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-64C text6 CODE >66:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-65D text6 CODE >66:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-660 text6 CODE >66:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-66A text6 CODE >68:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-67A text6 CODE >69:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-67C text6 CODE >72:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-692 text6 CODE >73:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-6A3 text6 CODE >73:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-6A6 text6 CODE >73:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-6B0 text6 CODE >74:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-6C1 text6 CODE >74:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-6C4 text6 CODE >74:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-6CE text6 CODE >75:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-6DF text6 CODE >75:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-6E2 text6 CODE >75:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-6EC text6 CODE >77:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-6EE text6 CODE >78:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-4D3 text5 CODE >147:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-4D4 text5 CODE >148:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-4D8 text5 CODE >149:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-4E3 text5 CODE >150:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5A2 text4 CODE >123:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5A5 text4 CODE >128:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5B0 text4 CODE >129:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5B6 text4 CODE >130:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5C1 text4 CODE >131:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5C7 text4 CODE >132:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5CE text4 CODE >133:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5D4 text4 CODE >134:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5DA text4 CODE >136:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5E0 text4 CODE >137:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5E6 text4 CODE >138:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5EC text4 CODE >139:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5F0 text4 CODE >140:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-4FD text3 CODE >160:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-500 text3 CODE >164:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-501 text3 CODE >166:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-503 text3 CODE >167:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-504 text3 CODE >169:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-506 text3 CODE >170:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-507 text3 CODE >173:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-50C text3 CODE >173:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-511 text3 CODE >173:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-514 text3 CODE >173:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-517 text3 CODE >176:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-51C text3 CODE >179:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-520 text3 CODE >180:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-6EF text2 CODE >87:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-6F0 text2 CODE >89:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-701 text2 CODE >89:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-704 text2 CODE >89:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-70E text2 CODE >90:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-71F text2 CODE >90:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-722 text2 CODE >90:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-72C text2 CODE >91:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-73D text2 CODE >91:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-740 text2 CODE >91:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-74A text2 CODE >92:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-75B text2 CODE >92:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-75E text2 CODE >92:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-768 text2 CODE >94:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-779 text2 CODE >95:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-77B text2 CODE >98:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-791 text2 CODE >99:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-7A2 text2 CODE >99:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-7A5 text2 CODE >99:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-7AF text2 CODE >100:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-7C0 text2 CODE >100:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-7C3 text2 CODE >100:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-7CD text2 CODE >101:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-7DE text2 CODE >101:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-7E1 text2 CODE >101:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-7EB text2 CODE >103:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-7ED text2 CODE >104:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-4E4 text1 CODE >112:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-4E7 text1 CODE >113:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-4E8 text1 CODE >114:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-4EE text1 CODE >115:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-4F4 text1 CODE >113:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-4F8 text1 CODE >113:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-4FC text1 CODE >117:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-521 maintext CODE >14:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/TestLCD.X/LCDTST.c
-521 maintext CODE >16:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/TestLCD.X/LCDTST.c
-538 maintext CODE >25:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/TestLCD.X/LCDTST.c
-53A maintext CODE >26:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/TestLCD.X/LCDTST.c
-53C maintext CODE >27:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/TestLCD.X/LCDTST.c
-544 maintext CODE >28:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/TestLCD.X/LCDTST.c
-548 maintext CODE >29:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/TestLCD.X/LCDTST.c
+$dist/default/production\TestLCD.X.production.o
+7EE cinit CODE >391:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7EE cinit CODE >394:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7EE cinit CODE >408:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7EF cinit CODE >409:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7F0 cinit CODE >410:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7F1 cinit CODE >411:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7F2 cinit CODE >412:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7F3 cinit CODE >413:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7F4 cinit CODE >414:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7F5 cinit CODE >415:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7F6 cinit CODE >416:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7F7 cinit CODE >417:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7F8 cinit CODE >418:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7F9 cinit CODE >419:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7FA cinit CODE >420:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7FB cinit CODE >421:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7FC cinit CODE >422:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7FD cinit CODE >423:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7FE cinit CODE >429:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7FE cinit CODE >431:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+7FF cinit CODE >432:C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_1.s
+54A text8 CODE >24:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+54A text8 CODE >25:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+54F text8 CODE >26:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+553 text8 CODE >26:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+556 text8 CODE >26:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+561 text8 CODE >27:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+562 text8 CODE >28:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+566 text8 CODE >28:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+569 text8 CODE >28:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+575 text8 CODE >30:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+576 text7 CODE >38:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+577 text7 CODE >39:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+588 text7 CODE >40:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+591 text7 CODE >41:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+5A1 text7 CODE >42:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+5F1 text6 CODE >52:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+5F2 text6 CODE >54:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+603 text6 CODE >54:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+606 text6 CODE >54:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+610 text6 CODE >55:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+621 text6 CODE >55:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+624 text6 CODE >55:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+62E text6 CODE >56:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+63F text6 CODE >56:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+642 text6 CODE >56:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+64C text6 CODE >57:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+65D text6 CODE >57:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+660 text6 CODE >57:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+66A text6 CODE >59:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+67A text6 CODE >60:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+67C text6 CODE >63:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+692 text6 CODE >64:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+6A3 text6 CODE >64:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+6A6 text6 CODE >64:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+6B0 text6 CODE >65:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+6C1 text6 CODE >65:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+6C4 text6 CODE >65:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+6CE text6 CODE >66:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+6DF text6 CODE >66:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+6E2 text6 CODE >66:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+6EC text6 CODE >68:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+6EE text6 CODE >69:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+4D9 text5 CODE >135:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+4DC text5 CODE >136:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+4E0 text5 CODE >137:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+4E9 text5 CODE >138:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+5A2 text4 CODE >111:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+5A5 text4 CODE >116:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+5B0 text4 CODE >117:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+5B6 text4 CODE >118:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+5C1 text4 CODE >119:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+5C7 text4 CODE >120:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+5CE text4 CODE >121:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+5D4 text4 CODE >122:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+5DA text4 CODE >124:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+5E0 text4 CODE >125:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+5E6 text4 CODE >126:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+5EC text4 CODE >127:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+5F0 text4 CODE >128:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+4FF text3 CODE >148:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+502 text3 CODE >152:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+503 text3 CODE >154:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+505 text3 CODE >155:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+506 text3 CODE >157:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+508 text3 CODE >158:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+509 text3 CODE >161:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+50E text3 CODE >161:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+513 text3 CODE >161:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+516 text3 CODE >161:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+519 text3 CODE >164:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+51E text3 CODE >167:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+522 text3 CODE >168:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+6EF text2 CODE >78:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+6F0 text2 CODE >80:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+701 text2 CODE >80:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+704 text2 CODE >80:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+70E text2 CODE >81:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+71F text2 CODE >81:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+722 text2 CODE >81:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+72C text2 CODE >82:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+73D text2 CODE >82:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+740 text2 CODE >82:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+74A text2 CODE >83:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+75B text2 CODE >83:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+75E text2 CODE >83:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+768 text2 CODE >85:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+779 text2 CODE >86:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+77B text2 CODE >89:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+791 text2 CODE >90:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+7A2 text2 CODE >90:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+7A5 text2 CODE >90:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+7AF text2 CODE >91:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+7C0 text2 CODE >91:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+7C3 text2 CODE >91:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+7CD text2 CODE >92:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+7DE text2 CODE >92:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+7E1 text2 CODE >92:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+7EB text2 CODE >94:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+7ED text2 CODE >95:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+4EA text1 CODE >103:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+4EB text1 CODE >104:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+4EC text1 CODE >105:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+4F2 text1 CODE >106:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+4F6 text1 CODE >104:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+4FA text1 CODE >104:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+4FE text1 CODE >108:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\pic16flcd.c
+523 maintext CODE >14:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\LCDTST.c
+523 maintext CODE >16:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\LCDTST.c
+53A maintext CODE >25:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\LCDTST.c
+53C maintext CODE >26:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\LCDTST.c
+53E maintext CODE >27:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\LCDTST.c
+544 maintext CODE >28:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\LCDTST.c
+548 maintext CODE >29:C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\TestLCD.X\LCDTST.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -214,7 +214,7 @@ $dist/default/production/TestLCD.X.production.o
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-___latbits 0 0 ABS 0 - dist/default/production/TestLCD.X.production.o
+___latbits 0 0 ABS 0 - dist/default/production\TestLCD.X.production.o
 __LdataBANK0 0 0 ABS 0 dataBANK0 -
 __Hspace_0 800 0 ABS 0 - -
 __Hspace_1 7E 0 ABS 0 - -
@@ -222,54 +222,54 @@ __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 400F 0 ABS 0 - -
 __HidataBANK0 0 0 ABS 0 idataBANK0 -
-_Lcd_Init B44 0 CODE 0 text4 dist/default/production/TestLCD.X.production.o
-_Lcd_Command BE2 0 CODE 0 text6 dist/default/production/TestLCD.X.production.o
+_Lcd_Init B44 0 CODE 0 text4 dist/default/production\TestLCD.X.production.o
+_Lcd_Command BE2 0 CODE 0 text6 dist/default/production\TestLCD.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __L__absolute__ 0 0 ABS 0 __absolute__ -
-__end_of_Lcd_Init BE2 0 CODE 0 text4 dist/default/production/TestLCD.X.production.o
+__end_of_Lcd_Init BE2 0 CODE 0 text4 dist/default/production\TestLCD.X.production.o
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack /tmp/xcaNzdLuk/driver_tmp_12.o
-_main A42 0 CODE 0 maintext dist/default/production/TestLCD.X.production.o
-btemp 7E 0 ABS 0 - dist/default/production/TestLCD.X.production.o
-___stack_hi 0 0 STACK 2 stack /tmp/xcaNzdLuk/driver_tmp_12.o
-___stack_lo 0 0 STACK 2 stack /tmp/xcaNzdLuk/driver_tmp_12.o
-start 0 0 CODE 0 init /tmp/xcaNzdLuk/driver_tmp_12.o
-main@lcdConfig_16F628A 2A 0 BANK0 1 cstackBANK0 dist/default/production/TestLCD.X.production.o
-SetBit@port 70 0 COMMON 1 cstackCOMMON dist/default/production/TestLCD.X.production.o
-SetBit@value 73 0 COMMON 1 cstackCOMMON dist/default/production/TestLCD.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_12.o
+_main A46 0 CODE 0 maintext dist/default/production\TestLCD.X.production.o
+btemp 7E 0 ABS 0 - dist/default/production\TestLCD.X.production.o
+___stack_hi 0 0 STACK 2 stack C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_12.o
+___stack_lo 0 0 STACK 2 stack C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_12.o
+start 0 0 CODE 0 init C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_12.o
+main@lcdConfig_16F628A 28 0 BANK0 1 cstackBANK0 dist/default/production\TestLCD.X.production.o
+SetBit@port 70 0 COMMON 1 cstackCOMMON dist/default/production\TestLCD.X.production.o
+SetBit@value 73 0 COMMON 1 cstackCOMMON dist/default/production\TestLCD.X.production.o
 __LidataBANK0 0 0 ABS 0 idataBANK0 -
 __Hpowerup 0 0 CODE 0 powerup -
-__end_of_SetBit AEC 0 CODE 0 text8 dist/default/production/TestLCD.X.production.o
-intlevel0 0 0 ENTRY 0 functab /tmp/xcaNzdLuk/driver_tmp_12.o
-intlevel1 0 0 ENTRY 0 functab /tmp/xcaNzdLuk/driver_tmp_12.o
-intlevel2 0 0 ENTRY 0 functab /tmp/xcaNzdLuk/driver_tmp_12.o
-intlevel3 0 0 ENTRY 0 functab /tmp/xcaNzdLuk/driver_tmp_12.o
-intlevel4 0 0 ENTRY 0 functab /tmp/xcaNzdLuk/driver_tmp_12.o
-intlevel5 0 0 ENTRY 0 functab /tmp/xcaNzdLuk/driver_tmp_12.o
-wtemp0 7E 0 ABS 0 - dist/default/production/TestLCD.X.production.o
+__end_of_SetBit AEC 0 CODE 0 text8 dist/default/production\TestLCD.X.production.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_12.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_12.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_12.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_12.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_12.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_12.o
+wtemp0 7E 0 ABS 0 - dist/default/production\TestLCD.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
-Lcd_SetCursor@row 20 0 BANK0 1 cstackBANK0 dist/default/production/TestLCD.X.production.o
+Lcd_SetCursor@row 7C 0 COMMON 1 cstackCOMMON dist/default/production\TestLCD.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
-Lcd_Command@cmd 79 0 COMMON 1 cstackCOMMON dist/default/production/TestLCD.X.production.o
+Lcd_Command@cmd 78 0 COMMON 1 cstackCOMMON dist/default/production\TestLCD.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - /tmp/xcaNzdLuk/driver_tmp_12.o
-___stacklo 0 0 ABS 0 - /tmp/xcaNzdLuk/driver_tmp_12.o
-Lcd_Clear@config 7D 0 COMMON 1 cstackCOMMON dist/default/production/TestLCD.X.production.o
-start_initialization FDC 0 CODE 0 cinit dist/default/production/TestLCD.X.production.o
-_PulseEnable AEC 0 CODE 0 text7 dist/default/production/TestLCD.X.production.o
-__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production/TestLCD.X.production.o
-_SetBit A94 0 CODE 0 text8 dist/default/production/TestLCD.X.production.o
-SetBit@pin 72 0 COMMON 1 cstackCOMMON dist/default/production/TestLCD.X.production.o
-___int_sp 0 0 STACK 2 stack /tmp/xcaNzdLuk/driver_tmp_12.o
+___stackhi 0 0 ABS 0 - C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_12.o
+___stacklo 0 0 ABS 0 - C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_12.o
+Lcd_Clear@config 20 0 BANK0 1 cstackBANK0 dist/default/production\TestLCD.X.production.o
+start_initialization FDC 0 CODE 0 cinit dist/default/production\TestLCD.X.production.o
+_PulseEnable AEC 0 CODE 0 text7 dist/default/production\TestLCD.X.production.o
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\TestLCD.X.production.o
+_SetBit A94 0 CODE 0 text8 dist/default/production\TestLCD.X.production.o
+SetBit@pin 72 0 COMMON 1 cstackCOMMON dist/default/production\TestLCD.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_12.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 BANK3 1 bank3 -
 __Hcinit 1000 0 CODE 0 cinit -
 __Hstack 0 0 STACK 2 stack -
-__stringbase C 0 STRING 0 strings dist/default/production/TestLCD.X.production.o
+__stringbase C 0 STRING 0 strings dist/default/production\TestLCD.X.production.o
 __Hmaintext 0 0 ABS 0 maintext -
-__end_of_Lcd_Command DDE 0 CODE 0 text6 dist/default/production/TestLCD.X.production.o
+__end_of_Lcd_Command DDE 0 CODE 0 text6 dist/default/production\TestLCD.X.production.o
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4010 0 CONFIG 4 config -
 __Lbank0 0 0 ABS 0 bank0 -
@@ -296,29 +296,29 @@ __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
-Lcd_WriteChar@data 79 0 COMMON 1 cstackCOMMON dist/default/production/TestLCD.X.production.o
+Lcd_WriteChar@data 78 0 COMMON 1 cstackCOMMON dist/default/production\TestLCD.X.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __S0 800 0 ABS 0 - -
 __S1 7E 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-Lcd_SetCursor@address 25 0 BANK0 1 cstackBANK0 dist/default/production/TestLCD.X.production.o
-__end_of_Lcd_Clear 9C8 0 CODE 0 text5 dist/default/production/TestLCD.X.production.o
+Lcd_SetCursor@address 23 0 BANK0 1 cstackBANK0 dist/default/production\TestLCD.X.production.o
+__end_of_Lcd_Clear 9D4 0 CODE 0 text5 dist/default/production\TestLCD.X.production.o
 __Lintentry 0 0 CODE 0 intentry -
-__stringtab 2 0 STRING 0 strings dist/default/production/TestLCD.X.production.o
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcaNzdLuk/driver_tmp_12.o
-__pdataBANK0 32 0 BANK0 1 dataBANK0 dist/default/production/TestLCD.X.production.o
-_Lcd_WriteChar DDE 0 CODE 0 text2 dist/default/production/TestLCD.X.production.o
-_Lcd_Clear 9A6 0 CODE 0 text5 dist/default/production/TestLCD.X.production.o
-Lcd_SetCursor@column 21 0 BANK0 1 cstackBANK0 dist/default/production/TestLCD.X.production.o
-Lcd_SetCursor@config 24 0 BANK0 1 cstackBANK0 dist/default/production/TestLCD.X.production.o
-__pmaintext A42 0 CODE 0 maintext dist/default/production/TestLCD.X.production.o
-_Lcd_SetCursor 9FA 0 CODE 0 text3 dist/default/production/TestLCD.X.production.o
+__stringtab 2 0 STRING 0 strings dist/default/production\TestLCD.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_12.o
+__pdataBANK0 30 0 BANK0 1 dataBANK0 dist/default/production\TestLCD.X.production.o
+_Lcd_WriteChar DDE 0 CODE 0 text2 dist/default/production\TestLCD.X.production.o
+_Lcd_Clear 9B2 0 CODE 0 text5 dist/default/production\TestLCD.X.production.o
+Lcd_SetCursor@column 7D 0 COMMON 1 cstackCOMMON dist/default/production\TestLCD.X.production.o
+Lcd_SetCursor@config 22 0 BANK0 1 cstackBANK0 dist/default/production\TestLCD.X.production.o
+__pmaintext A46 0 CODE 0 maintext dist/default/production\TestLCD.X.production.o
+_Lcd_SetCursor 9FE 0 CODE 0 text3 dist/default/production\TestLCD.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-Lcd_WriteChar@config 7C 0 COMMON 1 cstackCOMMON dist/default/production/TestLCD.X.production.o
-main@F652 32 0 BANK0 1 dataBANK0 dist/default/production/TestLCD.X.production.o
-__end_of__stringtab E 0 STRING 0 strings dist/default/production/TestLCD.X.production.o
+Lcd_WriteChar@config 7B 0 COMMON 1 cstackCOMMON dist/default/production\TestLCD.X.production.o
+main@F652 30 0 BANK0 1 dataBANK0 dist/default/production\TestLCD.X.production.o
+__end_of__stringtab E 0 STRING 0 strings dist/default/production\TestLCD.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
@@ -327,49 +327,49 @@ __Lspace_4 0 0 ABS 0 - -
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __Lend_init 0 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-end_of_initialization FFC 0 CODE 0 cinit dist/default/production/TestLCD.X.production.o
+end_of_initialization FFC 0 CODE 0 cinit dist/default/production\TestLCD.X.production.o
 __Hintentry 0 0 CODE 0 intentry -
-__end_of_PulseEnable B44 0 CODE 0 text7 dist/default/production/TestLCD.X.production.o
+__end_of_PulseEnable B44 0 CODE 0 text7 dist/default/production\TestLCD.X.production.o
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 0 0 CODE 0 reset_vec -
-__ptext1 9C8 0 CODE 0 text1 dist/default/production/TestLCD.X.production.o
-__ptext2 DDE 0 CODE 0 text2 dist/default/production/TestLCD.X.production.o
-__ptext3 9FA 0 CODE 0 text3 dist/default/production/TestLCD.X.production.o
-__ptext4 B44 0 CODE 0 text4 dist/default/production/TestLCD.X.production.o
-__ptext5 9A6 0 CODE 0 text5 dist/default/production/TestLCD.X.production.o
-__ptext6 BE2 0 CODE 0 text6 dist/default/production/TestLCD.X.production.o
-__ptext7 AEC 0 CODE 0 text7 dist/default/production/TestLCD.X.production.o
-__ptext8 A94 0 CODE 0 text8 dist/default/production/TestLCD.X.production.o
+__ptext1 9D4 0 CODE 0 text1 dist/default/production\TestLCD.X.production.o
+__ptext2 DDE 0 CODE 0 text2 dist/default/production\TestLCD.X.production.o
+__ptext3 9FE 0 CODE 0 text3 dist/default/production\TestLCD.X.production.o
+__ptext4 B44 0 CODE 0 text4 dist/default/production\TestLCD.X.production.o
+__ptext5 9B2 0 CODE 0 text5 dist/default/production\TestLCD.X.production.o
+__ptext6 BE2 0 CODE 0 text6 dist/default/production\TestLCD.X.production.o
+__ptext7 AEC 0 CODE 0 text7 dist/default/production\TestLCD.X.production.o
+__ptext8 A94 0 CODE 0 text8 dist/default/production\TestLCD.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
-PulseEnable@config 78 0 COMMON 1 cstackCOMMON dist/default/production/TestLCD.X.production.o
-Lcd_Command@config 7C 0 COMMON 1 cstackCOMMON dist/default/production/TestLCD.X.production.o
+PulseEnable@config 77 0 COMMON 1 cstackCOMMON dist/default/production\TestLCD.X.production.o
+Lcd_Command@config 7B 0 COMMON 1 cstackCOMMON dist/default/production\TestLCD.X.production.o
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
-Lcd_WriteString@str 7D 0 COMMON 1 cstackCOMMON dist/default/production/TestLCD.X.production.o
+Lcd_WriteString@str 7C 0 COMMON 1 cstackCOMMON dist/default/production\TestLCD.X.production.o
 __H__absolute__ 0 0 ABS 0 __absolute__ -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-__end_of_Lcd_WriteString 9FA 0 CODE 0 text1 dist/default/production/TestLCD.X.production.o
-___heap_hi 0 0 ABS 0 - /tmp/xcaNzdLuk/driver_tmp_12.o
-___heap_lo 0 0 ABS 0 - /tmp/xcaNzdLuk/driver_tmp_12.o
-__end_of__initialization FFC 0 CODE 0 cinit dist/default/production/TestLCD.X.production.o
+__end_of_Lcd_WriteString 9FE 0 CODE 0 text1 dist/default/production\TestLCD.X.production.o
+___heap_hi 0 0 ABS 0 - C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_12.o
+___heap_lo 0 0 ABS 0 - C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_12.o
+__end_of__initialization FFC 0 CODE 0 cinit dist/default/production\TestLCD.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
-__pidataBANK0 996 0 CODE 0 idataBANK0 dist/default/production/TestLCD.X.production.o
-__end_of_Lcd_WriteChar FDC 0 CODE 0 text2 dist/default/production/TestLCD.X.production.o
+__pidataBANK0 9A2 0 CODE 0 idataBANK0 dist/default/production\TestLCD.X.production.o
+__end_of_Lcd_WriteChar FDC 0 CODE 0 text2 dist/default/production\TestLCD.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
-__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production/TestLCD.X.production.o
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\TestLCD.X.production.o
 __Hend_init 2 0 CODE 0 end_init -
-__end_of_Lcd_SetCursor A42 0 CODE 0 text3 dist/default/production/TestLCD.X.production.o
-__end_of_main A94 0 CODE 0 maintext dist/default/production/TestLCD.X.production.o
-_PORTB 6 0 ABS 0 - dist/default/production/TestLCD.X.production.o
+__end_of_Lcd_SetCursor A46 0 CODE 0 text3 dist/default/production\TestLCD.X.production.o
+__end_of_main A94 0 CODE 0 maintext dist/default/production\TestLCD.X.production.o
+_PORTB 6 0 ABS 0 - dist/default/production\TestLCD.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-Lcd_Init@config 24 0 BANK0 1 cstackBANK0 dist/default/production/TestLCD.X.production.o
-_Lcd_WriteString 9C8 0 CODE 0 text1 dist/default/production/TestLCD.X.production.o
+Lcd_Init@config 23 0 BANK0 1 cstackBANK0 dist/default/production\TestLCD.X.production.o
+_Lcd_WriteString 9D4 0 CODE 0 text1 dist/default/production\TestLCD.X.production.o
 __HdataBANK0 0 0 ABS 0 dataBANK0 -
-__initialization FDC 0 CODE 0 cinit dist/default/production/TestLCD.X.production.o
-__pstrings 2 0 STRING 0 strings dist/default/production/TestLCD.X.production.o
-___int_stack_hi 0 0 STACK 2 stack /tmp/xcaNzdLuk/driver_tmp_12.o
-___int_stack_lo 0 0 STACK 2 stack /tmp/xcaNzdLuk/driver_tmp_12.o
-Lcd_WriteString@config 21 0 BANK0 1 cstackBANK0 dist/default/production/TestLCD.X.production.o
+__initialization FDC 0 CODE 0 cinit dist/default/production\TestLCD.X.production.o
+__pstrings 2 0 STRING 0 strings dist/default/production\TestLCD.X.production.o
+___int_stack_hi 0 0 STACK 2 stack C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_12.o
+___int_stack_lo 0 0 STACK 2 stack C:\Users\ricar\AppData\Local\Temp\xcAsdbk.\driver_tmp_12.o
+Lcd_WriteString@config 7D 0 COMMON 1 cstackCOMMON dist/default/production\TestLCD.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -396,19 +396,19 @@ Lcd_WriteString@config 21 0 BANK0 1 cstackBANK0 dist/default/production/TestLCD.
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 7EE FDC 12 2
-text1 0 4E4 9C8 19 2
+text1 0 4EA 9D4 15 2
 text2 0 6EF DDE FF 2
-text3 0 4FD 9FA 24 2
+text3 0 4FF 9FE 24 2
 text4 0 5A2 B44 4F 2
-text5 0 4D3 9A6 11 2
+text5 0 4D9 9B2 11 2
 text6 0 5F1 BE2 FE 2
 text7 0 576 AEC 2C 2
 text8 0 54A A94 2C 2
-maintext 0 521 A42 29 2
+maintext 0 523 A46 27 2
 cstackCOMMON 1 70 70 E 1
-cstackBANK0 1 20 20 1A 1
+cstackBANK0 1 20 20 18 1
 reset_vec 0 0 0 1 2
-idataBANK0 0 4CB 996 8 2
+idataBANK0 0 4D1 9A2 8 2
 strings 0 1 2 C 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section

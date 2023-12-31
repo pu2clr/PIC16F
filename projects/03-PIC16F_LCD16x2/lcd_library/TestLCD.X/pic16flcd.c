@@ -102,7 +102,7 @@ void Lcd_WriteChar(Lcd_PinConfig *config, unsigned char data) {
  */
 void Lcd_WriteString(Lcd_PinConfig *config, char *str) {
     while(*str != '\0') {  // Loop through the string until the null terminator
-        Lcd_Char(config, (unsigned char)(*str)); // Send each character to the LCD
+        Lcd_WriteChar(config, (unsigned char)(*str)); // Send each character to the LCD
         str++;  // Move to the next character in the string
     }
 }

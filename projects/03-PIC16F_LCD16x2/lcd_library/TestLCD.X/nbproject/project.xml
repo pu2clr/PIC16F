@@ -11,6 +11,7 @@
             <sourceRootList>
                 <sourceRootElem>../../PIC16F/projects/03-PIC16F_LCD16x2/lcd_library</sourceRootElem>
                 <sourceRootElem>/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library</sourceRootElem>
+                <sourceRootElem>.</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
