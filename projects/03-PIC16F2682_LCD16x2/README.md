@@ -1,6 +1,23 @@
 # PIC16F628A and LCD 16 x 2
 
 
+## LCD 16x2
+
+
+| Pin No. | Name | Description                                         |
+|---------|------|-----------------------------------------------------|
+| 1       | VSS  | Ground                                              |
+| 2       | VDD  | Power supply, typically +5V                         |
+| 3       | VE   | Contrast adjustment, often connected to a potentiometer |
+| 4       | RS   | Register Select - low for command, high for data    |
+| 5       | R/W  | Read/Write - low for write, high for read           |
+| 6       | E    | Enable - activates the display at the rising edge   |
+| 7-14    | D0-D7| Data pins - 8-bit mode uses all, 4-bit mode uses D4-D7 |
+| 15      | A    | Anode for backlight LED (if present)                |
+| 16      | K    | Cathode for backlight LED (if present)              |
+
+
+
 
 
 ## LCD 16x2 and PIC16F628A Interface 
