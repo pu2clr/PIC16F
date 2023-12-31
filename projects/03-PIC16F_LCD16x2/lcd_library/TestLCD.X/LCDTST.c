@@ -3,6 +3,7 @@
 
 #define _XTAL_FREQ 4000000 // Adjust this according to your system clock
 
+
 void main() {
     // Define the LCD pin configuration for PIC16F628A
     Lcd_PinConfig lcdConfig_16F628A = {
@@ -27,3 +28,4 @@ void main() {
         // Main loop
     }
 }
+

@@ -19,9 +19,12 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
     <itemPath>LCDTST.c</itemPath>
+    <itemPath>/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c</itemPath>
+    <itemPath>/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>../../PIC16F/projects/03-PIC16F_LCD16x2/lcd_library</Elem>
+    <Elem>/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -34,7 +37,7 @@
         <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.45</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>4</platform>
       </toolsSet>
       <packs>
         <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.4.149"/>

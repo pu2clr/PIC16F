@@ -14,6 +14,12 @@
 
 #include <xc.h>
 
+/**
+ * @brief Defines the datatype bool
+ */
+typedef enum { false, true } bool;
+
+
 // Structure for LCD pin configuration
 typedef struct {
     volatile unsigned char *port;
