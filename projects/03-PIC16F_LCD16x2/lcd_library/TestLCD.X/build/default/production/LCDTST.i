@@ -1193,7 +1193,14 @@ void Lcd_WriteChar(Lcd_PinConfig *config, unsigned char data);
 void Lcd_WriteString(Lcd_PinConfig *config, char *str);
 # 3 "LCDTST.c" 2
 
-
+#pragma config FOSC = INTOSCIO
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = ON
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config CP = OFF
 
 
 void main() {
@@ -1207,16 +1214,9 @@ void main() {
         .d6_pin = 6,
         .d7_pin = 7
     };
-
-
     Lcd_Init(&lcdConfig_16F628A);
     Lcd_Clear(&lcdConfig_16F628A);
-
-
     Lcd_SetCursor(&lcdConfig_16F628A, 1, 1);
-    Lcd_WriteString(&lcdConfig_16F628A, "Oi Mundo");
-
-    while(1) {
-
-    }
+    Lcd_WriteString(&lcdConfig_16F628A, "Hello");
+    while(1) {}
 }

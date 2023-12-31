@@ -1,8 +1,15 @@
 #include <xc.h>
 #include "pic16flcd.h"
 
-#define _XTAL_FREQ 4000000 // Adjust this according to your system clock
-
+#pragma config FOSC = INTOSCIO  // Internal oscillator.
+#pragma config WDTE = OFF       // Watchdog Timer disabled 
+#pragma config PWRTE = OFF      // Power-up Timer disable
+#pragma config MCLRE = ON       // MCLR pin function is digital input
+#pragma config BOREN = OFF      // Brown-out Reset enabled
+#pragma config LVP = OFF        // Low Voltage Programming disabled
+#pragma config CPD = OFF        // Data EEPROM Memory Code Protection disabled
+#pragma config CP = OFF         // Flash Program Memory Code Protection disabled
+#define _XTAL_FREQ 4000000      // internal clock
 
 void main() {
     // Define the LCD pin configuration for PIC16F628A
@@ -15,17 +22,10 @@ void main() {
         .d6_pin = 6, // RB6 for D6
         .d7_pin = 7  // RB7 for D7
     };
-
-    // Initialize the LCD
-    Lcd_Init(&lcdConfig_16F628A);
-    Lcd_Clear(&lcdConfig_16F628A);
-
-    // Display message
-    Lcd_SetCursor(&lcdConfig_16F628A, 1, 1);
-    Lcd_WriteString(&lcdConfig_16F628A, "Oi Mundo");
-
-    while(1) {
-        // Main loop
-    }
+    Lcd_Init(&lcdConfig_16F628A);  // Initialize the LCD
+    Lcd_Clear(&lcdConfig_16F628A); 
+    Lcd_SetCursor(&lcdConfig_16F628A, 1, 1); // Display message
+    Lcd_WriteString(&lcdConfig_16F628A, "Hello");
+    while(1) {}
 }
 

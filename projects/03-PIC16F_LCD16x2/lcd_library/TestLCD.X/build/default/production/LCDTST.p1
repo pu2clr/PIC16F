@@ -130,9 +130,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1269
 [; ;/Applications/microchip/mplabx/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8/pic/include/proc/pic16f628a.h: 1269: __asm("VRCON equ 09Fh");
 [; <" VRCON equ 09Fh ;# ">
+"4 LCDTST.c
+[; ;LCDTST.c: 4:         .port = &PORTB,
+[p x FOSC  =  INTOSCIO   ]
+"5
+[; ;LCDTST.c: 5:         .rs_pin = 0,
+[p x WDTE  =  OFF        ]
+"6
+[; ;LCDTST.c: 6:         .en_pin = 1,
+[p x PWRTE  =  OFF       ]
+"7
+[; ;LCDTST.c: 7:         .d4_pin = 4,
+[p x MCLRE  =  ON        ]
+"8
+[; ;LCDTST.c: 8:         .d5_pin = 5,
+[p x BOREN  =  OFF       ]
+"9
+[; ;LCDTST.c: 9:         .d6_pin = 6,
+[p x LVP  =  OFF         ]
+"10
+[; ;LCDTST.c: 10:         .d7_pin = 7
+[p x CPD  =  OFF         ]
+"11
+[; ;LCDTST.c: 11:     };
+[p x CP  =  OFF          ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"7 LCDTST.c
-[; ;LCDTST.c: 7: void main() {
+"14
+[; ;LCDTST.c: 14:     Lcd_SetCursor(&lcdConfig_16F628A, 1, 1);
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
@@ -141,8 +165,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i F652
 :U ..
 :U ..
-"9
-[; ;LCDTST.c: 9:     Lcd_PinConfig lcdConfig_16F628A = {
+"16
+[; ;LCDTST.c: 16:     while(1) {}
 &U _PORTB
 -> -> 0 `i `uc
 -> -> 1 `i `uc
@@ -155,30 +179,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 [v _lcdConfig_16F628A `S55 ~T0 @X0 1 a ]
 [e = _lcdConfig_16F628A F652 ]
-"20
-[; ;LCDTST.c: 20:     Lcd_Init(&lcdConfig_16F628A);
-[e ( _Lcd_Init (1 &U _lcdConfig_16F628A ]
-"21
-[; ;LCDTST.c: 21:     Lcd_Clear(&lcdConfig_16F628A);
-[e ( _Lcd_Clear (1 &U _lcdConfig_16F628A ]
-"24
-[; ;LCDTST.c: 24:     Lcd_SetCursor(&lcdConfig_16F628A, 1, 1);
-[e ( _Lcd_SetCursor (3 , , &U _lcdConfig_16F628A -> -> 1 `i `uc -> -> 1 `i `uc ]
 "25
-[; ;LCDTST.c: 25:     Lcd_WriteString(&lcdConfig_16F628A, "Oi Mundo");
-[e ( _Lcd_WriteString (2 , &U _lcdConfig_16F628A :s 1C ]
+[e ( _Lcd_Init (1 &U _lcdConfig_16F628A ]
+"26
+[e ( _Lcd_Clear (1 &U _lcdConfig_16F628A ]
 "27
-[; ;LCDTST.c: 27:     while(1) {
+[e ( _Lcd_SetCursor (3 , , &U _lcdConfig_16F628A -> -> 1 `i `uc -> -> 1 `i `uc ]
+"28
+[e ( _Lcd_WriteString (2 , &U _lcdConfig_16F628A :s 1C ]
+"29
 [e :U 58 ]
 {
-"29
-[; ;LCDTST.c: 29:     }
 }
 [e :U 57 ]
 [e $U 58  ]
 [e :U 59 ]
 "30
-[; ;LCDTST.c: 30: }
 [e :UE 56 ]
 }
-[a 1C 79 105 32 77 117 110 100 111 0 ]
+[a 1C 72 101 108 108 111 0 ]

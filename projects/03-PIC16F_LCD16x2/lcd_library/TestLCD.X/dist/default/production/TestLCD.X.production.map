@@ -5,9 +5,9 @@ Linker command line:
 -W-3 --edf=/Applications/microchip/xc8/v2.45/pic/dat/20230818022343_en.msgs \
   -cn -h+dist/default/production/TestLCD.X.production.sym \
   --cmf=dist/default/production/TestLCD.X.production.cmf -z -Q16F628A \
-  -o/tmp/xcjfKOWRi/driver_tmp_3.o --defsym=__MPLAB_BUILD=1 \
+  -o/tmp/xcaNzdLuk/driver_tmp_3.o --defsym=__MPLAB_BUILD=1 \
   --fixupoverflow=error -Mdist/default/production/TestLCD.X.production.map \
-  --md=/tmp/xcjfKOWRi/driver_tmp_0.dat -E1 -ver=XC8 Compiler --acfsm=1493 \
+  --md=/tmp/xcaNzdLuk/driver_tmp_0.dat -E1 -ver=XC8 Compiler --acfsm=1493 \
   -ACODE=00h-07FFh -ASTRCODE=00h-07FFh -ASTRING=00h-0FFhx8 \
   -ACONST=00h-0FFhx8 -AENTRY=00h-0FFhx8 -ACOMMON=070h-07Fh \
   -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh -ABANK2=0120h-014Fh \
@@ -17,7 +17,7 @@ Linker command line:
   -AIDLOC=02000h-02003h -DIDLOC=2 -AEEDATA=00h-07Fh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
   -DENTRY=2 -preset_vec=00h,intentry,init,end_init -ppowerup=CODE \
-  -pcinit=CODE -pfunctab=ENTRY -k /tmp/xcjfKOWRi/driver_tmp_12.o \
+  -pcinit=CODE -pfunctab=ENTRY -k /tmp/xcaNzdLuk/driver_tmp_12.o \
   dist/default/production/TestLCD.X.production.o 
 
 Object code version is 3.11
@@ -27,7 +27,7 @@ Machine type is 16F628A
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcjfKOWRi/driver_tmp_12.o
+/tmp/xcaNzdLuk/driver_tmp_12.o
                 end_init                              0        0        1        0       0
                 config                             2007     2007        1        0       4
 dist/default/production/TestLCD.X.production.o
@@ -45,7 +45,7 @@ dist/default/production/TestLCD.X.production.o
                 cstackBANK0                          20       20       12       20       1
                 cstackCOMMON                         70       70        E       70       1
                 dataBANK0                            32       32        8       20       1
-                strings                               1        1        F        2       0
+                strings                               1        1        C        2       0
                 idataBANK0                          4CB      4CB        8      996       0
 
 TOTAL           Name                               Link     Load   Length     Space
@@ -66,7 +66,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   STRCODE        
 
         CLASS   STRING         
-                strings                               1        1        F         0
+                strings                               1        1        C         0
 
         CLASS   CONST          
 
@@ -120,7 +120,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 text1                          0004E4  000019  0004FD       9C8       0  CODE        2
                 text7                          000576  00002C  0005A2       AEC       0  CODE        2
                 text4                          0005A2  00004F  0005F1       B44       0  CODE        2
-                strings                        000001  00000F  000010         2       0  STRING      2
+                strings                        000001  00000C  00000D         2       0  STRING      2
                 idataBANK0                     0004CB  000008  0004D3       996       0  CODE        2
                 text5                          0004D3  000011  0004E4       9A6       0  CODE        2
                 cstackBANK0                    000020  00001A  00003A        20       1  BANK0       1
@@ -136,10 +136,10 @@ UNUSED ADDRESS RANGES
         BANK0            003A-006F             36           1
         BANK1            00A0-00EF             50           1
         BANK2            0120-014F             30           1
-        CODE             0010-04CA            4BB           2
-        CONST            0010-04CA            100           2
+        CODE             000D-04CA            4BE           2
+        CONST            000D-04CA            100           2
         EEDATA           2100-217F             80           2
-        ENTRY            0010-04CA            100           2
+        ENTRY            000D-04CA            100           2
         IDLOC            2000-2003              4           2
         RAM              003A-006F             36           1
                          00A0-00EF             50
@@ -148,8 +148,8 @@ UNUSED ADDRESS RANGES
         SFR1             0080-009F             20           1
         SFR2             0100-011F             20           1
         SFR3             0180-01EF             70           1
-        STRCODE          0010-04CA            4BB           2
-        STRING           0010-04CA            100           2
+        STRCODE          000D-04CA            4BE           2
+        STRING           000D-04CA            100           2
 
                                   Symbol Table
 

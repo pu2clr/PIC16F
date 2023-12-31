@@ -46,3 +46,11 @@ After successful compilation, you can load the program onto your PIC microcontro
 - Ensure all project settings (like the correct microcontroller selection and clock settings) are correct.
 - If you encounter compilation errors, carefully review the error messages to understand what needs to be fixed.
 - If you are using external or custom libraries like the LCD library, make sure dependencies (like header files) are accessible and correctly referenced in your code.
+
+
+#### The image below shows the MPLAB X IDE setup
+
+
+![MPLAB X IDE setup](./MPLABX_IDE_SETUP.png)
+
+
