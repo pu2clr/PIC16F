@@ -30,10 +30,10 @@ void main() {
     Lcd_Clear(&lcd);
 
     // Display message
-    Lcd_SetCursor(&lcdConfig_16F887, 1, 1);
-    Lcd_WriteString(&lcdConfig_16F887, "Hello");
-    Lcd_SetCursor(&lcdConfig_16F887, 2, 1);
-    Lcd_WriteString(&lcdConfig_16F887, "World");
+    Lcd_SetCursor(&lcd, 1, 1);
+    Lcd_WriteString(&lcd, "Hello");
+    Lcd_SetCursor(&lcd, 2, 1);
+    Lcd_WriteString(&lcd, "World");
 
     while(1) {
         // Main loop
