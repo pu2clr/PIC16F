@@ -112,8 +112,8 @@ void main() {
 
 Ensure that all your source (`.c`) and header (`.h`) files are properly organized in your project. This includes:
 
-- Your LCD library files (e.g., `pic16flcd.c` and `pic16flcd.h`).
-- Your main file (e.g., `main.c`) that contains the `main()` function.
+- The LCD library files (e.g., `pic16flcd.c` and `pic16flcd.h`).
+- The main file (e.g., `main.c`) that contains the `main()` function.
 
 #### 2. Include the Header Files
 
