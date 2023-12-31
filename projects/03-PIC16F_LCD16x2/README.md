@@ -1,6 +1,8 @@
 # PIC16F628A and LCD 16 x 2
 
+This project includes, in addition to basic information for controlling the 16x2 LCD, a library that has been specially developed to work with microcontrollers from the PIC16F line. See the [lcd_library](./lcd_library)  folder for more details.
 
+The main goal here is to reduce the developer's effort in searching for or adapting an existing solution.
 
 
 ## LCD 16x2
