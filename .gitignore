@@ -2,3 +2,9 @@
 projects/.DS_Store
 projects/01-Blink/.DS_Store
 projects/02-Timer/.DS_Store
+/projects/03-PIC16F_LCD16x2/lcd_library/LCDPIC16F887.X/build/
+/projects/03-PIC16F_LCD16x2/lcd_library/LCDPIC16F887.X/dist/
+/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PIC16F887_LCD/build/
+/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PIC16F887_LCD/dist/
+/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PIC16F628A_LCD/build/
+/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PIC16F628A_LCD/dist/

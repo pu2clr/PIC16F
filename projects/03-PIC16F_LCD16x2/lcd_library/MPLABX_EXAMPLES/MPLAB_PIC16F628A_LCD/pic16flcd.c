@@ -118,7 +118,7 @@ void Lcd_Init(Lcd_PinConfig *config) {
     Lcd_Command(config, 0x03);
     __delay_ms(5);  // Wait for more than 4.1 ms
     Lcd_Command(config, 0x03);
-    __delay_us(100); // Wait for more than 100 µs
+    __delay_us(100); // Wait for more than 100 �s
     Lcd_Command(config, 0x03); // These commands are for initializing in 8-bit mode
     Lcd_Command(config, 0x02); // Set to 4-bit mode
 
@@ -149,13 +149,13 @@ void Lcd_Clear(Lcd_PinConfig *config) {
 void Lcd_SetCursor(Lcd_PinConfig *config, unsigned char row, unsigned char column) {
     unsigned char address;
     
-    // Calcula o endereÃ§o baseado na linha e coluna
+    // Calcula o endereço baseado na linha e coluna
     switch(row) {
         case 1:
-            address = 0x80; // EndereÃ§o inicial da 1Âª linha
+            address = 0x80; // Endereço inicial da 1ª linha
             break;
         case 2:
-            address = 0xC0; // EndereÃ§o inicial da 2Âª linha
+            address = 0xC0; // Endereço inicial da 2ª linha
             break;
         default:
             address = 0x80; // Default to first row if out of bounds
@@ -164,7 +164,7 @@ void Lcd_SetCursor(Lcd_PinConfig *config, unsigned char row, unsigned char colum
     // Ajusta para a coluna correta
     address += (column - 1);
 
-    // Envia o comando para definir o endereÃ§o do cursor
+    // Envia o comando para definir o endereço do cursor
     Lcd_Command(config, address);
 }
 

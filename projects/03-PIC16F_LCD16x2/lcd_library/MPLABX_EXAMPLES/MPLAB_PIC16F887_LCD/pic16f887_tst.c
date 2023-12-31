@@ -1,5 +1,5 @@
 #include <xc.h>
-#include "pic16flcd.h"
+#include "../pic16flcd.h"
 
 #pragma config FOSC = INTRC_NOCLKOUT
 #pragma config WDTE = OFF       // Watchdog Timer disabled 
@@ -15,7 +15,7 @@
 void main() {
     // Define the LCD pin configuration for PIC16F887
     TRISC = 0; // You need to set this register as output
-    Lcd_PinConfig lcd = {
+    Lcd_PinConfig lcdConfig_16F887 = {
         .port = &PORTC, // Assuming you're using PORTC for LCD on PIC16F887
         .rs_pin = 1, // RD0 for RS
         .en_pin = 2, // RD1 for EN
@@ -26,8 +26,8 @@ void main() {
     };
 
     // Initialize the LCD
-    Lcd_Init(&lcd);
-    Lcd_Clear(&lcd);
+    Lcd_Init(&lcdConfig_16F887);
+    Lcd_Clear(&lcdConfig_16F887);
 
     // Display message
     Lcd_SetCursor(&lcdConfig_16F887, 1, 1);

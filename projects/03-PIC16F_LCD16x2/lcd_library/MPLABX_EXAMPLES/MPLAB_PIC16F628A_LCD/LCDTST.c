@@ -19,7 +19,7 @@ void main() {
     char i;
     TRISB = 0x00; // You need to set this register as output
     // Define the LCD pin configuration for PIC16F628A
-    Lcd_PinConfig lcd = {
+    Lcd_PinConfig lcdConfig_16F628A = {
         .port = &PORTB,  // Port to be used to control the LCD 
         .rs_pin = 2,     // RB2 for RS
         .en_pin = 3,     // RB3 for EN
@@ -28,25 +28,25 @@ void main() {
         .d6_pin = 6,     // RB6 for D6
         .d7_pin = 7      // RB7 for D7
     };
-    Lcd_Init(&lcd);  // Initialize the LCD
-    Lcd_Clear(&lcd); 
-    Lcd_SetCursor(&lcd, 1, 1); // Display message (Line 1 and Column 1)
-    Lcd_WriteString(&lcd, "Hello");
-    Lcd_SetCursor(&lcd, 2, 1); // Display message (Line 2 and Column 2)
-    Lcd_WriteString(&lcd, "World");
+    Lcd_Init(&lcdConfig_16F628A);  // Initialize the LCD
+    Lcd_Clear(&lcdConfig_16F628A); 
+    Lcd_SetCursor(&lcdConfig_16F628A, 1, 1); // Display message (Line 1 and Column 1)
+    Lcd_WriteString(&lcdConfig_16F628A, "Hello");
+    Lcd_SetCursor(&lcdConfig_16F628A, 2, 1); // Display message (Line 2 and Column 2)
+    Lcd_WriteString(&lcdConfig_16F628A, "World");
     __delay_ms(10000); 
     while(1) {
-        Lcd_Clear(&lcd); 
+        Lcd_Clear(&lcdConfig_16F628A); 
         for (i = 1; i <= 16; i++) {
-            Lcd_SetCursor(&lcd, 1, i); 
-            Lcd_WriteChar(&lcd,'A' + (i-1));
+            Lcd_SetCursor(&lcdConfig_16F628A, 1, i); 
+            Lcd_WriteChar(&lcdConfig_16F628A,'A' + (i-1));
             __delay_ms(500);
         }
         __delay_ms(5000); 
 
         for (i = 1; i <= 16; i++) {
-            Lcd_SetCursor(&lcd, 2, i); 
-            Lcd_WriteChar(&lcd,'I' + (i-1));
+            Lcd_SetCursor(&lcdConfig_16F628A, 2, i); 
+            Lcd_WriteChar(&lcdConfig_16F628A,'I' + (i-1));
             __delay_ms(500);
         }  
         __delay_ms(5000);
