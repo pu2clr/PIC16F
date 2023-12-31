@@ -1,5 +1,5 @@
 #include <xc.h>
-#include "lcd.h"
+#include "pic16flcd.h"
 
 #define _XTAL_FREQ 8000000 // Adjust this according to your system clock
 
