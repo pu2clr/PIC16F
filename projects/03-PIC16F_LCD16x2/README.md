@@ -12,17 +12,17 @@ The main goal here is to reduce the developer's effort in searching for or adapt
 
 
 
-| Pin No. | Name | Description                                         |
-|---------|------|-----------------------------------------------------|
-| 1       | VSS  | Ground                                              |
-| 2       | VDD  | Power supply, typically +5V                         |
-| 3       | VE   | Contrast adjustment, often connected to a potentiometer |
-| 4       | RS   | Register Select - low for command, high for data    |
-| 5       | R/W  | Read/Write - low for write, high for read           |
-| 6       | E    | Enable - activates the display at the rising edge   |
-| 7-14    | D0-D7| Data pins - 8-bit mode uses all, 4-bit mode uses D4-D7 |
-| 15      | A    | Anode for backlight LED (if present)    - Connected to VCC      |
-| 16      | K    | Cathode for backlight LED (if present)  - Connected to the GND  |
+| Pin No. | Name   | Description                                         |
+|---------|------  |-----------------------------------------------------|
+| 1       | VSS    | Ground                                              |
+| 2       | VDD    | Power supply, typically +5V                         |
+| 3       | VEE/VO | Contrast adjustment, often connected to a potentiometer |
+| 4       | RS     | Register Select - low for command, high for data    |
+| 5       | R/W    | Read/Write - low for write, high for read  - Conected to the GND  |
+| 6       | E      | Enable - activates the display at the rising edge   |
+| 7-14    | D0-D7  | Data pins - 8-bit mode uses all, 4-bit mode uses D4-D7 |
+| 15      | A      | Anode for backlight LED (if present)    - Connected to VCC      |
+| 16      | K      | Cathode for backlight LED (if present)  - Connected to the GND  |
 
 
 ## LCD 16x02 library for PIC16F family
