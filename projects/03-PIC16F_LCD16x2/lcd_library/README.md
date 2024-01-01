@@ -3,6 +3,57 @@
 This small 16x2 LCD library is intended to support the entire PIC16F line. However, the tests conducted covered only three microcontrollers: PIC16F628A, PIC16F876A, and PIC16F887.
 
 
+## About LCD16x2 Library for PIC Microcontrollers
+
+**1. Compatibility with HD44780 Controller:**
+   - The library is designed to interface with LCDs based on the popular HD44780 controller, which is widely used in 16x2 character displays.
+
+**2. Customizable Pin Configuration:**
+   - Users can define which pins of the PIC microcontroller are connected to the LCD's control and data lines. This flexibility allows the library to be adapted to different hardware setups.
+
+**3. 4-Bit Mode Operation:**
+   - The library operates the LCD in 4-bit mode, reducing the number of I/O pins required from the microcontroller. This mode sends data to the LCD in two halves (nibbles), making efficient use of limited I/O resources.
+
+**4. Basic Text Display Functions:**
+   - Includes functions for essential operations like initializing the display (`Lcd_Init`), clearing the screen (`Lcd_Clear`), and setting the cursor position (`Lcd_SetCursor`).
+
+**5. String Display Capability:**
+   - Users can easily display strings of text on the LCD using the `Lcd_WriteString` function. This function automates the process of displaying each character in a string.
+
+**6. Custom Character Support:**
+   - The library supports the creation and display of custom characters. Users can define up to 8 custom characters (5x8 pixel matrix) and display them on the screen using `Lcd_CreateChar` and `Lcd_Char` functions.
+
+**7. Simple and Modular API:**
+   - The API design of the library is straightforward and modular, making it easy to understand and integrate into various projects.
+
+**8. Developed for PIC Microcontrollers:**
+   - Specifically tailored for use with PIC microcontrollers, making it suitable for a wide range of applications, from hobby projects to more complex embedded systems.
+
+**9. Efficient Use of Resources:**
+   - The library is designed with efficiency in mind, making it suitable for resource-constrained environments typical of microcontroller applications.
+
+**10. Clear and Documented Code:**
+   - The source code is well-documented and easy to read, facilitating modifications, upgrades, or debugging by users.
+
+This LCD library offers a versatile and user-friendly way to incorporate text and custom character display functionalities into projects using 16x2 LCD screens and PIC microcontrollers. Whether for educational purposes, hobbyist projects, or professional applications, this library provides a solid foundation for developing LCD-based interfaces.
+
+
+## Function summary
+
+| Function Name | Description | 
+| ------------- | ------------|
+| void Lcd_Init(Lcd_PinConfig *config) | Initiates the LCD device |
+| void Lcd_Command(Lcd_PinConfig *config, unsigned char cmd) | Sends a command to the HD44780 controller|
+| void Lcd_Clear(Lcd_PinConfig *config) | Clear the Display |
+| void Lcd_SetCursor(Lcd_PinConfig *config, unsigned char row, unsigned char column) | Sets the cursor position |
+| void Lcd_WriteChar(Lcd_PinConfig *config, unsigned char data) | Writes a char |
+| void Lcd_WriteString(Lcd_PinConfig *config, char *str) | Writes a String | 
+| void Lcd_CreateCustomChar(Lcd_PinConfig *config, unsigned char location, unsigned char *charmap) | Defines a custom char |
+| void inline Lcd_WriteCustomChar(Lcd_PinConfig *config, unsigned char location) | Writes a custom char |
+
+**OBS: *config is a point declaration to the PORT that will be used to controll the display**
+
+
 ## PIC16F628A example
 
 ```cpp
@@ -56,6 +107,120 @@ void main() {
         __delay_ms(5000);
     }
 }
+```
+
+
+## PIC16F876A example
+
+```cpp
+#include <xc.h>
+#include "pic16flcd.h"
+
+
+#pragma config FOSC = HS      // 
+#pragma config WDTE = OFF       // Watchdog Timer disabled 
+#pragma config PWRTE = OFF      // Power-up Timer disabled
+#pragma config BOREN = OFF      // Brown-out Reset disabled
+#pragma config LVP = OFF        // Low Voltage Programming disabled
+#pragma config CPD = OFF        // Data EEPROM Memory Code Protection disabled
+#pragma config CP = OFF         // Flash Program Memory Code Protection disabled
+
+
+#define _XTAL_FREQ 8000000      // internal clock
+
+
+/**
+ Custom Char (Smile / happy face)
+ */
+unsigned char smiley[8] = {
+    0b00000,
+    0b01010,
+    0b01010,
+    0b00000,
+    0b10001,
+    0b01110,
+    0b00000,
+    0b00000
+};
+
+/**
+ Custom char (sad face)
+ */
+unsigned char sad[8] = {
+    0b00000,
+    0b01010,
+    0b01010,
+    0b00000,
+    0b00000,
+    0b01110,
+    0b10001,
+    0b00000
+};
+
+void main() {
+    char i;
+
+
+
+    // Define the LCD pin configuration for PIC16F887
+    TRISC = 0; // You need to set this register to output
+    Lcd_PinConfig lcd = {
+        .port = &PORTC, // Assuming you're using PORTC for LCD on PIC16F887
+        .rs_pin = 2, // RD0 for RS
+        .en_pin = 3, // RD1 for EN
+        .d4_pin = 4, // RD4 for D4
+        .d5_pin = 5, // RD5 for D5
+        .d6_pin = 6, // RD6 for D6
+        .d7_pin = 7 // RD7 for D7
+    };
+
+    // Initialize the LCD
+    Lcd_Init(&lcd);
+    Lcd_Clear(&lcd);
+
+    // Display message
+    Lcd_SetCursor(&lcd, 1, 1);
+    Lcd_WriteString(&lcd, "Hello");
+    Lcd_SetCursor(&lcd, 2, 1);
+    Lcd_WriteString(&lcd, "World");
+    __delay_ms(5000);
+
+    Lcd_Clear(&lcd);
+    // Creating the character
+    Lcd_CreateCustomChar(&lcd, 0, smiley);
+    Lcd_CreateCustomChar(&lcd, 1, sad);    
+    // Displaying the character
+    Lcd_SetCursor(&lcd, 1, 1);
+    Lcd_WriteCustomChar(&lcd, 0);
+    __delay_ms(5000);
+
+    while (1) {
+        Lcd_Clear(&lcd);
+        for (i = 1; i <= 16; i++) {
+            Lcd_SetCursor(&lcd, 1, i);
+            Lcd_WriteChar(&lcd, 'A' + (i - 1));
+            __delay_ms(150);
+        }
+        __delay_ms(2000);
+
+        for (i = 1; i <= 16; i++) {
+            Lcd_SetCursor(&lcd, 2, i);
+            Lcd_WriteChar(&lcd, 'Q' + (i - 1));
+            __delay_ms(150);
+        }
+        __delay_ms(2000);
+        for (i = 1; i <= 16; i++) {
+            Lcd_SetCursor(&lcd, 1, i);
+            Lcd_WriteCustomChar(&lcd, 0); // Happy face
+            __delay_ms(150);
+            Lcd_SetCursor(&lcd, 2, i);
+            Lcd_WriteCustomChar(&lcd, 1); // Sad face
+            __delay_ms(200);
+        }
+        __delay_ms(2000);
+    }
+}
+
 ```
 
 

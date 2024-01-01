@@ -15,7 +15,7 @@
 
 
 /**
- Custom Char (Smile)
+ Custom Char (Smile / happy face)
  */
 unsigned char smiley[8] = {
     0b00000,

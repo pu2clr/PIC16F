@@ -191,7 +191,7 @@ void Lcd_CreateCustomChar(Lcd_PinConfig *config, unsigned char location, unsigne
 
 
 /**
- * @brief Displays the custom character 
+ * @brief Displays a custom character 
  * @details You must defines the custom characters before call this function  
  * @param config    a pointer to a structure that holds the configuration of the LCD pins (like RS, EN, D4 to D7).
  * @param location  point /index  to the custom Character (the custom character you want to show)
