@@ -58,6 +58,12 @@ void main() {
 }
 ```
 
+
+#### PIC16F628A and LCD16x2 Prototype
+
+![PIC16F628A and LCD16x2 Prototype](../images/pic16F628A_LCD.jpg)
+
+
 ## PIC16F887 example
 
 ```cpp
@@ -104,6 +110,11 @@ void main() {
 }
 
 ```
+
+#### PIC16F887 and LCD16x2 Prototype
+
+![PIC16F628A and LCD16x2 Prototype](../images/pic16F877_LCD.jpg)
+
 
 
 # Compiling and Linking a Library with the `main` C File in MPLAB X using XC8
@@ -160,5 +171,8 @@ After successful compilation, you can load the program onto your PIC microcontro
 
 
 ![MPLAB X IDE setup](./MPLABX_IDE_SETUP.png)
+
+
+
 
 
