@@ -91,6 +91,18 @@ This folder contains an implementation of a C library for controlling the 16x2 L
 ![PIC16F628 PINOUT](../../images/PIC16F887_PINOUT.png)
 
 
+## LCD 16x2 and PIC16F876A Interface (schematic)
+
+
+![LCD 16x2 and PIC16F876A Interface (schematic)](./schematic_pic16f876A_lcd_16_2.jpg)
+
+
+### PIC16F876A PINOUT
+
+
+![PIC16F628 PINOUT](../../images/PIC16F876A_PINOUT.png)
+
+
 ## References
 
 * [PIC - 16F628A - LCD16x2/20x4 (HD44780) Caractere Personalizado - MPLAB - XC8](https://www.youtube.com/watch?v=cSilHqW9k3U)
