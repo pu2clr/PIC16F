@@ -2,7 +2,7 @@
 #include "../../pic16flcd.h"
 
 
-#pragma config FOSC = 0x68        // High Speed Oscillator
+#pragma config FOSC = HS      // 
 #pragma config WDTE = OFF       // Watchdog Timer disabled 
 #pragma config PWRTE = OFF      // Power-up Timer disabled
 #pragma config BOREN = OFF      // Brown-out Reset disabled
@@ -11,9 +11,10 @@
 #pragma config CP = OFF         // Flash Program Memory Code Protection disabled
 
 
-#define _XTAL_FREQ 4000000      // internal clock
+#define _XTAL_FREQ 8000000      // internal clock
 
 void main() {
+    char i;
     // Define the LCD pin configuration for PIC16F887
     TRISC = 0; // You need to set this register to output
     Lcd_PinConfig lcd = {
@@ -35,8 +36,21 @@ void main() {
     Lcd_WriteString(&lcd, "Hello");
     Lcd_SetCursor(&lcd, 2, 1);
     Lcd_WriteString(&lcd, "World");
-
+    __delay_ms(5000); 
     while(1) {
-        // Main loop
+        Lcd_Clear(&lcd); 
+        for (i = 1; i <= 16; i++) {
+            Lcd_SetCursor(&lcd, 1, i); 
+            Lcd_WriteChar(&lcd,'A' + (i-1));
+            __delay_ms(500);
+        }
+        __delay_ms(5000); 
+
+        for (i = 1; i <= 16; i++) {
+            Lcd_SetCursor(&lcd, 2, i); 
+            Lcd_WriteChar(&lcd,'I' + (i-1));
+            __delay_ms(500);
+        }  
+        __delay_ms(5000);
     }
 }

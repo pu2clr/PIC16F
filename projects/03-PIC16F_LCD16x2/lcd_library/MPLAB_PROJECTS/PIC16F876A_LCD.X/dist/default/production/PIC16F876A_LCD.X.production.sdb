@@ -29,7 +29,7 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "16 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
 [v _main main `(v  1 e 1 0 ]
-"278 /Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h
+"278 /Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
 "1337
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
@@ -37,11 +37,13 @@
 [v _main main `(v  1 e 1 0 ]
 {
 [s S23 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
+"20
+[v main@lcd lcd `S23  1 a 8 11 ]
+"17
+[v main@i i `uc  1 a 1 10 ]
 "19
-[v main@lcd lcd `S23  1 a 8 10 ]
-"18
-[v main@F952 F952 `S23  1 s 8 F952 ]
-"42
+[v main@F953 F953 `S23  1 s 8 F953 ]
+"56
 } 0
 "103 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
 [v _Lcd_WriteString Lcd_WriteString `(v  1 e 1 0 ]
@@ -71,12 +73,12 @@
 [s S23 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
 [v Lcd_SetCursor@config config `*.4S23  1 a 1 wreg ]
 "150
-[v Lcd_SetCursor@address address `uc  1 a 1 5 ]
+[v Lcd_SetCursor@address address `uc  1 a 1 4 ]
 "149
 [v Lcd_SetCursor@config config `*.4S23  1 a 1 wreg ]
 [v Lcd_SetCursor@row row `uc  1 p 1 0 ]
 [v Lcd_SetCursor@column column `uc  1 p 1 1 ]
-[v Lcd_SetCursor@config config `*.4S23  1 a 1 4 ]
+[v Lcd_SetCursor@config config `*.4S23  1 a 1 5 ]
 "169
 } 0
 "111

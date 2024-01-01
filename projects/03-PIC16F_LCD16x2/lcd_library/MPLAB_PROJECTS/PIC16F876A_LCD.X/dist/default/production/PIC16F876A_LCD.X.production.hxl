@@ -1,24 +1,24 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- /tmp/xc6j19dHa/driver_tmp_3.o
+ /tmp/xc8UF5Coa/driver_tmp_3.o
  -Odist/default/production/PIC16F876A_LCD.X.production.hex
  -logfile=dist/default/production/PIC16F876A_LCD.X.production.hxl
  -addressing=2
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 29h		(/tmp/xc6j19dHa/driver_tmp_3.o)
-  7FAh - FFFh		(/tmp/xc6j19dHa/driver_tmp_3.o)
-  400Eh - 400Fh		(/tmp/xc6j19dHa/driver_tmp_3.o)
+  0h - 29h		(/tmp/xc8UF5Coa/driver_tmp_3.o)
+  6EAh - FFFh		(/tmp/xc8UF5Coa/driver_tmp_3.o)
+  400Eh - 400Fh		(/tmp/xc8UF5Coa/driver_tmp_3.o)
  Unused ranges:
-  2Ah - 7F9h
+  2Ah - 6E9h
   1000h - 400Dh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (/tmp/xc6j19dHa/driver_tmp_3.o)
+  H1 = Input file             (/tmp/xc8UF5Coa/driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -26,7 +26,24 @@
 00000010 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000020 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
 ----------------------------------------------------------
-000007F0 | -- -- -- -- -- -- -- -- -- -- H1 H1 H1 H1 H1 H1
+000006E0 | -- -- -- -- -- -- -- -- -- -- H1 H1 H1 H1 H1 H1
+000006F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000700 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000710 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000720 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000730 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000740 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000750 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000760 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000770 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000780 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000790 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000007A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000007B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000007C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000007D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000007E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000007F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000800 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000810 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000820 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

@@ -213,7 +213,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(uint32_t);
 
 
 
-# 1 "/Applications/microchip/xc8/v2.45/pic/include/pic.h" 1 3
+# 1 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/pic.h" 1 3
 
 
 
@@ -224,7 +224,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(uint32_t);
 
 # 1 "/Applications/microchip/xc8/v2.45/pic/include/xc.h" 1 3
 # 5 "/Applications/microchip/xc8/v2.45/pic/include/htc.h" 2 3
-# 6 "/Applications/microchip/xc8/v2.45/pic/include/pic.h" 2 3
+# 6 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/pic.h" 2 3
 
 
 
@@ -232,12 +232,12 @@ extern __attribute__((nonreentrant)) void _delaywdt(uint32_t);
 
 
 
-# 1 "/Applications/microchip/xc8/v2.45/pic/include/pic_chip_select.h" 1 3
-# 2829 "/Applications/microchip/xc8/v2.45/pic/include/pic_chip_select.h" 3
-# 1 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 1 3
-# 44 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 1 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/pic_chip_select.h" 1 3
+# 643 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/pic_chip_select.h" 3
+# 1 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 1 3
+# 44 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 # 1 "/Applications/microchip/xc8/v2.45/pic/include/__at.h" 1 3
-# 45 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 2 3
+# 45 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 2 3
 
 
 
@@ -293,7 +293,7 @@ typedef union {
     };
 } STATUSbits_t;
 extern volatile STATUSbits_t STATUSbits __attribute__((address(0x003)));
-# 159 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 159 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char FSR __attribute__((address(0x004)));
 
 __asm("FSR equ 04h");
@@ -317,7 +317,7 @@ typedef union {
     };
 } PORTAbits_t;
 extern volatile PORTAbits_t PORTAbits __attribute__((address(0x005)));
-# 216 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 216 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char PORTB __attribute__((address(0x006)));
 
 __asm("PORTB equ 06h");
@@ -336,7 +336,7 @@ typedef union {
     };
 } PORTBbits_t;
 extern volatile PORTBbits_t PORTBbits __attribute__((address(0x006)));
-# 278 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 278 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char PORTC __attribute__((address(0x007)));
 
 __asm("PORTC equ 07h");
@@ -355,7 +355,7 @@ typedef union {
     };
 } PORTCbits_t;
 extern volatile PORTCbits_t PORTCbits __attribute__((address(0x007)));
-# 340 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 340 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char PCLATH __attribute__((address(0x00A)));
 
 __asm("PCLATH equ 0Ah");
@@ -367,7 +367,7 @@ typedef union {
     };
 } PCLATHbits_t;
 extern volatile PCLATHbits_t PCLATHbits __attribute__((address(0x00A)));
-# 360 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 360 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char INTCON __attribute__((address(0x00B)));
 
 __asm("INTCON equ 0Bh");
@@ -392,7 +392,7 @@ typedef union {
     };
 } INTCONbits_t;
 extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
-# 438 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 438 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char PIR1 __attribute__((address(0x00C)));
 
 __asm("PIR1 equ 0Ch");
@@ -410,7 +410,7 @@ typedef union {
     };
 } PIR1bits_t;
 extern volatile PIR1bits_t PIR1bits __attribute__((address(0x00C)));
-# 494 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 494 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char PIR2 __attribute__((address(0x00D)));
 
 __asm("PIR2 equ 0Dh");
@@ -427,7 +427,7 @@ typedef union {
     };
 } PIR2bits_t;
 extern volatile PIR2bits_t PIR2bits __attribute__((address(0x00D)));
-# 534 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 534 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned short TMR1 __attribute__((address(0x00E)));
 
 __asm("TMR1 equ 0Eh");
@@ -475,7 +475,7 @@ typedef union {
     };
 } T1CONbits_t;
 extern volatile T1CONbits_t T1CONbits __attribute__((address(0x010)));
-# 630 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 630 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char TMR2 __attribute__((address(0x011)));
 
 __asm("TMR2 equ 011h");
@@ -505,7 +505,7 @@ typedef union {
     };
 } T2CONbits_t;
 extern volatile T2CONbits_t T2CONbits __attribute__((address(0x012)));
-# 708 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 708 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char SSPBUF __attribute__((address(0x013)));
 
 __asm("SSPBUF equ 013h");
@@ -534,7 +534,7 @@ typedef union {
     };
 } SSPCONbits_t;
 extern volatile SSPCONbits_t SSPCONbits __attribute__((address(0x014)));
-# 785 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 785 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned short CCPR1 __attribute__((address(0x015)));
 
 __asm("CCPR1 equ 015h");
@@ -575,7 +575,7 @@ typedef union {
     };
 } CCP1CONbits_t;
 extern volatile CCP1CONbits_t CCP1CONbits __attribute__((address(0x017)));
-# 864 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 864 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char RCSTA __attribute__((address(0x018)));
 
 __asm("RCSTA equ 018h");
@@ -607,7 +607,7 @@ typedef union {
     };
 } RCSTAbits_t;
 extern volatile RCSTAbits_t RCSTAbits __attribute__((address(0x018)));
-# 959 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 959 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char TXREG __attribute__((address(0x019)));
 
 __asm("TXREG equ 019h");
@@ -662,7 +662,7 @@ typedef union {
     };
 } CCP2CONbits_t;
 extern volatile CCP2CONbits_t CCP2CONbits __attribute__((address(0x01D)));
-# 1052 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 1052 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
 
 __asm("ADRESH equ 01Eh");
@@ -702,7 +702,7 @@ typedef union {
     };
 } ADCON0bits_t;
 extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0x01F)));
-# 1155 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 1155 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char OPTION_REG __attribute__((address(0x081)));
 
 __asm("OPTION_REG equ 081h");
@@ -724,7 +724,7 @@ typedef union {
     };
 } OPTION_REGbits_t;
 extern volatile OPTION_REGbits_t OPTION_REGbits __attribute__((address(0x081)));
-# 1225 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 1225 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char TRISA __attribute__((address(0x085)));
 
 __asm("TRISA equ 085h");
@@ -741,7 +741,7 @@ typedef union {
     };
 } TRISAbits_t;
 extern volatile TRISAbits_t TRISAbits __attribute__((address(0x085)));
-# 1275 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 1275 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char TRISB __attribute__((address(0x086)));
 
 __asm("TRISB equ 086h");
@@ -760,7 +760,7 @@ typedef union {
     };
 } TRISBbits_t;
 extern volatile TRISBbits_t TRISBbits __attribute__((address(0x086)));
-# 1337 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 1337 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char TRISC __attribute__((address(0x087)));
 
 __asm("TRISC equ 087h");
@@ -779,7 +779,7 @@ typedef union {
     };
 } TRISCbits_t;
 extern volatile TRISCbits_t TRISCbits __attribute__((address(0x087)));
-# 1399 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 1399 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char PIE1 __attribute__((address(0x08C)));
 
 __asm("PIE1 equ 08Ch");
@@ -797,7 +797,7 @@ typedef union {
     };
 } PIE1bits_t;
 extern volatile PIE1bits_t PIE1bits __attribute__((address(0x08C)));
-# 1455 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 1455 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char PIE2 __attribute__((address(0x08D)));
 
 __asm("PIE2 equ 08Dh");
@@ -814,7 +814,7 @@ typedef union {
     };
 } PIE2bits_t;
 extern volatile PIE2bits_t PIE2bits __attribute__((address(0x08D)));
-# 1495 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 1495 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char PCON __attribute__((address(0x08E)));
 
 __asm("PCON equ 08Eh");
@@ -830,7 +830,7 @@ typedef union {
     };
 } PCONbits_t;
 extern volatile PCONbits_t PCONbits __attribute__((address(0x08E)));
-# 1529 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 1529 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char SSPCON2 __attribute__((address(0x091)));
 
 __asm("SSPCON2 equ 091h");
@@ -849,7 +849,7 @@ typedef union {
     };
 } SSPCON2bits_t;
 extern volatile SSPCON2bits_t SSPCON2bits __attribute__((address(0x091)));
-# 1591 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 1591 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char PR2 __attribute__((address(0x092)));
 
 __asm("PR2 equ 092h");
@@ -919,7 +919,7 @@ typedef union {
     };
 } SSPSTATbits_t;
 extern volatile SSPSTATbits_t SSPSTATbits __attribute__((address(0x094)));
-# 1774 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 1774 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char TXSTA __attribute__((address(0x098)));
 
 __asm("TXSTA equ 098h");
@@ -947,7 +947,7 @@ typedef union {
     };
 } TXSTAbits_t;
 extern volatile TXSTAbits_t TXSTAbits __attribute__((address(0x098)));
-# 1855 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 1855 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char SPBRG __attribute__((address(0x099)));
 
 __asm("SPBRG equ 099h");
@@ -976,7 +976,7 @@ typedef union {
     };
 } CMCONbits_t;
 extern volatile CMCONbits_t CMCONbits __attribute__((address(0x09C)));
-# 1932 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 1932 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char CVRCON __attribute__((address(0x09D)));
 
 __asm("CVRCON equ 09Dh");
@@ -998,7 +998,7 @@ typedef union {
     };
 } CVRCONbits_t;
 extern volatile CVRCONbits_t CVRCONbits __attribute__((address(0x09D)));
-# 1997 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 1997 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char ADRESL __attribute__((address(0x09E)));
 
 __asm("ADRESL equ 09Eh");
@@ -1026,7 +1026,7 @@ typedef union {
     };
 } ADCON1bits_t;
 extern volatile ADCON1bits_t ADCON1bits __attribute__((address(0x09F)));
-# 2063 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 2063 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char EEDATA __attribute__((address(0x10C)));
 
 __asm("EEDATA equ 010Ch");
@@ -1071,11 +1071,11 @@ typedef union {
     };
 } EECON1bits_t;
 extern volatile EECON1bits_t EECON1bits __attribute__((address(0x18C)));
-# 2136 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 2136 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile unsigned char EECON2 __attribute__((address(0x18D)));
 
 __asm("EECON2 equ 018Dh");
-# 2153 "/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h" 3
+# 2153 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h" 3
 extern volatile __bit ACKDT __attribute__((address(0x48D)));
 
 
@@ -1716,9 +1716,9 @@ extern volatile __bit nW __attribute__((address(0x4A2)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x4A2)));
-# 2830 "/Applications/microchip/xc8/v2.45/pic/include/pic_chip_select.h" 2 3
-# 14 "/Applications/microchip/xc8/v2.45/pic/include/pic.h" 2 3
-# 76 "/Applications/microchip/xc8/v2.45/pic/include/pic.h" 3
+# 644 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/pic_chip_select.h" 2 3
+# 14 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/pic.h" 2 3
+# 76 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/pic.h" 3
 __attribute__((__unsupported__("The " "FLASH_READ" " macro function is no longer supported. Please use the MPLAB X MCC."))) unsigned char __flash_read(unsigned short addr);
 
 __attribute__((__unsupported__("The " "FLASH_WRITE" " macro function is no longer supported. Please use the MPLAB X MCC."))) void __flash_write(unsigned short addr, unsigned short data);
@@ -1731,8 +1731,8 @@ __attribute__((__unsupported__("The " "FLASH_ERASE" " macro function is no longe
 # 114 "/Applications/microchip/xc8/v2.45/pic/include/eeprom_routines.h" 3
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
-# 84 "/Applications/microchip/xc8/v2.45/pic/include/pic.h" 2 3
-# 118 "/Applications/microchip/xc8/v2.45/pic/include/pic.h" 3
+# 84 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/pic.h" 2 3
+# 118 "/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/pic.h" 3
 extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
