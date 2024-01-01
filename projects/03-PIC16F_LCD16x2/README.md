@@ -59,6 +59,9 @@ This LCD is based on the HD44780 controller. The HD44780 or its compatible varia
 The HD44780's command set allows for comprehensive control over the LCD's behavior, making it suitable for a wide range of applications.
 
 
+#### More information about HD44780
+[Hitachi HD44780 LCD controller](https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller)
+[HD44780U (LCD-II) Datasheet](https://www.sparkfun.com/datasheets/LCD/HD44780.pdf)
 
 ## LCD 16x02 library for PIC16F family
 
