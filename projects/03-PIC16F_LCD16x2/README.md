@@ -21,8 +21,8 @@ The main goal here is to reduce the developer's effort in searching for or adapt
 | 5       | R/W  | Read/Write - low for write, high for read           |
 | 6       | E    | Enable - activates the display at the rising edge   |
 | 7-14    | D0-D7| Data pins - 8-bit mode uses all, 4-bit mode uses D4-D7 |
-| 15      | A    | Anode for backlight LED (if present)                |
-| 16      | K    | Cathode for backlight LED (if present)              |
+| 15      | A    | Anode for backlight LED (if present)    - Connected to VCC      |
+| 16      | K    | Cathode for backlight LED (if present)  - Connected to the GND  |
 
 
 ## LCD 16x02 library for PIC16F family
