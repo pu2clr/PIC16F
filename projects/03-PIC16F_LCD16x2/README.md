@@ -5,7 +5,11 @@ This project includes, in addition to basic information for controlling the 16x2
 The main goal here is to reduce the developer's effort in searching for or adapting an existing solution.
 
 
-## LCD 16x2
+## LCD 16x2 PINOUT
+
+
+![LCD 16x2 PINOUT](./images/LCD16x2_PINOUT.jpg)
+
 
 
 | Pin No. | Name | Description                                         |
