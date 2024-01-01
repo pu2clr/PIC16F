@@ -3,6 +3,10 @@
 This small 16x2 LCD library is intended to support the entire PIC16F line. However, the tests conducted covered only three microcontrollers: PIC16F628A, PIC16F876A, and PIC16F887.
 
 
+This library can be freely distributed using the MIT Free Software model. By using or installing Library you are agreeing to the terms of the MIT licence.
+
+
+
 ## About LCD16x2 Library for PIC Microcontrollers
 
 **1. Compatibility with HD44780 Controller:**
