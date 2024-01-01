@@ -6,10 +6,10 @@ Linker command line:
   --edf=/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/dat/20231012211500_en.msgs \
   -cn -h+dist/default/production/PIC16F876A_LCD.X.production.sym \
   --cmf=dist/default/production/PIC16F876A_LCD.X.production.cmf -z \
-  -Q16F876A -o/tmp/xcSv44fmO/driver_tmp_3.o --defsym=__MPLAB_BUILD=1 \
+  -Q16F876A -o/tmp/xc5FswefD/driver_tmp_3.o --defsym=__MPLAB_BUILD=1 \
   --fixupoverflow=error \
   -Mdist/default/production/PIC16F876A_LCD.X.production.map \
-  --md=/tmp/xcSv44fmO/driver_tmp_0.dat -E1 -ver=XC8 Compiler --acfsm=1493 \
+  --md=/tmp/xc5FswefD/driver_tmp_0.dat -E1 -ver=XC8 Compiler --acfsm=1493 \
   -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
   -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh \
   -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh -ABANK2=0110h-016Fh \
@@ -20,7 +20,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k /tmp/xcSv44fmO/driver_tmp_12.o \
+  -pfunctab=ENTRY -k /tmp/xc5FswefD/driver_tmp_12.o \
   dist/default/production/PIC16F876A_LCD.X.production.o 
 
 Object code version is 3.11
@@ -30,7 +30,7 @@ Machine type is 16F876A
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcSv44fmO/driver_tmp_12.o
+/tmp/xc5FswefD/driver_tmp_12.o
                 end_init                              0        0        3        0       0
                 config                             2007     2007        1        0       4
 dist/default/production/PIC16F876A_LCD.X.production.o
