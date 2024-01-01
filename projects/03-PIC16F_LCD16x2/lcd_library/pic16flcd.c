@@ -149,22 +149,22 @@ void Lcd_Clear(Lcd_PinConfig *config) {
 void Lcd_SetCursor(Lcd_PinConfig *config, unsigned char row, unsigned char column) {
     unsigned char address;
     
-    // Calcula o endereÃ§o baseado na linha e coluna
+    // Convert the line to the address offset
     switch(row) {
         case 1:
-            address = 0x80; // EndereÃ§o inicial da 1Âª linha
+            address = 0x80; // 1ª line
             break;
         case 2:
-            address = 0xC0; // EndereÃ§o inicial da 2Âª linha
+            address = 0xC0; // 2ª line
             break;
         default:
             address = 0x80; // Default to first row if out of bounds
     }
 
-    // Ajusta para a coluna correta
+    // Adjust to the real position considering the column value
     address += (column - 1);
 
-    // Envia o comando para definir o endereÃ§o do cursor
+    // Send the command to set the cursor position (address)
     Lcd_Command(config, address);
 }
 
