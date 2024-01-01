@@ -26,18 +26,25 @@ The main goal here is to reduce the developer's effort in searching for or adapt
 This folder contains an implementation of a C library for controlling the 16x2 LCD. See the [lcd_library](./lcd_library) folder .
 
 
-## LCD 16x2 and PIC16F628A Interface 
+## LCD 16x2 and PIC16F628A Interface (schematic)
 
 
 ![LCD 16x2 and ## LCD 16x2 and PIC16F628A Interface circuit](./schematic_pic16f628a_lcd_16_2.jpg)
 
 
-## PIC16F628A PINOUT
+### PIC16F628A PINOUT
 
 ![PIC16F628 PINOUT](../../images/PIC16F628A_PINOUT.png)
 
 
-## PIC16F887 PINOUT
+## LCD 16x2 and PIC16F887 Interface (schematic)
+
+
+![LCD 16x2 and PIC16F887 Interface - schematic](./schematic_pic16f887_lcd_16_2.jpg)
+
+
+### PIC16F887 PINOUT
+
 
 ![PIC16F628 PINOUT](../../images/PIC16F887_PINOUT.png)
 
