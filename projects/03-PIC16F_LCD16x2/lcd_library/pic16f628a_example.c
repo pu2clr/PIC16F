@@ -17,7 +17,7 @@
 
 void main() {
     char i;
-    TRISB = 0x00; // You need to set this register as output
+    TRISB = 0x00; // You need to set this register to output
     // Define the LCD pin configuration for PIC16F628A
     Lcd_PinConfig lcd = {
         .port = &PORTB,  // Port to be used to control the LCD 

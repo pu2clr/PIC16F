@@ -21,7 +21,7 @@ This small 16x2 LCD library is intended to support the entire PIC16F line. Howev
 
 void main() {
     char i;
-    TRISB = 0x00; // You need to set this register as output
+    TRISB = 0x00; // You need to set this register to output
     // Define the LCD pin configuration for PIC16F628A
     Lcd_PinConfig lcd = {
         .port = &PORTB,  // Port to be used to control the LCD 
@@ -83,7 +83,7 @@ void main() {
 
 void main() {
     // Define the LCD pin configuration for PIC16F887
-    TRISC = 0; // You need to set this register as output
+    TRISC = 0; // You need to set this register to output
     Lcd_PinConfig lcd = {
         .port = &PORTC, // Assuming you're using PORTC for LCD on PIC16F887
         .rs_pin = 1, // RD0 for RS

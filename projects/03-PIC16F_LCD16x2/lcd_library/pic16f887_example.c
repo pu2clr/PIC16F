@@ -14,7 +14,7 @@
 
 void main() {
     // Define the LCD pin configuration for PIC16F887
-    TRISC = 0; // You need to set this register as output
+    TRISC = 0; // You need to set this register to output
     Lcd_PinConfig lcd = {
         .port = &PORTC, // Assuming you're using PORTC for LCD on PIC16F887
         .rs_pin = 1, // RD0 for RS
