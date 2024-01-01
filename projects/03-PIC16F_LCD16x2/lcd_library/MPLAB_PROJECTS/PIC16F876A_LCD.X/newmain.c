@@ -13,8 +13,26 @@
 
 #define _XTAL_FREQ 8000000      // internal clock
 
+
+/**
+ Custom Char (Smile)
+ */
+unsigned char smiley[8] = {
+    0b00000,
+    0b01010,
+    0b01010,
+    0b00000,
+    0b10001,
+    0b01110,
+    0b00000,
+    0b00000
+};
+
 void main() {
     char i;
+
+
+
     // Define the LCD pin configuration for PIC16F887
     TRISC = 0; // You need to set this register to output
     Lcd_PinConfig lcd = {
@@ -24,7 +42,7 @@ void main() {
         .d4_pin = 4, // RD4 for D4
         .d5_pin = 5, // RD5 for D5
         .d6_pin = 6, // RD6 for D6
-        .d7_pin = 7  // RD7 for D7
+        .d7_pin = 7 // RD7 for D7
     };
 
     // Initialize the LCD
@@ -36,21 +54,38 @@ void main() {
     Lcd_WriteString(&lcd, "Hello");
     Lcd_SetCursor(&lcd, 2, 1);
     Lcd_WriteString(&lcd, "World");
-    __delay_ms(5000); 
-    while(1) {
-        Lcd_Clear(&lcd); 
+    __delay_ms(5000);
+
+    Lcd_Clear(&lcd);
+    // Creating the character
+    Lcd_CreateCustomChar(&lcd, 0, smiley);
+    // Displaying the character
+    Lcd_SetCursor(&lcd, 1, 1);
+    Lcd_WriteCustomChar(&lcd, 0);
+    __delay_ms(5000);
+
+    while (1) {
+        Lcd_Clear(&lcd);
         for (i = 1; i <= 16; i++) {
-            Lcd_SetCursor(&lcd, 1, i); 
-            Lcd_WriteChar(&lcd,'A' + (i-1));
-            __delay_ms(500);
+            Lcd_SetCursor(&lcd, 1, i);
+            Lcd_WriteChar(&lcd, 'A' + (i - 1));
+            __delay_ms(200);
         }
-        __delay_ms(5000); 
+        __delay_ms(5000);
 
         for (i = 1; i <= 16; i++) {
-            Lcd_SetCursor(&lcd, 2, i); 
-            Lcd_WriteChar(&lcd,'I' + (i-1));
-            __delay_ms(500);
-        }  
+            Lcd_SetCursor(&lcd, 2, i);
+            Lcd_WriteChar(&lcd, 'I' + (i - 1));
+            __delay_ms(200);
+        }
         __delay_ms(5000);
+        for (i = 1; i <= 16; i++) {
+            Lcd_SetCursor(&lcd, 1, i);
+            Lcd_WriteCustomChar(&lcd, 0);
+            __delay_ms(200);
+            Lcd_SetCursor(&lcd, 2, i);
+            Lcd_WriteCustomChar(&lcd, 0);
+            __delay_ms(200);
+        }
     }
 }

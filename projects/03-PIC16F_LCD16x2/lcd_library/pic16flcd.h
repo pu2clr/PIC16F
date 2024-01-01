@@ -32,5 +32,7 @@ void Lcd_Clear(Lcd_PinConfig *config);
 void Lcd_SetCursor(Lcd_PinConfig *config, unsigned char row, unsigned char column);
 void Lcd_WriteChar(Lcd_PinConfig *config, unsigned char data);
 void Lcd_WriteString(Lcd_PinConfig *config, char *str);
+void Lcd_CreateCustomChar(Lcd_PinConfig *config, unsigned char location, unsigned char *charmap);
+void inline Lcd_WriteCustomChar(Lcd_PinConfig *config, unsigned char location);
 
 #endif

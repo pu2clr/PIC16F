@@ -18,8 +18,7 @@
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>../../pic16flcd.c</itemPath>
-    <itemPath>../../pic16flcd.h</itemPath>
+    <itemPath>newmain1.c</itemPath>
     <itemPath>newmain1.c</itemPath>
   </logicalFolder>
   <sourceRootList>

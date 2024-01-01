@@ -168,3 +168,36 @@ void Lcd_SetCursor(Lcd_PinConfig *config, unsigned char row, unsigned char colum
     Lcd_Command(config, address);
 }
 
+
+/**
+ * @brief Defines a custom char 
+ * @details The HD44780 has limited space in its CGRAM for storing custom characters. 
+ * @details Typically, up to 8 custom characters can be stored, which means the 'location' can range from 0 to 7. 
+ * @details Each location ('location') corresponds to a specific address in the CGRAM.
+ * @param config    a pointer to a structure that holds the configuration of the LCD pins (like RS, EN, D4 to D7).
+ * @param location  point /index  to the custom Character Generator RAM of the HD44780 (0 - 7)
+ * @param charmap   array  
+ */
+void Lcd_CreateCustomChar(Lcd_PinConfig *config, unsigned char location, unsigned char *charmap) {
+    unsigned char i;
+    if(location < 8) {
+        // Set CGRAM address for character location
+        Lcd_Command(config, 0x40 + (location * 8));
+        for(i = 0; i < 8; i++) {
+            Lcd_WriteChar(config, charmap[i]); // Write each row of the character
+        }
+    }
+}
+
+
+/**
+ * @brief Displays the custom character 
+ * @details You must defines the custom characters before call this function  
+ * @param config    a pointer to a structure that holds the configuration of the LCD pins (like RS, EN, D4 to D7).
+ * @param location  point /index  to the custom Character (the custom character you want to show)
+ */
+void Lcd_WriteCustomChar(Lcd_PinConfig *config, unsigned char location) {
+    Lcd_WriteChar(config, location); // location should be from 0 to 7
+}
+
+

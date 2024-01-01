@@ -19,6 +19,10 @@
 [v _Lcd_Clear Lcd_Clear `(v  1 e 1 0 ]
 "149
 [v _Lcd_SetCursor Lcd_SetCursor `(v  1 e 1 0 ]
+"181
+[v _Lcd_CreateCustomChar Lcd_CreateCustomChar `(v  1 e 1 0 ]
+"199
+[v _Lcd_WriteCustomChar Lcd_WriteCustomChar `T(v  1 e 1 0 ]
 "10 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
@@ -27,23 +31,25 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"16 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+"31 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
 [v _main main `(v  1 e 1 0 ]
-"278 /Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876a.h
+"278 /Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
 "1337
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
-"16 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+"20 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+[v _smiley smiley `[8]uc  1 e 8 0 ]
+"31
 [v _main main `(v  1 e 1 0 ]
 {
 [s S23 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
-"20
+"38
 [v main@lcd lcd `S23  1 a 8 11 ]
-"17
+"32
 [v main@i i `uc  1 a 1 10 ]
-"19
-[v main@F953 F953 `S23  1 s 8 F953 ]
-"56
+"37
+[v main@F962 F962 `S23  1 s 8 F962 ]
+"91
 } 0
 "103 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
 [v _Lcd_WriteString Lcd_WriteString `(v  1 e 1 0 ]
@@ -55,17 +61,15 @@
 [v Lcd_WriteString@config config `*.4S23  1 a 1 1 ]
 "108
 } 0
-"78
-[v _Lcd_WriteChar Lcd_WriteChar `(v  1 e 1 0 ]
+"199
+[v _Lcd_WriteCustomChar Lcd_WriteCustomChar `T(v  1 e 1 0 ]
 {
 [s S23 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
-[v Lcd_WriteChar@config config `*.4S23  1 a 1 wreg ]
-[v Lcd_WriteChar@config config `*.4S23  1 a 1 wreg ]
-[v Lcd_WriteChar@data data `uc  1 p 1 9 ]
-"80
-"78
-[v Lcd_WriteChar@config config `*.4S23  1 a 1 12 ]
-"95
+[v Lcd_WriteCustomChar@config config `*.4S23  1 a 1 wreg ]
+[v Lcd_WriteCustomChar@config config `*.4S23  1 a 1 wreg ]
+[v Lcd_WriteCustomChar@location location `uc  1 p 1 13 ]
+[v Lcd_WriteCustomChar@config config `*.4S23  1 a 1 0 ]
+"201
 } 0
 "149
 [v _Lcd_SetCursor Lcd_SetCursor `(v  1 e 1 0 ]
@@ -100,6 +104,34 @@
 [v Lcd_Clear@config config `*.4S23  1 a 1 wreg ]
 [v Lcd_Clear@config config `*.4S23  1 a 1 13 ]
 "139
+} 0
+"181
+[v _Lcd_CreateCustomChar Lcd_CreateCustomChar `(v  1 e 1 0 ]
+{
+[s S23 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
+[v Lcd_CreateCustomChar@config config `*.4S23  1 a 1 wreg ]
+"182
+[v Lcd_CreateCustomChar@i i `uc  1 a 1 3 ]
+"181
+[v Lcd_CreateCustomChar@config config `*.4S23  1 a 1 wreg ]
+[v Lcd_CreateCustomChar@location location `uc  1 p 1 0 ]
+[v Lcd_CreateCustomChar@charmap charmap `*.4uc  1 p 1 1 ]
+"183
+"181
+[v Lcd_CreateCustomChar@config config `*.4S23  1 a 1 2 ]
+"190
+} 0
+"78
+[v _Lcd_WriteChar Lcd_WriteChar `(v  1 e 1 0 ]
+{
+[s S23 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
+[v Lcd_WriteChar@config config `*.4S23  1 a 1 wreg ]
+[v Lcd_WriteChar@config config `*.4S23  1 a 1 wreg ]
+[v Lcd_WriteChar@data data `uc  1 p 1 9 ]
+"80
+"78
+[v Lcd_WriteChar@config config `*.4S23  1 a 1 12 ]
+"95
 } 0
 "52
 [v _Lcd_Command Lcd_Command `(v  1 e 1 0 ]
