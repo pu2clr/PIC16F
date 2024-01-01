@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Sun Dec 31 22:41:35 2023
+                                                                                               Sun Dec 31 22:56:56 2023
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	16F876A
@@ -26,7 +26,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
     20                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
     21                           	dabs	1,0x7E,2
     22     0000                     
-    23                           ; Generated 12/10/2023 GMT
+    23                           ; Generated 18/08/2023 GMT
     24                           ; 
     25                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
     26                           ; All rights reserved.
@@ -238,17 +238,17 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    224     018D                     	;# 
    225                           
    226                           	psect	idataBANK0
-   227     0404                     __pidataBANK0:
+   227     03FD                     __pidataBANK0:
    228                           
    229                           ;initializer for main@F952
-   230     0404  3407               	retlw	7
-   231     0405  3400               	retlw	0
-   232     0406  3402               	retlw	2
-   233     0407  3403               	retlw	3
-   234     0408  3404               	retlw	4
-   235     0409  3405               	retlw	5
-   236     040A  3406               	retlw	6
-   237     040B  3407               	retlw	7
+   230     03FD  3407               	retlw	7
+   231     03FE  3400               	retlw	0
+   232     03FF  3402               	retlw	2
+   233     0400  3403               	retlw	3
+   234     0401  3404               	retlw	4
+   235     0402  3405               	retlw	5
+   236     0403  3406               	retlw	6
+   237     0404  3407               	retlw	7
    238     0007                     _PORTC	set	7
    239     0087                     _TRISC	set	135
    240                           
@@ -291,53 +291,53 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    277                           
    278                           ; Initialize objects allocated to BANK0
    279     07EE  1383               	bcf	3,7	;select IRP bank0
-   280     07EF  3038               	movlw	low (__pdataBANK0+8)
+   280     07EF  303A               	movlw	low (__pdataBANK0+8)
    281     07F0  00FD               	movwf	btemp+-1
-   282     07F1  3004               	movlw	high __pidataBANK0
+   282     07F1  3003               	movlw	high __pidataBANK0
    283     07F2  00FE               	movwf	btemp
-   284     07F3  3004               	movlw	low __pidataBANK0
+   284     07F3  30FD               	movlw	low __pidataBANK0
    285     07F4  00FF               	movwf	btemp+1
-   286     07F5  3030               	movlw	low __pdataBANK0
+   286     07F5  3032               	movlw	low __pdataBANK0
    287     07F6  0084               	movwf	4
-   288     07F7  120A  118A  2410  120A  118A  	fcall	init_ram0
+   288     07F7  120A  118A  2409  120A  118A  	fcall	init_ram0
    289     07FC                     end_of_initialization:	
    290                           ;End of C runtime variable initialization code
    291                           
    292     07FC                     __end_of__initialization:
    293     07FC  0183               	clrf	3
-   294     07FD  120A  118A  2CDD   	ljmp	_main	;jump to C main() function
+   294     07FD  120A  118A  2CD9   	ljmp	_main	;jump to C main() function
    295                           
    296                           	psect	dataBANK0
-   297     0030                     __pdataBANK0:
-   298     0030                     main@F952:
-   299     0030                     	ds	8
+   297     0032                     __pdataBANK0:
+   298     0032                     main@F952:
+   299     0032                     	ds	8
    300                           
    301                           	psect	inittext
-   302     040C                     init_fetch0:	
+   302     0405                     init_fetch0:	
    303                           ;	Called with low address in FSR and high address in W
    304                           
-   305     040C  087E               	movf	btemp,w
-   306     040D  008A               	movwf	10
-   307     040E  087F               	movf	btemp+1,w
-   308     040F  0082               	movwf	2
-   309     0410                     init_ram0:	
+   305     0405  087E               	movf	btemp,w
+   306     0406  008A               	movwf	10
+   307     0407  087F               	movf	btemp+1,w
+   308     0408  0082               	movwf	2
+   309     0409                     init_ram0:	
    310                           ;Called with:
    311                           ;	high address of idata address in btemp 
    312                           ;	low address of idata address in btemp+1 
    313                           ;	low address of data in FSR
    314                           ;	high address + 1 of data in btemp-1
    315                           
-   316     0410  120A  118A  240C  120A  118A  	fcall	init_fetch0
-   317     0415  0080               	movwf	0
-   318     0416  0A84               	incf	4,f
-   319     0417  0804               	movf	4,w
-   320     0418  067D               	xorwf	btemp+-1,w
-   321     0419  1903               	btfsc	3,2
-   322     041A  3400               	retlw	0
-   323     041B  0AFF               	incf	btemp+1,f
-   324     041C  1903               	btfsc	3,2
-   325     041D  0AFE               	incf	btemp,f
-   326     041E  2C10               	goto	init_ram0
+   316     0409  120A  118A  2405  120A  118A  	fcall	init_fetch0
+   317     040E  0080               	movwf	0
+   318     040F  0A84               	incf	4,f
+   319     0410  0804               	movf	4,w
+   320     0411  067D               	xorwf	btemp+-1,w
+   321     0412  1903               	btfsc	3,2
+   322     0413  3400               	retlw	0
+   323     0414  0AFF               	incf	btemp+1,f
+   324     0415  1903               	btfsc	3,2
+   325     0416  0AFE               	incf	btemp,f
+   326     0417  2C09               	goto	init_ram0
    327                           
    328                           	psect	cstackCOMMON
    329     0070                     __pcstackCOMMON:
@@ -371,118 +371,118 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    357     0074                     ??_SetBit:
    358                           
    359                           ; 1 bytes @ 0x4
-   360     0074                     	ds	1
-   361     0075                     ??_PulseEnable:
+   360     0074                     	ds	2
+   361     0076                     ??_PulseEnable:
    362                           
-   363                           ; 1 bytes @ 0x5
-   364     0075                     	ds	2
-   365     0077                     PulseEnable@config:
+   363                           ; 1 bytes @ 0x6
+   364     0076                     	ds	2
+   365     0078                     PulseEnable@config:
    366                           
-   367                           ; 1 bytes @ 0x7
-   368     0077                     	ds	1
-   369     0078                     ?_Lcd_Command:
-   370     0078                     ?_Lcd_WriteChar:	
-   371                           ; 1 bytes @ 0x8
+   367                           ; 1 bytes @ 0x8
+   368     0078                     	ds	1
+   369     0079                     ?_Lcd_Command:
+   370     0079                     ?_Lcd_WriteChar:	
+   371                           ; 1 bytes @ 0x9
    372                           
-   373     0078                     Lcd_Command@cmd:	
-   374                           ; 1 bytes @ 0x8
+   373     0079                     Lcd_Command@cmd:	
+   374                           ; 1 bytes @ 0x9
    375                           
-   376     0078                     Lcd_WriteChar@data:	
-   377                           ; 1 bytes @ 0x8
+   376     0079                     Lcd_WriteChar@data:	
+   377                           ; 1 bytes @ 0x9
    378                           
    379                           
-   380                           ; 1 bytes @ 0x8
-   381     0078                     	ds	1
-   382     0079                     ??_Lcd_Command:
-   383     0079                     ??_Lcd_WriteChar:	
-   384                           ; 1 bytes @ 0x9
+   380                           ; 1 bytes @ 0x9
+   381     0079                     	ds	1
+   382     007A                     ??_Lcd_Command:
+   383     007A                     ??_Lcd_WriteChar:	
+   384                           ; 1 bytes @ 0xA
    385                           
    386                           
-   387                           ; 1 bytes @ 0x9
-   388     0079                     	ds	2
-   389     007B                     Lcd_Command@config:
-   390     007B                     Lcd_WriteChar@config:	
-   391                           ; 1 bytes @ 0xB
+   387                           ; 1 bytes @ 0xA
+   388     007A                     	ds	2
+   389     007C                     Lcd_Command@config:
+   390     007C                     Lcd_WriteChar@config:	
+   391                           ; 1 bytes @ 0xC
    392                           
    393                           
-   394                           ; 1 bytes @ 0xB
-   395     007B                     	ds	1
-   396     007C                     ??_Lcd_Clear:
-   397     007C                     ?_Lcd_SetCursor:	
-   398                           ; 1 bytes @ 0xC
+   394                           ; 1 bytes @ 0xC
+   395     007C                     	ds	1
+   396     007D                     ?_Lcd_WriteString:
+   397     007D                     Lcd_WriteString@str:	
+   398                           ; 1 bytes @ 0xD
    399                           
-   400     007C                     ?_Lcd_WriteString:	
-   401                           ; 1 bytes @ 0xC
+   400     007D                     Lcd_Clear@config:	
+   401                           ; 1 bytes @ 0xD
    402                           
-   403     007C                     Lcd_WriteString@str:	
-   404                           ; 1 bytes @ 0xC
-   405                           
-   406     007C                     Lcd_SetCursor@row:	
-   407                           ; 1 bytes @ 0xC
-   408                           
-   409                           
-   410                           ; 1 bytes @ 0xC
-   411     007C                     	ds	1
-   412     007D                     ??_Lcd_WriteString:
-   413     007D                     Lcd_WriteString@config:	
-   414                           ; 1 bytes @ 0xD
+   403                           
+   404                           ; 1 bytes @ 0xD
+   405     007D                     	ds	1
+   406                           
+   407                           	psect	cstackBANK0
+   408     0020                     __pcstackBANK0:
+   409     0020                     ??_Lcd_Clear:
+   410     0020                     ?_Lcd_SetCursor:	
+   411                           ; 1 bytes @ 0x0
+   412                           
+   413     0020                     ??_Lcd_WriteString:	
+   414                           ; 1 bytes @ 0x0
    415                           
-   416     007D                     Lcd_SetCursor@column:	
-   417                           ; 1 bytes @ 0xD
+   416     0020                     Lcd_SetCursor@row:	
+   417                           ; 1 bytes @ 0x0
    418                           
    419                           
-   420                           ; 1 bytes @ 0xD
-   421     007D                     	ds	1
-   422                           
-   423                           	psect	cstackBANK0
-   424     0020                     __pcstackBANK0:
-   425     0020                     ??_Lcd_SetCursor:
-   426     0020                     Lcd_Clear@config:	
-   427                           ; 1 bytes @ 0x0
-   428                           
-   429                           
-   430                           ; 1 bytes @ 0x0
-   431     0020                     	ds	1
-   432     0021                     ??_Lcd_Init:
+   420                           ; 1 bytes @ 0x0
+   421     0020                     	ds	1
+   422     0021                     Lcd_WriteString@config:
+   423     0021                     Lcd_SetCursor@column:	
+   424                           ; 1 bytes @ 0x1
+   425                           
+   426                           
+   427                           ; 1 bytes @ 0x1
+   428     0021                     	ds	1
+   429     0022                     ??_Lcd_Init:
+   430     0022                     ??_Lcd_SetCursor:	
+   431                           ; 1 bytes @ 0x2
+   432                           
    433                           
-   434                           ; 1 bytes @ 0x1
-   435     0021                     	ds	1
-   436     0022                     Lcd_SetCursor@config:
-   437                           
-   438                           ; 1 bytes @ 0x2
-   439     0022                     	ds	1
-   440     0023                     Lcd_Init@config:
-   441     0023                     Lcd_SetCursor@address:	
-   442                           ; 1 bytes @ 0x3
-   443                           
+   434                           ; 1 bytes @ 0x2
+   435     0022                     	ds	2
+   436     0024                     Lcd_Init@config:
+   437     0024                     Lcd_SetCursor@config:	
+   438                           ; 1 bytes @ 0x4
+   439                           
+   440                           
+   441                           ; 1 bytes @ 0x4
+   442     0024                     	ds	1
+   443     0025                     Lcd_SetCursor@address:
    444                           
-   445                           ; 1 bytes @ 0x3
-   446     0023                     	ds	1
-   447     0024                     ??_main:
+   445                           ; 1 bytes @ 0x5
+   446     0025                     	ds	1
+   447     0026                     ??_main:
    448                           
-   449                           ; 1 bytes @ 0x4
-   450     0024                     	ds	4
-   451     0028                     main@lcd:
+   449                           ; 1 bytes @ 0x6
+   450     0026                     	ds	4
+   451     002A                     main@lcd:
    452                           
-   453                           ; 8 bytes @ 0x8
-   454     0028                     	ds	8
+   453                           ; 8 bytes @ 0xA
+   454     002A                     	ds	8
    455                           
    456                           	psect	maintext
-   457     04DD                     __pmaintext:	
+   457     04D9                     __pmaintext:	
    458 ;;
    459 ;;Main: autosize = 0, tempsize = 4, incstack = 0, save=0
    460 ;;
    461 ;; *************** function _main *****************
    462 ;; Defined at:
-   463 ;;		line 14 in file "newmain.c"
+   463 ;;		line 16 in file "newmain.c"
    464 ;; Parameters:    Size  Location     Type
    465 ;;		None
    466 ;; Auto vars:     Size  Location     Type
-   467 ;;  lcd             8    8[BANK0 ] struct .
+   467 ;;  lcd             8   10[BANK0 ] struct .
    468 ;; Return value:  Size  Location     Type
    469 ;;                  1    wreg      void 
    470 ;; Registers used:
-   471 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   471 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
    472 ;; Tracked objects:
    473 ;;		On entry : B00/0
    474 ;;		On exit  : 0/0
@@ -504,1457 +504,1462 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    490 ;; This function uses a non-reentrant model
    491 ;;
    492                           
-   493     04DD                     _main:	
+   493     04D9                     _main:	
    494                           ;psect for function _main
    495                           
-   496     04DD                     l774:	
+   496     04D9                     l774:	
    497                           ;incstack = 0
-   498                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   498                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
    499                           
    500                           
-   501                           ;newmain.c: 16:     Lcd_Init(&lcd);
-   502     04DD  1683               	bsf	3,5	;RP0=1, select bank1
-   503     04DE  1303               	bcf	3,6	;RP1=0, select bank1
-   504     04DF  0187               	clrf	7	;volatile
-   505     04E0                     l776:
+   501                           ;newmain.c: 18:     Lcd_Clear(&lcd);
+   502     04D9  1683               	bsf	3,5	;RP0=1, select bank1
+   503     04DA  1303               	bcf	3,6	;RP1=0, select bank1
+   504     04DB  0187               	clrf	7	;volatile
+   505     04DC                     l776:
    506                           
-   507                           ;newmain.c: 17:     Lcd_Clear(&lcd);
-   508     04E0  3028               	movlw	main@lcd& (0+255)
-   509     04E1  0084               	movwf	4
-   510     04E2  3030               	movlw	low main@F952
-   511     04E3  1283               	bcf	3,5	;RP0=0, select bank0
-   512     04E4  1303               	bcf	3,6	;RP1=0, select bank0
-   513     04E5  00A4               	movwf	??_main
-   514     04E6  0804               	movf	4,w
-   515     04E7  00A5               	movwf	??_main+1
-   516     04E8  3008               	movlw	8
-   517     04E9  00A6               	movwf	??_main+2
-   518     04EA                     u1020:
-   519     04EA  0824               	movf	??_main,w
-   520     04EB  0084               	movwf	4
-   521     04EC  1383               	bcf	3,7	;select IRP bank0
-   522     04ED  0800               	movf	0,w
-   523     04EE  00A7               	movwf	??_main+3
-   524     04EF  0AA4               	incf	??_main,f
-   525     04F0  0825               	movf	??_main+1,w
-   526     04F1  0084               	movwf	4
-   527     04F2  0827               	movf	??_main+3,w
-   528     04F3  0080               	movwf	0
-   529     04F4  0AA5               	incf	??_main+1,f
-   530     04F5  0BA6               	decfsz	??_main+2,f
-   531     04F6  2CEA               	goto	u1020
-   532     04F7                     l778:
-   533                           
-   534                           ;newmain.c: 28: }
-   535     04F7  3028               	movlw	(low (main@lcd| 0))& (0+255)
-   536     04F8  120A  118A  252B  120A  118A  	fcall	_Lcd_Init
-   537     04FD                     l780:
-   538     04FD  3028               	movlw	(low (main@lcd| 0))& (0+255)
-   539     04FE  120A  118A  241F  120A  118A  	fcall	_Lcd_Clear
-   540     0503                     l782:
-   541     0503  01FC               	clrf	Lcd_SetCursor@row
-   542     0504  0AFC               	incf	Lcd_SetCursor@row,f
-   543     0505  01FD               	clrf	Lcd_SetCursor@column
-   544     0506  0AFD               	incf	Lcd_SetCursor@column,f
-   545     0507  3028               	movlw	(low (main@lcd| 0))& (0+255)
-   546     0508  120A  118A  2455  120A  118A  	fcall	_Lcd_SetCursor
-   547     050D                     l784:
-   548     050D  3007               	movlw	(low ((STR_1-__stringbase)| (0+32768)))& (0+255)
-   549     050E  00FC               	movwf	Lcd_WriteString@str
-   550     050F  3028               	movlw	(low (main@lcd| 0))& (0+255)
-   551     0510  120A  118A  2434  120A  118A  	fcall	_Lcd_WriteString
-   552     0515                     l786:
-   553     0515  3002               	movlw	2
-   554     0516  00FC               	movwf	Lcd_SetCursor@row
-   555     0517  01FD               	clrf	Lcd_SetCursor@column
-   556     0518  0AFD               	incf	Lcd_SetCursor@column,f
-   557     0519  3028               	movlw	(low (main@lcd| 0))& (0+255)
-   558     051A  120A  118A  2455  120A  118A  	fcall	_Lcd_SetCursor
-   559     051F                     l788:
-   560     051F  3001               	movlw	(low ((STR_2-__stringbase)| (0+32768)))& (0+255)
-   561     0520  00FC               	movwf	Lcd_WriteString@str
-   562     0521  3028               	movlw	(low (main@lcd| 0))& (0+255)
-   563     0522  120A  118A  2434  120A  118A  	fcall	_Lcd_WriteString
-   564     0527                     l19:
-   565     0527                     l20:
-   566     0527  2D27               	goto	l19
-   567     0528  120A  118A  2800   	ljmp	start
-   568     052B                     __end_of_main:
-   569                           
-   570                           	psect	text1
-   571     0434                     __ptext1:	
-   572 ;; *************** function _Lcd_WriteString *****************
-   573 ;; Defined at:
-   574 ;;		line 103 in file "../../../pic16flcd.c"
-   575 ;; Parameters:    Size  Location     Type
-   576 ;;  config          1    wreg     PTR struct .
-   577 ;;		 -> main@lcd(8), 
-   578 ;;  str             1   12[COMMON] PTR unsigned char 
-   579 ;;		 -> STR_2(6), STR_1(6), 
-   580 ;; Auto vars:     Size  Location     Type
-   581 ;;  config          1   13[COMMON] PTR struct .
-   582 ;;		 -> main@lcd(8), 
-   583 ;; Return value:  Size  Location     Type
-   584 ;;                  1    wreg      void 
-   585 ;; Registers used:
-   586 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
-   587 ;; Tracked objects:
-   588 ;;		On entry : 0/0
-   589 ;;		On exit  : 0/0
-   590 ;;		Unchanged: 0/0
-   591 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   592 ;;      Params:         1       0       0       0       0
-   593 ;;      Locals:         1       0       0       0       0
-   594 ;;      Temps:          0       0       0       0       0
-   595 ;;      Totals:         2       0       0       0       0
-   596 ;;Total ram usage:        2 bytes
-   597 ;; Hardware stack levels used: 1
-   598 ;; Hardware stack levels required when called: 3
-   599 ;; This function calls:
-   600 ;;		_Lcd_WriteChar
-   601 ;; This function is called by:
-   602 ;;		_main
-   603 ;; This function uses a non-reentrant model
-   604 ;;
-   605                           
-   606     0434                     _Lcd_WriteString:	
-   607                           ;psect for function _Lcd_WriteString
-   608                           
-   609                           
-   610                           ;incstack = 0
-   611                           ; Regs used in _Lcd_WriteString: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-   612                           ;Lcd_WriteString@config stored from wreg
-   613     0434  00FD               	movwf	Lcd_WriteString@config
-   614     0435                     l766:
-   615                           
-   616                           ;../../../pic16flcd.c: 104:     while(*str != '\0') {
-   617     0435  2C48               	goto	l772
-   618     0436                     l768:
+   507                           ;newmain.c: 19: 
+   508     04DC  302A               	movlw	main@lcd& (0+255)
+   509     04DD  0084               	movwf	4
+   510     04DE  3032               	movlw	low main@F952
+   511     04DF  1283               	bcf	3,5	;RP0=0, select bank0
+   512     04E0  1303               	bcf	3,6	;RP1=0, select bank0
+   513     04E1  00A6               	movwf	??_main
+   514     04E2  0804               	movf	4,w
+   515     04E3  00A7               	movwf	??_main+1
+   516     04E4  3008               	movlw	8
+   517     04E5  00A8               	movwf	??_main+2
+   518     04E6                     u1020:
+   519     04E6  0826               	movf	??_main,w
+   520     04E7  0084               	movwf	4
+   521     04E8  1383               	bcf	3,7	;select IRP bank0
+   522     04E9  0800               	movf	0,w
+   523     04EA  00A9               	movwf	??_main+3
+   524     04EB  0AA6               	incf	??_main,f
+   525     04EC  0827               	movf	??_main+1,w
+   526     04ED  0084               	movwf	4
+   527     04EE  0829               	movf	??_main+3,w
+   528     04EF  0080               	movwf	0
+   529     04F0  0AA7               	incf	??_main+1,f
+   530     04F1  0BA8               	decfsz	??_main+2,f
+   531     04F2  2CE6               	goto	u1020
+   532     04F3                     l778:
+   533     04F3  302A               	movlw	(low (main@lcd| 0))& (0+255)
+   534     04F4  120A  118A  252B  120A  118A  	fcall	_Lcd_Init
+   535     04F9                     l780:
+   536     04F9  302A               	movlw	(low (main@lcd| 0))& (0+255)
+   537     04FA  120A  118A  2418  120A  118A  	fcall	_Lcd_Clear
+   538     04FF                     l782:
+   539     04FF  1283               	bcf	3,5	;RP0=0, select bank0
+   540     0500  1303               	bcf	3,6	;RP1=0, select bank0
+   541     0501  01A0               	clrf	Lcd_SetCursor@row
+   542     0502  0AA0               	incf	Lcd_SetCursor@row,f
+   543     0503  01A1               	clrf	Lcd_SetCursor@column
+   544     0504  0AA1               	incf	Lcd_SetCursor@column,f
+   545     0505  302A               	movlw	(low (main@lcd| 0))& (0+255)
+   546     0506  120A  118A  2451  120A  118A  	fcall	_Lcd_SetCursor
+   547     050B                     l784:
+   548     050B  3007               	movlw	(low ((STR_1-__stringbase)| (0+32768)))& (0+255)
+   549     050C  00FD               	movwf	Lcd_WriteString@str
+   550     050D  302A               	movlw	(low (main@lcd| 0))& (0+255)
+   551     050E  120A  118A  242C  120A  118A  	fcall	_Lcd_WriteString
+   552     0513                     l786:
+   553     0513  3002               	movlw	2
+   554     0514  1283               	bcf	3,5	;RP0=0, select bank0
+   555     0515  1303               	bcf	3,6	;RP1=0, select bank0
+   556     0516  00A0               	movwf	Lcd_SetCursor@row
+   557     0517  01A1               	clrf	Lcd_SetCursor@column
+   558     0518  0AA1               	incf	Lcd_SetCursor@column,f
+   559     0519  302A               	movlw	(low (main@lcd| 0))& (0+255)
+   560     051A  120A  118A  2451  120A  118A  	fcall	_Lcd_SetCursor
+   561     051F                     l788:
+   562     051F  3001               	movlw	(low ((STR_2-__stringbase)| (0+32768)))& (0+255)
+   563     0520  00FD               	movwf	Lcd_WriteString@str
+   564     0521  302A               	movlw	(low (main@lcd| 0))& (0+255)
+   565     0522  120A  118A  242C  120A  118A  	fcall	_Lcd_WriteString
+   566     0527                     l19:
+   567     0527                     l20:
+   568     0527  2D27               	goto	l19
+   569     0528  120A  118A  2800   	ljmp	start
+   570     052B                     __end_of_main:
+   571                           
+   572                           	psect	text1
+   573     042C                     __ptext1:	
+   574 ;; *************** function _Lcd_WriteString *****************
+   575 ;; Defined at:
+   576 ;;		line 103 in file "../../pic16flcd.c"
+   577 ;; Parameters:    Size  Location     Type
+   578 ;;  config          1    wreg     PTR struct .
+   579 ;;		 -> main@lcd(8), 
+   580 ;;  str             1   13[COMMON] PTR unsigned char 
+   581 ;;		 -> STR_2(6), STR_1(6), 
+   582 ;; Auto vars:     Size  Location     Type
+   583 ;;  config          1    1[BANK0 ] PTR struct .
+   584 ;;		 -> main@lcd(8), 
+   585 ;; Return value:  Size  Location     Type
+   586 ;;                  1    wreg      void 
+   587 ;; Registers used:
+   588 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   589 ;; Tracked objects:
+   590 ;;		On entry : 0/0
+   591 ;;		On exit  : 0/0
+   592 ;;		Unchanged: 0/0
+   593 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   594 ;;      Params:         1       0       0       0       0
+   595 ;;      Locals:         0       1       0       0       0
+   596 ;;      Temps:          0       1       0       0       0
+   597 ;;      Totals:         1       2       0       0       0
+   598 ;;Total ram usage:        3 bytes
+   599 ;; Hardware stack levels used: 1
+   600 ;; Hardware stack levels required when called: 3
+   601 ;; This function calls:
+   602 ;;		_Lcd_WriteChar
+   603 ;; This function is called by:
+   604 ;;		_main
+   605 ;; This function uses a non-reentrant model
+   606 ;;
+   607                           
+   608     042C                     _Lcd_WriteString:	
+   609                           ;psect for function _Lcd_WriteString
+   610                           
+   611                           
+   612                           ;incstack = 0
+   613                           ; Regs used in _Lcd_WriteString: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   614                           ;Lcd_WriteString@config stored from wreg
+   615     042C  1283               	bcf	3,5	;RP0=0, select bank0
+   616     042D  1303               	bcf	3,6	;RP1=0, select bank0
+   617     042E  00A1               	movwf	Lcd_WriteString@config
+   618     042F                     l766:
    619                           
-   620                           ;../../../pic16flcd.c: 105:         Lcd_WriteChar(config, (unsigned char)(*str));
-   621     0436  087C               	movf	Lcd_WriteString@str,w
-   622     0437  0084               	movwf	4
-   623     0438  120A  118A  2003  120A  118A  	fcall	stringdir
-   624     043D  00F8               	movwf	Lcd_WriteChar@data
-   625     043E  087D               	movf	Lcd_WriteString@config,w
-   626     043F  120A  118A  26C3  120A  118A  	fcall	_Lcd_WriteChar
-   627     0444                     l770:
-   628                           
-   629                           ;../../../pic16flcd.c: 106:         str++;
-   630     0444  3001               	movlw	1
-   631     0445  00FF               	movwf	btemp+1
-   632     0446  087F               	movf	btemp+1,w
-   633     0447  07FC               	addwf	Lcd_WriteString@str,f
-   634     0448                     l772:
-   635                           
-   636                           ;../../../pic16flcd.c: 104:     while(*str != '\0') {
-   637     0448  087C               	movf	Lcd_WriteString@str,w
-   638     0449  0084               	movwf	4
-   639     044A  120A  118A  2003  120A  118A  	fcall	stringdir
-   640     044F  3A00               	xorlw	0
-   641     0450  1D03               	skipz
-   642     0451  2C53               	goto	u1011
-   643     0452  2C54               	goto	u1010
-   644     0453                     u1011:
-   645     0453  2C36               	goto	l768
-   646     0454                     u1010:
-   647     0454                     l46:
-   648     0454  0008               	return
-   649     0455                     __end_of_Lcd_WriteString:
-   650                           
-   651                           	psect	text2
-   652     06C3                     __ptext2:	
-   653 ;; *************** function _Lcd_WriteChar *****************
-   654 ;; Defined at:
-   655 ;;		line 78 in file "../../../pic16flcd.c"
-   656 ;; Parameters:    Size  Location     Type
-   657 ;;  config          1    wreg     PTR struct .
-   658 ;;		 -> main@lcd(8), 
-   659 ;;  data            1    8[COMMON] unsigned char 
-   660 ;; Auto vars:     Size  Location     Type
-   661 ;;  config          1   11[COMMON] PTR struct .
-   662 ;;		 -> main@lcd(8), 
-   663 ;; Return value:  Size  Location     Type
-   664 ;;                  1    wreg      void 
-   665 ;; Registers used:
-   666 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
-   667 ;; Tracked objects:
-   668 ;;		On entry : 0/0
-   669 ;;		On exit  : 0/0
-   670 ;;		Unchanged: 0/0
-   671 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   672 ;;      Params:         1       0       0       0       0
-   673 ;;      Locals:         1       0       0       0       0
-   674 ;;      Temps:          2       0       0       0       0
-   675 ;;      Totals:         4       0       0       0       0
-   676 ;;Total ram usage:        4 bytes
-   677 ;; Hardware stack levels used: 1
-   678 ;; Hardware stack levels required when called: 2
-   679 ;; This function calls:
-   680 ;;		_PulseEnable
-   681 ;;		_SetBit
-   682 ;; This function is called by:
-   683 ;;		_Lcd_WriteString
-   684 ;; This function uses a non-reentrant model
-   685 ;;
-   686                           
-   687     06C3                     _Lcd_WriteChar:	
-   688                           ;psect for function _Lcd_WriteChar
-   689                           
-   690                           
-   691                           ;incstack = 0
-   692                           ; Regs used in _Lcd_WriteChar: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-   693                           ;Lcd_WriteChar@config stored from wreg
-   694     06C3  00FB               	movwf	Lcd_WriteChar@config
-   695     06C4                     l724:
+   620                           ;../../pic16flcd.c: 104:     while(*str != '\0') {
+   621     042F  2C44               	goto	l772
+   622     0430                     l768:
+   623                           
+   624                           ;../../pic16flcd.c: 105:         Lcd_WriteChar(config, (unsigned char)(*str));
+   625     0430  087D               	movf	Lcd_WriteString@str,w
+   626     0431  0084               	movwf	4
+   627     0432  120A  118A  2003  120A  118A  	fcall	stringdir
+   628     0437  00F9               	movwf	Lcd_WriteChar@data
+   629     0438  0821               	movf	Lcd_WriteString@config,w
+   630     0439  120A  118A  26C3  120A  118A  	fcall	_Lcd_WriteChar
+   631     043E                     l770:
+   632                           
+   633                           ;../../pic16flcd.c: 106:         str++;
+   634     043E  3001               	movlw	1
+   635     043F  1283               	bcf	3,5	;RP0=0, select bank0
+   636     0440  1303               	bcf	3,6	;RP1=0, select bank0
+   637     0441  00A0               	movwf	??_Lcd_WriteString
+   638     0442  0820               	movf	??_Lcd_WriteString,w
+   639     0443  07FD               	addwf	Lcd_WriteString@str,f
+   640     0444                     l772:
+   641                           
+   642                           ;../../pic16flcd.c: 104:     while(*str != '\0') {
+   643     0444  087D               	movf	Lcd_WriteString@str,w
+   644     0445  0084               	movwf	4
+   645     0446  120A  118A  2003  120A  118A  	fcall	stringdir
+   646     044B  3A00               	xorlw	0
+   647     044C  1D03               	skipz
+   648     044D  2C4F               	goto	u1011
+   649     044E  2C50               	goto	u1010
+   650     044F                     u1011:
+   651     044F  2C30               	goto	l768
+   652     0450                     u1010:
+   653     0450                     l46:
+   654     0450  0008               	return
+   655     0451                     __end_of_Lcd_WriteString:
+   656                           
+   657                           	psect	text2
+   658     06C3                     __ptext2:	
+   659 ;; *************** function _Lcd_WriteChar *****************
+   660 ;; Defined at:
+   661 ;;		line 78 in file "../../pic16flcd.c"
+   662 ;; Parameters:    Size  Location     Type
+   663 ;;  config          1    wreg     PTR struct .
+   664 ;;		 -> main@lcd(8), 
+   665 ;;  data            1    9[COMMON] unsigned char 
+   666 ;; Auto vars:     Size  Location     Type
+   667 ;;  config          1   12[COMMON] PTR struct .
+   668 ;;		 -> main@lcd(8), 
+   669 ;; Return value:  Size  Location     Type
+   670 ;;                  1    wreg      void 
+   671 ;; Registers used:
+   672 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   673 ;; Tracked objects:
+   674 ;;		On entry : 0/0
+   675 ;;		On exit  : 0/0
+   676 ;;		Unchanged: 0/0
+   677 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   678 ;;      Params:         1       0       0       0       0
+   679 ;;      Locals:         1       0       0       0       0
+   680 ;;      Temps:          2       0       0       0       0
+   681 ;;      Totals:         4       0       0       0       0
+   682 ;;Total ram usage:        4 bytes
+   683 ;; Hardware stack levels used: 1
+   684 ;; Hardware stack levels required when called: 2
+   685 ;; This function calls:
+   686 ;;		_PulseEnable
+   687 ;;		_SetBit
+   688 ;; This function is called by:
+   689 ;;		_Lcd_WriteString
+   690 ;; This function uses a non-reentrant model
+   691 ;;
+   692                           
+   693     06C3                     _Lcd_WriteChar:	
+   694                           ;psect for function _Lcd_WriteChar
+   695                           
    696                           
-   697                           ;../../../pic16flcd.c: 80:     SetBit(config->port, config->d4_pin, (data >> 4) & 0x01);
-   698     06C4  087B               	movf	Lcd_WriteChar@config,w
-   699     06C5  0084               	movwf	4
-   700     06C6  1383               	bcf	3,7	;select IRP bank0
-   701     06C7  0800               	movf	0,w
-   702     06C8  00F0               	movwf	SetBit@port
-   703     06C9  0A84               	incf	4,f
-   704     06CA  0800               	movf	0,w
-   705     06CB  0384               	decf	4,f
-   706     06CC  00F1               	movwf	SetBit@port+1
-   707     06CD  087B               	movf	Lcd_WriteChar@config,w
-   708     06CE  3E04               	addlw	4
-   709     06CF  0084               	movwf	4
-   710     06D0  0800               	movf	0,w
-   711     06D1  00F2               	movwf	SetBit@pin
-   712     06D2  0878               	movf	Lcd_WriteChar@data,w
-   713     06D3  00FA               	movwf	??_Lcd_WriteChar+1
-   714     06D4  3004               	movlw	4
-   715     06D5                     u785:
-   716     06D5  1003               	clrc
-   717     06D6  0CFA               	rrf	??_Lcd_WriteChar+1,f
-   718     06D7  3EFF               	addlw	-1
-   719     06D8  1D03               	skipz
-   720     06D9  2ED5               	goto	u785
-   721     06DA  187A               	btfsc	??_Lcd_WriteChar+1,0
-   722     06DB  2EDD               	goto	u791
-   723     06DC  2EDF               	goto	u790
-   724     06DD                     u791:
-   725     06DD  3001               	movlw	1
-   726     06DE  2EE0               	goto	u800
-   727     06DF                     u790:
-   728     06DF  3000               	movlw	0
-   729     06E0                     u800:
-   730     06E0  00F3               	movwf	SetBit@value
-   731     06E1  120A  118A  247D  120A  118A  	fcall	_SetBit
-   732                           
-   733                           ;../../../pic16flcd.c: 81:     SetBit(config->port, config->d5_pin, (data >> 5) & 0x01);
-   734     06E6  087B               	movf	Lcd_WriteChar@config,w
-   735     06E7  0084               	movwf	4
-   736     06E8  1383               	bcf	3,7	;select IRP bank0
-   737     06E9  0800               	movf	0,w
-   738     06EA  00F0               	movwf	SetBit@port
-   739     06EB  0A84               	incf	4,f
-   740     06EC  0800               	movf	0,w
-   741     06ED  0384               	decf	4,f
-   742     06EE  00F1               	movwf	SetBit@port+1
-   743     06EF  087B               	movf	Lcd_WriteChar@config,w
-   744     06F0  3E05               	addlw	5
-   745     06F1  0084               	movwf	4
-   746     06F2  0800               	movf	0,w
-   747     06F3  00F2               	movwf	SetBit@pin
-   748     06F4  0878               	movf	Lcd_WriteChar@data,w
-   749     06F5  00FA               	movwf	??_Lcd_WriteChar+1
-   750     06F6  3005               	movlw	5
-   751     06F7                     u815:
-   752     06F7  1003               	clrc
-   753     06F8  0CFA               	rrf	??_Lcd_WriteChar+1,f
-   754     06F9  3EFF               	addlw	-1
-   755     06FA  1D03               	skipz
-   756     06FB  2EF7               	goto	u815
-   757     06FC  187A               	btfsc	??_Lcd_WriteChar+1,0
-   758     06FD  2EFF               	goto	u821
-   759     06FE  2F01               	goto	u820
-   760     06FF                     u821:
-   761     06FF  3001               	movlw	1
-   762     0700  2F02               	goto	u830
-   763     0701                     u820:
-   764     0701  3000               	movlw	0
-   765     0702                     u830:
-   766     0702  00F3               	movwf	SetBit@value
-   767     0703  120A  118A  247D  120A  118A  	fcall	_SetBit
-   768                           
-   769                           ;../../../pic16flcd.c: 82:     SetBit(config->port, config->d6_pin, (data >> 6) & 0x01);
-   770     0708  087B               	movf	Lcd_WriteChar@config,w
-   771     0709  0084               	movwf	4
-   772     070A  1383               	bcf	3,7	;select IRP bank0
-   773     070B  0800               	movf	0,w
-   774     070C  00F0               	movwf	SetBit@port
-   775     070D  0A84               	incf	4,f
-   776     070E  0800               	movf	0,w
-   777     070F  0384               	decf	4,f
-   778     0710  00F1               	movwf	SetBit@port+1
-   779     0711  087B               	movf	Lcd_WriteChar@config,w
-   780     0712  3E06               	addlw	6
-   781     0713  0084               	movwf	4
-   782     0714  0800               	movf	0,w
-   783     0715  00F2               	movwf	SetBit@pin
-   784     0716  0878               	movf	Lcd_WriteChar@data,w
-   785     0717  00FA               	movwf	??_Lcd_WriteChar+1
-   786     0718  3006               	movlw	6
-   787     0719                     u845:
-   788     0719  1003               	clrc
-   789     071A  0CFA               	rrf	??_Lcd_WriteChar+1,f
-   790     071B  3EFF               	addlw	-1
-   791     071C  1D03               	skipz
-   792     071D  2F19               	goto	u845
-   793     071E  187A               	btfsc	??_Lcd_WriteChar+1,0
-   794     071F  2F21               	goto	u851
-   795     0720  2F23               	goto	u850
-   796     0721                     u851:
-   797     0721  3001               	movlw	1
-   798     0722  2F24               	goto	u860
-   799     0723                     u850:
-   800     0723  3000               	movlw	0
-   801     0724                     u860:
-   802     0724  00F3               	movwf	SetBit@value
-   803     0725  120A  118A  247D  120A  118A  	fcall	_SetBit
-   804                           
-   805                           ;../../../pic16flcd.c: 83:     SetBit(config->port, config->d7_pin, (data >> 7) & 0x01);
-   806     072A  087B               	movf	Lcd_WriteChar@config,w
-   807     072B  0084               	movwf	4
-   808     072C  1383               	bcf	3,7	;select IRP bank0
-   809     072D  0800               	movf	0,w
-   810     072E  00F0               	movwf	SetBit@port
-   811     072F  0A84               	incf	4,f
-   812     0730  0800               	movf	0,w
-   813     0731  0384               	decf	4,f
-   814     0732  00F1               	movwf	SetBit@port+1
-   815     0733  087B               	movf	Lcd_WriteChar@config,w
-   816     0734  3E07               	addlw	7
-   817     0735  0084               	movwf	4
-   818     0736  0800               	movf	0,w
-   819     0737  00F2               	movwf	SetBit@pin
-   820     0738  0878               	movf	Lcd_WriteChar@data,w
-   821     0739  00FA               	movwf	??_Lcd_WriteChar+1
-   822     073A  3007               	movlw	7
-   823     073B                     u875:
-   824     073B  1003               	clrc
-   825     073C  0CFA               	rrf	??_Lcd_WriteChar+1,f
-   826     073D  3EFF               	addlw	-1
-   827     073E  1D03               	skipz
-   828     073F  2F3B               	goto	u875
-   829     0740  187A               	btfsc	??_Lcd_WriteChar+1,0
-   830     0741  2F43               	goto	u881
-   831     0742  2F45               	goto	u880
-   832     0743                     u881:
-   833     0743  3001               	movlw	1
-   834     0744  2F46               	goto	u890
-   835     0745                     u880:
-   836     0745  3000               	movlw	0
-   837     0746                     u890:
-   838     0746  00F3               	movwf	SetBit@value
-   839     0747  120A  118A  247D  120A  118A  	fcall	_SetBit
-   840                           
-   841                           ;../../../pic16flcd.c: 85:     SetBit(config->port, config->rs_pin, 1);
-   842     074C  087B               	movf	Lcd_WriteChar@config,w
-   843     074D  0084               	movwf	4
-   844     074E  1383               	bcf	3,7	;select IRP bank0
-   845     074F  0800               	movf	0,w
-   846     0750  00F0               	movwf	SetBit@port
-   847     0751  0A84               	incf	4,f
-   848     0752  0800               	movf	0,w
-   849     0753  0384               	decf	4,f
-   850     0754  00F1               	movwf	SetBit@port+1
-   851     0755  087B               	movf	Lcd_WriteChar@config,w
-   852     0756  3E02               	addlw	2
-   853     0757  0084               	movwf	4
-   854     0758  0800               	movf	0,w
-   855     0759  00F2               	movwf	SetBit@pin
-   856     075A  01F3               	clrf	SetBit@value
-   857     075B  0AF3               	incf	SetBit@value,f
-   858     075C  120A  118A  247D  120A  118A  	fcall	_SetBit
-   859                           
-   860                           ;../../../pic16flcd.c: 86:     PulseEnable(config);
-   861     0761  087B               	movf	Lcd_WriteChar@config,w
-   862     0762  120A  118A  24A9  120A  118A  	fcall	_PulseEnable
-   863                           
-   864                           ;../../../pic16flcd.c: 89:     SetBit(config->port, config->d4_pin, data & 0x01);
-   865     0767  087B               	movf	Lcd_WriteChar@config,w
-   866     0768  0084               	movwf	4
-   867     0769  1383               	bcf	3,7	;select IRP bank0
-   868     076A  0800               	movf	0,w
-   869     076B  00F0               	movwf	SetBit@port
-   870     076C  0A84               	incf	4,f
-   871     076D  0800               	movf	0,w
-   872     076E  0384               	decf	4,f
-   873     076F  00F1               	movwf	SetBit@port+1
-   874     0770  087B               	movf	Lcd_WriteChar@config,w
-   875     0771  3E04               	addlw	4
-   876     0772  0084               	movwf	4
-   877     0773  0800               	movf	0,w
-   878     0774  00F2               	movwf	SetBit@pin
-   879     0775  1878               	btfsc	Lcd_WriteChar@data,0
-   880     0776  2F78               	goto	u901
-   881     0777  2F7A               	goto	u900
-   882     0778                     u901:
-   883     0778  3001               	movlw	1
-   884     0779  2F7B               	goto	u910
-   885     077A                     u900:
-   886     077A  3000               	movlw	0
-   887     077B                     u910:
-   888     077B  00F3               	movwf	SetBit@value
-   889     077C  120A  118A  247D  120A  118A  	fcall	_SetBit
-   890                           
-   891                           ;../../../pic16flcd.c: 90:     SetBit(config->port, config->d5_pin, (data >> 1) & 0x01);
-   892     0781  087B               	movf	Lcd_WriteChar@config,w
-   893     0782  0084               	movwf	4
-   894     0783  1383               	bcf	3,7	;select IRP bank0
-   895     0784  0800               	movf	0,w
-   896     0785  00F0               	movwf	SetBit@port
-   897     0786  0A84               	incf	4,f
-   898     0787  0800               	movf	0,w
-   899     0788  0384               	decf	4,f
-   900     0789  00F1               	movwf	SetBit@port+1
-   901     078A  087B               	movf	Lcd_WriteChar@config,w
-   902     078B  3E05               	addlw	5
-   903     078C  0084               	movwf	4
-   904     078D  0800               	movf	0,w
-   905     078E  00F2               	movwf	SetBit@pin
-   906     078F  0878               	movf	Lcd_WriteChar@data,w
-   907     0790  00FA               	movwf	??_Lcd_WriteChar+1
-   908     0791  3001               	movlw	1
-   909     0792                     u925:
-   910     0792  1003               	clrc
-   911     0793  0CFA               	rrf	??_Lcd_WriteChar+1,f
-   912     0794  3EFF               	addlw	-1
-   913     0795  1D03               	skipz
-   914     0796  2F92               	goto	u925
-   915     0797  187A               	btfsc	??_Lcd_WriteChar+1,0
-   916     0798  2F9A               	goto	u931
-   917     0799  2F9C               	goto	u930
-   918     079A                     u931:
-   919     079A  3001               	movlw	1
-   920     079B  2F9D               	goto	u940
-   921     079C                     u930:
-   922     079C  3000               	movlw	0
-   923     079D                     u940:
-   924     079D  00F3               	movwf	SetBit@value
-   925     079E  120A  118A  247D  120A  118A  	fcall	_SetBit
-   926                           
-   927                           ;../../../pic16flcd.c: 91:     SetBit(config->port, config->d6_pin, (data >> 2) & 0x01);
-   928     07A3  087B               	movf	Lcd_WriteChar@config,w
-   929     07A4  0084               	movwf	4
-   930     07A5  1383               	bcf	3,7	;select IRP bank0
-   931     07A6  0800               	movf	0,w
-   932     07A7  00F0               	movwf	SetBit@port
-   933     07A8  0A84               	incf	4,f
-   934     07A9  0800               	movf	0,w
-   935     07AA  0384               	decf	4,f
-   936     07AB  00F1               	movwf	SetBit@port+1
-   937     07AC  087B               	movf	Lcd_WriteChar@config,w
-   938     07AD  3E06               	addlw	6
-   939     07AE  0084               	movwf	4
-   940     07AF  0800               	movf	0,w
-   941     07B0  00F2               	movwf	SetBit@pin
-   942     07B1  0878               	movf	Lcd_WriteChar@data,w
-   943     07B2  00FA               	movwf	??_Lcd_WriteChar+1
-   944     07B3  3002               	movlw	2
-   945     07B4                     u955:
-   946     07B4  1003               	clrc
-   947     07B5  0CFA               	rrf	??_Lcd_WriteChar+1,f
-   948     07B6  3EFF               	addlw	-1
-   949     07B7  1D03               	skipz
-   950     07B8  2FB4               	goto	u955
-   951     07B9  187A               	btfsc	??_Lcd_WriteChar+1,0
-   952     07BA  2FBC               	goto	u961
-   953     07BB  2FBE               	goto	u960
-   954     07BC                     u961:
-   955     07BC  3001               	movlw	1
-   956     07BD  2FBF               	goto	u970
-   957     07BE                     u960:
-   958     07BE  3000               	movlw	0
-   959     07BF                     u970:
-   960     07BF  00F3               	movwf	SetBit@value
-   961     07C0  120A  118A  247D  120A  118A  	fcall	_SetBit
-   962                           
-   963                           ;../../../pic16flcd.c: 92:     SetBit(config->port, config->d7_pin, (data >> 3) & 0x01);
-   964     07C5  087B               	movf	Lcd_WriteChar@config,w
-   965     07C6  0084               	movwf	4
-   966     07C7  1383               	bcf	3,7	;select IRP bank0
-   967     07C8  0800               	movf	0,w
-   968     07C9  00F0               	movwf	SetBit@port
-   969     07CA  0A84               	incf	4,f
-   970     07CB  0800               	movf	0,w
-   971     07CC  0384               	decf	4,f
-   972     07CD  00F1               	movwf	SetBit@port+1
-   973     07CE  087B               	movf	Lcd_WriteChar@config,w
-   974     07CF  3E07               	addlw	7
-   975     07D0  0084               	movwf	4
-   976     07D1  0800               	movf	0,w
-   977     07D2  00F2               	movwf	SetBit@pin
-   978     07D3  0878               	movf	Lcd_WriteChar@data,w
-   979     07D4  00FA               	movwf	??_Lcd_WriteChar+1
-   980     07D5  3003               	movlw	3
-   981     07D6                     u985:
-   982     07D6  1003               	clrc
-   983     07D7  0CFA               	rrf	??_Lcd_WriteChar+1,f
-   984     07D8  3EFF               	addlw	-1
-   985     07D9  1D03               	skipz
-   986     07DA  2FD6               	goto	u985
-   987     07DB  187A               	btfsc	??_Lcd_WriteChar+1,0
-   988     07DC  2FDE               	goto	u991
-   989     07DD  2FE0               	goto	u990
-   990     07DE                     u991:
-   991     07DE  3001               	movlw	1
-   992     07DF  2FE1               	goto	u1000
-   993     07E0                     u990:
-   994     07E0  3000               	movlw	0
-   995     07E1                     u1000:
-   996     07E1  00F3               	movwf	SetBit@value
-   997     07E2  120A  118A  247D  120A  118A  	fcall	_SetBit
-   998                           
-   999                           ;../../../pic16flcd.c: 94:     PulseEnable(config);
-  1000     07E7  087B               	movf	Lcd_WriteChar@config,w
-  1001     07E8  120A  118A  24A9  120A  118A  	fcall	_PulseEnable
-  1002     07ED                     l40:
-  1003     07ED  0008               	return
-  1004     07EE                     __end_of_Lcd_WriteChar:
-  1005                           
-  1006                           	psect	text3
-  1007     0455                     __ptext3:	
-  1008 ;; *************** function _Lcd_SetCursor *****************
-  1009 ;; Defined at:
-  1010 ;;		line 149 in file "../../../pic16flcd.c"
-  1011 ;; Parameters:    Size  Location     Type
-  1012 ;;  config          1    wreg     PTR struct .
-  1013 ;;		 -> main@lcd(8), 
-  1014 ;;  row             1   12[COMMON] unsigned char 
-  1015 ;;  column          1   13[COMMON] unsigned char 
-  1016 ;; Auto vars:     Size  Location     Type
-  1017 ;;  config          1    2[BANK0 ] PTR struct .
-  1018 ;;		 -> main@lcd(8), 
-  1019 ;;  address         1    3[BANK0 ] unsigned char 
-  1020 ;; Return value:  Size  Location     Type
-  1021 ;;                  1    wreg      void 
-  1022 ;; Registers used:
-  1023 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
-  1024 ;; Tracked objects:
-  1025 ;;		On entry : 0/0
-  1026 ;;		On exit  : 0/0
-  1027 ;;		Unchanged: 0/0
-  1028 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1029 ;;      Params:         2       0       0       0       0
-  1030 ;;      Locals:         0       2       0       0       0
-  1031 ;;      Temps:          0       2       0       0       0
-  1032 ;;      Totals:         2       4       0       0       0
-  1033 ;;Total ram usage:        6 bytes
-  1034 ;; Hardware stack levels used: 1
-  1035 ;; Hardware stack levels required when called: 3
-  1036 ;; This function calls:
-  1037 ;;		_Lcd_Command
-  1038 ;; This function is called by:
-  1039 ;;		_main
-  1040 ;; This function uses a non-reentrant model
-  1041 ;;
-  1042                           
-  1043     0455                     _Lcd_SetCursor:	
-  1044                           ;psect for function _Lcd_SetCursor
-  1045                           
-  1046                           
-  1047                           ;incstack = 0
-  1048                           ; Regs used in _Lcd_SetCursor: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-  1049                           ;Lcd_SetCursor@config stored from wreg
-  1050     0455  1283               	bcf	3,5	;RP0=0, select bank0
-  1051     0456  1303               	bcf	3,6	;RP1=0, select bank0
-  1052     0457  00A2               	movwf	Lcd_SetCursor@config
-  1053     0458                     l746:
-  1054                           
-  1055                           ;../../../pic16flcd.c: 150:     unsigned char address;;../../../pic16flcd.c: 153:     sw
-      +                          itch(row) {
-  1056     0458  2C5F               	goto	l754
-  1057     0459                     l748:
-  1058                           
-  1059                           ;../../../pic16flcd.c: 155:             address = 0x80;
-  1060     0459  3080               	movlw	128
-  1061     045A  00A3               	movwf	Lcd_SetCursor@address
-  1062                           
-  1063                           ;../../../pic16flcd.c: 156:             break;
-  1064     045B  2C6F               	goto	l756
-  1065     045C                     l750:
-  1066                           
-  1067                           ;../../../pic16flcd.c: 158:             address = 0xC0;
-  1068     045C  30C0               	movlw	192
-  1069     045D  00A3               	movwf	Lcd_SetCursor@address
-  1070                           
-  1071                           ;../../../pic16flcd.c: 159:             break;
-  1072     045E  2C6F               	goto	l756
-  1073     045F                     l754:
-  1074     045F  087C               	movf	Lcd_SetCursor@row,w
-  1075     0460  00A0               	movwf	??_Lcd_SetCursor
-  1076     0461  01A1               	clrf	??_Lcd_SetCursor+1
-  1077                           
-  1078                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+   697                           ;incstack = 0
+   698                           ; Regs used in _Lcd_WriteChar: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   699                           ;Lcd_WriteChar@config stored from wreg
+   700     06C3  00FC               	movwf	Lcd_WriteChar@config
+   701     06C4                     l724:
+   702                           
+   703                           ;../../pic16flcd.c: 80:     SetBit(config->port, config->d4_pin, (data >> 4) & 0x01);
+   704     06C4  087C               	movf	Lcd_WriteChar@config,w
+   705     06C5  0084               	movwf	4
+   706     06C6  1383               	bcf	3,7	;select IRP bank0
+   707     06C7  0800               	movf	0,w
+   708     06C8  00F0               	movwf	SetBit@port
+   709     06C9  0A84               	incf	4,f
+   710     06CA  0800               	movf	0,w
+   711     06CB  0384               	decf	4,f
+   712     06CC  00F1               	movwf	SetBit@port+1
+   713     06CD  087C               	movf	Lcd_WriteChar@config,w
+   714     06CE  3E04               	addlw	4
+   715     06CF  0084               	movwf	4
+   716     06D0  0800               	movf	0,w
+   717     06D1  00F2               	movwf	SetBit@pin
+   718     06D2  0879               	movf	Lcd_WriteChar@data,w
+   719     06D3  00FB               	movwf	??_Lcd_WriteChar+1
+   720     06D4  3004               	movlw	4
+   721     06D5                     u785:
+   722     06D5  1003               	clrc
+   723     06D6  0CFB               	rrf	??_Lcd_WriteChar+1,f
+   724     06D7  3EFF               	addlw	-1
+   725     06D8  1D03               	skipz
+   726     06D9  2ED5               	goto	u785
+   727     06DA  187B               	btfsc	??_Lcd_WriteChar+1,0
+   728     06DB  2EDD               	goto	u791
+   729     06DC  2EDF               	goto	u790
+   730     06DD                     u791:
+   731     06DD  3001               	movlw	1
+   732     06DE  2EE0               	goto	u800
+   733     06DF                     u790:
+   734     06DF  3000               	movlw	0
+   735     06E0                     u800:
+   736     06E0  00F3               	movwf	SetBit@value
+   737     06E1  120A  118A  2479  120A  118A  	fcall	_SetBit
+   738                           
+   739                           ;../../pic16flcd.c: 81:     SetBit(config->port, config->d5_pin, (data >> 5) & 0x01);
+   740     06E6  087C               	movf	Lcd_WriteChar@config,w
+   741     06E7  0084               	movwf	4
+   742     06E8  1383               	bcf	3,7	;select IRP bank0
+   743     06E9  0800               	movf	0,w
+   744     06EA  00F0               	movwf	SetBit@port
+   745     06EB  0A84               	incf	4,f
+   746     06EC  0800               	movf	0,w
+   747     06ED  0384               	decf	4,f
+   748     06EE  00F1               	movwf	SetBit@port+1
+   749     06EF  087C               	movf	Lcd_WriteChar@config,w
+   750     06F0  3E05               	addlw	5
+   751     06F1  0084               	movwf	4
+   752     06F2  0800               	movf	0,w
+   753     06F3  00F2               	movwf	SetBit@pin
+   754     06F4  0879               	movf	Lcd_WriteChar@data,w
+   755     06F5  00FB               	movwf	??_Lcd_WriteChar+1
+   756     06F6  3005               	movlw	5
+   757     06F7                     u815:
+   758     06F7  1003               	clrc
+   759     06F8  0CFB               	rrf	??_Lcd_WriteChar+1,f
+   760     06F9  3EFF               	addlw	-1
+   761     06FA  1D03               	skipz
+   762     06FB  2EF7               	goto	u815
+   763     06FC  187B               	btfsc	??_Lcd_WriteChar+1,0
+   764     06FD  2EFF               	goto	u821
+   765     06FE  2F01               	goto	u820
+   766     06FF                     u821:
+   767     06FF  3001               	movlw	1
+   768     0700  2F02               	goto	u830
+   769     0701                     u820:
+   770     0701  3000               	movlw	0
+   771     0702                     u830:
+   772     0702  00F3               	movwf	SetBit@value
+   773     0703  120A  118A  2479  120A  118A  	fcall	_SetBit
+   774                           
+   775                           ;../../pic16flcd.c: 82:     SetBit(config->port, config->d6_pin, (data >> 6) & 0x01);
+   776     0708  087C               	movf	Lcd_WriteChar@config,w
+   777     0709  0084               	movwf	4
+   778     070A  1383               	bcf	3,7	;select IRP bank0
+   779     070B  0800               	movf	0,w
+   780     070C  00F0               	movwf	SetBit@port
+   781     070D  0A84               	incf	4,f
+   782     070E  0800               	movf	0,w
+   783     070F  0384               	decf	4,f
+   784     0710  00F1               	movwf	SetBit@port+1
+   785     0711  087C               	movf	Lcd_WriteChar@config,w
+   786     0712  3E06               	addlw	6
+   787     0713  0084               	movwf	4
+   788     0714  0800               	movf	0,w
+   789     0715  00F2               	movwf	SetBit@pin
+   790     0716  0879               	movf	Lcd_WriteChar@data,w
+   791     0717  00FB               	movwf	??_Lcd_WriteChar+1
+   792     0718  3006               	movlw	6
+   793     0719                     u845:
+   794     0719  1003               	clrc
+   795     071A  0CFB               	rrf	??_Lcd_WriteChar+1,f
+   796     071B  3EFF               	addlw	-1
+   797     071C  1D03               	skipz
+   798     071D  2F19               	goto	u845
+   799     071E  187B               	btfsc	??_Lcd_WriteChar+1,0
+   800     071F  2F21               	goto	u851
+   801     0720  2F23               	goto	u850
+   802     0721                     u851:
+   803     0721  3001               	movlw	1
+   804     0722  2F24               	goto	u860
+   805     0723                     u850:
+   806     0723  3000               	movlw	0
+   807     0724                     u860:
+   808     0724  00F3               	movwf	SetBit@value
+   809     0725  120A  118A  2479  120A  118A  	fcall	_SetBit
+   810                           
+   811                           ;../../pic16flcd.c: 83:     SetBit(config->port, config->d7_pin, (data >> 7) & 0x01);
+   812     072A  087C               	movf	Lcd_WriteChar@config,w
+   813     072B  0084               	movwf	4
+   814     072C  1383               	bcf	3,7	;select IRP bank0
+   815     072D  0800               	movf	0,w
+   816     072E  00F0               	movwf	SetBit@port
+   817     072F  0A84               	incf	4,f
+   818     0730  0800               	movf	0,w
+   819     0731  0384               	decf	4,f
+   820     0732  00F1               	movwf	SetBit@port+1
+   821     0733  087C               	movf	Lcd_WriteChar@config,w
+   822     0734  3E07               	addlw	7
+   823     0735  0084               	movwf	4
+   824     0736  0800               	movf	0,w
+   825     0737  00F2               	movwf	SetBit@pin
+   826     0738  0879               	movf	Lcd_WriteChar@data,w
+   827     0739  00FB               	movwf	??_Lcd_WriteChar+1
+   828     073A  3007               	movlw	7
+   829     073B                     u875:
+   830     073B  1003               	clrc
+   831     073C  0CFB               	rrf	??_Lcd_WriteChar+1,f
+   832     073D  3EFF               	addlw	-1
+   833     073E  1D03               	skipz
+   834     073F  2F3B               	goto	u875
+   835     0740  187B               	btfsc	??_Lcd_WriteChar+1,0
+   836     0741  2F43               	goto	u881
+   837     0742  2F45               	goto	u880
+   838     0743                     u881:
+   839     0743  3001               	movlw	1
+   840     0744  2F46               	goto	u890
+   841     0745                     u880:
+   842     0745  3000               	movlw	0
+   843     0746                     u890:
+   844     0746  00F3               	movwf	SetBit@value
+   845     0747  120A  118A  2479  120A  118A  	fcall	_SetBit
+   846                           
+   847                           ;../../pic16flcd.c: 85:     SetBit(config->port, config->rs_pin, 1);
+   848     074C  087C               	movf	Lcd_WriteChar@config,w
+   849     074D  0084               	movwf	4
+   850     074E  1383               	bcf	3,7	;select IRP bank0
+   851     074F  0800               	movf	0,w
+   852     0750  00F0               	movwf	SetBit@port
+   853     0751  0A84               	incf	4,f
+   854     0752  0800               	movf	0,w
+   855     0753  0384               	decf	4,f
+   856     0754  00F1               	movwf	SetBit@port+1
+   857     0755  087C               	movf	Lcd_WriteChar@config,w
+   858     0756  3E02               	addlw	2
+   859     0757  0084               	movwf	4
+   860     0758  0800               	movf	0,w
+   861     0759  00F2               	movwf	SetBit@pin
+   862     075A  01F3               	clrf	SetBit@value
+   863     075B  0AF3               	incf	SetBit@value,f
+   864     075C  120A  118A  2479  120A  118A  	fcall	_SetBit
+   865                           
+   866                           ;../../pic16flcd.c: 86:     PulseEnable(config);
+   867     0761  087C               	movf	Lcd_WriteChar@config,w
+   868     0762  120A  118A  24A5  120A  118A  	fcall	_PulseEnable
+   869                           
+   870                           ;../../pic16flcd.c: 89:     SetBit(config->port, config->d4_pin, data & 0x01);
+   871     0767  087C               	movf	Lcd_WriteChar@config,w
+   872     0768  0084               	movwf	4
+   873     0769  1383               	bcf	3,7	;select IRP bank0
+   874     076A  0800               	movf	0,w
+   875     076B  00F0               	movwf	SetBit@port
+   876     076C  0A84               	incf	4,f
+   877     076D  0800               	movf	0,w
+   878     076E  0384               	decf	4,f
+   879     076F  00F1               	movwf	SetBit@port+1
+   880     0770  087C               	movf	Lcd_WriteChar@config,w
+   881     0771  3E04               	addlw	4
+   882     0772  0084               	movwf	4
+   883     0773  0800               	movf	0,w
+   884     0774  00F2               	movwf	SetBit@pin
+   885     0775  1879               	btfsc	Lcd_WriteChar@data,0
+   886     0776  2F78               	goto	u901
+   887     0777  2F7A               	goto	u900
+   888     0778                     u901:
+   889     0778  3001               	movlw	1
+   890     0779  2F7B               	goto	u910
+   891     077A                     u900:
+   892     077A  3000               	movlw	0
+   893     077B                     u910:
+   894     077B  00F3               	movwf	SetBit@value
+   895     077C  120A  118A  2479  120A  118A  	fcall	_SetBit
+   896                           
+   897                           ;../../pic16flcd.c: 90:     SetBit(config->port, config->d5_pin, (data >> 1) & 0x01);
+   898     0781  087C               	movf	Lcd_WriteChar@config,w
+   899     0782  0084               	movwf	4
+   900     0783  1383               	bcf	3,7	;select IRP bank0
+   901     0784  0800               	movf	0,w
+   902     0785  00F0               	movwf	SetBit@port
+   903     0786  0A84               	incf	4,f
+   904     0787  0800               	movf	0,w
+   905     0788  0384               	decf	4,f
+   906     0789  00F1               	movwf	SetBit@port+1
+   907     078A  087C               	movf	Lcd_WriteChar@config,w
+   908     078B  3E05               	addlw	5
+   909     078C  0084               	movwf	4
+   910     078D  0800               	movf	0,w
+   911     078E  00F2               	movwf	SetBit@pin
+   912     078F  0879               	movf	Lcd_WriteChar@data,w
+   913     0790  00FB               	movwf	??_Lcd_WriteChar+1
+   914     0791  3001               	movlw	1
+   915     0792                     u925:
+   916     0792  1003               	clrc
+   917     0793  0CFB               	rrf	??_Lcd_WriteChar+1,f
+   918     0794  3EFF               	addlw	-1
+   919     0795  1D03               	skipz
+   920     0796  2F92               	goto	u925
+   921     0797  187B               	btfsc	??_Lcd_WriteChar+1,0
+   922     0798  2F9A               	goto	u931
+   923     0799  2F9C               	goto	u930
+   924     079A                     u931:
+   925     079A  3001               	movlw	1
+   926     079B  2F9D               	goto	u940
+   927     079C                     u930:
+   928     079C  3000               	movlw	0
+   929     079D                     u940:
+   930     079D  00F3               	movwf	SetBit@value
+   931     079E  120A  118A  2479  120A  118A  	fcall	_SetBit
+   932                           
+   933                           ;../../pic16flcd.c: 91:     SetBit(config->port, config->d6_pin, (data >> 2) & 0x01);
+   934     07A3  087C               	movf	Lcd_WriteChar@config,w
+   935     07A4  0084               	movwf	4
+   936     07A5  1383               	bcf	3,7	;select IRP bank0
+   937     07A6  0800               	movf	0,w
+   938     07A7  00F0               	movwf	SetBit@port
+   939     07A8  0A84               	incf	4,f
+   940     07A9  0800               	movf	0,w
+   941     07AA  0384               	decf	4,f
+   942     07AB  00F1               	movwf	SetBit@port+1
+   943     07AC  087C               	movf	Lcd_WriteChar@config,w
+   944     07AD  3E06               	addlw	6
+   945     07AE  0084               	movwf	4
+   946     07AF  0800               	movf	0,w
+   947     07B0  00F2               	movwf	SetBit@pin
+   948     07B1  0879               	movf	Lcd_WriteChar@data,w
+   949     07B2  00FB               	movwf	??_Lcd_WriteChar+1
+   950     07B3  3002               	movlw	2
+   951     07B4                     u955:
+   952     07B4  1003               	clrc
+   953     07B5  0CFB               	rrf	??_Lcd_WriteChar+1,f
+   954     07B6  3EFF               	addlw	-1
+   955     07B7  1D03               	skipz
+   956     07B8  2FB4               	goto	u955
+   957     07B9  187B               	btfsc	??_Lcd_WriteChar+1,0
+   958     07BA  2FBC               	goto	u961
+   959     07BB  2FBE               	goto	u960
+   960     07BC                     u961:
+   961     07BC  3001               	movlw	1
+   962     07BD  2FBF               	goto	u970
+   963     07BE                     u960:
+   964     07BE  3000               	movlw	0
+   965     07BF                     u970:
+   966     07BF  00F3               	movwf	SetBit@value
+   967     07C0  120A  118A  2479  120A  118A  	fcall	_SetBit
+   968                           
+   969                           ;../../pic16flcd.c: 92:     SetBit(config->port, config->d7_pin, (data >> 3) & 0x01);
+   970     07C5  087C               	movf	Lcd_WriteChar@config,w
+   971     07C6  0084               	movwf	4
+   972     07C7  1383               	bcf	3,7	;select IRP bank0
+   973     07C8  0800               	movf	0,w
+   974     07C9  00F0               	movwf	SetBit@port
+   975     07CA  0A84               	incf	4,f
+   976     07CB  0800               	movf	0,w
+   977     07CC  0384               	decf	4,f
+   978     07CD  00F1               	movwf	SetBit@port+1
+   979     07CE  087C               	movf	Lcd_WriteChar@config,w
+   980     07CF  3E07               	addlw	7
+   981     07D0  0084               	movwf	4
+   982     07D1  0800               	movf	0,w
+   983     07D2  00F2               	movwf	SetBit@pin
+   984     07D3  0879               	movf	Lcd_WriteChar@data,w
+   985     07D4  00FB               	movwf	??_Lcd_WriteChar+1
+   986     07D5  3003               	movlw	3
+   987     07D6                     u985:
+   988     07D6  1003               	clrc
+   989     07D7  0CFB               	rrf	??_Lcd_WriteChar+1,f
+   990     07D8  3EFF               	addlw	-1
+   991     07D9  1D03               	skipz
+   992     07DA  2FD6               	goto	u985
+   993     07DB  187B               	btfsc	??_Lcd_WriteChar+1,0
+   994     07DC  2FDE               	goto	u991
+   995     07DD  2FE0               	goto	u990
+   996     07DE                     u991:
+   997     07DE  3001               	movlw	1
+   998     07DF  2FE1               	goto	u1000
+   999     07E0                     u990:
+  1000     07E0  3000               	movlw	0
+  1001     07E1                     u1000:
+  1002     07E1  00F3               	movwf	SetBit@value
+  1003     07E2  120A  118A  2479  120A  118A  	fcall	_SetBit
+  1004                           
+  1005                           ;../../pic16flcd.c: 94:     PulseEnable(config);
+  1006     07E7  087C               	movf	Lcd_WriteChar@config,w
+  1007     07E8  120A  118A  24A5  120A  118A  	fcall	_PulseEnable
+  1008     07ED                     l40:
+  1009     07ED  0008               	return
+  1010     07EE                     __end_of_Lcd_WriteChar:
+  1011                           
+  1012                           	psect	text3
+  1013     0451                     __ptext3:	
+  1014 ;; *************** function _Lcd_SetCursor *****************
+  1015 ;; Defined at:
+  1016 ;;		line 149 in file "../../pic16flcd.c"
+  1017 ;; Parameters:    Size  Location     Type
+  1018 ;;  config          1    wreg     PTR struct .
+  1019 ;;		 -> main@lcd(8), 
+  1020 ;;  row             1    0[BANK0 ] unsigned char 
+  1021 ;;  column          1    1[BANK0 ] unsigned char 
+  1022 ;; Auto vars:     Size  Location     Type
+  1023 ;;  config          1    4[BANK0 ] PTR struct .
+  1024 ;;		 -> main@lcd(8), 
+  1025 ;;  address         1    5[BANK0 ] unsigned char 
+  1026 ;; Return value:  Size  Location     Type
+  1027 ;;                  1    wreg      void 
+  1028 ;; Registers used:
+  1029 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1030 ;; Tracked objects:
+  1031 ;;		On entry : 0/0
+  1032 ;;		On exit  : 0/0
+  1033 ;;		Unchanged: 0/0
+  1034 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1035 ;;      Params:         0       2       0       0       0
+  1036 ;;      Locals:         0       2       0       0       0
+  1037 ;;      Temps:          0       2       0       0       0
+  1038 ;;      Totals:         0       6       0       0       0
+  1039 ;;Total ram usage:        6 bytes
+  1040 ;; Hardware stack levels used: 1
+  1041 ;; Hardware stack levels required when called: 3
+  1042 ;; This function calls:
+  1043 ;;		_Lcd_Command
+  1044 ;; This function is called by:
+  1045 ;;		_main
+  1046 ;; This function uses a non-reentrant model
+  1047 ;;
+  1048                           
+  1049     0451                     _Lcd_SetCursor:	
+  1050                           ;psect for function _Lcd_SetCursor
+  1051                           
+  1052                           
+  1053                           ;incstack = 0
+  1054                           ; Regs used in _Lcd_SetCursor: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1055                           ;Lcd_SetCursor@config stored from wreg
+  1056     0451  1283               	bcf	3,5	;RP0=0, select bank0
+  1057     0452  1303               	bcf	3,6	;RP1=0, select bank0
+  1058     0453  00A4               	movwf	Lcd_SetCursor@config
+  1059     0454                     l746:
+  1060                           
+  1061                           ;../../pic16flcd.c: 150:     unsigned char address;;../../pic16flcd.c: 153:     switch(r
+      +                          ow) {
+  1062     0454  2C5B               	goto	l754
+  1063     0455                     l748:
+  1064                           
+  1065                           ;../../pic16flcd.c: 155:             address = 0x80;
+  1066     0455  3080               	movlw	128
+  1067     0456  00A5               	movwf	Lcd_SetCursor@address
+  1068                           
+  1069                           ;../../pic16flcd.c: 156:             break;
+  1070     0457  2C6B               	goto	l756
+  1071     0458                     l750:
+  1072                           
+  1073                           ;../../pic16flcd.c: 158:             address = 0xC0;
+  1074     0458  30C0               	movlw	192
+  1075     0459  00A5               	movwf	Lcd_SetCursor@address
+  1076                           
+  1077                           ;../../pic16flcd.c: 159:             break;
+  1078     045A  2C6B               	goto	l756
+  1079     045B                     l754:
+  1080     045B  0820               	movf	Lcd_SetCursor@row,w
+  1081     045C  00A2               	movwf	??_Lcd_SetCursor
+  1082     045D  01A3               	clrf	??_Lcd_SetCursor+1
+  1083                           
+  1084                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
       +                          itches
-  1079                           ; Switch size 1, requested type "simple"
-  1080                           ; Number of cases is 1, Range of values is 0 to 0
-  1081                           ; switch strategies available:
-  1082                           ; Name         Instructions Cycles
-  1083                           ; simple_byte            4     3 (average)
-  1084                           ; direct_byte           11     8 (fixed)
-  1085                           ; jumptable            260     6 (fixed)
-  1086                           ;	Chosen strategy is simple_byte
-  1087     0462  0821               	movf	??_Lcd_SetCursor+1,w
-  1088     0463  3A00               	xorlw	0	; case 0
-  1089     0464  1903               	skipnz
-  1090     0465  2C67               	goto	l820
-  1091     0466  2C59               	goto	l748
-  1092     0467                     l820:
-  1093                           
-  1094                           ; Switch size 1, requested type "simple"
-  1095                           ; Number of cases is 2, Range of values is 1 to 2
-  1096                           ; switch strategies available:
-  1097                           ; Name         Instructions Cycles
-  1098                           ; simple_byte            7     4 (average)
-  1099                           ; direct_byte           17    11 (fixed)
-  1100                           ; jumptable            263     9 (fixed)
-  1101                           ;	Chosen strategy is simple_byte
-  1102     0467  0820               	movf	??_Lcd_SetCursor,w
-  1103     0468  3A01               	xorlw	1	; case 1
-  1104     0469  1903               	skipnz
-  1105     046A  2C59               	goto	l748
-  1106     046B  3A03               	xorlw	3	; case 2
-  1107     046C  1903               	skipnz
-  1108     046D  2C5C               	goto	l750
-  1109     046E  2C59               	goto	l748
-  1110     046F                     l756:
-  1111                           
-  1112                           ;../../../pic16flcd.c: 165:     address += (column - 1);
-  1113     046F  087D               	movf	Lcd_SetCursor@column,w
-  1114     0470  3EFF               	addlw	255
-  1115     0471  00FF               	movwf	btemp+1
-  1116     0472  087F               	movf	btemp+1,w
-  1117     0473  07A3               	addwf	Lcd_SetCursor@address,f
-  1118     0474                     l758:
-  1119                           
-  1120                           ;../../../pic16flcd.c: 168:     Lcd_Command(config, address);
-  1121     0474  0823               	movf	Lcd_SetCursor@address,w
-  1122     0475  00F8               	movwf	Lcd_Command@cmd
-  1123     0476  0822               	movf	Lcd_SetCursor@config,w
-  1124     0477  120A  118A  2599  120A  118A  	fcall	_Lcd_Command
-  1125     047C                     l60:
-  1126     047C  0008               	return
-  1127     047D                     __end_of_Lcd_SetCursor:
-  1128                           
-  1129                           	psect	text4
-  1130     052B                     __ptext4:	
-  1131 ;; *************** function _Lcd_Init *****************
-  1132 ;; Defined at:
-  1133 ;;		line 111 in file "../../../pic16flcd.c"
-  1134 ;; Parameters:    Size  Location     Type
-  1135 ;;  config          1    wreg     PTR struct .
-  1136 ;;		 -> main@lcd(8), 
-  1137 ;; Auto vars:     Size  Location     Type
-  1138 ;;  config          1    3[BANK0 ] PTR struct .
-  1139 ;;		 -> main@lcd(8), 
-  1140 ;; Return value:  Size  Location     Type
-  1141 ;;                  1    wreg      void 
-  1142 ;; Registers used:
-  1143 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
-  1144 ;; Tracked objects:
-  1145 ;;		On entry : 0/0
-  1146 ;;		On exit  : 0/0
-  1147 ;;		Unchanged: 0/0
-  1148 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1149 ;;      Params:         0       0       0       0       0
-  1150 ;;      Locals:         0       1       0       0       0
-  1151 ;;      Temps:          0       2       0       0       0
-  1152 ;;      Totals:         0       3       0       0       0
-  1153 ;;Total ram usage:        3 bytes
-  1154 ;; Hardware stack levels used: 1
-  1155 ;; Hardware stack levels required when called: 4
-  1156 ;; This function calls:
-  1157 ;;		_Lcd_Clear
-  1158 ;;		_Lcd_Command
-  1159 ;; This function is called by:
-  1160 ;;		_main
-  1161 ;; This function uses a non-reentrant model
-  1162 ;;
-  1163                           
-  1164     052B                     _Lcd_Init:	
-  1165                           ;psect for function _Lcd_Init
-  1166                           
-  1167                           
-  1168                           ;incstack = 0
-  1169                           ; Regs used in _Lcd_Init: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-  1170                           ;Lcd_Init@config stored from wreg
-  1171     052B  1283               	bcf	3,5	;RP0=0, select bank0
-  1172     052C  1303               	bcf	3,6	;RP1=0, select bank0
-  1173     052D  00A3               	movwf	Lcd_Init@config
-  1174     052E                     l726:
-  1175                           
-  1176                           ;../../../pic16flcd.c: 117:     _delay((unsigned long)((15)*(4000000/4000.0)));
-  1177     052E  3014               	movlw	20
-  1178     052F  1283               	bcf	3,5	;RP0=0, select bank0
-  1179     0530  1303               	bcf	3,6	;RP1=0, select bank0
-  1180     0531  00A2               	movwf	??_Lcd_Init+1
-  1181     0532  3079               	movlw	121
-  1182     0533  00A1               	movwf	??_Lcd_Init
-  1183     0534                     u1037:
-  1184     0534  0BA1               	decfsz	??_Lcd_Init,f
-  1185     0535  2D34               	goto	u1037
-  1186     0536  0BA2               	decfsz	??_Lcd_Init+1,f
-  1187     0537  2D34               	goto	u1037
-  1188     0538                     l728:
-  1189                           
-  1190                           ;../../../pic16flcd.c: 118:     Lcd_Command(config, 0x03);
-  1191     0538  3003               	movlw	3
-  1192     0539  00F8               	movwf	Lcd_Command@cmd
-  1193     053A  1283               	bcf	3,5	;RP0=0, select bank0
-  1194     053B  1303               	bcf	3,6	;RP1=0, select bank0
-  1195     053C  0823               	movf	Lcd_Init@config,w
-  1196     053D  120A  118A  2599  120A  118A  	fcall	_Lcd_Command
-  1197     0542                     l730:
-  1198                           
-  1199                           ;../../../pic16flcd.c: 119:     _delay((unsigned long)((5)*(4000000/4000.0)));
-  1200     0542  3007               	movlw	7
-  1201     0543  1283               	bcf	3,5	;RP0=0, select bank0
-  1202     0544  1303               	bcf	3,6	;RP1=0, select bank0
-  1203     0545  00A2               	movwf	??_Lcd_Init+1
-  1204     0546  307C               	movlw	124
-  1205     0547  00A1               	movwf	??_Lcd_Init
-  1206     0548                     u1047:
-  1207     0548  0BA1               	decfsz	??_Lcd_Init,f
-  1208     0549  2D48               	goto	u1047
-  1209     054A  0BA2               	decfsz	??_Lcd_Init+1,f
-  1210     054B  2D48               	goto	u1047
-  1211     054C  0000               	nop
-  1212                           
-  1213                           ;../../../pic16flcd.c: 120:     Lcd_Command(config, 0x03);
-  1214     054D  3003               	movlw	3
-  1215     054E  00F8               	movwf	Lcd_Command@cmd
-  1216     054F  1283               	bcf	3,5	;RP0=0, select bank0
-  1217     0550  1303               	bcf	3,6	;RP1=0, select bank0
-  1218     0551  0823               	movf	Lcd_Init@config,w
-  1219     0552  120A  118A  2599  120A  118A  	fcall	_Lcd_Command
-  1220     0557                     l732:
-  1221                           
-  1222                           ;../../../pic16flcd.c: 121:     _delay((unsigned long)((100)*(4000000/4000000.0)));
-  1223     0557  3020               	movlw	32
-  1224     0558  1283               	bcf	3,5	;RP0=0, select bank0
-  1225     0559  1303               	bcf	3,6	;RP1=0, select bank0
-  1226     055A  00A1               	movwf	??_Lcd_Init
-  1227     055B                     u1057:
-  1228     055B  0BA1               	decfsz	??_Lcd_Init,f
-  1229     055C  2D5B               	goto	u1057
-  1230     055D  0000               	nop
-  1231     055E                     l734:
-  1232                           
-  1233                           ;../../../pic16flcd.c: 122:     Lcd_Command(config, 0x03);
-  1234     055E  3003               	movlw	3
-  1235     055F  00F8               	movwf	Lcd_Command@cmd
-  1236     0560  1283               	bcf	3,5	;RP0=0, select bank0
-  1237     0561  1303               	bcf	3,6	;RP1=0, select bank0
-  1238     0562  0823               	movf	Lcd_Init@config,w
-  1239     0563  120A  118A  2599  120A  118A  	fcall	_Lcd_Command
-  1240     0568                     l736:
-  1241                           
-  1242                           ;../../../pic16flcd.c: 123:     Lcd_Command(config, 0x02);
-  1243     0568  3002               	movlw	2
-  1244     0569  00F8               	movwf	Lcd_Command@cmd
-  1245     056A  1283               	bcf	3,5	;RP0=0, select bank0
-  1246     056B  1303               	bcf	3,6	;RP1=0, select bank0
-  1247     056C  0823               	movf	Lcd_Init@config,w
-  1248     056D  120A  118A  2599  120A  118A  	fcall	_Lcd_Command
-  1249     0572                     l738:
-  1250                           
-  1251                           ;../../../pic16flcd.c: 125:     Lcd_Command(config, 0x28);
-  1252     0572  3028               	movlw	40
-  1253     0573  00F8               	movwf	Lcd_Command@cmd
-  1254     0574  1283               	bcf	3,5	;RP0=0, select bank0
-  1255     0575  1303               	bcf	3,6	;RP1=0, select bank0
-  1256     0576  0823               	movf	Lcd_Init@config,w
-  1257     0577  120A  118A  2599  120A  118A  	fcall	_Lcd_Command
-  1258     057C                     l740:
-  1259                           
-  1260                           ;../../../pic16flcd.c: 126:     Lcd_Command(config, 0x0C);
-  1261     057C  300C               	movlw	12
-  1262     057D  00F8               	movwf	Lcd_Command@cmd
-  1263     057E  1283               	bcf	3,5	;RP0=0, select bank0
-  1264     057F  1303               	bcf	3,6	;RP1=0, select bank0
-  1265     0580  0823               	movf	Lcd_Init@config,w
-  1266     0581  120A  118A  2599  120A  118A  	fcall	_Lcd_Command
-  1267     0586                     l742:
-  1268                           
-  1269                           ;../../../pic16flcd.c: 127:     Lcd_Command(config, 0x06);
-  1270     0586  3006               	movlw	6
-  1271     0587  00F8               	movwf	Lcd_Command@cmd
-  1272     0588  1283               	bcf	3,5	;RP0=0, select bank0
-  1273     0589  1303               	bcf	3,6	;RP1=0, select bank0
-  1274     058A  0823               	movf	Lcd_Init@config,w
-  1275     058B  120A  118A  2599  120A  118A  	fcall	_Lcd_Command
-  1276     0590                     l744:
-  1277                           
-  1278                           ;../../../pic16flcd.c: 128:     Lcd_Clear(config);
-  1279     0590  1283               	bcf	3,5	;RP0=0, select bank0
-  1280     0591  1303               	bcf	3,6	;RP1=0, select bank0
-  1281     0592  0823               	movf	Lcd_Init@config,w
-  1282     0593  120A  118A  241F  120A  118A  	fcall	_Lcd_Clear
-  1283     0598                     l49:
-  1284     0598  0008               	return
-  1285     0599                     __end_of_Lcd_Init:
-  1286                           
-  1287                           	psect	text5
-  1288     041F                     __ptext5:	
-  1289 ;; *************** function _Lcd_Clear *****************
-  1290 ;; Defined at:
-  1291 ;;		line 136 in file "../../../pic16flcd.c"
-  1292 ;; Parameters:    Size  Location     Type
-  1293 ;;  config          1    wreg     PTR struct .
-  1294 ;;		 -> main@lcd(8), 
-  1295 ;; Auto vars:     Size  Location     Type
-  1296 ;;  config          1    0[BANK0 ] PTR struct .
-  1297 ;;		 -> main@lcd(8), 
-  1298 ;; Return value:  Size  Location     Type
-  1299 ;;                  1    wreg      void 
-  1300 ;; Registers used:
-  1301 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
-  1302 ;; Tracked objects:
-  1303 ;;		On entry : 0/0
-  1304 ;;		On exit  : 0/0
-  1305 ;;		Unchanged: 0/0
-  1306 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1307 ;;      Params:         0       0       0       0       0
-  1308 ;;      Locals:         0       1       0       0       0
-  1309 ;;      Temps:          2       0       0       0       0
-  1310 ;;      Totals:         2       1       0       0       0
-  1311 ;;Total ram usage:        3 bytes
-  1312 ;; Hardware stack levels used: 1
-  1313 ;; Hardware stack levels required when called: 3
-  1314 ;; This function calls:
-  1315 ;;		_Lcd_Command
-  1316 ;; This function is called by:
-  1317 ;;		_main
-  1318 ;;		_Lcd_Init
-  1319 ;; This function uses a non-reentrant model
-  1320 ;;
-  1321                           
-  1322     041F                     _Lcd_Clear:	
-  1323                           ;psect for function _Lcd_Clear
-  1324                           
-  1325                           
-  1326                           ;incstack = 0
-  1327                           ; Regs used in _Lcd_Clear: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-  1328                           ;Lcd_Clear@config stored from wreg
-  1329     041F  1283               	bcf	3,5	;RP0=0, select bank0
-  1330     0420  1303               	bcf	3,6	;RP1=0, select bank0
-  1331     0421  00A0               	movwf	Lcd_Clear@config
-  1332     0422                     l720:
-  1333                           
-  1334                           ;../../../pic16flcd.c: 137:     Lcd_Command(config, 0x01);
-  1335     0422  01F8               	clrf	Lcd_Command@cmd
-  1336     0423  0AF8               	incf	Lcd_Command@cmd,f
-  1337     0424  0820               	movf	Lcd_Clear@config,w
-  1338     0425  120A  118A  2599  120A  118A  	fcall	_Lcd_Command
-  1339     042A                     l722:
-  1340                           
-  1341                           ;../../../pic16flcd.c: 138:     _delay((unsigned long)((2)*(4000000/4000.0)));
-  1342     042A  3003               	movlw	3
-  1343     042B  00FD               	movwf	??_Lcd_Clear+1
-  1344     042C  3097               	movlw	151
-  1345     042D  00FC               	movwf	??_Lcd_Clear
-  1346     042E                     u1067:
-  1347     042E  0BFC               	decfsz	??_Lcd_Clear,f
-  1348     042F  2C2E               	goto	u1067
-  1349     0430  0BFD               	decfsz	??_Lcd_Clear+1,f
-  1350     0431  2C2E               	goto	u1067
-  1351     0432  2C33               	nop2
-  1352     0433                     l52:
-  1353     0433  0008               	return
-  1354     0434                     __end_of_Lcd_Clear:
-  1355                           
-  1356                           	psect	text6
-  1357     0599                     __ptext6:	
-  1358 ;; *************** function _Lcd_Command *****************
-  1359 ;; Defined at:
-  1360 ;;		line 52 in file "../../../pic16flcd.c"
-  1361 ;; Parameters:    Size  Location     Type
-  1362 ;;  config          1    wreg     PTR struct .
-  1363 ;;		 -> main@lcd(8), 
-  1364 ;;  cmd             1    8[COMMON] unsigned char 
-  1365 ;; Auto vars:     Size  Location     Type
-  1366 ;;  config          1   11[COMMON] PTR struct .
-  1367 ;;		 -> main@lcd(8), 
-  1368 ;; Return value:  Size  Location     Type
-  1369 ;;                  1    wreg      void 
-  1370 ;; Registers used:
-  1371 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
-  1372 ;; Tracked objects:
-  1373 ;;		On entry : 0/0
-  1374 ;;		On exit  : 0/0
-  1375 ;;		Unchanged: 0/0
-  1376 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1377 ;;      Params:         1       0       0       0       0
-  1378 ;;      Locals:         1       0       0       0       0
-  1379 ;;      Temps:          2       0       0       0       0
-  1380 ;;      Totals:         4       0       0       0       0
-  1381 ;;Total ram usage:        4 bytes
-  1382 ;; Hardware stack levels used: 1
-  1383 ;; Hardware stack levels required when called: 2
-  1384 ;; This function calls:
-  1385 ;;		_PulseEnable
-  1386 ;;		_SetBit
-  1387 ;; This function is called by:
-  1388 ;;		_Lcd_Init
-  1389 ;;		_Lcd_Clear
-  1390 ;;		_Lcd_SetCursor
-  1391 ;; This function uses a non-reentrant model
-  1392 ;;
-  1393                           
-  1394     0599                     _Lcd_Command:	
-  1395                           ;psect for function _Lcd_Command
-  1396                           
-  1397                           
-  1398                           ;incstack = 0
-  1399                           ; Regs used in _Lcd_Command: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-  1400                           ;Lcd_Command@config stored from wreg
-  1401     0599  00FB               	movwf	Lcd_Command@config
-  1402     059A                     l718:
-  1403                           
-  1404                           ;../../../pic16flcd.c: 54:     SetBit(config->port, config->d4_pin, (cmd >> 4) & 0x01);
-  1405     059A  087B               	movf	Lcd_Command@config,w
-  1406     059B  0084               	movwf	4
-  1407     059C  1383               	bcf	3,7	;select IRP bank0
-  1408     059D  0800               	movf	0,w
-  1409     059E  00F0               	movwf	SetBit@port
-  1410     059F  0A84               	incf	4,f
-  1411     05A0  0800               	movf	0,w
-  1412     05A1  0384               	decf	4,f
-  1413     05A2  00F1               	movwf	SetBit@port+1
-  1414     05A3  087B               	movf	Lcd_Command@config,w
-  1415     05A4  3E04               	addlw	4
-  1416     05A5  0084               	movwf	4
-  1417     05A6  0800               	movf	0,w
-  1418     05A7  00F2               	movwf	SetBit@pin
-  1419     05A8  0878               	movf	Lcd_Command@cmd,w
-  1420     05A9  00FA               	movwf	??_Lcd_Command+1
-  1421     05AA  3004               	movlw	4
-  1422     05AB                     u555:
-  1423     05AB  1003               	clrc
-  1424     05AC  0CFA               	rrf	??_Lcd_Command+1,f
-  1425     05AD  3EFF               	addlw	-1
-  1426     05AE  1D03               	skipz
-  1427     05AF  2DAB               	goto	u555
-  1428     05B0  187A               	btfsc	??_Lcd_Command+1,0
-  1429     05B1  2DB3               	goto	u561
-  1430     05B2  2DB5               	goto	u560
-  1431     05B3                     u561:
-  1432     05B3  3001               	movlw	1
-  1433     05B4  2DB6               	goto	u570
-  1434     05B5                     u560:
-  1435     05B5  3000               	movlw	0
-  1436     05B6                     u570:
-  1437     05B6  00F3               	movwf	SetBit@value
-  1438     05B7  120A  118A  247D  120A  118A  	fcall	_SetBit
-  1439                           
-  1440                           ;../../../pic16flcd.c: 55:     SetBit(config->port, config->d5_pin, (cmd >> 5) & 0x01);
-  1441     05BC  087B               	movf	Lcd_Command@config,w
-  1442     05BD  0084               	movwf	4
-  1443     05BE  1383               	bcf	3,7	;select IRP bank0
-  1444     05BF  0800               	movf	0,w
-  1445     05C0  00F0               	movwf	SetBit@port
-  1446     05C1  0A84               	incf	4,f
-  1447     05C2  0800               	movf	0,w
-  1448     05C3  0384               	decf	4,f
-  1449     05C4  00F1               	movwf	SetBit@port+1
-  1450     05C5  087B               	movf	Lcd_Command@config,w
-  1451     05C6  3E05               	addlw	5
-  1452     05C7  0084               	movwf	4
-  1453     05C8  0800               	movf	0,w
-  1454     05C9  00F2               	movwf	SetBit@pin
-  1455     05CA  0878               	movf	Lcd_Command@cmd,w
-  1456     05CB  00FA               	movwf	??_Lcd_Command+1
-  1457     05CC  3005               	movlw	5
-  1458     05CD                     u585:
-  1459     05CD  1003               	clrc
-  1460     05CE  0CFA               	rrf	??_Lcd_Command+1,f
-  1461     05CF  3EFF               	addlw	-1
-  1462     05D0  1D03               	skipz
-  1463     05D1  2DCD               	goto	u585
-  1464     05D2  187A               	btfsc	??_Lcd_Command+1,0
-  1465     05D3  2DD5               	goto	u591
-  1466     05D4  2DD7               	goto	u590
-  1467     05D5                     u591:
-  1468     05D5  3001               	movlw	1
-  1469     05D6  2DD8               	goto	u600
-  1470     05D7                     u590:
-  1471     05D7  3000               	movlw	0
-  1472     05D8                     u600:
-  1473     05D8  00F3               	movwf	SetBit@value
-  1474     05D9  120A  118A  247D  120A  118A  	fcall	_SetBit
-  1475                           
-  1476                           ;../../../pic16flcd.c: 56:     SetBit(config->port, config->d6_pin, (cmd >> 6) & 0x01);
-  1477     05DE  087B               	movf	Lcd_Command@config,w
-  1478     05DF  0084               	movwf	4
-  1479     05E0  1383               	bcf	3,7	;select IRP bank0
-  1480     05E1  0800               	movf	0,w
-  1481     05E2  00F0               	movwf	SetBit@port
-  1482     05E3  0A84               	incf	4,f
-  1483     05E4  0800               	movf	0,w
-  1484     05E5  0384               	decf	4,f
-  1485     05E6  00F1               	movwf	SetBit@port+1
-  1486     05E7  087B               	movf	Lcd_Command@config,w
-  1487     05E8  3E06               	addlw	6
-  1488     05E9  0084               	movwf	4
-  1489     05EA  0800               	movf	0,w
-  1490     05EB  00F2               	movwf	SetBit@pin
-  1491     05EC  0878               	movf	Lcd_Command@cmd,w
-  1492     05ED  00FA               	movwf	??_Lcd_Command+1
-  1493     05EE  3006               	movlw	6
-  1494     05EF                     u615:
-  1495     05EF  1003               	clrc
-  1496     05F0  0CFA               	rrf	??_Lcd_Command+1,f
-  1497     05F1  3EFF               	addlw	-1
-  1498     05F2  1D03               	skipz
-  1499     05F3  2DEF               	goto	u615
-  1500     05F4  187A               	btfsc	??_Lcd_Command+1,0
-  1501     05F5  2DF7               	goto	u621
-  1502     05F6  2DF9               	goto	u620
-  1503     05F7                     u621:
-  1504     05F7  3001               	movlw	1
-  1505     05F8  2DFA               	goto	u630
-  1506     05F9                     u620:
-  1507     05F9  3000               	movlw	0
-  1508     05FA                     u630:
-  1509     05FA  00F3               	movwf	SetBit@value
-  1510     05FB  120A  118A  247D  120A  118A  	fcall	_SetBit
-  1511                           
-  1512                           ;../../../pic16flcd.c: 57:     SetBit(config->port, config->d7_pin, (cmd >> 7) & 0x01);
-  1513     0600  087B               	movf	Lcd_Command@config,w
-  1514     0601  0084               	movwf	4
-  1515     0602  1383               	bcf	3,7	;select IRP bank0
-  1516     0603  0800               	movf	0,w
-  1517     0604  00F0               	movwf	SetBit@port
-  1518     0605  0A84               	incf	4,f
-  1519     0606  0800               	movf	0,w
-  1520     0607  0384               	decf	4,f
-  1521     0608  00F1               	movwf	SetBit@port+1
-  1522     0609  087B               	movf	Lcd_Command@config,w
-  1523     060A  3E07               	addlw	7
-  1524     060B  0084               	movwf	4
-  1525     060C  0800               	movf	0,w
-  1526     060D  00F2               	movwf	SetBit@pin
-  1527     060E  0878               	movf	Lcd_Command@cmd,w
-  1528     060F  00FA               	movwf	??_Lcd_Command+1
-  1529     0610  3007               	movlw	7
-  1530     0611                     u645:
-  1531     0611  1003               	clrc
-  1532     0612  0CFA               	rrf	??_Lcd_Command+1,f
-  1533     0613  3EFF               	addlw	-1
-  1534     0614  1D03               	skipz
-  1535     0615  2E11               	goto	u645
-  1536     0616  187A               	btfsc	??_Lcd_Command+1,0
-  1537     0617  2E19               	goto	u651
-  1538     0618  2E1B               	goto	u650
-  1539     0619                     u651:
-  1540     0619  3001               	movlw	1
-  1541     061A  2E1C               	goto	u660
-  1542     061B                     u650:
-  1543     061B  3000               	movlw	0
-  1544     061C                     u660:
-  1545     061C  00F3               	movwf	SetBit@value
-  1546     061D  120A  118A  247D  120A  118A  	fcall	_SetBit
-  1547                           
-  1548                           ;../../../pic16flcd.c: 59:     SetBit(config->port, config->rs_pin, 0);
-  1549     0622  087B               	movf	Lcd_Command@config,w
-  1550     0623  0084               	movwf	4
-  1551     0624  1383               	bcf	3,7	;select IRP bank0
-  1552     0625  0800               	movf	0,w
-  1553     0626  00F0               	movwf	SetBit@port
-  1554     0627  0A84               	incf	4,f
-  1555     0628  0800               	movf	0,w
-  1556     0629  0384               	decf	4,f
-  1557     062A  00F1               	movwf	SetBit@port+1
-  1558     062B  087B               	movf	Lcd_Command@config,w
-  1559     062C  3E02               	addlw	2
-  1560     062D  0084               	movwf	4
-  1561     062E  0800               	movf	0,w
-  1562     062F  00F2               	movwf	SetBit@pin
-  1563     0630  01F3               	clrf	SetBit@value
-  1564     0631  120A  118A  247D  120A  118A  	fcall	_SetBit
-  1565                           
-  1566                           ;../../../pic16flcd.c: 60:     PulseEnable(config);
-  1567     0636  087B               	movf	Lcd_Command@config,w
-  1568     0637  120A  118A  24A9  120A  118A  	fcall	_PulseEnable
-  1569                           
-  1570                           ;../../../pic16flcd.c: 63:     SetBit(config->port, config->d4_pin, cmd & 0x01);
-  1571     063C  087B               	movf	Lcd_Command@config,w
-  1572     063D  0084               	movwf	4
-  1573     063E  1383               	bcf	3,7	;select IRP bank0
-  1574     063F  0800               	movf	0,w
-  1575     0640  00F0               	movwf	SetBit@port
-  1576     0641  0A84               	incf	4,f
-  1577     0642  0800               	movf	0,w
-  1578     0643  0384               	decf	4,f
-  1579     0644  00F1               	movwf	SetBit@port+1
-  1580     0645  087B               	movf	Lcd_Command@config,w
-  1581     0646  3E04               	addlw	4
-  1582     0647  0084               	movwf	4
-  1583     0648  0800               	movf	0,w
-  1584     0649  00F2               	movwf	SetBit@pin
-  1585     064A  1878               	btfsc	Lcd_Command@cmd,0
-  1586     064B  2E4D               	goto	u671
-  1587     064C  2E4F               	goto	u670
-  1588     064D                     u671:
-  1589     064D  3001               	movlw	1
-  1590     064E  2E50               	goto	u680
-  1591     064F                     u670:
-  1592     064F  3000               	movlw	0
-  1593     0650                     u680:
-  1594     0650  00F3               	movwf	SetBit@value
-  1595     0651  120A  118A  247D  120A  118A  	fcall	_SetBit
-  1596                           
-  1597                           ;../../../pic16flcd.c: 64:     SetBit(config->port, config->d5_pin, (cmd >> 1) & 0x01);
-  1598     0656  087B               	movf	Lcd_Command@config,w
-  1599     0657  0084               	movwf	4
-  1600     0658  1383               	bcf	3,7	;select IRP bank0
-  1601     0659  0800               	movf	0,w
-  1602     065A  00F0               	movwf	SetBit@port
-  1603     065B  0A84               	incf	4,f
-  1604     065C  0800               	movf	0,w
-  1605     065D  0384               	decf	4,f
-  1606     065E  00F1               	movwf	SetBit@port+1
-  1607     065F  087B               	movf	Lcd_Command@config,w
-  1608     0660  3E05               	addlw	5
-  1609     0661  0084               	movwf	4
-  1610     0662  0800               	movf	0,w
-  1611     0663  00F2               	movwf	SetBit@pin
-  1612     0664  0878               	movf	Lcd_Command@cmd,w
-  1613     0665  00FA               	movwf	??_Lcd_Command+1
-  1614     0666  3001               	movlw	1
-  1615     0667                     u695:
-  1616     0667  1003               	clrc
-  1617     0668  0CFA               	rrf	??_Lcd_Command+1,f
-  1618     0669  3EFF               	addlw	-1
-  1619     066A  1D03               	skipz
-  1620     066B  2E67               	goto	u695
-  1621     066C  187A               	btfsc	??_Lcd_Command+1,0
-  1622     066D  2E6F               	goto	u701
-  1623     066E  2E71               	goto	u700
-  1624     066F                     u701:
-  1625     066F  3001               	movlw	1
-  1626     0670  2E72               	goto	u710
-  1627     0671                     u700:
-  1628     0671  3000               	movlw	0
-  1629     0672                     u710:
-  1630     0672  00F3               	movwf	SetBit@value
-  1631     0673  120A  118A  247D  120A  118A  	fcall	_SetBit
-  1632                           
-  1633                           ;../../../pic16flcd.c: 65:     SetBit(config->port, config->d6_pin, (cmd >> 2) & 0x01);
-  1634     0678  087B               	movf	Lcd_Command@config,w
-  1635     0679  0084               	movwf	4
-  1636     067A  1383               	bcf	3,7	;select IRP bank0
-  1637     067B  0800               	movf	0,w
-  1638     067C  00F0               	movwf	SetBit@port
-  1639     067D  0A84               	incf	4,f
-  1640     067E  0800               	movf	0,w
-  1641     067F  0384               	decf	4,f
-  1642     0680  00F1               	movwf	SetBit@port+1
-  1643     0681  087B               	movf	Lcd_Command@config,w
-  1644     0682  3E06               	addlw	6
-  1645     0683  0084               	movwf	4
-  1646     0684  0800               	movf	0,w
-  1647     0685  00F2               	movwf	SetBit@pin
-  1648     0686  0878               	movf	Lcd_Command@cmd,w
-  1649     0687  00FA               	movwf	??_Lcd_Command+1
-  1650     0688  3002               	movlw	2
-  1651     0689                     u725:
-  1652     0689  1003               	clrc
-  1653     068A  0CFA               	rrf	??_Lcd_Command+1,f
-  1654     068B  3EFF               	addlw	-1
-  1655     068C  1D03               	skipz
-  1656     068D  2E89               	goto	u725
-  1657     068E  187A               	btfsc	??_Lcd_Command+1,0
-  1658     068F  2E91               	goto	u731
-  1659     0690  2E93               	goto	u730
-  1660     0691                     u731:
-  1661     0691  3001               	movlw	1
-  1662     0692  2E94               	goto	u740
-  1663     0693                     u730:
-  1664     0693  3000               	movlw	0
-  1665     0694                     u740:
-  1666     0694  00F3               	movwf	SetBit@value
-  1667     0695  120A  118A  247D  120A  118A  	fcall	_SetBit
-  1668                           
-  1669                           ;../../../pic16flcd.c: 66:     SetBit(config->port, config->d7_pin, (cmd >> 3) & 0x01);
-  1670     069A  087B               	movf	Lcd_Command@config,w
-  1671     069B  0084               	movwf	4
-  1672     069C  1383               	bcf	3,7	;select IRP bank0
-  1673     069D  0800               	movf	0,w
-  1674     069E  00F0               	movwf	SetBit@port
-  1675     069F  0A84               	incf	4,f
-  1676     06A0  0800               	movf	0,w
-  1677     06A1  0384               	decf	4,f
-  1678     06A2  00F1               	movwf	SetBit@port+1
-  1679     06A3  087B               	movf	Lcd_Command@config,w
-  1680     06A4  3E07               	addlw	7
-  1681     06A5  0084               	movwf	4
-  1682     06A6  0800               	movf	0,w
-  1683     06A7  00F2               	movwf	SetBit@pin
-  1684     06A8  0878               	movf	Lcd_Command@cmd,w
-  1685     06A9  00FA               	movwf	??_Lcd_Command+1
-  1686     06AA  3003               	movlw	3
-  1687     06AB                     u755:
-  1688     06AB  1003               	clrc
-  1689     06AC  0CFA               	rrf	??_Lcd_Command+1,f
-  1690     06AD  3EFF               	addlw	-1
-  1691     06AE  1D03               	skipz
-  1692     06AF  2EAB               	goto	u755
-  1693     06B0  187A               	btfsc	??_Lcd_Command+1,0
-  1694     06B1  2EB3               	goto	u761
-  1695     06B2  2EB5               	goto	u760
-  1696     06B3                     u761:
-  1697     06B3  3001               	movlw	1
-  1698     06B4  2EB6               	goto	u770
-  1699     06B5                     u760:
-  1700     06B5  3000               	movlw	0
-  1701     06B6                     u770:
-  1702     06B6  00F3               	movwf	SetBit@value
-  1703     06B7  120A  118A  247D  120A  118A  	fcall	_SetBit
-  1704                           
-  1705                           ;../../../pic16flcd.c: 68:     PulseEnable(config);
-  1706     06BC  087B               	movf	Lcd_Command@config,w
-  1707     06BD  120A  118A  24A9  120A  118A  	fcall	_PulseEnable
-  1708     06C2                     l37:
-  1709     06C2  0008               	return
-  1710     06C3                     __end_of_Lcd_Command:
-  1711                           
-  1712                           	psect	text7
-  1713     04A9                     __ptext7:	
-  1714 ;; *************** function _PulseEnable *****************
-  1715 ;; Defined at:
-  1716 ;;		line 38 in file "../../../pic16flcd.c"
-  1717 ;; Parameters:    Size  Location     Type
-  1718 ;;  config          1    wreg     PTR struct .
-  1719 ;;		 -> main@lcd(8), 
-  1720 ;; Auto vars:     Size  Location     Type
-  1721 ;;  config          1    7[COMMON] PTR struct .
-  1722 ;;		 -> main@lcd(8), 
-  1723 ;; Return value:  Size  Location     Type
-  1724 ;;                  1    wreg      void 
-  1725 ;; Registers used:
-  1726 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
-  1727 ;; Tracked objects:
-  1728 ;;		On entry : 0/0
-  1729 ;;		On exit  : 0/0
-  1730 ;;		Unchanged: 0/0
-  1731 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1732 ;;      Params:         0       0       0       0       0
-  1733 ;;      Locals:         1       0       0       0       0
-  1734 ;;      Temps:          2       0       0       0       0
-  1735 ;;      Totals:         3       0       0       0       0
-  1736 ;;Total ram usage:        3 bytes
-  1737 ;; Hardware stack levels used: 1
-  1738 ;; Hardware stack levels required when called: 1
-  1739 ;; This function calls:
-  1740 ;;		_SetBit
-  1741 ;; This function is called by:
-  1742 ;;		_Lcd_Command
-  1743 ;;		_Lcd_WriteChar
-  1744 ;; This function uses a non-reentrant model
-  1745 ;;
-  1746                           
-  1747     04A9                     _PulseEnable:	
-  1748                           ;psect for function _PulseEnable
-  1749                           
-  1750                           
-  1751                           ;incstack = 0
-  1752                           ; Regs used in _PulseEnable: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-  1753                           ;PulseEnable@config stored from wreg
-  1754     04A9  00F7               	movwf	PulseEnable@config
-  1755     04AA                     l712:
-  1756                           
-  1757                           ;../../../pic16flcd.c: 39:     SetBit(config->port, config->en_pin, 1);
-  1758     04AA  0877               	movf	PulseEnable@config,w
-  1759     04AB  0084               	movwf	4
-  1760     04AC  1383               	bcf	3,7	;select IRP bank0
-  1761     04AD  0800               	movf	0,w
-  1762     04AE  00F0               	movwf	SetBit@port
-  1763     04AF  0A84               	incf	4,f
-  1764     04B0  0800               	movf	0,w
-  1765     04B1  0384               	decf	4,f
-  1766     04B2  00F1               	movwf	SetBit@port+1
-  1767     04B3  0877               	movf	PulseEnable@config,w
-  1768     04B4  3E03               	addlw	3
-  1769     04B5  0084               	movwf	4
-  1770     04B6  0800               	movf	0,w
-  1771     04B7  00F2               	movwf	SetBit@pin
-  1772     04B8  01F3               	clrf	SetBit@value
-  1773     04B9  0AF3               	incf	SetBit@value,f
-  1774     04BA  120A  118A  247D  120A  118A  	fcall	_SetBit
-  1775     04BF                     l714:
-  1776                           
-  1777                           ;../../../pic16flcd.c: 40:     _delay((unsigned long)((2)*(4000000/4000.0)));
-  1778     04BF  3003               	movlw	3
-  1779     04C0  00F6               	movwf	??_PulseEnable+1
-  1780     04C1  3097               	movlw	151
-  1781     04C2  00F5               	movwf	??_PulseEnable
-  1782     04C3                     u1077:
-  1783     04C3  0BF5               	decfsz	??_PulseEnable,f
-  1784     04C4  2CC3               	goto	u1077
-  1785     04C5  0BF6               	decfsz	??_PulseEnable+1,f
-  1786     04C6  2CC3               	goto	u1077
-  1787     04C7  2CC8               	nop2
-  1788     04C8                     l716:
-  1789                           
-  1790                           ;../../../pic16flcd.c: 41:     SetBit(config->port, config->en_pin, 0);
-  1791     04C8  0877               	movf	PulseEnable@config,w
-  1792     04C9  0084               	movwf	4
-  1793     04CA  1383               	bcf	3,7	;select IRP bank0
-  1794     04CB  0800               	movf	0,w
-  1795     04CC  00F0               	movwf	SetBit@port
-  1796     04CD  0A84               	incf	4,f
-  1797     04CE  0800               	movf	0,w
-  1798     04CF  0384               	decf	4,f
-  1799     04D0  00F1               	movwf	SetBit@port+1
-  1800     04D1  0877               	movf	PulseEnable@config,w
-  1801     04D2  3E03               	addlw	3
-  1802     04D3  0084               	movwf	4
-  1803     04D4  0800               	movf	0,w
-  1804     04D5  00F2               	movwf	SetBit@pin
-  1805     04D6  01F3               	clrf	SetBit@value
-  1806     04D7  120A  118A  247D  120A  118A  	fcall	_SetBit
-  1807     04DC                     l34:
-  1808     04DC  0008               	return
-  1809     04DD                     __end_of_PulseEnable:
-  1810                           
-  1811                           	psect	text8
-  1812     047D                     __ptext8:	
-  1813 ;; *************** function _SetBit *****************
-  1814 ;; Defined at:
-  1815 ;;		line 24 in file "../../../pic16flcd.c"
-  1816 ;; Parameters:    Size  Location     Type
-  1817 ;;  port            2    0[COMMON] PTR volatile unsigned ch
-  1818 ;;		 -> PORTC(1), 
-  1819 ;;  pin             1    2[COMMON] unsigned char 
-  1820 ;;  value           1    3[COMMON] _Bool 
-  1821 ;; Auto vars:     Size  Location     Type
-  1822 ;;		None
-  1823 ;; Return value:  Size  Location     Type
-  1824 ;;                  1    wreg      void 
-  1825 ;; Registers used:
-  1826 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1
-  1827 ;; Tracked objects:
-  1828 ;;		On entry : 0/0
-  1829 ;;		On exit  : 0/0
-  1830 ;;		Unchanged: 0/0
-  1831 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1832 ;;      Params:         4       0       0       0       0
-  1833 ;;      Locals:         0       0       0       0       0
-  1834 ;;      Temps:          1       0       0       0       0
-  1835 ;;      Totals:         5       0       0       0       0
-  1836 ;;Total ram usage:        5 bytes
-  1837 ;; Hardware stack levels used: 1
-  1838 ;; This function calls:
-  1839 ;;		Nothing
-  1840 ;; This function is called by:
-  1841 ;;		_PulseEnable
-  1842 ;;		_Lcd_Command
-  1843 ;;		_Lcd_WriteChar
-  1844 ;; This function uses a non-reentrant model
-  1845 ;;
-  1846                           
-  1847     047D                     _SetBit:	
-  1848                           ;psect for function _SetBit
-  1849                           
-  1850     047D                     l706:	
-  1851                           ;incstack = 0
-  1852                           ; Regs used in _SetBit: [wreg-fsr0h+status,2+status,0+btemp+1]
-  1853                           
+  1085                           ; Switch size 1, requested type "simple"
+  1086                           ; Number of cases is 1, Range of values is 0 to 0
+  1087                           ; switch strategies available:
+  1088                           ; Name         Instructions Cycles
+  1089                           ; simple_byte            4     3 (average)
+  1090                           ; direct_byte           11     8 (fixed)
+  1091                           ; jumptable            260     6 (fixed)
+  1092                           ;	Chosen strategy is simple_byte
+  1093     045E  0823               	movf	??_Lcd_SetCursor+1,w
+  1094     045F  3A00               	xorlw	0	; case 0
+  1095     0460  1903               	skipnz
+  1096     0461  2C63               	goto	l820
+  1097     0462  2C55               	goto	l748
+  1098     0463                     l820:
+  1099                           
+  1100                           ; Switch size 1, requested type "simple"
+  1101                           ; Number of cases is 2, Range of values is 1 to 2
+  1102                           ; switch strategies available:
+  1103                           ; Name         Instructions Cycles
+  1104                           ; simple_byte            7     4 (average)
+  1105                           ; direct_byte           17    11 (fixed)
+  1106                           ; jumptable            263     9 (fixed)
+  1107                           ;	Chosen strategy is simple_byte
+  1108     0463  0822               	movf	??_Lcd_SetCursor,w
+  1109     0464  3A01               	xorlw	1	; case 1
+  1110     0465  1903               	skipnz
+  1111     0466  2C55               	goto	l748
+  1112     0467  3A03               	xorlw	3	; case 2
+  1113     0468  1903               	skipnz
+  1114     0469  2C58               	goto	l750
+  1115     046A  2C55               	goto	l748
+  1116     046B                     l756:
+  1117                           
+  1118                           ;../../pic16flcd.c: 165:     address += (column - 1);
+  1119     046B  0821               	movf	Lcd_SetCursor@column,w
+  1120     046C  3EFF               	addlw	255
+  1121     046D  00A2               	movwf	??_Lcd_SetCursor
+  1122     046E  0822               	movf	??_Lcd_SetCursor,w
+  1123     046F  07A5               	addwf	Lcd_SetCursor@address,f
+  1124     0470                     l758:
+  1125                           
+  1126                           ;../../pic16flcd.c: 168:     Lcd_Command(config, address);
+  1127     0470  0825               	movf	Lcd_SetCursor@address,w
+  1128     0471  00F9               	movwf	Lcd_Command@cmd
+  1129     0472  0824               	movf	Lcd_SetCursor@config,w
+  1130     0473  120A  118A  2599  120A  118A  	fcall	_Lcd_Command
+  1131     0478                     l60:
+  1132     0478  0008               	return
+  1133     0479                     __end_of_Lcd_SetCursor:
+  1134                           
+  1135                           	psect	text4
+  1136     052B                     __ptext4:	
+  1137 ;; *************** function _Lcd_Init *****************
+  1138 ;; Defined at:
+  1139 ;;		line 111 in file "../../pic16flcd.c"
+  1140 ;; Parameters:    Size  Location     Type
+  1141 ;;  config          1    wreg     PTR struct .
+  1142 ;;		 -> main@lcd(8), 
+  1143 ;; Auto vars:     Size  Location     Type
+  1144 ;;  config          1    4[BANK0 ] PTR struct .
+  1145 ;;		 -> main@lcd(8), 
+  1146 ;; Return value:  Size  Location     Type
+  1147 ;;                  1    wreg      void 
+  1148 ;; Registers used:
+  1149 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1150 ;; Tracked objects:
+  1151 ;;		On entry : 0/0
+  1152 ;;		On exit  : 0/0
+  1153 ;;		Unchanged: 0/0
+  1154 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1155 ;;      Params:         0       0       0       0       0
+  1156 ;;      Locals:         0       1       0       0       0
+  1157 ;;      Temps:          0       2       0       0       0
+  1158 ;;      Totals:         0       3       0       0       0
+  1159 ;;Total ram usage:        3 bytes
+  1160 ;; Hardware stack levels used: 1
+  1161 ;; Hardware stack levels required when called: 4
+  1162 ;; This function calls:
+  1163 ;;		_Lcd_Clear
+  1164 ;;		_Lcd_Command
+  1165 ;; This function is called by:
+  1166 ;;		_main
+  1167 ;; This function uses a non-reentrant model
+  1168 ;;
+  1169                           
+  1170     052B                     _Lcd_Init:	
+  1171                           ;psect for function _Lcd_Init
+  1172                           
+  1173                           
+  1174                           ;incstack = 0
+  1175                           ; Regs used in _Lcd_Init: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1176                           ;Lcd_Init@config stored from wreg
+  1177     052B  1283               	bcf	3,5	;RP0=0, select bank0
+  1178     052C  1303               	bcf	3,6	;RP1=0, select bank0
+  1179     052D  00A4               	movwf	Lcd_Init@config
+  1180     052E                     l726:
+  1181                           
+  1182                           ;../../pic16flcd.c: 117:     _delay((unsigned long)((15)*(4000000/4000.0)));
+  1183     052E  3014               	movlw	20
+  1184     052F  1283               	bcf	3,5	;RP0=0, select bank0
+  1185     0530  1303               	bcf	3,6	;RP1=0, select bank0
+  1186     0531  00A3               	movwf	??_Lcd_Init+1
+  1187     0532  3079               	movlw	121
+  1188     0533  00A2               	movwf	??_Lcd_Init
+  1189     0534                     u1037:
+  1190     0534  0BA2               	decfsz	??_Lcd_Init,f
+  1191     0535  2D34               	goto	u1037
+  1192     0536  0BA3               	decfsz	??_Lcd_Init+1,f
+  1193     0537  2D34               	goto	u1037
+  1194     0538                     l728:
+  1195                           
+  1196                           ;../../pic16flcd.c: 118:     Lcd_Command(config, 0x03);
+  1197     0538  3003               	movlw	3
+  1198     0539  00F9               	movwf	Lcd_Command@cmd
+  1199     053A  1283               	bcf	3,5	;RP0=0, select bank0
+  1200     053B  1303               	bcf	3,6	;RP1=0, select bank0
+  1201     053C  0824               	movf	Lcd_Init@config,w
+  1202     053D  120A  118A  2599  120A  118A  	fcall	_Lcd_Command
+  1203     0542                     l730:
+  1204                           
+  1205                           ;../../pic16flcd.c: 119:     _delay((unsigned long)((5)*(4000000/4000.0)));
+  1206     0542  3007               	movlw	7
+  1207     0543  1283               	bcf	3,5	;RP0=0, select bank0
+  1208     0544  1303               	bcf	3,6	;RP1=0, select bank0
+  1209     0545  00A3               	movwf	??_Lcd_Init+1
+  1210     0546  307C               	movlw	124
+  1211     0547  00A2               	movwf	??_Lcd_Init
+  1212     0548                     u1047:
+  1213     0548  0BA2               	decfsz	??_Lcd_Init,f
+  1214     0549  2D48               	goto	u1047
+  1215     054A  0BA3               	decfsz	??_Lcd_Init+1,f
+  1216     054B  2D48               	goto	u1047
+  1217     054C  0000               	nop
+  1218                           
+  1219                           ;../../pic16flcd.c: 120:     Lcd_Command(config, 0x03);
+  1220     054D  3003               	movlw	3
+  1221     054E  00F9               	movwf	Lcd_Command@cmd
+  1222     054F  1283               	bcf	3,5	;RP0=0, select bank0
+  1223     0550  1303               	bcf	3,6	;RP1=0, select bank0
+  1224     0551  0824               	movf	Lcd_Init@config,w
+  1225     0552  120A  118A  2599  120A  118A  	fcall	_Lcd_Command
+  1226     0557                     l732:
+  1227                           
+  1228                           ;../../pic16flcd.c: 121:     _delay((unsigned long)((100)*(4000000/4000000.0)));
+  1229     0557  3020               	movlw	32
+  1230     0558  1283               	bcf	3,5	;RP0=0, select bank0
+  1231     0559  1303               	bcf	3,6	;RP1=0, select bank0
+  1232     055A  00A2               	movwf	??_Lcd_Init
+  1233     055B                     u1057:
+  1234     055B  0BA2               	decfsz	??_Lcd_Init,f
+  1235     055C  2D5B               	goto	u1057
+  1236     055D  0000               	nop
+  1237     055E                     l734:
+  1238                           
+  1239                           ;../../pic16flcd.c: 122:     Lcd_Command(config, 0x03);
+  1240     055E  3003               	movlw	3
+  1241     055F  00F9               	movwf	Lcd_Command@cmd
+  1242     0560  1283               	bcf	3,5	;RP0=0, select bank0
+  1243     0561  1303               	bcf	3,6	;RP1=0, select bank0
+  1244     0562  0824               	movf	Lcd_Init@config,w
+  1245     0563  120A  118A  2599  120A  118A  	fcall	_Lcd_Command
+  1246     0568                     l736:
+  1247                           
+  1248                           ;../../pic16flcd.c: 123:     Lcd_Command(config, 0x02);
+  1249     0568  3002               	movlw	2
+  1250     0569  00F9               	movwf	Lcd_Command@cmd
+  1251     056A  1283               	bcf	3,5	;RP0=0, select bank0
+  1252     056B  1303               	bcf	3,6	;RP1=0, select bank0
+  1253     056C  0824               	movf	Lcd_Init@config,w
+  1254     056D  120A  118A  2599  120A  118A  	fcall	_Lcd_Command
+  1255     0572                     l738:
+  1256                           
+  1257                           ;../../pic16flcd.c: 125:     Lcd_Command(config, 0x28);
+  1258     0572  3028               	movlw	40
+  1259     0573  00F9               	movwf	Lcd_Command@cmd
+  1260     0574  1283               	bcf	3,5	;RP0=0, select bank0
+  1261     0575  1303               	bcf	3,6	;RP1=0, select bank0
+  1262     0576  0824               	movf	Lcd_Init@config,w
+  1263     0577  120A  118A  2599  120A  118A  	fcall	_Lcd_Command
+  1264     057C                     l740:
+  1265                           
+  1266                           ;../../pic16flcd.c: 126:     Lcd_Command(config, 0x0C);
+  1267     057C  300C               	movlw	12
+  1268     057D  00F9               	movwf	Lcd_Command@cmd
+  1269     057E  1283               	bcf	3,5	;RP0=0, select bank0
+  1270     057F  1303               	bcf	3,6	;RP1=0, select bank0
+  1271     0580  0824               	movf	Lcd_Init@config,w
+  1272     0581  120A  118A  2599  120A  118A  	fcall	_Lcd_Command
+  1273     0586                     l742:
+  1274                           
+  1275                           ;../../pic16flcd.c: 127:     Lcd_Command(config, 0x06);
+  1276     0586  3006               	movlw	6
+  1277     0587  00F9               	movwf	Lcd_Command@cmd
+  1278     0588  1283               	bcf	3,5	;RP0=0, select bank0
+  1279     0589  1303               	bcf	3,6	;RP1=0, select bank0
+  1280     058A  0824               	movf	Lcd_Init@config,w
+  1281     058B  120A  118A  2599  120A  118A  	fcall	_Lcd_Command
+  1282     0590                     l744:
+  1283                           
+  1284                           ;../../pic16flcd.c: 128:     Lcd_Clear(config);
+  1285     0590  1283               	bcf	3,5	;RP0=0, select bank0
+  1286     0591  1303               	bcf	3,6	;RP1=0, select bank0
+  1287     0592  0824               	movf	Lcd_Init@config,w
+  1288     0593  120A  118A  2418  120A  118A  	fcall	_Lcd_Clear
+  1289     0598                     l49:
+  1290     0598  0008               	return
+  1291     0599                     __end_of_Lcd_Init:
+  1292                           
+  1293                           	psect	text5
+  1294     0418                     __ptext5:	
+  1295 ;; *************** function _Lcd_Clear *****************
+  1296 ;; Defined at:
+  1297 ;;		line 136 in file "../../pic16flcd.c"
+  1298 ;; Parameters:    Size  Location     Type
+  1299 ;;  config          1    wreg     PTR struct .
+  1300 ;;		 -> main@lcd(8), 
+  1301 ;; Auto vars:     Size  Location     Type
+  1302 ;;  config          1   13[COMMON] PTR struct .
+  1303 ;;		 -> main@lcd(8), 
+  1304 ;; Return value:  Size  Location     Type
+  1305 ;;                  1    wreg      void 
+  1306 ;; Registers used:
+  1307 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1308 ;; Tracked objects:
+  1309 ;;		On entry : 0/0
+  1310 ;;		On exit  : 0/0
+  1311 ;;		Unchanged: 0/0
+  1312 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1313 ;;      Params:         0       0       0       0       0
+  1314 ;;      Locals:         1       0       0       0       0
+  1315 ;;      Temps:          0       2       0       0       0
+  1316 ;;      Totals:         1       2       0       0       0
+  1317 ;;Total ram usage:        3 bytes
+  1318 ;; Hardware stack levels used: 1
+  1319 ;; Hardware stack levels required when called: 3
+  1320 ;; This function calls:
+  1321 ;;		_Lcd_Command
+  1322 ;; This function is called by:
+  1323 ;;		_main
+  1324 ;;		_Lcd_Init
+  1325 ;; This function uses a non-reentrant model
+  1326 ;;
+  1327                           
+  1328     0418                     _Lcd_Clear:	
+  1329                           ;psect for function _Lcd_Clear
+  1330                           
+  1331                           
+  1332                           ;incstack = 0
+  1333                           ; Regs used in _Lcd_Clear: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1334                           ;Lcd_Clear@config stored from wreg
+  1335     0418  00FD               	movwf	Lcd_Clear@config
+  1336     0419                     l720:
+  1337                           
+  1338                           ;../../pic16flcd.c: 137:     Lcd_Command(config, 0x01);
+  1339     0419  01F9               	clrf	Lcd_Command@cmd
+  1340     041A  0AF9               	incf	Lcd_Command@cmd,f
+  1341     041B  087D               	movf	Lcd_Clear@config,w
+  1342     041C  120A  118A  2599  120A  118A  	fcall	_Lcd_Command
+  1343     0421                     l722:
+  1344                           
+  1345                           ;../../pic16flcd.c: 138:     _delay((unsigned long)((2)*(4000000/4000.0)));
+  1346     0421  3003               	movlw	3
+  1347     0422  1283               	bcf	3,5	;RP0=0, select bank0
+  1348     0423  1303               	bcf	3,6	;RP1=0, select bank0
+  1349     0424  00A1               	movwf	??_Lcd_Clear+1
+  1350     0425  3097               	movlw	151
+  1351     0426  00A0               	movwf	??_Lcd_Clear
+  1352     0427                     u1067:
+  1353     0427  0BA0               	decfsz	??_Lcd_Clear,f
+  1354     0428  2C27               	goto	u1067
+  1355     0429  0BA1               	decfsz	??_Lcd_Clear+1,f
+  1356     042A  2C27               	goto	u1067
+  1357     042B                     l52:
+  1358     042B  0008               	return
+  1359     042C                     __end_of_Lcd_Clear:
+  1360                           
+  1361                           	psect	text6
+  1362     0599                     __ptext6:	
+  1363 ;; *************** function _Lcd_Command *****************
+  1364 ;; Defined at:
+  1365 ;;		line 52 in file "../../pic16flcd.c"
+  1366 ;; Parameters:    Size  Location     Type
+  1367 ;;  config          1    wreg     PTR struct .
+  1368 ;;		 -> main@lcd(8), 
+  1369 ;;  cmd             1    9[COMMON] unsigned char 
+  1370 ;; Auto vars:     Size  Location     Type
+  1371 ;;  config          1   12[COMMON] PTR struct .
+  1372 ;;		 -> main@lcd(8), 
+  1373 ;; Return value:  Size  Location     Type
+  1374 ;;                  1    wreg      void 
+  1375 ;; Registers used:
+  1376 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1377 ;; Tracked objects:
+  1378 ;;		On entry : 0/0
+  1379 ;;		On exit  : 0/0
+  1380 ;;		Unchanged: 0/0
+  1381 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1382 ;;      Params:         1       0       0       0       0
+  1383 ;;      Locals:         1       0       0       0       0
+  1384 ;;      Temps:          2       0       0       0       0
+  1385 ;;      Totals:         4       0       0       0       0
+  1386 ;;Total ram usage:        4 bytes
+  1387 ;; Hardware stack levels used: 1
+  1388 ;; Hardware stack levels required when called: 2
+  1389 ;; This function calls:
+  1390 ;;		_PulseEnable
+  1391 ;;		_SetBit
+  1392 ;; This function is called by:
+  1393 ;;		_Lcd_Init
+  1394 ;;		_Lcd_Clear
+  1395 ;;		_Lcd_SetCursor
+  1396 ;; This function uses a non-reentrant model
+  1397 ;;
+  1398                           
+  1399     0599                     _Lcd_Command:	
+  1400                           ;psect for function _Lcd_Command
+  1401                           
+  1402                           
+  1403                           ;incstack = 0
+  1404                           ; Regs used in _Lcd_Command: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1405                           ;Lcd_Command@config stored from wreg
+  1406     0599  00FC               	movwf	Lcd_Command@config
+  1407     059A                     l718:
+  1408                           
+  1409                           ;../../pic16flcd.c: 54:     SetBit(config->port, config->d4_pin, (cmd >> 4) & 0x01);
+  1410     059A  087C               	movf	Lcd_Command@config,w
+  1411     059B  0084               	movwf	4
+  1412     059C  1383               	bcf	3,7	;select IRP bank0
+  1413     059D  0800               	movf	0,w
+  1414     059E  00F0               	movwf	SetBit@port
+  1415     059F  0A84               	incf	4,f
+  1416     05A0  0800               	movf	0,w
+  1417     05A1  0384               	decf	4,f
+  1418     05A2  00F1               	movwf	SetBit@port+1
+  1419     05A3  087C               	movf	Lcd_Command@config,w
+  1420     05A4  3E04               	addlw	4
+  1421     05A5  0084               	movwf	4
+  1422     05A6  0800               	movf	0,w
+  1423     05A7  00F2               	movwf	SetBit@pin
+  1424     05A8  0879               	movf	Lcd_Command@cmd,w
+  1425     05A9  00FB               	movwf	??_Lcd_Command+1
+  1426     05AA  3004               	movlw	4
+  1427     05AB                     u555:
+  1428     05AB  1003               	clrc
+  1429     05AC  0CFB               	rrf	??_Lcd_Command+1,f
+  1430     05AD  3EFF               	addlw	-1
+  1431     05AE  1D03               	skipz
+  1432     05AF  2DAB               	goto	u555
+  1433     05B0  187B               	btfsc	??_Lcd_Command+1,0
+  1434     05B1  2DB3               	goto	u561
+  1435     05B2  2DB5               	goto	u560
+  1436     05B3                     u561:
+  1437     05B3  3001               	movlw	1
+  1438     05B4  2DB6               	goto	u570
+  1439     05B5                     u560:
+  1440     05B5  3000               	movlw	0
+  1441     05B6                     u570:
+  1442     05B6  00F3               	movwf	SetBit@value
+  1443     05B7  120A  118A  2479  120A  118A  	fcall	_SetBit
+  1444                           
+  1445                           ;../../pic16flcd.c: 55:     SetBit(config->port, config->d5_pin, (cmd >> 5) & 0x01);
+  1446     05BC  087C               	movf	Lcd_Command@config,w
+  1447     05BD  0084               	movwf	4
+  1448     05BE  1383               	bcf	3,7	;select IRP bank0
+  1449     05BF  0800               	movf	0,w
+  1450     05C0  00F0               	movwf	SetBit@port
+  1451     05C1  0A84               	incf	4,f
+  1452     05C2  0800               	movf	0,w
+  1453     05C3  0384               	decf	4,f
+  1454     05C4  00F1               	movwf	SetBit@port+1
+  1455     05C5  087C               	movf	Lcd_Command@config,w
+  1456     05C6  3E05               	addlw	5
+  1457     05C7  0084               	movwf	4
+  1458     05C8  0800               	movf	0,w
+  1459     05C9  00F2               	movwf	SetBit@pin
+  1460     05CA  0879               	movf	Lcd_Command@cmd,w
+  1461     05CB  00FB               	movwf	??_Lcd_Command+1
+  1462     05CC  3005               	movlw	5
+  1463     05CD                     u585:
+  1464     05CD  1003               	clrc
+  1465     05CE  0CFB               	rrf	??_Lcd_Command+1,f
+  1466     05CF  3EFF               	addlw	-1
+  1467     05D0  1D03               	skipz
+  1468     05D1  2DCD               	goto	u585
+  1469     05D2  187B               	btfsc	??_Lcd_Command+1,0
+  1470     05D3  2DD5               	goto	u591
+  1471     05D4  2DD7               	goto	u590
+  1472     05D5                     u591:
+  1473     05D5  3001               	movlw	1
+  1474     05D6  2DD8               	goto	u600
+  1475     05D7                     u590:
+  1476     05D7  3000               	movlw	0
+  1477     05D8                     u600:
+  1478     05D8  00F3               	movwf	SetBit@value
+  1479     05D9  120A  118A  2479  120A  118A  	fcall	_SetBit
+  1480                           
+  1481                           ;../../pic16flcd.c: 56:     SetBit(config->port, config->d6_pin, (cmd >> 6) & 0x01);
+  1482     05DE  087C               	movf	Lcd_Command@config,w
+  1483     05DF  0084               	movwf	4
+  1484     05E0  1383               	bcf	3,7	;select IRP bank0
+  1485     05E1  0800               	movf	0,w
+  1486     05E2  00F0               	movwf	SetBit@port
+  1487     05E3  0A84               	incf	4,f
+  1488     05E4  0800               	movf	0,w
+  1489     05E5  0384               	decf	4,f
+  1490     05E6  00F1               	movwf	SetBit@port+1
+  1491     05E7  087C               	movf	Lcd_Command@config,w
+  1492     05E8  3E06               	addlw	6
+  1493     05E9  0084               	movwf	4
+  1494     05EA  0800               	movf	0,w
+  1495     05EB  00F2               	movwf	SetBit@pin
+  1496     05EC  0879               	movf	Lcd_Command@cmd,w
+  1497     05ED  00FB               	movwf	??_Lcd_Command+1
+  1498     05EE  3006               	movlw	6
+  1499     05EF                     u615:
+  1500     05EF  1003               	clrc
+  1501     05F0  0CFB               	rrf	??_Lcd_Command+1,f
+  1502     05F1  3EFF               	addlw	-1
+  1503     05F2  1D03               	skipz
+  1504     05F3  2DEF               	goto	u615
+  1505     05F4  187B               	btfsc	??_Lcd_Command+1,0
+  1506     05F5  2DF7               	goto	u621
+  1507     05F6  2DF9               	goto	u620
+  1508     05F7                     u621:
+  1509     05F7  3001               	movlw	1
+  1510     05F8  2DFA               	goto	u630
+  1511     05F9                     u620:
+  1512     05F9  3000               	movlw	0
+  1513     05FA                     u630:
+  1514     05FA  00F3               	movwf	SetBit@value
+  1515     05FB  120A  118A  2479  120A  118A  	fcall	_SetBit
+  1516                           
+  1517                           ;../../pic16flcd.c: 57:     SetBit(config->port, config->d7_pin, (cmd >> 7) & 0x01);
+  1518     0600  087C               	movf	Lcd_Command@config,w
+  1519     0601  0084               	movwf	4
+  1520     0602  1383               	bcf	3,7	;select IRP bank0
+  1521     0603  0800               	movf	0,w
+  1522     0604  00F0               	movwf	SetBit@port
+  1523     0605  0A84               	incf	4,f
+  1524     0606  0800               	movf	0,w
+  1525     0607  0384               	decf	4,f
+  1526     0608  00F1               	movwf	SetBit@port+1
+  1527     0609  087C               	movf	Lcd_Command@config,w
+  1528     060A  3E07               	addlw	7
+  1529     060B  0084               	movwf	4
+  1530     060C  0800               	movf	0,w
+  1531     060D  00F2               	movwf	SetBit@pin
+  1532     060E  0879               	movf	Lcd_Command@cmd,w
+  1533     060F  00FB               	movwf	??_Lcd_Command+1
+  1534     0610  3007               	movlw	7
+  1535     0611                     u645:
+  1536     0611  1003               	clrc
+  1537     0612  0CFB               	rrf	??_Lcd_Command+1,f
+  1538     0613  3EFF               	addlw	-1
+  1539     0614  1D03               	skipz
+  1540     0615  2E11               	goto	u645
+  1541     0616  187B               	btfsc	??_Lcd_Command+1,0
+  1542     0617  2E19               	goto	u651
+  1543     0618  2E1B               	goto	u650
+  1544     0619                     u651:
+  1545     0619  3001               	movlw	1
+  1546     061A  2E1C               	goto	u660
+  1547     061B                     u650:
+  1548     061B  3000               	movlw	0
+  1549     061C                     u660:
+  1550     061C  00F3               	movwf	SetBit@value
+  1551     061D  120A  118A  2479  120A  118A  	fcall	_SetBit
+  1552                           
+  1553                           ;../../pic16flcd.c: 59:     SetBit(config->port, config->rs_pin, 0);
+  1554     0622  087C               	movf	Lcd_Command@config,w
+  1555     0623  0084               	movwf	4
+  1556     0624  1383               	bcf	3,7	;select IRP bank0
+  1557     0625  0800               	movf	0,w
+  1558     0626  00F0               	movwf	SetBit@port
+  1559     0627  0A84               	incf	4,f
+  1560     0628  0800               	movf	0,w
+  1561     0629  0384               	decf	4,f
+  1562     062A  00F1               	movwf	SetBit@port+1
+  1563     062B  087C               	movf	Lcd_Command@config,w
+  1564     062C  3E02               	addlw	2
+  1565     062D  0084               	movwf	4
+  1566     062E  0800               	movf	0,w
+  1567     062F  00F2               	movwf	SetBit@pin
+  1568     0630  01F3               	clrf	SetBit@value
+  1569     0631  120A  118A  2479  120A  118A  	fcall	_SetBit
+  1570                           
+  1571                           ;../../pic16flcd.c: 60:     PulseEnable(config);
+  1572     0636  087C               	movf	Lcd_Command@config,w
+  1573     0637  120A  118A  24A5  120A  118A  	fcall	_PulseEnable
+  1574                           
+  1575                           ;../../pic16flcd.c: 63:     SetBit(config->port, config->d4_pin, cmd & 0x01);
+  1576     063C  087C               	movf	Lcd_Command@config,w
+  1577     063D  0084               	movwf	4
+  1578     063E  1383               	bcf	3,7	;select IRP bank0
+  1579     063F  0800               	movf	0,w
+  1580     0640  00F0               	movwf	SetBit@port
+  1581     0641  0A84               	incf	4,f
+  1582     0642  0800               	movf	0,w
+  1583     0643  0384               	decf	4,f
+  1584     0644  00F1               	movwf	SetBit@port+1
+  1585     0645  087C               	movf	Lcd_Command@config,w
+  1586     0646  3E04               	addlw	4
+  1587     0647  0084               	movwf	4
+  1588     0648  0800               	movf	0,w
+  1589     0649  00F2               	movwf	SetBit@pin
+  1590     064A  1879               	btfsc	Lcd_Command@cmd,0
+  1591     064B  2E4D               	goto	u671
+  1592     064C  2E4F               	goto	u670
+  1593     064D                     u671:
+  1594     064D  3001               	movlw	1
+  1595     064E  2E50               	goto	u680
+  1596     064F                     u670:
+  1597     064F  3000               	movlw	0
+  1598     0650                     u680:
+  1599     0650  00F3               	movwf	SetBit@value
+  1600     0651  120A  118A  2479  120A  118A  	fcall	_SetBit
+  1601                           
+  1602                           ;../../pic16flcd.c: 64:     SetBit(config->port, config->d5_pin, (cmd >> 1) & 0x01);
+  1603     0656  087C               	movf	Lcd_Command@config,w
+  1604     0657  0084               	movwf	4
+  1605     0658  1383               	bcf	3,7	;select IRP bank0
+  1606     0659  0800               	movf	0,w
+  1607     065A  00F0               	movwf	SetBit@port
+  1608     065B  0A84               	incf	4,f
+  1609     065C  0800               	movf	0,w
+  1610     065D  0384               	decf	4,f
+  1611     065E  00F1               	movwf	SetBit@port+1
+  1612     065F  087C               	movf	Lcd_Command@config,w
+  1613     0660  3E05               	addlw	5
+  1614     0661  0084               	movwf	4
+  1615     0662  0800               	movf	0,w
+  1616     0663  00F2               	movwf	SetBit@pin
+  1617     0664  0879               	movf	Lcd_Command@cmd,w
+  1618     0665  00FB               	movwf	??_Lcd_Command+1
+  1619     0666  3001               	movlw	1
+  1620     0667                     u695:
+  1621     0667  1003               	clrc
+  1622     0668  0CFB               	rrf	??_Lcd_Command+1,f
+  1623     0669  3EFF               	addlw	-1
+  1624     066A  1D03               	skipz
+  1625     066B  2E67               	goto	u695
+  1626     066C  187B               	btfsc	??_Lcd_Command+1,0
+  1627     066D  2E6F               	goto	u701
+  1628     066E  2E71               	goto	u700
+  1629     066F                     u701:
+  1630     066F  3001               	movlw	1
+  1631     0670  2E72               	goto	u710
+  1632     0671                     u700:
+  1633     0671  3000               	movlw	0
+  1634     0672                     u710:
+  1635     0672  00F3               	movwf	SetBit@value
+  1636     0673  120A  118A  2479  120A  118A  	fcall	_SetBit
+  1637                           
+  1638                           ;../../pic16flcd.c: 65:     SetBit(config->port, config->d6_pin, (cmd >> 2) & 0x01);
+  1639     0678  087C               	movf	Lcd_Command@config,w
+  1640     0679  0084               	movwf	4
+  1641     067A  1383               	bcf	3,7	;select IRP bank0
+  1642     067B  0800               	movf	0,w
+  1643     067C  00F0               	movwf	SetBit@port
+  1644     067D  0A84               	incf	4,f
+  1645     067E  0800               	movf	0,w
+  1646     067F  0384               	decf	4,f
+  1647     0680  00F1               	movwf	SetBit@port+1
+  1648     0681  087C               	movf	Lcd_Command@config,w
+  1649     0682  3E06               	addlw	6
+  1650     0683  0084               	movwf	4
+  1651     0684  0800               	movf	0,w
+  1652     0685  00F2               	movwf	SetBit@pin
+  1653     0686  0879               	movf	Lcd_Command@cmd,w
+  1654     0687  00FB               	movwf	??_Lcd_Command+1
+  1655     0688  3002               	movlw	2
+  1656     0689                     u725:
+  1657     0689  1003               	clrc
+  1658     068A  0CFB               	rrf	??_Lcd_Command+1,f
+  1659     068B  3EFF               	addlw	-1
+  1660     068C  1D03               	skipz
+  1661     068D  2E89               	goto	u725
+  1662     068E  187B               	btfsc	??_Lcd_Command+1,0
+  1663     068F  2E91               	goto	u731
+  1664     0690  2E93               	goto	u730
+  1665     0691                     u731:
+  1666     0691  3001               	movlw	1
+  1667     0692  2E94               	goto	u740
+  1668     0693                     u730:
+  1669     0693  3000               	movlw	0
+  1670     0694                     u740:
+  1671     0694  00F3               	movwf	SetBit@value
+  1672     0695  120A  118A  2479  120A  118A  	fcall	_SetBit
+  1673                           
+  1674                           ;../../pic16flcd.c: 66:     SetBit(config->port, config->d7_pin, (cmd >> 3) & 0x01);
+  1675     069A  087C               	movf	Lcd_Command@config,w
+  1676     069B  0084               	movwf	4
+  1677     069C  1383               	bcf	3,7	;select IRP bank0
+  1678     069D  0800               	movf	0,w
+  1679     069E  00F0               	movwf	SetBit@port
+  1680     069F  0A84               	incf	4,f
+  1681     06A0  0800               	movf	0,w
+  1682     06A1  0384               	decf	4,f
+  1683     06A2  00F1               	movwf	SetBit@port+1
+  1684     06A3  087C               	movf	Lcd_Command@config,w
+  1685     06A4  3E07               	addlw	7
+  1686     06A5  0084               	movwf	4
+  1687     06A6  0800               	movf	0,w
+  1688     06A7  00F2               	movwf	SetBit@pin
+  1689     06A8  0879               	movf	Lcd_Command@cmd,w
+  1690     06A9  00FB               	movwf	??_Lcd_Command+1
+  1691     06AA  3003               	movlw	3
+  1692     06AB                     u755:
+  1693     06AB  1003               	clrc
+  1694     06AC  0CFB               	rrf	??_Lcd_Command+1,f
+  1695     06AD  3EFF               	addlw	-1
+  1696     06AE  1D03               	skipz
+  1697     06AF  2EAB               	goto	u755
+  1698     06B0  187B               	btfsc	??_Lcd_Command+1,0
+  1699     06B1  2EB3               	goto	u761
+  1700     06B2  2EB5               	goto	u760
+  1701     06B3                     u761:
+  1702     06B3  3001               	movlw	1
+  1703     06B4  2EB6               	goto	u770
+  1704     06B5                     u760:
+  1705     06B5  3000               	movlw	0
+  1706     06B6                     u770:
+  1707     06B6  00F3               	movwf	SetBit@value
+  1708     06B7  120A  118A  2479  120A  118A  	fcall	_SetBit
+  1709                           
+  1710                           ;../../pic16flcd.c: 68:     PulseEnable(config);
+  1711     06BC  087C               	movf	Lcd_Command@config,w
+  1712     06BD  120A  118A  24A5  120A  118A  	fcall	_PulseEnable
+  1713     06C2                     l37:
+  1714     06C2  0008               	return
+  1715     06C3                     __end_of_Lcd_Command:
+  1716                           
+  1717                           	psect	text7
+  1718     04A5                     __ptext7:	
+  1719 ;; *************** function _PulseEnable *****************
+  1720 ;; Defined at:
+  1721 ;;		line 38 in file "../../pic16flcd.c"
+  1722 ;; Parameters:    Size  Location     Type
+  1723 ;;  config          1    wreg     PTR struct .
+  1724 ;;		 -> main@lcd(8), 
+  1725 ;; Auto vars:     Size  Location     Type
+  1726 ;;  config          1    8[COMMON] PTR struct .
+  1727 ;;		 -> main@lcd(8), 
+  1728 ;; Return value:  Size  Location     Type
+  1729 ;;                  1    wreg      void 
+  1730 ;; Registers used:
+  1731 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1732 ;; Tracked objects:
+  1733 ;;		On entry : 0/0
+  1734 ;;		On exit  : 0/0
+  1735 ;;		Unchanged: 0/0
+  1736 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1737 ;;      Params:         0       0       0       0       0
+  1738 ;;      Locals:         1       0       0       0       0
+  1739 ;;      Temps:          2       0       0       0       0
+  1740 ;;      Totals:         3       0       0       0       0
+  1741 ;;Total ram usage:        3 bytes
+  1742 ;; Hardware stack levels used: 1
+  1743 ;; Hardware stack levels required when called: 1
+  1744 ;; This function calls:
+  1745 ;;		_SetBit
+  1746 ;; This function is called by:
+  1747 ;;		_Lcd_Command
+  1748 ;;		_Lcd_WriteChar
+  1749 ;; This function uses a non-reentrant model
+  1750 ;;
+  1751                           
+  1752     04A5                     _PulseEnable:	
+  1753                           ;psect for function _PulseEnable
+  1754                           
+  1755                           
+  1756                           ;incstack = 0
+  1757                           ; Regs used in _PulseEnable: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1758                           ;PulseEnable@config stored from wreg
+  1759     04A5  00F8               	movwf	PulseEnable@config
+  1760     04A6                     l712:
+  1761                           
+  1762                           ;../../pic16flcd.c: 39:     SetBit(config->port, config->en_pin, 1);
+  1763     04A6  0878               	movf	PulseEnable@config,w
+  1764     04A7  0084               	movwf	4
+  1765     04A8  1383               	bcf	3,7	;select IRP bank0
+  1766     04A9  0800               	movf	0,w
+  1767     04AA  00F0               	movwf	SetBit@port
+  1768     04AB  0A84               	incf	4,f
+  1769     04AC  0800               	movf	0,w
+  1770     04AD  0384               	decf	4,f
+  1771     04AE  00F1               	movwf	SetBit@port+1
+  1772     04AF  0878               	movf	PulseEnable@config,w
+  1773     04B0  3E03               	addlw	3
+  1774     04B1  0084               	movwf	4
+  1775     04B2  0800               	movf	0,w
+  1776     04B3  00F2               	movwf	SetBit@pin
+  1777     04B4  01F3               	clrf	SetBit@value
+  1778     04B5  0AF3               	incf	SetBit@value,f
+  1779     04B6  120A  118A  2479  120A  118A  	fcall	_SetBit
+  1780     04BB                     l714:
+  1781                           
+  1782                           ;../../pic16flcd.c: 40:     _delay((unsigned long)((2)*(4000000/4000.0)));
+  1783     04BB  3003               	movlw	3
+  1784     04BC  00F7               	movwf	??_PulseEnable+1
+  1785     04BD  3097               	movlw	151
+  1786     04BE  00F6               	movwf	??_PulseEnable
+  1787     04BF                     u1077:
+  1788     04BF  0BF6               	decfsz	??_PulseEnable,f
+  1789     04C0  2CBF               	goto	u1077
+  1790     04C1  0BF7               	decfsz	??_PulseEnable+1,f
+  1791     04C2  2CBF               	goto	u1077
+  1792     04C3  2CC4               	nop2
+  1793     04C4                     l716:
+  1794                           
+  1795                           ;../../pic16flcd.c: 41:     SetBit(config->port, config->en_pin, 0);
+  1796     04C4  0878               	movf	PulseEnable@config,w
+  1797     04C5  0084               	movwf	4
+  1798     04C6  1383               	bcf	3,7	;select IRP bank0
+  1799     04C7  0800               	movf	0,w
+  1800     04C8  00F0               	movwf	SetBit@port
+  1801     04C9  0A84               	incf	4,f
+  1802     04CA  0800               	movf	0,w
+  1803     04CB  0384               	decf	4,f
+  1804     04CC  00F1               	movwf	SetBit@port+1
+  1805     04CD  0878               	movf	PulseEnable@config,w
+  1806     04CE  3E03               	addlw	3
+  1807     04CF  0084               	movwf	4
+  1808     04D0  0800               	movf	0,w
+  1809     04D1  00F2               	movwf	SetBit@pin
+  1810     04D2  01F3               	clrf	SetBit@value
+  1811     04D3  120A  118A  2479  120A  118A  	fcall	_SetBit
+  1812     04D8                     l34:
+  1813     04D8  0008               	return
+  1814     04D9                     __end_of_PulseEnable:
+  1815                           
+  1816                           	psect	text8
+  1817     0479                     __ptext8:	
+  1818 ;; *************** function _SetBit *****************
+  1819 ;; Defined at:
+  1820 ;;		line 24 in file "../../pic16flcd.c"
+  1821 ;; Parameters:    Size  Location     Type
+  1822 ;;  port            2    0[COMMON] PTR volatile unsigned ch
+  1823 ;;		 -> PORTC(1), 
+  1824 ;;  pin             1    2[COMMON] unsigned char 
+  1825 ;;  value           1    3[COMMON] _Bool 
+  1826 ;; Auto vars:     Size  Location     Type
+  1827 ;;		None
+  1828 ;; Return value:  Size  Location     Type
+  1829 ;;                  1    wreg      void 
+  1830 ;; Registers used:
+  1831 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+  1832 ;; Tracked objects:
+  1833 ;;		On entry : 0/0
+  1834 ;;		On exit  : 0/0
+  1835 ;;		Unchanged: 0/0
+  1836 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1837 ;;      Params:         4       0       0       0       0
+  1838 ;;      Locals:         0       0       0       0       0
+  1839 ;;      Temps:          2       0       0       0       0
+  1840 ;;      Totals:         6       0       0       0       0
+  1841 ;;Total ram usage:        6 bytes
+  1842 ;; Hardware stack levels used: 1
+  1843 ;; This function calls:
+  1844 ;;		Nothing
+  1845 ;; This function is called by:
+  1846 ;;		_PulseEnable
+  1847 ;;		_Lcd_Command
+  1848 ;;		_Lcd_WriteChar
+  1849 ;; This function uses a non-reentrant model
+  1850 ;;
+  1851                           
+  1852     0479                     _SetBit:	
+  1853                           ;psect for function _SetBit
   1854                           
-  1855                           ;../../../pic16flcd.c: 25:     if (value) {
-  1856     047D  0873               	movf	SetBit@value,w
-  1857     047E  1903               	btfsc	3,2
-  1858     047F  2C81               	goto	u521
-  1859     0480  2C82               	goto	u520
-  1860     0481                     u521:
-  1861     0481  2C95               	goto	l710
-  1862     0482                     u520:
-  1863     0482                     l708:
-  1864                           
-  1865                           ;../../../pic16flcd.c: 26:         *port |= (1 << pin);
-  1866     0482  3001               	movlw	1
-  1867     0483  00F4               	movwf	??_SetBit
-  1868     0484  0A72               	incf	SetBit@pin,w
-  1869     0485  2C88               	goto	u534
-  1870     0486                     u535:
-  1871     0486  1003               	clrc
-  1872     0487  0DF4               	rlf	??_SetBit,f
-  1873     0488                     u534:
-  1874     0488  3EFF               	addlw	-1
-  1875     0489  1D03               	skipz
-  1876     048A  2C86               	goto	u535
-  1877     048B  0874               	movf	??_SetBit,w
-  1878     048C  00FF               	movwf	btemp+1
-  1879     048D  0870               	movf	SetBit@port,w
-  1880     048E  0084               	movwf	4
-  1881     048F  1783               	bsf	3,7
-  1882     0490  1C71               	btfss	SetBit@port+1,0
-  1883     0491  1383               	bcf	3,7
-  1884     0492  087F               	movf	btemp+1,w
-  1885     0493  0480               	iorwf	0,f
-  1886                           
-  1887                           ;../../../pic16flcd.c: 27:     } else {
-  1888     0494  2CA8               	goto	l31
-  1889     0495                     l710:
-  1890                           
-  1891                           ;../../../pic16flcd.c: 28:         *port &= ~(1 << pin);
-  1892     0495  3001               	movlw	1
-  1893     0496  00F4               	movwf	??_SetBit
-  1894     0497  0A72               	incf	SetBit@pin,w
-  1895     0498  2C9B               	goto	u544
-  1896     0499                     u545:
-  1897     0499  1003               	clrc
-  1898     049A  0DF4               	rlf	??_SetBit,f
-  1899     049B                     u544:
-  1900     049B  3EFF               	addlw	-1
-  1901     049C  1D03               	skipz
-  1902     049D  2C99               	goto	u545
-  1903     049E  0874               	movf	??_SetBit,w
-  1904     049F  3AFF               	xorlw	255
-  1905     04A0  00FF               	movwf	btemp+1
-  1906     04A1  0870               	movf	SetBit@port,w
-  1907     04A2  0084               	movwf	4
-  1908     04A3  1783               	bsf	3,7
-  1909     04A4  1C71               	btfss	SetBit@port+1,0
-  1910     04A5  1383               	bcf	3,7
-  1911     04A6  087F               	movf	btemp+1,w
-  1912     04A7  0580               	andwf	0,f
-  1913     04A8                     l31:
-  1914     04A8  0008               	return
-  1915     04A9                     __end_of_SetBit:
-  1916     007E                     btemp	set	126	;btemp
-  1917     007E                     wtemp0	set	126
-  1918                           
-  1919                           	psect	config
-  1920                           
-  1921                           ;Config register CONFIG @ 0x2007
-  1922                           ;	Oscillator Selection bits
-  1923                           ;	FOSC = 0x3, unprogrammed default
-  1924                           ;	Watchdog Timer Enable bit
-  1925                           ;	WDTE = OFF, WDT disabled
-  1926                           ;	Power-up Timer Enable bit
-  1927                           ;	PWRTE = OFF, PWRT disabled
-  1928                           ;	Brown-out Reset Enable bit
-  1929                           ;	BOREN = OFF, BOR disabled
-  1930                           ;	Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit
-  1931                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
-  1932                           ;	Data EEPROM Memory Code Protection bit
-  1933                           ;	CPD = OFF, Data EEPROM code protection off
-  1934                           ;	Flash Program Memory Write Enable bits
-  1935                           ;	WRT = 0x3, unprogrammed default
-  1936                           ;	In-Circuit Debugger Mode bit
-  1937                           ;	DEBUG = 0x1, unprogrammed default
-  1938                           ;	Flash Program Memory Code Protection bit
-  1939                           ;	CP = OFF, Code protection off
-  1940     2007                     	org	8199
-  1941     2007  3F3B               	dw	16187
+  1855     0479                     l706:	
+  1856                           ;incstack = 0
+  1857                           ; Regs used in _SetBit: [wreg-fsr0h+status,2+status,0]
+  1858                           
+  1859                           
+  1860                           ;../../pic16flcd.c: 25:     if (value) {
+  1861     0479  0873               	movf	SetBit@value,w
+  1862     047A  1903               	btfsc	3,2
+  1863     047B  2C7D               	goto	u521
+  1864     047C  2C7E               	goto	u520
+  1865     047D                     u521:
+  1866     047D  2C91               	goto	l710
+  1867     047E                     u520:
+  1868     047E                     l708:
+  1869                           
+  1870                           ;../../pic16flcd.c: 26:         *port |= (1 << pin);
+  1871     047E  3001               	movlw	1
+  1872     047F  00F4               	movwf	??_SetBit
+  1873     0480  0A72               	incf	SetBit@pin,w
+  1874     0481  2C84               	goto	u534
+  1875     0482                     u535:
+  1876     0482  1003               	clrc
+  1877     0483  0DF4               	rlf	??_SetBit,f
+  1878     0484                     u534:
+  1879     0484  3EFF               	addlw	-1
+  1880     0485  1D03               	skipz
+  1881     0486  2C82               	goto	u535
+  1882     0487  0874               	movf	??_SetBit,w
+  1883     0488  00F5               	movwf	??_SetBit+1
+  1884     0489  0870               	movf	SetBit@port,w
+  1885     048A  0084               	movwf	4
+  1886     048B  1783               	bsf	3,7
+  1887     048C  1C71               	btfss	SetBit@port+1,0
+  1888     048D  1383               	bcf	3,7
+  1889     048E  0875               	movf	??_SetBit+1,w
+  1890     048F  0480               	iorwf	0,f
+  1891                           
+  1892                           ;../../pic16flcd.c: 27:     } else {
+  1893     0490  2CA4               	goto	l31
+  1894     0491                     l710:
+  1895                           
+  1896                           ;../../pic16flcd.c: 28:         *port &= ~(1 << pin);
+  1897     0491  3001               	movlw	1
+  1898     0492  00F4               	movwf	??_SetBit
+  1899     0493  0A72               	incf	SetBit@pin,w
+  1900     0494  2C97               	goto	u544
+  1901     0495                     u545:
+  1902     0495  1003               	clrc
+  1903     0496  0DF4               	rlf	??_SetBit,f
+  1904     0497                     u544:
+  1905     0497  3EFF               	addlw	-1
+  1906     0498  1D03               	skipz
+  1907     0499  2C95               	goto	u545
+  1908     049A  0874               	movf	??_SetBit,w
+  1909     049B  3AFF               	xorlw	255
+  1910     049C  00F5               	movwf	??_SetBit+1
+  1911     049D  0870               	movf	SetBit@port,w
+  1912     049E  0084               	movwf	4
+  1913     049F  1783               	bsf	3,7
+  1914     04A0  1C71               	btfss	SetBit@port+1,0
+  1915     04A1  1383               	bcf	3,7
+  1916     04A2  0875               	movf	??_SetBit+1,w
+  1917     04A3  0580               	andwf	0,f
+  1918     04A4                     l31:
+  1919     04A4  0008               	return
+  1920     04A5                     __end_of_SetBit:
+  1921     007E                     btemp	set	126	;btemp
+  1922     007E                     wtemp0	set	126
+  1923                           
+  1924                           	psect	config
+  1925                           
+  1926                           ;Config register CONFIG @ 0x2007
+  1927                           ;	Oscillator Selection bits
+  1928                           ;	FOSC = 0x68, user specified literal
+  1929                           ;	Watchdog Timer Enable bit
+  1930                           ;	WDTE = OFF, WDT disabled
+  1931                           ;	Power-up Timer Enable bit
+  1932                           ;	PWRTE = OFF, PWRT disabled
+  1933                           ;	Brown-out Reset Enable bit
+  1934                           ;	BOREN = OFF, BOR disabled
+  1935                           ;	Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit
+  1936                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
+  1937                           ;	Data EEPROM Memory Code Protection bit
+  1938                           ;	CPD = OFF, Data EEPROM code protection off
+  1939                           ;	Flash Program Memory Write Enable bits
+  1940                           ;	WRT = 0x3, unprogrammed default
+  1941                           ;	In-Circuit Debugger Mode bit
+  1942                           ;	DEBUG = 0x1, unprogrammed default
+  1943                           ;	Flash Program Memory Code Protection bit
+  1944                           ;	CP = OFF, Code protection off
+  1945     2007                     	org	8199
+  1946     2007  3F38               	dw	16184
 
 Data Sizes:
     Strings     12
@@ -1967,7 +1972,7 @@ Data Sizes:
 Auto Spaces:
     Space          Size  Autos    Used
     COMMON           14     14      14
-    BANK0            80     16      24
+    BANK0            80     18      26
     BANK1            80      0       0
     BANK3            96      0       0
     BANK2            96      0       0
@@ -2035,7 +2040,6 @@ Pointer List with Targets:
 Critical Paths under _main in COMMON
 
     _main->_Lcd_Clear
-    _main->_Lcd_SetCursor
     _main->_Lcd_WriteString
     _Lcd_WriteString->_Lcd_WriteChar
     _Lcd_WriteChar->_PulseEnable
@@ -2047,7 +2051,6 @@ Critical Paths under _main in COMMON
 
 Critical Paths under _main in BANK0
 
-    _main->_Lcd_Init
     _main->_Lcd_SetCursor
     _Lcd_Init->_Lcd_Clear
 
@@ -2069,47 +2072,47 @@ Call Graph Tables:
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
  (0) _main                                                12    12      0   56218
-                                              4 BANK0     12    12      0
+                                              6 BANK0     12    12      0
                           _Lcd_Clear
                            _Lcd_Init
                       _Lcd_SetCursor
                     _Lcd_WriteString
  ---------------------------------------------------------------------------------
- (1) _Lcd_WriteString                                      2     1      1   10570
-                                             12 COMMON     2     1      1
+ (1) _Lcd_WriteString                                      3     2      1   10570
+                                             13 COMMON     1     0      1
+                                              0 BANK0      2     2      0
                       _Lcd_WriteChar
  ---------------------------------------------------------------------------------
  (2) _Lcd_WriteChar                                        4     3      1   10285
-                                              8 COMMON     4     3      1
+                                              9 COMMON     4     3      1
                         _PulseEnable
                              _SetBit
  ---------------------------------------------------------------------------------
  (1) _Lcd_SetCursor                                        6     4      2   11619
-                                             12 COMMON     2     0      2
-                                              0 BANK0      4     4      0
+                                              0 BANK0      6     4      2
                         _Lcd_Command
  ---------------------------------------------------------------------------------
  (1) _Lcd_Init                                             3     3      0   22611
-                                              1 BANK0      3     3      0
+                                              2 BANK0      3     3      0
                           _Lcd_Clear
                         _Lcd_Command
  ---------------------------------------------------------------------------------
  (2) _Lcd_Clear                                            3     3      0   11245
-                                             12 COMMON     2     2      0
-                                              0 BANK0      1     1      0
+                                             13 COMMON     1     1      0
+                                              0 BANK0      2     2      0
                         _Lcd_Command
  ---------------------------------------------------------------------------------
  (2) _Lcd_Command                                          4     3      1   11157
-                                              8 COMMON     4     3      1
+                                              9 COMMON     4     3      1
                         _PulseEnable
                              _SetBit
  ---------------------------------------------------------------------------------
  (3) _PulseEnable                                          3     3      0    4890
-                                              5 COMMON     3     3      0
+                                              6 COMMON     3     3      0
                              _SetBit
  ---------------------------------------------------------------------------------
- (3) _SetBit                                               5     1      4    4670
-                                              0 COMMON     5     1      4
+ (3) _SetBit                                               6     2      4    4670
+                                              0 COMMON     6     2      4
  ---------------------------------------------------------------------------------
  Estimated maximum stack depth 3
  ---------------------------------------------------------------------------------
@@ -2146,46 +2149,46 @@ BANK1               50      0       0       7        0.0%
 BITBANK1            50      0       0       6        0.0%
 SFR1                 0      0       0       2        0.0%
 BITSFR1              0      0       0       2        0.0%
-BANK0               50     10      18       5       30.0%
+BANK0               50     12      1A       5       32.5%
 BITBANK0            50      0       0       4        0.0%
 SFR0                 0      0       0       1        0.0%
 BITSFR0              0      0       0       1        0.0%
 COMMON               E      E       E       1      100.0%
 BITCOMMON            E      0       0       0        0.0%
 CODE                 0      0       0       0        0.0%
-DATA                 0      0      26      12        0.0%
-ABS                  0      0      26       3        0.0%
+DATA                 0      0      28      12        0.0%
+ABS                  0      0      28       3        0.0%
 NULL                 0      0       0       0        0.0%
 STACK                0      0       0       2        0.0%
 EEDATA             100      0       0       0        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Sun Dec 31 22:41:35 2023
+Symbol Table                                                                                   Sun Dec 31 22:56:56 2023
 
-                      pc 0002                       l20 0527                       l31 04A8  
-                     l40 07ED                       l34 04DC                       l19 0527  
-                     l52 0433                       l60 047C                       l37 06C2  
-                     l46 0454                       l49 0598           Lcd_Init@config 0023  
-                     fsr 0004                      l710 0495                      l712 04AA  
-                    l720 0422                      l706 047D                      l714 04BF  
-                    l722 042A                      l730 0542                      l708 0482  
-                    l716 04C8                      l740 057C                      l732 0557  
-                    l820 0467                      l724 06C4                      l718 059A  
+                      pc 0002                       l20 0527                       l31 04A4  
+                     l40 07ED                       l34 04D8                       l19 0527  
+                     l52 042B                       l60 0478                       l37 06C2  
+                     l46 0450                       l49 0598           Lcd_Init@config 0024  
+                     fsr 0004                      l710 0491                      l712 04A6  
+                    l720 0419                      l706 0479                      l714 04BB  
+                    l722 0421                      l730 0542                      l708 047E  
+                    l716 04C4                      l740 057C                      l732 0557  
+                    l820 0463                      l724 06C4                      l718 059A  
                     l742 0586                      l734 055E                      l726 052E  
-                    l750 045C                      l744 0590                      l736 0568  
-                    l728 0538                      l738 0572                      l754 045F  
-                    l746 0458                      l770 0444                      l756 046F  
-                    l748 0459                      l772 0448                      l780 04FD  
-                    l758 0474                      l766 0435                      l782 0503  
-                    l774 04DD                      l768 0436                      l784 050D  
-                    l776 04E0                      l786 0515                      l778 04F7  
-                    l788 051F                      u520 0482                      u600 05D8  
-                    u521 0481                      u700 0671                      u620 05F9  
-                    u701 066F                      u621 05F7                      u534 0488  
-                    u710 0672                      u630 05FA                      u535 0486  
-                    u615 05EF                      u544 049B                      u560 05B5  
-                    u800 06E0                      u545 0499                      u561 05B3  
+                    l750 0458                      l744 0590                      l736 0568  
+                    l728 0538                      l738 0572                      l754 045B  
+                    l746 0454                      l770 043E                      l756 046B  
+                    l748 0455                      l772 0444                      l780 04F9  
+                    l758 0470                      l766 042F                      l782 04FF  
+                    l774 04D9                      l768 0430                      l784 050B  
+                    l776 04DC                      l786 0513                      l778 04F3  
+                    l788 051F                      u520 047E                      u600 05D8  
+                    u521 047D                      u700 0671                      u620 05F9  
+                    u701 066F                      u621 05F7                      u534 0484  
+                    u710 0672                      u630 05FA                      u535 0482  
+                    u615 05EF                      u544 0497                      u560 05B5  
+                    u800 06E0                      u545 0495                      u561 05B3  
                     u730 0693                      u650 061B                      u570 05B6  
                     u731 0691                      u651 0619                      u555 05AB  
                     u740 0694                      u660 061C                      u900 077A  
@@ -2203,36 +2206,36 @@ Symbol Table                                                                    
                     u785 06D5                      u970 07BF                      u890 0746  
                     u955 07B4                      u875 073B                      u990 07E0  
                     u991 07DE                      u985 07D6                      fsr0 0004  
-       ?_Lcd_WriteString 007C                      indf 0000      __end_of_Lcd_Command 06C3  
+       ?_Lcd_WriteString 007D                      indf 0000      __end_of_Lcd_Command 06C3  
                    STR_1 000F                     STR_2 0009                     u1000 07E1  
-                   u1010 0454                     u1011 0453                     u1020 04EA  
+                   u1010 0450                     u1011 044F                     u1020 04E6  
                    u1037 0534                     u1047 0548                     u1057 055B  
-                   u1067 042E                     u1077 04C3       Lcd_WriteString@str 007C  
-                   _main 04DD                     btemp 007E                     start 0000  
+                   u1067 0427                     u1077 04BF       Lcd_WriteString@str 007D  
+                   _main 04D9                     btemp 007E                     start 0000  
                   ?_main 0070                    _PORTC 0007                    _TRISC 0087  
              SetBit@port 0070                    pclath 000A                    status 0003  
-                  wtemp0 007E         __end_of_Lcd_Init 0599        PulseEnable@config 0077  
+                  wtemp0 007E         __end_of_Lcd_Init 0599        PulseEnable@config 0078  
         __initialization 07EE             __end_of_main 052B              _Lcd_Command 0599  
-                 ??_main 0024    __end_of_Lcd_SetCursor 047D                   _SetBit 047D  
-   Lcd_SetCursor@address 0023              SetBit@value 0073    __end_of_Lcd_WriteChar 07EE  
-__end_of__initialization 07FC            ??_PulseEnable 0075        __end_of_Lcd_Clear 0434  
-         __pcstackCOMMON 0070             __pidataBANK0 0404                ?_Lcd_Init 0070  
-                ?_SetBit 0070               __pmaintext 04DD      __end_of_PulseEnable 04DD  
-             ??_Lcd_Init 0021    Lcd_WriteString@config 007D               __stringtab 0003  
-      Lcd_WriteChar@data 0078             ?_Lcd_Command 0078                  __ptext1 0434  
-                __ptext2 06C3                  __ptext3 0455                  __ptext4 052B  
-                __ptext5 041F                  __ptext6 0599                  __ptext7 04A9  
-                __ptext8 047D                  main@lcd 0028     end_of_initialization 07FC  
-       Lcd_SetCursor@row 007C              _PulseEnable 04A9        ??_Lcd_WriteString 007D  
-              _Lcd_Clear 041F           __end_of_SetBit 04A9                SetBit@pin 0072  
+                 ??_main 0026    __end_of_Lcd_SetCursor 0479                   _SetBit 0479  
+   Lcd_SetCursor@address 0025              SetBit@value 0073    __end_of_Lcd_WriteChar 07EE  
+__end_of__initialization 07FC            ??_PulseEnable 0076        __end_of_Lcd_Clear 042C  
+         __pcstackCOMMON 0070             __pidataBANK0 03FD                ?_Lcd_Init 0070  
+                ?_SetBit 0070               __pmaintext 04D9      __end_of_PulseEnable 04D9  
+             ??_Lcd_Init 0022    Lcd_WriteString@config 0021               __stringtab 0003  
+      Lcd_WriteChar@data 0079             ?_Lcd_Command 0079                  __ptext1 042C  
+                __ptext2 06C3                  __ptext3 0451                  __ptext4 052B  
+                __ptext5 0418                  __ptext6 0599                  __ptext7 04A5  
+                __ptext8 0479                  main@lcd 002A     end_of_initialization 07FC  
+       Lcd_SetCursor@row 0020              _PulseEnable 04A5        ??_Lcd_WriteString 0020  
+              _Lcd_Clear 0418           __end_of_SetBit 04A5                SetBit@pin 0072  
     start_initialization 07EE                 ??_SetBit 0074               ?_Lcd_Clear 0070  
-    Lcd_SetCursor@config 0022      Lcd_SetCursor@column 007D               init_fetch0 040C  
-            __pdataBANK0 0030        Lcd_Command@config 007B      Lcd_WriteChar@config 007B  
-              ___latbits 0002            __pcstackBANK0 0020            _Lcd_SetCursor 0455  
-              __pstrings 0003            _Lcd_WriteChar 06C3           ?_Lcd_SetCursor 007C  
-           ?_PulseEnable 0070              ??_Lcd_Clear 007C          Lcd_Clear@config 0020  
-            __stringbase 0008           ?_Lcd_WriteChar 0078                 _Lcd_Init 052B  
-        _Lcd_WriteString 0434       __end_of__stringtab 0009          ??_Lcd_SetCursor 0020  
-               main@F952 0030          ??_Lcd_WriteChar 0079  __end_of_Lcd_WriteString 0455  
-               init_ram0 0410                stringcode 0003            ??_Lcd_Command 0079  
-         Lcd_Command@cmd 0078                 stringdir 0003                 stringtab 0003  
+    Lcd_SetCursor@config 0024      Lcd_SetCursor@column 0021               init_fetch0 0405  
+            __pdataBANK0 0032        Lcd_Command@config 007C      Lcd_WriteChar@config 007C  
+              ___latbits 0002            __pcstackBANK0 0020            _Lcd_SetCursor 0451  
+              __pstrings 0003            _Lcd_WriteChar 06C3           ?_Lcd_SetCursor 0020  
+           ?_PulseEnable 0070              ??_Lcd_Clear 0020          Lcd_Clear@config 007D  
+            __stringbase 0008           ?_Lcd_WriteChar 0079                 _Lcd_Init 052B  
+        _Lcd_WriteString 042C       __end_of__stringtab 0009          ??_Lcd_SetCursor 0022  
+               main@F952 0032          ??_Lcd_WriteChar 007A  __end_of_Lcd_WriteString 0451  
+               init_ram0 0409                stringcode 0003            ??_Lcd_Command 007A  
+         Lcd_Command@cmd 0079                 stringdir 0003                 stringtab 0003  

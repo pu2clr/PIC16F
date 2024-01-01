@@ -19,8 +19,8 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
     <itemPath>newmain.c</itemPath>
-    <itemPath>../../../pic16flcd.c</itemPath>
-    <itemPath>../../../pic16flcd.h</itemPath>
+    <itemPath>../../pic16flcd.c</itemPath>
+    <itemPath>../../pic16flcd.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>../../..</Elem>
@@ -36,7 +36,7 @@
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.45</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>4</platform>
       </toolsSet>
       <packs>
         <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.6.156"/>
@@ -151,6 +151,9 @@
       <PICkit3PlatformTool>
         <property key="firmware.download.all" value="false"/>
       </PICkit3PlatformTool>
+      <Tool>
+        <property key="firmware.download.all" value="false"/>
+      </Tool>
       <XC8-CO>
         <property key="coverage-enable" value=""/>
         <property key="stack-guidance" value="false"/>

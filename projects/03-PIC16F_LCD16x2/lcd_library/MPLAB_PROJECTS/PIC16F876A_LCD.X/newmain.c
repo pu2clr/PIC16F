@@ -1,13 +1,15 @@
 #include <xc.h>
-#include "../../../pic16flcd.h"
-// #pragma config FOSC = INTRC_NOCLKOUT
+#include "../../pic16flcd.h"
+
+
+#pragma config FOSC = 0x68        // High Speed Oscillator
 #pragma config WDTE = OFF       // Watchdog Timer disabled 
-#pragma config PWRTE = OFF      // Power-up Timer disable
-// #pragma config MCLRE = ON       // MCLR pin function is digital input
-#pragma config BOREN = OFF      // Brown-out Reset enabled
+#pragma config PWRTE = OFF      // Power-up Timer disabled
+#pragma config BOREN = OFF      // Brown-out Reset disabled
 #pragma config LVP = OFF        // Low Voltage Programming disabled
 #pragma config CPD = OFF        // Data EEPROM Memory Code Protection disabled
 #pragma config CP = OFF         // Flash Program Memory Code Protection disabled
+
 
 #define _XTAL_FREQ 4000000      // internal clock
 

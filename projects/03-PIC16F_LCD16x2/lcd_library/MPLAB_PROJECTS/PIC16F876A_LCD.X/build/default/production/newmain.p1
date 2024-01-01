@@ -1,229 +1,232 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"1337 C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 1337: extern volatile unsigned char TRISC __attribute__((address(0x087)));
+"1337 /Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 1337: extern volatile unsigned char TRISC __attribute__((address(0x087)));
 [v _TRISC `Vuc ~T0 @X0 0 e@135 ]
-"18 ./../../../pic16flcd.h
-[; ;./../../../pic16flcd.h: 18: typedef struct {
+"18 ./../../pic16flcd.h
+[; ;./../../pic16flcd.h: 18: typedef struct {
 [s S91 `*Vuc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S91 . port rs_pin en_pin d4_pin d5_pin d6_pin d7_pin ]
-"278 C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 278: extern volatile unsigned char PORTC __attribute__((address(0x007)));
+"278 /Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 278: extern volatile unsigned char PORTC __attribute__((address(0x007)));
 [v _PORTC `Vuc ~T0 @X0 0 e@7 ]
-"29 ./../../../pic16flcd.h
-[; ;./../../../pic16flcd.h: 29: void Lcd_Init(Lcd_PinConfig *config);
+"29 ./../../pic16flcd.h
+[; ;./../../pic16flcd.h: 29: void Lcd_Init(Lcd_PinConfig *config);
 [v _Lcd_Init `(v ~T0 @X0 0 ef1`*S91 ]
 "31
-[; ;./../../../pic16flcd.h: 31: void Lcd_Clear(Lcd_PinConfig *config);
+[; ;./../../pic16flcd.h: 31: void Lcd_Clear(Lcd_PinConfig *config);
 [v _Lcd_Clear `(v ~T0 @X0 0 ef1`*S91 ]
 "32
-[; ;./../../../pic16flcd.h: 32: void Lcd_SetCursor(Lcd_PinConfig *config, unsigned char row, unsigned char column);
+[; ;./../../pic16flcd.h: 32: void Lcd_SetCursor(Lcd_PinConfig *config, unsigned char row, unsigned char column);
 [v _Lcd_SetCursor `(v ~T0 @X0 0 ef3`*S91`uc`uc ]
 "34
-[; ;./../../../pic16flcd.h: 34: void Lcd_WriteString(Lcd_PinConfig *config, char *str);
+[; ;./../../pic16flcd.h: 34: void Lcd_WriteString(Lcd_PinConfig *config, char *str);
 [v _Lcd_WriteString `(v ~T0 @X0 0 ef2`*S91`*uc ]
-"54 C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 54: __asm("INDF equ 00h");
+"54 /Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
 "61
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 61: __asm("TMR0 equ 01h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 61: __asm("TMR0 equ 01h");
 [; <" TMR0 equ 01h ;# ">
 "68
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 68: __asm("PCL equ 02h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 68: __asm("PCL equ 02h");
 [; <" PCL equ 02h ;# ">
 "75
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 75: __asm("STATUS equ 03h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 75: __asm("STATUS equ 03h");
 [; <" STATUS equ 03h ;# ">
 "161
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 161: __asm("FSR equ 04h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 161: __asm("FSR equ 04h");
 [; <" FSR equ 04h ;# ">
 "168
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 168: __asm("PORTA equ 05h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 168: __asm("PORTA equ 05h");
 [; <" PORTA equ 05h ;# ">
 "218
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 218: __asm("PORTB equ 06h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 218: __asm("PORTB equ 06h");
 [; <" PORTB equ 06h ;# ">
 "280
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 280: __asm("PORTC equ 07h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 280: __asm("PORTC equ 07h");
 [; <" PORTC equ 07h ;# ">
 "342
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 342: __asm("PCLATH equ 0Ah");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 342: __asm("PCLATH equ 0Ah");
 [; <" PCLATH equ 0Ah ;# ">
 "362
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 362: __asm("INTCON equ 0Bh");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 362: __asm("INTCON equ 0Bh");
 [; <" INTCON equ 0Bh ;# ">
 "440
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 440: __asm("PIR1 equ 0Ch");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 440: __asm("PIR1 equ 0Ch");
 [; <" PIR1 equ 0Ch ;# ">
 "496
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 496: __asm("PIR2 equ 0Dh");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 496: __asm("PIR2 equ 0Dh");
 [; <" PIR2 equ 0Dh ;# ">
 "536
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 536: __asm("TMR1 equ 0Eh");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 536: __asm("TMR1 equ 0Eh");
 [; <" TMR1 equ 0Eh ;# ">
 "543
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 543: __asm("TMR1L equ 0Eh");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 543: __asm("TMR1L equ 0Eh");
 [; <" TMR1L equ 0Eh ;# ">
 "550
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 550: __asm("TMR1H equ 0Fh");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 550: __asm("TMR1H equ 0Fh");
 [; <" TMR1H equ 0Fh ;# ">
 "557
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 557: __asm("T1CON equ 010h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 557: __asm("T1CON equ 010h");
 [; <" T1CON equ 010h ;# ">
 "632
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 632: __asm("TMR2 equ 011h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 632: __asm("TMR2 equ 011h");
 [; <" TMR2 equ 011h ;# ">
 "639
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 639: __asm("T2CON equ 012h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 639: __asm("T2CON equ 012h");
 [; <" T2CON equ 012h ;# ">
 "710
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 710: __asm("SSPBUF equ 013h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 710: __asm("SSPBUF equ 013h");
 [; <" SSPBUF equ 013h ;# ">
 "717
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 717: __asm("SSPCON equ 014h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 717: __asm("SSPCON equ 014h");
 [; <" SSPCON equ 014h ;# ">
 "787
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 787: __asm("CCPR1 equ 015h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 787: __asm("CCPR1 equ 015h");
 [; <" CCPR1 equ 015h ;# ">
 "794
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 794: __asm("CCPR1L equ 015h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 794: __asm("CCPR1L equ 015h");
 [; <" CCPR1L equ 015h ;# ">
 "801
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 801: __asm("CCPR1H equ 016h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 801: __asm("CCPR1H equ 016h");
 [; <" CCPR1H equ 016h ;# ">
 "808
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 808: __asm("CCP1CON equ 017h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 808: __asm("CCP1CON equ 017h");
 [; <" CCP1CON equ 017h ;# ">
 "866
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 866: __asm("RCSTA equ 018h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 866: __asm("RCSTA equ 018h");
 [; <" RCSTA equ 018h ;# ">
 "961
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 961: __asm("TXREG equ 019h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 961: __asm("TXREG equ 019h");
 [; <" TXREG equ 019h ;# ">
 "968
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 968: __asm("RCREG equ 01Ah");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 968: __asm("RCREG equ 01Ah");
 [; <" RCREG equ 01Ah ;# ">
 "975
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 975: __asm("CCPR2 equ 01Bh");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 975: __asm("CCPR2 equ 01Bh");
 [; <" CCPR2 equ 01Bh ;# ">
 "982
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 982: __asm("CCPR2L equ 01Bh");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 982: __asm("CCPR2L equ 01Bh");
 [; <" CCPR2L equ 01Bh ;# ">
 "989
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 989: __asm("CCPR2H equ 01Ch");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 989: __asm("CCPR2H equ 01Ch");
 [; <" CCPR2H equ 01Ch ;# ">
 "996
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 996: __asm("CCP2CON equ 01Dh");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 996: __asm("CCP2CON equ 01Dh");
 [; <" CCP2CON equ 01Dh ;# ">
 "1054
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 1054: __asm("ADRESH equ 01Eh");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 1054: __asm("ADRESH equ 01Eh");
 [; <" ADRESH equ 01Eh ;# ">
 "1061
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 1061: __asm("ADCON0 equ 01Fh");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 1061: __asm("ADCON0 equ 01Fh");
 [; <" ADCON0 equ 01Fh ;# ">
 "1157
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 1157: __asm("OPTION_REG equ 081h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 1157: __asm("OPTION_REG equ 081h");
 [; <" OPTION_REG equ 081h ;# ">
 "1227
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 1227: __asm("TRISA equ 085h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 1227: __asm("TRISA equ 085h");
 [; <" TRISA equ 085h ;# ">
 "1277
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 1277: __asm("TRISB equ 086h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 1277: __asm("TRISB equ 086h");
 [; <" TRISB equ 086h ;# ">
 "1339
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 1339: __asm("TRISC equ 087h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 1339: __asm("TRISC equ 087h");
 [; <" TRISC equ 087h ;# ">
 "1401
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 1401: __asm("PIE1 equ 08Ch");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 1401: __asm("PIE1 equ 08Ch");
 [; <" PIE1 equ 08Ch ;# ">
 "1457
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 1457: __asm("PIE2 equ 08Dh");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 1457: __asm("PIE2 equ 08Dh");
 [; <" PIE2 equ 08Dh ;# ">
 "1497
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 1497: __asm("PCON equ 08Eh");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 1497: __asm("PCON equ 08Eh");
 [; <" PCON equ 08Eh ;# ">
 "1531
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 1531: __asm("SSPCON2 equ 091h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 1531: __asm("SSPCON2 equ 091h");
 [; <" SSPCON2 equ 091h ;# ">
 "1593
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 1593: __asm("PR2 equ 092h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 1593: __asm("PR2 equ 092h");
 [; <" PR2 equ 092h ;# ">
 "1600
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 1600: __asm("SSPADD equ 093h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 1600: __asm("SSPADD equ 093h");
 [; <" SSPADD equ 093h ;# ">
 "1607
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 1607: __asm("SSPSTAT equ 094h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 1607: __asm("SSPSTAT equ 094h");
 [; <" SSPSTAT equ 094h ;# ">
 "1776
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 1776: __asm("TXSTA equ 098h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 1776: __asm("TXSTA equ 098h");
 [; <" TXSTA equ 098h ;# ">
 "1857
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 1857: __asm("SPBRG equ 099h");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 1857: __asm("SPBRG equ 099h");
 [; <" SPBRG equ 099h ;# ">
 "1864
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 1864: __asm("CMCON equ 09Ch");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 1864: __asm("CMCON equ 09Ch");
 [; <" CMCON equ 09Ch ;# ">
 "1934
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 1934: __asm("CVRCON equ 09Dh");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 1934: __asm("CVRCON equ 09Dh");
 [; <" CVRCON equ 09Dh ;# ">
 "1999
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 1999: __asm("ADRESL equ 09Eh");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 1999: __asm("ADRESL equ 09Eh");
 [; <" ADRESL equ 09Eh ;# ">
 "2006
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 2006: __asm("ADCON1 equ 09Fh");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 2006: __asm("ADCON1 equ 09Fh");
 [; <" ADCON1 equ 09Fh ;# ">
 "2065
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 2065: __asm("EEDATA equ 010Ch");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 2065: __asm("EEDATA equ 010Ch");
 [; <" EEDATA equ 010Ch ;# ">
 "2072
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 2072: __asm("EEADR equ 010Dh");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 2072: __asm("EEADR equ 010Dh");
 [; <" EEADR equ 010Dh ;# ">
 "2079
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 2079: __asm("EEDATH equ 010Eh");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 2079: __asm("EEDATH equ 010Eh");
 [; <" EEDATH equ 010Eh ;# ">
 "2086
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 2086: __asm("EEADRH equ 010Fh");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 2086: __asm("EEADRH equ 010Fh");
 [; <" EEADRH equ 010Fh ;# ">
 "2093
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 2093: __asm("EECON1 equ 018Ch");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 2093: __asm("EECON1 equ 018Ch");
 [; <" EECON1 equ 018Ch ;# ">
 "2138
-[; ;C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h: 2138: __asm("EECON2 equ 018Dh");
+[; ;/Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h: 2138: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"4 newmain.c
-[; ;newmain.c: 4:     TRISC = 0;
+"5 newmain.c
+[; ;newmain.c: 5:     TRISC = 0;
+[p x FOSC  =  0x68         ]
+"6
+[; ;newmain.c: 6:     Lcd_PinConfig lcd = {
 [p x WDTE  =  OFF        ]
-"5
-[; ;newmain.c: 5:     Lcd_PinConfig lcd = {
-[p x PWRTE  =  OFF       ]
 "7
-[; ;newmain.c: 7:         .rs_pin = 2,
-[p x BOREN  =  OFF       ]
+[; ;newmain.c: 7:         .port = &PORTC,
+[p x PWRTE  =  OFF       ]
 "8
-[; ;newmain.c: 8:         .en_pin = 3,
-[p x LVP  =  OFF         ]
+[; ;newmain.c: 8:         .rs_pin = 2,
+[p x BOREN  =  OFF       ]
 "9
-[; ;newmain.c: 9:         .d4_pin = 4,
-[p x CPD  =  OFF         ]
+[; ;newmain.c: 9:         .en_pin = 3,
+[p x LVP  =  OFF         ]
 "10
-[; ;newmain.c: 10:         .d5_pin = 5,
+[; ;newmain.c: 10:         .d4_pin = 4,
+[p x CPD  =  OFF         ]
+"11
+[; ;newmain.c: 11:         .d5_pin = 5,
 [p x CP  =  OFF          ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"14
-[; ;newmain.c: 14: 
+"16
+[; ;newmain.c: 16: 
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"16
-[; ;newmain.c: 16:     Lcd_Init(&lcd);
+"18
+[; ;newmain.c: 18:     Lcd_Clear(&lcd);
 [e = _TRISC -> -> 0 `i `uc ]
 [v F952 `S91 ~T0 @X0 1 s ]
 [i F952
 :U ..
 :U ..
-"17
-[; ;newmain.c: 17:     Lcd_Clear(&lcd);
+"19
+[; ;newmain.c: 19: 
 &U _PORTC
 -> -> 2 `i `uc
 -> -> 3 `i `uc
@@ -236,28 +239,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 [v _lcd `S91 ~T0 @X0 1 a ]
 [e = _lcd F952 ]
-"28
-[; ;newmain.c: 28: }
+"30
 [e ( _Lcd_Init (1 &U _lcd ]
-"29
+"31
 [e ( _Lcd_Clear (1 &U _lcd ]
-"32
-[e ( _Lcd_SetCursor (3 , , &U _lcd -> -> 1 `i `uc -> -> 1 `i `uc ]
-"33
-[e ( _Lcd_WriteString (2 , &U _lcd :s 1C ]
 "34
-[e ( _Lcd_SetCursor (3 , , &U _lcd -> -> 2 `i `uc -> -> 1 `i `uc ]
+[e ( _Lcd_SetCursor (3 , , &U _lcd -> -> 1 `i `uc -> -> 1 `i `uc ]
 "35
-[e ( _Lcd_WriteString (2 , &U _lcd :s 2C ]
+[e ( _Lcd_WriteString (2 , &U _lcd :s 1C ]
+"36
+[e ( _Lcd_SetCursor (3 , , &U _lcd -> -> 2 `i `uc -> -> 1 `i `uc ]
 "37
+[e ( _Lcd_WriteString (2 , &U _lcd :s 2C ]
+"39
 [e :U 94 ]
 {
-"39
+"41
 }
 [e :U 93 ]
 [e $U 94  ]
 [e :U 95 ]
-"40
+"42
 [e :UE 92 ]
 }
 [a 1C 72 101 108 108 111 0 ]

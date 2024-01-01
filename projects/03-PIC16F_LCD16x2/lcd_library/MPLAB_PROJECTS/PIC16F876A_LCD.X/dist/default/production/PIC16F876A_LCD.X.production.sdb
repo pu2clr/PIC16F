@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 16F876A ]
 [d frameptr 0 ]
-"24 C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library/pic16flcd.c
+"24 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
 [v _SetBit SetBit `(v  1 s 1 SetBit ]
 "38
 [v _PulseEnable PulseEnable `(v  1 s 1 PulseEnable ]
@@ -19,38 +19,38 @@
 [v _Lcd_Clear Lcd_Clear `(v  1 e 1 0 ]
 "149
 [v _Lcd_SetCursor Lcd_SetCursor `(v  1 e 1 0 ]
-"10 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\sprcadd.c
+"10 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul8_16.c
+"4 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"6 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\pic\__eeprom.c
+"6 /Applications/microchip/xc8/v2.45/pic/sources/c99/pic/__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"14 C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\MPLABX_EXAMPLES\PIC16F887_LCD16x2\PIC16F876A_LCD.X\newmain.c
+"16 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
 [v _main main `(v  1 e 1 0 ]
-"278 C:/Users/ricar/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f876a.h
+"278 /Applications/microchip/xc8/v2.45/pic/include/proc/pic16f876a.h
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
 "1337
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
-"14 C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library\MPLABX_EXAMPLES\PIC16F887_LCD16x2\PIC16F876A_LCD.X\newmain.c
+"16 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
 [v _main main `(v  1 e 1 0 ]
 {
 [s S23 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
-"17
-[v main@lcd lcd `S23  1 a 8 8 ]
-"16
+"19
+[v main@lcd lcd `S23  1 a 8 10 ]
+"18
 [v main@F952 F952 `S23  1 s 8 F952 ]
-"40
+"42
 } 0
-"103 C:\Users\ricar\PIC16F\projects\03-PIC16F_LCD16x2\lcd_library/pic16flcd.c
+"103 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
 [v _Lcd_WriteString Lcd_WriteString `(v  1 e 1 0 ]
 {
 [s S23 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
 [v Lcd_WriteString@config config `*.4S23  1 a 1 wreg ]
 [v Lcd_WriteString@config config `*.4S23  1 a 1 wreg ]
-[v Lcd_WriteString@str str `*.24uc  1 p 1 12 ]
-[v Lcd_WriteString@config config `*.4S23  1 a 1 13 ]
+[v Lcd_WriteString@str str `*.24uc  1 p 1 13 ]
+[v Lcd_WriteString@config config `*.4S23  1 a 1 1 ]
 "108
 } 0
 "78
@@ -59,10 +59,10 @@
 [s S23 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
 [v Lcd_WriteChar@config config `*.4S23  1 a 1 wreg ]
 [v Lcd_WriteChar@config config `*.4S23  1 a 1 wreg ]
-[v Lcd_WriteChar@data data `uc  1 p 1 8 ]
+[v Lcd_WriteChar@data data `uc  1 p 1 9 ]
 "80
 "78
-[v Lcd_WriteChar@config config `*.4S23  1 a 1 11 ]
+[v Lcd_WriteChar@config config `*.4S23  1 a 1 12 ]
 "95
 } 0
 "149
@@ -71,12 +71,12 @@
 [s S23 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
 [v Lcd_SetCursor@config config `*.4S23  1 a 1 wreg ]
 "150
-[v Lcd_SetCursor@address address `uc  1 a 1 3 ]
+[v Lcd_SetCursor@address address `uc  1 a 1 5 ]
 "149
 [v Lcd_SetCursor@config config `*.4S23  1 a 1 wreg ]
-[v Lcd_SetCursor@row row `uc  1 p 1 12 ]
-[v Lcd_SetCursor@column column `uc  1 p 1 13 ]
-[v Lcd_SetCursor@config config `*.4S23  1 a 1 2 ]
+[v Lcd_SetCursor@row row `uc  1 p 1 0 ]
+[v Lcd_SetCursor@column column `uc  1 p 1 1 ]
+[v Lcd_SetCursor@config config `*.4S23  1 a 1 4 ]
 "169
 } 0
 "111
@@ -87,7 +87,7 @@
 [v Lcd_Init@config config `*.4S23  1 a 1 wreg ]
 "117
 "111
-[v Lcd_Init@config config `*.4S23  1 a 1 3 ]
+[v Lcd_Init@config config `*.4S23  1 a 1 4 ]
 "129
 } 0
 "136
@@ -96,7 +96,7 @@
 [s S23 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
 [v Lcd_Clear@config config `*.4S23  1 a 1 wreg ]
 [v Lcd_Clear@config config `*.4S23  1 a 1 wreg ]
-[v Lcd_Clear@config config `*.4S23  1 a 1 0 ]
+[v Lcd_Clear@config config `*.4S23  1 a 1 13 ]
 "139
 } 0
 "52
@@ -105,10 +105,10 @@
 [s S23 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
 [v Lcd_Command@config config `*.4S23  1 a 1 wreg ]
 [v Lcd_Command@config config `*.4S23  1 a 1 wreg ]
-[v Lcd_Command@cmd cmd `uc  1 p 1 8 ]
+[v Lcd_Command@cmd cmd `uc  1 p 1 9 ]
 "54
 "52
-[v Lcd_Command@config config `*.4S23  1 a 1 11 ]
+[v Lcd_Command@config config `*.4S23  1 a 1 12 ]
 "69
 } 0
 "38
@@ -117,7 +117,7 @@
 [s S23 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
 [v PulseEnable@config config `*.4S23  1 a 1 wreg ]
 [v PulseEnable@config config `*.4S23  1 a 1 wreg ]
-[v PulseEnable@config config `*.4S23  1 a 1 7 ]
+[v PulseEnable@config config `*.4S23  1 a 1 8 ]
 "42
 } 0
 "24
