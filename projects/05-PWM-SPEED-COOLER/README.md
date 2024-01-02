@@ -23,7 +23,7 @@ This page demonstrates how to control a DC Motor using both PIC16F628A and PIC16
    - **Motor**: Connect the motor's positive terminal to the motor's power supply, and the negative terminal to the transistor's collector.
    - **Optional Flyback Diode**: Connect the anode to the transistor's collector and the cathode to the motor's power supply (positive).
 
-#### The sections below will show details about circuit and programming.
+#### The sections below will show you details about circuit and programming.
 
 
 ## PIC16F628A example
