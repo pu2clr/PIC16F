@@ -83,6 +83,11 @@ void main()
 
 ```
 
+### PIC16F628A and cooler control prototype
+
+![PIC16F628A and cooler control prototype](./images/pic16f268a_coller.jpg)
+
+
 
 ## PIC16F887 example
 
@@ -167,3 +172,40 @@ void main() {
 
 
 ```
+
+### PIC16F887, cooler, and potentiometer with adc reader prototype
+
+![PIC16F887, cooler, and potentiometer with adc reader prototype](./images/pic16f887_cooler_potentiometer_adc.jpg)
+
+
+
+## PIC16F887 example with a four wires Coller.
+
+A four-wire cooler (or fan) typically used in computer systems offers more sophisticated control over the fan speed compared to two and three-wire coolers. Here's a detailed explanation of the function of each wire:
+
+1. **Red Wire - Power (VCC)**
+   - This wire supplies the positive voltage to the fan. The voltage level is typically 5V or 12V in computer fans, but it can vary depending on the fan's specifications.
+   - It provides the necessary power for the fan motor to operate.
+
+2. **Black Wire - Ground (GND)**
+   - This is the ground wire and is connected to the negative side of the power supply.
+   - It completes the electrical circuit for the fan motor.
+
+3. **Yellow Wire - Tachometer Signal**
+   - This wire outputs a tachometer signal that can be used to measure the fan's rotational speed (RPM - Revolutions Per Minute).
+   - The signal is typically a pulse train, where the number of pulses per minute corresponds to the fan's RPM. Usually, two pulses per revolution are standard, but this can vary.
+   - By measuring the frequency of these pulses or counting the number of pulses over a set period, the fan's speed can be determined.
+
+4. **Blue or White Wire - PWM Control Signal**
+   - This wire is used to control the speed of the fan via Pulse Width Modulation (PWM).
+   - By varying the duty cycle of the PWM signal sent to this wire, you can control the speed of the fan without changing the supply voltage.
+   - A higher duty cycle means higher fan speed, and vice versa. For instance, a 100% duty cycle runs the fan at full speed, while a 50% duty cycle cuts the speed in half.
+   - This allows for precise control of the fan speed, which can be used for thermal management, noise reduction, or power saving.
+
+### Application in Thermal Management
+In computer systems or other electronic applications, these fans are often used for cooling purposes. The four-wire configuration allows the system to dynamically adjust the fan speed based on thermal requirements, which can be more energy-efficient and quieter compared to running the fan at full speed all the time.
+
+The PWM control also enables the system to respond quickly to temperature changes, increasing the fan speed when necessary (e.g., when the CPU is under heavy load) and slowing it down when the demand for cooling decreases.
+
+### Safety and Power Considerations
+When working with four-wire coolers, it's important to ensure that the power requirements of the fan match your power supply's capabilities. Overloading the power supply or misconnecting the wires can lead to damage to the fan or other components in the system.
