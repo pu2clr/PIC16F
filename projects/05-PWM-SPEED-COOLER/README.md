@@ -181,6 +181,10 @@ void main() {
 
 ## PIC16F887 example with a four wires Coller.
 
+
+![PIC16F887 example with a four wires Coller](./images/pic16f887_4_wire_cooler_potentiometer_adc.jpg)
+
+
 A four-wire cooler (or fan) typically used in computer systems offers more sophisticated control over the fan speed compared to two and three-wire coolers. Here's a detailed explanation of the function of each wire:
 
 1. **Red Wire - Power (VCC)**
