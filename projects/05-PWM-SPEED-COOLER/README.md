@@ -1,7 +1,11 @@
 
-# Controlling a DC Motor/Cooler speed with PWM
+# Controlling a DC Motor/Cooler speed with PWM with PIC16FXXXX
 
 To control a motor using PWM you will need to set up a circuit with a transistor as the motor driver. 
+
+This page demonstrates how to control a DC Motor using both PIC16F628A and PIC16F887 microcontrollers. The examples provided will guide you through setting up the circuit and writing the code in C. In the case of the PIC16F887, the example leverages the microcontroller's ADC capabilities with a potentiometer to control the motor speed.
+
+## Circuit setting up
 
 1. **Transistor Configuration as Motor Driver**
    To control a DC motor, you can use an NPN transistor as a switch to control the motor current.
@@ -18,6 +22,8 @@ To control a motor using PWM you will need to set up a circuit with a transistor
    - **Base**: Connect to the PIC's output pin (through the base resistor).
    - **Motor**: Connect the motor's positive terminal to the motor's power supply, and the negative terminal to the transistor's collector.
    - **Optional Flyback Diode**: Connect the anode to the transistor's collector and the cathode to the motor's power supply (positive).
+
+#### The sections below will show details about circuit and programming.
 
 
 ## PIC16F628A example
