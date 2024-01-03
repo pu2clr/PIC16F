@@ -50,9 +50,9 @@ void main() {
     
     while(1) {
         float temperature = readTemperature();
-        if (temperature > 33.0)
+        if (temperature > 30.0)
             CCPR1L = 150;
-        else if (temperature > 30.0)
+        else if (temperature > 26.0)
             CCPR1L = 18;      
         else 
             CCPR1L = 9;
