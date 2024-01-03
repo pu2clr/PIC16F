@@ -213,3 +213,10 @@ The PWM control also enables the system to respond quickly to temperature change
 
 ### Safety and Power Considerations
 When working with four-wire coolers, it's important to ensure that the power requirements of the fan match your power supply's capabilities. Overloading the power supply or misconnecting the wires can lead to damage to the fan or other components in the system.
+
+
+### Schematic 
+
+![Schematic four wires cooler and PIC16F887 setup](./schematic_pic16f887_4_wires_cooler.jpg)
+
+
