@@ -14,6 +14,10 @@
 
 #include <xc.h>
 
+#ifndef _XTAL_FREQ
+#define _XTAL_FREQ 4000000 // You must set it for the frequency you are using
+#endif
+
 // Structure for LCD pin configuration
 typedef struct {
     volatile unsigned char *port;

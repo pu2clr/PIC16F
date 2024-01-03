@@ -10,7 +10,7 @@
 #pragma config CPD = OFF        // Data EEPROM Memory Code Protection disabled
 #pragma config CP = OFF         // Flash Program Memory Code Protection disabled
 
-#define _XTAL_FREQ 4000000      // internal clock
+#define _XTAL_FREQ 4000000      // Frequency (Clock)
 
 /**
  Custom Char (Smile / happy face)

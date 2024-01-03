@@ -1,4 +1,4 @@
-# 1 "rpm.c"
+# 1 "newmain.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "/Applications/microchip/xc8/v2.45/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "rpm.c" 2
+# 1 "newmain.c" 2
 # 1 "/Applications/microchip/xc8/v2.45/pic/include/xc.h" 1 3
 # 18 "/Applications/microchip/xc8/v2.45/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2665,9 +2665,9 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/Applications/microchip/xc8/v2.45/pic/include/xc.h" 2 3
-# 2 "rpm.c" 2
+# 2 "newmain.c" 2
 # 1 "./../../pic16flcd.h" 1
-# 18 "./../../pic16flcd.h"
+# 22 "./../../pic16flcd.h"
 typedef struct {
     volatile unsigned char *port;
     unsigned char rs_pin;
@@ -2687,7 +2687,7 @@ void Lcd_WriteChar(Lcd_PinConfig *config, unsigned char data);
 void Lcd_WriteString(Lcd_PinConfig *config, char *str);
 void Lcd_CreateCustomChar(Lcd_PinConfig *config, unsigned char location, unsigned char *charmap);
 void __attribute__((inline)) Lcd_WriteCustomChar(Lcd_PinConfig *config, unsigned char location);
-# 3 "rpm.c" 2
+# 3 "newmain.c" 2
 
 
 #pragma config FOSC = INTRC_NOCLKOUT
@@ -2769,13 +2769,13 @@ double readTemperature() {
 }
 
 void main() {
-    initPWM();
-    initADC();
-    initRPM();
 
 
 
-    TRISC = 0;
+
+
+
+
     Lcd_PinConfig lcd = {
         .port = &PORTC,
         .rs_pin = 1,
@@ -2787,6 +2787,7 @@ void main() {
     };
 
 
+    TRISC = 0;
     Lcd_Init(&lcd);
     Lcd_Clear(&lcd);
 
@@ -2796,17 +2797,6 @@ void main() {
 
 
     while(1) {
-        double temperature = readTemperature();
-        unsigned int pulses = countPulses();
-        unsigned int fanRPM = (unsigned int) ( (pulses / 2) * (60 / (256.0 / 4000000 * 256)));
-
-
-        if (temperature > 33.0)
-            CCPR1L = 150;
-        else if (temperature > 30.0)
-            CCPR1L = 18;
-        else
-            CCPR1L = 9;
-        _delay((unsigned long)((2000)*(4000000/4000.0)));
+# 126 "newmain.c"
     }
 }

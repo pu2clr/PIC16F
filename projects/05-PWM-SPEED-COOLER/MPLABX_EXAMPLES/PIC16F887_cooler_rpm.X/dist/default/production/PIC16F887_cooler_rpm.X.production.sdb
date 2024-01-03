@@ -3,26 +3,22 @@
 [d edition pro ]
 [d chip 16F887 ]
 [d frameptr 0 ]
-"24 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+"23 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
 [v _SetBit SetBit `(v  1 s 1 SetBit ]
-"38
+"37
 [v _PulseEnable PulseEnable `(v  1 s 1 PulseEnable ]
-"52
+"51
 [v _Lcd_Command Lcd_Command `(v  1 e 1 0 ]
-"78
+"77
 [v _Lcd_WriteChar Lcd_WriteChar `(v  1 e 1 0 ]
-"103
+"102
 [v _Lcd_WriteString Lcd_WriteString `(v  1 e 1 0 ]
-"111
+"110
 [v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
-"136
+"135
 [v _Lcd_Clear Lcd_Clear `(v  1 e 1 0 ]
-"149
+"148
 [v _Lcd_SetCursor Lcd_SetCursor `(v  1 e 1 0 ]
-"4 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
-[v ___flge __flge `(b  1 e 0 0 ]
-"43 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/fltol.c
-[v ___fltol __fltol `(l  1 e 4 0 ]
 "10 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "8 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
@@ -37,353 +33,106 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"19 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/rpm.c
-[v _initPWM initPWM `(v  1 e 1 0 ]
-"32
-[v _initRPM initRPM `(v  1 e 1 0 ]
-"44
-[v _countPulses countPulses `(ui  1 e 2 0 ]
-"65
-[v _initADC initADC `(v  1 e 1 0 ]
-"71
+"71 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
 [v _readADC readADC `(ui  1 e 2 0 ]
-"77
-[v _readTemperature readTemperature `(d  1 e 4 0 ]
 "83
 [v _main main `(v  1 e 1 0 ]
-"59 /Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f887.h
-[v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
-[s S77 . 1 `uc 1 RB0 1 0 :1:0 
-`uc 1 RB1 1 0 :1:1 
-`uc 1 RB2 1 0 :1:2 
-`uc 1 RB3 1 0 :1:3 
-`uc 1 RB4 1 0 :1:4 
-`uc 1 RB5 1 0 :1:5 
-`uc 1 RB6 1 0 :1:6 
-`uc 1 RB7 1 0 :1:7 
-]
-"245
-[u S86 . 1 `S77 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES86  1 e 1 @6 ]
-"290
+"290 /Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f887.h
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
-[s S98 . 1 `uc 1 RBIF 1 0 :1:0 
-`uc 1 INTF 1 0 :1:1 
-`uc 1 T0IF 1 0 :1:2 
-`uc 1 RBIE 1 0 :1:3 
-`uc 1 INTE 1 0 :1:4 
-`uc 1 T0IE 1 0 :1:5 
-`uc 1 PEIE 1 0 :1:6 
-`uc 1 GIE 1 0 :1:7 
-]
-"482
-[s S107 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 TMR0IF 1 0 :1:2 
-`uc 1 . 1 0 :2:3 
-`uc 1 TMR0IE 1 0 :1:5 
-]
-[u S112 . 1 `S98 1 . 1 0 `S107 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES112  1 e 1 @11 ]
-"772
-[v _T2CON T2CON `VEuc  1 e 1 @18 ]
-"927
-[v _CCPR1L CCPR1L `VEuc  1 e 1 @21 ]
-"941
-[v _CCP1CON CCP1CON `VEuc  1 e 1 @23 ]
-"1238
-[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
-"1245
-[v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
-[s S133 . 1 `uc 1 ADON 1 0 :1:0 
-`uc 1 GO_nDONE 1 0 :1:1 
-`uc 1 CHS 1 0 :4:2 
-`uc 1 ADCS 1 0 :2:6 
-]
-"1276
-[s S138 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 GO 1 0 :1:1 
-`uc 1 CHS0 1 0 :1:2 
-`uc 1 CHS1 1 0 :1:3 
-`uc 1 CHS2 1 0 :1:4 
-`uc 1 CHS3 1 0 :1:5 
-`uc 1 ADCS0 1 0 :1:6 
-`uc 1 ADCS1 1 0 :1:7 
-]
-[s S147 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 nDONE 1 0 :1:1 
-]
-[s S150 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 GO_DONE 1 0 :1:1 
-]
-[u S153 . 1 `S133 1 . 1 0 `S138 1 . 1 0 `S147 1 . 1 0 `S150 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES153  1 e 1 @31 ]
-[s S50 . 1 `uc 1 PS 1 0 :3:0 
-`uc 1 PSA 1 0 :1:3 
-`uc 1 T0SE 1 0 :1:4 
-`uc 1 T0CS 1 0 :1:5 
-`uc 1 INTEDG 1 0 :1:6 
-`uc 1 nRBPU 1 0 :1:7 
-]
-"1366
-[s S57 . 1 `uc 1 PS0 1 0 :1:0 
-`uc 1 PS1 1 0 :1:1 
-`uc 1 PS2 1 0 :1:2 
-]
-[u S61 . 1 `S50 1 . 1 0 `S57 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES61  1 e 1 @129 ]
-[s S28 . 1 `uc 1 TRISB0 1 0 :1:0 
-`uc 1 TRISB1 1 0 :1:1 
-`uc 1 TRISB2 1 0 :1:2 
-`uc 1 TRISB3 1 0 :1:3 
-`uc 1 TRISB4 1 0 :1:4 
-`uc 1 TRISB5 1 0 :1:5 
-`uc 1 TRISB6 1 0 :1:6 
-`uc 1 TRISB7 1 0 :1:7 
-]
-"1495
-[u S37 . 1 `S28 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES37  1 e 1 @134 ]
 "1540
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
-"1862
-[v _OSCCON OSCCON `VEuc  1 e 1 @143 ]
-"2041
-[v _PR2 PR2 `VEuc  1 e 1 @146 ]
-"2970
-[v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
-"2977
-[v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
-"3387
-[v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
-"3449
-[v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-"83 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/rpm.c
+"83 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
 [v _main main `(v  1 e 1 0 ]
 {
-"111
-[v main@temperature temperature `d  1 a 4 68 ]
-"112
-[v main@pulses pulses `ui  1 a 2 66 ]
-[s S181 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
+[s S22 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
 "91
-[v main@lcd lcd `S181  1 a 8 72 ]
-"90
-[v main@F1466 F1466 `S181  1 s 8 F1466 ]
-"124
+[v main@lcd lcd `S22  1 a 8 10 ]
+"83
+[v main@F1466 F1466 `S22  1 s 8 F1466 ]
+"127
 } 0
-"77
-[v _readTemperature readTemperature `(d  1 e 4 0 ]
-{
-"79
-[v readTemperature@voltage voltage `d  1 a 4 56 ]
-"78
-[v readTemperature@adcValue adcValue `ui  1 a 2 60 ]
-"81
-} 0
-"71
-[v _readADC readADC `(ui  1 e 2 0 ]
-{
-"75
-} 0
-"10 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
-[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-{
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-"13
-[v ___xxtofl@arg arg `ul  1 a 4 10 ]
-"12
-[v ___xxtofl@exp exp `uc  1 a 1 9 ]
-"10
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-[v ___xxtofl@val val `l  1 p 4 0 ]
-"15
-[v ___xxtofl@sign sign `uc  1 a 1 8 ]
-"44
-} 0
-"8 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
-[v ___flmul __flmul `(d  1 e 4 0 ]
-{
-[s S648 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
-"13
-[s S653 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S656 . 4 `l 1 i 4 0 `d 1 f 4 0 `S648 1 fAsBytes 4 0 `S653 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S656  1 a 4 46 ]
-"12
-[v ___flmul@grs grs `ul  1 a 4 41 ]
-[s S725 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
-"14
-[u S728 . 2 `s 1 i 2 0 `us 1 n 2 0 `S725 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S728  1 a 2 50 ]
-"10
-[v ___flmul@bexp bexp `uc  1 a 1 45 ]
-"11
-[v ___flmul@aexp aexp `uc  1 a 1 40 ]
-"9
-[v ___flmul@sign sign `uc  1 a 1 39 ]
-"8
-[v ___flmul@b b `d  1 p 4 26 ]
-[v ___flmul@a a `d  1 p 4 30 ]
-"205
-} 0
-"4 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
-[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-{
-[v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
-"6
-[v __Umul8_16@word_mpld word_mpld `us  1 a 2 6 ]
-"5
-[v __Umul8_16@product product `us  1 a 2 4 ]
-"4
-[v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
-[v __Umul8_16@multiplicand multiplicand `uc  1 p 1 0 ]
-[v __Umul8_16@multiplier multiplier `uc  1 a 1 8 ]
-"60
-} 0
-"8 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
-[v ___fldiv __fldiv `(d  1 e 4 0 ]
-{
-"21
-[v ___fldiv@grs grs `ul  1 a 4 20 ]
-"22
-[v ___fldiv@rem rem `ul  1 a 4 13 ]
-"20
-[v ___fldiv@new_exp new_exp `s  1 a 2 18 ]
-"19
-[v ___fldiv@aexp aexp `uc  1 a 1 25 ]
-"18
-[v ___fldiv@bexp bexp `uc  1 a 1 24 ]
-"16
-[v ___fldiv@sign sign `uc  1 a 1 17 ]
-"8
-[v ___fldiv@a a `d  1 p 4 0 ]
-[v ___fldiv@b b `d  1 p 4 4 ]
-"185
-} 0
-"32 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/rpm.c
-[v _initRPM initRPM `(v  1 e 1 0 ]
-{
-"41
-} 0
-"19
-[v _initPWM initPWM `(v  1 e 1 0 ]
-{
-"27
-} 0
-"65
-[v _initADC initADC `(v  1 e 1 0 ]
-{
-"69
-} 0
-"44
-[v _countPulses countPulses `(ui  1 e 2 0 ]
-{
-"45
-[v countPulses@pulseCount pulseCount `ui  1 a 2 2 ]
-"47
-[v countPulses@currentState currentState `uc  1 a 1 5 ]
-"46
-[v countPulses@lastState lastState `uc  1 a 1 4 ]
-"62
-} 0
-"43 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/fltol.c
-[v ___fltol __fltol `(l  1 e 4 0 ]
-{
-"45
-[v ___fltol@exp1 exp1 `uc  1 a 1 61 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 60 ]
-"43
-[v ___fltol@f1 f1 `d  1 p 4 52 ]
-"70
-} 0
-"4 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
-[v ___flge __flge `(b  1 e 0 0 ]
-{
-[v ___flge@ff1 ff1 `d  1 p 4 0 ]
-[v ___flge@ff2 ff2 `d  1 p 4 4 ]
-"19
-} 0
-"103 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+"102 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
 [v _Lcd_WriteString Lcd_WriteString `(v  1 e 1 0 ]
 {
-[s S181 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
-[v Lcd_WriteString@config config `*.4S181  1 a 1 wreg ]
-[v Lcd_WriteString@config config `*.4S181  1 a 1 wreg ]
+[s S22 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
+[v Lcd_WriteString@config config `*.4S22  1 a 1 wreg ]
+[v Lcd_WriteString@config config `*.4S22  1 a 1 wreg ]
 [v Lcd_WriteString@str str `*.24uc  1 p 1 13 ]
-[v Lcd_WriteString@config config `*.4S181  1 a 1 1 ]
-"108
+[v Lcd_WriteString@config config `*.4S22  1 a 1 1 ]
+"107
 } 0
-"78
+"77
 [v _Lcd_WriteChar Lcd_WriteChar `(v  1 e 1 0 ]
 {
-[s S181 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
-[v Lcd_WriteChar@config config `*.4S181  1 a 1 wreg ]
-[v Lcd_WriteChar@config config `*.4S181  1 a 1 wreg ]
+[s S22 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
+[v Lcd_WriteChar@config config `*.4S22  1 a 1 wreg ]
+[v Lcd_WriteChar@config config `*.4S22  1 a 1 wreg ]
 [v Lcd_WriteChar@data data `uc  1 p 1 9 ]
-"80
-"78
-[v Lcd_WriteChar@config config `*.4S181  1 a 1 12 ]
-"95
+"79
+"77
+[v Lcd_WriteChar@config config `*.4S22  1 a 1 12 ]
+"94
 } 0
-"149
+"148
 [v _Lcd_SetCursor Lcd_SetCursor `(v  1 e 1 0 ]
 {
-[s S181 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
-[v Lcd_SetCursor@config config `*.4S181  1 a 1 wreg ]
-"150
-[v Lcd_SetCursor@address address `uc  1 a 1 5 ]
+[s S22 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
+[v Lcd_SetCursor@config config `*.4S22  1 a 1 wreg ]
 "149
-[v Lcd_SetCursor@config config `*.4S181  1 a 1 wreg ]
+[v Lcd_SetCursor@address address `uc  1 a 1 5 ]
+"148
+[v Lcd_SetCursor@config config `*.4S22  1 a 1 wreg ]
 [v Lcd_SetCursor@row row `uc  1 p 1 0 ]
 [v Lcd_SetCursor@column column `uc  1 p 1 1 ]
-[v Lcd_SetCursor@config config `*.4S181  1 a 1 4 ]
-"169
+[v Lcd_SetCursor@config config `*.4S22  1 a 1 4 ]
+"168
 } 0
-"111
+"110
 [v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
 {
-[s S181 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
-[v Lcd_Init@config config `*.4S181  1 a 1 wreg ]
-[v Lcd_Init@config config `*.4S181  1 a 1 wreg ]
-"117
-"111
-[v Lcd_Init@config config `*.4S181  1 a 1 4 ]
-"129
+[s S22 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
+[v Lcd_Init@config config `*.4S22  1 a 1 wreg ]
+[v Lcd_Init@config config `*.4S22  1 a 1 wreg ]
+"116
+"110
+[v Lcd_Init@config config `*.4S22  1 a 1 4 ]
+"128
 } 0
-"136
+"135
 [v _Lcd_Clear Lcd_Clear `(v  1 e 1 0 ]
 {
-[s S181 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
-[v Lcd_Clear@config config `*.4S181  1 a 1 wreg ]
-[v Lcd_Clear@config config `*.4S181  1 a 1 wreg ]
-[v Lcd_Clear@config config `*.4S181  1 a 1 13 ]
-"139
+[s S22 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
+[v Lcd_Clear@config config `*.4S22  1 a 1 wreg ]
+[v Lcd_Clear@config config `*.4S22  1 a 1 wreg ]
+[v Lcd_Clear@config config `*.4S22  1 a 1 13 ]
+"138
 } 0
-"52
+"51
 [v _Lcd_Command Lcd_Command `(v  1 e 1 0 ]
 {
-[s S181 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
-[v Lcd_Command@config config `*.4S181  1 a 1 wreg ]
-[v Lcd_Command@config config `*.4S181  1 a 1 wreg ]
+[s S22 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
+[v Lcd_Command@config config `*.4S22  1 a 1 wreg ]
+[v Lcd_Command@config config `*.4S22  1 a 1 wreg ]
 [v Lcd_Command@cmd cmd `uc  1 p 1 9 ]
-"54
-"52
-[v Lcd_Command@config config `*.4S181  1 a 1 12 ]
-"69
+"53
+"51
+[v Lcd_Command@config config `*.4S22  1 a 1 12 ]
+"68
 } 0
-"38
+"37
 [v _PulseEnable PulseEnable `(v  1 s 1 PulseEnable ]
 {
-[s S181 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
-[v PulseEnable@config config `*.4S181  1 a 1 wreg ]
-[v PulseEnable@config config `*.4S181  1 a 1 wreg ]
-[v PulseEnable@config config `*.4S181  1 a 1 8 ]
-"42
+[s S22 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
+[v PulseEnable@config config `*.4S22  1 a 1 wreg ]
+[v PulseEnable@config config `*.4S22  1 a 1 wreg ]
+[v PulseEnable@config config `*.4S22  1 a 1 8 ]
+"41
 } 0
-"24
+"23
 [v _SetBit SetBit `(v  1 s 1 SetBit ]
 {
 [v SetBit@port port `*.39VEuc  1 p 2 0 ]
 [v SetBit@pin pin `uc  1 p 1 2 ]
 [v SetBit@value value `a  1 p 1 3 ]
-"30
+"29
 } 0

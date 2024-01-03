@@ -12,7 +12,6 @@
 #include "pic16flcd.h"
 #include <stdbool.h>
 
-#define _XTAL_FREQ 4000000 // Set this to your clock frequency
 
 /**
  * @brief Set or clear a specific bit within a port register of a microcontroller. 
@@ -118,7 +117,7 @@ void Lcd_Init(Lcd_PinConfig *config) {
     Lcd_Command(config, 0x03);
     __delay_ms(5);  // Wait for more than 4.1 ms
     Lcd_Command(config, 0x03);
-    __delay_us(100); // Wait for more than 100 µs
+    __delay_us(100); // Wait for more than 100 Âµs
     Lcd_Command(config, 0x03); // These commands are for initializing in 8-bit mode
     Lcd_Command(config, 0x02); // Set to 4-bit mode
 
@@ -152,10 +151,10 @@ void Lcd_SetCursor(Lcd_PinConfig *config, unsigned char row, unsigned char colum
     // Convert the line to the address offset
     switch(row) {
         case 1:
-            address = 0x80; // 1ª line
+            address = 0x80; // 1Âª line
             break;
         case 2:
-            address = 0xC0; // 2ª line
+            address = 0xC0; // 2Âª line
             break;
         default:
             address = 0x80; // Default to first row if out of bounds

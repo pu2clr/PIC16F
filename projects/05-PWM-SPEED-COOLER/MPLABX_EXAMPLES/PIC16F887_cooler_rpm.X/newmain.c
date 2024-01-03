@@ -81,13 +81,13 @@ double readTemperature() {
 }
 
 void main() {   
-    initPWM();
-    initADC();
-    initRPM();
+    // initPWM();
+    // initADC();
+    // initRPM();
 
 
     // Defines the LCD pin configuration for PIC16F887
-    TRISC = 0; // You need to set this register as output
+
     Lcd_PinConfig lcd = {
         .port = &PORTC, // Assuming you're using PORTC for LCD on PIC16F887
         .rs_pin = 1, // RC1 for RS
@@ -99,6 +99,7 @@ void main() {
     };
 
     // Initialize the LCD
+    TRISC = 0;  
     Lcd_Init(&lcd);
     Lcd_Clear(&lcd);
     
@@ -108,6 +109,7 @@ void main() {
     
     
     while(1) {
+        /*
         double temperature = readTemperature();
         unsigned int pulses = countPulses();
         unsigned int fanRPM = (unsigned int) ( (pulses / 2) * (60 / (256.0 / _XTAL_FREQ * 256))); // Calculate RPM
@@ -119,6 +121,7 @@ void main() {
             CCPR1L = 18;      
         else 
             CCPR1L = 9;
-        __delay_ms(2000);          
+        __delay_ms(2000);   
+        */       
     }
 }

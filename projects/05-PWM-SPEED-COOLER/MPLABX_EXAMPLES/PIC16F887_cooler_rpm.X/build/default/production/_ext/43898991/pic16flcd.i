@@ -2671,6 +2671,10 @@ extern __bank0 __bit __timeout;
 # 16 "../../pic16flcd.h" 2
 
 
+
+
+
+
 typedef struct {
     volatile unsigned char *port;
     unsigned char rs_pin;
@@ -2693,7 +2697,7 @@ void __attribute__((inline)) Lcd_WriteCustomChar(Lcd_PinConfig *config, unsigned
 # 13 "../../pic16flcd.c" 2
 # 1 "/Applications/microchip/xc8/v2.45/pic/include/c99/stdbool.h" 1 3
 # 14 "../../pic16flcd.c" 2
-# 24 "../../pic16flcd.c"
+# 23 "../../pic16flcd.c"
 static void SetBit(volatile unsigned char *port, unsigned char pin, _Bool value) {
     if (value) {
         *port |= (1 << pin);
@@ -2713,7 +2717,7 @@ static void PulseEnable(Lcd_PinConfig *config) {
     _delay((unsigned long)((2)*(4000000/4000.0)));
     SetBit(config->port, config->en_pin, 0);
 }
-# 52 "../../pic16flcd.c"
+# 51 "../../pic16flcd.c"
 void Lcd_Command(Lcd_PinConfig *config, unsigned char cmd) {
 
     SetBit(config->port, config->d4_pin, (cmd >> 4) & 0x01);
@@ -2732,7 +2736,7 @@ void Lcd_Command(Lcd_PinConfig *config, unsigned char cmd) {
 
     PulseEnable(config);
 }
-# 78 "../../pic16flcd.c"
+# 77 "../../pic16flcd.c"
 void Lcd_WriteChar(Lcd_PinConfig *config, unsigned char data) {
 
     SetBit(config->port, config->d4_pin, (data >> 4) & 0x01);
@@ -2795,7 +2799,7 @@ void Lcd_Clear(Lcd_PinConfig *config) {
     Lcd_Command(config, 0x01);
     _delay((unsigned long)((2)*(4000000/4000.0)));
 }
-# 149 "../../pic16flcd.c"
+# 148 "../../pic16flcd.c"
 void Lcd_SetCursor(Lcd_PinConfig *config, unsigned char row, unsigned char column) {
     unsigned char address;
 
@@ -2817,7 +2821,7 @@ void Lcd_SetCursor(Lcd_PinConfig *config, unsigned char row, unsigned char colum
 
     Lcd_Command(config, address);
 }
-# 181 "../../pic16flcd.c"
+# 180 "../../pic16flcd.c"
 void Lcd_CreateCustomChar(Lcd_PinConfig *config, unsigned char location, unsigned char *charmap) {
     unsigned char i;
     if(location < 8) {
@@ -2828,7 +2832,7 @@ void Lcd_CreateCustomChar(Lcd_PinConfig *config, unsigned char location, unsigne
         }
     }
 }
-# 199 "../../pic16flcd.c"
+# 198 "../../pic16flcd.c"
 void Lcd_WriteCustomChar(Lcd_PinConfig *config, unsigned char location) {
     Lcd_WriteChar(config, location);
 }
