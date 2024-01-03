@@ -12,7 +12,7 @@
 #include "pic16flcd.h"
 #include <stdbool.h>
 
-#define _XTAL_FREQ 4000000 // Set this to your clock frequency
+#define _XTAL_FREQ 4000000 // You should adjust it for your application - Set this to your clock frequency
 
 /**
  * @brief Set or clear a specific bit within a port register of a microcontroller. 
