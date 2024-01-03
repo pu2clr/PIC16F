@@ -1,11 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"1862 /Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f887.h
-[; ;/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f887.h: 1862: extern volatile unsigned char OSCCON __attribute__((address(0x08F)));
-[v _OSCCON `Vuc ~T0 @X0 0 e@143 ]
-"1540
-[; ;/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f887.h: 1540: extern volatile unsigned char TRISC __attribute__((address(0x087)));
-[v _TRISC `Vuc ~T0 @X0 0 e@135 ]
-"772
+"772 /Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f887.h
 [; ;/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f887.h: 772: extern volatile unsigned char T2CON __attribute__((address(0x012)));
 [v _T2CON `Vuc ~T0 @X0 0 e@18 ]
 "2041
@@ -116,23 +110,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
 "22 ./../../pic16flcd.h
 [; ;./../../pic16flcd.h: 22: typedef struct {
-[s S142 `*Vuc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S142 . port rs_pin en_pin d4_pin d5_pin d6_pin d7_pin ]
-"290 /Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f887.h
-[; ;/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f887.h: 290: extern volatile unsigned char PORTC __attribute__((address(0x007)));
-[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
+[s S144 `*Vuc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S144 . port rs_pin en_pin d4_pin d5_pin d6_pin d7_pin ]
+"352 /Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f887.h
+[; ;/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"1602
+[; ;/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f887.h: 1602: extern volatile unsigned char TRISD __attribute__((address(0x088)));
+[v _TRISD `Vuc ~T0 @X0 0 e@136 ]
 "33 ./../../pic16flcd.h
 [; ;./../../pic16flcd.h: 33: void Lcd_Init(Lcd_PinConfig *config);
-[v _Lcd_Init `(v ~T0 @X0 0 ef1`*S142 ]
+[v _Lcd_Init `(v ~T0 @X0 0 ef1`*S144 ]
 "35
 [; ;./../../pic16flcd.h: 35: void Lcd_Clear(Lcd_PinConfig *config);
-[v _Lcd_Clear `(v ~T0 @X0 0 ef1`*S142 ]
+[v _Lcd_Clear `(v ~T0 @X0 0 ef1`*S144 ]
 "36
 [; ;./../../pic16flcd.h: 36: void Lcd_SetCursor(Lcd_PinConfig *config, unsigned char row, unsigned char column);
-[v _Lcd_SetCursor `(v ~T0 @X0 0 ef3`*S142`uc`uc ]
+[v _Lcd_SetCursor `(v ~T0 @X0 0 ef3`*S144`uc`uc ]
 "38
 [; ;./../../pic16flcd.h: 38: void Lcd_WriteString(Lcd_PinConfig *config, char *str);
-[v _Lcd_WriteString `(v ~T0 @X0 0 ef2`*S142`*uc ]
+[v _Lcd_WriteString `(v ~T0 @X0 0 ef2`*S144`*uc ]
+"121 /Applications/microchip/xc8/v2.45/pic/include/c99/stdio.h
+[; ;/Applications/microchip/xc8/v2.45/pic/include/c99/stdio.h: 121: int sprintf(char *restrict, const char *restrict, ...);
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+[v F164 `(v ~T0 @X0 1 tf1`ul ]
+"20 /Applications/microchip/xc8/v2.45/pic/include/builtins.h
+[v __delay `JF164 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 /Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f887.h
 [; ;/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -367,231 +371,234 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;/Users/rcaratti/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"5 newmain.c
-[; ;newmain.c: 5: void initPWM() {
+"6 newmain.c
+[; ;newmain.c: 6:     T2CON = 0x07;
 [p x FOSC  =  INTRC_NOCLKOUT   ]
-"6
-[; ;newmain.c: 6:     OSCCON = 0x60;
-[p x WDTE  =  OFF              ]
 "7
-[; ;newmain.c: 7:     TRISC = 0;
-[p x PWRTE  =  OFF             ]
+[; ;newmain.c: 7:     PR2 = 0xFF;
+[p x WDTE  =  OFF              ]
 "8
-[; ;newmain.c: 8:     T2CON = 0x07;
-[p x MCLRE  =  ON              ]
+[; ;newmain.c: 8:     CCP1CON = 0x0C;
+[p x PWRTE  =  OFF             ]
 "9
-[; ;newmain.c: 9:     PR2 = 0xFF;
-[p x BOREN  =  ON              ]
+[; ;newmain.c: 9:     CCPR1L = 0x00;
+[p x MCLRE  =  ON              ]
 "10
-[; ;newmain.c: 10:     CCP1CON = 0x0C;
-[p x LVP  =  OFF               ]
+[; ;newmain.c: 10:     T2CON = 0x04;
+[p x BOREN  =  ON              ]
 "11
-[; ;newmain.c: 11:     CCPR1L = 0x00;
-[p x CPD  =  OFF               ]
+[; ;newmain.c: 11: }
+[p x LVP  =  OFF               ]
 "12
-[; ;newmain.c: 12:     T2CON = 0x04;
+[; ;newmain.c: 12: 
+[p x CPD  =  OFF               ]
+"13
+[; ;newmain.c: 13: 
 [p x CP  =  OFF                ]
-"19
-[; ;newmain.c: 19: 
+"20
+[; ;newmain.c: 20: 
 [v _initPWM `(v ~T0 @X0 1 ef ]
 {
 [e :U _initPWM ]
 [f ]
-"20
-[; ;newmain.c: 20:     TRISBbits.TRISB0 = 1;
-[e = _OSCCON -> -> 96 `i `uc ]
 "21
-[; ;newmain.c: 21:     ANSELH = 0x00;
-[e = _TRISC -> -> 0 `i `uc ]
-"22
-[; ;newmain.c: 22: 
+[; ;newmain.c: 21:     OPTION_REGbits.T0CS = 0;
 [e = _T2CON -> -> 7 `i `uc ]
-"23
-[; ;newmain.c: 23:     OPTION_REGbits.T0CS = 0;
+"22
+[; ;newmain.c: 22:     OPTION_REGbits.PSA = 0;
 [e = _PR2 -> -> 255 `i `uc ]
-"24
-[; ;newmain.c: 24:     OPTION_REGbits.PSA = 0;
+"23
+[; ;newmain.c: 23:     OPTION_REGbits.PS = 0b111;
 [e = _CCP1CON -> -> 12 `i `uc ]
-"25
-[; ;newmain.c: 25:     OPTION_REGbits.PS = 0b111;
+"24
+[; ;newmain.c: 24:     TMR0 = 0;
 [e = _CCPR1L -> -> 0 `i `uc ]
-"26
-[; ;newmain.c: 26:     TMR0 = 0;
+"25
+[; ;newmain.c: 25: }
 [e = _T2CON -> -> 4 `i `uc ]
-"27
-[; ;newmain.c: 27: }
-[e :UE 143 ]
+"26
+[; ;newmain.c: 26: 
+[e :UE 145 ]
 }
-"32
-[; ;newmain.c: 32:     unsigned char lastState = PORTBbits.RB0;
+"31
+[; ;newmain.c: 31:     unsigned char currentState;
 [v _initRPM `(v ~T0 @X0 1 ef ]
 {
 [e :U _initRPM ]
 [f ]
-"34
-[; ;newmain.c: 34: 
+"33
+[; ;newmain.c: 33:     TMR0 = 0;
 [e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
-"35
-[; ;newmain.c: 35:     TMR0 = 0;
+"34
+[; ;newmain.c: 34:     INTCONbits.TMR0IF = 0;
 [e = _ANSELH -> -> 0 `i `uc ]
-"37
-[; ;newmain.c: 37: 
+"36
+[; ;newmain.c: 36:     while (!INTCONbits.TMR0IF) {
 [e = . . _OPTION_REGbits 0 3 -> -> 0 `i `uc ]
-"38
-[; ;newmain.c: 38:     while (!INTCONbits.TMR0IF) {
+"37
+[; ;newmain.c: 37:         currentState = PORTBbits.RB0;
 [e = . . _OPTION_REGbits 0 1 -> -> 0 `i `uc ]
-"39
-[; ;newmain.c: 39:         currentState = PORTBbits.RB0;
+"38
+[; ;newmain.c: 38: 
 [e = . . _OPTION_REGbits 0 0 -> -> 7 `i `uc ]
-"40
-[; ;newmain.c: 40: 
+"39
+[; ;newmain.c: 39:         if (currentState != lastState && currentState == 1) {
 [e = _TMR0 -> -> 0 `i `uc ]
-"41
-[; ;newmain.c: 41:         if (currentState != lastState && currentState == 1) {
-[e :UE 144 ]
+"40
+[; ;newmain.c: 40:             pulseCount++;
+[e :UE 146 ]
 }
-"44
-[; ;newmain.c: 44:         lastState = currentState;
+"43
+[; ;newmain.c: 43:     }
 [v _countPulses `(ui ~T0 @X0 1 ef ]
 {
 [e :U _countPulses ]
 [f ]
-"45
-[; ;newmain.c: 45:     }
+"44
+[; ;newmain.c: 44: 
 [v _pulseCount `ui ~T0 @X0 1 a ]
 [e = _pulseCount -> -> 0 `i `ui ]
-"46
-[; ;newmain.c: 46: 
+"45
+[; ;newmain.c: 45: 
 [v _lastState `uc ~T0 @X0 1 a ]
 [e = _lastState . . _PORTBbits 0 0 ]
-"47
-[; ;newmain.c: 47:     return pulseCount;
+"46
+[; ;newmain.c: 46:     return 1200;
 [v _currentState `uc ~T0 @X0 1 a ]
+"48
+[; ;newmain.c: 48: 
+[e = _TMR0 -> -> 0 `i `uc ]
 "49
 [; ;newmain.c: 49: 
-[e = _TMR0 -> -> 0 `i `uc ]
-"50
-[; ;newmain.c: 50: 
 [e = . . _INTCONbits 1 1 -> -> 0 `i `uc ]
-"52
-[; ;newmain.c: 52:     ANSEL = 0x01;
-[e $U 146  ]
-[e :U 147 ]
-{
-"53
-[; ;newmain.c: 53:     ADCON0 = 0x01;
-[e = _currentState . . _PORTBbits 0 0 ]
-"55
-[; ;newmain.c: 55: }
-[e $ ! && != -> _currentState `i -> _lastState `i == -> _currentState `i -> 1 `i 149  ]
-{
-"56
-[; ;newmain.c: 56: 
-[e ++ _pulseCount -> -> 1 `i `ui ]
-"57
-[; ;newmain.c: 57: unsigned int readADC() {
-}
+"51
+[; ;newmain.c: 51:     ANSEL = 0x01;
+[e $U 148  ]
 [e :U 149 ]
-"58
-[; ;newmain.c: 58:     ADCON0bits.GO = 1;
-[e = _lastState _currentState ]
-"59
-[; ;newmain.c: 59:     while (ADCON0bits.GO_nDONE);
-}
-[e :U 146 ]
+{
 "52
-[; ;newmain.c: 52:     ANSEL = 0x01;
-[e $ ! != -> . . _INTCONbits 1 1 `i -> 0 `i 147  ]
+[; ;newmain.c: 52:     ADCON0 = 0x01;
+[e = _currentState . . _PORTBbits 0 0 ]
+"54
+[; ;newmain.c: 54: }
+[e $ ! && != -> _currentState `i -> _lastState `i == -> _currentState `i -> 1 `i 151  ]
+{
+"55
+[; ;newmain.c: 55: 
+[e ++ _pulseCount -> -> 1 `i `ui ]
+"56
+[; ;newmain.c: 56: unsigned int readADC() {
+}
+[e :U 151 ]
+"57
+[; ;newmain.c: 57:     ADCON0bits.GO = 1;
+[e = _lastState _currentState ]
+"58
+[; ;newmain.c: 58:     while (ADCON0bits.GO_nDONE);
+}
 [e :U 148 ]
+"51
+[; ;newmain.c: 51:     ANSEL = 0x01;
+[e $ ! != -> . . _INTCONbits 1 1 `i -> 0 `i 149  ]
+[e :U 150 ]
 "61
-[; ;newmain.c: 61: }
-[e ) _pulseCount ]
-[e $UE 145  ]
+[; ;newmain.c: 61: 
+[e ) -> -> 1200 `i `ui ]
+[e $UE 147  ]
 "62
-[; ;newmain.c: 62: 
-[e :UE 145 ]
+[; ;newmain.c: 62: double readTemperature() {
+[e :UE 147 ]
 }
 "65
-[; ;newmain.c: 65:     double voltage = (adcValue / 1024.0) * 5.0;
+[; ;newmain.c: 65:     return voltage / 0.01;
 [v _initADC `(v ~T0 @X0 1 ef ]
 {
 [e :U _initADC ]
 [f ]
 "66
-[; ;newmain.c: 66:     return voltage / 0.01;
+[; ;newmain.c: 66: }
 [e = _ANSEL -> -> 1 `i `uc ]
 "67
-[; ;newmain.c: 67: }
+[; ;newmain.c: 67: 
 [e = _ADCON0 -> -> 1 `i `uc ]
 "68
-[; ;newmain.c: 68: 
+[; ;newmain.c: 68: void main() {
 [e = _ADCON1 -> -> 128 `i `uc ]
 "69
-[; ;newmain.c: 69: void main() {
-[e :UE 150 ]
+[; ;newmain.c: 69: 
+[e :UE 152 ]
 }
 "71
-[; ;newmain.c: 71: 
+[; ;newmain.c: 71:     initPWM();
 [v _readADC `(ui ~T0 @X0 1 ef ]
 {
 [e :U _readADC ]
 [f ]
 "72
-[; ;newmain.c: 72: 
+[; ;newmain.c: 72:     initADC();
 [e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
 "73
-[; ;newmain.c: 73: 
-[e $U 152  ]
-[e :U 153 ]
-[e :U 152 ]
-[e $ != -> . . _ADCON0bits 0 1 `i -> 0 `i 153  ]
+[; ;newmain.c: 73:     initRPM();
+[e $U 154  ]
+[e :U 155 ]
 [e :U 154 ]
+[e $ != -> . . _ADCON0bits 0 1 `i -> 0 `i 155  ]
+[e :U 156 ]
 "74
 [; ;newmain.c: 74: 
 [e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
-[e $UE 151  ]
+[e $UE 153  ]
 "75
 [; ;newmain.c: 75: 
-[e :UE 151 ]
+[e :UE 153 ]
 }
 "77
-[; ;newmain.c: 77:     Lcd_PinConfig lcd = {
+[; ;newmain.c: 77: 
 [v _readTemperature `(d ~T0 @X0 1 ef ]
 {
 [e :U _readTemperature ]
 [f ]
 "78
-[; ;newmain.c: 78:         .port = &PORTC,
+[; ;newmain.c: 78:     Lcd_PinConfig lcd = {
 [v _adcValue `ui ~T0 @X0 1 a ]
 [e = _adcValue ( _readADC ..  ]
 "79
-[; ;newmain.c: 79:         .rs_pin = 1,
+[; ;newmain.c: 79:         .port = &PORTD,
 [v _voltage `d ~T0 @X0 1 a ]
 [e = _voltage * / -> _adcValue `d .1024.0 .5.0 ]
 "80
-[; ;newmain.c: 80:         .en_pin = 2,
+[; ;newmain.c: 80:         .rs_pin = 2,
 [e ) / _voltage .0.01 ]
-[e $UE 155  ]
+[e $UE 157  ]
 "81
-[; ;newmain.c: 81:         .d4_pin = 4,
-[e :UE 155 ]
+[; ;newmain.c: 81:         .en_pin = 3,
+[e :UE 157 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
 "83
-[; ;newmain.c: 83:         .d6_pin = 6,
+[; ;newmain.c: 83:         .d5_pin = 5,
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-[v F1466 `S142 ~T0 @X0 1 s ]
-[i F1466
+"86
+[; ;newmain.c: 86:     };
+[e ( _initPWM ..  ]
+"87
+[; ;newmain.c: 87: 
+[e ( _initADC ..  ]
+"88
+[; ;newmain.c: 88: 
+[e ( _initRPM ..  ]
+[v F1787 `S144 ~T0 @X0 1 s ]
+[i F1787
 :U ..
 :U ..
-"91
-[; ;newmain.c: 91: 
-&U _PORTC
--> -> 1 `i `uc
+"93
+[; ;newmain.c: 93: 
+&U _PORTD
 -> -> 2 `i `uc
+-> -> 3 `i `uc
 -> -> 4 `i `uc
 -> -> 5 `i `uc
 -> -> 6 `i `uc
@@ -599,29 +606,81 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[v _lcd `S142 ~T0 @X0 1 a ]
-[e = _lcd F1466 ]
-"102
-[e = _TRISC -> -> 0 `i `uc ]
-"103
-[e ( _Lcd_Init (1 &U _lcd ]
+[v _lcd `S144 ~T0 @X0 1 a ]
+[e = _lcd F1787 ]
 "104
-[e ( _Lcd_Clear (1 &U _lcd ]
+[; ;newmain.c: 104:         double temperature = readTemperature();
+[e = _TRISD -> -> 0 `i `uc ]
+"106
+[; ;newmain.c: 106: 
+[e ( _Lcd_Init (1 &U _lcd ]
 "107
+[; ;newmain.c: 107:         unsigned int fanRPM = (unsigned int) (pulses / 2) * (60 /4000000);
+[e ( _Lcd_Clear (1 &U _lcd ]
+"110
+[; ;newmain.c: 110:         Lcd_SetCursor(&lcd, 2, 6);
 [e ( _Lcd_SetCursor (3 , , &U _lcd -> -> 1 `i `uc -> -> 1 `i `uc ]
-"108
-[e ( _Lcd_WriteString (2 , &U _lcd :s 1C ]
 "111
-[e :U 158 ]
+[; ;newmain.c: 111:         Lcd_WriteString(&lcd,rpm);
+[e ( _Lcd_WriteString (2 , &U _lcd :s 1C ]
+"112
+[; ;newmain.c: 112:         if (temperature > 33.0)
+[e ( _Lcd_SetCursor (3 , , &U _lcd -> -> 2 `i `uc -> -> 1 `i `uc ]
+"113
+[; ;newmain.c: 113:             CCPR1L = 150;
+[e ( _Lcd_WriteString (2 , &U _lcd :s 2C ]
+"116
+[; ;newmain.c: 116:         else
+[e :U 160 ]
 {
+"117
+[; ;newmain.c: 117:             CCPR1L = 9;
+[v _rpm `uc ~T0 @X0 -> 10 `i a ]
+"119
+[; ;newmain.c: 119:     }
+[v _temperature `d ~T0 @X0 1 a ]
+[e = _temperature ( _readTemperature ..  ]
+"120
+[; ;newmain.c: 120: }
+[v _pulses `ui ~T0 @X0 1 a ]
+[e = _pulses ( _countPulses ..  ]
+"122
+[v _fanRPM `ui ~T0 @X0 1 a ]
+[e = _fanRPM -> * -> / _pulses -> -> 2 `i `ui `l / -> -> 60 `i `l -> 4000000 `l `ui ]
+"124
+[e ( _sprintf (1 , (. , &U _rpm :s 3C _fanRPM ]
+"125
+[e ( _Lcd_SetCursor (3 , , &U _lcd -> -> 2 `i `uc -> -> 6 `i `uc ]
 "126
-[; ;newmain.c: 126:     }
-}
-[e :U 157 ]
-[e $U 158  ]
-[e :U 159 ]
+[e ( _Lcd_WriteString (2 , &U _lcd &U _rpm ]
 "127
-[; ;newmain.c: 127: }
-[e :UE 156 ]
+[e $ ! > _temperature .33.0 162  ]
+"128
+[e = _CCPR1L -> -> 150 `i `uc ]
+[e $U 163  ]
+"129
+[e :U 162 ]
+[e $ ! > _temperature .30.0 164  ]
+"130
+[e = _CCPR1L -> -> 18 `i `uc ]
+[e $U 165  ]
+"131
+[e :U 164 ]
+"132
+[e = _CCPR1L -> -> 9 `i `uc ]
+[e :U 165 ]
+[e :U 163 ]
+"133
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"134
 }
+[e :U 159 ]
+[e $U 160  ]
+[e :U 161 ]
+"135
+[e :UE 158 ]
+}
+[p f _sprintf 8389632 ]
+[a 3C 37 117 0 ]
 [a 1C 67 79 79 76 69 82 32 82 80 77 32 67 111 117 110 116 101 114 0 ]
+[a 2C 82 80 77 58 32 0 ]

@@ -2666,6 +2666,159 @@ extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/Applications/microchip/xc8/v2.45/pic/include/xc.h" 2 3
 # 2 "newmain.c" 2
+# 1 "/Applications/microchip/xc8/v2.45/pic/include/c99/stdio.h" 1 3
+# 24 "/Applications/microchip/xc8/v2.45/pic/include/c99/stdio.h" 3
+# 1 "/Applications/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 1 3
+# 12 "/Applications/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
+# 143 "/Applications/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
+typedef short ssize_t;
+# 253 "/Applications/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
+typedef long off_t;
+# 409 "/Applications/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 25 "/Applications/microchip/xc8/v2.45/pic/include/c99/stdio.h" 2 3
+# 52 "/Applications/microchip/xc8/v2.45/pic/include/c99/stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+
+
+
+
+
+int ungetc(int, FILE *);
+int getch(void);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+
+
+
+
+void putch(char);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+__attribute__((__format__(__printf__, 1, 2)))
+int printf(const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int fprintf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int sprintf(char *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 3, 4)))
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+__attribute__((__format__(__printf__, 1, 0)))
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 2, 0)))
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 3, 0)))
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+__attribute__((__format__(__scanf__, 1, 2)))
+int scanf(const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int fscanf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int sscanf(const char *restrict, const char *restrict, ...);
+
+__attribute__((__format__(__scanf__, 1, 0)))
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__scanf__, 2, 0)))
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 3 "newmain.c" 2
 # 1 "./../../pic16flcd.h" 1
 # 22 "./../../pic16flcd.h"
 typedef struct {
@@ -2687,7 +2840,7 @@ void Lcd_WriteChar(Lcd_PinConfig *config, unsigned char data);
 void Lcd_WriteString(Lcd_PinConfig *config, char *str);
 void Lcd_CreateCustomChar(Lcd_PinConfig *config, unsigned char location, unsigned char *charmap);
 void __attribute__((inline)) Lcd_WriteCustomChar(Lcd_PinConfig *config, unsigned char location);
-# 3 "newmain.c" 2
+# 4 "newmain.c" 2
 
 
 #pragma config FOSC = INTRC_NOCLKOUT
@@ -2705,8 +2858,6 @@ void __attribute__((inline)) Lcd_WriteCustomChar(Lcd_PinConfig *config, unsigned
 
 
 void initPWM() {
-    OSCCON = 0x60;
-    TRISC = 0;
     T2CON = 0x07;
     PR2 = 0xFF;
     CCP1CON = 0x0C;
@@ -2746,7 +2897,8 @@ unsigned int countPulses() {
         lastState = currentState;
     }
 
-    return pulseCount;
+
+    return 1200;
 }
 
 
@@ -2771,15 +2923,17 @@ double readTemperature() {
 void main() {
 
 
-
+    initPWM();
+    initADC();
+    initRPM();
 
 
 
 
     Lcd_PinConfig lcd = {
-        .port = &PORTC,
-        .rs_pin = 1,
-        .en_pin = 2,
+        .port = &PORTD,
+        .rs_pin = 2,
+        .en_pin = 3,
         .d4_pin = 4,
         .d5_pin = 5,
         .d6_pin = 6,
@@ -2787,16 +2941,35 @@ void main() {
     };
 
 
-    TRISC = 0;
+    TRISD = 0;
+
     Lcd_Init(&lcd);
     Lcd_Clear(&lcd);
 
 
     Lcd_SetCursor(&lcd, 1, 1);
     Lcd_WriteString(&lcd, "COOLER RPM Counter");
+    Lcd_SetCursor(&lcd, 2, 1);
+    Lcd_WriteString(&lcd, "RPM: ");
 
 
     while(1) {
-# 126 "newmain.c"
+        char rpm[10];
+
+        double temperature = readTemperature();
+        unsigned int pulses = countPulses();
+
+        unsigned int fanRPM = (unsigned int) (pulses / 2) * (60 /4000000);
+
+        sprintf(rpm,"%u", fanRPM);
+        Lcd_SetCursor(&lcd, 2, 6);
+        Lcd_WriteString(&lcd,rpm);
+        if (temperature > 33.0)
+            CCPR1L = 150;
+        else if (temperature > 30.0)
+            CCPR1L = 18;
+        else
+            CCPR1L = 9;
+        _delay((unsigned long)((2000)*(4000000/4000.0)));
     }
 }

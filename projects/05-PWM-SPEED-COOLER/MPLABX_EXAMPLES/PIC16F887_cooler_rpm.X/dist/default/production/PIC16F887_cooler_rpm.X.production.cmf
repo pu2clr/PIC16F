@@ -11,26 +11,49 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/xcVtiLiK8/driver_tmp_12.o
+$/tmp/xcLzfUEz4/driver_tmp_17.o
 end_init CODE 0 0 0 3 2 1
 config CONFIG 4 2007 2007 1 2 1
 $dist/default/production/PIC16F887_cooler_rpm.X.production.o
-cinit CODE 0 7F0 7F0 10 2 1
-text1 CODE 0 46B 46B 22 2 1
-text2 CODE 0 6CF 6CF 121 2 1
-text3 CODE 0 48D 48D 23 2 1
-text4 CODE 0 544 544 6B 2 1
-text5 CODE 0 457 457 14 2 1
-text6 CODE 0 5AF 5AF 120 2 1
-text7 CODE 0 4DA 4DA 32 2 1
-text8 CODE 0 4B0 4B0 2A 2 1
-maintext CODE 0 50C 50C 38 2 1
+cinit CODE 0 7E3 7E3 1D 2 1
+text1 CODE 0 B6C B6C 19 2 1
+text2 CODE 0 B85 B85 1D 2 1
+text3 CODE 0 F40 F40 C0 2 1
+text4 CODE 0 CF3 CF3 4A 2 1
+text5 CODE 0 B08 B08 1 2 1
+text6 CODE 0 C85 C85 32 2 1
+text7 CODE 0 CB7 CB7 3C 2 1
+text8 CODE 0 D3D D3D 64 2 1
+text9 CODE 0 B24 B24 B 2 1
+text10 CODE 0 E9F E9F A1 2 1
+text11 CODE 0 50A 50A 2D9 2 1
+text12 CODE 0 BE6 BE6 23 2 1
+text13 CODE 0 373 373 197 2 1
+text14 CODE 0 B19 B19 B 2 1
+text15 CODE 0 B3B B3B C 2 1
+text16 CODE 0 B2F B2F C 2 1
+text17 CODE 0 C09 C09 24 2 1
+text18 CODE 0 BA2 BA2 21 2 1
+text19 CODE 0 E0C E0C 93 2 1
+text20 CODE 0 C2D C2D 26 2 1
+text21 CODE 0 252 252 121 2 1
+text22 CODE 0 BC3 BC3 23 2 1
+text23 CODE 0 DA1 DA1 6B 2 1
+text24 CODE 0 B58 B58 14 2 1
+text25 CODE 0 132 132 120 2 1
+text26 CODE 0 C53 C53 32 2 1
+text27 CODE 0 3 3 2A 2 1
+maintext CODE 0 2D 2D 105 2 1
 cstackCOMMON COMMON 1 70 70 E 1 1
-cstackBANK0 BANK0 1 20 20 12 1 1
-inittext CODE 0 446 446 11 2 1
-idataBANK0 CODE 0 43E 43E 8 2 1
-strings STRING 0 3 3 19 2 1
-dataBANK0 BANK0 1 32 32 8 1 1
+cstackBANK0 BANK0 1 20 20 42 1 1
+cstackBANK1 BANK1 1 C0 C0 1A 1 1
+inittext CODE 0 B47 B47 11 2 1
+bssBANK0 BANK0 1 62 62 5 1 1
+bssBANK1 BANK1 1 A0 A0 20 1 1
+idataBANK1 CODE 0 B11 B11 8 2 1
+strings STRING 0 800 800 2C 2 1
+dataBANK1 BANK1 1 DA DA 8 1 1
+clrtext CODE 0 B09 B09 8 2 1
 config CONFIG 4 2007 2007 1 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -38,31 +61,31 @@ config CONFIG 4 2007 2007 1 2 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 3A-6F 1
-RAM A0-EF 1
+RAM 67-6F 1
+RAM E2-EF 1
 RAM 110-16F 1
 RAM 190-1EF 1
-BANK0 3A-6F 1
-BANK1 A0-EF 1
+BANK0 67-6F 1
+BANK1 E2-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 1C-43D 2
-CONST 800-1FFF 2
-ENTRY 1C-43D 2
-ENTRY 800-1FFF 2
+CONST 82C-B07 2
+CONST 1000-1FFF 2
+ENTRY 82C-B07 2
+ENTRY 1000-1FFF 2
 IDLOC 2000-2003 2
-CODE 1C-43D 2
-CODE 800-1FFF 2
+CODE 82C-B07 2
+CODE 1000-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
 SFR3 180-18F 1
 CONFIG 2008-2008 2
 EEDATA 2100-21FF 2
-STRCODE 1C-43D 2
-STRCODE 800-1FFF 2
-STRING 1C-43D 2
-STRING 800-1FFF 2
+STRCODE 82C-B07 2
+STRCODE 1000-1FFF 2
+STRING 82C-B07 2
+STRING 1000-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -77,151 +100,737 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/PIC16F887_cooler_rpm.X.production.o
-7F0 cinit CODE >652:/tmp/xcVtiLiK8/driver_tmp_1.s
-7F0 cinit CODE >655:/tmp/xcVtiLiK8/driver_tmp_1.s
-7F0 cinit CODE >696:/tmp/xcVtiLiK8/driver_tmp_1.s
-7F1 cinit CODE >697:/tmp/xcVtiLiK8/driver_tmp_1.s
-7F2 cinit CODE >698:/tmp/xcVtiLiK8/driver_tmp_1.s
-7F3 cinit CODE >699:/tmp/xcVtiLiK8/driver_tmp_1.s
-7F4 cinit CODE >700:/tmp/xcVtiLiK8/driver_tmp_1.s
-7F5 cinit CODE >701:/tmp/xcVtiLiK8/driver_tmp_1.s
-7F6 cinit CODE >702:/tmp/xcVtiLiK8/driver_tmp_1.s
-7F7 cinit CODE >703:/tmp/xcVtiLiK8/driver_tmp_1.s
-7F8 cinit CODE >704:/tmp/xcVtiLiK8/driver_tmp_1.s
-7F9 cinit CODE >705:/tmp/xcVtiLiK8/driver_tmp_1.s
-7FC cinit CODE >711:/tmp/xcVtiLiK8/driver_tmp_1.s
-7FC cinit CODE >713:/tmp/xcVtiLiK8/driver_tmp_1.s
-7FD cinit CODE >714:/tmp/xcVtiLiK8/driver_tmp_1.s
-4B0 text8 CODE >23:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-4B0 text8 CODE >24:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-4B3 text8 CODE >25:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-4B7 text8 CODE >25:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-4BA text8 CODE >25:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-4C5 text8 CODE >26:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-4C6 text8 CODE >27:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-4CA text8 CODE >27:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-4CD text8 CODE >27:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-4D9 text8 CODE >29:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-4DA text7 CODE >37:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-4DB text7 CODE >38:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-4F0 text7 CODE >39:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-4F9 text7 CODE >40:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-50B text7 CODE >41:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-5AF text6 CODE >51:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-5B0 text6 CODE >53:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-5C1 text6 CODE >53:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-5C4 text6 CODE >53:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-5D1 text6 CODE >54:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-5E2 text6 CODE >54:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-5E5 text6 CODE >54:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-5F2 text6 CODE >55:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-603 text6 CODE >55:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-606 text6 CODE >55:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-613 text6 CODE >56:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-624 text6 CODE >56:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-627 text6 CODE >56:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-634 text6 CODE >58:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-648 text6 CODE >59:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-64E text6 CODE >62:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-667 text6 CODE >63:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-678 text6 CODE >63:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-67B text6 CODE >63:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-688 text6 CODE >64:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-699 text6 CODE >64:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-69C text6 CODE >64:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-6A9 text6 CODE >65:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-6BA text6 CODE >65:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-6BD text6 CODE >65:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-6CA text6 CODE >67:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-6CE text6 CODE >68:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-457 text5 CODE >135:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-458 text5 CODE >136:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-460 text5 CODE >137:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-46A text5 CODE >138:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-544 text4 CODE >110:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-546 text4 CODE >116:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-550 text4 CODE >117:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-55A text4 CODE >118:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-565 text4 CODE >119:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-56F text4 CODE >120:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-576 text4 CODE >121:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-580 text4 CODE >122:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-58A text4 CODE >124:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-594 text4 CODE >125:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-59E text4 CODE >126:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-5A8 text4 CODE >127:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-5AE text4 CODE >128:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-48D text3 CODE >148:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-48E text3 CODE >152:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-48F text3 CODE >154:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-491 text3 CODE >157:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-493 text3 CODE >158:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-494 text3 CODE >161:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-499 text3 CODE >161:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-49E text3 CODE >161:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-4A1 text3 CODE >161:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-4A4 text3 CODE >164:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-4A9 text3 CODE >167:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-4AF text3 CODE >168:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-6CF text2 CODE >77:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-6D0 text2 CODE >79:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-6E1 text2 CODE >79:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-6E4 text2 CODE >79:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-6F1 text2 CODE >80:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-702 text2 CODE >80:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-705 text2 CODE >80:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-712 text2 CODE >81:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-723 text2 CODE >81:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-726 text2 CODE >81:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-733 text2 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-744 text2 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-747 text2 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-754 text2 CODE >84:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-769 text2 CODE >85:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-76F text2 CODE >88:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-788 text2 CODE >89:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-799 text2 CODE >89:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-79C text2 CODE >89:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-7A9 text2 CODE >90:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-7BA text2 CODE >90:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-7BD text2 CODE >90:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-7CA text2 CODE >91:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-7DB text2 CODE >91:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-7DE text2 CODE >91:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-7EB text2 CODE >93:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-7EF text2 CODE >94:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-46B text1 CODE >102:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-46E text1 CODE >103:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-476 text1 CODE >103:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-478 text1 CODE >104:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-486 text1 CODE >105:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-48C text1 CODE >103:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
-50C maintext CODE >83:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-50C maintext CODE >91:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-521 maintext CODE >102:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-523 maintext CODE >103:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-529 maintext CODE >104:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-52F maintext CODE >107:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-53B maintext CODE >108:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-543 maintext CODE >111:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-543 maintext CODE >126:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-446 inittext CODE >670:/tmp/xcVtiLiK8/driver_tmp_1.s
-446 inittext CODE >671:/tmp/xcVtiLiK8/driver_tmp_1.s
-447 inittext CODE >672:/tmp/xcVtiLiK8/driver_tmp_1.s
-448 inittext CODE >673:/tmp/xcVtiLiK8/driver_tmp_1.s
-449 inittext CODE >674:/tmp/xcVtiLiK8/driver_tmp_1.s
-44A inittext CODE >681:/tmp/xcVtiLiK8/driver_tmp_1.s
-44A inittext CODE >682:/tmp/xcVtiLiK8/driver_tmp_1.s
-44D inittext CODE >683:/tmp/xcVtiLiK8/driver_tmp_1.s
-44E inittext CODE >684:/tmp/xcVtiLiK8/driver_tmp_1.s
-44F inittext CODE >685:/tmp/xcVtiLiK8/driver_tmp_1.s
-450 inittext CODE >686:/tmp/xcVtiLiK8/driver_tmp_1.s
-451 inittext CODE >687:/tmp/xcVtiLiK8/driver_tmp_1.s
-452 inittext CODE >688:/tmp/xcVtiLiK8/driver_tmp_1.s
-453 inittext CODE >689:/tmp/xcVtiLiK8/driver_tmp_1.s
-454 inittext CODE >690:/tmp/xcVtiLiK8/driver_tmp_1.s
-455 inittext CODE >691:/tmp/xcVtiLiK8/driver_tmp_1.s
-456 inittext CODE >692:/tmp/xcVtiLiK8/driver_tmp_1.s
+7E3 cinit CODE >732:/tmp/xcLzfUEz4/driver_tmp_1.s
+7E3 cinit CODE >735:/tmp/xcLzfUEz4/driver_tmp_1.s
+7E3 cinit CODE >794:/tmp/xcLzfUEz4/driver_tmp_1.s
+7E4 cinit CODE >795:/tmp/xcLzfUEz4/driver_tmp_1.s
+7E5 cinit CODE >796:/tmp/xcLzfUEz4/driver_tmp_1.s
+7E6 cinit CODE >797:/tmp/xcLzfUEz4/driver_tmp_1.s
+7E7 cinit CODE >798:/tmp/xcLzfUEz4/driver_tmp_1.s
+7E8 cinit CODE >799:/tmp/xcLzfUEz4/driver_tmp_1.s
+7E9 cinit CODE >800:/tmp/xcLzfUEz4/driver_tmp_1.s
+7EA cinit CODE >801:/tmp/xcLzfUEz4/driver_tmp_1.s
+7EB cinit CODE >802:/tmp/xcLzfUEz4/driver_tmp_1.s
+7EC cinit CODE >803:/tmp/xcLzfUEz4/driver_tmp_1.s
+7F1 cinit CODE >822:/tmp/xcLzfUEz4/driver_tmp_1.s
+7F2 cinit CODE >823:/tmp/xcLzfUEz4/driver_tmp_1.s
+7F3 cinit CODE >824:/tmp/xcLzfUEz4/driver_tmp_1.s
+7F4 cinit CODE >825:/tmp/xcLzfUEz4/driver_tmp_1.s
+7F7 cinit CODE >828:/tmp/xcLzfUEz4/driver_tmp_1.s
+7F8 cinit CODE >829:/tmp/xcLzfUEz4/driver_tmp_1.s
+7F9 cinit CODE >830:/tmp/xcLzfUEz4/driver_tmp_1.s
+7FA cinit CODE >831:/tmp/xcLzfUEz4/driver_tmp_1.s
+7FB cinit CODE >832:/tmp/xcLzfUEz4/driver_tmp_1.s
+7FC cinit CODE >838:/tmp/xcLzfUEz4/driver_tmp_1.s
+7FC cinit CODE >840:/tmp/xcLzfUEz4/driver_tmp_1.s
+7FD cinit CODE >841:/tmp/xcLzfUEz4/driver_tmp_1.s
+3 text27 CODE >23:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+3 text27 CODE >24:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+6 text27 CODE >25:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+A text27 CODE >25:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+D text27 CODE >25:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+18 text27 CODE >26:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+19 text27 CODE >27:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+1D text27 CODE >27:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+20 text27 CODE >27:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+2C text27 CODE >29:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+C53 text26 CODE >37:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+C54 text26 CODE >38:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+C69 text26 CODE >39:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+C72 text26 CODE >40:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+C84 text26 CODE >41:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+132 text25 CODE >51:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+133 text25 CODE >53:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+144 text25 CODE >53:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+147 text25 CODE >53:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+154 text25 CODE >54:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+165 text25 CODE >54:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+168 text25 CODE >54:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+175 text25 CODE >55:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+186 text25 CODE >55:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+189 text25 CODE >55:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+196 text25 CODE >56:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+1A7 text25 CODE >56:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+1AA text25 CODE >56:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+1B7 text25 CODE >58:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+1CB text25 CODE >59:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+1D1 text25 CODE >62:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+1EA text25 CODE >63:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+1FB text25 CODE >63:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+1FE text25 CODE >63:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+20B text25 CODE >64:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+21C text25 CODE >64:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+21F text25 CODE >64:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+22C text25 CODE >65:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+23D text25 CODE >65:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+240 text25 CODE >65:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+24D text25 CODE >67:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+251 text25 CODE >68:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+B58 text24 CODE >135:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+B59 text24 CODE >136:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+B61 text24 CODE >137:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+B6B text24 CODE >138:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+DA1 text23 CODE >110:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+DA3 text23 CODE >116:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+DAD text23 CODE >117:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+DB7 text23 CODE >118:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+DC2 text23 CODE >119:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+DCC text23 CODE >120:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+DD3 text23 CODE >121:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+DDD text23 CODE >122:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+DE7 text23 CODE >124:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+DF1 text23 CODE >125:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+DFB text23 CODE >126:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+E05 text23 CODE >127:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+E0B text23 CODE >128:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+BC3 text22 CODE >148:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+BC4 text22 CODE >152:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+BC5 text22 CODE >154:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+BC7 text22 CODE >157:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+BC9 text22 CODE >158:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+BCA text22 CODE >161:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+BCF text22 CODE >161:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+BD4 text22 CODE >161:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+BD7 text22 CODE >161:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+BDA text22 CODE >164:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+BDF text22 CODE >167:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+BE5 text22 CODE >168:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+252 text21 CODE >77:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+253 text21 CODE >79:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+264 text21 CODE >79:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+267 text21 CODE >79:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+274 text21 CODE >80:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+285 text21 CODE >80:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+288 text21 CODE >80:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+295 text21 CODE >81:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+2A6 text21 CODE >81:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+2A9 text21 CODE >81:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+2B6 text21 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+2C7 text21 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+2CA text21 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+2D7 text21 CODE >84:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+2EC text21 CODE >85:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+2F2 text21 CODE >88:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+30B text21 CODE >89:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+31C text21 CODE >89:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+31F text21 CODE >89:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+32C text21 CODE >90:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+33D text21 CODE >90:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+340 text21 CODE >90:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+34D text21 CODE >91:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+35E text21 CODE >91:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+361 text21 CODE >91:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+36E text21 CODE >93:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+372 text21 CODE >94:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+C2D text20 CODE >102:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+C2E text20 CODE >103:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+C38 text20 CODE >103:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+C3A text20 CODE >104:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+C4A text20 CODE >105:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+C4E text20 CODE >105:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+C52 text20 CODE >103:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
+E0C text19 CODE >4:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E0C text19 CODE >7:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E1C text19 CODE >7:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E1E text19 CODE >8:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E26 text19 CODE >9:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E36 text19 CODE >9:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E38 text19 CODE >10:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E40 text19 CODE >12:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E42 text19 CODE >13:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E4D text19 CODE >13:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E53 text19 CODE >13:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E59 text19 CODE >13:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E66 text19 CODE >14:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E68 text19 CODE >15:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E73 text19 CODE >15:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E79 text19 CODE >15:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E7F text19 CODE >15:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E8C text19 CODE >16:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E8E text19 CODE >17:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E90 text19 CODE >18:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E92 text19 CODE >18:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E96 text19 CODE >18:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+E9A text19 CODE >18:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
+BA2 text18 CODE >15:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
+BA2 text18 CODE >43:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
+BA4 text18 CODE >45:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
+BA6 text18 CODE >46:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
+BA8 text18 CODE >46:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
+BAC text18 CODE >47:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
+BAD text18 CODE >47:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
+BB1 text18 CODE >47:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
+BB3 text18 CODE >48:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
+BB4 text18 CODE >48:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
+BB8 text18 CODE >48:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
+BBA text18 CODE >49:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
+BBE text18 CODE >52:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
+BC2 text18 CODE >53:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
+C09 text17 CODE >43:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+C09 text17 CODE >44:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+C0B text17 CODE >45:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+C10 text17 CODE >48:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+C11 text17 CODE >49:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+C12 text17 CODE >51:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+C14 text17 CODE >52:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+C18 text17 CODE >54:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+C1A text17 CODE >54:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+C1F text17 CODE >55:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+C21 text17 CODE >55:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+C25 text17 CODE >56:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+C25 text17 CODE >57:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+C27 text17 CODE >51:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+C28 text17 CODE >61:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+C2C text17 CODE >62:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B2F text16 CODE >65:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B2F text16 CODE >66:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B33 text16 CODE >67:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B37 text16 CODE >68:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B3A text16 CODE >69:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B3B text15 CODE >20:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B3B text15 CODE >21:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B3D text15 CODE >22:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B40 text15 CODE >23:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B43 text15 CODE >24:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B44 text15 CODE >25:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B46 text15 CODE >26:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B19 text14 CODE >31:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B19 text14 CODE >33:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B1A text14 CODE >34:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B1C text14 CODE >36:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B1E text14 CODE >37:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B1F text14 CODE >38:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B21 text14 CODE >39:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B23 text14 CODE >40:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+373 text13 CODE >8:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+373 text13 CODE >26:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+376 text13 CODE >27:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+37A text13 CODE >28:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+37B text13 CODE >29:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+37C text13 CODE >33:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+37F text13 CODE >35:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+382 text13 CODE >37:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+38A text13 CODE >40:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+38B text13 CODE >42:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+38C text13 CODE >43:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+38D text13 CODE >46:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+395 text13 CODE >49:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+39A text13 CODE >50:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+39E text13 CODE >51:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+39F text13 CODE >52:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3A0 text13 CODE >56:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3A3 text13 CODE >58:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3A6 text13 CODE >60:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3AE text13 CODE >63:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3AF text13 CODE >65:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3B0 text13 CODE >66:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3B1 text13 CODE >69:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3B9 text13 CODE >70:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3B9 text13 CODE >75:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3BD text13 CODE >75:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3BF text13 CODE >76:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3C7 text13 CODE >77:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3CB text13 CODE >78:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3CF text13 CODE >79:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3D8 text13 CODE >83:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3DB text13 CODE >85:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3E4 text13 CODE >89:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3EC text13 CODE >89:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3F2 text13 CODE >89:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3F6 text13 CODE >92:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+3FE text13 CODE >93:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+406 text13 CODE >94:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+40E text13 CODE >96:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+40F text13 CODE >97:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+411 text13 CODE >97:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+413 text13 CODE >100:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+416 text13 CODE >101:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+418 text13 CODE >101:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+41F text13 CODE >102:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+421 text13 CODE >102:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+428 text13 CODE >103:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+429 text13 CODE >104:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+42A text13 CODE >106:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+42C text13 CODE >106:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+433 text13 CODE >112:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+435 text13 CODE >112:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+439 text13 CODE >112:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+43D text13 CODE >112:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+441 text13 CODE >112:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+443 text13 CODE >115:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+444 text13 CODE >116:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+447 text13 CODE >116:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+44B text13 CODE >116:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+44F text13 CODE >116:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+452 text13 CODE >118:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+456 text13 CODE >97:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+457 text13 CODE >122:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+45B text13 CODE >122:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+45C text13 CODE >123:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+45D text13 CODE >127:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+45F text13 CODE >128:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+461 text13 CODE >128:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+468 text13 CODE >129:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+469 text13 CODE >130:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+46A text13 CODE >132:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+46C text13 CODE >132:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+473 text13 CODE >133:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+475 text13 CODE >133:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+479 text13 CODE >127:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+47A text13 CODE >139:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+47B text13 CODE >140:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+47D text13 CODE >141:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+48D text13 CODE >141:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+48E text13 CODE >145:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+491 text13 CODE >142:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+493 text13 CODE >150:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+496 text13 CODE >151:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+499 text13 CODE >151:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+49D text13 CODE >151:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4A1 text13 CODE >151:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4A4 text13 CODE >152:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4A6 text13 CODE >153:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4BF text13 CODE >154:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4C1 text13 CODE >154:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4C5 text13 CODE >159:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4CA text13 CODE >159:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4CE text13 CODE >159:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4D0 text13 CODE >160:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4D6 text13 CODE >161:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4DE text13 CODE >165:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4E5 text13 CODE >165:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4E9 text13 CODE >165:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4EB text13 CODE >166:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4EF text13 CODE >167:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4F7 text13 CODE >169:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4F8 text13 CODE >170:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4F8 text13 CODE >173:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4FC text13 CODE >175:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4FE text13 CODE >176:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+4FF text13 CODE >177:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+500 text13 CODE >180:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+504 text13 CODE >181:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+504 text13 CODE >182:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+506 text13 CODE >182:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
+BE6 text12 CODE >4:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
+BE7 text12 CODE >5:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
+BE9 text12 CODE >6:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
+BF0 text12 CODE >51:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
+BF2 text12 CODE >52:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
+BF4 text12 CODE >52:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
+BF8 text12 CODE >53:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
+BF8 text12 CODE >54:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
+BF9 text12 CODE >54:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
+BFD text12 CODE >54:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
+BFF text12 CODE >55:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
+C01 text12 CODE >56:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
+C04 text12 CODE >59:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
+C08 text12 CODE >60:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
+50A text11 CODE >8:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+50A text11 CODE >17:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+50D text11 CODE >18:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+511 text11 CODE >19:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+512 text11 CODE >20:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+513 text11 CODE >24:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+516 text11 CODE >26:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+519 text11 CODE >28:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+521 text11 CODE >31:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+522 text11 CODE >33:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+523 text11 CODE >36:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+52B text11 CODE >39:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+530 text11 CODE >40:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+534 text11 CODE >41:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+535 text11 CODE >42:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+536 text11 CODE >45:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+539 text11 CODE >48:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+53C text11 CODE >50:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+544 text11 CODE >53:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+545 text11 CODE >54:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+546 text11 CODE >57:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+54E text11 CODE >65:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+553 text11 CODE >66:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+55C text11 CODE >119:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+568 text11 CODE >120:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+575 text11 CODE >121:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+582 text11 CODE >122:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+58E text11 CODE >123:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+596 text11 CODE >123:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+597 text11 CODE >123:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+599 text11 CODE >123:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+59C text11 CODE >123:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+59D text11 CODE >123:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+59F text11 CODE >123:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5A2 text11 CODE >123:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5A3 text11 CODE >123:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5A5 text11 CODE >123:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5A7 text11 CODE >124:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5AF text11 CODE >124:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5B0 text11 CODE >124:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5B2 text11 CODE >124:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5B5 text11 CODE >124:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5B6 text11 CODE >124:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5B8 text11 CODE >124:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5BB text11 CODE >124:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5BC text11 CODE >124:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5BE text11 CODE >124:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5C0 text11 CODE >125:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5CC text11 CODE >126:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5D4 text11 CODE >126:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5D5 text11 CODE >126:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5D7 text11 CODE >126:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5DA text11 CODE >126:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5DB text11 CODE >126:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5DD text11 CODE >126:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5E0 text11 CODE >126:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5E1 text11 CODE >126:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5E3 text11 CODE >126:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5E5 text11 CODE >127:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5ED text11 CODE >127:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5EE text11 CODE >127:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5F0 text11 CODE >127:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5F3 text11 CODE >127:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5F4 text11 CODE >127:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5F6 text11 CODE >127:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5F9 text11 CODE >127:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5FA text11 CODE >127:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5FC text11 CODE >127:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+5FE text11 CODE >128:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+600 text11 CODE >128:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+607 text11 CODE >129:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+613 text11 CODE >130:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+61C text11 CODE >130:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+61D text11 CODE >130:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+61F text11 CODE >130:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+622 text11 CODE >130:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+623 text11 CODE >130:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+625 text11 CODE >130:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+628 text11 CODE >130:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+629 text11 CODE >130:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+62B text11 CODE >130:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+62D text11 CODE >131:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+639 text11 CODE >132:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+642 text11 CODE >132:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+643 text11 CODE >132:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+645 text11 CODE >132:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+648 text11 CODE >132:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+649 text11 CODE >132:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+64B text11 CODE >132:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+64E text11 CODE >132:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+64F text11 CODE >132:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+651 text11 CODE >132:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+653 text11 CODE >133:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+655 text11 CODE >133:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+65C text11 CODE >134:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+668 text11 CODE >135:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+671 text11 CODE >135:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+672 text11 CODE >135:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+674 text11 CODE >135:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+677 text11 CODE >135:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+678 text11 CODE >135:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+67A text11 CODE >135:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+67D text11 CODE >135:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+67E text11 CODE >135:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+680 text11 CODE >135:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+682 text11 CODE >136:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+68E text11 CODE >137:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+697 text11 CODE >137:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+698 text11 CODE >137:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+69A text11 CODE >137:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+69D text11 CODE >137:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+69E text11 CODE >137:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6A0 text11 CODE >137:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6A3 text11 CODE >137:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6A4 text11 CODE >137:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6A6 text11 CODE >137:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6A8 text11 CODE >138:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6B4 text11 CODE >139:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6BD text11 CODE >139:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6BE text11 CODE >139:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6C0 text11 CODE >139:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6C3 text11 CODE >139:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6C4 text11 CODE >139:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6C6 text11 CODE >139:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6C9 text11 CODE >139:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6CA text11 CODE >139:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6CC text11 CODE >139:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6CE text11 CODE >140:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6DA text11 CODE >141:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6E1 text11 CODE >141:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6E7 text11 CODE >141:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6EC text11 CODE >141:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6ED text11 CODE >141:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6EF text11 CODE >141:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6F2 text11 CODE >141:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6F3 text11 CODE >141:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6F5 text11 CODE >141:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6F8 text11 CODE >141:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6F9 text11 CODE >141:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6FB text11 CODE >141:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+6FD text11 CODE >145:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+705 text11 CODE >145:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+706 text11 CODE >145:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+708 text11 CODE >145:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+70B text11 CODE >145:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+70C text11 CODE >145:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+70E text11 CODE >145:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+711 text11 CODE >145:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+712 text11 CODE >145:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+714 text11 CODE >145:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+716 text11 CODE >146:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+718 text11 CODE >146:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+71F text11 CODE >149:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+728 text11 CODE >149:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+72C text11 CODE >152:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+72E text11 CODE >153:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+730 text11 CODE >153:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+737 text11 CODE >154:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+738 text11 CODE >155:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+739 text11 CODE >157:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+73B text11 CODE >157:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+742 text11 CODE >158:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+744 text11 CODE >158:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+748 text11 CODE >152:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+749 text11 CODE >163:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+74A text11 CODE >164:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+74C text11 CODE >165:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+75C text11 CODE >165:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+75D text11 CODE >169:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+760 text11 CODE >166:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+762 text11 CODE >174:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+765 text11 CODE >175:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+768 text11 CODE >175:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+76C text11 CODE >175:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+770 text11 CODE >175:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+773 text11 CODE >176:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+775 text11 CODE >177:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+78E text11 CODE >178:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+790 text11 CODE >178:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+794 text11 CODE >183:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+799 text11 CODE >183:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+79D text11 CODE >183:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+79F text11 CODE >184:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+7A9 text11 CODE >185:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+7AA text11 CODE >187:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+7B1 text11 CODE >187:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+7B5 text11 CODE >187:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+7B7 text11 CODE >188:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+7C1 text11 CODE >190:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+7C2 text11 CODE >191:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+7C3 text11 CODE >194:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+7C7 text11 CODE >195:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+7CF text11 CODE >196:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+7D0 text11 CODE >197:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+7D1 text11 CODE >199:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+7D3 text11 CODE >199:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+7D6 text11 CODE >200:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+7D6 text11 CODE >201:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+7DA text11 CODE >203:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+7E2 text11 CODE >205:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
+E9F text10 CODE >10:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EA0 text10 CODE >15:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EA4 text10 CODE >16:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EAD text10 CODE >16:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EAF text10 CODE >16:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EB1 text10 CODE >16:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EB3 text10 CODE >17:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EB4 text10 CODE >19:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EBC text10 CODE >20:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EBC text10 CODE >21:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EC0 text10 CODE >21:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EC2 text10 CODE >22:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+ECB text10 CODE >23:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+ECD text10 CODE >24:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+ED1 text10 CODE >25:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+ED5 text10 CODE >26:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+ED6 text10 CODE >26:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EDC text10 CODE >26:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EDE text10 CODE >24:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EDF text10 CODE >29:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EE3 text10 CODE >30:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EE6 text10 CODE >30:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EEA text10 CODE >30:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EEE text10 CODE >30:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EF1 text10 CODE >31:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EF2 text10 CODE >31:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EF8 text10 CODE >31:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EFA text10 CODE >28:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EFA text10 CODE >32:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+EFF text10 CODE >33:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+F01 text10 CODE >33:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+F03 text10 CODE >34:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+F05 text10 CODE >35:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+F07 text10 CODE >35:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+F0E text10 CODE >33:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+F10 text10 CODE >37:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+F12 text10 CODE >38:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+F1A text10 CODE >39:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+F1C text10 CODE >40:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+F22 text10 CODE >40:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+F28 text10 CODE >40:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+F32 text10 CODE >41:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+F36 text10 CODE >42:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+F37 text10 CODE >43:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+F3F text10 CODE >44:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
+B24 text9 CODE >71:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B24 text9 CODE >72:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B27 text9 CODE >73:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B29 text9 CODE >74:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B2E text9 CODE >75:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+D3D text8 CODE >77:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+D3D text8 CODE >78:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+D47 text8 CODE >79:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+D85 text8 CODE >80:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+DA0 text8 CODE >81:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+CB7 text7 CODE >5:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CB7 text7 CODE >13:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CB9 text7 CODE >14:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CBD text7 CODE >15:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CBF text7 CODE >16:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CC1 text7 CODE >17:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CC2 text7 CODE >17:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CC6 text7 CODE >17:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CC8 text7 CODE >18:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CCC text7 CODE >16:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CCD text7 CODE >21:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CCE text7 CODE >21:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CD2 text7 CODE >21:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CD4 text7 CODE >22:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CD6 text7 CODE >22:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CDA text7 CODE >22:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CDC text7 CODE >23:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CDF text7 CODE >23:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CE2 text7 CODE >24:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CE3 text7 CODE >26:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CE4 text7 CODE >26:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CE8 text7 CODE >26:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CEA text7 CODE >27:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CEE text7 CODE >29:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+CF2 text7 CODE >30:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
+C85 text6 CODE >5:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+C85 text6 CODE >12:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+C89 text6 CODE >13:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+C8B text6 CODE >14:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+C8D text6 CODE >15:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+C8E text6 CODE >15:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+C92 text6 CODE >15:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+C94 text6 CODE >16:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+C98 text6 CODE >14:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+C99 text6 CODE >19:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+C9B text6 CODE >19:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+C9F text6 CODE >19:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+CA1 text6 CODE >20:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+CA4 text6 CODE >20:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+CA7 text6 CODE >21:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+CA8 text6 CODE >21:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+CAC text6 CODE >21:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+CAE text6 CODE >22:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+CB2 text6 CODE >24:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+CB6 text6 CODE >25:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
+B08 text5 CODE >7:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/putch.c
+B08 text5 CODE >9:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/putch.c
+CF3 text4 CODE >8:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_fputc.c
+CF3 text4 CODE >12:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_fputc.c
+CF8 text4 CODE >13:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_fputc.c
+CFC text4 CODE >14:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_fputc.c
+CFD text4 CODE >15:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_fputc.c
+D1F text4 CODE >15:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_fputc.c
+D23 text4 CODE >15:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_fputc.c
+D25 text4 CODE >18:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_fputc.c
+D34 text4 CODE >20:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_fputc.c
+D3A text4 CODE >20:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_fputc.c
+D3C text4 CODE >24:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_fputc.c
+F40 text3 CODE >1177:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+F41 text3 CODE >1201:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+F4C text3 CODE >1201:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+F4E text3 CODE >1202:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+F54 text3 CODE >1204:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+F56 text3 CODE >1204:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+F5B text3 CODE >1205:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+F5F text3 CODE >1291:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+F63 text3 CODE >1439:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+F6B text3 CODE >1439:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+F6D text3 CODE >1495:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+F7A text3 CODE >1497:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+F7F text3 CODE >1498:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+F80 text3 CODE >1525:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+F82 text3 CODE >1527:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+F98 text3 CODE >1528:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+FA9 text3 CODE >1532:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+FB1 text3 CODE >1534:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+FC9 text3 CODE >1533:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+FCE text3 CODE >1589:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+FD9 text3 CODE >1589:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+FDE text3 CODE >1589:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+FE1 text3 CODE >1806:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+FE9 text3 CODE >1811:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+B85 text2 CODE >1817:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+B86 text2 CODE >1822:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+B88 text2 CODE >1826:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+B92 text2 CODE >1826:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+B94 text2 CODE >1830:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+B9E text2 CODE >1826:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+B9F text2 CODE >1835:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+BA1 text2 CODE >1840:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+B6C text1 CODE >9:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_sprintf.c
+B6D text1 CODE >15:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_sprintf.c
+B6F text1 CODE >16:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_sprintf.c
+B71 text1 CODE >17:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_sprintf.c
+B73 text1 CODE >18:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_sprintf.c
+B75 text1 CODE >19:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_sprintf.c
+B7D text1 CODE >20:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_sprintf.c
+B84 text1 CODE >23:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_sprintf.c
+2D maintext CODE >83:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+2D maintext CODE >86:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+32 maintext CODE >87:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+37 maintext CODE >88:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+3C maintext CODE >93:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+51 maintext CODE >104:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+53 maintext CODE >106:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+59 maintext CODE >107:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+5F maintext CODE >110:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+6B maintext CODE >111:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+77 maintext CODE >112:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+81 maintext CODE >113:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+8D maintext CODE >119:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+A1 maintext CODE >120:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+AB maintext CODE >122:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B2 maintext CODE >122:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+C6 maintext CODE >124:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+D7 maintext CODE >125:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+E1 maintext CODE >126:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+ED maintext CODE >127:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+105 maintext CODE >128:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+107 maintext CODE >129:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+11E maintext CODE >130:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+120 maintext CODE >132:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+123 maintext CODE >133:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B09 clrtext CODE >809:/tmp/xcLzfUEz4/driver_tmp_1.s
+B09 clrtext CODE >810:/tmp/xcLzfUEz4/driver_tmp_1.s
+B0A clrtext CODE >811:/tmp/xcLzfUEz4/driver_tmp_1.s
+B0A clrtext CODE >812:/tmp/xcLzfUEz4/driver_tmp_1.s
+B0B clrtext CODE >813:/tmp/xcLzfUEz4/driver_tmp_1.s
+B0C clrtext CODE >814:/tmp/xcLzfUEz4/driver_tmp_1.s
+B0D clrtext CODE >815:/tmp/xcLzfUEz4/driver_tmp_1.s
+B0E clrtext CODE >816:/tmp/xcLzfUEz4/driver_tmp_1.s
+B0F clrtext CODE >817:/tmp/xcLzfUEz4/driver_tmp_1.s
+B10 clrtext CODE >818:/tmp/xcLzfUEz4/driver_tmp_1.s
+B47 inittext CODE >768:/tmp/xcLzfUEz4/driver_tmp_1.s
+B47 inittext CODE >769:/tmp/xcLzfUEz4/driver_tmp_1.s
+B48 inittext CODE >770:/tmp/xcLzfUEz4/driver_tmp_1.s
+B49 inittext CODE >771:/tmp/xcLzfUEz4/driver_tmp_1.s
+B4A inittext CODE >772:/tmp/xcLzfUEz4/driver_tmp_1.s
+B4B inittext CODE >779:/tmp/xcLzfUEz4/driver_tmp_1.s
+B4B inittext CODE >780:/tmp/xcLzfUEz4/driver_tmp_1.s
+B4E inittext CODE >781:/tmp/xcLzfUEz4/driver_tmp_1.s
+B4F inittext CODE >782:/tmp/xcLzfUEz4/driver_tmp_1.s
+B50 inittext CODE >783:/tmp/xcLzfUEz4/driver_tmp_1.s
+B51 inittext CODE >784:/tmp/xcLzfUEz4/driver_tmp_1.s
+B52 inittext CODE >785:/tmp/xcLzfUEz4/driver_tmp_1.s
+B53 inittext CODE >786:/tmp/xcLzfUEz4/driver_tmp_1.s
+B54 inittext CODE >787:/tmp/xcLzfUEz4/driver_tmp_1.s
+B55 inittext CODE >788:/tmp/xcLzfUEz4/driver_tmp_1.s
+B56 inittext CODE >789:/tmp/xcLzfUEz4/driver_tmp_1.s
+B57 inittext CODE >790:/tmp/xcLzfUEz4/driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -235,70 +844,134 @@ $dist/default/production/PIC16F887_cooler_rpm.X.production.o
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
-__LdataBANK0 0 0 ABS 0 dataBANK0 -
-__Hspace_0 800 0 ABS 0 - -
-__Hspace_1 7E 0 ABS 0 - -
+___lwmod@counter 75 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__LdataBANK1 0 0 ABS 0 dataBANK1 -
+__Hspace_0 1000 0 ABS 0 - -
+__Hspace_1 E2 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 400F 0 ABS 0 - -
-__HidataBANK0 0 0 ABS 0 idataBANK0 -
-_Lcd_Init A88 0 CODE 0 text4 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-_Lcd_Command B5E 0 CODE 0 text6 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__HidataBANK1 0 0 ABS 0 idataBANK1 -
+_Lcd_Init 1B42 0 CODE 0 text23 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of_readADC 165E 0 CODE 0 text9 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_Lcd_Command 264 0 CODE 0 text25 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __L__absolute__ 0 0 ABS 0 __absolute__ -
-__end_of_Lcd_Init B5E 0 CODE 0 text4 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of_Lcd_Init 1C18 0 CODE 0 text23 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack /tmp/xcVtiLiK8/driver_tmp_12.o
-_main A18 0 CODE 0 maintext dist/default/production/PIC16F887_cooler_rpm.X.production.o
+?_vfprintf 7C 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_TMR0 1 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___sp 0 0 STACK 2 stack /tmp/xcLzfUEz4/driver_tmp_17.o
+_dbuf A0 0 BANK1 1 bssBANK1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_main 5A 0 CODE 0 maintext dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_prec 64 0 BANK0 1 bssBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
-___stack_hi 0 0 STACK 2 stack /tmp/xcVtiLiK8/driver_tmp_12.o
-___stack_lo 0 0 STACK 2 stack /tmp/xcVtiLiK8/driver_tmp_12.o
-start 0 0 CODE 0 init /tmp/xcVtiLiK8/driver_tmp_12.o
+___stack_hi 0 0 STACK 2 stack /tmp/xcLzfUEz4/driver_tmp_17.o
+___stack_lo 0 0 STACK 2 stack /tmp/xcLzfUEz4/driver_tmp_17.o
+start 0 0 CODE 0 init /tmp/xcLzfUEz4/driver_tmp_17.o
+___flmul@aexp 48 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___flmul@bexp 4D 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___flmul@prod 4E 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___flmul@sign 47 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___flmul@temp 52 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+?___wmul 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_OPTION_REGbits 81 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
 SetBit@port 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 SetBit@value 73 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
-__LidataBANK0 0 0 ABS 0 idataBANK0 -
+__LidataBANK1 0 0 ABS 0 idataBANK1 -
 __Hpowerup 0 0 CODE 0 powerup -
-__end_of_SetBit 9B4 0 CODE 0 text8 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-intlevel0 0 0 ENTRY 0 functab /tmp/xcVtiLiK8/driver_tmp_12.o
-intlevel1 0 0 ENTRY 0 functab /tmp/xcVtiLiK8/driver_tmp_12.o
-intlevel2 0 0 ENTRY 0 functab /tmp/xcVtiLiK8/driver_tmp_12.o
-intlevel3 0 0 ENTRY 0 functab /tmp/xcVtiLiK8/driver_tmp_12.o
-intlevel4 0 0 ENTRY 0 functab /tmp/xcVtiLiK8/driver_tmp_12.o
-intlevel5 0 0 ENTRY 0 functab /tmp/xcVtiLiK8/driver_tmp_12.o
+__end_of_SetBit 5A 0 CODE 0 text27 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of_vfpfcnvrt 2000 0 CODE 0 text3 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+intlevel0 0 0 ENTRY 0 functab /tmp/xcLzfUEz4/driver_tmp_17.o
+intlevel1 0 0 ENTRY 0 functab /tmp/xcLzfUEz4/driver_tmp_17.o
+intlevel2 0 0 ENTRY 0 functab /tmp/xcLzfUEz4/driver_tmp_17.o
+intlevel3 0 0 ENTRY 0 functab /tmp/xcLzfUEz4/driver_tmp_17.o
+intlevel4 0 0 ENTRY 0 functab /tmp/xcLzfUEz4/driver_tmp_17.o
+intlevel5 0 0 ENTRY 0 functab /tmp/xcLzfUEz4/driver_tmp_17.o
 wtemp0 7E 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 Lcd_SetCursor@row 20 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+?_readTemperature 54 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
+_vfpfcnvrt 1E80 0 CODE 0 text3 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___wmul@multiplicand 72 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of_readTemperature 1B42 0 CODE 0 text8 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_ADCON0 1F 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_ADCON1 9F 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_ADRESH 1E 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_ADRESL 9E 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_ANSELH 189 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of__Umul8_16 1812 0 CODE 0 text12 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 Lcd_Command@cmd 79 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
-main@lcd 2A 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_CCPR1L 15 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of___flge 1D3E 0 CODE 0 text19 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of___wmul 1786 0 CODE 0 text18 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+main@lcd D2 0 BANK1 1 cstackBANK1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+main@rpm C0 0 BANK1 1 cstackBANK1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+readTemperature@voltage 58 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_countPulses 1812 0 CODE 0 text17 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - /tmp/xcVtiLiK8/driver_tmp_12.o
-___stacklo 0 0 ABS 0 - /tmp/xcVtiLiK8/driver_tmp_12.o
+countPulses@currentState 75 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___fldiv@aexp 39 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___fldiv@bexp 38 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___fldiv@sign 31 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___lwmod@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__Umul8_16 17CC 0 CODE 0 text12 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of___fldiv A14 0 CODE 0 text13 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of___flmul FC6 0 CODE 0 text11 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of___lwdiv 19E6 0 CODE 0 text7 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of___lwmod 196E 0 CODE 0 text6 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__Umul8_16@multiplicand 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___stackhi 0 0 ABS 0 - /tmp/xcLzfUEz4/driver_tmp_17.o
+___stacklo 0 0 ABS 0 - /tmp/xcLzfUEz4/driver_tmp_17.o
+___lwdiv@quotient 75 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___fldiv@a 20 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___fldiv@b 24 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___flmul@a 3E 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___flmul@b 3A 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 Lcd_Clear@config 7D 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
-start_initialization FE0 0 CODE 0 cinit dist/default/production/PIC16F887_cooler_rpm.X.production.o
-_PulseEnable 9B4 0 CODE 0 text7 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_readTemperature 1A7A 0 CODE 0 text8 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___lwmod@dividend 72 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+start_initialization FC6 0 CODE 0 cinit dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_TRISBbits 86 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_PulseEnable 18A6 0 CODE 0 text26 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+clear_ram0 1612 0 CODE 0 clrtext dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-_SetBit 960 0 CODE 0 text8 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__pcstackBANK1 C0 0 BANK1 1 cstackBANK1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_SetBit 6 0 CODE 0 text27 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 SetBit@pin 72 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
-___int_sp 0 0 STACK 2 stack /tmp/xcVtiLiK8/driver_tmp_12.o
+_readADC 1648 0 CODE 0 text9 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+fputc@fp 72 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of_initADC 1676 0 CODE 0 text16 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of_initPWM 168E 0 CODE 0 text15 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of_initRPM 1648 0 CODE 0 text14 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___int_sp 0 0 STACK 2 stack /tmp/xcLzfUEz4/driver_tmp_17.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 ABS 0 bank3 -
 __Hcinit 1000 0 CODE 0 cinit -
 __Hstack 0 0 STACK 2 stack -
-__stringbase 10 0 STRING 0 strings dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__stringbase 101E 0 STRING 0 strings dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___lwdiv@counter 77 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Hmaintext 0 0 ABS 0 maintext -
-__end_of_Lcd_Command D9E 0 CODE 0 text6 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___xxtofl@arg 7A 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___xxtofl@exp 79 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___xxtofl@val 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of_sprintf 170A 0 CODE 0 text1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of_Lcd_Command 4A4 0 CODE 0 text25 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4010 0 CONFIG 4 config -
 __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
 __Lbank3 0 0 ABS 0 bank3 -
-__Lcinit FE0 0 CODE 0 cinit -
+__Lcinit FC6 0 CODE 0 cinit -
 __Lstack 0 0 STACK 2 stack -
+___flmul@grs 49 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Linittext 0 0 ABS 0 inittext -
+_PORTBbits 6 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_INTCONbits B 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
 __Hheap 0 0 HEAP 7 heap -
@@ -317,84 +990,180 @@ __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
+___flge 1C18 0 CODE 0 text19 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___wmul 1744 0 CODE 0 text18 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 Lcd_WriteChar@data 79 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__LcstackBANK1 0 0 ABS 0 cstackBANK1 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-__S0 800 0 ABS 0 - -
-__S1 7E 0 ABS 0 - -
+_PR2 92 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__S0 1000 0 ABS 0 - -
+__S1 E2 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-Lcd_SetCursor@address 25 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-__end_of_Lcd_Clear 8D6 0 CODE 0 text5 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+?_readADC 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+Lcd_SetCursor@address 24 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+sprintf@fmt 29 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___xxtofl 1D3E 0 CODE 0 text10 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+countPulses@lastState 74 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of_Lcd_Clear 16D8 0 CODE 0 text24 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Lintentry 0 0 CODE 0 intentry -
-__stringtab 6 0 STRING 0 strings dist/default/production/PIC16F887_cooler_rpm.X.production.o
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcVtiLiK8/driver_tmp_12.o
-__pdataBANK0 32 0 BANK0 1 dataBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-_Lcd_WriteChar D9E 0 CODE 0 text2 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-_Lcd_Clear 8AE 0 CODE 0 text5 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__stringtab 1000 0 STRING 0 strings dist/default/production/PIC16F887_cooler_rpm.X.production.o
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcLzfUEz4/driver_tmp_17.o
+__end_of___xxtofl 1E80 0 CODE 0 text10 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__pdataBANK1 DA 0 BANK1 1 dataBANK1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_Lcd_WriteChar 4A4 0 CODE 0 text21 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__LbssBANK0 0 0 ABS 0 bssBANK0 -
+__LbssBANK1 0 0 ABS 0 bssBANK1 -
+vfpfcnvrt@fmt 78 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext10 1D3E 0 CODE 0 text10 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext11 A14 0 CODE 0 text11 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext12 17CC 0 CODE 0 text12 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext13 6E6 0 CODE 0 text13 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext14 1632 0 CODE 0 text14 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext15 1676 0 CODE 0 text15 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext16 165E 0 CODE 0 text16 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext17 1812 0 CODE 0 text17 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext18 1744 0 CODE 0 text18 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext19 1C18 0 CODE 0 text19 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext20 185A 0 CODE 0 text20 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext21 4A4 0 CODE 0 text21 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext22 1786 0 CODE 0 text22 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext23 1B42 0 CODE 0 text23 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext24 16B0 0 CODE 0 text24 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext25 264 0 CODE 0 text25 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext26 18A6 0 CODE 0 text26 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext27 6 0 CODE 0 text27 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_Lcd_Clear 16B0 0 CODE 0 text24 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 Lcd_SetCursor@column 21 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-Lcd_SetCursor@config 24 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-__pmaintext A18 0 CODE 0 maintext dist/default/production/PIC16F887_cooler_rpm.X.production.o
-_Lcd_SetCursor 91A 0 CODE 0 text3 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+Lcd_SetCursor@config 25 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___fldiv 6E6 0 CODE 0 text13 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___flmul A14 0 CODE 0 text11 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___lwdiv 196E 0 CODE 0 text7 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___lwmod 190A 0 CODE 0 text6 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__pmaintext 5A 0 CODE 0 maintext dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_Lcd_SetCursor 1786 0 CODE 0 text22 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__Umul8_16@multiplier 78 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
+__end_of_countPulses 185A 0 CODE 0 text17 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Hinittext 0 0 ABS 0 inittext -
-main@F1466 32 0 BANK0 1 dataBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___wmul@multiplier 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___fldiv@grs 34 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___fldiv@rem 2D 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+main@F1787 DA 0 BANK1 1 dataBANK1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 Lcd_WriteChar@config 7C 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
-__end_of__stringtab 12 0 STRING 0 strings dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___lwdiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___fldiv@new_exp 32 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_ADCON0bits 1F 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of__stringtab 1020 0 STRING 0 strings dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
-init_fetch0 88C 0 CODE 0 inittext dist/default/production/PIC16F887_cooler_rpm.X.production.o
+init_fetch0 168E 0 CODE 0 inittext dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__HcstackBANK1 0 0 ABS 0 cstackBANK1 -
+__Umul8_16@product 74 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___flge@ff1 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___flge@ff2 74 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Lend_init 0 0 CODE 0 end_init -
+vfpfcnvrt@convarg 21 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 end_of_initialization FF8 0 CODE 0 cinit dist/default/production/PIC16F887_cooler_rpm.X.production.o
+main@fanRPM CC 0 BANK1 1 cstackBANK1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Hintentry 0 0 CODE 0 intentry -
-__end_of_PulseEnable A18 0 CODE 0 text7 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of_PulseEnable 190A 0 CODE 0 text26 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+fputc@c 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Lstrings 0 0 ABS 0 strings -
+___lwdiv@dividend 72 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+?___fldiv 20 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+?___flmul 3A 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+?___lwdiv 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+?___lwmod 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+vfprintf@fmt 7C 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Hreset_vec 0 0 CODE 0 reset_vec -
-__ptext1 8D6 0 CODE 0 text1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-__ptext2 D9E 0 CODE 0 text2 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-__ptext3 91A 0 CODE 0 text3 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-__ptext4 A88 0 CODE 0 text4 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-__ptext5 8AE 0 CODE 0 text5 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-__ptext6 B5E 0 CODE 0 text6 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-__ptext7 9B4 0 CODE 0 text7 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-__ptext8 960 0 CODE 0 text8 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__HbssBANK0 0 0 ABS 0 bssBANK0 -
+__HbssBANK1 0 0 ABS 0 bssBANK1 -
+_initADC 165E 0 CODE 0 text16 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_initPWM 1676 0 CODE 0 text15 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_initRPM 1632 0 CODE 0 text14 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+vfpfcnvrt@ap 79 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+vfpfcnvrt@cp 25 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+vfpfcnvrt@fp 20 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext1 16D8 0 CODE 0 text1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext2 170A 0 CODE 0 text2 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext3 1E80 0 CODE 0 text3 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext4 19E6 0 CODE 0 text4 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext5 1610 0 CODE 0 text5 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext6 190A 0 CODE 0 text6 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext7 196E 0 CODE 0 text7 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext8 1A7A 0 CODE 0 text8 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__ptext9 1648 0 CODE 0 text9 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+vfprintf@ap 7D 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+vfprintf@fp 27 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+vfprintf@cfmt 28 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+?__Umul8_16 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+countPulses@pulseCount 72 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_sprintf 16D8 0 CODE 0 text1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_vfprintf 170A 0 CODE 0 text2 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
+?___xxtofl 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 PulseEnable@config 78 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 Lcd_Command@config 7C 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
-Lcd_WriteString@str 7D 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+Lcd_WriteString@str 20 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+sprintf@ap 2D 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __H__absolute__ 0 0 ABS 0 __absolute__ -
+__Umul8_16@word_mpld 76 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
-__end_of_Lcd_WriteString 91A 0 CODE 0 text1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-___heap_hi 0 0 ABS 0 - /tmp/xcVtiLiK8/driver_tmp_12.o
-___heap_lo 0 0 ABS 0 - /tmp/xcVtiLiK8/driver_tmp_12.o
+__end_of_Lcd_WriteString 18A6 0 CODE 0 text20 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of_vfprintf 1744 0 CODE 0 text2 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+main@pulses CA 0 BANK1 1 cstackBANK1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___heap_hi 0 0 ABS 0 - /tmp/xcLzfUEz4/driver_tmp_17.o
+___heap_lo 0 0 ABS 0 - /tmp/xcLzfUEz4/driver_tmp_17.o
 __end_of__initialization FF8 0 CODE 0 cinit dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
-__pidataBANK0 87C 0 CODE 0 idataBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-__end_of_Lcd_WriteChar FE0 0 CODE 0 text2 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+?_countPulses 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__pidataBANK1 1622 0 CODE 0 idataBANK1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of_Lcd_WriteChar 6E6 0 CODE 0 text21 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
+main@temperature CE 0 BANK1 1 cstackBANK1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Hend_init 6 0 CODE 0 end_init -
-init_ram0 894 0 CODE 0 inittext dist/default/production/PIC16F887_cooler_rpm.X.production.o
-__end_of_Lcd_SetCursor 960 0 CODE 0 text3 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-__end_of_main A88 0 CODE 0 maintext dist/default/production/PIC16F887_cooler_rpm.X.production.o
-_PORTC 7 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
-_TRISC 87 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
+init_ram0 1696 0 CODE 0 inittext dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of_Lcd_SetCursor 17CC 0 CODE 0 text22 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+vfpfcnvrt@c 26 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+sprintf@f 2F 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+sprintf@s 2E 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of_main 264 0 CODE 0 maintext dist/default/production/PIC16F887_cooler_rpm.X.production.o
+readTemperature@adcValue 5C 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_ANSEL 188 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of_fputc 1A7A 0 CODE 0 text4 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+?_sprintf 29 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_PORTD 8 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_T2CON 12 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_TRISD 88 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__end_of_putch 1612 0 CODE 0 text5 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
+_flags 66 0 BANK0 1 bssBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_fputc 19E6 0 CODE 0 text4 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_putch 1610 0 CODE 0 text5 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 Lcd_Init@config 24 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-_Lcd_WriteString 8D6 0 CODE 0 text1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-__HdataBANK0 0 0 ABS 0 dataBANK0 -
-__initialization FE0 0 CODE 0 cinit dist/default/production/PIC16F887_cooler_rpm.X.production.o
-__pstrings 6 0 STRING 0 strings dist/default/production/PIC16F887_cooler_rpm.X.production.o
-___int_stack_hi 0 0 STACK 2 stack /tmp/xcVtiLiK8/driver_tmp_12.o
-___int_stack_lo 0 0 STACK 2 stack /tmp/xcVtiLiK8/driver_tmp_12.o
-Lcd_WriteString@config 21 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_width 62 0 BANK0 1 bssBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_CCP1CON 17 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
+_Lcd_WriteString 185A 0 CODE 0 text20 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__HdataBANK1 0 0 ABS 0 dataBANK1 -
+__initialization FC6 0 CODE 0 cinit dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___xxtofl@sign 78 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__pbssBANK0 62 0 BANK0 1 bssBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__pbssBANK1 A0 0 BANK1 1 bssBANK1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+__pstrings 1000 0 STRING 0 strings dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___wmul@product 74 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
+___int_stack_hi 0 0 STACK 2 stack /tmp/xcLzfUEz4/driver_tmp_17.o
+___int_stack_lo 0 0 STACK 2 stack /tmp/xcLzfUEz4/driver_tmp_17.o
+Lcd_WriteString@config 7D 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -420,22 +1189,42 @@ Lcd_WriteString@config 21 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F88
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cinit 0 7F0 FE0 10 2
-text1 0 46B 8D6 22 2
-text2 0 6CF D9E 121 2
-text3 0 48D 91A 23 2
-text4 0 544 A88 6B 2
-text5 0 457 8AE 14 2
-text6 0 5AF B5E 120 2
-text7 0 4DA 9B4 32 2
-text8 0 4B0 960 2A 2
-maintext 0 50C A18 38 2
+cinit 0 7E3 FC6 1D 2
+text1 0 B6C 16D8 19 2
+text2 0 B85 170A 1D 2
+text3 0 F40 1E80 C0 2
+text4 0 CF3 19E6 4A 2
+text5 0 B08 1610 1 2
+text6 0 C85 190A 32 2
+text7 0 CB7 196E 3C 2
+text8 0 D3D 1A7A 64 2
+text9 0 B24 1648 B 2
+text10 0 E9F 1D3E A1 2
+text11 0 50A A14 2D9 2
+text12 0 BE6 17CC 23 2
+text13 0 373 6E6 197 2
+text14 0 B19 1632 B 2
+text15 0 B3B 1676 C 2
+text16 0 B2F 165E C 2
+text17 0 C09 1812 24 2
+text18 0 BA2 1744 21 2
+text19 0 E0C 1C18 93 2
+text20 0 C2D 185A 26 2
+text21 0 252 4A4 121 2
+text22 0 BC3 1786 23 2
+text23 0 DA1 1B42 6B 2
+text24 0 B58 16B0 14 2
+text25 0 132 264 120 2
+text26 0 C53 18A6 32 2
+maintext 0 2D 5A 105 2
 cstackCOMMON 1 70 70 E 1
-cstackBANK0 1 20 20 1A 1
-inittext 0 446 88C 11 2
-reset_vec 0 0 0 3 2
-idataBANK0 0 43E 87C 8 2
-strings 0 3 6 19 2
+cstackBANK0 1 20 20 47 1
+inittext 0 B47 168E 11 2
+reset_vec 0 0 0 2D 2
+bssBANK1 1 A0 A0 42 1
+idataBANK1 0 B11 1622 8 2
+strings 0 800 1000 2C 2
+clrtext 0 B09 1612 8 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal
