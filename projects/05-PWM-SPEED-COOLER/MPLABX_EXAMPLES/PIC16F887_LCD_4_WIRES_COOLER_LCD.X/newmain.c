@@ -1,4 +1,6 @@
 #include <xc.h>
+#include <stdio.h>
+#include "../../pic16flcd.h"
 
 // Configuration Bits
 #pragma config FOSC = INTRC_NOCLKOUT  // Internal Oscillator, no clock out
@@ -14,22 +16,22 @@
 
 void initPWM() {
     OSCCON = 0x60;
-    TRISC = 0;                   // Set port to output   
+    TRISC = 0; // Set port to output   
     T2CON = 0x07;
-    PR2 = 0xFF;                  // Set PWM period
-    CCP1CON = 0x0C;              // Set PWM mode and duty cycle to 0
+    PR2 = 0xFF; // Set PWM period
+    CCP1CON = 0x0C; // Set PWM mode and duty cycle to 0
     CCPR1L = 0x00;
-    T2CON = 0x04;                // Timer2 ON, Prescaler set to 1
+    T2CON = 0x04; // Timer2 ON, Prescaler set to 1
 }
 
 void initADC() {
-    ANSEL = 0x01;                // RA0/AN0 is analog input
-    ADCON0 = 0x01;               // Enable ADC, channel 0
-    ADCON1 = 0x80;               // Right justified, Fosc/32
+    ANSEL = 0x01; // RA0/AN0 is analog input
+    ADCON0 = 0x01; // Enable ADC, channel 0
+    ADCON1 = 0x80; // Right justified, Fosc/32
 }
 
 unsigned int readADC() {
-    ADCON0bits.GO = 1;           // Start conversion
+    ADCON0bits.GO = 1; // Start conversion
     while (ADCON0bits.GO_nDONE); // Wait for conversion to finish
     return (unsigned int) ((ADRESH << 8) + ADRESL); // Combine result into a single word
 }
@@ -40,22 +42,46 @@ float readTemperature() {
     return (float) voltage / (float) 0.01; // Convert voltage to temperature in Celsius
 }
 
-void main() {   
+void main() {
     initPWM();
     initADC();
 
-    CCPR1L = 100;       // Turn the Cooler on for 5 seconds
-    __delay_ms(5000);
-    CCPR1L = 0;
-    
-    while(1) {
+    Lcd_PinConfig lcd = {
+        .port = &PORTD, // Assuming you're using PORTD for LCD on PIC16F887
+        .rs_pin = 2, // RD2 for RS
+        .en_pin = 3, // RD3 for EN
+        .d4_pin = 4, // RD4 for D4
+        .d5_pin = 5, // RD5 for D5
+        .d6_pin = 6, // RD6 for D6
+        .d7_pin = 7 // RD7 for D7
+    };
+
+    // Initialize the LCD
+    TRISD = 0;
+    Lcd_Init(&lcd);
+    Lcd_Clear(&lcd);
+
+    // Display message
+    Lcd_SetCursor(&lcd, 1, 1);
+    Lcd_WriteString(&lcd, "COOLER Counter");
+    Lcd_SetCursor(&lcd, 2, 1);
+    Lcd_WriteString(&lcd, "Temp:");
+
+
+    while (1) {
+        char strTemp[6];
         float temperature = readTemperature();
+
+        sprintf(strTemp, "%4u", (int) temperature);
+        Lcd_SetCursor(&lcd, 2, 7);
+        Lcd_WriteString(&lcd, strTemp );
+
         if (temperature > 33.0)
             CCPR1L = 200;
         else if (temperature > 30.0)
-            CCPR1L = 18;      
+            CCPR1L = 18;
         else if (temperature > 20.0)
             CCPR1L = 9;
-        __delay_ms(2000);          
+        __delay_ms(2000);
     }
 }

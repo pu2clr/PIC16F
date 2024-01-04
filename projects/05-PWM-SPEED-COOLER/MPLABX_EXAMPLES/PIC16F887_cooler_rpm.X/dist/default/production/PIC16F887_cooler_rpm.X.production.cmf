@@ -11,9 +11,6 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/xcWtRjWsB/driver_tmp_17.o
-end_init CODE 0 0 0 3 2 1
-config CONFIG 4 2007 2007 1 2 1
 $dist/default/production/PIC16F887_cooler_rpm.X.production.o
 cinit CODE 0 7E7 7E7 19 2 1
 text1 CODE 0 B2A B2A 19 2 1
@@ -58,6 +55,9 @@ idataBANK1 CODE 0 AE2 AE2 8 2 1
 strings STRING 0 800 800 2D 2 1
 dataBANK1 BANK1 1 C4 C4 8 1 1
 clrtext CODE 0 ADA ADA 8 2 1
+config CONFIG 4 2007 2007 1 2 1
+$/tmp/xcDFBwkQk/driver_tmp_17.o
+end_init CODE 0 0 0 3 2 1
 config CONFIG 4 2007 2007 1 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -109,26 +109,26 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/PIC16F887_cooler_rpm.X.production.o
-7E7 cinit CODE >742:/tmp/xcWtRjWsB/driver_tmp_1.s
-7E7 cinit CODE >745:/tmp/xcWtRjWsB/driver_tmp_1.s
-7E7 cinit CODE >804:/tmp/xcWtRjWsB/driver_tmp_1.s
-7E8 cinit CODE >805:/tmp/xcWtRjWsB/driver_tmp_1.s
-7E9 cinit CODE >806:/tmp/xcWtRjWsB/driver_tmp_1.s
-7EA cinit CODE >807:/tmp/xcWtRjWsB/driver_tmp_1.s
-7EB cinit CODE >808:/tmp/xcWtRjWsB/driver_tmp_1.s
-7EC cinit CODE >809:/tmp/xcWtRjWsB/driver_tmp_1.s
-7ED cinit CODE >810:/tmp/xcWtRjWsB/driver_tmp_1.s
-7EE cinit CODE >811:/tmp/xcWtRjWsB/driver_tmp_1.s
-7EF cinit CODE >812:/tmp/xcWtRjWsB/driver_tmp_1.s
-7F0 cinit CODE >813:/tmp/xcWtRjWsB/driver_tmp_1.s
-7F5 cinit CODE >832:/tmp/xcWtRjWsB/driver_tmp_1.s
-7F6 cinit CODE >833:/tmp/xcWtRjWsB/driver_tmp_1.s
-7F7 cinit CODE >834:/tmp/xcWtRjWsB/driver_tmp_1.s
-7F8 cinit CODE >835:/tmp/xcWtRjWsB/driver_tmp_1.s
-7FB cinit CODE >838:/tmp/xcWtRjWsB/driver_tmp_1.s
-7FC cinit CODE >844:/tmp/xcWtRjWsB/driver_tmp_1.s
-7FC cinit CODE >846:/tmp/xcWtRjWsB/driver_tmp_1.s
-7FD cinit CODE >847:/tmp/xcWtRjWsB/driver_tmp_1.s
+7E7 cinit CODE >742:/tmp/xcDFBwkQk/driver_tmp_1.s
+7E7 cinit CODE >745:/tmp/xcDFBwkQk/driver_tmp_1.s
+7E7 cinit CODE >804:/tmp/xcDFBwkQk/driver_tmp_1.s
+7E8 cinit CODE >805:/tmp/xcDFBwkQk/driver_tmp_1.s
+7E9 cinit CODE >806:/tmp/xcDFBwkQk/driver_tmp_1.s
+7EA cinit CODE >807:/tmp/xcDFBwkQk/driver_tmp_1.s
+7EB cinit CODE >808:/tmp/xcDFBwkQk/driver_tmp_1.s
+7EC cinit CODE >809:/tmp/xcDFBwkQk/driver_tmp_1.s
+7ED cinit CODE >810:/tmp/xcDFBwkQk/driver_tmp_1.s
+7EE cinit CODE >811:/tmp/xcDFBwkQk/driver_tmp_1.s
+7EF cinit CODE >812:/tmp/xcDFBwkQk/driver_tmp_1.s
+7F0 cinit CODE >813:/tmp/xcDFBwkQk/driver_tmp_1.s
+7F5 cinit CODE >832:/tmp/xcDFBwkQk/driver_tmp_1.s
+7F6 cinit CODE >833:/tmp/xcDFBwkQk/driver_tmp_1.s
+7F7 cinit CODE >834:/tmp/xcDFBwkQk/driver_tmp_1.s
+7F8 cinit CODE >835:/tmp/xcDFBwkQk/driver_tmp_1.s
+7FB cinit CODE >838:/tmp/xcDFBwkQk/driver_tmp_1.s
+7FC cinit CODE >844:/tmp/xcDFBwkQk/driver_tmp_1.s
+7FC cinit CODE >846:/tmp/xcDFBwkQk/driver_tmp_1.s
+7FD cinit CODE >847:/tmp/xcDFBwkQk/driver_tmp_1.s
 C33 text32 CODE >23:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
 C33 text32 CODE >24:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
 C36 text32 CODE >25:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
@@ -628,23 +628,23 @@ D6B text15 CODE >125:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Um
 D6F text15 CODE >125:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
 D71 text15 CODE >128:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
 D79 text15 CODE >129:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
-86 text14 CODE >81:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-86 text14 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-91 text14 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-97 text14 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-9D text14 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-B5 text14 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-BB text14 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-C1 text14 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-D9 text14 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-DF text14 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-E5 text14 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-106 text14 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-10A text14 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-10E text14 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-113 text14 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-117 text14 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-125 text14 CODE >83:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+86 text14 CODE >75:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+86 text14 CODE >76:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+91 text14 CODE >76:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+97 text14 CODE >76:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+9D text14 CODE >76:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+B5 text14 CODE >76:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+BB text14 CODE >76:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+C1 text14 CODE >76:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+D9 text14 CODE >76:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+DF text14 CODE >76:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+E5 text14 CODE >76:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+106 text14 CODE >76:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+10A text14 CODE >76:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+10E text14 CODE >76:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+113 text14 CODE >76:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+117 text14 CODE >76:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+125 text14 CODE >77:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
 AF5 text13 CODE >68:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
 AF5 text13 CODE >69:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
 AF8 text13 CODE >70:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
@@ -816,54 +816,54 @@ B31 text1 CODE >18:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_s
 B33 text1 CODE >19:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_sprintf.c
 B3B text1 CODE >20:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_sprintf.c
 B42 text1 CODE >23:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_sprintf.c
-1C7 maintext CODE >86:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-1C7 maintext CODE >89:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-1CC maintext CODE >90:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-1D1 maintext CODE >91:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-1D6 maintext CODE >96:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-1EB maintext CODE >107:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-1ED maintext CODE >109:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-1F3 maintext CODE >110:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-1F9 maintext CODE >113:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-205 maintext CODE >114:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-211 maintext CODE >115:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-21B maintext CODE >116:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-227 maintext CODE >122:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-231 maintext CODE >124:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-23A maintext CODE >126:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-23E maintext CODE >126:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-273 maintext CODE >127:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-27F maintext CODE >128:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-289 maintext CODE >129:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-295 maintext CODE >132:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-2C2 maintext CODE >135:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-ADA clrtext CODE >819:/tmp/xcWtRjWsB/driver_tmp_1.s
-ADA clrtext CODE >820:/tmp/xcWtRjWsB/driver_tmp_1.s
-ADB clrtext CODE >821:/tmp/xcWtRjWsB/driver_tmp_1.s
-ADB clrtext CODE >822:/tmp/xcWtRjWsB/driver_tmp_1.s
-ADC clrtext CODE >823:/tmp/xcWtRjWsB/driver_tmp_1.s
-ADD clrtext CODE >824:/tmp/xcWtRjWsB/driver_tmp_1.s
-ADE clrtext CODE >825:/tmp/xcWtRjWsB/driver_tmp_1.s
-ADF clrtext CODE >826:/tmp/xcWtRjWsB/driver_tmp_1.s
-AE0 clrtext CODE >827:/tmp/xcWtRjWsB/driver_tmp_1.s
-AE1 clrtext CODE >828:/tmp/xcWtRjWsB/driver_tmp_1.s
-B19 inittext CODE >778:/tmp/xcWtRjWsB/driver_tmp_1.s
-B19 inittext CODE >779:/tmp/xcWtRjWsB/driver_tmp_1.s
-B1A inittext CODE >780:/tmp/xcWtRjWsB/driver_tmp_1.s
-B1B inittext CODE >781:/tmp/xcWtRjWsB/driver_tmp_1.s
-B1C inittext CODE >782:/tmp/xcWtRjWsB/driver_tmp_1.s
-B1D inittext CODE >789:/tmp/xcWtRjWsB/driver_tmp_1.s
-B1D inittext CODE >790:/tmp/xcWtRjWsB/driver_tmp_1.s
-B20 inittext CODE >791:/tmp/xcWtRjWsB/driver_tmp_1.s
-B21 inittext CODE >792:/tmp/xcWtRjWsB/driver_tmp_1.s
-B22 inittext CODE >793:/tmp/xcWtRjWsB/driver_tmp_1.s
-B23 inittext CODE >794:/tmp/xcWtRjWsB/driver_tmp_1.s
-B24 inittext CODE >795:/tmp/xcWtRjWsB/driver_tmp_1.s
-B25 inittext CODE >796:/tmp/xcWtRjWsB/driver_tmp_1.s
-B26 inittext CODE >797:/tmp/xcWtRjWsB/driver_tmp_1.s
-B27 inittext CODE >798:/tmp/xcWtRjWsB/driver_tmp_1.s
-B28 inittext CODE >799:/tmp/xcWtRjWsB/driver_tmp_1.s
-B29 inittext CODE >800:/tmp/xcWtRjWsB/driver_tmp_1.s
+1C7 maintext CODE >80:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+1C7 maintext CODE >83:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+1CC maintext CODE >84:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+1D1 maintext CODE >85:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+1D6 maintext CODE >90:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+1EB maintext CODE >101:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+1ED maintext CODE >103:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+1F3 maintext CODE >104:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+1F9 maintext CODE >107:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+205 maintext CODE >108:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+211 maintext CODE >109:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+21B maintext CODE >110:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+227 maintext CODE >116:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+231 maintext CODE >118:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+23A maintext CODE >120:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+23E maintext CODE >120:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+273 maintext CODE >121:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+27F maintext CODE >122:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+289 maintext CODE >123:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+295 maintext CODE >126:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+2C2 maintext CODE >129:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+ADA clrtext CODE >819:/tmp/xcDFBwkQk/driver_tmp_1.s
+ADA clrtext CODE >820:/tmp/xcDFBwkQk/driver_tmp_1.s
+ADB clrtext CODE >821:/tmp/xcDFBwkQk/driver_tmp_1.s
+ADB clrtext CODE >822:/tmp/xcDFBwkQk/driver_tmp_1.s
+ADC clrtext CODE >823:/tmp/xcDFBwkQk/driver_tmp_1.s
+ADD clrtext CODE >824:/tmp/xcDFBwkQk/driver_tmp_1.s
+ADE clrtext CODE >825:/tmp/xcDFBwkQk/driver_tmp_1.s
+ADF clrtext CODE >826:/tmp/xcDFBwkQk/driver_tmp_1.s
+AE0 clrtext CODE >827:/tmp/xcDFBwkQk/driver_tmp_1.s
+AE1 clrtext CODE >828:/tmp/xcDFBwkQk/driver_tmp_1.s
+B19 inittext CODE >778:/tmp/xcDFBwkQk/driver_tmp_1.s
+B19 inittext CODE >779:/tmp/xcDFBwkQk/driver_tmp_1.s
+B1A inittext CODE >780:/tmp/xcDFBwkQk/driver_tmp_1.s
+B1B inittext CODE >781:/tmp/xcDFBwkQk/driver_tmp_1.s
+B1C inittext CODE >782:/tmp/xcDFBwkQk/driver_tmp_1.s
+B1D inittext CODE >789:/tmp/xcDFBwkQk/driver_tmp_1.s
+B1D inittext CODE >790:/tmp/xcDFBwkQk/driver_tmp_1.s
+B20 inittext CODE >791:/tmp/xcDFBwkQk/driver_tmp_1.s
+B21 inittext CODE >792:/tmp/xcDFBwkQk/driver_tmp_1.s
+B22 inittext CODE >793:/tmp/xcDFBwkQk/driver_tmp_1.s
+B23 inittext CODE >794:/tmp/xcDFBwkQk/driver_tmp_1.s
+B24 inittext CODE >795:/tmp/xcDFBwkQk/driver_tmp_1.s
+B25 inittext CODE >796:/tmp/xcDFBwkQk/driver_tmp_1.s
+B26 inittext CODE >797:/tmp/xcDFBwkQk/driver_tmp_1.s
+B27 inittext CODE >798:/tmp/xcDFBwkQk/driver_tmp_1.s
+B28 inittext CODE >799:/tmp/xcDFBwkQk/driver_tmp_1.s
+B29 inittext CODE >800:/tmp/xcDFBwkQk/driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -895,20 +895,20 @@ __end_of_Lcd_Init 10C 0 CODE 0 text28 dist/default/production/PIC16F887_cooler_r
 __Hstrings 0 0 ABS 0 strings -
 ?_vfprintf 3A 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 _TMR0 1 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
-___sp 0 0 STACK 2 stack /tmp/xcWtRjWsB/driver_tmp_17.o
+___sp 0 0 STACK 2 stack /tmp/xcDFBwkQk/driver_tmp_17.o
 _dbuf A4 0 BANK1 1 bssBANK1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 _main 38E 0 CODE 0 maintext dist/default/production/PIC16F887_cooler_rpm.X.production.o
 _prec A2 0 BANK1 1 bssBANK1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 _utoa 1C2E 0 CODE 0 text4 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
-___stack_hi 0 0 STACK 2 stack /tmp/xcWtRjWsB/driver_tmp_17.o
-___stack_lo 0 0 STACK 2 stack /tmp/xcWtRjWsB/driver_tmp_17.o
+___stack_hi 0 0 STACK 2 stack /tmp/xcDFBwkQk/driver_tmp_17.o
+___stack_lo 0 0 STACK 2 stack /tmp/xcDFBwkQk/driver_tmp_17.o
 read_prec_or_width@c 79 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 read_prec_or_width@n 7A 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 map@x 2E 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 pad@i 25 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 pad@p 7C 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
-start 0 0 CODE 0 init /tmp/xcWtRjWsB/driver_tmp_17.o
+start 0 0 CODE 0 init /tmp/xcDFBwkQk/driver_tmp_17.o
 ___flmul@aexp 2E 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 ___flmul@bexp 33 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 ___flmul@prod 34 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
@@ -928,12 +928,12 @@ utoa@d 28 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.p
 utoa@i 2E 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 utoa@p 2D 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 utoa@w 2A 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-intlevel0 0 0 ENTRY 0 functab /tmp/xcWtRjWsB/driver_tmp_17.o
-intlevel1 0 0 ENTRY 0 functab /tmp/xcWtRjWsB/driver_tmp_17.o
-intlevel2 0 0 ENTRY 0 functab /tmp/xcWtRjWsB/driver_tmp_17.o
-intlevel3 0 0 ENTRY 0 functab /tmp/xcWtRjWsB/driver_tmp_17.o
-intlevel4 0 0 ENTRY 0 functab /tmp/xcWtRjWsB/driver_tmp_17.o
-intlevel5 0 0 ENTRY 0 functab /tmp/xcWtRjWsB/driver_tmp_17.o
+intlevel0 0 0 ENTRY 0 functab /tmp/xcDFBwkQk/driver_tmp_17.o
+intlevel1 0 0 ENTRY 0 functab /tmp/xcDFBwkQk/driver_tmp_17.o
+intlevel2 0 0 ENTRY 0 functab /tmp/xcDFBwkQk/driver_tmp_17.o
+intlevel3 0 0 ENTRY 0 functab /tmp/xcDFBwkQk/driver_tmp_17.o
+intlevel4 0 0 ENTRY 0 functab /tmp/xcDFBwkQk/driver_tmp_17.o
+intlevel5 0 0 ENTRY 0 functab /tmp/xcDFBwkQk/driver_tmp_17.o
 ___aldiv@divisor 20 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -965,8 +965,8 @@ __end_of___fltol 1DB2 0 CODE 0 text22 dist/default/production/PIC16F887_cooler_r
 __end_of___lwdiv 19FA 0 CODE 0 text10 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __end_of___lwmod 1982 0 CODE 0 text9 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Umul8_16@multiplicand 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
-___stackhi 0 0 ABS 0 - /tmp/xcWtRjWsB/driver_tmp_17.o
-___stacklo 0 0 ABS 0 - /tmp/xcWtRjWsB/driver_tmp_17.o
+___stackhi 0 0 ABS 0 - /tmp/xcDFBwkQk/driver_tmp_17.o
+___stacklo 0 0 ABS 0 - /tmp/xcDFBwkQk/driver_tmp_17.o
 utoa@fp 2C 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 ___lwdiv@quotient 75 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 ___flmul@a 24 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
@@ -987,7 +987,7 @@ fputs@fp 78 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm
 __end_of_initADC 1632 0 CODE 0 text19 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __end_of_initPWM 1618 0 CODE 0 text18 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __end_of_initRPM 15EA 0 CODE 0 text17 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-___int_sp 0 0 STACK 2 stack /tmp/xcWtRjWsB/driver_tmp_17.o
+___int_sp 0 0 STACK 2 stack /tmp/xcDFBwkQk/driver_tmp_17.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -1054,7 +1054,7 @@ countPulses@lastState 74 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F8
 __end_of_Lcd_Clear 36 0 CODE 0 text29 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Lintentry 0 0 CODE 0 intentry -
 __stringtab 1000 0 STRING 0 strings dist/default/production/PIC16F887_cooler_rpm.X.production.o
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcWtRjWsB/driver_tmp_17.o
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcDFBwkQk/driver_tmp_17.o
 __end_of___xxtofl 38E 0 CODE 0 text21 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __pdataBANK1 C4 0 BANK1 1 dataBANK1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 _Lcd_WriteChar 7DA 0 CODE 0 text26 dist/default/production/PIC16F887_cooler_rpm.X.production.o
@@ -1103,7 +1103,7 @@ __end_of_countPulses 17D0 0 CODE 0 text20 dist/default/production/PIC16F887_cool
 __Hinittext 0 0 ABS 0 inittext -
 ___wmul@multiplier 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __end_of_read_prec_or_width 1C2E 0 CODE 0 text11 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-main@F1794 C4 0 BANK1 1 dataBANK1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
+main@F1791 C4 0 BANK1 1 dataBANK1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 Lcd_WriteChar@config 7C 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 ___lwdiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 map@in_max 36 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
@@ -1182,8 +1182,8 @@ __Lreset_vec 0 0 CODE 0 reset_vec -
 __end_of_Lcd_WriteString 1866 0 CODE 0 text25 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __end_of_vfprintf 16BC 0 CODE 0 text2 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 main@pulses 62 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
-___heap_hi 0 0 ABS 0 - /tmp/xcWtRjWsB/driver_tmp_17.o
-___heap_lo 0 0 ABS 0 - /tmp/xcWtRjWsB/driver_tmp_17.o
+___heap_hi 0 0 ABS 0 - /tmp/xcDFBwkQk/driver_tmp_17.o
+___heap_lo 0 0 ABS 0 - /tmp/xcDFBwkQk/driver_tmp_17.o
 ___fltol@f1 3A 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __end_of__initialization FF8 0 CODE 0 cinit dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
@@ -1229,8 +1229,8 @@ __pbssBANK0 6E 0 BANK0 1 bssBANK0 dist/default/production/PIC16F887_cooler_rpm.X
 __pbssBANK1 A0 0 BANK1 1 bssBANK1 dist/default/production/PIC16F887_cooler_rpm.X.production.o
 __pstrings 1000 0 STRING 0 strings dist/default/production/PIC16F887_cooler_rpm.X.production.o
 ___wmul@product 74 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
-___int_stack_hi 0 0 STACK 2 stack /tmp/xcWtRjWsB/driver_tmp_17.o
-___int_stack_lo 0 0 STACK 2 stack /tmp/xcWtRjWsB/driver_tmp_17.o
+___int_stack_hi 0 0 STACK 2 stack /tmp/xcDFBwkQk/driver_tmp_17.o
+___int_stack_lo 0 0 STACK 2 stack /tmp/xcDFBwkQk/driver_tmp_17.o
 Lcd_WriteString@config 7D 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 read_prec_or_width@ap 76 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_cooler_rpm.X.production.o
 # %SPLITSTAB Section

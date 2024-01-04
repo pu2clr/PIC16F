@@ -47,8 +47,6 @@
 [v _putch putch `(v  1 e 1 0 ]
 "10 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"8 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
-[v ___fldiv __fldiv `(d  1 e 4 0 ]
 "8 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 "15 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
@@ -73,9 +71,9 @@
 [v _initADC initADC `(v  1 e 1 0 ]
 "68
 [v _readADC readADC `(ui  1 e 2 0 ]
-"81
+"75
 [v _map map `T(l  1 e 4 0 ]
-"86
+"80
 [v _main main `(v  1 e 1 0 ]
 "153 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
 [v _prec prec `i  1 s 2 prec ]
@@ -190,32 +188,32 @@
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-"86 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+"80 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
 [v _main main `(v  1 e 1 0 ]
 {
-"120
+"114
 [v main@rpm rpm `[10]uc  1 a 10 54 ]
-"126
+"120
 [v main@fanRPM fanRPM `ui  1 a 2 68 ]
-"124
+"118
 [v main@pulses pulses `ui  1 a 2 66 ]
-"122
+"116
 [v main@adcResult adcResult `ui  1 a 2 64 ]
 [s S22 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
-"96
+"90
 [v main@lcd lcd `S22  1 a 8 70 ]
-"91
-[v main@F1794 F1794 `S22  1 s 8 F1794 ]
-"137
+"85
+[v main@F1791 F1791 `S22  1 s 8 F1791 ]
+"131
 } 0
 "9 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
 [v sprintf@s s `*.4uc  1 a 1 wreg ]
-[u S799 . 2 `*.1uc 1 buffer 2 0 `*.1DCuc 1 source 2 0 ]
+[u S796 . 2 `*.1uc 1 buffer 2 0 `*.1DCuc 1 source 2 0 ]
 "13
-[s S802 _IO_FILE 11 `S799 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S802  1 a 11 36 ]
+[s S799 _IO_FILE 11 `S796 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S799  1 a 11 36 ]
 "12
 [v sprintf@ap ap `[1]*.4v  1 a 1 34 ]
 "9
@@ -228,70 +226,70 @@
 "1817 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
 {
-[s S834 _IO_FILE 0 ]
-[v vfprintf@fp fp `*.4S834  1 a 1 wreg ]
+[s S831 _IO_FILE 0 ]
+[v vfprintf@fp fp `*.4S831  1 a 1 wreg ]
 "1820
 [v vfprintf@cfmt cfmt `*.24uc  1 a 1 29 ]
 "1817
-[v vfprintf@fp fp `*.4S834  1 a 1 wreg ]
+[v vfprintf@fp fp `*.4S831  1 a 1 wreg ]
 [v vfprintf@fmt fmt `*.24DCuc  1 p 1 26 ]
 [v vfprintf@ap ap `*.4*.4v  1 p 1 27 ]
 "1822
 "1817
-[v vfprintf@fp fp `*.4S834  1 a 1 28 ]
+[v vfprintf@fp fp `*.4S831  1 a 1 28 ]
 "1840
 } 0
 "1177
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[s S834 _IO_FILE 0 ]
-[v vfpfcnvrt@fp fp `*.4S834  1 a 1 wreg ]
-[u S853 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+[s S831 _IO_FILE 0 ]
+[v vfpfcnvrt@fp fp `*.4S831  1 a 1 wreg ]
+[u S850 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
 "1188
-[v vfpfcnvrt@convarg convarg `S853  1 a 4 20 ]
+[v vfpfcnvrt@convarg convarg `S850  1 a 4 20 ]
 "1179
 [v vfpfcnvrt@cp cp `*.24uc  1 a 1 25 ]
 "1177
-[v vfpfcnvrt@fp fp `*.4S834  1 a 1 wreg ]
+[v vfpfcnvrt@fp fp `*.4S831  1 a 1 wreg ]
 [v vfpfcnvrt@fmt fmt `*.4*.24uc  1 p 1 16 ]
 [v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 17 ]
 "1201
 "1177
-[v vfpfcnvrt@fp fp `*.4S834  1 a 1 24 ]
+[v vfpfcnvrt@fp fp `*.4S831  1 a 1 24 ]
 "1814
 } 0
 "1001
 [v _utoa utoa `(v  1 s 1 utoa ]
 {
-[s S834 _IO_FILE 0 ]
-[v utoa@fp fp `*.4S834  1 a 1 wreg ]
+[s S831 _IO_FILE 0 ]
+[v utoa@fp fp `*.4S831  1 a 1 wreg ]
 "1003
 [v utoa@i i `i  1 a 2 14 ]
 [v utoa@w w `i  1 a 2 10 ]
 "1007
 [v utoa@p p `a  1 a 1 13 ]
 "1001
-[v utoa@fp fp `*.4S834  1 a 1 wreg ]
+[v utoa@fp fp `*.4S831  1 a 1 wreg ]
 [v utoa@d d `ui  1 p 2 8 ]
 "1007
 "1001
-[v utoa@fp fp `*.4S834  1 a 1 12 ]
+[v utoa@fp fp `*.4S831  1 a 1 12 ]
 "1047
 } 0
 "193
 [v _pad pad `(v  1 s 1 pad ]
 {
-[s S834 _IO_FILE 0 ]
-[v pad@fp fp `*.4S834  1 a 1 wreg ]
+[s S831 _IO_FILE 0 ]
+[v pad@fp fp `*.4S831  1 a 1 wreg ]
 "195
 [v pad@i i `i  1 a 2 5 ]
 "193
-[v pad@fp fp `*.4S834  1 a 1 wreg ]
+[v pad@fp fp `*.4S831  1 a 1 wreg ]
 [v pad@buf buf `*.4uc  1 p 1 11 ]
 [v pad@p p `i  1 p 2 12 ]
 "199
 "193
-[v pad@fp fp `*.4S834  1 a 1 7 ]
+[v pad@fp fp `*.4S831  1 a 1 7 ]
 "226
 } 0
 "8 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_fputs.c
@@ -304,9 +302,9 @@
 [v fputs@c c `uc  1 a 1 0 ]
 "8
 [v fputs@s s `*.4DCuc  1 a 1 wreg ]
-[u S799 . 2 `*.1uc 1 buffer 2 0 `*.1DCuc 1 source 2 0 ]
-[s S802 _IO_FILE 11 `S799 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputs@fp fp `*.4S802  1 p 1 8 ]
+[u S796 . 2 `*.1uc 1 buffer 2 0 `*.1DCuc 1 source 2 0 ]
+[s S799 _IO_FILE 11 `S796 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.4S799  1 p 1 8 ]
 "13
 [v fputs@s s `*.4DCuc  1 a 1 3 ]
 "19
@@ -315,9 +313,9 @@
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 0 ]
-[u S799 . 2 `*.1uc 1 buffer 2 0 `*.1DCuc 1 source 2 0 ]
-[s S802 _IO_FILE 11 `S799 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.4S802  1 p 1 2 ]
+[u S796 . 2 `*.1uc 1 buffer 2 0 `*.1DCuc 1 source 2 0 ]
+[s S799 _IO_FILE 11 `S796 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.4S799  1 p 1 2 ]
 "24
 } 0
 "7 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/putch.c
@@ -376,7 +374,7 @@
 {
 "72
 } 0
-"81
+"75
 [v _map map `T(l  1 e 4 0 ]
 {
 [v map@x x `l  1 p 4 14 ]
@@ -384,7 +382,7 @@
 [v map@in_max in_max `l  1 p 4 22 ]
 [v map@out_min out_min `l  1 p 4 26 ]
 [v map@out_max out_max `l  1 p 4 30 ]
-"83
+"77
 } 0
 "15 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
@@ -463,17 +461,17 @@
 "8 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S652 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S649 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S657 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S660 . 4 `l 1 i 4 0 `d 1 f 4 0 `S652 1 fAsBytes 4 0 `S657 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S660  1 a 4 20 ]
+[s S654 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S657 . 4 `l 1 i 4 0 `d 1 f 4 0 `S649 1 fAsBytes 4 0 `S654 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S657  1 a 4 20 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 15 ]
-[s S729 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S726 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S732 . 2 `s 1 i 2 0 `us 1 n 2 0 `S729 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S732  1 a 2 24 ]
+[u S729 . 2 `s 1 i 2 0 `us 1 n 2 0 `S726 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S729  1 a 2 24 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 19 ]
 "11

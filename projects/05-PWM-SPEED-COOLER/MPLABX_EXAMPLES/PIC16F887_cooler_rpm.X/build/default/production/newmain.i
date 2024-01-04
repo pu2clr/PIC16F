@@ -2911,12 +2911,6 @@ unsigned int readADC() {
     return (unsigned int) ((ADRESH << 8) + ADRESL);
 }
 
-double readTemperature() {
-    unsigned int adcValue = readADC();
-    double voltage = (adcValue / 1024.0) * 5.0;
-    return voltage / 0.01;
-}
-
 
 __attribute__((inline)) long map(long x, long in_min, long in_max, long out_min, long out_max) {
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;

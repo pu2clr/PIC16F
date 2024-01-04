@@ -71,12 +71,6 @@ unsigned int readADC() {
     return (unsigned int) ((ADRESH << 8) + ADRESL); // Combine result into a single word
 }
 
-double readTemperature() {
-    unsigned int adcValue = readADC();
-    double voltage = (adcValue / 1024.0) * 5.0; // Convert ADC value to voltage
-    return voltage / 0.01; // Convert voltage to temperature in Celsius
-}
-
 
 inline long map(long x, long in_min, long in_max, long out_min, long out_max) {
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;

@@ -119,7 +119,7 @@ void main() {
         // You need to check the formula below. 
         unsigned int fanRPM = (unsigned int) ((pulses / 2) * (60 / (256.0 / _XTAL_FREQ * 256)/10)); // I am not sure - To be checked. Calculate RPM
         sprintf(rpm, "%4u", fanRPM);
-        Lcd_SetCursor(&lcd, 2, 6);
+        Lcd_SetCursor(&lcd, 2, 8);
         Lcd_WriteString(&lcd, rpm);
 
         // Speed control via potentiometer
