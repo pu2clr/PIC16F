@@ -2856,7 +2856,6 @@ void __attribute__((inline)) Lcd_WriteCustomChar(Lcd_PinConfig *config, unsigned
 
 
 
-
 void initPWM() {
     T2CON = 0x07;
     PR2 = 0xFF;
@@ -2879,7 +2878,6 @@ void initRPM() {
     TMR0 = 0;
 }
 
-
 unsigned int countPulses() {
     unsigned int pulseCount = 0;
     unsigned char lastState = PORTBbits.RB0;
@@ -2897,12 +2895,11 @@ unsigned int countPulses() {
         lastState = currentState;
     }
 
-
-    return 1200;
+    return pulseCount;
 }
 
-
 void initADC() {
+    TRISC = 0;
     ANSEL = 0x01;
     ADCON0 = 0x01;
     ADCON1 = 0x80;
@@ -2953,23 +2950,21 @@ void main() {
     Lcd_WriteString(&lcd, "RPM: ");
 
 
-    while(1) {
+    while (1) {
         char rpm[10];
 
-        double temperature = readTemperature();
+        unsigned int adcResult = readADC();
+
         unsigned int pulses = countPulses();
+        unsigned int fanRPM = (unsigned int) ((pulses / 2) * (60 / (256.0 / 4000000 * 256)/10));
+        sprintf(rpm, "%4u", fanRPM);
 
-        unsigned int fanRPM = (unsigned int) (pulses / 2) * (60 /4000000);
-
-        sprintf(rpm,"%u", fanRPM);
         Lcd_SetCursor(&lcd, 2, 6);
-        Lcd_WriteString(&lcd,rpm);
-        if (temperature > 33.0)
-            CCPR1L = 150;
-        else if (temperature > 30.0)
-            CCPR1L = 18;
-        else
-            CCPR1L = 9;
-        _delay((unsigned long)((2000)*(4000000/4000.0)));
+        Lcd_WriteString(&lcd, rpm);
+
+
+        CCPR1L = adcResult >> 2;
+
+        _delay((unsigned long)((100)*(4000000/4000.0)));
     }
 }

@@ -19,12 +19,18 @@
 [v _Lcd_Clear Lcd_Clear `(v  1 e 1 0 ]
 "148
 [v _Lcd_SetCursor Lcd_SetCursor `(v  1 e 1 0 ]
-"1177 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+"193 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+[v _pad pad `(v  1 s 1 pad ]
+"1001
+[v _utoa utoa `(v  1 s 1 utoa ]
+"1158
+[v _read_prec_or_width read_prec_or_width `(i  1 s 2 read_prec_or_width ]
+"1177
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 "1817
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
-"4 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
-[v ___flge __flge `(b  1 e 0 0 ]
+"43 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
 "5 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 "5 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/lwmod.c
@@ -53,19 +59,17 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"20 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+"19 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
 [v _initPWM initPWM `(v  1 e 1 0 ]
-"31
+"30
 [v _initRPM initRPM `(v  1 e 1 0 ]
-"43
+"41
 [v _countPulses countPulses `(ui  1 e 2 0 ]
-"65
+"61
 [v _initADC initADC `(v  1 e 1 0 ]
-"71
+"68
 [v _readADC readADC `(ui  1 e 2 0 ]
-"77
-[v _readTemperature readTemperature `(d  1 e 4 0 ]
-"83
+"80
 [v _main main `(v  1 e 1 0 ]
 "153 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
 [v _prec prec `i  1 s 2 prec ]
@@ -117,13 +121,13 @@
 [v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
 "1245
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
-[s S208 . 1 `uc 1 ADON 1 0 :1:0 
+[s S209 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 `uc 1 ADCS 1 0 :2:6 
 ]
 "1276
-[s S213 . 1 `uc 1 . 1 0 :1:0 
+[s S214 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -132,14 +136,14 @@
 `uc 1 ADCS0 1 0 :1:6 
 `uc 1 ADCS1 1 0 :1:7 
 ]
-[s S222 . 1 `uc 1 . 1 0 :1:0 
+[s S223 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S225 . 1 `uc 1 . 1 0 :1:0 
+[s S226 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[u S228 . 1 `S208 1 . 1 0 `S213 1 . 1 0 `S222 1 . 1 0 `S225 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES228  1 e 1 @31 ]
+[u S229 . 1 `S209 1 . 1 0 `S214 1 . 1 0 `S223 1 . 1 0 `S226 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES229  1 e 1 @31 ]
 [s S125 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
@@ -166,6 +170,8 @@
 "1495
 [u S112 . 1 `S103 1 . 1 0 ]
 [v _TRISBbits TRISBbits `VES112  1 e 1 @134 ]
+"1540
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "2041
@@ -178,23 +184,23 @@
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-"83 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
+"80 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
 [v _main main `(v  1 e 1 0 ]
 {
-"117
-[v main@rpm rpm `[10]uc  1 a 10 0 ]
+"114
+[v main@rpm rpm `[10]uc  1 a 10 51 ]
 "119
-[v main@temperature temperature `d  1 a 4 14 ]
-"122
-[v main@fanRPM fanRPM `ui  1 a 2 12 ]
-"120
-[v main@pulses pulses `ui  1 a 2 10 ]
+[v main@fanRPM fanRPM `ui  1 a 2 65 ]
+"118
+[v main@pulses pulses `ui  1 a 2 63 ]
+"116
+[v main@adcResult adcResult `ui  1 a 2 61 ]
 [s S22 . 8 `*.39VEuc 1 port 2 0 `uc 1 rs_pin 1 2 `uc 1 en_pin 1 3 `uc 1 d4_pin 1 4 `uc 1 d5_pin 1 5 `uc 1 d6_pin 1 6 `uc 1 d7_pin 1 7 ]
-"93
-[v main@lcd lcd `S22  1 a 8 18 ]
-"88
+"90
+[v main@lcd lcd `S22  1 a 8 67 ]
+"85
 [v main@F1787 F1787 `S22  1 s 8 F1787 ]
-"135
+"130
 } 0
 "9 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
@@ -203,14 +209,14 @@
 [u S791 . 2 `*.1uc 1 buffer 2 0 `*.1DCuc 1 source 2 0 ]
 "13
 [s S794 _IO_FILE 11 `S791 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S794  1 a 11 15 ]
+[v sprintf@f f `S794  1 a 11 36 ]
 "12
-[v sprintf@ap ap `[1]*.4v  1 a 1 13 ]
+[v sprintf@ap ap `[1]*.4v  1 a 1 34 ]
 "9
 [v sprintf@s s `*.4uc  1 a 1 wreg ]
-[v sprintf@fmt fmt `*.24DCuc  1 p 1 9 ]
+[v sprintf@fmt fmt `*.24DCuc  1 p 1 30 ]
 "15
-[v sprintf@s s `*.4uc  1 a 1 14 ]
+[v sprintf@s s `*.4uc  1 a 1 35 ]
 "23
 } 0
 "1817 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
@@ -219,14 +225,14 @@
 [s S826 _IO_FILE 0 ]
 [v vfprintf@fp fp `*.4S826  1 a 1 wreg ]
 "1820
-[v vfprintf@cfmt cfmt `*.24uc  1 a 1 8 ]
+[v vfprintf@cfmt cfmt `*.24uc  1 a 1 29 ]
 "1817
 [v vfprintf@fp fp `*.4S826  1 a 1 wreg ]
-[v vfprintf@fmt fmt `*.24DCuc  1 p 1 12 ]
-[v vfprintf@ap ap `*.4*.4v  1 p 1 13 ]
+[v vfprintf@fmt fmt `*.24DCuc  1 p 1 26 ]
+[v vfprintf@ap ap `*.4*.4v  1 p 1 27 ]
 "1822
 "1817
-[v vfprintf@fp fp `*.4S826  1 a 1 7 ]
+[v vfprintf@fp fp `*.4S826  1 a 1 28 ]
 "1840
 } 0
 "1177
@@ -234,20 +240,70 @@
 {
 [s S826 _IO_FILE 0 ]
 [v vfpfcnvrt@fp fp `*.4S826  1 a 1 wreg ]
-[u S839 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+[u S845 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
 "1188
-[v vfpfcnvrt@convarg convarg `S839  1 a 4 1 ]
+[v vfpfcnvrt@convarg convarg `S845  1 a 4 20 ]
 "1179
-[v vfpfcnvrt@c c `uc  1 a 1 6 ]
-[v vfpfcnvrt@cp cp `*.24uc  1 a 1 5 ]
+[v vfpfcnvrt@cp cp `*.24uc  1 a 1 25 ]
 "1177
 [v vfpfcnvrt@fp fp `*.4S826  1 a 1 wreg ]
-[v vfpfcnvrt@fmt fmt `*.4*.24uc  1 p 1 8 ]
-[v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 9 ]
+[v vfpfcnvrt@fmt fmt `*.4*.24uc  1 p 1 16 ]
+[v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 17 ]
 "1201
 "1177
-[v vfpfcnvrt@fp fp `*.4S826  1 a 1 0 ]
+[v vfpfcnvrt@fp fp `*.4S826  1 a 1 24 ]
 "1814
+} 0
+"1001
+[v _utoa utoa `(v  1 s 1 utoa ]
+{
+[s S826 _IO_FILE 0 ]
+[v utoa@fp fp `*.4S826  1 a 1 wreg ]
+"1003
+[v utoa@i i `i  1 a 2 14 ]
+[v utoa@w w `i  1 a 2 10 ]
+"1007
+[v utoa@p p `a  1 a 1 13 ]
+"1001
+[v utoa@fp fp `*.4S826  1 a 1 wreg ]
+[v utoa@d d `ui  1 p 2 8 ]
+"1007
+"1001
+[v utoa@fp fp `*.4S826  1 a 1 12 ]
+"1047
+} 0
+"193
+[v _pad pad `(v  1 s 1 pad ]
+{
+[s S826 _IO_FILE 0 ]
+[v pad@fp fp `*.4S826  1 a 1 wreg ]
+"195
+[v pad@i i `i  1 a 2 5 ]
+"193
+[v pad@fp fp `*.4S826  1 a 1 wreg ]
+[v pad@buf buf `*.4uc  1 p 1 11 ]
+[v pad@p p `i  1 p 2 12 ]
+"199
+"193
+[v pad@fp fp `*.4S826  1 a 1 7 ]
+"226
+} 0
+"8 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+{
+[v fputs@s s `*.4DCuc  1 a 1 wreg ]
+"11
+[v fputs@i i `i  1 a 2 1 ]
+"10
+[v fputs@c c `uc  1 a 1 0 ]
+"8
+[v fputs@s s `*.4DCuc  1 a 1 wreg ]
+[u S791 . 2 `*.1uc 1 buffer 2 0 `*.1DCuc 1 source 2 0 ]
+[s S794 _IO_FILE 11 `S791 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.4S794  1 p 1 8 ]
+"13
+[v fputs@s s `*.4DCuc  1 a 1 3 ]
+"19
 } 0
 "8 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
@@ -285,19 +341,60 @@
 [v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
 "30
 } 0
-"77 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-[v _readTemperature readTemperature `(d  1 e 4 0 ]
+"1158 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c
+[v _read_prec_or_width read_prec_or_width `(i  1 s 2 read_prec_or_width ]
 {
-"79
-[v readTemperature@voltage voltage `d  1 a 4 56 ]
-"78
-[v readTemperature@adcValue adcValue `ui  1 a 2 60 ]
-"81
+[v read_prec_or_width@fmt fmt `*.4*.24DCuc  1 a 1 wreg ]
+"1164
+[v read_prec_or_width@c c `uc  1 a 1 9 ]
+"1159
+[v read_prec_or_width@n n `i  1 a 2 10 ]
+"1158
+[v read_prec_or_width@fmt fmt `*.4*.24DCuc  1 a 1 wreg ]
+[v read_prec_or_width@ap ap `*.4[1]*.4v  1 p 1 6 ]
+[v read_prec_or_width@fmt fmt `*.4*.24DCuc  1 a 1 12 ]
+"1171
 } 0
-"71
+"15 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"68 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
 [v _readADC readADC `(ui  1 e 2 0 ]
 {
-"75
+"72
+} 0
+"30
+[v _initRPM initRPM `(v  1 e 1 0 ]
+{
+"39
+} 0
+"19
+[v _initPWM initPWM `(v  1 e 1 0 ]
+{
+"25
+} 0
+"61
+[v _initADC initADC `(v  1 e 1 0 ]
+{
+"66
+} 0
+"41
+[v _countPulses countPulses `(ui  1 e 2 0 ]
+{
+"42
+[v countPulses@pulseCount pulseCount `ui  1 a 2 2 ]
+"44
+[v countPulses@currentState currentState `uc  1 a 1 5 ]
+"43
+[v countPulses@lastState lastState `uc  1 a 1 4 ]
+"59
 } 0
 "10 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -314,6 +411,16 @@
 [v ___xxtofl@sign sign `uc  1 a 1 8 ]
 "44
 } 0
+"43 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 35 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 34 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 26 ]
+"70
+} 0
 "8 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
@@ -321,22 +428,22 @@
 "13
 [s S649 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
 [u S652 . 4 `l 1 i 4 0 `d 1 f 4 0 `S644 1 fAsBytes 4 0 `S649 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S652  1 a 4 46 ]
+[v ___flmul@prod prod `S652  1 a 4 20 ]
 "12
-[v ___flmul@grs grs `ul  1 a 4 41 ]
+[v ___flmul@grs grs `ul  1 a 4 15 ]
 [s S721 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
 [u S724 . 2 `s 1 i 2 0 `us 1 n 2 0 `S721 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S724  1 a 2 50 ]
+[v ___flmul@temp temp `S724  1 a 2 24 ]
 "10
-[v ___flmul@bexp bexp `uc  1 a 1 45 ]
+[v ___flmul@bexp bexp `uc  1 a 1 19 ]
 "11
-[v ___flmul@aexp aexp `uc  1 a 1 40 ]
+[v ___flmul@aexp aexp `uc  1 a 1 14 ]
 "9
-[v ___flmul@sign sign `uc  1 a 1 39 ]
+[v ___flmul@sign sign `uc  1 a 1 13 ]
 "8
-[v ___flmul@b b `d  1 p 4 26 ]
-[v ___flmul@a a `d  1 p 4 30 ]
+[v ___flmul@b b `d  1 p 4 0 ]
+[v ___flmul@a a `d  1 p 4 4 ]
 "205
 } 0
 "4 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
@@ -352,69 +459,6 @@
 [v __Umul8_16@multiplicand multiplicand `uc  1 p 1 0 ]
 [v __Umul8_16@multiplier multiplier `uc  1 a 1 8 ]
 "60
-} 0
-"8 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcdiv.c
-[v ___fldiv __fldiv `(d  1 e 4 0 ]
-{
-"21
-[v ___fldiv@grs grs `ul  1 a 4 20 ]
-"22
-[v ___fldiv@rem rem `ul  1 a 4 13 ]
-"20
-[v ___fldiv@new_exp new_exp `s  1 a 2 18 ]
-"19
-[v ___fldiv@aexp aexp `uc  1 a 1 25 ]
-"18
-[v ___fldiv@bexp bexp `uc  1 a 1 24 ]
-"16
-[v ___fldiv@sign sign `uc  1 a 1 17 ]
-"8
-[v ___fldiv@a a `d  1 p 4 0 ]
-[v ___fldiv@b b `d  1 p 4 4 ]
-"185
-} 0
-"31 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm.X/newmain.c
-[v _initRPM initRPM `(v  1 e 1 0 ]
-{
-"40
-} 0
-"20
-[v _initPWM initPWM `(v  1 e 1 0 ]
-{
-"26
-} 0
-"65
-[v _initADC initADC `(v  1 e 1 0 ]
-{
-"69
-} 0
-"43
-[v _countPulses countPulses `(ui  1 e 2 0 ]
-{
-"44
-[v countPulses@pulseCount pulseCount `ui  1 a 2 2 ]
-"46
-[v countPulses@currentState currentState `uc  1 a 1 5 ]
-"45
-[v countPulses@lastState lastState `uc  1 a 1 4 ]
-"62
-} 0
-"15 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
-{
-"17
-[v ___wmul@product product `ui  1 a 2 4 ]
-"15
-[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
-"53
-} 0
-"4 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/flge.c
-[v ___flge __flge `(b  1 e 0 0 ]
-{
-[v ___flge@ff1 ff1 `d  1 p 4 0 ]
-[v ___flge@ff2 ff2 `d  1 p 4 4 ]
-"19
 } 0
 "102 /Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
 [v _Lcd_WriteString Lcd_WriteString `(v  1 e 1 0 ]

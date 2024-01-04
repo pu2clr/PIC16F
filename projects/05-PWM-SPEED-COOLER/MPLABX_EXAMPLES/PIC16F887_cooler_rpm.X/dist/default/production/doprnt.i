@@ -836,7 +836,15 @@ static char dbuf[32];
 static void pad(FILE *fp, char *buf, int p)
 {
     int i;
-# 205 "/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c"
+
+
+
+    if (flags & (1 << 0)) {
+        fputs((const char *)buf, fp);
+    }
+
+
+
  if (p < 0) {
   p = 0;
  }
@@ -848,18 +856,75 @@ static void pad(FILE *fp, char *buf, int p)
 
 
 
-
+    if (!(flags & (1 << 0))) {
 
         fputs((const char *)buf, fp);
 
-
+    }
 
 
 
 
 
 }
-# 1176 "/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c"
+# 1001 "/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c"
+static void utoa(FILE *fp, vfpf_uint_t d)
+{
+    int i, w;
+
+
+
+ _Bool p = 1;
+# 1019 "/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c"
+    w = width;
+
+
+    i = sizeof(dbuf) - 1;
+    dbuf[i] = '\0';
+    while (i && (d != 0
+
+
+
+    || p
+
+
+
+
+    )) {
+        --i;
+        dbuf[i] = '0' + (d % 10);
+
+
+
+  p = 0;
+
+        --w;
+        d = d / 10;
+    }
+
+
+    return (void) pad(fp, &dbuf[i], w);
+}
+# 1157 "/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c"
+static int
+read_prec_or_width (const char **fmt, va_list *ap) {
+    int n = 0;
+    if ((*fmt)[0] == '*') {
+        ++*fmt;
+        n = (*(int *)__va_arg(*(int **)*ap, (int)0));
+    } else {
+        unsigned char c;
+        while ((c = ((unsigned)(*fmt)[0]) - '0') < 10) {
+            n = n * 10 + c;
+            ++*fmt;
+        }
+    }
+    return n;
+}
+
+
+
+
 static void
 vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
 {
@@ -879,6 +944,12 @@ vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
 
         flags = width = 0;
         prec = -1;
+# 1256 "/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c"
+  width = read_prec_or_width(fmt, ap);
+  if (width < 0) {
+   flags |= (1 << 0);
+   width = -width;
+  }
 # 1291 "/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c"
   cp = *fmt;
 # 1439 "/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c"
@@ -894,22 +965,8 @@ vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
    switch (*cp) {
 # 1523 "/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c"
     case 'u':
-
-     c = sizeof(dbuf);
-     do {
-      dbuf[--c] = (convarg.uint % 10) + '0';
-      convarg.uint /= 10;
-
-
-
-     } while (convarg.uint != 0 && c != 0);
-     while (c != sizeof(dbuf)) {
-      fputc(dbuf[c++], fp);
-     }
-
-
-
-     return;
+# 1542 "/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c"
+     return (void) utoa(fp, convarg.uint);
 # 1589 "/Applications/microchip/xc8/v2.45/pic/sources/c99/common/doprnt.c"
    }
   }

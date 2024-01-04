@@ -39,7 +39,7 @@ void main() {
     initPWM();
     initADC();
 
-    CCPR1L = 31;
+    CCPR1L = 0;
     __delay_ms(5000);
     
     while(1) {
