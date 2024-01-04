@@ -2917,6 +2917,12 @@ double readTemperature() {
     return voltage / 0.01;
 }
 
+
+__attribute__((inline)) long map(long x, long in_min, long in_max, long out_min, long out_max) {
+    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
+
 void main() {
 
 
@@ -2956,14 +2962,15 @@ void main() {
         unsigned int adcResult = readADC();
 
         unsigned int pulses = countPulses();
+
         unsigned int fanRPM = (unsigned int) ((pulses / 2) * (60 / (256.0 / 4000000 * 256)/10));
         sprintf(rpm, "%4u", fanRPM);
-
         Lcd_SetCursor(&lcd, 2, 6);
         Lcd_WriteString(&lcd, rpm);
 
 
-        CCPR1L = adcResult >> 2;
+        CCPR1L = (unsigned char) map(adcResult, 0, 1023,0,255);
+
 
         _delay((unsigned long)((100)*(4000000/4000.0)));
     }

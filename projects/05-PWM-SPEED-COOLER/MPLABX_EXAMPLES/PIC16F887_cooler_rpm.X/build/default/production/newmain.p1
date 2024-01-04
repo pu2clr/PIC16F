@@ -528,30 +528,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;newmain.c: 64: 
 [e = _ADCON0 -> -> 1 `i `uc ]
 "65
-[; ;newmain.c: 65: void main() {
+[; ;newmain.c: 65: 
 [e = _ADCON1 -> -> 128 `i `uc ]
 "66
-[; ;newmain.c: 66: 
+[; ;newmain.c: 66: __attribute__((inline)) long map(long x, long in_min, long in_max, long out_min, long out_max) {
 [e :UE 152 ]
 }
 "68
-[; ;newmain.c: 68:     initPWM();
+[; ;newmain.c: 68: }
 [v _readADC `(ui ~T0 @X0 1 ef ]
 {
 [e :U _readADC ]
 [f ]
 "69
-[; ;newmain.c: 69:     initADC();
+[; ;newmain.c: 69: 
 [e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
 "70
-[; ;newmain.c: 70:     initRPM();
+[; ;newmain.c: 70: 
 [e $U 154  ]
 [e :U 155 ]
 [e :U 154 ]
 [e $ != -> . . _ADCON0bits 0 1 `i -> 0 `i 155  ]
 [e :U 156 ]
 "71
-[; ;newmain.c: 71: 
+[; ;newmain.c: 71: void main() {
 [e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
 [e $UE 153  ]
 "72
@@ -559,49 +559,69 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 153 ]
 }
 "74
-[; ;newmain.c: 74: 
+[; ;newmain.c: 74:     initPWM();
 [v _readTemperature `(d ~T0 @X0 1 ef ]
 {
 [e :U _readTemperature ]
 [f ]
 "75
-[; ;newmain.c: 75:     Lcd_PinConfig lcd = {
+[; ;newmain.c: 75:     initADC();
 [v _adcValue `ui ~T0 @X0 1 a ]
 [e = _adcValue ( _readADC ..  ]
 "76
-[; ;newmain.c: 76:         .port = &PORTD,
+[; ;newmain.c: 76:     initRPM();
 [v _voltage `d ~T0 @X0 1 a ]
 [e = _voltage * / -> _adcValue `d .1024.0 .5.0 ]
 "77
-[; ;newmain.c: 77:         .rs_pin = 2,
+[; ;newmain.c: 77: 
 [e ) / _voltage .0.01 ]
 [e $UE 157  ]
 "78
-[; ;newmain.c: 78:         .en_pin = 3,
+[; ;newmain.c: 78: 
 [e :UE 157 ]
 }
+[v F1787 `(l ~T0 @X0 1 tf5`l`l`l`l`l ]
+"81
+[; ;newmain.c: 81:     Lcd_PinConfig lcd = {
+[v _map `TF1787 ~T0 @X0 1 e ]
+{
+[e :U _map ]
+[v _x `l ~T0 @X0 1 r1 ]
+[v _in_min `l ~T0 @X0 1 r2 ]
+[v _in_max `l ~T0 @X0 1 r3 ]
+[v _out_min `l ~T0 @X0 1 r4 ]
+[v _out_max `l ~T0 @X0 1 r5 ]
+[f ]
+"82
+[; ;newmain.c: 82:         .port = &PORTD,
+[e ) + / * - _x _in_min - _out_max _out_min - _in_max _in_min _out_min ]
+[e $UE 158  ]
+"83
+[; ;newmain.c: 83:         .rs_pin = 2,
+[e :UE 158 ]
+}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"80
-[; ;newmain.c: 80:         .d5_pin = 5,
+"86
+[; ;newmain.c: 86:         .d5_pin = 5,
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"83
-[; ;newmain.c: 83:     };
+"89
+[; ;newmain.c: 89:     };
 [e ( _initPWM ..  ]
-"84
-[; ;newmain.c: 84: 
-[e ( _initADC ..  ]
-"85
-[; ;newmain.c: 85: 
-[e ( _initRPM ..  ]
-[v F1787 `S144 ~T0 @X0 1 s ]
-[i F1787
-:U ..
-:U ..
 "90
 [; ;newmain.c: 90: 
+[e ( _initADC ..  ]
+"91
+[; ;newmain.c: 91: 
+[e ( _initRPM ..  ]
+[v F1794 `S144 ~T0 @X0 1 s ]
+[i F1794
+:U ..
+:U ..
+"96
+[; ;newmain.c: 96: 
 &U _PORTD
 -> -> 2 `i `uc
 -> -> 3 `i `uc
@@ -613,61 +633,62 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _lcd `S144 ~T0 @X0 1 a ]
-[e = _lcd F1787 ]
-"101
-[; ;newmain.c: 101:         unsigned int adcResult = readADC();
-[e = _TRISD -> -> 0 `i `uc ]
-"103
-[; ;newmain.c: 103:         unsigned int pulses = countPulses();
-[e ( _Lcd_Init (1 &U _lcd ]
-"104
-[; ;newmain.c: 104:         unsigned int fanRPM = (unsigned int) ((pulses / 2) * (60 / (256.0 / 4000000 * 256)/10));
-[e ( _Lcd_Clear (1 &U _lcd ]
+[e = _lcd F1794 ]
 "107
-[; ;newmain.c: 107:         Lcd_SetCursor(&lcd, 2, 6);
-[e ( _Lcd_SetCursor (3 , , &U _lcd -> -> 1 `i `uc -> -> 1 `i `uc ]
-"108
-[; ;newmain.c: 108:         Lcd_WriteString(&lcd, rpm);
-[e ( _Lcd_WriteString (2 , &U _lcd :s 1C ]
+[; ;newmain.c: 107:         unsigned int adcResult = readADC();
+[e = _TRISD -> -> 0 `i `uc ]
 "109
-[; ;newmain.c: 109: 
-[e ( _Lcd_SetCursor (3 , , &U _lcd -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;newmain.c: 109:         unsigned int pulses = countPulses();
+[e ( _Lcd_Init (1 &U _lcd ]
 "110
 [; ;newmain.c: 110: 
-[e ( _Lcd_WriteString (2 , &U _lcd :s 2C ]
+[e ( _Lcd_Clear (1 &U _lcd ]
 "113
-[; ;newmain.c: 113:         _delay((unsigned long)((100)*(4000000/4000.0)));
-[e :U 160 ]
-{
+[; ;newmain.c: 113:         Lcd_SetCursor(&lcd, 2, 6);
+[e ( _Lcd_SetCursor (3 , , &U _lcd -> -> 1 `i `uc -> -> 1 `i `uc ]
 "114
-[; ;newmain.c: 114:     }
-[v _rpm `uc ~T0 @X0 -> 10 `i a ]
+[; ;newmain.c: 114:         Lcd_WriteString(&lcd, rpm);
+[e ( _Lcd_WriteString (2 , &U _lcd :s 1C ]
+"115
+[; ;newmain.c: 115: 
+[e ( _Lcd_SetCursor (3 , , &U _lcd -> -> 2 `i `uc -> -> 1 `i `uc ]
 "116
+[; ;newmain.c: 116: 
+[e ( _Lcd_WriteString (2 , &U _lcd :s 2C ]
+"119
+[; ;newmain.c: 119: 
+[e :U 161 ]
+{
+"120
+[; ;newmain.c: 120:         _delay((unsigned long)((100)*(4000000/4000.0)));
+[v _rpm `uc ~T0 @X0 -> 10 `i a ]
+"122
+[; ;newmain.c: 122: }
 [v _adcResult `ui ~T0 @X0 1 a ]
 [e = _adcResult ( _readADC ..  ]
-"118
+"124
 [v _pulses `ui ~T0 @X0 1 a ]
 [e = _pulses ( _countPulses ..  ]
-"119
+"126
 [v _fanRPM `ui ~T0 @X0 1 a ]
 [e = _fanRPM -> * -> / _pulses -> -> 2 `i `ui `d / / -> -> 60 `i `d * / .256.0 -> -> 4000000 `l `d -> -> 256 `i `d -> -> 10 `i `d `ui ]
-"120
+"127
 [e ( _sprintf (1 , (. , &U _rpm :s 3C _fanRPM ]
-"122
-[e ( _Lcd_SetCursor (3 , , &U _lcd -> -> 2 `i `uc -> -> 6 `i `uc ]
-"123
-[e ( _Lcd_WriteString (2 , &U _lcd &U _rpm ]
-"126
-[e = _CCPR1L -> >> _adcResult -> 2 `i `uc ]
 "128
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[e ( _Lcd_SetCursor (3 , , &U _lcd -> -> 2 `i `uc -> -> 6 `i `uc ]
 "129
+[e ( _Lcd_WriteString (2 , &U _lcd &U _rpm ]
+"132
+[e = _CCPR1L -> ( _map (4 , , , , -> _adcResult `l -> -> 0 `i `l -> -> 1023 `i `l -> -> 0 `i `l -> -> 255 `i `l `uc ]
+"135
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"136
 }
-[e :U 159 ]
-[e $U 160  ]
-[e :U 161 ]
-"130
-[e :UE 158 ]
+[e :U 160 ]
+[e $U 161  ]
+[e :U 162 ]
+"137
+[e :UE 159 ]
 }
 [p f _sprintf 8422400 ]
 [a 3C 37 52 117 0 ]

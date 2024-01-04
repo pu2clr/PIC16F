@@ -23,3 +23,5 @@ projects/02-Timer/.DS_Store
 .DS_Store
 .DS_Store
 projects/.DS_Store
+/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm_via_interrupt.X/dist/
+/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_cooler_rpm_via_interrupt.X/build/

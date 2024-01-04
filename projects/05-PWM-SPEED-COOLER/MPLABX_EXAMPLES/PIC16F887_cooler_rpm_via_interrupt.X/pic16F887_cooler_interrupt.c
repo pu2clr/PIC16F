@@ -16,6 +16,27 @@
 
 #define TACH_PIN PORTBbits.RB0 // Tachometer signal connected to RB0
 
+
+volatile unsigned int pulseCount = 0;
+
+
+void __interrupt() ISR() {
+    if (INTCONbits.INTF) {  // Check if the INT0 interrupt occurred
+        pulseCount++;       // Increment pulse count for each tachometer pulse
+        INTCONbits.INTF = 0; // Clear the INT0 interrupt flag
+    }
+}
+
+
+void initPulseReader() {
+    TRISBbits.TRISB0 = 1;   // Set RB0 as input
+    // Enable external interrupt INT0
+    INTCONbits.INTE = 1;    // Enable INT0 interrupt
+    INTCONbits.INTF = 0;    // Clear INT0 interrupt flag
+    INTCONbits.GIE = 1;     // Enable global interrupts
+}
+
+
 void initPWM() {
     T2CON = 0x07;
     PR2 = 0xFF; // Set PWM period
@@ -24,39 +45,6 @@ void initPWM() {
     T2CON = 0x04; // Timer2 ON, Prescaler set to 1
 }
 
-/**
- * RPM reader setup
- */
-void initRPM() {
-
-    TRISBbits.TRISB0 = 1; // Set RB0 as input
-    ANSELH = 0x00; // Disable analog inputs on PORTB
-
-    OPTION_REGbits.T0CS = 0; // Timer0 Clock Source: Internal instruction cycle clock (CLKO)
-    OPTION_REGbits.PSA = 0; // Prescaler is assigned to the Timer0 module
-    OPTION_REGbits.PS = 0b111; // Prescaler 1:256
-    TMR0 = 0; // Reset Timer0
-}
-
-unsigned int countPulses() {
-    unsigned int pulseCount = 0;
-    unsigned char lastState = TACH_PIN;
-    unsigned char currentState;
-
-    TMR0 = 0; // Reset Timer0
-    INTCONbits.TMR0IF = 0; // Clear Timer0 overflow flag
-
-    while (!INTCONbits.TMR0IF) { // Wait for Timer0 to overflow
-        currentState = TACH_PIN;
-
-        if (currentState != lastState && currentState == 1) { // Detect rising edge
-            pulseCount++;
-        }
-        lastState = currentState;
-    }
-
-    return pulseCount;
-}
 
 void initADC() {
     TRISC = 0;
@@ -77,18 +65,16 @@ double readTemperature() {
     return voltage / 0.01; // Convert voltage to temperature in Celsius
 }
 
-
-inline long map(long x, long in_min, long in_max, long out_min, long out_max) {
+long map(long x, long in_min, long in_max, long out_min, long out_max) {
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
 
 void main() {
 
-
     initPWM();
     initADC();
-    initRPM();
+    initPulseReader();
 
 
     // Defines the LCD pin configuration for PIC16F887
@@ -118,20 +104,18 @@ void main() {
 
     while (1) {
         char rpm[10];
-
         unsigned int adcResult = readADC();
-
-        unsigned int pulses = countPulses();
-        // You need to check the formula below. 
-        unsigned int fanRPM = (unsigned int) ((pulses / 2) * (60 / (256.0 / _XTAL_FREQ * 256)/10)); // I am not sure - To be checked. Calculate RPM
+        // __delay_ms(1000);
+        unsigned int fanRPM = (pulseCount / 2) * 60;
+        
         sprintf(rpm, "%4u", fanRPM);
         Lcd_SetCursor(&lcd, 2, 6);
         Lcd_WriteString(&lcd, rpm);
 
         // Speed control via potentiometer
-        CCPR1L = (unsigned char) map(adcResult, 0, 1023,0,255);
+        CCPR1L = (unsigned char) map(adcResult, 0, 930,0,255);
         // CCPR1L = adcResult >> 2; // Scale ADC result to fit PWM duty cycle register
-
-        __delay_ms(100);
+        pulseCount = 0;      // Reset pulse count
+        __delay_ms(10);
     }
 }
