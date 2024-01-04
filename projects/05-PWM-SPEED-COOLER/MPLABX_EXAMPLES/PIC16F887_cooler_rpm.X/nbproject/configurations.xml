@@ -21,6 +21,9 @@
     <itemPath>../../pic16flcd.c</itemPath>
     <itemPath>../../pic16flcd.h</itemPath>
     <itemPath>newmain.c</itemPath>
+    <itemPath>../../pic16flcd.c</itemPath>
+    <itemPath>../../pic16flcd.h</itemPath>
+    <itemPath>newmain.c</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>../..</Elem>
