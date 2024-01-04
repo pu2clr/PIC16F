@@ -39,4 +39,11 @@ void Lcd_WriteString(Lcd_PinConfig *config, char *str);
 void Lcd_CreateCustomChar(Lcd_PinConfig *config, unsigned char location, unsigned char *charmap);
 void inline Lcd_WriteCustomChar(Lcd_PinConfig *config, unsigned char location);
 
+// Coming up 
+// void Lcd_On (bool value);            // 0b00001X00 - On (X=1)
+// void Lcd_CursorOn(bool value);       // 0b000011X0 - Cursor On (X=1)
+// void Lcd_CursorBlink(bool value);    // 0b000011XY - Blink Cursor (Y=1)
+// void Lcd_DisplayShift(bool right); 
+// void Lcd_CursorShift(bool right); 
+
 #endif
