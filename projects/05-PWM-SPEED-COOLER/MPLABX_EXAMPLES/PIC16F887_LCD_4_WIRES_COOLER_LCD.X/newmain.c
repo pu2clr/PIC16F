@@ -36,10 +36,13 @@ unsigned int readADC() {
     return (unsigned int) ((ADRESH << 8) + ADRESL); // Combine result into a single word
 }
 
-float readTemperature() {
+double readTemperature() {
     unsigned int adcValue = readADC();
-    float voltage = (float) ((float) adcValue / 1024.0) * 5.0; // Convert ADC value to voltage
-    return (float) voltage / (float) 0.01; // Convert voltage to temperature in Celsius
+    // double tmp;
+    double voltage = (float) ((float) adcValue / 1024.0) * 5.0; // Convert ADC value to voltage
+    return(float) voltage / (float) 0.01; // Convert voltage to temperature in (Celsius?)
+    // return (tmp - 32)/9 * 5;
+    
 }
 
 void main() {
@@ -63,14 +66,22 @@ void main() {
 
     // Display message
     Lcd_SetCursor(&lcd, 1, 1);
-    Lcd_WriteString(&lcd, "COOLER Counter");
+    Lcd_WriteString(&lcd, "Cooler & LM35");
     Lcd_SetCursor(&lcd, 2, 1);
     Lcd_WriteString(&lcd, "Temp:");
 
 
     while (1) {
         char strTemp[6];
-        float temperature = readTemperature();
+        double temperature;
+        double sum = 0;
+        
+        // Calculate the 
+        for (unsigned char i =0; i < 10; i++ ) {
+            sum +=  readTemperature();
+            __delay_ms(100);
+        }
+        temperature = sum / 10.0;
 
         sprintf(strTemp, "%4u", (int) temperature);
         Lcd_SetCursor(&lcd, 2, 7);
@@ -79,9 +90,11 @@ void main() {
         if (temperature > 33.0)
             CCPR1L = 200;
         else if (temperature > 30.0)
-            CCPR1L = 18;
+            CCPR1L = 60;
+        else if (temperature > 26.0)
+            CCPR1L = 35;
         else if (temperature > 20.0)
-            CCPR1L = 9;
+            CCPR1L = 15;
         __delay_ms(2000);
     }
 }
