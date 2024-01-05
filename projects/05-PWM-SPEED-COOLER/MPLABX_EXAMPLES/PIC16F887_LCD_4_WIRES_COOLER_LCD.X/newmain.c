@@ -38,11 +38,8 @@ unsigned int readADC() {
 
 double readTemperature() {
     unsigned int adcValue = readADC();
-    // double tmp;
     double voltage = (float) ((float) adcValue / 1024.0) * 5.0; // Convert ADC value to voltage
-    return(float) voltage / (float) 0.01; // Convert voltage to temperature in (Celsius?)
-    // return (tmp - 32)/9 * 5;
-    
+    return(float) voltage / (float) 0.01; // Convert voltage to temperature in Celsius.   
 }
 
 void main() {
@@ -87,14 +84,16 @@ void main() {
         Lcd_SetCursor(&lcd, 2, 7);
         Lcd_WriteString(&lcd, strTemp );
 
-        if (temperature > 33.0)
+        if (temperature > 37.0)
             CCPR1L = 200;
         else if (temperature > 30.0)
-            CCPR1L = 60;
+            CCPR1L = 50;
         else if (temperature > 26.0)
-            CCPR1L = 35;
-        else if (temperature > 20.0)
+            CCPR1L = 30;
+        else if (temperature > 23.0)
             CCPR1L = 15;
+        else 
+            CCPR1L = 0;
         __delay_ms(2000);
     }
 }
