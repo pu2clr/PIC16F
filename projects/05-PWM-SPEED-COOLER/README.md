@@ -220,6 +220,7 @@ When working with four-wire coolers, it's important to ensure that the power req
 ![Schematic four wires cooler and PIC16F887 setup](./schematic_pic16f887_4_wires_cooler.jpg)
 
 
+### Prototype 
 
 ![Prototype four wires cooler and PIC16F887 setup](./images/example_with_pic16f887_4_wires_cooler_lm35.jpg)
 
