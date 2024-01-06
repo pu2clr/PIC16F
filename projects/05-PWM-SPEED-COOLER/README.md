@@ -235,7 +235,7 @@ This type of cooler is versatile and can be utilized in numerous applications. T
 ```cpp
 #include <xc.h>
 #include <stdio.h>
-#include "../../pic16flcd.h"
+#include "pic16flcd.h"
 
 // Configuration Bits
 #pragma config FOSC = INTRC_NOCLKOUT  // Internal Oscillator, no clock out
