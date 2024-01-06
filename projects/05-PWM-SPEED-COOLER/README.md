@@ -217,7 +217,7 @@ When working with four-wire coolers, it's important to ensure that the power req
 
 ### Application
 
-This type of cooler is versatile and can be utilized in numerous applications. The schematic and prototype presented below demonstrate a method for controlling the cooler's speed in response to environmental temperature changes. As the temperature increases, the pulse width correspondingly increases, thereby adjusting the cooler's speed accordingly."
+This type of cooler is versatile and can be utilized in numerous applications. The schematic and prototype presented below demonstrate a method for controlling the cooler's speed in response to environmental temperature changes. As the temperature increases, the pulse width correspondingly increases, thereby adjusting the cooler's speed accordingly.
 
 
 ### Schematic 
