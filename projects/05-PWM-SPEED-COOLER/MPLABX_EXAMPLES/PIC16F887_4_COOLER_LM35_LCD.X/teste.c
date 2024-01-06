@@ -20,12 +20,12 @@
 unsigned char celsiusChar[8] = {
     0b11000, // **
     0b11000, // **  
-    0b11111, //  ****
-    0b10000, //  *
-    0b10000, //  *
-    0b10000, //  *
-    0b10000, //  *
-    0b11111  //  ****
+    0b00000, //
+    0b01111, //  ****
+    0b01000, //  *
+    0b01000, //  *
+    0b01000, //  *
+    0b01111  //  ****
 };
 
 void initPWM() {
@@ -133,6 +133,7 @@ void main() {
         unsigned int fanRPM = (unsigned int) ((pulses / 2) * (60 / (256.0 / _XTAL_FREQ * 256)/10));
         
         sprintf(strRPM, "%4u", fanRPM);
+        Lcd_SetCursor(&lcd, 2, 10);
         Lcd_WriteString(&lcd, strRPM );
         
         
