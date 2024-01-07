@@ -33,3 +33,7 @@ projects/.DS_Store
 /projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_03_4_COOLER_LM35_LCD_INT.X copy/dist/
 /projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_03_4_COOLER_LM35_LCD_INT.X/build/
 /projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_03_4_COOLER_LM35_LCD_INT.X/dist/
+/projects/02-Timer/MPLAB_EXAMPLES/example2.X/build/
+/projects/02-Timer/MPLAB_EXAMPLES/example2.X/dist/
+/projects/02-Timer/MPLAB_EXAMPLES/example1.X/dist/
+/projects/02-Timer/MPLAB_EXAMPLES/example1.X/build/

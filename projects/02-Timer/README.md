@@ -28,29 +28,30 @@ This project uses a PIC16F628A microcontroller to count time for 1 minute (60s).
 ```cpp
 #include <xc.h>
 
-// Configuração do microcontrolador
-#pragma config FOSC = INTOSCIO  // Oscilador interno
-#pragma config WDTE = OFF       // Watchdog Timer desativado
-#pragma config PWRTE = OFF      // Power-up Timer desativado
+#pragma config FOSC = INTOSCIO  // Internal Oscillator
+#pragma config WDTE = OFF       // Watchdog Timer disabled
+#pragma config PWRTE = OFF      // Power-up Timer disabled
 #pragma config MCLRE = ON       // MCLR pin function is digital input
-#pragma config BOREN = OFF      // Brown-out Reset habilitado
-#pragma config LVP = OFF        // Low Voltage Programming desativado
-#pragma config CPD = OFF        // Data EEPROM Memory Code Protection desativado
-#pragma config CP = OFF         // Flash Program Memory Code Protection desativado
+#pragma config BOREN = OFF       // Brown-out Reset enabled
+#pragma config LVP = OFF        // Low Voltage Programming disabled
+#pragma config CPD = OFF        // Data EEPROM Memory Code Protection disabled
+#pragma config CP = OFF         // Flash Program Memory Code Protection disabled
 
-#define _XTAL_FREQ 4000000      // Frequência do oscilador externo
+#define _XTAL_FREQ 4000000      // Internal Oscillator Frequency
 
 void main() {
     TRISB = 0x00; // Configura PORTB como saída
 
 
     while (1) {
-        PORTB =  0xFF; // Acende o LED
+        PORTB =  0xFF; // Turn all LEDs on
+        // Try: while ( (PORTB = (unsigned char) (PORTB <<  1)) ) {__delay_ms(7500);}
+        // Istead the for statment below        
         for (int i = 0; i < 8; i++) {
-            __delay_ms(7500); // Espera 500 milissegundos
+            __delay_ms(7500); 
             PORTB = (unsigned char) (PORTB <<  1);
         }
-        __delay_ms(15000); // Espera 500 milissegundos
+        __delay_ms(15000); 
     }
 }
 
@@ -64,28 +65,32 @@ This example uses the same previous circuit. Two LEDs will be activated at a tim
 ```cpp
 #include <xc.h>
 
-#pragma config FOSC = INTOSCIO  // Oscilador interno
-#pragma config WDTE = OFF       // Watchdog Timer desativado
-#pragma config PWRTE = OFF      // Power-up Timer desativado
+#pragma config FOSC = INTOSCIO  // Internal Oscillator
+#pragma config WDTE = OFF       // Watchdog Timer disabled
+#pragma config PWRTE = OFF      // Power-up Timer disabled
 #pragma config MCLRE = ON       // MCLR pin function is digital input
-#pragma config BOREN = OFF      // Brown-out Reset habilitado
-#pragma config LVP = OFF        // Low Voltage Programming desativado
-#pragma config CPD = OFF        // Data EEPROM Memory Code Protection desativado
-#pragma config CP = OFF         // Flash Program Memory Code Protection desativado
+#pragma config BOREN = OFF       // Brown-out Reset enabled
+#pragma config LVP = OFF        // Low Voltage Programming disabled
+#pragma config CPD = OFF        // Data EEPROM Memory Code Protection disabled
+#pragma config CP = OFF         // Flash Program Memory Code Protection disabled
 
-#define _XTAL_FREQ 4000000      // Frequência do oscilador externo
+#define _XTAL_FREQ 4000000      // Internal Oscillator Frequency
 
 void main() {
-    TRISB = 0x00; // Configura PORTB como saída
+    TRISB = 0x00; // Sets PORT B as output
     while (1) {
-        PORTB =  0x03; // Acende o LED
+        PORTB =  0x03; // turn the first two LEDs on
+        
+        // Try: while ( (PORTB = (unsigned char) (PORTB <<  1)) ) {__delay_ms(500);}
+        // Istead the for statment below
         for (int i = 0; i < 8; i++) {
-            __delay_ms(500); // Espera 500 milissegundos
-            PORTB = (unsigned char) (PORTB <<  1);
+            __delay_ms(500); 
+            PORTB = (unsigned char) (PORTB <<  1); // Shift left 
         }
-        __delay_ms(1000); // Espera 500 milissegundos
+        __delay_ms(1000); // 
     }
 }
+
 
 ```
 
