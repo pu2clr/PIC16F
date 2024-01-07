@@ -40,17 +40,14 @@ This project uses a PIC16F628A microcontroller to count time for 1 minute (60s).
 #define _XTAL_FREQ 4000000      // Internal Oscillator Frequency
 
 void main() {
-    TRISB = 0x00; // Configura PORTB como saída
-
+    TRISB = 0x00; // Sets PORTB as output
 
     while (1) {
         PORTB =  0xFF; // Turn all LEDs on
-        // Try: while ( (PORTB = (unsigned char) (PORTB <<  1)) ) {__delay_ms(7500);}
-        // Istead the for statment below        
-        for (int i = 0; i < 8; i++) {
-            __delay_ms(7500); 
-            PORTB = (unsigned char) (PORTB <<  1);
-        }
+        // Sequentially turns off each LED at intervals of 7.5 seconds.
+        do { 
+            __delay_ms(7500);
+        } while ( (PORTB = (unsigned char) (PORTB <<  1)) ); 
         __delay_ms(15000); 
     }
 }
@@ -78,18 +75,18 @@ This example uses the same previous circuit. Two LEDs will be activated at a tim
 
 void main() {
     TRISB = 0x00; // Sets PORT B as output
+
     while (1) {
         PORTB =  0x03; // turn the first two LEDs on
-        
-        // Try: while ( (PORTB = (unsigned char) (PORTB <<  1)) ) {__delay_ms(500);}
-        // Istead the for statment below
-        for (int i = 0; i < 8; i++) {
-            __delay_ms(500); 
-            PORTB = (unsigned char) (PORTB <<  1); // Shift left 
-        }
-        __delay_ms(1000); // 
+        do {
+            __delay_ms(500);
+        } while ( (PORTB = (unsigned char) (PORTB <<  1)) ); 
+        __delay_ms(1000);
     }
 }
+
+
+
 
 
 ```

@@ -9,18 +9,17 @@
 #pragma config CPD = OFF        // Data EEPROM Memory Code Protection disabled
 #pragma config CP = OFF         // Flash Program Memory Code Protection disabled
 
-#define _XTAL_FREQ 4000000      
+#define _XTAL_FREQ 4000000      // Internal Oscillator Frequency
 
 void main() {
-    TRISB = 0x00; // Configura PORTB como saída
+    TRISB = 0x00; // Sets PORTB as output
+
     while (1) {
         PORTB =  0xFF; // Turn all LEDs on
-        // Try: while ( (PORTB = (unsigned char) (PORTB <<  1)) ) {__delay_ms(7500);}
-        // Istead the for statment below        
-        for (int i = 0; i < 8; i++) {
-            __delay_ms(7500); 
-            PORTB = (unsigned char) (PORTB <<  1);
-        }
+        // Sequentially turns off each LED at intervals of 7.5 seconds.
+        do { 
+            __delay_ms(7500);
+        } while ( (PORTB = (unsigned char) (PORTB <<  1)) ); 
         __delay_ms(15000); 
     }
 }
