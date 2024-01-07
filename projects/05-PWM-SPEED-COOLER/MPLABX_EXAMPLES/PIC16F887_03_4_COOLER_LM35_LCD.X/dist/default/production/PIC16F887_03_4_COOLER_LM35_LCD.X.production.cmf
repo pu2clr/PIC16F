@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/xcQbxOLg2/driver_tmp_17.o
+$/tmp/xc8Fx2wky/driver_tmp_17.o
 end_init CODE 0 0 0 3 2 1
 config CONFIG 4 2007 2007 1 2 1
 $dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
@@ -112,35 +112,35 @@ STRING 1800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
-7DC cinit CODE >766:/tmp/xcQbxOLg2/driver_tmp_1.s
-7DC cinit CODE >769:/tmp/xcQbxOLg2/driver_tmp_1.s
-7DC cinit CODE >837:/tmp/xcQbxOLg2/driver_tmp_1.s
-7DD cinit CODE >838:/tmp/xcQbxOLg2/driver_tmp_1.s
-7DE cinit CODE >839:/tmp/xcQbxOLg2/driver_tmp_1.s
-7DF cinit CODE >840:/tmp/xcQbxOLg2/driver_tmp_1.s
-7E0 cinit CODE >841:/tmp/xcQbxOLg2/driver_tmp_1.s
-7E1 cinit CODE >842:/tmp/xcQbxOLg2/driver_tmp_1.s
-7E2 cinit CODE >843:/tmp/xcQbxOLg2/driver_tmp_1.s
-7E3 cinit CODE >844:/tmp/xcQbxOLg2/driver_tmp_1.s
-7E4 cinit CODE >845:/tmp/xcQbxOLg2/driver_tmp_1.s
-7E5 cinit CODE >846:/tmp/xcQbxOLg2/driver_tmp_1.s
-7EA cinit CODE >865:/tmp/xcQbxOLg2/driver_tmp_1.s
-7EB cinit CODE >866:/tmp/xcQbxOLg2/driver_tmp_1.s
-7EC cinit CODE >867:/tmp/xcQbxOLg2/driver_tmp_1.s
-7ED cinit CODE >868:/tmp/xcQbxOLg2/driver_tmp_1.s
-7EE cinit CODE >869:/tmp/xcQbxOLg2/driver_tmp_1.s
-7F3 cinit CODE >872:/tmp/xcQbxOLg2/driver_tmp_1.s
-7F4 cinit CODE >873:/tmp/xcQbxOLg2/driver_tmp_1.s
-7F5 cinit CODE >874:/tmp/xcQbxOLg2/driver_tmp_1.s
-7F6 cinit CODE >875:/tmp/xcQbxOLg2/driver_tmp_1.s
-7F7 cinit CODE >876:/tmp/xcQbxOLg2/driver_tmp_1.s
-7F8 cinit CODE >877:/tmp/xcQbxOLg2/driver_tmp_1.s
-7F9 cinit CODE >880:/tmp/xcQbxOLg2/driver_tmp_1.s
-7FA cinit CODE >881:/tmp/xcQbxOLg2/driver_tmp_1.s
-7FB cinit CODE >882:/tmp/xcQbxOLg2/driver_tmp_1.s
-7FC cinit CODE >888:/tmp/xcQbxOLg2/driver_tmp_1.s
-7FC cinit CODE >890:/tmp/xcQbxOLg2/driver_tmp_1.s
-7FD cinit CODE >891:/tmp/xcQbxOLg2/driver_tmp_1.s
+7DC cinit CODE >766:/tmp/xc8Fx2wky/driver_tmp_1.s
+7DC cinit CODE >769:/tmp/xc8Fx2wky/driver_tmp_1.s
+7DC cinit CODE >837:/tmp/xc8Fx2wky/driver_tmp_1.s
+7DD cinit CODE >838:/tmp/xc8Fx2wky/driver_tmp_1.s
+7DE cinit CODE >839:/tmp/xc8Fx2wky/driver_tmp_1.s
+7DF cinit CODE >840:/tmp/xc8Fx2wky/driver_tmp_1.s
+7E0 cinit CODE >841:/tmp/xc8Fx2wky/driver_tmp_1.s
+7E1 cinit CODE >842:/tmp/xc8Fx2wky/driver_tmp_1.s
+7E2 cinit CODE >843:/tmp/xc8Fx2wky/driver_tmp_1.s
+7E3 cinit CODE >844:/tmp/xc8Fx2wky/driver_tmp_1.s
+7E4 cinit CODE >845:/tmp/xc8Fx2wky/driver_tmp_1.s
+7E5 cinit CODE >846:/tmp/xc8Fx2wky/driver_tmp_1.s
+7EA cinit CODE >865:/tmp/xc8Fx2wky/driver_tmp_1.s
+7EB cinit CODE >866:/tmp/xc8Fx2wky/driver_tmp_1.s
+7EC cinit CODE >867:/tmp/xc8Fx2wky/driver_tmp_1.s
+7ED cinit CODE >868:/tmp/xc8Fx2wky/driver_tmp_1.s
+7EE cinit CODE >869:/tmp/xc8Fx2wky/driver_tmp_1.s
+7F3 cinit CODE >872:/tmp/xc8Fx2wky/driver_tmp_1.s
+7F4 cinit CODE >873:/tmp/xc8Fx2wky/driver_tmp_1.s
+7F5 cinit CODE >874:/tmp/xc8Fx2wky/driver_tmp_1.s
+7F6 cinit CODE >875:/tmp/xc8Fx2wky/driver_tmp_1.s
+7F7 cinit CODE >876:/tmp/xc8Fx2wky/driver_tmp_1.s
+7F8 cinit CODE >877:/tmp/xc8Fx2wky/driver_tmp_1.s
+7F9 cinit CODE >880:/tmp/xc8Fx2wky/driver_tmp_1.s
+7FA cinit CODE >881:/tmp/xc8Fx2wky/driver_tmp_1.s
+7FB cinit CODE >882:/tmp/xc8Fx2wky/driver_tmp_1.s
+7FC cinit CODE >888:/tmp/xc8Fx2wky/driver_tmp_1.s
+7FC cinit CODE >890:/tmp/xc8Fx2wky/driver_tmp_1.s
+7FD cinit CODE >891:/tmp/xc8Fx2wky/driver_tmp_1.s
 14F2 text35 CODE >23:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
 14F2 text35 CODE >24:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
 14F7 text35 CODE >25:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/pic16flcd.c
@@ -1115,33 +1115,33 @@ FCB maintext CODE >159:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05
 FE6 maintext CODE >160:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_03_4_COOLER_LM35_LCD.X/teste.c
 FEB maintext CODE >162:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_03_4_COOLER_LM35_LCD.X/teste.c
 FEE maintext CODE >163:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_03_4_COOLER_LM35_LCD.X/teste.c
-1343 clrtext CODE >852:/tmp/xcQbxOLg2/driver_tmp_1.s
-1343 clrtext CODE >853:/tmp/xcQbxOLg2/driver_tmp_1.s
-1344 clrtext CODE >854:/tmp/xcQbxOLg2/driver_tmp_1.s
-1344 clrtext CODE >855:/tmp/xcQbxOLg2/driver_tmp_1.s
-1345 clrtext CODE >856:/tmp/xcQbxOLg2/driver_tmp_1.s
-1346 clrtext CODE >857:/tmp/xcQbxOLg2/driver_tmp_1.s
-1347 clrtext CODE >858:/tmp/xcQbxOLg2/driver_tmp_1.s
-1348 clrtext CODE >859:/tmp/xcQbxOLg2/driver_tmp_1.s
-1349 clrtext CODE >860:/tmp/xcQbxOLg2/driver_tmp_1.s
-134A clrtext CODE >861:/tmp/xcQbxOLg2/driver_tmp_1.s
-1382 inittext CODE >811:/tmp/xcQbxOLg2/driver_tmp_1.s
-1382 inittext CODE >812:/tmp/xcQbxOLg2/driver_tmp_1.s
-1383 inittext CODE >813:/tmp/xcQbxOLg2/driver_tmp_1.s
-1384 inittext CODE >814:/tmp/xcQbxOLg2/driver_tmp_1.s
-1385 inittext CODE >815:/tmp/xcQbxOLg2/driver_tmp_1.s
-1386 inittext CODE >822:/tmp/xcQbxOLg2/driver_tmp_1.s
-1386 inittext CODE >823:/tmp/xcQbxOLg2/driver_tmp_1.s
-138B inittext CODE >824:/tmp/xcQbxOLg2/driver_tmp_1.s
-138C inittext CODE >825:/tmp/xcQbxOLg2/driver_tmp_1.s
-138D inittext CODE >826:/tmp/xcQbxOLg2/driver_tmp_1.s
-138E inittext CODE >827:/tmp/xcQbxOLg2/driver_tmp_1.s
-138F inittext CODE >828:/tmp/xcQbxOLg2/driver_tmp_1.s
-1390 inittext CODE >829:/tmp/xcQbxOLg2/driver_tmp_1.s
-1391 inittext CODE >830:/tmp/xcQbxOLg2/driver_tmp_1.s
-1392 inittext CODE >831:/tmp/xcQbxOLg2/driver_tmp_1.s
-1393 inittext CODE >832:/tmp/xcQbxOLg2/driver_tmp_1.s
-1394 inittext CODE >833:/tmp/xcQbxOLg2/driver_tmp_1.s
+1343 clrtext CODE >852:/tmp/xc8Fx2wky/driver_tmp_1.s
+1343 clrtext CODE >853:/tmp/xc8Fx2wky/driver_tmp_1.s
+1344 clrtext CODE >854:/tmp/xc8Fx2wky/driver_tmp_1.s
+1344 clrtext CODE >855:/tmp/xc8Fx2wky/driver_tmp_1.s
+1345 clrtext CODE >856:/tmp/xc8Fx2wky/driver_tmp_1.s
+1346 clrtext CODE >857:/tmp/xc8Fx2wky/driver_tmp_1.s
+1347 clrtext CODE >858:/tmp/xc8Fx2wky/driver_tmp_1.s
+1348 clrtext CODE >859:/tmp/xc8Fx2wky/driver_tmp_1.s
+1349 clrtext CODE >860:/tmp/xc8Fx2wky/driver_tmp_1.s
+134A clrtext CODE >861:/tmp/xc8Fx2wky/driver_tmp_1.s
+1382 inittext CODE >811:/tmp/xc8Fx2wky/driver_tmp_1.s
+1382 inittext CODE >812:/tmp/xc8Fx2wky/driver_tmp_1.s
+1383 inittext CODE >813:/tmp/xc8Fx2wky/driver_tmp_1.s
+1384 inittext CODE >814:/tmp/xc8Fx2wky/driver_tmp_1.s
+1385 inittext CODE >815:/tmp/xc8Fx2wky/driver_tmp_1.s
+1386 inittext CODE >822:/tmp/xc8Fx2wky/driver_tmp_1.s
+1386 inittext CODE >823:/tmp/xc8Fx2wky/driver_tmp_1.s
+138B inittext CODE >824:/tmp/xc8Fx2wky/driver_tmp_1.s
+138C inittext CODE >825:/tmp/xc8Fx2wky/driver_tmp_1.s
+138D inittext CODE >826:/tmp/xc8Fx2wky/driver_tmp_1.s
+138E inittext CODE >827:/tmp/xc8Fx2wky/driver_tmp_1.s
+138F inittext CODE >828:/tmp/xc8Fx2wky/driver_tmp_1.s
+1390 inittext CODE >829:/tmp/xc8Fx2wky/driver_tmp_1.s
+1391 inittext CODE >830:/tmp/xc8Fx2wky/driver_tmp_1.s
+1392 inittext CODE >831:/tmp/xc8Fx2wky/driver_tmp_1.s
+1393 inittext CODE >832:/tmp/xc8Fx2wky/driver_tmp_1.s
+1394 inittext CODE >833:/tmp/xc8Fx2wky/driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1174,19 +1174,19 @@ main@i BC 0 BANK1 1 cstackBANK1 dist/default/production/PIC16F887_03_4_COOLER_LM
 __Hstrings 0 0 ABS 0 strings -
 ?_vfprintf 3A 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 _TMR0 1 0 ABS 0 - dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
-___sp 0 0 STACK 2 stack /tmp/xcQbxOLg2/driver_tmp_17.o
+___sp 0 0 STACK 2 stack /tmp/xc8Fx2wky/driver_tmp_17.o
 _dbuf 190 0 BANK3 1 bssBANK3 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 _main 1AEA 0 CODE 0 maintext dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 _prec DB 0 BANK1 1 bssBANK1 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 _utoa 1002 0 CODE 0 text4 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
-___stack_hi 0 0 STACK 2 stack /tmp/xcQbxOLg2/driver_tmp_17.o
-___stack_lo 0 0 STACK 2 stack /tmp/xcQbxOLg2/driver_tmp_17.o
+___stack_hi 0 0 STACK 2 stack /tmp/xc8Fx2wky/driver_tmp_17.o
+___stack_lo 0 0 STACK 2 stack /tmp/xc8Fx2wky/driver_tmp_17.o
 read_prec_or_width@c 79 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 read_prec_or_width@n 7A 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 pad@i 25 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 pad@p 7C 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
-start 0 0 CODE 0 init /tmp/xcQbxOLg2/driver_tmp_17.o
+start 0 0 CODE 0 init /tmp/xc8Fx2wky/driver_tmp_17.o
 ___flmul@aexp 4C 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 ___flmul@bexp 4D 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 ___flmul@prod 4E 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
@@ -1205,12 +1205,12 @@ utoa@d 28 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_03_4_COOLER_LM
 utoa@i 2E 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 utoa@p 2D 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 utoa@w 2A 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
-intlevel0 0 0 ENTRY 0 functab /tmp/xcQbxOLg2/driver_tmp_17.o
-intlevel1 0 0 ENTRY 0 functab /tmp/xcQbxOLg2/driver_tmp_17.o
-intlevel2 0 0 ENTRY 0 functab /tmp/xcQbxOLg2/driver_tmp_17.o
-intlevel3 0 0 ENTRY 0 functab /tmp/xcQbxOLg2/driver_tmp_17.o
-intlevel4 0 0 ENTRY 0 functab /tmp/xcQbxOLg2/driver_tmp_17.o
-intlevel5 0 0 ENTRY 0 functab /tmp/xcQbxOLg2/driver_tmp_17.o
+intlevel0 0 0 ENTRY 0 functab /tmp/xc8Fx2wky/driver_tmp_17.o
+intlevel1 0 0 ENTRY 0 functab /tmp/xc8Fx2wky/driver_tmp_17.o
+intlevel2 0 0 ENTRY 0 functab /tmp/xc8Fx2wky/driver_tmp_17.o
+intlevel3 0 0 ENTRY 0 functab /tmp/xc8Fx2wky/driver_tmp_17.o
+intlevel4 0 0 ENTRY 0 functab /tmp/xc8Fx2wky/driver_tmp_17.o
+intlevel5 0 0 ENTRY 0 functab /tmp/xc8Fx2wky/driver_tmp_17.o
 wtemp0 7E 0 ABS 0 - dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 Lcd_SetCursor@row 20 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
@@ -1249,8 +1249,8 @@ __end_of___fltol 3000 0 CODE 0 text23 dist/default/production/PIC16F887_03_4_COO
 __end_of___lwdiv 2C12 0 CODE 0 text10 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 __end_of___lwmod 2B8A 0 CODE 0 text9 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 __Umul8_16@multiplicand 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
-___stackhi 0 0 ABS 0 - /tmp/xcQbxOLg2/driver_tmp_17.o
-___stacklo 0 0 ABS 0 - /tmp/xcQbxOLg2/driver_tmp_17.o
+___stackhi 0 0 ABS 0 - /tmp/xc8Fx2wky/driver_tmp_17.o
+___stacklo 0 0 ABS 0 - /tmp/xc8Fx2wky/driver_tmp_17.o
 utoa@fp 2C 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 ___lwdiv@quotient 75 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 ___fladd@a 62 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
@@ -1279,7 +1279,7 @@ fputs@fp 78 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_03_4_COOLE
 __end_of_initADC 26C8 0 CODE 0 text21 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 __end_of_initPWM 277C 0 CODE 0 text20 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 __end_of_initRPM 2704 0 CODE 0 text19 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
-___int_sp 0 0 STACK 2 stack /tmp/xcQbxOLg2/driver_tmp_17.o
+___int_sp 0 0 STACK 2 stack /tmp/xc8Fx2wky/driver_tmp_17.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -1348,7 +1348,7 @@ countPulses@lastState 74 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F8
 __end_of_Lcd_Clear 2752 0 CODE 0 text30 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 __Lintentry 0 0 CODE 0 intentry -
 __stringtab 2000 0 STRING 0 strings dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcQbxOLg2/driver_tmp_17.o
+reset_vec 0 0 CODE 0 reset_vec /tmp/xc8Fx2wky/driver_tmp_17.o
 __end_of___xxtofl 14F0 0 CODE 0 text15 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 __pdataBANK1 C9 0 BANK1 1 dataBANK1 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 _Lcd_WriteChar D8 0 CODE 0 text32 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
@@ -1489,8 +1489,8 @@ __Lreset_vec 0 0 CODE 0 reset_vec -
 __end_of_Lcd_WriteString 298E 0 CODE 0 text26 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 __end_of_vfprintf 27FC 0 CODE 0 text2 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 main@pulses B4 0 BANK1 1 cstackBANK1 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
-___heap_hi 0 0 ABS 0 - /tmp/xcQbxOLg2/driver_tmp_17.o
-___heap_lo 0 0 ABS 0 - /tmp/xcQbxOLg2/driver_tmp_17.o
+___heap_hi 0 0 ABS 0 - /tmp/xc8Fx2wky/driver_tmp_17.o
+___heap_lo 0 0 ABS 0 - /tmp/xc8Fx2wky/driver_tmp_17.o
 ___fltol@f1 54 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 __end_of__initialization FF8 0 CODE 0 cinit dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 Lcd_CreateCustomChar@i 23 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
@@ -1538,8 +1538,8 @@ __pbssBANK1 D9 0 BANK1 1 bssBANK1 dist/default/production/PIC16F887_03_4_COOLER_
 __pbssBANK3 190 0 BANK3 1 bssBANK3 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 __pstrings 2000 0 STRING 0 strings dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 ___wmul@product 74 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
-___int_stack_hi 0 0 STACK 2 stack /tmp/xcQbxOLg2/driver_tmp_17.o
-___int_stack_lo 0 0 STACK 2 stack /tmp/xcQbxOLg2/driver_tmp_17.o
+___int_stack_hi 0 0 STACK 2 stack /tmp/xc8Fx2wky/driver_tmp_17.o
+___int_stack_lo 0 0 STACK 2 stack /tmp/xc8Fx2wky/driver_tmp_17.o
 Lcd_WriteString@config 7D 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 read_prec_or_width@ap 76 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
 # %SPLITSTAB Section

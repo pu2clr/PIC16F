@@ -434,7 +434,7 @@ text27 2696 26AD CODE 2696 0
 clrtext 2686 2695 CODE 2686 0
 %locals
 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
-/tmp/xcQbxOLg2/driver_tmp_1.s
+/tmp/xc8Fx2wky/driver_tmp_1.s
 766 7DC 0 CODE 0
 769 7DC 0 CODE 0
 837 7DC 0 CODE 0

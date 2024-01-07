@@ -7,10 +7,10 @@ Linker command line:
   -cn \
   -h+dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.sym \
   --cmf=dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.cmf \
-  -z -Q16F887 -o/tmp/xcQbxOLg2/driver_tmp_3.o --defsym=__MPLAB_BUILD=1 \
+  -z -Q16F887 -o/tmp/xc8Fx2wky/driver_tmp_3.o --defsym=__MPLAB_BUILD=1 \
   --fixupoverflow=error \
   -Mdist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.map \
-  --md=/tmp/xcQbxOLg2/driver_tmp_0.dat -E1 -ver=XC8 Compiler --acfsm=1493 \
+  --md=/tmp/xc8Fx2wky/driver_tmp_0.dat -E1 -ver=XC8 Compiler --acfsm=1493 \
   -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
   -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh \
   -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh -ABANK2=0110h-016Fh \
@@ -21,7 +21,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k /tmp/xcQbxOLg2/driver_tmp_17.o \
+  -pfunctab=ENTRY -k /tmp/xc8Fx2wky/driver_tmp_17.o \
   dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o 
 
 Object code version is 3.11
@@ -31,7 +31,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcQbxOLg2/driver_tmp_17.o
+/tmp/xc8Fx2wky/driver_tmp_17.o
                 end_init                              0        0        3        0       0
                 config                             2007     2007        1        0       4
 dist/default/production/PIC16F887_03_4_COOLER_LM35_LCD.X.production.o
