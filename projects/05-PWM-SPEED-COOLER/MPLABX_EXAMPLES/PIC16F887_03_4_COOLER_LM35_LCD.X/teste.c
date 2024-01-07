@@ -4,8 +4,8 @@
 
 // Configuration Bits
 #pragma config FOSC = INTRC_NOCLKOUT  // Internal Oscillator, no clock out
-#pragma config WDTE = OFF             // Watchdog Timer disabled
-#pragma config PWRTE = OFF            // Power-up Timer disabled
+// #pragma config WDTE = OFF             // Watchdog Timer disabled
+// #pragma config PWRTE = OFF            // Power-up Timer disabled
 #pragma config MCLRE = ON             // MCLR pin function is digital input
 #pragma config BOREN = ON             // Brown-out Reset enabled
 #pragma config LVP = OFF              // Low Voltage Programming disabled
@@ -15,6 +15,8 @@
 #define _XTAL_FREQ 4000000  // 4 MHz Crystal Frequency
 
 #define TACH_PIN PORTBbits.RB0 // Tachometer signal connected to RB0
+
+
 
 // Bitmap for Celsius degree symbol
 unsigned char celsiusChar[8] = {
@@ -28,6 +30,49 @@ unsigned char celsiusChar[8] = {
     0b01111  //  ****
 };
 
+volatile unsigned int pulseCount = 0;
+unsigned long previousMillis = 0;
+
+void __interrupt() ISR() {
+    if (INTCONbits.INTF) {  // Check if INT0 interrupt occurred
+        pulseCount++;       // Increment on each tachometer pulse
+        INTCONbits.INTF = 0; // Clear the INT0 interrupt flag
+    }
+}
+
+
+void initInterrupt() {
+    TRISB = 1;
+    // RB0/INT as input
+    TRISBbits.TRISB0 = 1;
+
+    // External interrupt on rising edge
+    OPTION_REGbits.INTEDG = 1; // 0 for falling edge, 1 for rising edge
+
+    // Enable external interrupt
+    INTCONbits.INTE = 1;
+    INTCONbits.INTF = 0;
+    
+    // Enable global interrupts
+    INTCONbits.GIE = 1;
+}
+
+unsigned int calculateRPM() {
+    // Assuming TIMER value gives time in milliseconds
+    unsigned long currentMillis = TIMER; // Replace TIMER with actual timer reading
+
+    if (currentMillis - previousMillis >= 1000) {
+        // Calculate RPM (assuming 2 pulses per revolution)
+        rpm = (pulseCount / 2) * (60000 / (currentMillis - previousMillis));
+        
+        previousMillis = currentMillis;
+        pulseCount = 0;
+    }
+
+    return rpm;
+}
+
+
 void initPWM() {
     OSCCON = 0x60;
     TRISC = 0; // Set port to output   
@@ -36,21 +81,6 @@ void initPWM() {
     CCP1CON = 0x0C; // Set PWM mode and duty cycle to 0
     CCPR1L = 0x00;
     T2CON = 0x04; // Timer2 ON, Prescaler set to 1
-}
-
-
-/**
- * RPM reader setup
- */
-void initRPM() {
-
-    TRISBbits.TRISB0 = 1; // Set RB0 as input
-    ANSELH = 0x00; // Disable analog inputs on PORTB
-
-    OPTION_REGbits.T0CS = 0; // Timer0 Clock Source: Internal instruction cycle clock (CLKO)
-    OPTION_REGbits.PSA = 0; // Prescaler is assigned to the Timer0 module
-    OPTION_REGbits.PS = 0b111; // Prescaler 1:256
-    TMR0 = 0; // Reset Timer0
 }
 
 
@@ -72,30 +102,11 @@ double readTemperature() {
     return(float) voltage / (float) 0.01; // Convert voltage to temperature in Celsius.   
 }
 
-unsigned int countPulses() {
-    unsigned int pulseCount = 0;
-    unsigned char lastState = TACH_PIN;
-    unsigned char currentState;
-
-    TMR0 = 0; // Reset Timer0
-    INTCONbits.TMR0IF = 0; // Clear Timer0 overflow flag
-
-    while (!INTCONbits.TMR0IF) { // Wait for Timer0 to overflow
-        currentState = TACH_PIN;
-
-        if (currentState != lastState && currentState == 1) { // Detect rising edge
-            pulseCount++;
-        }
-        lastState = currentState;
-    }
-
-    return pulseCount;
-}
 
 void main() {
+    initInterrupt();
     initPWM();
     initADC();
-    initRPM();
 
     Lcd_PinConfig lcd = {
         .port = &PORTD, // Assuming you're using PORTD for LCD on PIC16F887
@@ -129,10 +140,8 @@ void main() {
         double sum = 0;
         
         unsigned int pulses = countPulses();
-        
-        unsigned int fanRPM = (unsigned int) ((pulses / 2) * (60 / (256.0 / _XTAL_FREQ * 256)/10));
-        
-        sprintf(strRPM, "%4u", fanRPM);
+                
+        sprintf(strRPM, "%4u", calculateRPM());
         Lcd_SetCursor(&lcd, 2, 10);
         Lcd_WriteString(&lcd, strRPM );
         
@@ -160,6 +169,6 @@ void main() {
             CCPR1L = 15;
         else 
             CCPR1L = 0;
-        __delay_ms(2000);
+        __delay_ms(100);
     }
 }
