@@ -37,3 +37,7 @@ projects/.DS_Store
 /projects/02-Timer/MPLAB_EXAMPLES/example2.X/dist/
 /projects/02-Timer/MPLAB_EXAMPLES/example1.X/dist/
 /projects/02-Timer/MPLAB_EXAMPLES/example1.X/build/
+/projects/99-Servomotor/MPLAB_EXAMPLES/pic16f628a_example.X/dist/
+/projects/99-Servomotor/MPLAB_EXAMPLES/pic16f628a_example.X/build/
+/projects/99-Servomotor/MPLAB_EXAMPLES/pic16f887_example.X/build/
+/projects/99-Servomotor/MPLAB_EXAMPLES/pic16f887_example.X/dist/
