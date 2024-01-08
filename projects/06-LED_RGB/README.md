@@ -1,7 +1,19 @@
 # PIC16F628A RGB LED (Anode and Cathode setup)
 
+RGB LEDs are a type of LED that can emit multiple colors. They come in two main types: Common Anode and Common Cathode. 
+
+1. **Common Anode RGB LED**: All the anodes of the RGB LEDs are connected together to the power supply. The individual colors are controlled by connecting the cathodes to ground through a current-limiting resistor. Turning a color on requires pulling its cathode low.
+
+2. **Common Cathode RGB LED**: All the cathodes are connected to ground. The individual colors are controlled by supplying power to their anodes. Turning a color on involves applying voltage to its anode.
+
+Compared to regular single-color LEDs, RGB LEDs combine red, green, and blue light to create a wide range of colors. The type of RGB LED (anode or cathode) affects how you control it in a circuit, particularly in terms of how you connect and switch the individual colors. The sections below will show you how to setp Anode and Cathode LEDs.
+
+
 
 ## RGB LED Common Anode
+
+In RGB LEDs with a common anode configuration, all the anodes are interconnected and should be connected to the positive power supply (VCC). The anode is typically identified as the longest pin on the LED and must be connected to VCC for the LED to function correctly. Check the schematic and C code  below. 
+
 
 ### Schematic (A)
 
@@ -48,8 +60,9 @@ void main() {
 ![Prototype - Common Anode](./prototype_pic16f628a_rgb_led_common_anode.jpg)
 
 
-
 ## RGB LED Common Cathode 
+
+In RGB LEDs with a common cathode configuration, all the cathodes are interconnected and should be connected to the ground (GND). The cathode is often identified as the longest pin on the LED, which must be connected to GND. This setup allows each color (red, green, blue) to be controlled by applying voltage to their respective anodes. Check the schematic and C code below. 
 
 
 ### Schematic (K)
