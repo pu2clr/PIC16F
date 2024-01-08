@@ -30,49 +30,51 @@ void inline turn_led_off() {
     PORTB = 0b00000000;
 }
 
-// Calculate the distance in cm based on the time in us.
-double calculateDistance(unsigned int  timeEcho) {
-    return ( ( timeEcho * 0.000340 ) / 2) * 100;
-}
-
-
 void main() {
     
-    TRISB = 0b00100000; // Sets PORTB as output
-    // Sets PORTB
-    // RB0, RB1 and RB2 are output to control the RGB LED
-    // RB4 is the ECHO (input) signal of the ultrassom sensor
-    // RB5 is output (trigger)
-    // Same: 
-    TRISB4 = 0; // TRIG_PIN output
-    TRISB5 = 1; // ECHO_PIN input
+    TRISB = 0;; // Sets PORTB as output
+    
+    TRISAbits.TRISA0 = 0;  // TRIG pin
+    TRISAbits.TRISA1 = 1;  // ECHO pin
     
     
+    // TIMER1 Configuration
+    // Prescaler = 1:1
+    T1CONbits.T1CKPS = 0b00;
+    // Select internal clock (FOSC/4)
+    T1CONbits.TMR1CS = 0;
 
     // Checking the RGB LED
-    /*
     for (int i = 0; i < 6; i++) {
         set_red_light();
-        __delay_ms(500);
+        __delay_ms(200);
         set_green_light();
-        __delay_ms(500);
+        __delay_ms(200);
         set_blue_light();
-        __delay_ms(500);
+        __delay_ms(200);
         turn_led_off();
-        __delay_ms(500);
-    } */
+        __delay_ms(200);
+    } 
    
     while (1) {
-        // Sends a pulse to the RB4
-        RB4 = 1;
-        __delay_us(10); // 
-        RB4 = 0;
-        while(!RB5);
-        TMR1 = 0; // Start the Timer1
-        while(RB5);
-        unsigned int duration = TMR1;
-        int distance = (int) calculateDistance(600);
-        if ( distance <= 1) 
+        
+        TMR1H = 0;
+        TMR1L = 0;
+
+        PORTAbits.RA0 = 1;
+        __delay_us(10);
+        PORTAbits.RA0 = 0;
+        // Wait for ECHO pin goes to HIGH
+        while(!PORTAbits.RA1);
+        T1CONbits.TMR1ON = 1;   // Enable TIMER1 module
+        // Wait for ECHO pin goes to LOW
+        while(PORTAbits.RA1);
+        T1CONbits.TMR1ON = 0;   // Disable TIMER1 module        
+      
+        unsigned int duration = (unsigned int) (TMR1H << 8) | TMR1L;
+        unsigned int distance = (unsigned int) ( (float) (duration / 58.8235) + 1);
+        
+        if ( distance <= 10) 
             set_red_light();
         else if (distance <= 30 )
             set_blue_light();
