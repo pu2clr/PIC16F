@@ -11,30 +11,23 @@
 #pragma config CP = OFF         // Flash program memory code protection disabled
 
 #define _XTAL_FREQ 4000000 // Internal oscillator frequency set to 4MHz
+#define _XTAL_FREQ 4000000 // 4 MHz
 
-void main()
-{
-    TRISB = 0;            // Configures PORTB as output
-    CCP1CON = 0b00001100; // PWM mode configuration
-    T2CON = 0b00000111;   // Activates Timer2 with prescaler of 16
-    PR2 = 13;             // PWM period
+void main() {
+    TRISB = 0; // Sets PORTB as output
+    unsigned char dutyCycle;
+    
+    PORTB = 0xFF; // Turn all LEDs off.
+    __delay_ms(5000);
 
-    // Starts Timer2
-    TMR2 = 0;   // Resets Timer2 counter
-    TMR2ON = 1; // Turns on Timer2
 
-    while (1)
-    {
-        // Approximate values for 1.5 ms (center position)
-        CCPR1L = 6;
-        __delay_ms(1000);
 
-        // Approximate values for 1 ms (0 degrees)
-        CCPR1L = 20;
-        __delay_ms(1000);
-
-        // Approximate values for 2 ms (180 degrees)
-        CCPR1L = 30;
-        __delay_ms(1000);
+    while(1) {
+        for(dutyCycle = 0; dutyCycle < 255; dutyCycle++) {
+            RB0 = (dutyCycle < 128)? 1:0;
+            RB1 = (dutyCycle < 64 || (dutyCycle > 192))? 1:0;
+            RB2 = (dutyCycle > 128)? 1:0;
+            __delay_ms(50); 
+        }
     }
 }

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production/pic16f628a_example.X.production.hex">
+  <executable name="dist/default/production/pic16f628a_RGB_COMMON_A.X.production.hex">
     <memory name="program">
       <units>words</units>
       <length>2048</length>
-      <used>73</used>
-      <free>1975</free>
+      <used>93</used>
+      <free>1955</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>224</length>
-      <used>5</used>
-      <free>219</free>
+      <used>7</used>
+      <free>217</free>
     </memory>
   </executable>
 </project>
