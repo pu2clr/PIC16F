@@ -30,6 +30,12 @@ void inline turn_led_off() {
     PORTB = 0b00000000;
 }
 
+// Calculate the distance in cm based on the time in us.
+double calculateDistance(unsigned int  timeEcho) {
+    return ( ( timeEcho * 0.000340 ) / 2) * 100;
+}
+
+
 void main() {
     
     // Sets PORTB
@@ -63,6 +69,12 @@ void main() {
         TMR1 = 0; // Start the Timer1
         while(RB5);
         unsigned int duration = TMR1;
-        
+        int distance = (int) calculateDistance(duration);
+        if ( distance <= 10) 
+            set_red_light();
+        else if (distance <= 30 )
+            set_blue_light();
+        else
+            set_green_light();
     }
 }
