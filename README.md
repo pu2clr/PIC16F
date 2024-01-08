@@ -162,3 +162,5 @@ Source: [Pickit 3 Programmer/Debugger](https://components101.com/misc/pickit3-pr
 
 * M. P. Bates, Interfacing PIC microcontrollers: Embedded design by interactive simulation. Newnes, 2013.
 * F. Pereira, Microcontroladores PIC: programação em C. Saraiva Educação SA, 2007.
+* [Experiments with PIC16F628A](http://electronicexperiments.blogspot.com/p/pic16f628a_01.html)
+
