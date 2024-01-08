@@ -9,6 +9,22 @@ RGB LEDs are a type of LED that can emit multiple colors. They come in two main 
 Compared to regular single-color LEDs, RGB LEDs combine red, green, and blue light to create a wide range of colors. The type of RGB LED (anode or cathode) affects how you control it in a circuit, particularly in terms of how you connect and switch the individual colors. The sections below will show you how to setp Anode and Cathode LEDs.
 
 
+### How to identify if a RGB LED is Anode or Cathode? 
+
+To determine whether an RGB LED is common anode or cathode, you can perform a simple test using a multimeter:
+
+1. **Using a Multimeter**, set it to the diode testing mode.
+
+2. **Identify the Longest Pin** - Usually, the longest pin is either the common anode or common cathode. 
+
+3. **Test Each Pin**:
+   - Connect the positive lead of the multimeter to the longest pin.
+   - Touch the negative lead (black) to each of the other pins sequentially.
+   - If the LED lights up when the black lead touches a pin, it's likely a common anode LED. In this case, the longest pin is the anode, and it should be connected to the positive voltage.
+   - If the LED does not light up, switch the leads. Connect the black lead to the longest pin, and the red lead to the other pins. If the LED lights up now, it’s a common cathode LED.
+
+4. **Observe the Colors**: When testing each of the other pins, observe the color that lights up. Each pin corresponds to a different color (red, green, or blue).
+
 
 ## RGB LED Common Anode
 
