@@ -126,6 +126,10 @@ void main() {
 ![Prototype Common Cathode](./prototype_pic16f628a_rgb_led_common_cathode.jpg)
 
 
+## PIC16F628A PINOUT
+
+![PIC16F628A PINOUT](./../../images/PIC16F628A_PINOUT.png)
+
 
 ## References
 
