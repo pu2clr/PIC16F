@@ -1,4 +1,5 @@
 *DS_Store
+*.DS_Store
 /projects/02-Timer/MPLAB_EXAMPLES/example2.X/dist/
 /projects/02-Timer/MPLAB_EXAMPLES/example2.X/build/
 *.i
