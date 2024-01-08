@@ -138,5 +138,3 @@ void main() {
 * [LED RGB -ALTERANDO CORES POR MEIO DA APROXIMAÇÃO DE OBJETOS – C/ PIC 16F628A (REF295)](http://picsource.com.br/archives/11199)
 * [PIC16F628 4 RGB LED PWM Controller](https://www.next.gr/circuits/PIC16F628-4-RGB-LED-PWM-Controller-l52521.html)
 * [Lighting up RGB LED Strip with a PIC Microcontroller](https://blog.kubovy.eu/2019/03/30/lighting-up-rgb-led-strip-with-a-pic-microcontroller/)
-* [Ultrasonic Sensor HC-SR04 With PIC Microcontroller](https://www.trionprojects.org/2020/03/ultrasonic-sensor-hc-sr04-with-pic.html)
-* [Ultrasonic Sensor HC-SR04 Code for PIC18F4550](https://www.electronicwings.com/pic/ultrasonic-module-hc-sr04-interfacing-with-pic18f4550)

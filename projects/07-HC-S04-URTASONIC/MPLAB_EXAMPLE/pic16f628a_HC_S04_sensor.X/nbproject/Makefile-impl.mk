@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=pic16f628a_proximity_sensor.X
+PROJECTNAME=pic16f628a_HC_S04_sensor.X
 
 # Active Configuration
 DEFAULTCONF=default

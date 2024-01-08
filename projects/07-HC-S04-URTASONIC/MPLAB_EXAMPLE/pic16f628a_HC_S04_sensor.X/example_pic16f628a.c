@@ -32,19 +32,16 @@ void inline turn_led_off() {
 
 void main() {
     
-    TRISB = 0;; // Sets PORTB as output
-    
-    TRISAbits.TRISA0 = 0;  // TRIG pin
-    TRISAbits.TRISA1 = 1;  // ECHO pin
-    
-    
-    // TIMER1 Configuration
-    // Prescaler = 1:1
-    T1CONbits.T1CKPS = 0b00;
-    // Select internal clock (FOSC/4)
-    T1CONbits.TMR1CS = 0;
+    // Turns off the comparator and converts its pins in digital I/O. 
+    CMCONbits.CM = 0x07; 
 
-    // Checking the RGB LED
+    // Sets the PORT A and B    
+    TRISB = 0;; // Sets PORTB as output (RGB LED Control)
+    TRISA0 = 0;  // TRIG pin  (HC-S04 TRIGGER output)
+    TRISA1 = 1;  // ECHO pin  (HC-S04 ECHO input)
+     
+
+    // Checking the RGB LED - Playing with RGB LED before starting the real application.
     for (int i = 0; i < 6; i++) {
         set_red_light();
         __delay_ms(200);
@@ -58,21 +55,20 @@ void main() {
    
     while (1) {
         
-        TMR1H = 0;
-        TMR1L = 0;
+        // 
+        TMR1H = 0;  // sets the high byte of the Timer1 counter to 0
+        TMR1L = 0;  // sets the low byte of the Timer1 counter to 0
 
-        PORTAbits.RA0 = 1;
+        RA0 = 1;
         __delay_us(10);
-        PORTAbits.RA0 = 0;
-        // Wait for ECHO pin goes to HIGH
-        while(!PORTAbits.RA1);
-        T1CONbits.TMR1ON = 1;   // Enable TIMER1 module
-        // Wait for ECHO pin goes to LOW
-        while(PORTAbits.RA1);
-        T1CONbits.TMR1ON = 0;   // Disable TIMER1 module        
+        RA0 = 0;
+        while(!RA1); // Wait for ECHO/RA1 pin becomes HIGH
+        TMR1ON = 1;  // Turns TIMER1 on
+        while(RA1);  // Wait for ECHO/RA1 pin becomes LOW
+        TMR1ON = 0;  // Turns TIMER1 off        
       
         unsigned int duration = (unsigned int) (TMR1H << 8) | TMR1L;
-        unsigned int distance = (unsigned int) ( (float) (duration / 58.8235) + 1);
+        unsigned int distance = duration *0.034/2;
         
         if ( distance <= 10) 
             set_red_light();
