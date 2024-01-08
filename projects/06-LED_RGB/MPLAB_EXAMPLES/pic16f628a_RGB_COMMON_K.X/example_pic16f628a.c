@@ -15,7 +15,7 @@
 void main() {
     TRISB = 0; // Sets PORTB as output
     unsigned char dutyCycle;
-    
+
     PORTB = 0x00; // Turn all LEDs off.
     __delay_ms(5000);
 
@@ -24,7 +24,7 @@ void main() {
             RB0 = (dutyCycle < 128)? 0:1;
             RB1 = (dutyCycle < 64 || (dutyCycle > 192))? 0:1;
             RB2 = (dutyCycle > 128)? 0:1;
-            __delay_ms(50); 
+            __delay_ms(50);
         }
     }
 }
