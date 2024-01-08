@@ -2844,13 +2844,15 @@ void __attribute__((inline)) Lcd_WriteCustomChar(Lcd_PinConfig *config, unsigned
 
 
 #pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
+
+
 #pragma config MCLRE = ON
 #pragma config BOREN = ON
 #pragma config LVP = OFF
 #pragma config CPD = OFF
 #pragma config CP = OFF
+
+
 
 
 
@@ -2868,6 +2870,49 @@ unsigned char celsiusChar[8] = {
     0b01111
 };
 
+volatile unsigned int pulseCount = 0;
+unsigned long previousMillis = 0;
+
+void __attribute__((picinterrupt(("")))) ISR() {
+    if (INTCONbits.INTF) {
+        pulseCount++;
+        INTCONbits.INTF = 0;
+    }
+}
+
+
+void initInterrupt() {
+    TRISB = 1;
+
+    TRISBbits.TRISB0 = 1;
+
+
+    OPTION_REGbits.INTEDG = 1;
+
+
+    INTCONbits.INTE = 1;
+    INTCONbits.INTF = 0;
+
+
+    INTCONbits.GIE = 1;
+}
+
+unsigned int calculateRPM() {
+
+    unsigned long currentMillis = TIMER;
+
+    if (currentMillis - previousMillis >= 1000) {
+
+        rpm = (pulseCount / 2) * (60000 / (currentMillis - previousMillis));
+
+        previousMillis = currentMillis;
+        pulseCount = 0;
+    }
+
+    return rpm;
+}
+
+
 void initPWM() {
     OSCCON = 0x60;
     TRISC = 0;
@@ -2876,21 +2921,6 @@ void initPWM() {
     CCP1CON = 0x0C;
     CCPR1L = 0x00;
     T2CON = 0x04;
-}
-
-
-
-
-
-void initRPM() {
-
-    TRISBbits.TRISB0 = 1;
-    ANSELH = 0x00;
-
-    OPTION_REGbits.T0CS = 0;
-    OPTION_REGbits.PSA = 0;
-    OPTION_REGbits.PS = 0b111;
-    TMR0 = 0;
 }
 
 
@@ -2912,30 +2942,11 @@ double readTemperature() {
     return(float) voltage / (float) 0.01;
 }
 
-unsigned int countPulses() {
-    unsigned int pulseCount = 0;
-    unsigned char lastState = PORTBbits.RB0;
-    unsigned char currentState;
-
-    TMR0 = 0;
-    INTCONbits.TMR0IF = 0;
-
-    while (!INTCONbits.TMR0IF) {
-        currentState = PORTBbits.RB0;
-
-        if (currentState != lastState && currentState == 1) {
-            pulseCount++;
-        }
-        lastState = currentState;
-    }
-
-    return pulseCount;
-}
 
 void main() {
+    initInterrupt();
     initPWM();
     initADC();
-    initRPM();
 
     Lcd_PinConfig lcd = {
         .port = &PORTD,
@@ -2970,9 +2981,7 @@ void main() {
 
         unsigned int pulses = countPulses();
 
-        unsigned int fanRPM = (unsigned int) ((pulses / 2) * (60 / (256.0 / 4000000 * 256)/10));
-
-        sprintf(strRPM, "%4u", fanRPM);
+        sprintf(strRPM, "%4u", calculateRPM());
         Lcd_SetCursor(&lcd, 2, 10);
         Lcd_WriteString(&lcd, strRPM );
 
@@ -3000,6 +3009,6 @@ void main() {
             CCPR1L = 15;
         else
             CCPR1L = 0;
-        _delay((unsigned long)((2000)*(4000000/4000.0)));
+        _delay((unsigned long)((100)*(4000000/4000.0)));
     }
 }

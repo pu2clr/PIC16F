@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Mon Jan  1 19:26:46 2024
+                                                                                               Mon Jan  8 06:23:36 2024
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	16F876A
@@ -1000,7 +1000,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    986     02B9                     __ptext1:	
    987 ;; *************** function _Lcd_WriteString *****************
    988 ;; Defined at:
-   989 ;;		line 103 in file "../../pic16flcd.c"
+   989 ;;		line 102 in file "../../pic16flcd.c"
    990 ;; Parameters:    Size  Location     Type
    991 ;;  config          1    wreg     PTR struct .
    992 ;;		 -> main@lcd(8), 
@@ -1044,11 +1044,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1030     02BB  00B9               	movwf	Lcd_WriteString@config
   1031     02BC                     l877:
   1032                           
-  1033                           ;../../pic16flcd.c: 104:     while(*str != '\0') {
+  1033                           ;../../pic16flcd.c: 103:     while(*str != '\0') {
   1034     02BC  2AD1               	goto	l883
   1035     02BD                     l879:
   1036                           
-  1037                           ;../../pic16flcd.c: 105:         Lcd_WriteChar(config, (unsigned char)(*str));
+  1037                           ;../../pic16flcd.c: 104:         Lcd_WriteChar(config, (unsigned char)(*str));
   1038     02BD  087D               	movf	Lcd_WriteString@str,w
   1039     02BE  0084               	movwf	4
   1040     02BF  120A  118A  2003  120A  118A  	fcall	stringdir
@@ -1057,7 +1057,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1043     02C6  120A  118A  2537  120A  118A  	fcall	_Lcd_WriteChar
   1044     02CB                     l881:
   1045                           
-  1046                           ;../../pic16flcd.c: 106:         str++;
+  1046                           ;../../pic16flcd.c: 105:         str++;
   1047     02CB  3001               	movlw	1
   1048     02CC  1283               	bcf	3,5	;RP0=0, select bank0
   1049     02CD  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1066,7 +1066,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1052     02D0  07FD               	addwf	Lcd_WriteString@str,f
   1053     02D1                     l883:
   1054                           
-  1055                           ;../../pic16flcd.c: 104:     while(*str != '\0') {
+  1055                           ;../../pic16flcd.c: 103:     while(*str != '\0') {
   1056     02D1  087D               	movf	Lcd_WriteString@str,w
   1057     02D2  0084               	movwf	4
   1058     02D3  120A  118A  2003  120A  118A  	fcall	stringdir
@@ -1085,7 +1085,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1071     026E                     __ptext2:	
   1072 ;; *************** function _Lcd_WriteCustomChar *****************
   1073 ;; Defined at:
-  1074 ;;		line 199 in file "../../pic16flcd.c"
+  1074 ;;		line 198 in file "../../pic16flcd.c"
   1075 ;; Parameters:    Size  Location     Type
   1076 ;;  config          1    wreg     PTR struct .
   1077 ;;		 -> main@lcd(8), 
@@ -1128,7 +1128,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1114     0270  00B8               	movwf	Lcd_WriteCustomChar@config
   1115     0271                     l901:
   1116                           
-  1117                           ;../../pic16flcd.c: 200:     Lcd_WriteChar(config, location);
+  1117                           ;../../pic16flcd.c: 199:     Lcd_WriteChar(config, location);
   1118     0271  087D               	movf	Lcd_WriteCustomChar@location,w
   1119     0272  00F9               	movwf	Lcd_WriteChar@data
   1120     0273  0838               	movf	Lcd_WriteCustomChar@config,w
@@ -1141,7 +1141,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1127     02DE                     __ptext3:	
   1128 ;; *************** function _Lcd_SetCursor *****************
   1129 ;; Defined at:
-  1130 ;;		line 149 in file "../../pic16flcd.c"
+  1130 ;;		line 148 in file "../../pic16flcd.c"
   1131 ;; Parameters:    Size  Location     Type
   1132 ;;  config          1    wreg     PTR struct .
   1133 ;;		 -> main@lcd(8), 
@@ -1186,24 +1186,24 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1172     02E0  00BD               	movwf	Lcd_SetCursor@config
   1173     02E1                     l857:
   1174                           
-  1175                           ;../../pic16flcd.c: 150:     unsigned char address;;../../pic16flcd.c: 153:     switch(r
+  1175                           ;../../pic16flcd.c: 149:     unsigned char address;;../../pic16flcd.c: 152:     switch(r
       +                          ow) {
   1176     02E1  2AE8               	goto	l865
   1177     02E2                     l859:
   1178                           
-  1179                           ;../../pic16flcd.c: 155:             address = 0x80;
+  1179                           ;../../pic16flcd.c: 154:             address = 0x80;
   1180     02E2  3080               	movlw	128
   1181     02E3  00BC               	movwf	Lcd_SetCursor@address
   1182                           
-  1183                           ;../../pic16flcd.c: 156:             break;
+  1183                           ;../../pic16flcd.c: 155:             break;
   1184     02E4  2AF8               	goto	l867
   1185     02E5                     l861:
   1186                           
-  1187                           ;../../pic16flcd.c: 158:             address = 0xC0;
+  1187                           ;../../pic16flcd.c: 157:             address = 0xC0;
   1188     02E5  30C0               	movlw	192
   1189     02E6  00BC               	movwf	Lcd_SetCursor@address
   1190                           
-  1191                           ;../../pic16flcd.c: 159:             break;
+  1191                           ;../../pic16flcd.c: 158:             break;
   1192     02E7  2AF8               	goto	l867
   1193     02E8                     l865:
   1194     02E8  0838               	movf	Lcd_SetCursor@row,w
@@ -1245,7 +1245,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1229     02F7  2AE2               	goto	l859
   1230     02F8                     l867:
   1231                           
-  1232                           ;../../pic16flcd.c: 165:     address += (column - 1);
+  1232                           ;../../pic16flcd.c: 164:     address += (column - 1);
   1233     02F8  0839               	movf	Lcd_SetCursor@column,w
   1234     02F9  3EFF               	addlw	255
   1235     02FA  00BA               	movwf	??_Lcd_SetCursor
@@ -1253,7 +1253,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1237     02FC  07BC               	addwf	Lcd_SetCursor@address,f
   1238     02FD                     l869:
   1239                           
-  1240                           ;../../pic16flcd.c: 168:     Lcd_Command(config, address);
+  1240                           ;../../pic16flcd.c: 167:     Lcd_Command(config, address);
   1241     02FD  083C               	movf	Lcd_SetCursor@address,w
   1242     02FE  00F9               	movwf	Lcd_Command@cmd
   1243     02FF  083D               	movf	Lcd_SetCursor@config,w
@@ -1266,7 +1266,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1250     039F                     __ptext4:	
   1251 ;; *************** function _Lcd_Init *****************
   1252 ;; Defined at:
-  1253 ;;		line 111 in file "../../pic16flcd.c"
+  1253 ;;		line 110 in file "../../pic16flcd.c"
   1254 ;; Parameters:    Size  Location     Type
   1255 ;;  config          1    wreg     PTR struct .
   1256 ;;		 -> main@lcd(8), 
@@ -1309,7 +1309,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1293     03A1  00BC               	movwf	Lcd_Init@config
   1294     03A2                     l837:
   1295                           
-  1296                           ;../../pic16flcd.c: 117:     _delay((unsigned long)((15)*(4000000/4000.0)));
+  1296                           ;../../pic16flcd.c: 116:     _delay((unsigned long)((15)*(4000000/4000.0)));
   1297     03A2  3014               	movlw	20
   1298     03A3  1283               	bcf	3,5	;RP0=0, select bank0
   1299     03A4  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1323,7 +1323,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1307     03AB  2BA8               	goto	u1247
   1308     03AC                     l839:
   1309                           
-  1310                           ;../../pic16flcd.c: 118:     Lcd_Command(config, 0x03);
+  1310                           ;../../pic16flcd.c: 117:     Lcd_Command(config, 0x03);
   1311     03AC  3003               	movlw	3
   1312     03AD  00F9               	movwf	Lcd_Command@cmd
   1313     03AE  1283               	bcf	3,5	;RP0=0, select bank0
@@ -1332,7 +1332,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1316     03B1  120A  118A  240D  120A  118A  	fcall	_Lcd_Command
   1317     03B6                     l841:
   1318                           
-  1319                           ;../../pic16flcd.c: 119:     _delay((unsigned long)((5)*(4000000/4000.0)));
+  1319                           ;../../pic16flcd.c: 118:     _delay((unsigned long)((5)*(4000000/4000.0)));
   1320     03B6  3007               	movlw	7
   1321     03B7  1283               	bcf	3,5	;RP0=0, select bank0
   1322     03B8  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1346,7 +1346,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1330     03BF  2BBC               	goto	u1257
   1331     03C0  0000               	nop
   1332                           
-  1333                           ;../../pic16flcd.c: 120:     Lcd_Command(config, 0x03);
+  1333                           ;../../pic16flcd.c: 119:     Lcd_Command(config, 0x03);
   1334     03C1  3003               	movlw	3
   1335     03C2  00F9               	movwf	Lcd_Command@cmd
   1336     03C3  1283               	bcf	3,5	;RP0=0, select bank0
@@ -1355,7 +1355,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1339     03C6  120A  118A  240D  120A  118A  	fcall	_Lcd_Command
   1340     03CB                     l843:
   1341                           
-  1342                           ;../../pic16flcd.c: 121:     _delay((unsigned long)((100)*(4000000/4000000.0)));
+  1342                           ;../../pic16flcd.c: 120:     _delay((unsigned long)((100)*(4000000/4000000.0)));
   1343     03CB  3020               	movlw	32
   1344     03CC  1283               	bcf	3,5	;RP0=0, select bank0
   1345     03CD  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1366,7 +1366,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1350     03D1  0000               	nop
   1351     03D2                     l845:
   1352                           
-  1353                           ;../../pic16flcd.c: 122:     Lcd_Command(config, 0x03);
+  1353                           ;../../pic16flcd.c: 121:     Lcd_Command(config, 0x03);
   1354     03D2  3003               	movlw	3
   1355     03D3  00F9               	movwf	Lcd_Command@cmd
   1356     03D4  1283               	bcf	3,5	;RP0=0, select bank0
@@ -1375,7 +1375,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1359     03D7  120A  118A  240D  120A  118A  	fcall	_Lcd_Command
   1360     03DC                     l847:
   1361                           
-  1362                           ;../../pic16flcd.c: 123:     Lcd_Command(config, 0x02);
+  1362                           ;../../pic16flcd.c: 122:     Lcd_Command(config, 0x02);
   1363     03DC  3002               	movlw	2
   1364     03DD  00F9               	movwf	Lcd_Command@cmd
   1365     03DE  1283               	bcf	3,5	;RP0=0, select bank0
@@ -1384,7 +1384,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1368     03E1  120A  118A  240D  120A  118A  	fcall	_Lcd_Command
   1369     03E6                     l849:
   1370                           
-  1371                           ;../../pic16flcd.c: 125:     Lcd_Command(config, 0x28);
+  1371                           ;../../pic16flcd.c: 124:     Lcd_Command(config, 0x28);
   1372     03E6  3028               	movlw	40
   1373     03E7  00F9               	movwf	Lcd_Command@cmd
   1374     03E8  1283               	bcf	3,5	;RP0=0, select bank0
@@ -1393,7 +1393,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1377     03EB  120A  118A  240D  120A  118A  	fcall	_Lcd_Command
   1378     03F0                     l851:
   1379                           
-  1380                           ;../../pic16flcd.c: 126:     Lcd_Command(config, 0x0C);
+  1380                           ;../../pic16flcd.c: 125:     Lcd_Command(config, 0x0C);
   1381     03F0  300C               	movlw	12
   1382     03F1  00F9               	movwf	Lcd_Command@cmd
   1383     03F2  1283               	bcf	3,5	;RP0=0, select bank0
@@ -1402,7 +1402,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1386     03F5  120A  118A  240D  120A  118A  	fcall	_Lcd_Command
   1387     03FA                     l853:
   1388                           
-  1389                           ;../../pic16flcd.c: 127:     Lcd_Command(config, 0x06);
+  1389                           ;../../pic16flcd.c: 126:     Lcd_Command(config, 0x06);
   1390     03FA  3006               	movlw	6
   1391     03FB  00F9               	movwf	Lcd_Command@cmd
   1392     03FC  1283               	bcf	3,5	;RP0=0, select bank0
@@ -1411,7 +1411,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1395     03FF  120A  118A  240D  120A  118A  	fcall	_Lcd_Command
   1396     0404                     l855:
   1397                           
-  1398                           ;../../pic16flcd.c: 128:     Lcd_Clear(config);
+  1398                           ;../../pic16flcd.c: 127:     Lcd_Clear(config);
   1399     0404  1283               	bcf	3,5	;RP0=0, select bank0
   1400     0405  1303               	bcf	3,6	;RP1=0, select bank0
   1401     0406  083C               	movf	Lcd_Init@config,w
@@ -1424,7 +1424,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1408     028D                     __ptext5:	
   1409 ;; *************** function _Lcd_Clear *****************
   1410 ;; Defined at:
-  1411 ;;		line 136 in file "../../pic16flcd.c"
+  1411 ;;		line 135 in file "../../pic16flcd.c"
   1412 ;; Parameters:    Size  Location     Type
   1413 ;;  config          1    wreg     PTR struct .
   1414 ;;		 -> main@lcd(8), 
@@ -1465,14 +1465,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1449     028D  00FD               	movwf	Lcd_Clear@config
   1450     028E                     l831:
   1451                           
-  1452                           ;../../pic16flcd.c: 137:     Lcd_Command(config, 0x01);
+  1452                           ;../../pic16flcd.c: 136:     Lcd_Command(config, 0x01);
   1453     028E  01F9               	clrf	Lcd_Command@cmd
   1454     028F  0AF9               	incf	Lcd_Command@cmd,f
   1455     0290  087D               	movf	Lcd_Clear@config,w
   1456     0291  120A  118A  240D  120A  118A  	fcall	_Lcd_Command
   1457     0296                     l833:
   1458                           
-  1459                           ;../../pic16flcd.c: 138:     _delay((unsigned long)((2)*(4000000/4000.0)));
+  1459                           ;../../pic16flcd.c: 137:     _delay((unsigned long)((2)*(4000000/4000.0)));
   1460     0296  3003               	movlw	3
   1461     0297  1283               	bcf	3,5	;RP0=0, select bank0
   1462     0298  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1492,7 +1492,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1476     0366                     __ptext6:	
   1477 ;; *************** function _Lcd_CreateCustomChar *****************
   1478 ;; Defined at:
-  1479 ;;		line 181 in file "../../pic16flcd.c"
+  1479 ;;		line 180 in file "../../pic16flcd.c"
   1480 ;; Parameters:    Size  Location     Type
   1481 ;;  config          1    wreg     PTR struct .
   1482 ;;		 -> main@lcd(8), 
@@ -1539,7 +1539,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1523     0368  00BA               	movwf	Lcd_CreateCustomChar@config
   1524     0369                     l885:
   1525                           
-  1526                           ;../../pic16flcd.c: 182:     unsigned char i;;../../pic16flcd.c: 183:     if(location < 
+  1526                           ;../../pic16flcd.c: 181:     unsigned char i;;../../pic16flcd.c: 182:     if(location < 
       +                          8) {
   1527     0369  3008               	movlw	8
   1528     036A  0238               	subwf	Lcd_CreateCustomChar@location,w
@@ -1551,7 +1551,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1534     036F                     u1080:
   1535     036F                     l887:
   1536                           
-  1537                           ;../../pic16flcd.c: 185:         Lcd_Command(config, 0x40 + (location * 8));
+  1537                           ;../../pic16flcd.c: 184:         Lcd_Command(config, 0x40 + (location * 8));
   1538     036F  0838               	movf	Lcd_CreateCustomChar@location,w
   1539     0370  00FD               	movwf	??_Lcd_CreateCustomChar
   1540     0371  3002               	movlw	2
@@ -1569,13 +1569,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1552     037C  120A  118A  240D  120A  118A  	fcall	_Lcd_Command
   1553     0381                     l889:
   1554                           
-  1555                           ;../../pic16flcd.c: 186:         for(i = 0; i < 8; i++) {
+  1555                           ;../../pic16flcd.c: 185:         for(i = 0; i < 8; i++) {
   1556     0381  1283               	bcf	3,5	;RP0=0, select bank0
   1557     0382  1303               	bcf	3,6	;RP1=0, select bank0
   1558     0383  01BB               	clrf	Lcd_CreateCustomChar@i
   1559     0384                     l895:
   1560                           
-  1561                           ;../../pic16flcd.c: 187:             Lcd_WriteChar(config, charmap[i]);
+  1561                           ;../../pic16flcd.c: 186:             Lcd_WriteChar(config, charmap[i]);
   1562     0384  083B               	movf	Lcd_CreateCustomChar@i,w
   1563     0385  0739               	addwf	Lcd_CreateCustomChar@charmap,w
   1564     0386  00FD               	movwf	??_Lcd_CreateCustomChar
@@ -1588,7 +1588,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1571     038D  120A  118A  2537  120A  118A  	fcall	_Lcd_WriteChar
   1572     0392                     l897:
   1573                           
-  1574                           ;../../pic16flcd.c: 188:         }
+  1574                           ;../../pic16flcd.c: 187:         }
   1575     0392  3001               	movlw	1
   1576     0393  00FD               	movwf	??_Lcd_CreateCustomChar
   1577     0394  087D               	movf	??_Lcd_CreateCustomChar,w
@@ -1612,7 +1612,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1595     0537                     __ptext7:	
   1596 ;; *************** function _Lcd_WriteChar *****************
   1597 ;; Defined at:
-  1598 ;;		line 78 in file "../../pic16flcd.c"
+  1598 ;;		line 77 in file "../../pic16flcd.c"
   1599 ;; Parameters:    Size  Location     Type
   1600 ;;  config          1    wreg     PTR struct .
   1601 ;;		 -> main@lcd(8), 
@@ -1657,7 +1657,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1640     0537  00FC               	movwf	Lcd_WriteChar@config
   1641     0538                     l835:
   1642                           
-  1643                           ;../../pic16flcd.c: 80:     SetBit(config->port, config->d4_pin, (data >> 4) & 0x01);
+  1643                           ;../../pic16flcd.c: 79:     SetBit(config->port, config->d4_pin, (data >> 4) & 0x01);
   1644     0538  087C               	movf	Lcd_WriteChar@config,w
   1645     0539  0084               	movwf	4
   1646     053A  1383               	bcf	3,7	;select IRP bank0
@@ -1693,7 +1693,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1676     0554  00F3               	movwf	SetBit@value
   1677     0555  120A  118A  2306  120A  118A  	fcall	_SetBit
   1678                           
-  1679                           ;../../pic16flcd.c: 81:     SetBit(config->port, config->d5_pin, (data >> 5) & 0x01);
+  1679                           ;../../pic16flcd.c: 80:     SetBit(config->port, config->d5_pin, (data >> 5) & 0x01);
   1680     055A  087C               	movf	Lcd_WriteChar@config,w
   1681     055B  0084               	movwf	4
   1682     055C  1383               	bcf	3,7	;select IRP bank0
@@ -1729,7 +1729,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1712     0576  00F3               	movwf	SetBit@value
   1713     0577  120A  118A  2306  120A  118A  	fcall	_SetBit
   1714                           
-  1715                           ;../../pic16flcd.c: 82:     SetBit(config->port, config->d6_pin, (data >> 6) & 0x01);
+  1715                           ;../../pic16flcd.c: 81:     SetBit(config->port, config->d6_pin, (data >> 6) & 0x01);
   1716     057C  087C               	movf	Lcd_WriteChar@config,w
   1717     057D  0084               	movwf	4
   1718     057E  1383               	bcf	3,7	;select IRP bank0
@@ -1765,7 +1765,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1748     0598  00F3               	movwf	SetBit@value
   1749     0599  120A  118A  2306  120A  118A  	fcall	_SetBit
   1750                           
-  1751                           ;../../pic16flcd.c: 83:     SetBit(config->port, config->d7_pin, (data >> 7) & 0x01);
+  1751                           ;../../pic16flcd.c: 82:     SetBit(config->port, config->d7_pin, (data >> 7) & 0x01);
   1752     059E  087C               	movf	Lcd_WriteChar@config,w
   1753     059F  0084               	movwf	4
   1754     05A0  1383               	bcf	3,7	;select IRP bank0
@@ -1801,7 +1801,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1784     05BA  00F3               	movwf	SetBit@value
   1785     05BB  120A  118A  2306  120A  118A  	fcall	_SetBit
   1786                           
-  1787                           ;../../pic16flcd.c: 85:     SetBit(config->port, config->rs_pin, 1);
+  1787                           ;../../pic16flcd.c: 84:     SetBit(config->port, config->rs_pin, 1);
   1788     05C0  087C               	movf	Lcd_WriteChar@config,w
   1789     05C1  0084               	movwf	4
   1790     05C2  1383               	bcf	3,7	;select IRP bank0
@@ -1820,11 +1820,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1803     05CF  0AF3               	incf	SetBit@value,f
   1804     05D0  120A  118A  2306  120A  118A  	fcall	_SetBit
   1805                           
-  1806                           ;../../pic16flcd.c: 86:     PulseEnable(config);
+  1806                           ;../../pic16flcd.c: 85:     PulseEnable(config);
   1807     05D5  087C               	movf	Lcd_WriteChar@config,w
   1808     05D6  120A  118A  2332  120A  118A  	fcall	_PulseEnable
   1809                           
-  1810                           ;../../pic16flcd.c: 89:     SetBit(config->port, config->d4_pin, data & 0x01);
+  1810                           ;../../pic16flcd.c: 88:     SetBit(config->port, config->d4_pin, data & 0x01);
   1811     05DB  087C               	movf	Lcd_WriteChar@config,w
   1812     05DC  0084               	movwf	4
   1813     05DD  1383               	bcf	3,7	;select IRP bank0
@@ -1851,7 +1851,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1834     05EF  00F3               	movwf	SetBit@value
   1835     05F0  120A  118A  2306  120A  118A  	fcall	_SetBit
   1836                           
-  1837                           ;../../pic16flcd.c: 90:     SetBit(config->port, config->d5_pin, (data >> 1) & 0x01);
+  1837                           ;../../pic16flcd.c: 89:     SetBit(config->port, config->d5_pin, (data >> 1) & 0x01);
   1838     05F5  087C               	movf	Lcd_WriteChar@config,w
   1839     05F6  0084               	movwf	4
   1840     05F7  1383               	bcf	3,7	;select IRP bank0
@@ -1887,7 +1887,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1870     0611  00F3               	movwf	SetBit@value
   1871     0612  120A  118A  2306  120A  118A  	fcall	_SetBit
   1872                           
-  1873                           ;../../pic16flcd.c: 91:     SetBit(config->port, config->d6_pin, (data >> 2) & 0x01);
+  1873                           ;../../pic16flcd.c: 90:     SetBit(config->port, config->d6_pin, (data >> 2) & 0x01);
   1874     0617  087C               	movf	Lcd_WriteChar@config,w
   1875     0618  0084               	movwf	4
   1876     0619  1383               	bcf	3,7	;select IRP bank0
@@ -1923,7 +1923,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1906     0633  00F3               	movwf	SetBit@value
   1907     0634  120A  118A  2306  120A  118A  	fcall	_SetBit
   1908                           
-  1909                           ;../../pic16flcd.c: 92:     SetBit(config->port, config->d7_pin, (data >> 3) & 0x01);
+  1909                           ;../../pic16flcd.c: 91:     SetBit(config->port, config->d7_pin, (data >> 3) & 0x01);
   1910     0639  087C               	movf	Lcd_WriteChar@config,w
   1911     063A  0084               	movwf	4
   1912     063B  1383               	bcf	3,7	;select IRP bank0
@@ -1959,7 +1959,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1942     0655  00F3               	movwf	SetBit@value
   1943     0656  120A  118A  2306  120A  118A  	fcall	_SetBit
   1944                           
-  1945                           ;../../pic16flcd.c: 94:     PulseEnable(config);
+  1945                           ;../../pic16flcd.c: 93:     PulseEnable(config);
   1946     065B  087C               	movf	Lcd_WriteChar@config,w
   1947     065C  120A  118A  2332  120A  118A  	fcall	_PulseEnable
   1948     0661                     l58:
@@ -1970,7 +1970,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1953     040D                     __ptext8:	
   1954 ;; *************** function _Lcd_Command *****************
   1955 ;; Defined at:
-  1956 ;;		line 52 in file "../../pic16flcd.c"
+  1956 ;;		line 51 in file "../../pic16flcd.c"
   1957 ;; Parameters:    Size  Location     Type
   1958 ;;  config          1    wreg     PTR struct .
   1959 ;;		 -> main@lcd(8), 
@@ -2015,7 +2015,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1998     040D  00FC               	movwf	Lcd_Command@config
   1999     040E                     l829:
   2000                           
-  2001                           ;../../pic16flcd.c: 54:     SetBit(config->port, config->d4_pin, (cmd >> 4) & 0x01);
+  2001                           ;../../pic16flcd.c: 53:     SetBit(config->port, config->d4_pin, (cmd >> 4) & 0x01);
   2002     040E  087C               	movf	Lcd_Command@config,w
   2003     040F  0084               	movwf	4
   2004     0410  1383               	bcf	3,7	;select IRP bank0
@@ -2051,7 +2051,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2034     042A  00F3               	movwf	SetBit@value
   2035     042B  120A  118A  2306  120A  118A  	fcall	_SetBit
   2036                           
-  2037                           ;../../pic16flcd.c: 55:     SetBit(config->port, config->d5_pin, (cmd >> 5) & 0x01);
+  2037                           ;../../pic16flcd.c: 54:     SetBit(config->port, config->d5_pin, (cmd >> 5) & 0x01);
   2038     0430  087C               	movf	Lcd_Command@config,w
   2039     0431  0084               	movwf	4
   2040     0432  1383               	bcf	3,7	;select IRP bank0
@@ -2087,7 +2087,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2070     044C  00F3               	movwf	SetBit@value
   2071     044D  120A  118A  2306  120A  118A  	fcall	_SetBit
   2072                           
-  2073                           ;../../pic16flcd.c: 56:     SetBit(config->port, config->d6_pin, (cmd >> 6) & 0x01);
+  2073                           ;../../pic16flcd.c: 55:     SetBit(config->port, config->d6_pin, (cmd >> 6) & 0x01);
   2074     0452  087C               	movf	Lcd_Command@config,w
   2075     0453  0084               	movwf	4
   2076     0454  1383               	bcf	3,7	;select IRP bank0
@@ -2123,7 +2123,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2106     046E  00F3               	movwf	SetBit@value
   2107     046F  120A  118A  2306  120A  118A  	fcall	_SetBit
   2108                           
-  2109                           ;../../pic16flcd.c: 57:     SetBit(config->port, config->d7_pin, (cmd >> 7) & 0x01);
+  2109                           ;../../pic16flcd.c: 56:     SetBit(config->port, config->d7_pin, (cmd >> 7) & 0x01);
   2110     0474  087C               	movf	Lcd_Command@config,w
   2111     0475  0084               	movwf	4
   2112     0476  1383               	bcf	3,7	;select IRP bank0
@@ -2159,7 +2159,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2142     0490  00F3               	movwf	SetBit@value
   2143     0491  120A  118A  2306  120A  118A  	fcall	_SetBit
   2144                           
-  2145                           ;../../pic16flcd.c: 59:     SetBit(config->port, config->rs_pin, 0);
+  2145                           ;../../pic16flcd.c: 58:     SetBit(config->port, config->rs_pin, 0);
   2146     0496  087C               	movf	Lcd_Command@config,w
   2147     0497  0084               	movwf	4
   2148     0498  1383               	bcf	3,7	;select IRP bank0
@@ -2177,11 +2177,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2160     04A4  01F3               	clrf	SetBit@value
   2161     04A5  120A  118A  2306  120A  118A  	fcall	_SetBit
   2162                           
-  2163                           ;../../pic16flcd.c: 60:     PulseEnable(config);
+  2163                           ;../../pic16flcd.c: 59:     PulseEnable(config);
   2164     04AA  087C               	movf	Lcd_Command@config,w
   2165     04AB  120A  118A  2332  120A  118A  	fcall	_PulseEnable
   2166                           
-  2167                           ;../../pic16flcd.c: 63:     SetBit(config->port, config->d4_pin, cmd & 0x01);
+  2167                           ;../../pic16flcd.c: 62:     SetBit(config->port, config->d4_pin, cmd & 0x01);
   2168     04B0  087C               	movf	Lcd_Command@config,w
   2169     04B1  0084               	movwf	4
   2170     04B2  1383               	bcf	3,7	;select IRP bank0
@@ -2208,7 +2208,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2191     04C4  00F3               	movwf	SetBit@value
   2192     04C5  120A  118A  2306  120A  118A  	fcall	_SetBit
   2193                           
-  2194                           ;../../pic16flcd.c: 64:     SetBit(config->port, config->d5_pin, (cmd >> 1) & 0x01);
+  2194                           ;../../pic16flcd.c: 63:     SetBit(config->port, config->d5_pin, (cmd >> 1) & 0x01);
   2195     04CA  087C               	movf	Lcd_Command@config,w
   2196     04CB  0084               	movwf	4
   2197     04CC  1383               	bcf	3,7	;select IRP bank0
@@ -2244,7 +2244,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2227     04E6  00F3               	movwf	SetBit@value
   2228     04E7  120A  118A  2306  120A  118A  	fcall	_SetBit
   2229                           
-  2230                           ;../../pic16flcd.c: 65:     SetBit(config->port, config->d6_pin, (cmd >> 2) & 0x01);
+  2230                           ;../../pic16flcd.c: 64:     SetBit(config->port, config->d6_pin, (cmd >> 2) & 0x01);
   2231     04EC  087C               	movf	Lcd_Command@config,w
   2232     04ED  0084               	movwf	4
   2233     04EE  1383               	bcf	3,7	;select IRP bank0
@@ -2280,7 +2280,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2263     0508  00F3               	movwf	SetBit@value
   2264     0509  120A  118A  2306  120A  118A  	fcall	_SetBit
   2265                           
-  2266                           ;../../pic16flcd.c: 66:     SetBit(config->port, config->d7_pin, (cmd >> 3) & 0x01);
+  2266                           ;../../pic16flcd.c: 65:     SetBit(config->port, config->d7_pin, (cmd >> 3) & 0x01);
   2267     050E  087C               	movf	Lcd_Command@config,w
   2268     050F  0084               	movwf	4
   2269     0510  1383               	bcf	3,7	;select IRP bank0
@@ -2316,7 +2316,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2299     052A  00F3               	movwf	SetBit@value
   2300     052B  120A  118A  2306  120A  118A  	fcall	_SetBit
   2301                           
-  2302                           ;../../pic16flcd.c: 68:     PulseEnable(config);
+  2302                           ;../../pic16flcd.c: 67:     PulseEnable(config);
   2303     0530  087C               	movf	Lcd_Command@config,w
   2304     0531  120A  118A  2332  120A  118A  	fcall	_PulseEnable
   2305     0536                     l55:
@@ -2327,7 +2327,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2310     0332                     __ptext9:	
   2311 ;; *************** function _PulseEnable *****************
   2312 ;; Defined at:
-  2313 ;;		line 38 in file "../../pic16flcd.c"
+  2313 ;;		line 37 in file "../../pic16flcd.c"
   2314 ;; Parameters:    Size  Location     Type
   2315 ;;  config          1    wreg     PTR struct .
   2316 ;;		 -> main@lcd(8), 
@@ -2368,7 +2368,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2351     0332  00F8               	movwf	PulseEnable@config
   2352     0333                     l823:
   2353                           
-  2354                           ;../../pic16flcd.c: 39:     SetBit(config->port, config->en_pin, 1);
+  2354                           ;../../pic16flcd.c: 38:     SetBit(config->port, config->en_pin, 1);
   2355     0333  0878               	movf	PulseEnable@config,w
   2356     0334  0084               	movwf	4
   2357     0335  1383               	bcf	3,7	;select IRP bank0
@@ -2388,7 +2388,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2371     0343  120A  118A  2306  120A  118A  	fcall	_SetBit
   2372     0348                     l825:
   2373                           
-  2374                           ;../../pic16flcd.c: 40:     _delay((unsigned long)((2)*(4000000/4000.0)));
+  2374                           ;../../pic16flcd.c: 39:     _delay((unsigned long)((2)*(4000000/4000.0)));
   2375     0348  3003               	movlw	3
   2376     0349  00F7               	movwf	??_PulseEnable+1
   2377     034A  3097               	movlw	151
@@ -2401,7 +2401,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2384     0350  2B51               	nop2
   2385     0351                     l827:
   2386                           
-  2387                           ;../../pic16flcd.c: 41:     SetBit(config->port, config->en_pin, 0);
+  2387                           ;../../pic16flcd.c: 40:     SetBit(config->port, config->en_pin, 0);
   2388     0351  0878               	movf	PulseEnable@config,w
   2389     0352  0084               	movwf	4
   2390     0353  1383               	bcf	3,7	;select IRP bank0
@@ -2426,7 +2426,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2409     0306                     __ptext10:	
   2410 ;; *************** function _SetBit *****************
   2411 ;; Defined at:
-  2412 ;;		line 24 in file "../../pic16flcd.c"
+  2412 ;;		line 23 in file "../../pic16flcd.c"
   2413 ;; Parameters:    Size  Location     Type
   2414 ;;  port            2    0[COMMON] PTR volatile unsigned ch
   2415 ;;		 -> PORTC(1), 
@@ -2466,7 +2466,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2449                           ; Regs used in _SetBit: [wreg-fsr0h+status,2+status,0]
   2450                           
   2451                           
-  2452                           ;../../pic16flcd.c: 25:     if (value) {
+  2452                           ;../../pic16flcd.c: 24:     if (value) {
   2453     0306  0873               	movf	SetBit@value,w
   2454     0307  1903               	btfsc	3,2
   2455     0308  2B0A               	goto	u581
@@ -2476,7 +2476,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2459     030B                     u580:
   2460     030B                     l819:
   2461                           
-  2462                           ;../../pic16flcd.c: 26:         *port |= (1 << pin);
+  2462                           ;../../pic16flcd.c: 25:         *port |= (1 << pin);
   2463     030B  3001               	movlw	1
   2464     030C  00F4               	movwf	??_SetBit
   2465     030D  0A72               	incf	SetBit@pin,w
@@ -2498,11 +2498,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2481     031B  0875               	movf	??_SetBit+1,w
   2482     031C  0480               	iorwf	0,f
   2483                           
-  2484                           ;../../pic16flcd.c: 27:     } else {
+  2484                           ;../../pic16flcd.c: 26:     } else {
   2485     031D  2B31               	goto	l49
   2486     031E                     l821:
   2487                           
-  2488                           ;../../pic16flcd.c: 28:         *port &= ~(1 << pin);
+  2488                           ;../../pic16flcd.c: 27:         *port &= ~(1 << pin);
   2489     031E  3001               	movlw	1
   2490     031F  00F4               	movwf	??_SetBit
   2491     0320  0A72               	incf	SetBit@pin,w
@@ -2797,7 +2797,7 @@ EEDATA             100      0       0       0        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Mon Jan  1 19:26:46 2024
+Symbol Table                                                                                   Mon Jan  8 06:23:36 2024
 
                            pc 0002                            l52 0365                            l70 02A0  
                           l55 0536                            l64 02DD                            l49 0331  

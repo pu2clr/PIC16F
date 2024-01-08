@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=PIC16F88F_4_wires_cooler.X
+PROJECTNAME=PIC16F887_02_4_wires_cooler.X
 
 # Active Configuration
 DEFAULTCONF=default

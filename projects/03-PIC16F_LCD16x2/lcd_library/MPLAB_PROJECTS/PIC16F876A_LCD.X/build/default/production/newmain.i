@@ -1739,7 +1739,7 @@ extern __bank0 __bit __timeout;
 # 29 "/Applications/microchip/xc8/v2.45/pic/include/xc.h" 2 3
 # 2 "newmain.c" 2
 # 1 "./../../pic16flcd.h" 1
-# 18 "./../../pic16flcd.h"
+# 22 "./../../pic16flcd.h"
 typedef struct {
     volatile unsigned char *port;
     unsigned char rs_pin;
