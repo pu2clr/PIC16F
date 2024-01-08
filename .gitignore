@@ -16,3 +16,12 @@
 *.rlf 
 *.sdb  
 *.sym 
+/projects/06-LED_RGB/MPLAB_EXAMPLES/pic16f628a_example.X/build/
+/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F628A_01_DC_MOTOR.X/build/
+/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F628A_01_DC_MOTOR.X/dist/
+/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_01_ADC_READER.X/dist/
+/projects/05-PWM-SPEED-COOLER/MPLABX_EXAMPLES/PIC16F887_01_ADC_READER.X/build/
+/projects/99-Servomotor/MPLAB_EXAMPLES/pic16f628a_example.X/dist/
+/projects/99-Servomotor/MPLAB_EXAMPLES/pic16f628a_example.X/build/
+/projects/99-Servomotor/MPLAB_EXAMPLES/pic16f887_example.X/dist/
+/projects/99-Servomotor/MPLAB_EXAMPLES/pic16f887_example.X/build/
