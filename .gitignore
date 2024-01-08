@@ -1,3 +1,17 @@
 *DS_Store
 /projects/02-Timer/MPLAB_EXAMPLES/example2.X/dist/
 /projects/02-Timer/MPLAB_EXAMPLES/example2.X/build/
+*.i
+*.p1
+*.d 
+*.hex
+*.elf
+*.o
+*.cmf
+*.hxl
+*.map 
+*.lst
+*.mum 
+*.rlf 
+*.sdb  
+*.sym 
