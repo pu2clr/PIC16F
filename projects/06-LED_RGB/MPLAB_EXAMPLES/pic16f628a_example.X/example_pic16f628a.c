@@ -26,15 +26,15 @@ void main()
     while (1)
     {
         // Approximate values for 1.5 ms (center position)
-        CCPR1L = (PR2 * 1.5 / 20) * 4;
+        CCPR1L = 6;
         __delay_ms(1000);
 
         // Approximate values for 1 ms (0 degrees)
-        CCPR1L = (PR2 * 1 / 20) * 4;
+        CCPR1L = 20;
         __delay_ms(1000);
 
         // Approximate values for 2 ms (180 degrees)
-        CCPR1L = (PR2 * 2 / 20) * 4;
+        CCPR1L = 30;
         __delay_ms(1000);
     }
 }
