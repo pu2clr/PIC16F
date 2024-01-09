@@ -7,11 +7,16 @@
  * 
  * @copyright Copyright (c) 2023
  * 
+ * ATTENTION: The primary purpose of this library is to provide flexible use of the 16x2 LCD across various microcontrollers 
+ *            in the PIC16F series without binding the connections to predetermined ports and pins. 
+ *            This allows users to select the port and pins as per their project's convenience. 
+ *            However, although the developer has endeavored to optimize the code, it is possible that this library may 
+ *            significantly increase the size of the final code (hex), potentially making it unsuitable for smaller 
+ *            microcontrollers.
  */
 
 #include "pic16flcd.h"
 #include <stdbool.h>
-
 
 /**
  * @brief Set or clear a specific bit within a port register of a microcontroller. 
@@ -48,14 +53,14 @@ static void PulseEnable(Lcd_PinConfig *config) {
  * @param config  a pointer to a structure that holds the configuration of the LCD pins (like RS, EN, D4 to D7).
  * @param cmd command byte to be sent to the LCD.
  */
-void Lcd_Command(Lcd_PinConfig *config, unsigned char cmd) {
+void Lcd_Command(Lcd_PinConfig *config, unsigned char cmd, unsigned char rs_action) {
     // Send upper nibble
     SetBit(config->port, config->d4_pin, (cmd >> 4) & 0x01);
     SetBit(config->port, config->d5_pin, (cmd >> 5) & 0x01);
     SetBit(config->port, config->d6_pin, (cmd >> 6) & 0x01);
     SetBit(config->port, config->d7_pin, (cmd >> 7) & 0x01);
 
-    SetBit(config->port, config->rs_pin, false); // Command mode
+    SetBit(config->port, config->rs_pin, rs_action); // Command mode
     PulseEnable(config);
 
     // Send lower nibble
@@ -74,23 +79,8 @@ void Lcd_Command(Lcd_PinConfig *config, unsigned char cmd) {
  * @param data character to be printed on LCD
  */
 
-void Lcd_WriteChar(Lcd_PinConfig *config, unsigned char data) {
-    // Send upper nibble
-    SetBit(config->port, config->d4_pin, (data >> 4) & 0x01);
-    SetBit(config->port, config->d5_pin, (data >> 5) & 0x01);
-    SetBit(config->port, config->d6_pin, (data >> 6) & 0x01);
-    SetBit(config->port, config->d7_pin, (data >> 7) & 0x01);
-
-    SetBit(config->port, config->rs_pin, true); // Data mode
-    PulseEnable(config);
-
-    // Send lower nibble
-    SetBit(config->port, config->d4_pin, data & 0x01);
-    SetBit(config->port, config->d5_pin, (data >> 1) & 0x01);
-    SetBit(config->port, config->d6_pin, (data >> 2) & 0x01);
-    SetBit(config->port, config->d7_pin, (data >> 3) & 0x01);
-
-    PulseEnable(config);
+void inline Lcd_WriteChar(Lcd_PinConfig *config, unsigned char data) {
+    Lcd_Command(config,data, true);
 }
 
 /**
@@ -114,16 +104,16 @@ void Lcd_Init(Lcd_PinConfig *config) {
 
     // Initialize LCD to 4-bit mode
     __delay_ms(15); // Wait for more than 15 ms after VCC rises to 4.5V
-    Lcd_Command(config, 0x03);
+    Lcd_Command(config, 0x03, false);
     __delay_ms(5);  // Wait for more than 4.1 ms
-    Lcd_Command(config, 0x03);
+    Lcd_Command(config, 0x03, false);
     __delay_us(100); // Wait for more than 100 µs
-    Lcd_Command(config, 0x03); // These commands are for initializing in 8-bit mode
-    Lcd_Command(config, 0x02); // Set to 4-bit mode
+    Lcd_Command(config, 0x03, false); // These commands are for initializing in 8-bit mode
+    Lcd_Command(config, 0x02, false); // Set to 4-bit mode
 
-    Lcd_Command(config, 0x28); // Function Set: 4-bit, 2 Line, 5x7 Dots
-    Lcd_Command(config, 0x0C); // Display on, Cursor off, Blink off
-    Lcd_Command(config, 0x06); // Entry mode set
+    Lcd_Command(config, 0x28, false); // Function Set: 4-bit, 2 Line, 5x7 Dots
+    Lcd_Command(config, 0x0C, false); // Display on, Cursor off, Blink off
+    Lcd_Command(config, 0x06, false); // Entry mode set
     Lcd_Clear(config);         // Clear display
 }
 
@@ -133,7 +123,7 @@ void Lcd_Init(Lcd_PinConfig *config) {
  * @param config a pointer to a structure that holds the configuration of the LCD pins (like RS, EN, D4 to D7).
  */
 void Lcd_Clear(Lcd_PinConfig *config) {
-    Lcd_Command(config, 0x01); // Clear display command
+    Lcd_Command(config, 0x01, false); // Clear display command
     __delay_ms(2);             // Wait for the command to process
 }
 
@@ -164,7 +154,7 @@ void Lcd_SetCursor(Lcd_PinConfig *config, unsigned char row, unsigned char colum
     address += (column - 1);
 
     // Send the command to set the cursor position (address)
-    Lcd_Command(config, address);
+    Lcd_Command(config, address, false);
 }
 
 
@@ -181,7 +171,7 @@ void Lcd_CreateCustomChar(Lcd_PinConfig *config, unsigned char location, unsigne
     unsigned char i;
     if(location < 8) {
         // Set CGRAM address for character location
-        Lcd_Command(config, 0x40 + (location * 8));
+        Lcd_Command(config, 0x40 + (location * 8), false);
         for(i = 0; i < 8; i++) {
             Lcd_WriteChar(config, charmap[i]); // Write each row of the character
         }

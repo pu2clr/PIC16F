@@ -1,6 +1,6 @@
 #include <xc.h>
 #include <stdio.h> // Necessário para sprintf
-#include "../../pic16flcd.h"
+#include "pic16flcd.h"
 
 // Configuration Bits
 #pragma config FOSC = INTRC_NOCLKOUT  // Internal Oscillator, no clock out
