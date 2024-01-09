@@ -31,7 +31,7 @@ idataBANK0 CODE 0 2A1 2A1 18 2 1
 strings STRING 0 3 3 12 2 1
 dataBANK0 BANK0 1 20 20 18 1 1
 config CONFIG 4 2007 2007 1 2 1
-$/tmp/xcHSDO07h/driver_tmp_12.o
+$/tmp/xcXpLMLcj/driver_tmp_12.o
 end_init CODE 0 0 0 3 2 1
 config CONFIG 4 2007 2007 1 2 1
 # %UNUSED Section
@@ -78,200 +78,200 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/PIC16F876A_LCD.X.production.o
-7EE cinit CODE >545:/tmp/xcHSDO07h/driver_tmp_1.s
-7EE cinit CODE >548:/tmp/xcHSDO07h/driver_tmp_1.s
-7EE cinit CODE >601:/tmp/xcHSDO07h/driver_tmp_1.s
-7EF cinit CODE >602:/tmp/xcHSDO07h/driver_tmp_1.s
-7F0 cinit CODE >603:/tmp/xcHSDO07h/driver_tmp_1.s
-7F1 cinit CODE >604:/tmp/xcHSDO07h/driver_tmp_1.s
-7F2 cinit CODE >605:/tmp/xcHSDO07h/driver_tmp_1.s
-7F3 cinit CODE >606:/tmp/xcHSDO07h/driver_tmp_1.s
-7F4 cinit CODE >607:/tmp/xcHSDO07h/driver_tmp_1.s
-7F5 cinit CODE >608:/tmp/xcHSDO07h/driver_tmp_1.s
-7F6 cinit CODE >609:/tmp/xcHSDO07h/driver_tmp_1.s
-7F7 cinit CODE >610:/tmp/xcHSDO07h/driver_tmp_1.s
-7FC cinit CODE >616:/tmp/xcHSDO07h/driver_tmp_1.s
-7FC cinit CODE >618:/tmp/xcHSDO07h/driver_tmp_1.s
-7FD cinit CODE >619:/tmp/xcHSDO07h/driver_tmp_1.s
-306 text10 CODE >23:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-306 text10 CODE >24:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-30B text10 CODE >25:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-30F text10 CODE >25:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-312 text10 CODE >25:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-31D text10 CODE >26:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-31E text10 CODE >27:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-322 text10 CODE >27:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-325 text10 CODE >27:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-331 text10 CODE >29:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-332 text9 CODE >37:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-333 text9 CODE >38:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-348 text9 CODE >39:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-351 text9 CODE >40:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-365 text9 CODE >41:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-40D text8 CODE >51:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-40E text8 CODE >53:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-41F text8 CODE >53:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-422 text8 CODE >53:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-430 text8 CODE >54:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-441 text8 CODE >54:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-444 text8 CODE >54:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-452 text8 CODE >55:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-463 text8 CODE >55:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-466 text8 CODE >55:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-474 text8 CODE >56:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-485 text8 CODE >56:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-488 text8 CODE >56:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-496 text8 CODE >58:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-4AA text8 CODE >59:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-4B0 text8 CODE >62:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-4CA text8 CODE >63:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-4DB text8 CODE >63:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-4DE text8 CODE >63:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-4EC text8 CODE >64:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-4FD text8 CODE >64:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-500 text8 CODE >64:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-50E text8 CODE >65:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-51F text8 CODE >65:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-522 text8 CODE >65:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-530 text8 CODE >67:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-536 text8 CODE >68:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-537 text7 CODE >77:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-538 text7 CODE >79:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-549 text7 CODE >79:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-54C text7 CODE >79:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-55A text7 CODE >80:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-56B text7 CODE >80:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-56E text7 CODE >80:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-57C text7 CODE >81:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-58D text7 CODE >81:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-590 text7 CODE >81:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-59E text7 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5AF text7 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5B2 text7 CODE >82:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5C0 text7 CODE >84:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5D5 text7 CODE >85:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5DB text7 CODE >88:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-5F5 text7 CODE >89:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-606 text7 CODE >89:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-609 text7 CODE >89:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-617 text7 CODE >90:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-628 text7 CODE >90:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-62B text7 CODE >90:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-639 text7 CODE >91:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-64A text7 CODE >91:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-64D text7 CODE >91:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-65B text7 CODE >93:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-661 text7 CODE >94:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-366 text6 CODE >180:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-369 text6 CODE >182:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-36B text6 CODE >182:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-36F text6 CODE >184:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-372 text6 CODE >184:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-375 text6 CODE >184:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-377 text6 CODE >184:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-381 text6 CODE >185:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-384 text6 CODE >186:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-392 text6 CODE >187:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-39A text6 CODE >187:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-39E text6 CODE >189:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-28D text5 CODE >135:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-28E text5 CODE >136:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-296 text5 CODE >137:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2A0 text5 CODE >138:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-39F text4 CODE >110:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-3A2 text4 CODE >116:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-3AC text4 CODE >117:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-3B6 text4 CODE >118:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-3C1 text4 CODE >119:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-3CB text4 CODE >120:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-3D2 text4 CODE >121:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-3DC text4 CODE >122:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-3E6 text4 CODE >124:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-3F0 text4 CODE >125:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-3FA text4 CODE >126:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-404 text4 CODE >127:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-40C text4 CODE >128:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2DE text3 CODE >148:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2E1 text3 CODE >152:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2E2 text3 CODE >154:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2E4 text3 CODE >155:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2E5 text3 CODE >157:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2E7 text3 CODE >158:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2E8 text3 CODE >161:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2ED text3 CODE >161:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2F2 text3 CODE >161:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2F5 text3 CODE >161:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2F8 text3 CODE >164:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2FD text3 CODE >167:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-305 text3 CODE >168:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-26E text2 CODE >198:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-271 text2 CODE >199:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-279 text2 CODE >200:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2B9 text1 CODE >102:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2BC text1 CODE >103:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2BD text1 CODE >104:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2CB text1 CODE >105:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2D1 text1 CODE >103:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2D9 text1 CODE >103:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-2DD text1 CODE >107:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
-662 maintext CODE >45:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-662 maintext CODE >51:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-665 maintext CODE >52:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-67C maintext CODE >63:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-682 maintext CODE >64:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-688 maintext CODE >67:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-694 maintext CODE >68:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-69C maintext CODE >69:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-6A8 maintext CODE >70:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-6B0 maintext CODE >71:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-6BE maintext CODE >73:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-6C4 maintext CODE >75:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-6CF maintext CODE >76:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-6DB maintext CODE >78:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-6E7 maintext CODE >79:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-6EE maintext CODE >80:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-6FC maintext CODE >83:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-702 maintext CODE >84:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-706 maintext CODE >85:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-710 maintext CODE >86:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-71B maintext CODE >87:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-72A maintext CODE >88:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-732 maintext CODE >88:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-736 maintext CODE >89:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-745 maintext CODE >91:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-749 maintext CODE >92:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-753 maintext CODE >93:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-75E maintext CODE >94:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-76D maintext CODE >95:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-775 maintext CODE >95:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-779 maintext CODE >96:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-788 maintext CODE >97:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-78C maintext CODE >98:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-796 maintext CODE >99:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-79D maintext CODE >100:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-7AC maintext CODE >101:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-7B8 maintext CODE >102:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-7C0 maintext CODE >103:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-7CF maintext CODE >104:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-7D7 maintext CODE >104:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-7DB maintext CODE >105:/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
-27A inittext CODE >575:/tmp/xcHSDO07h/driver_tmp_1.s
-27A inittext CODE >576:/tmp/xcHSDO07h/driver_tmp_1.s
-27B inittext CODE >577:/tmp/xcHSDO07h/driver_tmp_1.s
-27C inittext CODE >578:/tmp/xcHSDO07h/driver_tmp_1.s
-27D inittext CODE >579:/tmp/xcHSDO07h/driver_tmp_1.s
-27E inittext CODE >586:/tmp/xcHSDO07h/driver_tmp_1.s
-27E inittext CODE >587:/tmp/xcHSDO07h/driver_tmp_1.s
-283 inittext CODE >588:/tmp/xcHSDO07h/driver_tmp_1.s
-284 inittext CODE >589:/tmp/xcHSDO07h/driver_tmp_1.s
-285 inittext CODE >590:/tmp/xcHSDO07h/driver_tmp_1.s
-286 inittext CODE >591:/tmp/xcHSDO07h/driver_tmp_1.s
-287 inittext CODE >592:/tmp/xcHSDO07h/driver_tmp_1.s
-288 inittext CODE >593:/tmp/xcHSDO07h/driver_tmp_1.s
-289 inittext CODE >594:/tmp/xcHSDO07h/driver_tmp_1.s
-28A inittext CODE >595:/tmp/xcHSDO07h/driver_tmp_1.s
-28B inittext CODE >596:/tmp/xcHSDO07h/driver_tmp_1.s
-28C inittext CODE >597:/tmp/xcHSDO07h/driver_tmp_1.s
+7EE cinit CODE >545:/tmp/xcXpLMLcj/driver_tmp_1.s
+7EE cinit CODE >548:/tmp/xcXpLMLcj/driver_tmp_1.s
+7EE cinit CODE >601:/tmp/xcXpLMLcj/driver_tmp_1.s
+7EF cinit CODE >602:/tmp/xcXpLMLcj/driver_tmp_1.s
+7F0 cinit CODE >603:/tmp/xcXpLMLcj/driver_tmp_1.s
+7F1 cinit CODE >604:/tmp/xcXpLMLcj/driver_tmp_1.s
+7F2 cinit CODE >605:/tmp/xcXpLMLcj/driver_tmp_1.s
+7F3 cinit CODE >606:/tmp/xcXpLMLcj/driver_tmp_1.s
+7F4 cinit CODE >607:/tmp/xcXpLMLcj/driver_tmp_1.s
+7F5 cinit CODE >608:/tmp/xcXpLMLcj/driver_tmp_1.s
+7F6 cinit CODE >609:/tmp/xcXpLMLcj/driver_tmp_1.s
+7F7 cinit CODE >610:/tmp/xcXpLMLcj/driver_tmp_1.s
+7FC cinit CODE >616:/tmp/xcXpLMLcj/driver_tmp_1.s
+7FC cinit CODE >618:/tmp/xcXpLMLcj/driver_tmp_1.s
+7FD cinit CODE >619:/tmp/xcXpLMLcj/driver_tmp_1.s
+306 text10 CODE >23:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+306 text10 CODE >24:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+30B text10 CODE >25:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+30F text10 CODE >25:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+312 text10 CODE >25:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+31D text10 CODE >26:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+31E text10 CODE >27:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+322 text10 CODE >27:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+325 text10 CODE >27:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+331 text10 CODE >29:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+332 text9 CODE >37:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+333 text9 CODE >38:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+348 text9 CODE >39:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+351 text9 CODE >40:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+365 text9 CODE >41:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+40D text8 CODE >51:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+40E text8 CODE >53:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+41F text8 CODE >53:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+422 text8 CODE >53:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+430 text8 CODE >54:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+441 text8 CODE >54:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+444 text8 CODE >54:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+452 text8 CODE >55:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+463 text8 CODE >55:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+466 text8 CODE >55:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+474 text8 CODE >56:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+485 text8 CODE >56:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+488 text8 CODE >56:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+496 text8 CODE >58:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+4AA text8 CODE >59:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+4B0 text8 CODE >62:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+4CA text8 CODE >63:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+4DB text8 CODE >63:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+4DE text8 CODE >63:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+4EC text8 CODE >64:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+4FD text8 CODE >64:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+500 text8 CODE >64:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+50E text8 CODE >65:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+51F text8 CODE >65:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+522 text8 CODE >65:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+530 text8 CODE >67:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+536 text8 CODE >68:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+537 text7 CODE >77:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+538 text7 CODE >79:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+549 text7 CODE >79:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+54C text7 CODE >79:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+55A text7 CODE >80:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+56B text7 CODE >80:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+56E text7 CODE >80:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+57C text7 CODE >81:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+58D text7 CODE >81:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+590 text7 CODE >81:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+59E text7 CODE >82:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+5AF text7 CODE >82:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+5B2 text7 CODE >82:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+5C0 text7 CODE >84:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+5D5 text7 CODE >85:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+5DB text7 CODE >88:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+5F5 text7 CODE >89:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+606 text7 CODE >89:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+609 text7 CODE >89:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+617 text7 CODE >90:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+628 text7 CODE >90:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+62B text7 CODE >90:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+639 text7 CODE >91:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+64A text7 CODE >91:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+64D text7 CODE >91:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+65B text7 CODE >93:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+661 text7 CODE >94:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+366 text6 CODE >180:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+369 text6 CODE >182:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+36B text6 CODE >182:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+36F text6 CODE >184:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+372 text6 CODE >184:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+375 text6 CODE >184:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+377 text6 CODE >184:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+381 text6 CODE >185:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+384 text6 CODE >186:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+392 text6 CODE >187:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+39A text6 CODE >187:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+39E text6 CODE >189:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+28D text5 CODE >135:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+28E text5 CODE >136:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+296 text5 CODE >137:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2A0 text5 CODE >138:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+39F text4 CODE >110:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+3A2 text4 CODE >116:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+3AC text4 CODE >117:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+3B6 text4 CODE >118:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+3C1 text4 CODE >119:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+3CB text4 CODE >120:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+3D2 text4 CODE >121:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+3DC text4 CODE >122:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+3E6 text4 CODE >124:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+3F0 text4 CODE >125:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+3FA text4 CODE >126:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+404 text4 CODE >127:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+40C text4 CODE >128:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2DE text3 CODE >148:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2E1 text3 CODE >152:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2E2 text3 CODE >154:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2E4 text3 CODE >155:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2E5 text3 CODE >157:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2E7 text3 CODE >158:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2E8 text3 CODE >161:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2ED text3 CODE >161:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2F2 text3 CODE >161:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2F5 text3 CODE >161:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2F8 text3 CODE >164:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2FD text3 CODE >167:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+305 text3 CODE >168:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+26E text2 CODE >198:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+271 text2 CODE >199:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+279 text2 CODE >200:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2B9 text1 CODE >102:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2BC text1 CODE >103:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2BD text1 CODE >104:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2CB text1 CODE >105:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2D1 text1 CODE >103:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2D9 text1 CODE >103:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+2DD text1 CODE >107:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/pic16flcd.c
+662 maintext CODE >45:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+662 maintext CODE >51:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+665 maintext CODE >52:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+67C maintext CODE >63:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+682 maintext CODE >64:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+688 maintext CODE >67:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+694 maintext CODE >68:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+69C maintext CODE >69:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+6A8 maintext CODE >70:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+6B0 maintext CODE >71:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+6BE maintext CODE >73:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+6C4 maintext CODE >75:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+6CF maintext CODE >76:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+6DB maintext CODE >78:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+6E7 maintext CODE >79:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+6EE maintext CODE >80:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+6FC maintext CODE >83:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+702 maintext CODE >84:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+706 maintext CODE >85:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+710 maintext CODE >86:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+71B maintext CODE >87:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+72A maintext CODE >88:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+732 maintext CODE >88:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+736 maintext CODE >89:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+745 maintext CODE >91:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+749 maintext CODE >92:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+753 maintext CODE >93:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+75E maintext CODE >94:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+76D maintext CODE >95:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+775 maintext CODE >95:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+779 maintext CODE >96:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+788 maintext CODE >97:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+78C maintext CODE >98:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+796 maintext CODE >99:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+79D maintext CODE >100:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+7AC maintext CODE >101:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+7B8 maintext CODE >102:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+7C0 maintext CODE >103:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+7CF maintext CODE >104:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+7D7 maintext CODE >104:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+7DB maintext CODE >105:/home/ricardo/projetos/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library/MPLAB_PROJECTS/PIC16F876A_LCD.X/newmain.c
+27A inittext CODE >575:/tmp/xcXpLMLcj/driver_tmp_1.s
+27A inittext CODE >576:/tmp/xcXpLMLcj/driver_tmp_1.s
+27B inittext CODE >577:/tmp/xcXpLMLcj/driver_tmp_1.s
+27C inittext CODE >578:/tmp/xcXpLMLcj/driver_tmp_1.s
+27D inittext CODE >579:/tmp/xcXpLMLcj/driver_tmp_1.s
+27E inittext CODE >586:/tmp/xcXpLMLcj/driver_tmp_1.s
+27E inittext CODE >587:/tmp/xcXpLMLcj/driver_tmp_1.s
+283 inittext CODE >588:/tmp/xcXpLMLcj/driver_tmp_1.s
+284 inittext CODE >589:/tmp/xcXpLMLcj/driver_tmp_1.s
+285 inittext CODE >590:/tmp/xcXpLMLcj/driver_tmp_1.s
+286 inittext CODE >591:/tmp/xcXpLMLcj/driver_tmp_1.s
+287 inittext CODE >592:/tmp/xcXpLMLcj/driver_tmp_1.s
+288 inittext CODE >593:/tmp/xcXpLMLcj/driver_tmp_1.s
+289 inittext CODE >594:/tmp/xcXpLMLcj/driver_tmp_1.s
+28A inittext CODE >595:/tmp/xcXpLMLcj/driver_tmp_1.s
+28B inittext CODE >596:/tmp/xcXpLMLcj/driver_tmp_1.s
+28C inittext CODE >597:/tmp/xcXpLMLcj/driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -300,23 +300,23 @@ __L__absolute__ 0 0 ABS 0 __absolute__ -
 __end_of_Lcd_Init 81A 0 CODE 0 text4 dist/default/production/PIC16F876A_LCD.X.production.o
 main@i 42 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F876A_LCD.X.production.o
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack /tmp/xcHSDO07h/driver_tmp_12.o
+___sp 0 0 STACK 2 stack /tmp/xcXpLMLcj/driver_tmp_12.o
 _main CC4 0 CODE 0 maintext dist/default/production/PIC16F876A_LCD.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production/PIC16F876A_LCD.X.production.o
-___stack_hi 0 0 STACK 2 stack /tmp/xcHSDO07h/driver_tmp_12.o
-___stack_lo 0 0 STACK 2 stack /tmp/xcHSDO07h/driver_tmp_12.o
-start 0 0 CODE 0 init /tmp/xcHSDO07h/driver_tmp_12.o
+___stack_hi 0 0 STACK 2 stack /tmp/xcXpLMLcj/driver_tmp_12.o
+___stack_lo 0 0 STACK 2 stack /tmp/xcXpLMLcj/driver_tmp_12.o
+start 0 0 CODE 0 init /tmp/xcXpLMLcj/driver_tmp_12.o
 SetBit@port 70 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F876A_LCD.X.production.o
 SetBit@value 73 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F876A_LCD.X.production.o
 __LidataBANK0 0 0 ABS 0 idataBANK0 -
 __Hpowerup 0 0 CODE 0 powerup -
 __end_of_SetBit 664 0 CODE 0 text10 dist/default/production/PIC16F876A_LCD.X.production.o
-intlevel0 0 0 ENTRY 0 functab /tmp/xcHSDO07h/driver_tmp_12.o
-intlevel1 0 0 ENTRY 0 functab /tmp/xcHSDO07h/driver_tmp_12.o
-intlevel2 0 0 ENTRY 0 functab /tmp/xcHSDO07h/driver_tmp_12.o
-intlevel3 0 0 ENTRY 0 functab /tmp/xcHSDO07h/driver_tmp_12.o
-intlevel4 0 0 ENTRY 0 functab /tmp/xcHSDO07h/driver_tmp_12.o
-intlevel5 0 0 ENTRY 0 functab /tmp/xcHSDO07h/driver_tmp_12.o
+intlevel0 0 0 ENTRY 0 functab /tmp/xcXpLMLcj/driver_tmp_12.o
+intlevel1 0 0 ENTRY 0 functab /tmp/xcXpLMLcj/driver_tmp_12.o
+intlevel2 0 0 ENTRY 0 functab /tmp/xcXpLMLcj/driver_tmp_12.o
+intlevel3 0 0 ENTRY 0 functab /tmp/xcXpLMLcj/driver_tmp_12.o
+intlevel4 0 0 ENTRY 0 functab /tmp/xcXpLMLcj/driver_tmp_12.o
+intlevel5 0 0 ENTRY 0 functab /tmp/xcXpLMLcj/driver_tmp_12.o
 wtemp0 7E 0 ABS 0 - dist/default/production/PIC16F876A_LCD.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 Lcd_SetCursor@row 38 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F876A_LCD.X.production.o
@@ -325,8 +325,8 @@ Lcd_CreateCustomChar@charmap 39 0 BANK0 1 cstackBANK0 dist/default/production/PI
 Lcd_Command@cmd 79 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F876A_LCD.X.production.o
 main@lcd 43 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F876A_LCD.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - /tmp/xcHSDO07h/driver_tmp_12.o
-___stacklo 0 0 ABS 0 - /tmp/xcHSDO07h/driver_tmp_12.o
+___stackhi 0 0 ABS 0 - /tmp/xcXpLMLcj/driver_tmp_12.o
+___stacklo 0 0 ABS 0 - /tmp/xcXpLMLcj/driver_tmp_12.o
 Lcd_Clear@config 7D 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F876A_LCD.X.production.o
 start_initialization FDC 0 CODE 0 cinit dist/default/production/PIC16F876A_LCD.X.production.o
 _PulseEnable 664 0 CODE 0 text9 dist/default/production/PIC16F876A_LCD.X.production.o
@@ -335,7 +335,7 @@ __pcstackBANK0 38 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F876A_LCD.X
 _SetBit 60C 0 CODE 0 text10 dist/default/production/PIC16F876A_LCD.X.production.o
 SetBit@pin 72 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F876A_LCD.X.production.o
 Lcd_WriteCustomChar@config 38 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F876A_LCD.X.production.o
-___int_sp 0 0 STACK 2 stack /tmp/xcHSDO07h/driver_tmp_12.o
+___int_sp 0 0 STACK 2 stack /tmp/xcXpLMLcj/driver_tmp_12.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -386,7 +386,7 @@ Lcd_WriteCustomChar@location 7D 0 COMMON 1 cstackCOMMON dist/default/production/
 __end_of_Lcd_Clear 542 0 CODE 0 text5 dist/default/production/PIC16F876A_LCD.X.production.o
 __Lintentry 0 0 CODE 0 intentry -
 __stringtab 6 0 STRING 0 strings dist/default/production/PIC16F876A_LCD.X.production.o
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcHSDO07h/driver_tmp_12.o
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcXpLMLcj/driver_tmp_12.o
 __pdataBANK0 20 0 BANK0 1 dataBANK0 dist/default/production/PIC16F876A_LCD.X.production.o
 _Lcd_WriteChar A6E 0 CODE 0 text7 dist/default/production/PIC16F876A_LCD.X.production.o
 __ptext10 60C 0 CODE 0 text10 dist/default/production/PIC16F876A_LCD.X.production.o
@@ -435,8 +435,8 @@ Lcd_WriteString@str 7D 0 COMMON 1 cstackCOMMON dist/default/production/PIC16F876
 __H__absolute__ 0 0 ABS 0 __absolute__ -
 __Lreset_vec 0 0 CODE 0 reset_vec -
 __end_of_Lcd_WriteString 5BC 0 CODE 0 text1 dist/default/production/PIC16F876A_LCD.X.production.o
-___heap_hi 0 0 ABS 0 - /tmp/xcHSDO07h/driver_tmp_12.o
-___heap_lo 0 0 ABS 0 - /tmp/xcHSDO07h/driver_tmp_12.o
+___heap_hi 0 0 ABS 0 - /tmp/xcXpLMLcj/driver_tmp_12.o
+___heap_lo 0 0 ABS 0 - /tmp/xcXpLMLcj/driver_tmp_12.o
 __end_of__initialization FF8 0 CODE 0 cinit dist/default/production/PIC16F876A_LCD.X.production.o
 Lcd_CreateCustomChar@i 3B 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F876A_LCD.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
@@ -457,8 +457,8 @@ _Lcd_WriteString 572 0 CODE 0 text1 dist/default/production/PIC16F876A_LCD.X.pro
 __HdataBANK0 0 0 ABS 0 dataBANK0 -
 __initialization FDC 0 CODE 0 cinit dist/default/production/PIC16F876A_LCD.X.production.o
 __pstrings 6 0 STRING 0 strings dist/default/production/PIC16F876A_LCD.X.production.o
-___int_stack_hi 0 0 STACK 2 stack /tmp/xcHSDO07h/driver_tmp_12.o
-___int_stack_lo 0 0 STACK 2 stack /tmp/xcHSDO07h/driver_tmp_12.o
+___int_stack_hi 0 0 STACK 2 stack /tmp/xcXpLMLcj/driver_tmp_12.o
+___int_stack_lo 0 0 STACK 2 stack /tmp/xcXpLMLcj/driver_tmp_12.o
 Lcd_WriteString@config 39 0 BANK0 1 cstackBANK0 dist/default/production/PIC16F876A_LCD.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
