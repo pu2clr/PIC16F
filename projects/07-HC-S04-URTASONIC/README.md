@@ -20,7 +20,7 @@ The HC-SR04 is valued for its ease of use, affordability, and integration with m
 
 ## Distance measurement example 
 
-The application below utilizes the HC-SR04 sensor to measure the distance of an object and adjusts the color of an RGB LED based on the object's proximity. When an object is less than 10 cm away, the LED turns red, signaling close proximity. For distances between 10 and 30 cm, the LED changes to blue, indicating a medium range. At distances greater than 30 cm, the LED turns green, denoting a more distant object. This setup allows for an intuitive and visual representation of object distance.
+This application below utilizes the HC-SR04 sensor to measure the distance of an object and adjusts the color of an RGB LED based on the object's proximity. When an object is less than 10 cm away, the LED turns red, signaling close proximity. For distances between 10 and 30 cm, the LED changes to blue, indicating a medium range. At distances greater than 30 cm, the LED turns green, denoting a more distant object. This setup allows for an intuitive and visual representation of object distance.
 
 
 ## Schematic 
