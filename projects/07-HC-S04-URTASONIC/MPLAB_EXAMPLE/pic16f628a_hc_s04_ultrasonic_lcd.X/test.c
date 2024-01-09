@@ -1,5 +1,6 @@
 /**
  * This example works with PIC16F628A
+ * UNDER CONSTRUCTION...
  */
 
 #include <xc.h>

@@ -42,6 +42,10 @@ This library can be freely distributed using the MIT Free Software model. By usi
 This LCD library offers a versatile and user-friendly way to incorporate text and custom character display functionalities into projects using 16x2 LCD screens and PIC microcontrollers. Whether for educational purposes, hobbyist projects, or professional applications, this library provides a solid foundation for developing LCD-based interfaces.
 
 
+## About the library developed here
+
+The primary purpose of this library is to provide flexible use of the 16x2 LCD across various microcontrollers in the PIC16F series without binding the connections to predetermined ports and pins. This allows users to select the port and pins as per their project's convenience. However, although the developer has endeavored to optimize the code, it is possible that this library may significantly increase the size of the final code (hex), potentially making it unsuitable for smaller microcontrollers.
+
 ## Function summary
 
 | Function Name | Description | 
