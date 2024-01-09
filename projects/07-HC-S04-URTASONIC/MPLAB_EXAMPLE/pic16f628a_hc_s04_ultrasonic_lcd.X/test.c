@@ -42,8 +42,8 @@ void main() {
     Lcd_Clear(&lcd); 
     Lcd_SetCursor(&lcd, 1, 1); // Display message (Line 1 and Column 1)
     Lcd_WriteString(&lcd, "PIC16F628A-HCS04");
-    Lcd_SetCursor(&lcd, 2, 1); // Display message (Line 2 and Column 2)
-    Lcd_WriteString(&lcd, "Distance: ");
+    //Lcd_SetCursor(&lcd, 2, 1); // Display message (Line 2 and Column 2)
+    // Lcd_WriteString(&lcd, "Distance: ");
     __delay_ms(10000); 
     while(1) {
         TMR1H = 0;  // sets the high byte of the Timer1 counter to 0
@@ -61,8 +61,8 @@ void main() {
         unsigned int distance = (float) duration *0.034/2;        
         
         // sprintf(strDistance,"%u3",distance);
-        // Lcd_SetCursor(&lcd, 2, 11);
-        // Lcd_WriteString(&lcd,strDistance);
+        Lcd_SetCursor(&lcd, 2, 11);
+        Lcd_WriteString(&lcd,strDistance);
         __delay_ms(100);
     }
 }

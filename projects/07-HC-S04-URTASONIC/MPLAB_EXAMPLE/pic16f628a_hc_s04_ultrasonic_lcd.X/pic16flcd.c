@@ -12,22 +12,6 @@
 #include "pic16flcd.h"
 #include <stdbool.h>
 
-
-/**
- * @brief Set or clear a specific bit within a port register of a microcontroller. 
- * 
- * @param port point to port
- * @param pin  pin 
- * @param value value to set to the pin
- */
-static void SetBit(volatile unsigned char *port, unsigned char pin, bool value) {
-    if (value) {
-        *port |= (1 << pin);
-    } else {
-        *port &= ~(1 << pin);
-    }
-}
-
 /**
  * @brief  sets the 'Enable' (EN) pin high. 
  * @details It does this by calling the SetBit function (or a similar bit manipulation function) and passing the 'Enable' pin along with a true value, which sets this pin to a high state.
@@ -35,9 +19,13 @@ static void SetBit(volatile unsigned char *port, unsigned char pin, bool value) 
  * @param config a pointer to a structure that holds the configuration of the LCD pins (like RS, EN, D4 to D7).
  */
 static void PulseEnable(Lcd_PinConfig *config) {
-    SetBit(config->port, config->en_pin, true);
+    unsigned char tmp = (unsigned char) 0x00001000;
+    unsigned char aux = *(config->port);
+    tmp = tmp | aux ;
+    *(config->port) = tmp;
     __delay_ms(2);
-    SetBit(config->port, config->en_pin, false);
+    tmp = 0x11110111 &  aux; 
+    *(config->port) = tmp; 
 }
 
 /**
@@ -50,19 +38,24 @@ static void PulseEnable(Lcd_PinConfig *config) {
  */
 void Lcd_Command(Lcd_PinConfig *config, unsigned char cmd) {
     // Send upper nibble
-    SetBit(config->port, config->d4_pin, (cmd >> 4) & 0x01);
-    SetBit(config->port, config->d5_pin, (cmd >> 5) & 0x01);
-    SetBit(config->port, config->d6_pin, (cmd >> 6) & 0x01);
-    SetBit(config->port, config->d7_pin, (cmd >> 7) & 0x01);
+    unsigned char tmp; 
+    unsigned char aux;
 
-    SetBit(config->port, config->rs_pin, false); // Command mode
+    tmp = ((cmd >> 4) & 0x01) | ((cmd >> 5) & 0x01) | ((cmd >> 6) & 0x01) | ((cmd >> 7) & 0x01);
+    aux =  *(config->port);        
+    aux =  aux & (unsigned char ) 0x00001111; 
+    aux = aux | tmp; 
+    aux = aux & (unsigned char ) 0x11111011; 
+    *(config->port) = aux;
+
     PulseEnable(config);
 
-    // Send lower nibble
-    SetBit(config->port, config->d4_pin, cmd & 0x01);
-    SetBit(config->port, config->d5_pin, (cmd >> 1) & 0x01);
-    SetBit(config->port, config->d6_pin, (cmd >> 2) & 0x01);
-    SetBit(config->port, config->d7_pin, (cmd >> 3) & 0x01);
+    tmp = (cmd & 0x01) | ((cmd >> 1) & 0x01) | ((cmd >> 2) & 0x01) | ((cmd >> 3) & 0x01);
+    aux = *(config->port);
+
+    aux =  aux & (unsigned char ) 0x00001111; 
+    aux = aux | tmp;
+    *(config->port) = aux;
 
     PulseEnable(config);
 }
@@ -75,22 +68,7 @@ void Lcd_Command(Lcd_PinConfig *config, unsigned char cmd) {
  */
 
 void Lcd_WriteChar(Lcd_PinConfig *config, unsigned char data) {
-    // Send upper nibble
-    SetBit(config->port, config->d4_pin, (data >> 4) & 0x01);
-    SetBit(config->port, config->d5_pin, (data >> 5) & 0x01);
-    SetBit(config->port, config->d6_pin, (data >> 6) & 0x01);
-    SetBit(config->port, config->d7_pin, (data >> 7) & 0x01);
-
-    SetBit(config->port, config->rs_pin, true); // Data mode
-    PulseEnable(config);
-
-    // Send lower nibble
-    SetBit(config->port, config->d4_pin, data & 0x01);
-    SetBit(config->port, config->d5_pin, (data >> 1) & 0x01);
-    SetBit(config->port, config->d6_pin, (data >> 2) & 0x01);
-    SetBit(config->port, config->d7_pin, (data >> 3) & 0x01);
-
-    PulseEnable(config);
+    Lcd_Command(config, data);
 }
 
 /**
