@@ -3,6 +3,27 @@
 A minimalist project to blink an LED using the PIC16F628A.
 
 
+LEDs, or Light Emitting Diodes, are efficient light sources that work by passing an electrical current through a semiconductor material. Key features include:
+
+1. **Energy Efficiency**: LEDs consume significantly less power compared to traditional incandescent bulbs.
+2. **Longevity**: They have a much longer lifespan, often lasting tens of thousands of hours.
+3. **Compact Size**: LEDs can be very small and are easily integrated into various designs.
+4. **Low Heat Output**: Unlike incandescent bulbs, LEDs produce minimal heat.
+5. **Durability**: They are more resistant to shock and vibrations.
+
+Applications:
+- **General Lighting**: Used in homes, offices, and outdoor settings.
+- **Displays and Signage**: In TVs, computer monitors, digital signs, and billboards.
+- **Indicator Lights**: On electronic devices, machinery, and vehicles.
+- **Medical Devices**: For specialized lighting in medical equipment.
+- **Automotive Lighting**: In headlights, brake lights, and interior lighting.
+- **Smart Lighting Systems**: Integrated with IoT for smart home and city applications.
+
+
+This folder contains a basic example demonstrating how to blink a LED using a PIC16F628A microcontroller. It's a minimalistic application designed to provide a foundation for developing a wide range of more complex projects. This simple yet instructive example can be a starting point for various applications, offering insights into basic microcontroller programming and hardware interaction.
+
+
+
 ## Schematic
 
 ![Schematic PIC16F286A blink](./schematic_blink_pic16f28a.jpg)
@@ -10,7 +31,7 @@ A minimalist project to blink an LED using the PIC16F628A.
 
 <BR>
 
-![Basic Servo and PIC16F628A schematic](../../images/PIC16F628A_PINOUT.png)
+![PIC16F628A pinout](../../images/PIC16F628A_PINOUT.png)
 
 
 ## Prototype
