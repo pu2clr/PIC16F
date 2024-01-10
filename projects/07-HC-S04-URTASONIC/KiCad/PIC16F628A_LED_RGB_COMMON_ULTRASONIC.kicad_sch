@@ -573,6 +573,10 @@
     (uuid 844d1183-1d66-4c5e-a817-c955174e26d8)
   )
 
+  (wire (pts (xy 139.7 54.61) (xy 142.24 54.61))
+    (stroke (width 0) (type default))
+    (uuid 06b87255-c00b-42d2-b814-f30aa6d9d242)
+  )
   (wire (pts (xy 100.33 31.75) (xy 100.33 34.29))
     (stroke (width 0) (type default))
     (uuid 17341eb7-0546-4de2-afea-a52277222e30)
@@ -629,6 +633,10 @@
     (stroke (width 0) (type default))
     (uuid 90a53a60-407c-4369-aec4-9d6fb0dae47d)
   )
+  (wire (pts (xy 142.24 52.07) (xy 142.24 54.61))
+    (stroke (width 0) (type default))
+    (uuid 93b09925-87a3-452e-a224-7a0392454209)
+  )
   (wire (pts (xy 149.86 72.39) (xy 100.33 72.39))
     (stroke (width 0) (type default))
     (uuid 9583d9ba-473f-47f0-be01-514decace8f0)
@@ -636,6 +644,10 @@
   (wire (pts (xy 128.27 44.45) (xy 149.86 44.45))
     (stroke (width 0) (type default))
     (uuid 9b76b6b5-d9e4-478b-9954-5aa34c8485d4)
+  )
+  (wire (pts (xy 128.27 54.61) (xy 132.08 54.61))
+    (stroke (width 0) (type default))
+    (uuid aab4de8b-b7c0-4c8b-a9b0-0be08571ff3f)
   )
   (wire (pts (xy 22.86 72.39) (xy 100.33 72.39))
     (stroke (width 0) (type default))
@@ -684,7 +696,7 @@
     (pin "1" (uuid ddde2b1f-97ad-4587-88cf-ce31808c645c))
     (pin "2" (uuid 37b61f76-1c28-482f-b564-42cb60c9a62e))
     (instances
-      (project "LED_RGB_COMMON_ULTRASONIC"
+      (project "PIC16F628A_LED_RGB_COMMON_ULTRASONIC"
         (path "/261f22d7-9959-48cd-bc20-0bbce393e6d1"
           (reference "R3") (unit 1)
         )
@@ -710,7 +722,7 @@
     (pin "1" (uuid fa69bc46-2c8d-485a-b885-630f0383c21e))
     (pin "2" (uuid a17f9784-4ea1-4d83-8faa-5b751cafebed))
     (instances
-      (project "LED_RGB_COMMON_ULTRASONIC"
+      (project "PIC16F628A_LED_RGB_COMMON_ULTRASONIC"
         (path "/261f22d7-9959-48cd-bc20-0bbce393e6d1"
           (reference "R2") (unit 1)
         )
@@ -738,7 +750,7 @@
     (pin "3" (uuid 734a01e3-ef57-4b3e-ba2b-37c8cee8129f))
     (pin "4" (uuid 2d0ad0d3-ac2d-4735-bc8b-7528d8014ab8))
     (instances
-      (project "LED_RGB_COMMON_ULTRASONIC"
+      (project "PIC16F628A_LED_RGB_COMMON_ULTRASONIC"
         (path "/261f22d7-9959-48cd-bc20-0bbce393e6d1"
           (reference "U2") (unit 1)
         )
@@ -780,9 +792,35 @@
     (pin "8" (uuid bc3f43f8-ba4c-4c71-9582-cc2ab6940c5d))
     (pin "9" (uuid 01b83f7e-99a3-4ef2-9d39-19204be97929))
     (instances
-      (project "LED_RGB_COMMON_ULTRASONIC"
+      (project "PIC16F628A_LED_RGB_COMMON_ULTRASONIC"
         (path "/261f22d7-9959-48cd-bc20-0bbce393e6d1"
           (reference "U1") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Device:R") (at 135.89 54.61 90) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 52c905a5-7143-49de-9134-18dbd33898a1)
+    (property "Reference" "R4" (at 135.89 48.26 90)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "12K" (at 135.89 50.8 90)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 135.89 56.388 90)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 135.89 54.61 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid d1eb5cf9-fcc8-4c51-b380-9060cb48d136))
+    (pin "2" (uuid 4dafc245-5a71-435c-ab84-a5cccf4489db))
+    (instances
+      (project "PIC16F628A_LED_RGB_COMMON_ULTRASONIC"
+        (path "/261f22d7-9959-48cd-bc20-0bbce393e6d1"
+          (reference "R4") (unit 1)
         )
       )
     )
@@ -808,9 +846,34 @@
     (pin "3" (uuid 5b0d302a-176c-436f-a346-61566d8dabc6))
     (pin "4" (uuid 982d802a-1598-44a2-af30-19a60485c7d4))
     (instances
-      (project "LED_RGB_COMMON_ULTRASONIC"
+      (project "PIC16F628A_LED_RGB_COMMON_ULTRASONIC"
         (path "/261f22d7-9959-48cd-bc20-0bbce393e6d1"
           (reference "D1") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:VCC") (at 142.24 52.07 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 98fda1fb-0bf0-4ae3-a552-dc41aeb8bc49)
+    (property "Reference" "#PWR01" (at 142.24 55.88 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "VCC" (at 142.24 46.99 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 142.24 52.07 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 142.24 52.07 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid d4776fe1-946f-4a21-ab64-c0b1ff5ce4b0))
+    (instances
+      (project "PIC16F628A_LED_RGB_COMMON_ULTRASONIC"
+        (path "/261f22d7-9959-48cd-bc20-0bbce393e6d1"
+          (reference "#PWR01") (unit 1)
         )
       )
     )
@@ -833,7 +896,7 @@
     )
     (pin "1" (uuid 664b8342-509d-4fe4-a00d-aae15213dc8c))
     (instances
-      (project "LED_RGB_COMMON_ULTRASONIC"
+      (project "PIC16F628A_LED_RGB_COMMON_ULTRASONIC"
         (path "/261f22d7-9959-48cd-bc20-0bbce393e6d1"
           (reference "#PWR03") (unit 1)
         )
@@ -858,7 +921,7 @@
     )
     (pin "1" (uuid 76c007e8-95e5-469c-92f9-c0cf89e04882))
     (instances
-      (project "LED_RGB_COMMON_ULTRASONIC"
+      (project "PIC16F628A_LED_RGB_COMMON_ULTRASONIC"
         (path "/261f22d7-9959-48cd-bc20-0bbce393e6d1"
           (reference "#PWR02") (unit 1)
         )
@@ -884,7 +947,7 @@
     (pin "1" (uuid f7630472-f30a-4eac-a770-6ac1a80ed1bb))
     (pin "2" (uuid e65473c1-0911-4090-a3e9-e93312fef1b5))
     (instances
-      (project "LED_RGB_COMMON_ULTRASONIC"
+      (project "PIC16F628A_LED_RGB_COMMON_ULTRASONIC"
         (path "/261f22d7-9959-48cd-bc20-0bbce393e6d1"
           (reference "R1") (unit 1)
         )
