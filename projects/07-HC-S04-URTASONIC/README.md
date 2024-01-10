@@ -169,10 +169,10 @@ void main() {
     T1CON = 0x00; // Configure Timer1: prescaler, modo, etc.
     
     // LCD 16x2 library setup 
-    
+
     TRISC = 0; // You need to set this register to output
     Lcd_PinConfig lcd = {
-        .port = &PORTC, // Assuming you're using PORTC for LCD on PIC16F887
+        .port = &PORTC, // Assuming you're using PORTC for LCD on PIC16F876A
         .rs_pin = 2, // RC2 for RS
         .en_pin = 3, // RC3 for EN
         .d4_pin = 4, // RC4 for D4
