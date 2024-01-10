@@ -114,6 +114,15 @@ void main() {
 
 
 
+## PIC16F876A with LCD and HC-S04 Ultrasonic sensor
+
+### Schematic 
+
+![PIC16F876A with LCD and HC-S04 Ultrasonic sensor](./schematic_pic16f876a_hc_s04_lcd16x2.jpg)
+
+
+
+
 
 
 ## References
