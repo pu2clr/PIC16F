@@ -1,4 +1,4 @@
-# PIC16F628A and LCD 16 x 2 (HD44780 controller)
+# PIC16FXXX and LCD 16 x 2 (HD44780 controller)
 
 This project includes, in addition to basic information for controlling the 16x2 LCD, a library that has been specially developed to work with microcontrollers from the PIC16F line. See the [lcd_library](./lcd_library)  folder for more details.
 

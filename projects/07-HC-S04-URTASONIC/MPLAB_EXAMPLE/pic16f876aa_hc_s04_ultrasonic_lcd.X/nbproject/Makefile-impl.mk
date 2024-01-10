@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=pic16f628a_hc_s04_ultrasonic_lcd.X
+PROJECTNAME=pic16f876aa_hc_s04_ultrasonic_lcd.X
 
 # Active Configuration
 DEFAULTCONF=default
