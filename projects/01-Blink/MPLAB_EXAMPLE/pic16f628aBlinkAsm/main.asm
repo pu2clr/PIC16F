@@ -19,7 +19,7 @@
 
 counter1 equ 0x20
 counter2 equ 0x21
- 
+counter3 equ 0x22
   
 PSECT resetVector, class=CODE, delta=2
 resetVect:
@@ -32,15 +32,21 @@ main:
     bcf STATUS, 5	; Return to Bank 0
     ; bsf PORTB, 3	; Set PORTB, pin RB3 to high
 loop:			; Loop without a stopping condition - here is your application code
-    bcf	 RB3
+    bsf PORTB, 3
     call DelayOneSecond
-    ; bsf	 RB3
+    bcf PORTB, 3
     call DelayOneSecond
     goto loop
 DelayOneSecond:
     movlw   255		 ; Load W with 255
     movwf   counter1     ; Move W to counter1
 DelayLoop1:
+    movlw 255
+    movwf counter3
+LoopAux:     
+    nop
+    decfsz counter3
+    goto LoopAux
     movlw   255		 ; Load W with 255 again
     movwf   counter2     ; Move W to counter2
 DelayLoop2:
@@ -48,8 +54,6 @@ DelayLoop2:
     goto    DelayLoop2   ; Repeat DelayLoop2
     decfsz  counter1, f  ; Decrement counter1, skip next if 0
     goto    DelayLoop1   ; Repeat DelayLoop1
-
-    ; Insert additional nested loops here if needed to reach 1 second
 
     return
     
