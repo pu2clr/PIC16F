@@ -1,9 +1,8 @@
 
 ; PIC16F628A Configuration Bit Settings
+
 ; Assembly source line config statements
-;    
-; Author: Ricardo Lima Caratti - Jan/2024
-;    
+
 #include <xc.inc>
     
 ; CONFIG
@@ -37,39 +36,27 @@ loop:			; Loop without a stopping condition - here is your application code
     call DelayOneSecond
     bcf PORTB, 3
     call DelayOneSecond
-    nop
     goto loop
-;
-; Delay function
-;    
 DelayOneSecond:
-    movlw   255		 
-    movwf   counter1     
-Loop1:    
-    call  DelayLoop1
-    decfsz counter1, f
-    goto Loop1
-    return
-  
+    movlw   255		 ; Load W with 255
+    movwf   counter1     ; Move W to counter1
 DelayLoop1:
     movlw 255
-    movwf counter2
- Loop2:   
-    call  DelayLoop2
-    decfsz counter2, f
-    goto Loop2  
-    return
-
-DelayLoop2:
-    movlw 5
     movwf counter3
- Loop3:   
-    nop			; consumes an extra cycle
-    nop			; consumes an extra cycle    
-    decfsz counter3, f
-    goto Loop3
+LoopAux:     
+    nop
+    decfsz counter3
+    goto LoopAux
+    movlw   255		 ; Load W with 255 again
+    movwf   counter2     ; Move W to counter2
+DelayLoop2:
+    decfsz  counter2, f  ; Decrement counter2, skip next if 0
+    goto    DelayLoop2   ; Repeat DelayLoop2
+    decfsz  counter1, f  ; Decrement counter1, skip next if 0
+    goto    DelayLoop1   ; Repeat DelayLoop1
+
     return
-     
+    
 END resetVect
     
 
