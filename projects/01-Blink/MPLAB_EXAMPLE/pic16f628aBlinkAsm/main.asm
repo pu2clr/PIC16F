@@ -17,7 +17,9 @@
 
 // config statements should precede project file includes.
 
-
+counter1 equ 0x20
+counter2 equ 0x21
+ 
   
 PSECT resetVector, class=CODE, delta=2
 resetVect:
@@ -28,25 +30,28 @@ main:
     bsf STATUS, 5	; Select the Bank 1 - See PIC16F627A/628A/648A Data Sheet, page 20 and 21 (MEMORY ORGANIZATION)
     clrf PORTB		; Initialize PORTB by setting output data latches
     bcf STATUS, 5	; Return to Bank 0
-    bsf PORTB, 3	; Set PORTB, pin RB3 to high
+    ; bsf PORTB, 3	; Set PORTB, pin RB3 to high
 loop:			; Loop without a stopping condition - here is your application code
-    ; bcf	 RB3
-    call delay
+    bcf	 RB3
+    call DelayOneSecond
     ; bsf	 RB3
-    call delay
-    nop
+    call DelayOneSecond
     goto loop
-delay:
-    movlw 255
-delay1:
-    goto delay1
-delay2:
-    nop
-    goto delay2
-delay3:
-    nop
-    nop		   
-    return;
+DelayOneSecond:
+    movlw   255		 ; Load W with 255
+    movwf   counter1     ; Move W to counter1
+DelayLoop1:
+    movlw   255		 ; Load W with 255 again
+    movwf   counter2     ; Move W to counter2
+DelayLoop2:
+    decfsz  counter2, f  ; Decrement counter2, skip next if 0
+    goto    DelayLoop2   ; Repeat DelayLoop2
+    decfsz  counter1, f  ; Decrement counter1, skip next if 0
+    goto    DelayLoop1   ; Repeat DelayLoop1
+
+    ; Insert additional nested loops here if needed to reach 1 second
+
+    return
     
 END resetVect
     
