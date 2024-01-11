@@ -165,4 +165,19 @@ Source: [Pickit 3 Programmer/Debugger](https://components101.com/misc/pickit3-pr
 * M. P. Bates, Interfacing PIC microcontrollers: Embedded design by interactive simulation. Newnes, 2013.
 * F. Pereira, Microcontroladores PIC: programação em C. Saraiva Educação SA, 2007.
 * [Experiments with PIC16F628A](http://electronicexperiments.blogspot.com/p/pic16f628a_01.html)
+* [PIC®Microcontrollers with Enhanced Mid-Range Core Building Upon a Foundation of Success](https://ww1.microchip.com/downloads/en/DeviceDoc/41382a.pdf)
+* [PICmicroTM Mid-Range MCU Family Reference Manual](https://ww1.microchip.com/downloads/en/devicedoc/33023a.pdf)
+
+
+## Assembly programming 
+
+* [Assemblers for PIC® and AVR® Microcontrollers](https://microchipdeveloper.com/xwiki/bin/view/software-tools/assemblers/)
+* [Assembler Overview](https://onlinedocs.microchip.com/pr/GUID-4DC87671-9D8E-428A-ADFE-98D694F9F089-en-US-3/index.html?GUID-735DF4BA-283D-4CC0-8F76-68482A7E1EC9)
+* [MPLAB® XC8 PIC Assembler User's Guide for Embedded Engineers](https://ww1.microchip.com/downloads/en/DeviceDoc/50002994B.pdf)
+
+
+### Assembly video and tutorial
+
+* [Introduction to the MPLAB® XC8 PIC® Assembler](https://youtu.be/milPwyw3RA8?si=9D5Cmk4DyH4ovw27)
+* [PIC Microcontroller Programming - PIC AS Assembler using MPLAB X IDE, Blinking LED](https://youtu.be/b_SBranD1k4?si=3WbB18vzieU9XB75)
 
