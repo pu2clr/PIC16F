@@ -17,29 +17,36 @@
 
 // config statements should precede project file includes.
 
+
   
 PSECT resetVector, class=CODE, delta=2
 resetVect:
     PAGESEL main
     goto main
 PSECT code, delta=2
-main: 
+main:
+    bsf STATUS, 5	; Select the Bank 1 - See PIC16F627A/628A/648A Data Sheet, page 20 and 21 (MEMORY ORGANIZATION)
     clrf PORTB		; Initialize PORTB by setting output data latches
-    movlw 0x07		; Turn comparators and 
-    movwf CMCON		; Enable pins for I/O functions 
-    clrf TRISB
-    movlw 0x00
-    movwf TRISB 
-    bsf PORTB, 1
+    bcf STATUS, 5	; Return to Bank 0
+    bsf PORTB, 3	; Set PORTB, pin RB3 to high
 loop:			; Loop without a stopping condition - here is your application code
-    bcf	 RB0
+    ; bcf	 RB3
     call delay
-    bsf	 RB0
+    ; bsf	 RB3
     call delay
+    nop
     goto loop
 delay:
-    nop		    ; Here qill be the delay code
-    return
+    movlw 255
+delay1:
+    goto delay1
+delay2:
+    nop
+    goto delay2
+delay3:
+    nop
+    nop		   
+    return;
     
 END resetVect
     
