@@ -64,8 +64,8 @@ DelayLoop2:
     movlw 5
     movwf counter3
  Loop3:   
-    nop			; consumes an extra cycle
-    nop			; consumes an extra cycle    
+    ; nop			; consumes an extra cycle
+    ; nop			; consumes an extra cycle    
     decfsz counter3, f
     goto Loop3
     return
