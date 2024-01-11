@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=testeAsm2.X
+PROJECTNAME=pic16f628aBlinkAsm
 
 # Active Configuration
 DEFAULTCONF=default

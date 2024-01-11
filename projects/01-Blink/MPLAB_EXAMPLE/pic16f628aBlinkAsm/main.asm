@@ -24,13 +24,23 @@ resetVect:
     goto main
 PSECT code, delta=2
 main: 
-    clrf PORTB	    ; Initialize PORTB by setting output data latches
-    movlw 0x07	    ; Turn comparators and 
-    movwf CMCON	    ; Enable pins for I/O functions 
-loop:		    ; Loop without a stopping condition - here is your application code
-    bcf PORTB, 0
-    bsf PORTB, 0
+    clrf PORTB		; Initialize PORTB by setting output data latches
+    movlw 0x07		; Turn comparators and 
+    movwf CMCON		; Enable pins for I/O functions 
+    clrf TRISB
+    movlw 0x00
+    movwf TRISB 
+    bsf PORTB, 1
+loop:			; Loop without a stopping condition - here is your application code
+    bcf	 RB0
+    call delay
+    bsf	 RB0
+    call delay
     goto loop
+delay:
+    nop		    ; Here qill be the delay code
+    return
+    
 END resetVect
     
 
