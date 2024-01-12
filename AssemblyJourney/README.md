@@ -54,11 +54,11 @@ You can compile an assembly program for PIC devices using MPLAB X. The steps bel
     
 ; CONFIG
   CONFIG  FOSC = INTOSCIO       ; Internal oscilator
-  CONFIG  WDTE = ON             ; Watchdog Timer Enable bit (WDT enabled)
+  CONFIG  WDTE = OFF            ; Watchdog Timer Disable bit 
   CONFIG  PWRTE = OFF           ; Power-up Timer Enable bit (PWRT disabled)
   CONFIG  MCLRE = ON            ; RA5/MCLR/VPP Pin Function Select bit (RA5/MCLR/VPP pin function is MCLR)
   CONFIG  BOREN = ON            ; Brown-out Detect Enable bit (BOD enabled)
-  CONFIG  LVP = ON              ; Low-Voltage Programming Enable bit (RB4/PGM pin has PGM function, low-voltage programming enabled)
+  CONFIG  LVP = OFF             ; Low-Voltage Programming Disable bit (RB4/PGM 
   CONFIG  CPD = OFF             ; Data EE Memory Code Protection bit (Data memory code protection off)
   CONFIG  CP = OFF              ; Flash Program Memory Code Protection bit (Code protection off)
 
@@ -83,13 +83,100 @@ main:
     movlw var2
     ;
 
-loop:			    ; Endeless loop
+loop:			    ; Endless loop
     ;
     ; Your application
     ;
     goto loop
      
+    ;
+    ; Your subroutines
+    ;  
+
 END resetVect
+
+```
+
+## Example - BLINK a LED with the PIC16F628A
+
+```cpp
+
+; PIC16F628A Configuration Bit Settings
+; Assembly source line config statements
+;    
+; Author: Ricardo Lima Caratti - Jan/2024
+;    
+#include <xc.inc>
+    
+; CONFIG
+  CONFIG  FOSC = INTOSCIO       ; Oscillator Selection bits (INTOSC oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
+  CONFIG  WDTE = OFF            ; Watchdog Timer disable bit 
+  CONFIG  PWRTE = OFF           ; Power-up Timer Enable bit (PWRT disabled)
+  CONFIG  MCLRE = ON            ; RA5/MCLR/VPP Pin Function Select bit (RA5/MCLR/VPP pin function is MCLR)
+  CONFIG  BOREN = ON            ; Brown-out Detect Enable bit (BOD enabled)
+  CONFIG  LVP = OFF             ; Low-Voltage Programming disble
+  CONFIG  CPD = OFF             ; Data EE Memory Code Protection bit (Data memory code protection off)
+  CONFIG  CP = OFF              ; Flash Program Memory Code Protection bit (Code protection off)
+
+// config statements should precede project file includes.
+
+counter1 equ 0x20
+counter2 equ 0x21
+  
+PSECT resetVector, class=CODE, delta=2
+resetVect:
+    PAGESEL main
+    goto main
+PSECT code, delta=2
+main:
+    bsf STATUS, 5	; Select the Bank 1 - See PIC16F627A/628A/648A Data Sheet, page 20 and 21 (MEMORY ORGANIZATION)
+    clrf PORTB		; Initialize PORTB by setting output data latches
+    clrf TRISB
+    bcf STATUS, 5	; Return to Bank 0
+    CLRW		    ; Clear W register
+    movwf PORTB		; Turn all pins of the PORTB low    
+loop:			    ; Loop without a stopping condition - here is your application code
+    bsf PORTB, 3    ; Sets RB3 to high (turn the LED on)
+    call DelayTwo
+    bcf PORTB, 3    ; Sets RB3 to low (turn the LED off) 
+    call DelayTwo
+    goto loop
+
+;
+; Delay functions
+;  
+    
+; Runs 8 instructions 255 times    
+DelayOne:
+    movlw   255		 
+    movwf   counter1
+DelayOneLoop:
+    nop
+    nop
+    nop
+    nop
+    decfsz counter1, f	; Decrements counter1. If the result is zero, then the next instruction is skipped (breaking out of the loop)
+    goto DelayOneLoop	; If counter1 is not zero, then go to DelayOneLoop. 
+    nop
+    nop
+    return
+
+; Runs DelayOne 255 times.  
+; The actual duration of the loop depends on the DelayOne subroutine and the clock speed of the PIC microcontroller. 
+; At 4MHz clock it is about 5,000,000 cycles (about 1s - I guess)   
+DelayTwo:
+    movlw 255
+    movwf counter2
+ DelayTowLoop:
+    call DelayOne
+    decfsz counter2, f	; Decrements counter2. If the result is zero, then the next instruction is skipped (breaking out of the loop)
+    goto DelayTowLoop	; If counter2 is not zero, then go to DelayOneLoop. 
+    nop
+    nop
+    return
+    
+END resetVect
+ 
 
 ```
 
