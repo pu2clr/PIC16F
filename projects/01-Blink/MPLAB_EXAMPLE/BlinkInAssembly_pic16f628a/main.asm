@@ -44,24 +44,24 @@ loop:			    ; Loop without a stopping condition - here is your application code
 ; Delay functions
 ;  
     
-; Runs 8 instructions 255 times    
+;  It takes about 0.0005105 seconds at 4MHz clock speed    
 DelayOne:
     movlw   255		 
     movwf   counter1
-DelayOneLoop:
+DelayOneLoop:       ; Runs 8 instructions 255 times 
+    nop
+    nop
     nop
     nop
     nop
     nop
     decfsz counter1, f	; Decrements counter1. If the result is zero, then the next instruction is skipped (breaking out of the loop)
     goto DelayOneLoop	; If counter1 is not zero, then go to DelayOneLoop. 
-    nop
-    nop
     return
 
-; Runs DelayOne 255 times.  
+; Runs DelayOne 255 times.  It takes about 1 second (I guess).
 ; The actual duration of the loop depends on the DelayOne subroutine and the clock speed of the PIC microcontroller. 
-; At 4MHz clock it is about 5,000,000 cycles (about 1s - I guess)   
+; At 4MHz clock it is about 5,000,000 cycles  (a bit more than 1s)  
 DelayTwo:
     movlw 255
     movwf counter2
@@ -69,10 +69,8 @@ DelayTwo:
     call DelayOne
     decfsz counter2, f	; Decrements counter2. If the result is zero, then the next instruction is skipped (breaking out of the loop)
     goto DelayTowLoop	; If counter2 is not zero, then go to DelayOneLoop. 
-    nop
-    nop
     return
-    
+
  
     
 END resetVect
