@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>BlinkAsm</name>
+            <name>BlinkInAssembly</name>
             <creation-uuid>eae53a38-fbc0-4a0d-aa2a-b928f8cff567</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>

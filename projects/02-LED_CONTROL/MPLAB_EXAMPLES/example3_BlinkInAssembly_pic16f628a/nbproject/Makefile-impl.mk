@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=pic16f628aBlinkAsm
+PROJECTNAME=example3_BlinkInAssembly_pic16f628a
 
 # Active Configuration
 DEFAULTCONF=default
