@@ -20,9 +20,7 @@
 
 counter1 equ 0x20
 counter2 equ 0x21
-counter3 equ 0x22 
-led      equ 0x23 
-idx      equ 0x24      
+led      equ 0x22    
   
 PSECT resetVector, class=CODE, delta=2
 resetVect:
@@ -33,30 +31,24 @@ main:
     bsf STATUS, 5	; Select the Bank 1 - See PIC16F627A/628A/648A Data Sheet, page 20 and 21 (MEMORY ORGANIZATION)
     clrf PORTB		; Initialize PORTB by setting output data latches
     bcf STATUS, 5	; Return to Bank 0
-    movlw 1
-    movwf led 
-loop:			; Loop without a stopping condition - here is your application code
-    call LedOn		; turn the first LED on
-    call DelayOneSecond
+    movlw 0
+    movwf led
+    movwf PORTB     
+loop:			; endeless loop
+    rlf     led, w 
+    movwf led
+    movwf PORTB 
+    call  DelayOneSecond
     goto loop
-    
-LedOn:
-    rlf   led,f
-    goto  TurnLedOn
-    movlw 1
-TurnLedOn: 
-    movlw led
-    movwf  PORTB
-    return
     
 ;
 ; Delay function
 ;    
 DelayOneSecond:
     movlw   255		 
-    movwf   counter1     
+    movwf   counter1
 Loop1:    
-    call  DelayLoop1
+    ;call  DelayLoop1
     decfsz counter1, f
     goto Loop1
     return
@@ -64,20 +56,14 @@ Loop1:
 DelayLoop1:
     movlw 255
     movwf counter2
- Loop2:   
-    call  DelayLoop2
+ Loop2:
+    nop
+    nop
+    nop
+    nop
+    nop
     decfsz counter2, f
     goto Loop2  
-    return
-
-DelayLoop2:
-    movlw 2
-    movwf counter3
- Loop3:   
-    ; nop			; consumes an extra cycle
-    ; nop			; consumes an extra cycle    
-    decfsz counter3, f
-    goto Loop3
     return
      
 END resetVect

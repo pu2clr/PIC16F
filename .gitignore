@@ -35,3 +35,5 @@
 /projects/07-HC-S04-URTASONIC/MPLAB_EXAMPLE/pic16f876aa_hc_s04_ultrasonic_lcd.X/build/
 /projects/01-Blink/MPLAB_EXAMPLE/pic16f628aBlinkAsm/dist/
 /projects/01-Blink/MPLAB_EXAMPLE/pic16f628aBlinkAsm/build/
+/projects/02-LED_CONTROL/MPLAB_EXAMPLES/example3_BlinkInAssembly_pic16f628a/build/
+/projects/02-LED_CONTROL/MPLAB_EXAMPLES/example3_BlinkInAssembly_pic16f628a/dist/
