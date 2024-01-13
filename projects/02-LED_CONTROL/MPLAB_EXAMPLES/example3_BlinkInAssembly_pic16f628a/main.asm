@@ -39,7 +39,7 @@ loop:			; endelss loop
     movwf   led
     movwf   PORTB 
     call    DelayThree
-    nop
+    nop			; Must be removed - Just for debugging purpose 
     goto loop
     
 ;
