@@ -46,11 +46,15 @@ loop:			; endelss loop
 ; Delay functions
 ;  
     
-;  It takes about 0.0006375 seconds at 4MHz clock speed    
+;  It should take about 0.00255 second.
+;  One instruction cycle consists of four oscillator periods. 
+;  For a oscillator of 4MHz a regular instructions takes 1us (See pic16f628a Datasheet, page 117). 
+;  time = 10 cyclos * 255 * 0.000001 (1us per cyclo at 4MHz clock frequency)
+;  time = 0.00255 second   
 DelayOne:
     movlw   255		 
     movwf   counter1
-DelayOneLoop:       ; Runs 10 cycles 255 times - You can try to improve precision by add nop instructions
+DelayOneLoop:       ; Runs 10 cycles 255 times - You can try to improve precision by adding or removing nop instructions
     nop
     nop
     nop
@@ -62,9 +66,9 @@ DelayOneLoop:       ; Runs 10 cycles 255 times - You can try to improve precisio
     goto DelayOneLoop	; It takes two cycles - If counter1 is not zero, then go to DelayOneLoop. 
     return
 
-; Runs DelayOne 255 times.  It takes about 0,1625 second (I guess).
+; Runs DelayOne 255 times.  It takes about 0,65 second (255 * 0.00255) 
 ; The actual duration of the loop depends on the DelayOne subroutine and the clock speed of the PIC microcontroller. 
-; It is about 650,250 cycles. At 4MHz it takes about 0,1625 s  
+; 
 DelayTwo:
     movlw 255
     movwf counter2
@@ -76,6 +80,7 @@ DelayTwo:
 
 ;
 ; Call DelayTwo 2 times
+; It takes about 1,3 seconds    
 DelayThree: 
     movlw 2
     movwf counter3

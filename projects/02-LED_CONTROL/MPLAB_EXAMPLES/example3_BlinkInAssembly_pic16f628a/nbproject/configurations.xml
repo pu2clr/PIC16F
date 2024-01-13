@@ -19,7 +19,6 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
     <itemPath>main.asm</itemPath>
-    <itemPath>main.asm</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -29,7 +28,7 @@
         <targetDevice>PIC16F628A</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PICkit3PlatformTool</platformTool>
+        <platformTool>Simulator</platformTool>
         <languageToolchain>pic-as</languageToolchain>
         <languageToolchainVersion>2.45</languageToolchainVersion>
         <platform>4</platform>
