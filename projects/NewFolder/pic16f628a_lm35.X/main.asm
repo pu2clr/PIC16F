@@ -30,7 +30,7 @@ main:
     clrf    TRISB
     movlw   0x1F        ; Turn on ADC, select RA0 as input
     movwf   TRISA	; Set RA<4:0> as inputs
-    movwf   ANSELA  
+    movwf   CMCON  
     bcf	    STATUS, 5	; Return to Bank 0  
 
     ; example of using var 
