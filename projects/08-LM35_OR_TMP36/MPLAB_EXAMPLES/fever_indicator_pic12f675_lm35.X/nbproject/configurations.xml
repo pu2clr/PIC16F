@@ -25,7 +25,7 @@
     <conf name="default" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>PIC16F628A</targetDevice>
+        <targetDevice>PIC12F675</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
         <platformTool>noID</platformTool>
@@ -34,7 +34,7 @@
         <platform>4</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.6.156"/>
+        <pack name="PIC10-12Fxxx_DFP" vendor="Microchip" version="1.7.178"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
