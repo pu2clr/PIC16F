@@ -44,23 +44,23 @@ loop:			; endelss loop
 ; ******************
 ; Delay function
 ;
-; For a oscillator of 4MHz a regular instructions takes 1us (See pic16f628a Datasheet, page 117).      
+; For an oscillator of 4MHz a regular instructions takes 1us (See pic16f628a Datasheet, page 117).      
 ; So, at 4MHz, this Delay subroutine takes about: (5 cycles) * 255 * 255 * 3 * 0.000001 (second)  
 ; It is about 1s (0.975 s)  - One second  
 Delay:  
     movlw   255
-    movwf   dummy1		; 255
-    movwf   dummy2		; 255 times
+    movwf   dummy1      ; 255 times
+    movwf   dummy2      ; 255 times (255 * 255)
     movlw   3			
-    movwf   dummy3		; 3 times
+    movwf   dummy3      ; 3 times  ( 255 * 255 * 3) 
 DelayLoop:    
-    nop				; One cycle
-    nop				; One cycle
-    decfsz dummy1, f		; One cycle* (dummy1 = dumm1 - 1) => if dummy1 is 0, after decfsz, it will be 255
-    goto DelayLoop		; Two cycles
-    decfsz dummy2, f		; dummy2 = dumm2 - 1; if dummy2 = 0, after decfsz, it will be 255
+    nop                 ; One cycle
+    nop                 ; One cycle
+    decfsz dummy1, f    ; One cycle* (dummy1 = dumm1 - 1) => if dummy1 is 0, after decfsz, it will be 255
+    goto DelayLoop      ; Two cycles
+    decfsz dummy2, f    ; dummy2 = dumm2 - 1; if dummy2 = 0, after decfsz, it will be 255
     goto DelayLoop
-    decfsz dummy3, f		; Runs 3 times (255 * 255)		 
+    decfsz dummy3, f    ; Runs 3 times (255 * 255)		 
     goto DelayLoop
     return 
     

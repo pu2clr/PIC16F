@@ -45,7 +45,7 @@ loop:			; Loop without a stopping condition - here is your application code
 ; ******************
 ; Delay function
 ;
-; For a oscillator of 4MHz a regular instructions takes 1us (See pic16f628a Datasheet, page 117).      
+; For an oscillator of 4MHz a regular instructions takes 1us (See pic16f628a Datasheet, page 117).      
 ; So, at 4MHz, this Delay subroutine takes about: (5 cycles) * 255 * 255 * 3 * 0.000001 (second)  
 ; It is about 1s (0.975 s)    
 Delay:  
