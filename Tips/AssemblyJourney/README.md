@@ -135,12 +135,12 @@ main:
     clrf PORTB		; Initialize PORTB by setting output data latches
     clrf TRISB
     bcf STATUS, 5	; Return to Bank 0
-    CLRW		; Clear W register
+    CLRW		    ; Clear W register
     movwf PORTB		; Turn all pins of the PORTB low    
 loop:			; Loop without a stopping condition - here is your application code
-    bsf PORTB, 3        ; Sets RB3 to high (turn the LED on)
+    bsf PORTB, 3    ; Sets RB3 to high (turn the LED on)
     call Delay
-    bcf PORTB, 3        ; Sets RB3 to low (turn the LED off) 
+    bcf PORTB, 3    ; Sets RB3 to low (turn the LED off) 
     call Delay
     goto loop
 

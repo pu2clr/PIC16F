@@ -56,9 +56,9 @@ Delay:
 DelayLoop:    
     nop				; One cycle
     nop				; One cycle
-    decfsz dummy1, f		; One cycle* (dummy1 = dumm1 - 1) => if dummy1 is 0, after decfsz it will be 255
+    decfsz dummy1, f		; One cycle* (dummy1 = dumm1 - 1) => if dummy1 is 0, after decfsz, it will be 255
     goto DelayLoop		; Two cycles
-    decfsz dummy2, f		; dummy2 = dumm2 - 1; if dummy2 = 0 then dummy2 = 255
+    decfsz dummy2, f		; dummy2 = dumm2 - 1; if dummy2 = 0, after decfsz, it will be 255
     goto DelayLoop
     decfsz dummy3, f		; Runs 3 times (255 * 255)		 
     goto DelayLoop
