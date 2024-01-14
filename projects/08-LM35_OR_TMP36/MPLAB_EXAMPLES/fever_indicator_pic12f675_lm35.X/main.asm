@@ -14,8 +14,7 @@
   CONFIG  CPD = OFF             ; Data Code Protection bit (Data memory code protection is disabled) 
   
 ; declare your variables here
-var1 equ 0x20       ; General Purpose Registers(check the memory organization of your PIC device datasheet)
-var2 equ 0x21       ;
+temp  equ 0x20       ; General Purpose Registers(check the memory organization of your PIC device datasheet)
     
 PSECT resetVector, class=CODE, delta=2
 resetVect:
@@ -23,13 +22,17 @@ resetVect:
     goto main
 PSECT code, delta=2
 main:
-    ; Set Analog and Digital pins (GPIO)
-    bcf STATUS, 5	    ; Select Bank 0
-    clrf GPIO		    ;Init GPIO
-    movlw 0B00000001	    ; GP0 = DIGITAL 
-    movwf CMCON		    ; digital IO
-    bsf STATUS, 5 ; Select Bank 1
-    bsf TRISIO, 1	    ; Sets GP1 as input 
+    ; Analog and Digital pins setup
+    
+    bcf	    STATUS, 5	    ; Selects Bank 0
+    clrf    GPIO	    ; Init GPIO	
+    bcf	    CMCON, 0	    ; Sets GP0 as output 
+    bsf	    STATUS, 5	    ; Selects Bank 1
+    
+    bsf	    TRISIO, 1	    ; Sets GP1 as input 
+    bsf	    ANSEL, 1	    ; Sets GP1 as analog
+    movlw   0x01	    ;
+    movwf   ADCON0 	    ; Enable ADC
    
     ; TO BE CONTINUE....
 
@@ -39,12 +42,36 @@ loop:			    ; Endless loop
     ;
     ; The temperature reading  process
     ;
+    call AdcRead	    ; read the temperature value
+    
+    ; Assuming the constant is 500 (0x01F4)
+    movlw   LOW(37)	    ; Lower part of the constant
+    subwf   temp, W	    ; Subtract from lower part of the result
+    movlw   HIGH(37)	    ; Higher part of the constant
+    subwf   temp+1, 0	    ; Subtract from higher part of the result with borrow
+    
+    
     goto loop
      
     ;
     ; Your subroutines
     ;  
 
+;
+; Read the analog value from GP1
+AdcRead: 
+    
+    bsf	    ADCON0, 1		; Start convertion  (set bit 1 to high)
+
+WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1 
+    btfsc  ADCON0, 1		; Bit Test, Skip if Clear - If bit 1 in ADCON0 is '1', the next instruction is executed.
+    goto   WaitConvertionFinish
+    movlw  ADRESL
+    movwf  temp
+    movlw  ADRESH
+    movwf  temp+1
+    return			; ADRESH << 8 + ADRESL is the combined result of reading   
+    
 END resetVect
 
 
