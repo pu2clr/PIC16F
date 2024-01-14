@@ -7,12 +7,12 @@
 #include <xc.inc>
     
 ; CONFIG
-  CONFIG  FOSC = INTOSCIO       ; Oscillator Selection bits (INTOSC oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
-  CONFIG  WDTE = OFF            ; Watchdog Timer disable bit (WDT enabled)
-  CONFIG  PWRTE = OFF           ; Power-up Timer Enable bit (PWRT disabled)
-  CONFIG  MCLRE = ON            ; RA5/MCLR/VPP Pin Function Select bit (RA5/MCLR/VPP pin function is MCLR)
-  CONFIG  BOREN = ON            ; Brown-out Detect Enable bit (BOD enabled)
-  CONFIG  LVP = OFF             ; Low-Voltage Programming disable bit (This application needs the RB4)
+CONFIG  FOSC = INTOSCIO       ; Oscillator Selection bits (INTOSC oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
+CONFIG  WDTE = OFF            ; Watchdog Timer disable bit (WDT enabled)
+CONFIG  PWRTE = OFF           ; Power-up Timer Enable bit (PWRT disabled)
+CONFIG  MCLRE = ON            ; RA5/MCLR/VPP Pin Function Select bit (RA5/MCLR/VPP pin function is MCLR)
+CONFIG  BOREN = ON            ; Brown-out Detect Enable bit (BOD enabled)
+CONFIG  LVP = OFF             ; Low-Voltage Programming disable bit (This application needs the RB4)
 
 // config statements should precede project file includes.
 
