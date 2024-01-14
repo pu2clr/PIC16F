@@ -14,11 +14,10 @@ CONFIG  MCLRE = ON            ; RA5/MCLR/VPP Pin Function Select bit (RA5/MCLR/V
 CONFIG  BOREN = ON            ; Brown-out Detect Enable bit (BOD enabled)
 CONFIG  LVP = OFF             ; Low-Voltage Programming disable bit (This application needs the RB4)
 
-// config statements should precede project file includes.
-
-counter1 equ 0x20
-counter2 equ 0x21
-counter3 equ 0x22 
+; Variables 
+dummy1   equ 0x20
+dummy2	 equ 0x21
+dummy3   equ 0x22 
 led      equ 0x23    
   
 PSECT resetVector, class=CODE, delta=2, split=1, group=0
@@ -38,57 +37,33 @@ loop:			; endelss loop
     rlf     led, w	; Rotate Left f through Carry
     movwf   led
     movwf   PORTB 
-    call    DelayThree
+    call    Delay
     nop			; Must be removed - Just for debugging purpose 
     goto loop
-    
-;
+
+; ******************
 ; Delay functions
-;  
-    
-;  It should take about 0.00255 second.
-;  One instruction cycle consists of four oscillator periods. 
-;  For a oscillator of 4MHz a regular instructions takes 1us (See pic16f628a Datasheet, page 117). 
-;  time = 10 cyclos * 255 * 0.000001 (1us per cyclo at 4MHz clock frequency)
-;  time = 0.00255 second   
-DelayOne:
-    movlw   255		 
-    movwf   counter1
-DelayOneLoop:       ; Runs 10 cycles 255 times - You can try to improve precision by adding or removing nop instructions
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    decfsz counter1, f	; It takes two cucles - Decrements counter1. If the result is zero, then the next instruction is skipped (breaking out of the loop)
-    goto DelayOneLoop	; It takes two cycles - If counter1 is not zero, then go to DelayOneLoop. 
-    return
-
-; Runs DelayOne 255 times.  It takes about 0,65 second (255 * 0.00255) 
-; The actual duration of the loop depends on the DelayOne subroutine and the clock speed of the PIC microcontroller. 
-; 
-DelayTwo:
-    movlw 255
-    movwf counter2
- DelayTowLoop:
-    call DelayOne
-    decfsz counter2, f	; Decrements counter2. If the result is zero, then the next instruction is skipped (breaking out of the loop)
-    goto DelayTowLoop	; If counter2 is not zero, then go to DelayOneLoop. 
-    return
-
 ;
-; Call DelayTwo 2 times
-; It takes about 1,3 seconds    
-DelayThree: 
-    movlw 2
-    movwf counter3
-DelayThreeLoop:
-    call DelayTwo
-    decfsz counter3, f	; Decrements counter3. If the result is zero, then the next instruction is skipped (breaking out of the loop)
-    goto DelayThreeLoop	; If counter2 is not zero, then go to DelayOneLoop.     
-    return
+; For a oscillator of 4MHz a regular instructions takes 1us (See pic16f628a Datasheet, page 117).      
+; So, at 4MHz Delay subroutine takes about: (5 cycles) * 255 * 255 * 3 * 0.000001 (second)  
+; It is about 1s (0.975 s)  - One second  
+Delay:  
+    movlw   255
+    movwf   dummy1		; 255
+    movwf   dummy2		; 255 times
+    movlw   3			
+    movwf   dummy3		; 3 times
+DelayLoop:    
+    nop				; One cycle
+    nop				; One cycle
+    decfsz dummy1, f		; One cycle* (dummy1 = dumm1 - 1) => if dummy1 is 0, after decfsz it will be 255
+    goto DelayLoop		; Two cycles
+    decfsz dummy2, f		; dummy2 = dumm2 - 1; if dummy2 = 0 then dummy2 = 255
+    goto DelayLoop
+    decfsz dummy3, f		; Runs 3 times (255 * 255)		 
+    goto DelayLoop
+    return 
+    
     
 END resetVect
     
