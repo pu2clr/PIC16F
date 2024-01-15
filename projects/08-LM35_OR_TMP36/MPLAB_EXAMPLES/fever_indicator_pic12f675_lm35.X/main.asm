@@ -37,30 +37,36 @@ main:
     bsf	    ANSEL, 1	    ; Sets GP1 as analog
     movlw   0x01	    ;
     movwf   ADCON0 	    ; Enable ADC
+    bcf	    STATUS, 5
+
 
 MainLoopBegin:		    ; Endless loop
-    call AdcRead	    ; read the temperature value
+    ; call AdcRead	    ; read the temperature value
     ; Considering temperatures of 37 degrees Celsius or higher as fever.
-    movlw 37
-    subwf temp,w
-    btfsc STATUS, 2	    ; Z (Zero Bit)
-    goto  AlmostFever 
-    btfsc STATUS, 2	    ; Z (Zero Bit) 
-    goto  Fever
-    
+    movlw 20
+    subwf temp
+    ;btfsc STATUS, 2	    ; if wreg =  temp - Z (Zero Bit) = 0
+    ;goto  AlmostFever 
+    ;btfss STATUS, 2	    ; if wreg > temp - Z (Zero Bit) = 1
+    ;goto  Fever
+    ;goto  Normal
     
 AlmostFever:		    ; Temperature is 37
-    ; Turn the Yellow LED ON
-    
+    ; BlinkLED
+    call Delay
+    bsf GPIO,0
+    call Delay
+    bcf GPIO,0        
     goto MainLoopEnd
     
 Fever:			    ; Temperature is greater than 37
-    ; Turn the Red LED ON
+    ; Turn the  LED ON
+    bsf GPIO,0
     goto MainLoopEnd
 
 Normal: 
-    ; Turn the Gree LED ON
-    
+    ; Turn the LED off
+    bsf GPIO,0   
 MainLoopEnd:     
     
     ; Delay parameters
@@ -75,17 +81,16 @@ MainLoopEnd:
 ;
 ; Read the analog value from GP1
 AdcRead: 
-    
     bsf	    ADCON0, 1		; Start convertion  (set bit 1 to high)
 
 WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1 
     btfsc  ADCON0, 1		; Bit Test, Skip if Clear - If bit 1 in ADCON0 is '1', the next instruction is executed.
+    nop
     goto   WaitConvertionFinish
     movlw  ADRESL
     movwf  temp
     movlw  ADRESH
     movwf  temp+1
-    
     ; Not finished: Need to divide the value by 10
     
     return
