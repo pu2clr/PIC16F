@@ -38,18 +38,18 @@ main:
     movlw   0x01	    ;
     movwf   ADCON0 	    ; Enable ADC
     bcf	    STATUS, 5
-
-
+    movlw  39
+    movwf  temp
 MainLoopBegin:		    ; Endless loop
     ; call AdcRead	    ; read the temperature value
     ; Considering temperatures of 37 degrees Celsius or higher as fever.
-    movlw 20
+    movlw 37
     subwf temp
-    ;btfsc STATUS, 2	    ; if wreg =  temp - Z (Zero Bit) = 0
-    ;goto  AlmostFever 
-    ;btfss STATUS, 2	    ; if wreg > temp - Z (Zero Bit) = 1
-    ;goto  Fever
-    ;goto  Normal
+    btfsc STATUS, 2	    ; if wreg =  temp - Z (Zero Bit) = 0
+    goto  AlmostFever 
+    btfss STATUS, 2	    ; if wreg > temp - Z (Zero Bit) = 1
+    goto  Fever
+    goto  Normal
     
 AlmostFever:		    ; Temperature is 37
     ; BlinkLED
