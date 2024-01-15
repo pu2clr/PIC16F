@@ -1,3 +1,4 @@
+; UNDER CONSTRUCTION...
 ; Fever Indicator with PIC12F675 with LM35 or TMP36
 ; Author: Ricardo Lima Caratti
 ; Jan/2024
@@ -38,18 +39,28 @@ main:
     movlw   0x01	    ;
     movwf   ADCON0 	    ; Enable ADC
     bcf	    STATUS, 5
-    movlw  39
-    movwf  temp
+    
+;  See PIC Assembler Tips: http://picprojects.org.uk/projects/pictips.htm 
+    
 MainLoopBegin:		    ; Endless loop
+    ; movlw  36		    ; Normal temperature
+    movlw  37		    ; Transition (Normal to Fever or Fever to Normal) 
+    ; movlw  38		    ; Fever
+    
+    movwf  temp
     ; call AdcRead	    ; read the temperature value
     ; Considering temperatures of 37 degrees Celsius or higher as fever.
-    movlw 37
-    subwf temp
-    btfsc STATUS, 2	    ; if wreg =  temp - Z (Zero Bit) = 0
-    goto  AlmostFever 
-    btfss STATUS, 2	    ; if wreg > temp - Z (Zero Bit) = 1
-    goto  Fever
-    goto  Normal
+    
+    ; Checks if the temperature is lower, equal to, or higher than 37. Considering that 37 degrees Celsius is the threshold or transition value for fever.
+    movlw 37		    ; Temperature constant ( Fever indicator )
+    subwf temp,w	    ; subtract W from the temp 
+    btfsc STATUS, 2	    ; if Z flag  = 0; temp == wreg ?  
+    goto  AlmostFever	    ; temp = wreg
+    btfss STATUS, 0	    ; if C flag = 1; temp < wreg?   
+    goto  Normal	    ; temp < wreg
+    btfsc STATUS, 0         ; if C flag = 0 
+    goto  Fever	    ; temp >= wreg  (iqual was tested before, so just > is available here)
+    goto MainLoopEnd
     
 AlmostFever:		    ; Temperature is 37
     ; BlinkLED
@@ -81,13 +92,13 @@ MainLoopEnd:
 ;
 ; Read the analog value from GP1
 AdcRead: 
-    bsf	    ADCON0, 1		; Start convertion  (set bit 1 to high)
+    ;bsf	    ADCON0, 1		; Start convertion  (set bit 1 to high)
 
 WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1 
-    btfsc  ADCON0, 1		; Bit Test, Skip if Clear - If bit 1 in ADCON0 is '1', the next instruction is executed.
-    nop
-    goto   WaitConvertionFinish
-    movlw  ADRESL
+    ; btfsc  ADCON0, 1		; Bit Test, Skip if Clear - If bit 1 in ADCON0 is '1', the next instruction is executed.
+    ; nop
+    ; goto   WaitConvertionFinish
+    movlw   0x20 ; ADRESL
     movwf  temp
     movlw  ADRESH
     movwf  temp+1
