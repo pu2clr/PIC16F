@@ -37,9 +37,10 @@ main:
     bcf	    CMCON, 0	    ; Sets GP0 as output 
     bsf	    STATUS, 5	    ; Selects Bank 1
     
+    clrf    TRISIO	    
     bsf	    TRISIO, 1	    ; Sets GP1 as input 
     bsf	    ANSEL, 1	    ; Sets GP1 as analog
-    movlw   0x01	    ;
+    movlw   0B10000001	    ;
     movwf   ADCON0 	    ; Enable ADC
     bcf	    STATUS, 5
     
@@ -92,15 +93,19 @@ AdcRead:
 
 WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1 
     btfsc  ADCON0, 1		; Bit Test, Skip if Clear - If bit 1 in ADCON0 is '1', the next instruction is executed.
-    goto   WaitConvertionFinish
-    ; ADRESL and ADRESH have the voltage (10 mv per degree Celsius) 
+    goto   WaitConvertionFinish ; ADRESL and ADRESH have the voltage (10 mv per degree Celsius) 
     
     
-    
+    ; movlw 114           ; 114 + 256 = 370
+    ; movwf paramL 
+    ; movlw 1
+    ; movwf paramH
+    bsf	    STATUS, 5
     movf  ADRESL,w	; Low byte of the voltage value got from ADC  GP1	
     movwf paramL     
     movf  ADRESH,w	; High byte of the voltage value got from ADC GP1
     movwf paramH
+    bcf   STATUS, 5
      
     call DivideTempBy10	    ; returns the converted votage to temperature 
     return
