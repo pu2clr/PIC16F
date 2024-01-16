@@ -15,11 +15,13 @@
   CONFIG  CPD = OFF             ; Data Code Protection bit (Data memory code protection is disabled) 
   
 ; declare your variables here
-temp	equ 0x20       ; General Purpose Registers(check the memory organization of your PIC device datasheet)
-temp1	equ 0x21
+lm35VL	equ 0x20       ; 
+lm35VH	equ 0x21
 dummy1	equ 0x22 
 dummy2	equ 0x23 
-dummy3	equ 0x24 	
+dummy3	equ 0x24 
+count   equ 0x25
+temp	equ 0x26
     
 PSECT resetVector, class=CODE, delta=2
 resetVect:
@@ -43,14 +45,7 @@ main:
 ;  See PIC Assembler Tips: http://picprojects.org.uk/projects/pictips.htm 
     
 MainLoopBegin:		    ; Endless loop
-    ; movlw  36		    ; Normal temperature
-    movlw  37		    ; Transition (Normal to Fever or Fever to Normal) 
-    ; movlw  38		    ; Fever
-    
-    movwf  temp
-    ; call AdcRead	    ; read the temperature value
-    ; Considering temperatures of 37 degrees Celsius or higher as fever.
-    
+    call AdcRead	    ; read the temperature value
     ; Checks if the temperature is lower, equal to, or higher than 37. Considering that 37 degrees Celsius is the threshold or transition value for fever.
     movlw 37		    ; Temperature constant ( Fever indicator )
     subwf temp,w	    ; subtract W from the temp 
@@ -98,15 +93,56 @@ WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1
     ; btfsc  ADCON0, 1		; Bit Test, Skip if Clear - If bit 1 in ADCON0 is '1', the next instruction is executed.
     ; nop
     ; goto   WaitConvertionFinish
-    movlw   0x20 ; ADRESL
-    movwf  temp
-    movlw  ADRESH
-    movwf  temp+1
-    ; Not finished: Need to divide the value by 10
-    
+    ; ADRESL and 
+    ; ADRESL and ADRESH have the voltage (10 mv per degree Celsius) 
+    ; Simulating 
+    call DivideTempBy10	    ; returns the converted temperature (temp and temp+1) 
+    ; temp has the converted value
     return
 
+
     
+; *****************
+; Divide by 10    
+;
+
+    
+DivideTempBy10:     
+; Inicializações
+    clrf temp
+    clrf count    
+    movlw  0b00000000	; ADRESH      ;
+    movwf lm35VH
+    movlw 0b11111111	; ADRESL 
+    movwf lm35VL
+
+    ; Divide loop
+DivideLoop:
+    SUBLW 10
+    SUBWF lm35VL, F
+    ; 
+    BTFSC STATUS, 0
+    DECF lm35VH, F
+    ; 
+    MOVF lm35VH, W
+    BTFSC STATUS, 2
+    GOTO KeepDividing
+    MOVF lm35VL, W
+    SUBLW 10
+    BTFSS STATUS, 0
+    GOTO FinishDiv
+
+KeepDividing:
+    ; Incrementar o contador e continuar o loop
+    INCF count, F
+    GOTO DivideLoop
+
+FinishDiv:
+    ;  count = quociente, TEMP_LOW = rest
+    
+    movf   count, w
+    movwf   temp
+    return;
 
 ; ******************
 ; Delay function
