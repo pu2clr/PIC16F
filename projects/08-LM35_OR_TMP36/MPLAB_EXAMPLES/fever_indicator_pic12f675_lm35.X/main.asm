@@ -15,8 +15,8 @@
   CONFIG  CPD = OFF             ; Data Code Protection bit (Data memory code protection is disabled) 
   
 ; declare your variables here
-lm35VL	equ 0x20       ; 
-lm35VH	equ 0x21
+paramL	equ 0x20       ; 
+paramH	equ 0x21
 dummy1	equ 0x22 
 dummy2	equ 0x23 
 dummy3	equ 0x24 
@@ -55,7 +55,7 @@ MainLoopBegin:		    ; Endless loop
     btfss STATUS, 0	    ; if C flag = 1; temp < wreg?   
     goto  Normal	    ; temp < wreg
     btfsc STATUS, 0         ; if C flag = 0 
-    goto  Fever	    ; temp >= wreg  (iqual was tested before, so just > is available here)
+    goto  Fever		    ; temp >= wreg  (iqual was tested before, so just > is available here)
     goto MainLoopEnd
     
 AlmostFever:		    ; Temperature is 37
@@ -88,45 +88,43 @@ MainLoopEnd:
 ;
 ; Read the analog value from GP1
 AdcRead: 
-    ;bsf	    ADCON0, 1		; Start convertion  (set bit 1 to high)
+    bsf	    ADCON0, 1		; Start convertion  (set bit 1 to high)
 
 WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1 
-    ; btfsc  ADCON0, 1		; Bit Test, Skip if Clear - If bit 1 in ADCON0 is '1', the next instruction is executed.
-    ; nop
-    ; goto   WaitConvertionFinish
-    ; ADRESL and 
+    btfsc  ADCON0, 1		; Bit Test, Skip if Clear - If bit 1 in ADCON0 is '1', the next instruction is executed.
+    goto   WaitConvertionFinish
     ; ADRESL and ADRESH have the voltage (10 mv per degree Celsius) 
-    ; Simulating 
-    call DivideTempBy10	    ; returns the converted temperature (temp and temp+1) 
-    ; temp has the converted value
+    
+    
+    
+    movf  ADRESL,w	; Low byte of the voltage value got from ADC  GP1	
+    movwf paramL     
+    movf  ADRESH,w	; High byte of the voltage value got from ADC GP1
+    movwf paramH
+     
+    call DivideTempBy10	    ; returns the converted votage to temperature 
     return
 
 
     
 ; *****************
-; Divide by 10    
-;
-
-    
+; Divide by 10  the voltage value got from ADV GP1   
+;   
 DivideTempBy10:     
 ; Inicializações
     clrf temp
     clrf count    
-    movlw  1	; ADRESH      ;
-    movwf lm35VH
-    movlw 215	; ADRESL 
-    movwf lm35VL
-    
+
     movlw 10
     movwf divider
 
- DivideLoop:    
+DivideLoop:    
     incf  count,f
-    subwf lm35VL, f
+    subwf paramL, f
     btfsc STATUS, 0
     goto DivideLoop
-    movlw 1
-    subwf lm35VH
+    movlw 1		; if voltage is greater than 255 mv, so the value of the high byte is 1
+    subwf paramH	; 
     btfss STATUS, 0  
     goto  DivideFinish
     movlw 26
@@ -135,8 +133,6 @@ DivideFinish:
     decf count,f
     movf count,w
     movwf temp
-    nop
-    
     return;
 
 ; ******************
