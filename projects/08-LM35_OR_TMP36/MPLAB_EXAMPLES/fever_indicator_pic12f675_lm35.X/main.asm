@@ -22,6 +22,7 @@ dummy2	equ 0x23
 dummy3	equ 0x24 
 count   equ 0x25
 temp	equ 0x26
+divider equ 0x27	
     
 PSECT resetVector, class=CODE, delta=2
 resetVect:
@@ -111,37 +112,31 @@ DivideTempBy10:
 ; Inicializações
     clrf temp
     clrf count    
-    movlw  0b00000000	; ADRESH      ;
+    movlw  1	; ADRESH      ;
     movwf lm35VH
-    movlw 0b11111111	; ADRESL 
+    movlw 215	; ADRESL 
     movwf lm35VL
-
-    ; Divide loop
-DivideLoop:
-    SUBLW 10
-    SUBWF lm35VL, F
-    ; 
-    BTFSC STATUS, 0
-    DECF lm35VH, F
-    ; 
-    MOVF lm35VH, W
-    BTFSC STATUS, 2
-    GOTO KeepDividing
-    MOVF lm35VL, W
-    SUBLW 10
-    BTFSS STATUS, 0
-    GOTO FinishDiv
-
-KeepDividing:
-    ; Incrementar o contador e continuar o loop
-    INCF count, F
-    GOTO DivideLoop
-
-FinishDiv:
-    ;  count = quociente, TEMP_LOW = rest
     
-    movf   count, w
-    movwf   temp
+    movlw 10
+    movwf divider
+
+ DivideLoop:    
+    incf  count,f
+    subwf lm35VL, f
+    btfsc STATUS, 0
+    goto DivideLoop
+    movlw 1
+    subwf lm35VH
+    btfss STATUS, 0  
+    goto  DivideFinish
+    movlw 26
+    addwf count
+DivideFinish:
+    decf count,f
+    movf count,w
+    movwf temp
+    nop
+    
     return;
 
 ; ******************
