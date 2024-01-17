@@ -15,14 +15,14 @@
   CONFIG  CPD = OFF             ; Data Code Protection bit (Data memory code protection is disabled) 
   
 ; declare your variables here
-paramL	equ 0x20       ; 
-paramH	equ 0x21
-dummy1	equ 0x22 
-dummy2	equ 0x23 
-dummy3	equ 0x24 
-count   equ 0x25
-temp	equ 0x26
-divider equ 0x27	
+paramL	    equ 0x20       ; 
+paramH	    equ 0x21
+dummy1	    equ 0x22 
+dummy2	    equ 0x23 
+delayParam  equ 0x24 
+count	    equ 0x25
+temp	    equ 0x26
+divider	    equ 0x27
     
 PSECT resetVector, class=CODE, delta=2
 resetVect:
@@ -48,6 +48,10 @@ main:
     
 MainLoopBegin:		    ; Endless loop
     call AdcRead	    ; read the temperature value
+    
+    movlw -99		    ; Check read error
+    xorwf temp,w	    ; If so, show error
+    goto  ReadError
     ; Checks if the temperature is lower, equal to, or higher than 37. Considering that 37 degrees Celsius is the threshold or transition value for fever.
     movlw 37		    ; Temperature constant ( Fever indicator )
     subwf temp,w	    ; subtract W from the temp 
@@ -61,12 +65,13 @@ MainLoopBegin:		    ; Endless loop
     
 AlmostFever:		    ; Temperature is 37
     ; BlinkLED
+    movlw 3
+    movwf delayParam
     call Delay
     bsf GPIO,0
     call Delay
     bcf GPIO,0        
     goto MainLoopEnd
-    
 Fever:			    ; Temperature is greater than 37
     ; Turn the  LED ON
     bsf GPIO,0
@@ -74,11 +79,20 @@ Fever:			    ; Temperature is greater than 37
 
 Normal: 
     ; Turn the LED off
-    bsf GPIO,0   
-MainLoopEnd:     
+    bsf GPIO,0  
+    goto MainLoopEnd
     
-    ; Delay parameters
+ReadError: 
+    ; BlinkLED faster
+    movlw 1
+    movwf delayParam
     call Delay
+    bsf GPIO,0
+    call Delay
+    bcf GPIO,0        
+  
+MainLoopEnd:     
+  
     
     goto MainLoopBegin
      
@@ -104,15 +118,14 @@ WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1
     movwf paramH
 
     clrw 
-    subwf paramH
+    subwf paramL	; If temperature is zero, then error
     btfsc STATUS, 2
-    goto Fake
+    goto ReadAdcError
     goto EndABC
-Fake:     
-    movlw 114           ; 114 + 256 = 370
-    movwf paramL 
-    movlw 1
-    movwf paramH
+ReadAdcError:     
+    movlw -99
+    movwf temp
+    
 EndABC:     
     call DivideTempBy10	    ; returns the converted votage to temperature 
     return
@@ -151,14 +164,13 @@ DivideFinish:
 ; Delay function
 ;
 ; For an oscillator of 4MHz a regular instructions takes 1us (See pic16f628a Datasheet, page 117).      
-; So, at 4MHz, this Delay subroutine takes about: (5 cycles) * 255 * 255 * 3 * 0.000001 (second)  
-; It is about 1s (0.975 s)  - One second  
+; So, at 4MHz, this Delay subroutine takes about: (5 cycles) * 255 * 255 * delayParam * 0.000001 (second)  
+; It is about 1s (0.975 s)  - One second  if delayParam is 3
 Delay:  
     movlw   255
     movwf   dummy1      ; 255 times
     movwf   dummy2      ; 255 times (255 * 255)
-    movlw   3			
-    movwf   dummy3      ; 3 times  ( 255 * 255 * 3) 
+			; 255 * 255 * delayParam loaded before calling Delay    
 DelayLoop:    
     nop                 ; One cycle
     nop                 ; One cycle
@@ -166,7 +178,7 @@ DelayLoop:
     goto DelayLoop      ; Two cycles
     decfsz dummy2, f    ; dummy2 = dumm2 - 1; if dummy2 = 0, after decfsz, it will be 255
     goto DelayLoop
-    decfsz dummy3, f    ; Runs 3 times (255 * 255)		 
+    decfsz delayParam,f ; Runs 3 times (255 * 255)		 
     goto DelayLoop
     
     return 
