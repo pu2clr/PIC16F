@@ -195,9 +195,10 @@ void main() {
 
 ## PIC12F675 C Example
 
-```cpp
+```asm
 
 ; BLINK
+; My PIC Journey   
 ; Author: Ricardo Lima Caratti
 ; Jan/2024
     
@@ -223,18 +224,17 @@ resetVect:
     goto main
 PSECT code, delta=2
 main:
+    ; INITIALIZING GPIO - See page 19 of the PIC12F675 Data Sheet
+    bcf STATUS,5  ; Selects Bank 0
+    clrf GPIO     ; Init GPIO  
+    movlw 01h     ; Set GP0 to 
+    movwf CMCON   ; digital IO  
+    bsf STATUS,5  ; Selects Bank 1  
+    clrf ANSEL    ; Digital IO  
+    clrw
+    movwf TRISIO  ; Sets all GPIO as output   
     bcf STATUS,5 
-    clrf GPIO
-    movlw 07h
-    movwf CMCON
-    bsf STATUS,5 
-    clrf ANSEL 
-    movlw 0Ch
-    movwf TRISIO
-    bcf STATUS,5 
-    movlw 0x00
-    movwf GPIO
-;  See PIC Assembler Tips: http://picprojects.org.uk/projects/pictips.htm 
+    clrf GPIO	  ; Turn all GPIO pins low
     
 MainLoopBegin:		    ; Endless loop
    ; BlinkLED  
@@ -270,6 +270,7 @@ DelayLoop:
     return 
     
 END resetVect
+
 
 ```
 
