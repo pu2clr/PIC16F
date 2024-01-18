@@ -104,7 +104,7 @@ void main() {
 
 
 
-``asm
+```asm
 
 ; BLINK three LEDS in sequency
 ; My PIC Journey   
