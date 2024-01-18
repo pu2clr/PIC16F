@@ -105,6 +105,7 @@ void main() {
 
 
 ``asm
+
 ; BLINK three LEDS in sequency
 ; My PIC Journey   
 ; Author: Ricardo Lima Caratti
@@ -185,11 +186,6 @@ DelayLoop:
 END resetVect
 
 ```
-
-
-
-```
-
 
 
 
