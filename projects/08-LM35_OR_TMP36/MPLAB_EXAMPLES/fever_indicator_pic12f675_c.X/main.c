@@ -13,35 +13,30 @@
 
 
 void initADC() {
-    ANSEL = 0b00000010;           // AN1 is analog input
-    ADCON0 = 0x01;               // Enable ADC, channel 0
+    TRISIO = 0b00000010;
+    ANSEL =  0b00000010;          // AN1 is analog input
+    ADCON0 = 0b10000101;          // Right justified; VDD;  01 = Channel 01 (AN1); A/D converter module is operating
 }
 
-unsigned int inline readADC() {
+unsigned int readADC() {
     ADCON0bits.GO = 1;           // Start conversion
     while (ADCON0bits.GO_nDONE); // Wait for conversion to finish
-    return ((ADRESH << 8) + ADRESL); // Combine result into a single word
-}
-
-unsigned int inline readTemperature() {
-    unsigned int adcValue = readADC();
-    unsigned int voltage = (adcValue * 5) / 1024; // Convert ADC value to voltage
-    return  voltage * 10 ;
-
+    // return (unsigned int) (ADRESH << 8) + (unsigned int) ADRESL; // Combine result into a single word
+    return ADRESL;
 }
 
 void main() {
-    TRISIO = 0x00; // 
-    GPIO =  0b00000010; // turns GP1 (pin 6) as input and the others output
+    TRISIO = 0x00;  // Sets All GPIO as output 
+    GPIO =  0x0;    // Turns all GPIO pins low
     
     initADC();
-         
+    
     while (1) {
-        unsigned int temperature = readTemperature();
-        if (temperature > 1 )
-            GP0 = 1;
-        else 
-            GP0 = 0;
+        unsigned int value = readADC();
+        if ( value >= 77)
+            GP0 = 1;    // Turn GP0 HIGH
+        else
+            GP0 = 0;    // Turn GP0 LOW
         __delay_ms(1000); 
     }
 }
