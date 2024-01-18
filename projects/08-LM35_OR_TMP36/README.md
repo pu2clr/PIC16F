@@ -14,8 +14,9 @@ Some projects utilize either an LM35 or TMP36 temperature sensor to determine if
 
 The key lies in understanding the digital equivalent of 37 degrees Celsius in the sensor's readings. For instance, an analog reading of 77, when converted to digital through the Analog-to-Digital Converter (ADC), corresponds precisely to 37 degrees Celsius. This can be calculated as follows:
 
-\[ \text{ADC Value} \times \frac{5}{1024} \times 100 = \text{Temperature in Degrees Celsius} \]
-\[ 77 \times \frac{5}{1024} \times 100 \approx 37.59^\circ\text{C} \]
+Let's see: **ADC Value * 5 / 1024 * 100 = Temperature in Degrees Celsius**.
+
+Thus: **77 * 5 / 1024 * 100 = 37.59°C**
 
 Therefore, the process involves simply reading the analog value and comparing it with 77. This method significantly conserves memory and processing power, optimizing the project's overall efficiency.
 
