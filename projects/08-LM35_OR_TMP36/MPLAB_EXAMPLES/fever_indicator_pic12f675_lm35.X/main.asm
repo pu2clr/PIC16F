@@ -32,25 +32,26 @@ PSECT code, delta=2
 main:
     ; Analog and Digital pins setup
     
-    bcf	    STATUS, 5	    ; Selects Bank 0
-    clrf    GPIO	    ; Init GPIO	
-    bcf	    CMCON, 0	    ; Sets GP0 as output 
-    bsf	    STATUS, 5	    ; Selects Bank 1
+    bcf	    STATUS, 5		; Selects Bank 0
+    clrf    GPIO		; Init GPIO	
+    bcf	    CMCON, 0		; Sets GP0 as output 
+    bsf	    STATUS, 5		; Selects Bank 1
     
-    clrf    TRISIO	    
-    bsf	    TRISIO, 1	    ; Sets GP1 as input 
-    bsf	    ANSEL, 1	    ; Sets GP1 as analog
-    movlw   0xC1	    ; 0B11000001 
-    movwf   ADCON0 	    ; Enable ADC
+    ; Sets GP1 as input 
+    movlw   0b00000010
+    movwf   TRISIO
+    
+    movwf   ANSEL	 	; Sets GP1 as analog and Clock / 8
+    movlw   0B10001001		; 0B11000001  - Channel AN1
+    movwf   ADCON0		; Enable ADC
     bcf	    STATUS, 5
     
 ;  See PIC Assembler Tips: http://picprojects.org.uk/projects/pictips.htm 
     
 MainLoopBegin:		    ; Endless loop
-    goto AlmostFever
     call AdcRead	    ; read the temperature value
     ; Checks if the temperature is lower, equal to, or higher than 37. Considering that 37 degrees Celsius is the threshold or transition value for fever.
-    movlw 77		    ; Temperature constant ( Fever indicator )
+    movlw 77		    ; 77 is the equivalent ADC value to 37 degree Celsius  
     subwf temp,w	    ; subtract W from the temp 
     btfsc STATUS, 2	    ; if Z flag  = 0; temp == wreg ?  
     goto  AlmostFever	    ; temp = wreg
@@ -69,12 +70,12 @@ AlmostFever:		    ; Temperature is 37
     goto MainLoopEnd
 Fever:			    ; Temperature is greater than 37
     ; Turn the  LED ON
-    bcf GPIO,0
+    bsf GPIO,0
     goto MainLoopEnd
 
 Normal: 
     ; Turn the LED off
-    bsf GPIO,0  
+    bcf GPIO,0  
     goto MainLoopEnd
     
 ReadError: 
@@ -104,6 +105,8 @@ WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1
     btfsc  ADCON0, 1		; Bit Test, Skip if Clear - If bit 1 in ADCON0 is '1', the next instruction is executed.
     goto   WaitConvertionFinish 
     
+
+    
     ; ADRESL and ADRESH have the voltage (10 mv per degree Celsius) 
     bsf	  STATUS, 5
     movf  ADRESL,w	; Low byte of the voltage value got from ADC  GP1	
@@ -115,7 +118,8 @@ WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1
     ; So, if the result is 77, the temperature is 37 (77 * 500 / 1024)
 EndABC:   
     movf paramL, w
-    movwf temp			    ; If temp >= 77 the temperature is 37 degree Celsius
+    ; movlw 77			    ; Just to check 
+    movwf temp			    ; If temp > 77 the temperature is greater than 37 degree Celsius
     return
    
     

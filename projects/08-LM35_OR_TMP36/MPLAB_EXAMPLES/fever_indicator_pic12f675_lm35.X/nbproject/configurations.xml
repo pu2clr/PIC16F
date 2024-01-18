@@ -26,7 +26,7 @@
       <toolsSet>
         <developmentServer>localhost</developmentServer>
         <targetDevice>PIC12F675</targetDevice>
-        <targetHeader>AC162050</targetHeader>
+        <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>pic-as</languageToolchain>
