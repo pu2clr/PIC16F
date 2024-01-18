@@ -25,4 +25,4 @@ Therefore, the process involves simply reading the analog value and comparing it
 
 ## References
 
-* [PIC12F629/675 Data Sheet](https://ww1.microchip.com/downloads/en/devicedoc/41190c.pdf)
+
