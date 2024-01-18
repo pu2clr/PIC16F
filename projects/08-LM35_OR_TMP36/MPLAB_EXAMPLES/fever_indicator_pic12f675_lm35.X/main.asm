@@ -47,6 +47,7 @@ main:
 ;  See PIC Assembler Tips: http://picprojects.org.uk/projects/pictips.htm 
     
 MainLoopBegin:		    ; Endless loop
+    goto AlmostFever
     call AdcRead	    ; read the temperature value
     
     movlw -99		    ; Check read error
@@ -74,7 +75,7 @@ AlmostFever:		    ; Temperature is 37
     goto MainLoopEnd
 Fever:			    ; Temperature is greater than 37
     ; Turn the  LED ON
-    bsf GPIO,0
+    bcf GPIO,0
     goto MainLoopEnd
 
 Normal: 
@@ -126,7 +127,11 @@ ReadAdcError:
     movlw -99
     movwf temp
     
-EndABC:     
+EndABC:   
+    movlw 37
+    movwf paramL
+    movlw 1
+    movwf paramH
     call DivideTempBy10	    ; returns the converted votage to temperature 
     return
 
