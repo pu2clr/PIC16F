@@ -49,12 +49,8 @@ main:
 MainLoopBegin:		    ; Endless loop
     goto AlmostFever
     call AdcRead	    ; read the temperature value
-    
-    movlw -99		    ; Check read error
-    xorwf temp,w	    ; If so, show error
-    goto  ReadError
     ; Checks if the temperature is lower, equal to, or higher than 37. Considering that 37 degrees Celsius is the threshold or transition value for fever.
-    movlw 37		    ; Temperature constant ( Fever indicator )
+    movlw 77		    ; Temperature constant ( Fever indicator )
     subwf temp,w	    ; subtract W from the temp 
     btfsc STATUS, 2	    ; if Z flag  = 0; temp == wreg ?  
     goto  AlmostFever	    ; temp = wreg
@@ -66,8 +62,6 @@ MainLoopBegin:		    ; Endless loop
     
 AlmostFever:		    ; Temperature is 37
     ; BlinkLED
-    movlw 3
-    movwf delayParam
     call Delay
     bsf GPIO,0
     call Delay
@@ -117,54 +111,14 @@ WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1
     bcf	  STATUS, 5
     movf  ADRESH,w	; High byte of the voltage value got from ADC GP1
     movwf paramH
-
-    clrw 
-    subwf paramL	; If temperature is zero, then error
-    btfsc STATUS, 2
-    goto ReadAdcError
-    goto EndABC
-ReadAdcError:     
-    movlw -99
-    movwf temp
-    
+    ; Convert to temperature/volts:  ADRESL * 500 / 1024  (ADRESH is not cxonsidered here) 
+    ; So, if the result is 77, the temperature is 37 (77 * 500 / 1024)
 EndABC:   
-    movlw 37
-    movwf paramL
-    movlw 1
-    movwf paramH
-    call DivideTempBy10	    ; returns the converted votage to temperature 
+    movf paramL, w
+    movwf temp			    ; If temp >= 77 the temperature is 37 degree Celsius
     return
-
-
+   
     
-; *****************
-; Divide by 10  the voltage value got from ADV GP1   
-;   
-DivideTempBy10:     
-; Inicializações
-    clrf temp
-    clrf count    
-
-    movlw 10
-    movwf divider
-
-DivideLoop:    
-    incf  count,f
-    subwf paramL, f
-    btfsc STATUS, 0
-    goto DivideLoop
-    movlw 1		; if voltage is greater than 255 mv, so the value of the high byte is 1
-    subwf paramH	; 
-    btfss STATUS, 0  
-    goto  DivideFinish
-    movlw 26
-    addwf count
-DivideFinish:
-    decf count,f
-    movf count,w
-    movwf temp
-    return;
-
 ; ******************
 ; Delay function
 ;
@@ -172,6 +126,8 @@ DivideFinish:
 ; So, at 4MHz, this Delay subroutine takes about: (5 cycles) * 255 * 255 * delayParam * 0.000001 (second)  
 ; It is about 1s (0.975 s)  - One second  if delayParam is 3
 Delay:  
+    movlw   3
+    movwf   delayParam    
     movlw   255
     movwf   dummy1      ; 255 times
     movwf   dummy2      ; 255 times (255 * 255)
@@ -187,7 +143,9 @@ DelayLoop:
     goto DelayLoop
     
     return 
+
     
+   
 END resetVect
 
 
