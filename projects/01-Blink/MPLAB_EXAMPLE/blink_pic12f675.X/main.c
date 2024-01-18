@@ -15,9 +15,9 @@ void main() {
     GPIO =  0x0;    // Turns all GPIO pins low
 
     while (1) {
-        GP0 = 1;
+        GP0 = 1;    // Turn GP0 HIGH
         __delay_ms(1000); 
-        GP0 = 0;
+        GP0 = 0;    // Turn GP0 LOW
         __delay_ms(1000); 
     }
 }
