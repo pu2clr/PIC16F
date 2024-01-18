@@ -1,6 +1,5 @@
 #include <xc.h>
 
-// 
 #pragma config FOSC = INTRCIO   // Oscillator Selection bits (INTOSC oscillator: I/O function on GP4/OSC2/CLKOUT pin, I/O function on GP5/OSC1/CLKIN)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled)
 #pragma config PWRTE = OFF      // Power-Up Timer Enable bit (PWRT disabled)
@@ -12,8 +11,8 @@
 #define _XTAL_FREQ 4000000      // internal clock
 
 void main() {
-    TRISIO = 0x00; // 
-    GPIO =  0x0; // turn all PORTB pins low
+    TRISIO = 0x00;  // Sets All GPIO as output 
+    GPIO =  0x0;    // Turns all GPIO pins low
 
     while (1) {
         GP0 = 1;
