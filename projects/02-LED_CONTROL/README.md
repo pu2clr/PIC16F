@@ -85,13 +85,13 @@ void main() {
     }
 }
 
-
+```
 
 
 ## PIC12F675 Schematic
 
 
-![Schematic PIC12F675 controlling 8 LEDs](./schematic_pic12f675_3LEDS.jpg)
+![Schematic PIC12F675 controlling e LEDs](./schematic_pic12f675_3LEDS.jpg)
 
 <BR>
 
