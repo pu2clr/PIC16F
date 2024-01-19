@@ -45,6 +45,8 @@ This Fever Indicator project demonstrates a practical application of microcontro
 
 The PIC12F675 is a compact and versatile 8-bit microcontroller from Microchip Technology, belonging to the popular PIC12F series. It's known for its small size and low power consumption, making it ideal for space-constrained and power-sensitive applications. The PIC12F675 features 1 KB of flash memory, 64 bytes of EEPROM, and 128 bytes of RAM, along with an onboard 10-bit Analog-to-Digital Converter (ADC), which is quite impressive for its size.
 
+![PIC12F675 PINOUT](./../../images/PIC12F675_PINOUT.png)
+
 ### About the LM35 
 
 The LM35 is a precision integrated-circuit temperature sensor, widely used for its ease of use, low cost, and straightforward analog output that corresponds to the temperature it measures. Here are its key technical features and specifications:
@@ -81,6 +83,8 @@ The LM35 is a precision integrated-circuit temperature sensor, widely used for i
 
 The LM35's straightforward and linear output, combined with its inherent accuracy and reliability, makes it a go-to choice for many temperature sensing requirements. It is especially favored in educational, hobbyist, and prototyping projects due to its ease of use and interfacing simplicity.
 
+
+![LM35 PINOUT](./../../images/lm35_pinout.jpg)
 
 
 ## Schematic - Fiver Indicator with PIC12F675, LM35 and LED
