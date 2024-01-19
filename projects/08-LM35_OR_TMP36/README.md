@@ -84,7 +84,7 @@ The LM35 is a precision integrated-circuit temperature sensor, widely used for i
 The LM35's straightforward and linear output, combined with its inherent accuracy and reliability, makes it a go-to choice for many temperature sensing requirements. It is especially favored in educational, hobbyist, and prototyping projects due to its ease of use and interfacing simplicity.
 
 
-![LM35 PINOUT](./../../images/lm35_pinout.jpg)
+![LM35 PINOUT](./../../images/lm35_pinout.png)
 
 
 ## Schematic - Fiver Indicator with PIC12F675, LM35 and LED
