@@ -28,6 +28,14 @@ Based on the previous formula, you will be able to find other values you wish to
 It is likely that you will need to calibrate your system to find a more precise value. It's probable that ADC converters from different series of microcontrollers will produce varying results for the same output from the LM35 or TMP36. Additionally, the LM35 or TMP36 themselves may produce significant variations in response to the monitored body temperature.
 
 
+
+## Schematic - Fiver Indicator with PIC12F675, LM35 and LED
+
+
+![Schematic - Fiver Indicator with PIC12F675, LM35 and LED](./schematic_pic12F765_lm35_led.jpg)
+
+
+
 ## C code to demostrate that approach 
 
 The following C code is designed for compilation and execution on the PIC12F675 microcontroller.
