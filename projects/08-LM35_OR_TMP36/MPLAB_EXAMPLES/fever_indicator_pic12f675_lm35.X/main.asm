@@ -35,15 +35,15 @@ main:
     bcf	    STATUS, 5		; Selects Bank 0
     clrf    GPIO		; Init GPIO	
     bcf	    CMCON, 0		; Sets GP0 as output 
+    movlw   0b10000101 		; Right justified; VDD;  01 = Channel 01 (AN1); A/D converter module is 
+    movwf   ADCON0		; Enable ADC   
     bsf	    STATUS, 5		; Selects Bank 1
     
     ; Sets GP1 as input 
-    movlw   0b00000010
-    movwf   TRISIO
-    
+    movlw   0b00000010		
+    movwf   TRISIO		; AN1 - input
+    movlw   0b00000010		; AN1 as analog 
     movwf   ANSEL	 	; Sets GP1 as analog and Clock / 8
-    movlw   0B10001001		; 0B11000001  - Channel AN1
-    movwf   ADCON0		; Enable ADC
     bcf	    STATUS, 5
     
 ;  See PIC Assembler Tips: http://picprojects.org.uk/projects/pictips.htm 
@@ -99,7 +99,8 @@ MainLoopEnd:
 ;
 ; Read the analog value from GP1
 AdcRead: 
-    bsf	    ADCON0, 1		; Start convertion  (set bit 1 to high)
+    bcf	  STATUS, 5
+    bsf	  ADCON0, 1		; Start convertion  (set bit 1 to high)
 
 WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1 
     btfsc  ADCON0, 1		; Bit Test, Skip if Clear - If bit 1 in ADCON0 is '1', the next instruction is executed.
@@ -108,18 +109,20 @@ WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1
 
     
     ; ADRESL and ADRESH have the voltage (10 mv per degree Celsius) 
-    bsf	  STATUS, 5
-    movf  ADRESL,w	; Low byte of the voltage value got from ADC  GP1	
-    movwf paramL   
-    bcf	  STATUS, 5
-    movf  ADRESH,w	; High byte of the voltage value got from ADC GP1
-    movwf paramH
+    ; bsf	  STATUS, 5
+    ; movf  ADRESL,w	; Low byte of the voltage value got from ADC  GP1	
+    ; movwf paramL   
+    ; bcf	  STATUS, 5
+    ;movf  ADRESH,w	; High byte of the voltage value got from ADC GP1
+    ; movwf paramH
     ; Convert to temperature/volts:  ADRESL * 500 / 1024  (ADRESH is not cxonsidered here) 
     ; So, if the result is 77, the temperature is 37 (77 * 500 / 1024)
-EndABC:   
-    movf paramL, w
+EndABC:
+    bsf	  STATUS, 5
+    movf ADRESL, w
     ; movlw 77			    ; Just to check 
     movwf temp			    ; If temp > 77 the temperature is greater than 37 degree Celsius
+    bcf	  STATUS, 5
     return
    
     
