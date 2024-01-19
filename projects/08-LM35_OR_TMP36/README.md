@@ -309,13 +309,12 @@ DelayLoop:
 END resetVect
 
 
-
-
-
-
 ```
 
 
+## Schematic - Fiver Indicator with PIC12F675, LM35 and Three LEDs
+
+![Schematic - Fiver Indicator with PIC12F675, LM35 and Three LEDs](./schematic_pic12F765_lm35_3led.jpg)
 
 ## References
 
