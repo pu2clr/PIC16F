@@ -1,5 +1,16 @@
-; UNDER CONSTRUCTION...
 ; Fever Indicator with PIC12F675 with LM35 or TMP36
+;
+; This projects utilizes either an LM35 or TMP36 temperature sensor to determine if a body's temperature is below, 
+; equal to, or above 37 degrees Celsius. The approach is streamlined to improve efficiency: there's no conversion 
+; of the sensor's analog signal to a Celsius temperature reading, as the actual temperature value isn't displayed.
+; The key lies in understanding the digital equivalent of 37 degrees Celsius in the sensor's readings. 
+; For instance, an analog reading of 77, when converted to digital through the Analog-to-Digital Converter (ADC), 
+; corresponds to 37 degrees Celsius. This can be calculated as follows:
+; 
+; Let's see: ADC Value * 5 / 1024 * 100 = Temperature in Degrees Celsius.
+; 
+; Thus: 77 * 5 / 1024 * 100 = 37.59°C
+;    
 ; Author: Ricardo Lima Caratti
 ; Jan/2024
     
@@ -15,14 +26,12 @@
   CONFIG  CPD = OFF             ; Data Code Protection bit (Data memory code protection is disabled) 
   
 ; declare your variables here
-paramL	    equ 0x20       ; 
-paramH	    equ 0x21
-dummy1	    equ 0x22 
-dummy2	    equ 0x23 
-delayParam  equ 0x24 
-count	    equ 0x25
-temp	    equ 0x26
-divider	    equ 0x27
+dummy1	    equ 0x20 
+dummy2	    equ 0x21 
+delayParam  equ 0x22 
+count	    equ 0x23
+temp	    equ 0x24
+divider	    equ 0x25
     
 PSECT resetVector, class=CODE, delta=2
 resetVect:
@@ -31,7 +40,6 @@ resetVect:
 PSECT code, delta=2
 main:
     ; Analog and Digital pins setup
-    
     bcf	    STATUS, 5		; Selects Bank 0
     clrf    GPIO		; Init GPIO	
     bcf	    CMCON, 0		; Sets GP0 as output 
@@ -39,12 +47,11 @@ main:
     movwf   ADCON0		; Enable ADC   
     bsf	    STATUS, 5		; Selects Bank 1
     
-    ; Sets GP1 as input 
     movlw   0b00000010		
     movwf   TRISIO		; AN1 - input
     movlw   0b00000010		; AN1 as analog 
     movwf   ANSEL	 	; Sets GP1 as analog and Clock / 8
-    bcf	    STATUS, 5
+    bcf	    STATUS, 5		; Selects bank 0
     
 ;  See PIC Assembler Tips: http://picprojects.org.uk/projects/pictips.htm 
     
@@ -99,33 +106,19 @@ MainLoopEnd:
 ;
 ; Read the analog value from GP1
 AdcRead: 
-    bcf	  STATUS, 5
+    bcf	  STATUS, 5		; Select bank 0 to deal with ADCON0 register
     bsf	  ADCON0, 1		; Start convertion  (set bit 1 to high)
 
 WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1 
     btfsc  ADCON0, 1		; Bit Test, Skip if Clear - If bit 1 in ADCON0 is '1', the next instruction is executed.
     goto   WaitConvertionFinish 
     
-
-    
-    ; ADRESL and ADRESH have the voltage (10 mv per degree Celsius) 
-    ; bsf	  STATUS, 5
-    ; movf  ADRESL,w	; Low byte of the voltage value got from ADC  GP1	
-    ; movwf paramL   
-    ; bcf	  STATUS, 5
-    ;movf  ADRESH,w	; High byte of the voltage value got from ADC GP1
-    ; movwf paramH
-    ; Convert to temperature/volts:  ADRESL * 500 / 1024  (ADRESH is not cxonsidered here) 
-    ; So, if the result is 77, the temperature is 37 (77 * 500 / 1024)
-EndABC:
-    bsf	  STATUS, 5
-    movf ADRESL, w
-    ; movlw 77			    ; Just to check 
-    movwf temp			    ; If temp > 77 the temperature is greater than 37 degree Celsius
-    bcf	  STATUS, 5
+    bsf	  STATUS, 5		; Select bank1 to deal with ADRESL register
+    movf  ADRESL, w		
+    movwf temp			; If temp => 77 the temperature is about 37 degree Celsius
+    bcf	  STATUS, 5		; Select to bank 0
     return
    
-    
 ; ******************
 ; Delay function
 ;
@@ -150,8 +143,6 @@ DelayLoop:
     goto DelayLoop
     
     return 
-
-    
    
 END resetVect
 
