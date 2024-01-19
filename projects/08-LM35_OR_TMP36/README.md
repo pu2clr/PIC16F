@@ -314,6 +314,9 @@ END resetVect
 
 ## Schematic - Fiver Indicator with PIC12F675, LM35 and Three LEDs
 
+This version of the "Fever Indicator" uses multiple LEDs instead of one. The green LED indicates normal body temperature, the yellow LED indicates a warning or point of attention, and the red LED indicates fever. Note that the connections for the LM35 have changed. In this version, GP4 - (AN3) is used for analog reading.
+
+
 ![Schematic - Fiver Indicator with PIC12F675, LM35 and Three LEDs](./schematic_pic12F765_lm35_3led.jpg)
 
 ## References
