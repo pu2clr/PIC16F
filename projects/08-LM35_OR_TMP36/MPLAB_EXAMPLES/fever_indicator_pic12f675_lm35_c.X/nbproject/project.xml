@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>fever_indicator_pic12f675_c</name>
+            <name>fever_indicator_pic12f675_lm35_c</name>
             <creation-uuid>b215e9d5-d52b-471f-a101-478dd7ece145</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>

@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=fever_indicator_pic12f675_lm35.X
+PROJECTNAME=fever_indicator_pic12f675_lm35_c.X
 
 # Active Configuration
 DEFAULTCONF=default
