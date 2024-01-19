@@ -10,6 +10,13 @@
 ; Let's see: ADC Value * 5 / 1024 * 100 = Temperature in Degrees Celsius.
 ; 
 ; Thus: 77 * 5 / 1024 * 100 = 37.59°C
+;
+; Calibration 
+;
+; It is likely that you will need to calibrate your system to find a more precise value. 
+; It's probable that ADC converters from different series of microcontrollers will produce 
+; varying results for the same output from the LM35 or TMP36. Additionally, the LM35 or TMP36 
+; themselves may produce significant variations in response to the monitored body temperature.
 ;    
 ; Author: Ricardo Lima Caratti
 ; Jan/2024
