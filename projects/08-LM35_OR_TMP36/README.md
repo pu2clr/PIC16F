@@ -4,7 +4,90 @@ In this folder, you will find some projects with the PIC12F and PIC16F series fo
 
 ## Fever indicator with the small PIC12F675
 
+**Fever Indicator Project Using PIC12F675, LM35 Sensor, and an LED**
+
+**Project Overview**:
+The Fever Indicator is a simple yet effective device designed to monitor body temperature and indicate the presence of fever. Utilizing the PIC12F675 microcontroller, a reliable LM35 temperature sensor, and an LED, this project is well-suited for basic health monitoring and educational purposes. The indicator is set to light up the LED when the body temperature reaches or exceeds 37°C, a common threshold for fever.
+
+**Components**:
+1. **PIC12F675 Microcontroller**: The core of the project, responsible for processing the signal from the LM35 sensor and controlling the LED based on the temperature reading.
+2. **LM35 Temperature Sensor**: This analog sensor will be used to measure the body temperature. It provides an output voltage linearly proportional to the Celsius temperature.
+3. **LED**: Serves as a visual indicator for fever. Lights up when the temperature is 37°C or higher.
+4. **Resistors**: Necessary for the LED and may be required for the LM35 depending on the setup.
+5. **Power Supply**: Suitable for the microcontroller and sensor.
+
+
+**Circuit Design**:
+- The LM35 sensor is connected to one of the analog input pins of the PIC12F675 (e.g., GP1, which is configured as an ADC input).
+- The LED is connected to a digital output pin of the PIC12F675 (e.g., GP0) with a current-limiting resistor.
+- The PIC12F675 is powered as per its operating specifications, ensuring stable operation for accurate readings.
+- See schematic below
+
+**Operation**:
+- The LM35 sensor continuously monitors the body temperature. Its output voltage is fed to the ADC pin of the PIC12F675.
+- The microcontroller reads this analog input, converts it to a digital value, and calculates the corresponding temperature.
+- The program running on the PIC12F675 checks the temperature reading. If the temperature is 37°C or higher, it activates the LED.
+- The LED being on indicates a fever state.
+
+**Software Logic**:
+- The software written for the PIC12F675 includes ADC initialization and reading routines, a calculation to convert the ADC value to a temperature reading (considering the LM35's 10mV/°C output), and a control statement to check for the fever condition.
+- The temperature threshold for triggering the LED can be adjusted in the software as needed.
+
+**Applications and Use Cases**:
+- This Fever Indicator can be used in homes, schools, or offices as a basic health monitoring tool.
+- It’s particularly beneficial in educational settings, where students can learn about embedded systems, sensor integration, and basic health technology.
+
+**Conclusion**:
+This Fever Indicator project demonstrates a practical application of microcontrollers and sensors. It combines hardware interfacing with software programming to create a functional device, providing a platform for learning and a tool for basic health monitoring.
+
+
+### About the PIC12675
+
 The PIC12F675 is a compact and versatile 8-bit microcontroller from Microchip Technology, belonging to the popular PIC12F series. It's known for its small size and low power consumption, making it ideal for space-constrained and power-sensitive applications. The PIC12F675 features 1 KB of flash memory, 64 bytes of EEPROM, and 128 bytes of RAM, along with an onboard 10-bit Analog-to-Digital Converter (ADC), which is quite impressive for its size.
+
+### About the LM35 
+
+The LM35 is a precision integrated-circuit temperature sensor, widely used for its ease of use, low cost, and straightforward analog output that corresponds to the temperature it measures. Here are its key technical features and specifications:
+
+1. **Temperature Sensing Range**:
+   - Typically, the LM35 has a temperature range of -55°C to +150°C. There are variants like the LM35CZ which are optimized for colder temperatures, and the LM35DZ for near-freezing temperatures.
+
+2. **Output**:
+   - The LM35 provides an analog output voltage that is linearly proportional to the Celsius temperature. The scale factor is typically 10 mV/°C, meaning the output voltage increases by 10 mV for each degree Celsius rise in temperature.
+
+3. **Accuracy**:
+   - The accuracy of the LM35 is generally ±0.5°C at room temperature and ±0.75°C over the full -55°C to 150°C temperature range. Certain calibrated versions offer improved accuracies.
+
+4. **Operating Voltage**:
+   - It typically operates over a range of 4V to 30V. Some versions can operate on lower voltages, which makes the sensor suitable for battery-operated devices.
+
+5. **Low Self-Heating**:
+   - The LM35 has a very low self-heating effect, typically less than 0.1°C in still air, because of its low power consumption.
+
+6. **No Need for External Calibration**:
+   - The sensor does not require any external calibration or trimming to provide typical accuracies of ±0.25°C at room temperature and ±0.75°C over a full -55°C to 150°C temperature range.
+
+7. **Linear Output**:
+   - The output of the LM35 is linear, which means the output voltage rises and falls linearly with temperature. This linear output makes interfacing with reading circuitry (like an ADC on a microcontroller) straightforward.
+
+8. **Analog Nature**:
+   - Being an analog sensor, it requires an Analog-to-Digital Converter (ADC) if the reading needs to be processed by digital electronics, such as a microcontroller.
+
+9. **Variants**:
+   - The LM35 is available in several different packages, including TO-92 plastic transistors, plastic SOIC, and metal TO-CAN. This variety allows it to be used in a wide range of applications.
+
+10. **Applications**:
+    - It’s commonly used in a variety of applications including environmental controls, HVAC systems, temperature monitoring systems in electronic equipment, and anywhere where temperature monitoring is necessary.
+
+The LM35's straightforward and linear output, combined with its inherent accuracy and reliability, makes it a go-to choice for many temperature sensing requirements. It is especially favored in educational, hobbyist, and prototyping projects due to its ease of use and interfacing simplicity.
+
+
+
+## Schematic - Fiver Indicator with PIC12F675, LM35 and LED
+
+
+![Schematic - Fiver Indicator with PIC12F675, LM35 and LED](./schematic_pic12F765_lm35_led.jpg)
+
 
 
 
@@ -26,14 +109,6 @@ Based on the previous formula, you will be able to find other values you wish to
 ### Calibration 
 
 It is likely that you will need to calibrate your system to find a more precise value. It's probable that ADC converters from different series of microcontrollers will produce varying results for the same output from the LM35 or TMP36. Additionally, the LM35 or TMP36 themselves may produce significant variations in response to the monitored body temperature.
-
-
-
-## Schematic - Fiver Indicator with PIC12F675, LM35 and LED
-
-
-![Schematic - Fiver Indicator with PIC12F675, LM35 and LED](./schematic_pic12F765_lm35_led.jpg)
-
 
 
 ## C code to demostrate that approach 
