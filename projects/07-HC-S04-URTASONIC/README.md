@@ -251,7 +251,7 @@ The experiment below uses the PIC12F675 and the HC-S04 ultrasonic distance senso
 
 ```cpp
 /*
- * Distance Sensor 
+ * Distance Sensor with PIC12F675 and HC-S04
  * Author: Ricardo Lima Caratti
  * Jan/2024
  */
@@ -309,29 +309,22 @@ void main(void)
     
     while (1)
     {
-        // Reset TMR1
-        TMR1H = 0;
+        TMR1H = 0;      // Reset TMR1
         TMR1L = 0;
 
-        // Send 10uS signal to the Trigger pin
-        GP5 = 1;
+        GP5 = 1;        // Send 10uS signal to the Trigger pin
         __delay_us(10);
         GP5 = 0;
 
-        // Wait for echo
-        while (!GP4);
+        while (!GP4);   // Wait for echo
         TMR1ON = 1;
         while (GP4);
         TMR1ON = 0;    
         // Now you have the elapsed time stored in TMR1H and TMR1L
         unsigned int duration = (unsigned int) (TMR1H << 8) | TMR1L;
-        // There is no requirement to compute the exact distance to determine if it falls within specific ranges, 
-        // such as being greater than 10, less than 30, or exceeding these values. Instead, you simply need to 
-        // measure and compare the elapsed time corresponding to each of these distance thresholds.
-        // This approach saves memory.
-        if ( duration < 830)       // This time is about 10 cm
+        if ( duration < 830)        // this time is equivalent to 10 cm
             RedOn();
-        else if (duration <= 2450 ) // This time is about 30 cm 
+        else if (duration <= 2450 ) // this time is equivalent to 30 cm 
             YellowOn();
         else
             GreenOn();
@@ -342,6 +335,10 @@ void main(void)
 
 ```
 
+
+### PIC12F675 and HC-S04 prototype 
+
+![PIC12F675 and HC-S04 prototype](./prototype_pic12f675_hc_s04.jpg)
 
 
 ## References
