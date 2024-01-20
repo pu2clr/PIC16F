@@ -228,6 +228,24 @@ void main() {
 ![PIC16F876A with HC-S04 and LCD 16x2 prototype 2](./prototype_pic16f876a_hc_s04_lcd2.jpg)
 
 
+
+
+
+## PIC12F675 HC-S04 Version
+
+
+
+### PIC12F675 pinout
+
+
+
+![PIC12F675 pinout](../../images/PIC12F675_PINOUT.png)
+
+
+
+
+
+
 ## References
 
 * [Ultrasonic Sensor HC-SR04 With PIC Microcontroller](https://www.trionprojects.org/2020/03/ultrasonic-sensor-hc-sr04-with-pic.html)
