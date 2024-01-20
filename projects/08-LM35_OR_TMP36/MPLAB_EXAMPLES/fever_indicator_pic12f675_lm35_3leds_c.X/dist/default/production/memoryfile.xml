@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/production/fever_indicator_pic12f675_lm35_3leds_c.X.production.hex">
+    <memory name="program">
+      <units>words</units>
+      <length>1024</length>
+      <used>78</used>
+      <free>946</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>64</length>
+      <used>11</used>
+      <free>53</free>
+    </memory>
+  </executable>
+</project>

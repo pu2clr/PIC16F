@@ -30,7 +30,7 @@ main:
     bcf	    STATUS, 5		; Selects Bank 0
     clrf    GPIO		; Init GPIO
     clrf    CMCON		; COMPARATOR Register setup
-    movlw   0b10001101 		; Right justified; VDD;  01 = Channel 01 (AN1); A/D converter module is 
+    movlw   0b10001101 	; Right justified; VDD;  01 = Channel 3 (AN3); A/D converter module is 
     movwf   ADCON0		; Enable ADC   
     bsf	    STATUS, 5		; Selects Bank 1
     movlw   0b00010000		; GP4/AN3 as input
