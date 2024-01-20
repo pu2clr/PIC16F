@@ -179,33 +179,7 @@ END resetVect
 
 ### Divider example
 
-``asm
-; *****************
-; Divide by X (parameter divider) the voltage value got from ADV GP1   
-; parameter: divider
-; return temp  
-DivideTempByX:     
-; Inicializações
-    clrf temp
-    clrf count    
-    movf divider, w	; Moves divoder to w 
-DivideLoop:    
-    incf  count,f
-    subwf paramL, f
-    btfsc STATUS, 0
-    goto DivideLoop
-    movlw 1		; if voltage is greater than 255 mv, so the value of the high byte is 1
-    subwf paramH	; 
-    btfss STATUS, 0  
-    goto  DivideFinish
-    movlw 26
-    addwf count
-DivideFinish:
-    decf count,f
-    movf count,w
-    movwf temp
-    return;
-```
+UNDER CONSTRUCTION...
 
 
 
