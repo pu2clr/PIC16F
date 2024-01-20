@@ -1,23 +1,5 @@
-; Fever Indicator with PIC12F675 with LM35 or TMP36
-;
-; This projects utilizes either an LM35 or TMP36 temperature sensor to determine if a body's temperature is below, 
-; equal to, or above 37 degrees Celsius. The approach is streamlined to improve efficiency: there's no conversion 
-; of the sensor's analog signal to a Celsius temperature reading, as the actual temperature value isn't displayed.
-; The key lies in understanding the digital equivalent of 37 degrees Celsius in the sensor's readings. 
-; For instance, an analog reading of 77, when converted to digital through the Analog-to-Digital Converter (ADC), 
-; corresponds to 37 degrees Celsius. This can be calculated as follows:
-; 
-; Let's see: ADC Value * 5 / 1024 * 100 = Temperature in Degrees Celsius.
-; 
-; Thus: 77 * 5 / 1024 * 100 = 37.59�C
-;
-; Calibration 
-;
-; It is likely that you will need to calibrate your system to find a more precise value. 
-; It's probable that ADC converters from different series of microcontrollers will produce 
-; varying results for the same output from the LM35 or TMP36. Additionally, the LM35 or TMP36 
-; themselves may produce significant variations in response to the monitored body temperature.
-;    
+; BLINK three LEDS in sequency
+; My PIC Journey   
 ; Author: Ricardo Lima Caratti
 ; Jan/2024
     
@@ -36,8 +18,7 @@
 dummy1	    equ 0x20 
 dummy2	    equ 0x21 
 delayParam  equ 0x22 
-temp	    equ 0x23
-
+temp	    equ 0x23  
     
 PSECT resetVector, class=CODE, delta=2
 resetVect:
@@ -47,20 +28,16 @@ PSECT code, delta=2
 main:
     ; Analog and Digital pins setup
     bcf	    STATUS, 5		; Selects Bank 0
-    clrf    GPIO		; Init GPIO	
-    clrf    CMCON		; COMPARATOR Register Setup
-    movlw   0b10000101 		; Right justified; VDD;  01 = Channel 01 (AN1); A/D converter module is 
+    clrf    GPIO		; Init GPIO
+    clrf    CMCON		; COMPARATOR Register setup
+    movlw   0b10001101 		; Right justified; VDD;  01 = Channel 01 (AN1); A/D converter module is 
     movwf   ADCON0		; Enable ADC   
     bsf	    STATUS, 5		; Selects Bank 1
-    
-    movlw   0b00000010		
-    movwf   TRISIO		; AN1 - input
-    movlw   0b00000010		; AN1 as analog 
-    movwf   ANSEL	 	; Sets GP1 as analog and Clock / 8
+    movlw   0b00010000		; GP4/AN3 as input
+    movwf   TRISIO		 
+    movlw   0b00011000		; AN3 as analog 
+    movwf   ANSEL	 	; Sets GP4 as analog and Clock / 8
     bcf	    STATUS, 5		; Selects bank 0
-    
-;  See PIC Assembler Tips: http://picprojects.org.uk/projects/pictips.htm 
-    
 MainLoopBegin:		    ; Endless loop
     call AdcRead	    ; read the temperature value
     ; Checks if the temperature is lower, equal to, or higher than 37. Considering that 37 degrees Celsius is the threshold or transition value for fever.
@@ -75,41 +52,50 @@ MainLoopBegin:		    ; Endless loop
     goto MainLoopEnd
     
 AlmostFever:		    ; Temperature is 37
-    ; BlinkLED
-    call Delay
-    bsf GPIO,0
-    call Delay
-    bcf GPIO,0        
+    call YellowOn
     goto MainLoopEnd
 Fever:			    ; Temperature is greater than 37
-    ; Turn the  LED ON
-    bsf GPIO,0
+    call RedOn
     goto MainLoopEnd
-
 Normal: 
-    ; Turn the LED off
-    bcf GPIO,0  
+    call GreenOn
     goto MainLoopEnd
-    
-ReadError: 
-    ; BlinkLED faster
-    movlw 1
-    movwf delayParam
-    call Delay
-    bsf GPIO,0
-    call Delay
-    bcf GPIO,0        
   
-MainLoopEnd:     
-  
-    
+MainLoopEnd:    
+    call Delay
     goto MainLoopBegin
-     
-;
-; Your subroutines
-;  
 
-;
+; ******************************      
+; Turn Green LED On
+GreenOn:
+    call AllOff
+    movlw 1	  ; 0B00000001  
+    movwf GPIO
+    return
+
+; ******************************    
+; Turn Yellow LED ON    
+YellowOn: 
+    call AllOff
+    movlw 2	   ; 0B00000010
+    movwf GPIO
+    return  
+    
+; ******************************    
+RedOn: 
+    call AllOff
+    movlw 4	   ; 0B00000100
+    movwf GPIO
+    return        
+
+; ******************************
+; Turn all LEDs off
+AllOff: 
+    clrw 
+    movwf GPIO
+    return
+    
+; ******** ADC Read ************
 ; Read the analog value from GP1
 AdcRead: 
     bcf	  STATUS, 5		; Select bank 0 to deal with ADCON0 register
@@ -123,8 +109,10 @@ WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1
     movf  ADRESL, w		
     movwf temp			; If temp => 77 the temperature is about 37 degree Celsius
     bcf	  STATUS, 5		; Select to bank 0
+
     return
-   
+    
+    
 ; ******************
 ; Delay function
 ;
@@ -133,7 +121,7 @@ WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1
 ; It is about 1s (0.975 s)  - One second  if delayParam is 3
 Delay:  
     movlw   3
-    movwf   delayParam    
+    movwf   delayParam
     movlw   255
     movwf   dummy1      ; 255 times
     movwf   dummy2      ; 255 times (255 * 255)
@@ -149,7 +137,5 @@ DelayLoop:
     goto DelayLoop
     
     return 
-   
+    
 END resetVect
-
-

@@ -29,14 +29,12 @@ main:
     ; INITIALIZING GPIO - See page 19 of the PIC12F675 Data Sheet
     bcf STATUS,5	    ; Selects Bank 0
     clrf GPIO		    ; Init GPIO  
-    movlw 0B00000111	    ; Set GP0 to 
-    movwf CMCON		    ; digital IO  
+    clrf CMCON		    ; COMPARATOR Register setup
     bsf STATUS,5	    ; Selects Bank 1  
     clrf ANSEL		    ; Digital IO  
     clrw
     movwf   TRISIO	    ; Sets all GPIO as output   
     bcf	    STATUS,5	    ; Selects the Bank 0		
-    clrf    GPIO	    ; Turn all GPIO pins low
     clrf    ledNumber	    ; ledNumber = 0
 MainLoopBegin:		    ; Endless loop
     movf    ledNumber,w	    ; All LEDs off at first time
