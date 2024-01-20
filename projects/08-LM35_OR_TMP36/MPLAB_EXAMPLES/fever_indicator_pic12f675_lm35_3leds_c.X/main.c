@@ -11,13 +11,13 @@
 
 #define _XTAL_FREQ 4000000      // internal clock
 
-void initADC() {
+void inline initADC() {
     TRISIO = 0b00011000;          // input setup - GP4/AN3  
     ANSEL =  0b00011000;          // AN3 as analog input
     ADCON0 = 0b10001101;          // Right justified; VDD;  01 = Channel 03 (AN3); A/D converter module is 
 }
 
-unsigned int readADC() {
+unsigned inline char readADC() {
     ADCON0bits.GO = 1;           // Start conversion
     while (ADCON0bits.GO_nDONE); // Wait for conversion to finish
     // Assuming that the body's maximum temperature will not exceed 127 (about 62 degrees Celsius).
@@ -27,14 +27,14 @@ unsigned int readADC() {
 /**
  * Turns All LEDS Off 
  */
-void AllOff() {
+void inline AllOff() {
     GPIO =  0;
 }
 
 /**
  * Turns Green LED On
  */
-void GreenOn() {
+void inline GreenOn() {
     AllOff();
     GPIO =  1;
 }
@@ -42,7 +42,7 @@ void GreenOn() {
 /**
  * Turns Yellow LED On
  */
-void YellowOn() {
+void inline YellowOn() {
     AllOff();
     GPIO =  2;
 }
@@ -59,7 +59,7 @@ void main() {
     GPIO =  0x0;    // Turns all GPIO pins low
     initADC();
     while (1) {
-        unsigned int value = readADC();
+        unsigned char value = readADC();
          // To optimize accuracy, it might be necessary to perform calibration in order to 
         // determine a more precise value. the ADC vales 77 is near to 37 degree Celsius in my experiment
         if ( value == 77)  { 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production/fever_indicator_pic12f675_lm35_3leds_c.X.production.hex">
+  <executable name="dist/O2/production/fever_indicator_pic12f675_lm35_3leds_c.X.production.hex">
     <memory name="program">
       <units>words</units>
       <length>1024</length>

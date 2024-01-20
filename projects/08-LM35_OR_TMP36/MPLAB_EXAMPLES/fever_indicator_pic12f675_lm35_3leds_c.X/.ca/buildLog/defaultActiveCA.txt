@@ -1,0 +1,27 @@
+make -f nbproject/Makefile-defaultActiveCA.mk SUBPROJECTS= .clean-conf
+make[1]: Entering directory '/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/08-LM35_OR_TMP36/MPLAB_EXAMPLES/fever_indicator_pic12f675_lm35_3leds_c.X'
+rm -f  -r .ca/build/defaultActiveCA/production
+rm -f  -r .ca/dist/defaultActiveCA/production
+make[1]: Leaving directory '/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/08-LM35_OR_TMP36/MPLAB_EXAMPLES/fever_indicator_pic12f675_lm35_3leds_c.X'
+[32mCLEAN SUCCESSFUL (total time: 56ms)[0m
+make -f nbproject/Makefile-defaultActiveCA.mk SUBPROJECTS= .build-conf
+make[1]: Entering directory '/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/08-LM35_OR_TMP36/MPLAB_EXAMPLES/fever_indicator_pic12f675_lm35_3leds_c.X'
+make  -f nbproject/Makefile-defaultActiveCA.mk .ca/dist/defaultActiveCA/production/fever_indicator_pic12f675_lm35_3leds_c.X.production.hex
+make[2]: Entering directory '/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/08-LM35_OR_TMP36/MPLAB_EXAMPLES/fever_indicator_pic12f675_lm35_3leds_c.X'
+"/Applications/microchip/xc8/v2.45/bin/xc8-cc"  -mcpu=12F675 -c   -mdfp="/Users/rcaratti/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8"  -fno-short-double -fno-short-float -Os -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_defaultActiveCA=defaultActiveCA  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits   -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o .ca/build/defaultActiveCA/production/main.p1 main.c 
+::: advisory: (2051) the current license does not permit the selected optimization level, using optimization level 2
+::: advisory: (2100) using the C99 standard library with the selected device may result in larger code and data usage
+"/Applications/microchip/xc8/v2.45/bin/xc8-cc"  -mcpu=12F675 -Wl,-Map=.ca/dist/defaultActiveCA/production/fever_indicator_pic12f675_lm35_3leds_c.X.production.map  -DXPRJ_defaultActiveCA=defaultActiveCA  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="/Users/rcaratti/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8"  -fno-short-double -fno-short-float -Os -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits -std=c99 -gdwarf-3 -mstack=compiled:auto:auto      -Wl,--memorysummary,.ca/dist/defaultActiveCA/production/memoryfile.xml -o .ca/dist/defaultActiveCA/production/fever_indicator_pic12f675_lm35_3leds_c.X.production.elf  .ca/build/defaultActiveCA/production/main.p1     
+::: advisory: (2051) the current license does not permit the selected optimization level, using optimization level 2
+::: advisory: (2100) using the C99 standard library with the selected device may result in larger code and data usage
+
+Memory Summary:
+    Program space        used    4Bh (    75) of   400h words   (  7.3%)
+    Data space           used     6h (     6) of    40h bytes   (  9.4%)
+    EEPROM space         used     0h (     0) of    80h bytes   (  0.0%)
+    Configuration bits   used     1h (     1) of     1h word    (100.0%)
+    ID Location space    used     0h (     0) of     4h bytes   (  0.0%)
+
+make[2]: Leaving directory '/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/08-LM35_OR_TMP36/MPLAB_EXAMPLES/fever_indicator_pic12f675_lm35_3leds_c.X'
+make[1]: Leaving directory '/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/08-LM35_OR_TMP36/MPLAB_EXAMPLES/fever_indicator_pic12f675_lm35_3leds_c.X'
+[32mBUILD SUCCESSFUL (total time: 930ms)[0m
