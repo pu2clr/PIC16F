@@ -5,7 +5,7 @@ Welcome to "PIC Journey: Navigating the World of Microchip's Microcontrollers".
 In this comprehensive learning series, we invite enthusiasts, students, and professionals alike to embark on an exciting voyage into the intricate world of PIC microcontrollers by Microchip Technology. Whether you're a beginner curious about the fundamentals or a seasoned tinkerer looking to expand your skillset, this journey is tailored for you.
 
 
-The __projects__ folder contains several projects involving circuits with the PIC16F628A and LEDs that may help beginners.
+The __projects__ folder contains several projects involving circuits with the PIC16F628A, PIC16F887, PIC12F675, LEDs and sesors that may help beginners.
 
 
 All content (including code and schematic) of this repository can be freely distributed using the MIT Free Software model. By using or installing Library you are agreeing to the terms of the MIT licence (see license.txt file).
