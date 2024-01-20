@@ -62,13 +62,15 @@ void main() {
         unsigned int value = readADC();
          // To optimize accuracy, it might be necessary to perform calibration in order to 
         // determine a more precise value. the ADC vales 77 is near to 37 degree Celsius in my experiment
-        if ( value == 77)   
+        if ( value == 77)  { 
             YellowOn();
+            __delay_ms(2000);
+        }
         else if ( value > 77 )
             RedOn();
         else
             GreenOn();
-        __delay_ms(500); 
+        __delay_ms(100); 
     }
 }
 
