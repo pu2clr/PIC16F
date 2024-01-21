@@ -16,14 +16,12 @@
   
 ; declare your variables here
 dummy1	    equ 0x20 
-dummy2	    equ 0x21 
-delayParam  equ 0x22 
-durationL   equ 0x23  
-durationH   equ 0x24 
-value1L	    equ 0x25		; Used by the subroutine to  
-value1H	    equ 0x26		; compare tow 16 bits    
-value2L	    equ 0x27		; values.
-value2H	    equ 0x28		; They will represent two 16 bits values to be compered (if valor1 is equal, less or greter than valor2)  
+durationL   equ 0x21  
+durationH   equ 0x22 
+value1L	    equ 0x23		; Used by the subroutine to  
+value1H	    equ 0x24		; compare tow 16 bits    
+value2L	    equ 0x25		; values.
+value2H	    equ 0x26		; They will represent two 16 bits values to be compered (if valor1 is equal, less or greter than valor2)  
    
 PSECT resetVector, class=CODE, delta=2
 resetVect:
@@ -156,8 +154,6 @@ Delay10us:
 ; Signed and unsigned 16 bit comparison routine: by David Cary 2001-03-30 
 ; This function was extracted from http://www.piclist.com/techref/microchip/compcon.htm#16_bit 
 ; It was adapted by me to run in a PIC12F675 microcontroller    
-; returns the correct flags (Z and C)
-; to indicate the value1=value2, value1<value2, or value1>value2.
 ; Does not modify value2 or value2.
 ; After calling this subroutine, you can use the STATUS flags (Z and C) like the 8 bit compares 
 ; I would like to thank David Cary for sharing it.     
