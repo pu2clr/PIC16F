@@ -15,13 +15,14 @@
   CONFIG  CPD = OFF             ; Data Code Protection bit (Data memory code protection is disabled) 
   
 ; declare your variables here
-dummy1	    equ 0x20 
-durationL   equ 0x21  
-durationH   equ 0x22 
-value1L	    equ 0x23		; Used by the subroutine to  
-value1H	    equ 0x24		; compare tow 16 bits    
-value2L	    equ 0x25		; values.
-value2H	    equ 0x26		; They will represent two 16 bits values to be compered (if valor1 is equal, less or greter than valor2)  
+dummy1	    equ 0x20
+dummy2	    equ	0x21	    
+durationL   equ 0x22  
+durationH   equ 0x23 
+value1L	    equ 0x24		; Used by the subroutine to  
+value1H	    equ 0x25		; compare tow 16 bits    
+value2L	    equ 0x26		; values.
+value2H	    equ 0x27		; They will represent two 16 bits values to be compered (if valor1 is equal, less or greter than valor2)  
    
 PSECT resetVector, class=CODE, delta=2
 resetVect:
@@ -68,9 +69,7 @@ Distant:			; 30 cm or more
     call GreenOn
   
 MainLoopEnd:    
-    call Delay10us
-    call Delay10us
-    call Delay10us
+    call Delay2ms
     
     goto MainLoopBegin
 
@@ -78,30 +77,29 @@ MainLoopEnd:
 ; Turn Green LED On
 GreenOn:
     call AllOff
-    movlw 1	  ; 0B00000001  
-    movwf GPIO
+    bsf	 GPIO,0
     return
 
 ; ******************************    
 ; Turn Yellow LED ON    
 YellowOn: 
     call AllOff
-    movlw 2	   ; 0B00000010
-    movwf GPIO
+    bsf  GPIO,1
     return  
     
 ; ******************************    
 RedOn: 
     call AllOff
-    movlw 4	   ; 0B00000100
-    movwf GPIO
+    bsf	  GPIO,2  
     return        
 
 ; ******************************
 ; Turn all LEDs off
 AllOff: 
     clrw 
-    movwf GPIO
+    bcf  GPIO,0
+    bcf  GPIO,1
+    bcf	 GPIO,2
     return
     
 ; ******** HC-S04 ************
@@ -133,9 +131,14 @@ WaitEcho2:
     bcf	    T1CON,0		; Clear TMR1ON -> TMR1ON = 0
     ; Now you have the elapsed time stored in TMR1H and TMR1L
     
+    movf  TMR1L, w
+    movwf value1L
+    movf  TMR1H, w
+    movwf value1H  
+    
     return
     
-    
+ 
 ;
 ; At 4 MHz, one instruction takes 1us
 ; So, this soubroutine shoul take about 10us    
@@ -150,6 +153,29 @@ Delay10us:
     nop	    
     return	; 2 cycles
 
+;
+; It takes 2ms
+Delay2ms: 
+    movlw  200
+    movwf  dummy1
+LoopDelay2ms: 
+    call Delay10us 
+    decfsz dummy1, f
+    goto LoopDelay2ms
+    return
+
+; It takes 500ms (1/2 second)    
+Delay500ms:
+    movlw  250
+    movwf  dummy2
+LoopDelay500ms: 
+    call Delay2ms 
+    decfsz dummy2, f
+    goto LoopDelay500ms
+    return    
+    
+    
+    
 
 ; Signed and unsigned 16 bit comparison routine: by David Cary 2001-03-30 
 ; This function was extracted from http://www.piclist.com/techref/microchip/compcon.htm#16_bit 
