@@ -18,10 +18,11 @@
   
 ; declare your variables here
 temp	equ 0x20
-count	equ 0x21
-divider equ 0x22
-paramL  equ 0x23
-paramH  equ 0x24  
+;	    0x21 reserved for temp	
+count	equ 0x22
+divider equ 0x23
+paramL  equ 0x24
+paramH  equ 0x25  
     
 PSECT resetVector, class=CODE, delta=2
 resetVect:
@@ -51,12 +52,23 @@ MainLoopBegin:		; Endless loop
      
 
 ; *****************
-; Divide paramL and paramH by divider   
+; 8-bit operation    
+; Divide paramL divider   
 ; 
-; return temp  
-Divide:    
+; return temp  (0x20)
+Divide8:    
     
     return;    
+
+; *****************
+; 16-bit operation    
+; Divide a 16 bits value (paramL and paramH) by divider   
+; 
+; return temp (temp and temp+1 / 0x20 and 0x21)      
+Divider16:
+    
+    return 
+
     
 END resetVect
 

@@ -174,6 +174,8 @@ Source: [Pickit 3 Programmer/Debugger](https://components101.com/misc/pickit3-pr
 * [Assemblers for PIC® and AVR® Microcontrollers](https://microchipdeveloper.com/xwiki/bin/view/software-tools/assemblers/)
 * [Assembler Overview](https://onlinedocs.microchip.com/pr/GUID-4DC87671-9D8E-428A-ADFE-98D694F9F089-en-US-3/index.html?GUID-735DF4BA-283D-4CC0-8F76-68482A7E1EC9)
 * [MPLAB® XC8 PIC Assembler User's Guide for Embedded Engineers](https://ww1.microchip.com/downloads/en/DeviceDoc/50002994B.pdf)
+* [PIC16C5X / PIC16CXXX Math Utility Routines](https://ww1.microchip.com/downloads/en/AppNotes/00526e.pdf)
+* [Math Utility Routines](https://ww1.microchip.com/downloads/en/AppNotes/00544d.pdf)
 
 
 ### Assembly video and tutorial
