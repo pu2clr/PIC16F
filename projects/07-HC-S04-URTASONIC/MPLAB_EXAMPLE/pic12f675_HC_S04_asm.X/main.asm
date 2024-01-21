@@ -19,7 +19,11 @@ dummy1	    equ 0x20
 dummy2	    equ 0x21 
 delayParam  equ 0x22 
 durationL   equ 0x23  
-durationH   equ 0x24  
+durationH   equ 0x24 
+value1L	    equ 0x25		; Used by the subroutine to  
+value1H	    equ 0x26		; compare tow 16 bits    
+value2L	    equ 0x27		; values.
+value2H	    equ 0x28		; They will represent two 16 bits values to be compered (if valor1 is equal, less or greter than valor2)  
    
 PSECT resetVector, class=CODE, delta=2
 resetVect:
@@ -40,17 +44,22 @@ main:
     bcf	    STATUS, 5		; Selects bank 0
 MainLoopBegin:			; Endless loop
     ; Under construction
-    call ReadHCS04		; 
-    movlw 77			; Process distance based on duration (durationL and durationH)
-    subwf durationL,w		; subtract W from the durationL 
-    btfsc STATUS, 2		; if Z flag  = 0; durationL == wreg ?  
-    goto  Close			; durationL = wreg
-    btfss STATUS, 0		; if C flag = 1; durationL < wreg?   
-    goto  Distant		; durationL < wreg
-    btfsc STATUS, 0		; if C flag = 0 
-    goto  ReallyClose		; durationL >= wreg  (iqual was tested before, so just > is available here)
-    goto MainLoopEnd
-    
+    call    ReadHCS04		; returns duration in value1
+    movlw   LOW(830)		; Checks if it is <= 830 (it means 10 cm less)  
+    movwf   value2L		;
+    movlw   HIGH(830)		;
+    movwf   value2H
+    call    Compare16		; compare value1 with value2
+    btfsc   STATUS, 0		; 
+    goto    ReallyClose		; indicates really close
+    movlw   LOW(2450)		; Checks if it is >= 2450 (it means 30 cm or more)     
+    movwf   value2L
+    movlw   HIGH(2450)
+    movwf   value2H
+    btfsc   STATUS, 0
+    goto    Distant		; Far away    
+    goto    Close		; Not too close and not so far away
+    goto    MainLoopEnd    
 Close:				; Between 10 and 30 cm
     call YellowOn
     goto MainLoopEnd
@@ -59,7 +68,6 @@ ReallyClose:			; Less than 10 cm
     goto MainLoopEnd
 Distant:			; 30 cm or more
     call GreenOn
-    goto MainLoopEnd
   
 MainLoopEnd:    
     call Delay10us
@@ -102,6 +110,12 @@ AllOff:
 ; Read the HC-S04 - GP1
 ReadHCS04: 
 
+    movlw   LOW(1450)		; Check test => returns 830 in value1 
+    movwf   value1L
+    movlw   HIGH(1450)
+    movwf   value1H
+    return
+    
     bcf	    STATUS, 5		; Selects Bank 0
     clrf    TMR1H		; Reset TMR1
     clrf    TMR1L
@@ -137,5 +151,40 @@ Delay10us:
     nop
     nop	    
     return	; 2 cycles
+
+
+; Signed and unsigned 16 bit comparison routine: by David Cary 2001-03-30 
+; This function was extracted from http://www.piclist.com/techref/microchip/compcon.htm#16_bit 
+; It was adapted by me to run in a PIC12F675 microcontroller    
+; returns the correct flags (Z and C)
+; to indicate the value1=value2, value1<value2, or value1>value2.
+; Does not modify value2 or value2.
+; After calling this subroutine, you can use the STATUS flags (Z and C) like the 8 bit compares 
+; I would like to thank David Cary for sharing it.     
+Compare16: ; 7
+	; uses a "dummy1" register.
+	movf	value2H,w
+	xorlw	0x80
+	movwf	dummy1
+	movf	value1H,w
+	xorlw	0x80
+	subwf	dummy1,w	; subtract Y-X
+	goto	AreTheyEqual
+CompareUnsigned16: ; 7
+	movf	value1H,w
+	subwf	value2H,w ; subtract Y-X
+AreTheyEqual:
+	; Are they equal ?
+	btfss	STATUS, 2
+	goto	Results16
+	; yes, they are equal -- compare lo
+	movf	value1L,w
+	subwf	value2L,w	; subtract Y-X
+Results16:
+	; if X=Y then now Z=1.
+	; if Y<X then now C=0.
+	; if X<=Y then now C=1.
+	return
+    
     
 END resetVect
