@@ -32,9 +32,7 @@ main:
     ; Analog and Digital pins setup
     bcf	    STATUS, 5		; Selects Bank 0
     clrf    GPIO		; Init GPIO
-    clrf    CMCON		; COMPARATOR Register setup
-    movlw   0b10001101 	; Right justified; VDD;  01 = Channel 3 (AN3); A/D converter module is 
-    movwf   ADCON0		; Enable ADC   
+    clrf    CMCON		; COMPARATOR Register setup 
     bsf	    STATUS, 5		; Selects Bank 1
     movlw   0b00010000		; GP4 as input
     movwf   TRISIO		 
@@ -55,8 +53,10 @@ MainLoopBegin:			; Endless loop
     movlw   HIGH(2450)
     movwf   value2H
     btfsc   STATUS, 0
-    goto    Distant		; Far away    
     goto    Close		; Not too close and not so far away
+    btfsc   STATUS, 2
+    goto    Distant		; Far away       
+    goto    Close		; Not too close and not so far away               
     goto    MainLoopEnd    
 Close:				; Between 10 and 30 cm
     call YellowOn
@@ -108,11 +108,11 @@ AllOff:
 ; Read the HC-S04 - GP1
 ReadHCS04: 
 
-    movlw   LOW(1450)		; Check test => returns 830 in value1 
-    movwf   value1L
-    movlw   HIGH(1450)
-    movwf   value1H
-    return
+    ; movlw   LOW(3000)		; Check test => returns 830 in value1 
+    ; movwf   value1L
+    ; movlw   HIGH(3000)
+    ; movwf   value1H
+    ; return
     
     bcf	    STATUS, 5		; Selects Bank 0
     clrf    TMR1H		; Reset TMR1
