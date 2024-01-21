@@ -4,6 +4,10 @@ Welcome to "PIC Journey: Navigating the World of Microchip's Microcontrollers".
 
 In this comprehensive learning series, we invite enthusiasts, students, and professionals alike to embark on an exciting voyage into the intricate world of PIC microcontrollers by Microchip Technology. Whether you're a beginner curious about the fundamentals or a seasoned tinkerer looking to expand your skillset, this journey is tailored for you.
 
+The projects shared in this repository are educational in nature and aim to introduce beginners and hobbyists to C and Assembly programming for PIC10F, PIC12F, and PIC16F microcontrollers. I myself, at the time of writing these lines, fall into the category of a beginner in projects involving Microchip microcontrollers. However, I decided to document this journey. I believe this initiative may help other interested parties who wish to embark on a similar journey.
+
+With that said, **if you find any errors or opportunities for improvement in the projects shared in this repository, please let me know**.
+
 
 The __projects__ folder contains several projects involving circuits with the PIC16F628A, PIC16F887, PIC12F675, LEDs and sesors that may help beginners.
 
