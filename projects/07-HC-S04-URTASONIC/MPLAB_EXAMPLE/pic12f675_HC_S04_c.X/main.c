@@ -1,6 +1,6 @@
 /*
- * This experiment using the PIC12F675 and the HC-S04 ultrasonic distance sensor 
- * utilizes three LEDs (Red, Yellow, and Green) to indicate, respectively, a distance 
+ * This experiment uses the PIC12F675 and the HC-S04 ultrasonic distance sensor. 
+ * It utilizes three LEDs (Red, Yellow, and Green) to indicate, respectively, a distance 
  * of less than 10 cm, between 10 and 30 cm, and more than 30 cm. 
  * In this case, there is no requirement to compute the exact distance 
  * to determine if it falls within specific ranges, such as being greater than 10, 

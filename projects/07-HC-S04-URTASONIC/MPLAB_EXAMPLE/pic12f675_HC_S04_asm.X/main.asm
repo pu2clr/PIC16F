@@ -1,5 +1,12 @@
-;
-; My PIC Journey   
+; My PIC Journey  
+; This experiment uses the PIC12F675 and the HC-S04 ultrasonic distance sensor. 
+; It utilizes three LEDs (Red, Yellow, and Green) to indicate, respectively, a distance 
+; of less than 10 cm, between 10 and 30 cm, and more than 30 cm. 
+; In this case, there is no requirement to compute the exact current distance 
+; to determine if it falls within specific ranges, such as being greater than 10, 
+; less than 30, or exceeding these values. Instead, you simply need to measure and 
+; compare the elapsed time corresponding to each of these distance thresholds.
+;    
 ; Author: Ricardo Lima Caratti
 ; Jan/2024
     
@@ -168,10 +175,11 @@ Results16:
 	; if X<=Y then now C=1.
 	return
     
-;************** Delay functions *************    
-;
-; At 4 MHz, one instruction takes 1us
-; So, this soubroutine shoul take about 10us    
+;************** Delay functions *************      
+; At 4 MHz, one instruction takes 1µs
+; So, this soubroutine should take about 10µs 
+; This time is used by the HC-S04 ultrasonic sensor 
+; to determine the distance. 	
 Delay10us:
     nop		; 8 cycle
     nop
