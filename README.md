@@ -14,7 +14,7 @@ The __projects__ folder contains several projects involving circuits with the PI
 
 All content (including code and schematic) of this repository can be freely distributed using the MIT Free Software model. By using or installing Library you are agreeing to the terms of the MIT licence (see license.txt file).
 
-Copyright (c) 2019 Ricardo Lima Caratti.
+Copyright (c) 2024 Ricardo Lima Caratti.
 
 Contact: pu2clr@gmail.com.
 
