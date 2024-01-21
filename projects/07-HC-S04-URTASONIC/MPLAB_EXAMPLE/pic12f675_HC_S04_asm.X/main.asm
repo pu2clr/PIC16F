@@ -1,4 +1,4 @@
-; UNDER Construction... 
+;
 ; My PIC Journey   
 ; Author: Ricardo Lima Caratti
 ; Jan/2024
@@ -15,14 +15,13 @@
   CONFIG  CPD = OFF             ; Data Code Protection bit (Data memory code protection is disabled) 
   
 ; declare your variables here
-dummy1	    equ 0x20
-dummy2	    equ	0x21	    
-durationL   equ 0x22  
-durationH   equ 0x23 
-value1L	    equ 0x24		; Used by the subroutine to  
-value1H	    equ 0x25		; compare tow 16 bits    
-value2L	    equ 0x26		; values.
-value2H	    equ 0x27		; They will represent two 16 bits values to be compered (if valor1 is equal, less or greter than valor2)  
+dummy1	    equ 0x20    
+durationL   equ 0x21  
+durationH   equ 0x22 
+value1L	    equ 0x23		; Used by the subroutine to  
+value1H	    equ 0x24		; compare tow 16 bits    
+value2L	    equ 0x25		; values.
+value2H	    equ 0x26		; They will represent two 16 bits values to be compered (if valor1 is equal, less or greter than valor2)  
    
 PSECT resetVector, class=CODE, delta=2
 resetVect:
@@ -46,18 +45,18 @@ MainLoopBegin:			; Endless loop
     movwf   value2L		;
     movlw   HIGH(830)		;
     movwf   value2H
-    call    Compare16		; compare value1 with value2
-    btfsc   STATUS, 0		; 
+    call    Compare16		; compare value1 with value2 
+    btfsc   STATUS, 0		; It is <= 830? So the object is very close ( <= 10 cm)
     goto    ReallyClose		; indicates really close
     movlw   LOW(2450)		; Checks if it is >= 2450 (it means 30 cm or more)     
     movwf   value2L
     movlw   HIGH(2450)
     movwf   value2H
-    btfsc   STATUS, 0
+    call    Compare16		; compare value1 with value2 
+    btfsc   STATUS, 0		; Is it <= 2450?  (<= 30 cm)
     goto    Close		; Not too close and not so far away
-    btfsc   STATUS, 2
     goto    Distant		; Far away       
-    goto    Close		; Not too close and not so far away               
+            
     goto    MainLoopEnd    
 Close:				; Between 10 and 30 cm
     call YellowOn
@@ -102,15 +101,14 @@ AllOff:
     bcf	 GPIO,2
     return
     
-; ******** HC-S04 ************
-; Read the HC-S04 - GP1
+; ******** HC-S04 ****************
+; Read and process the HC-S04 data
+; There is no requirement to compute the exact distance to determine if it falls within specific ranges, 
+; such as being greater than 10, less than 30, or exceeding these values. Instead, you simply need to 
+; measure and compare the elapsed time corresponding to each of these distance thresholds.
+; Thus, an elapsed time of 830 µs means that the distance traveled was approximately 10 cm (you may need calibrate it).   
+; An elapsed time of 2450 µs means that the distance traveled was approximately 30 cm (you may need calibrate it).
 ReadHCS04: 
-
-    ; movlw   LOW(3000)		; Check test => returns 830 in value1 
-    ; movwf   value1L
-    ; movlw   HIGH(3000)
-    ; movwf   value1H
-    ; return
     
     bcf	    STATUS, 5		; Selects Bank 0
     clrf    TMR1H		; Reset TMR1
@@ -137,46 +135,8 @@ WaitEcho2:
     movwf value1H  
     
     return
-    
- 
-;
-; At 4 MHz, one instruction takes 1us
-; So, this soubroutine shoul take about 10us    
-Delay10us:
-    nop		; 8 cycle
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop	    
-    return	; 2 cycles
 
-;
-; It takes 2ms
-Delay2ms: 
-    movlw  200
-    movwf  dummy1
-LoopDelay2ms: 
-    call Delay10us 
-    decfsz dummy1, f
-    goto LoopDelay2ms
-    return
-
-; It takes 500ms (1/2 second)    
-Delay500ms:
-    movlw  250
-    movwf  dummy2
-LoopDelay500ms: 
-    call Delay2ms 
-    decfsz dummy2, f
-    goto LoopDelay500ms
-    return    
-    
-    
-    
-
+; ************************* Compare function ***********************************    
 ; Signed and unsigned 16 bit comparison routine: by David Cary 2001-03-30 
 ; This function was extracted from http://www.piclist.com/techref/microchip/compcon.htm#16_bit 
 ; It was adapted by me to run in a PIC12F675 microcontroller    
@@ -208,5 +168,31 @@ Results16:
 	; if X<=Y then now C=1.
 	return
     
-    
+;************** Delay functions *************    
+;
+; At 4 MHz, one instruction takes 1us
+; So, this soubroutine shoul take about 10us    
+Delay10us:
+    nop		; 8 cycle
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop	    
+    return	; 2 cycles
+
+;
+; It takes about 2ms
+Delay2ms: 
+    movlw  200
+    movwf  dummy1
+LoopDelay2ms: 
+    call Delay10us 
+    decfsz dummy1, f
+    goto LoopDelay2ms
+    return
+
+        
 END resetVect
