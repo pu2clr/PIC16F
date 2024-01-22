@@ -5,6 +5,9 @@ This folder contains a variety of projects programmed in both C and Assembly. Ge
 Within each project, there is a subfolder named MPLAB_EXAMPLES. Here, you can compile, debug, and load the program onto the microcontroller using the [MPLAB X IDE](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide), which is freely available for download from Microchip. Additionally, each project contains a circuit schematic located in a folder named [KiCad](https://www.kicad.org/), the tool used for circuit design.
 
 
+The following are the main characteristics of the microcontrollers used in this repository.
+
+
 ## PIC16F628A PINOUT
 
 ![PIC16F628A PINOUT](../images/PIC16F628A_PINOUT.png)
