@@ -1,6 +1,8 @@
 # PIC16FXXX
 
-This folder contains various projects  with the PIC16F family that can provide important information and help beginners with their own projects.
+This folder contains a variety of projects programmed in both C and Assembly. Generally, where appropriate, there are versions in both C and Assembly for the same project. The microcontrollers used include the PIC10F200, PIC12F675, PIC16F268A, PIC16F877, and PIC18F.
+
+Within each project, there is a subfolder named MPLAB_EXAMPLES. Here, you can compile, debug, and load the program onto the microcontroller using the [MPLAB X IDE](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide), which is freely available for download from Microchip. Additionally, each project contains a circuit schematic located in a folder named [KiCad](https://www.kicad.org/), the tool used for circuit design.
 
 
 ## PIC16F628A PINOUT
