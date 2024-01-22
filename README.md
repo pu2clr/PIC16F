@@ -36,12 +36,24 @@ Contact: pu2clr@gmail.com.
             * [LCD 16x2 LIBRARY FOR PIC16F FAMILY](https://youtu.be/S3VwKLk5j5g?si=rLt0EnxHGkFDg-CM)
     * [OLED I2C Display (Under construction..)](./projects/04-PIC16F_OLED_I2C/)
     * [DC motor and Cooler and PWM with PIC microcontrollers](./projects/05-PWM-SPEED-COOLER/)
-         * Related Video
-            * [DC motor/Cooler Speed Control with PIC16F628A and PIC16F887 (PWM and ADC)](https://youtu.be/RM2rGSNFbnE?si=7IPWDkQ1TA2Rkbl3)       
+        * Related Videos
+            * [DC motor/Cooler Speed Control with PIC16F628A and PIC16F887 (PWM and ADC)](https://youtu.be/RM2rGSNFbnE?si=7IPWDkQ1TA2Rkbl3)  
+            * [Controlling a 4-wire Cooler speed with PIC16F887 and LM35](https://youtu.be/syesvTctcGU?si=Fy1Pn-VaLknk3b1a)
+            * [PIC16F887 and 4-wires Cooler (RPM and PWM)](https://youtu.be/wtlIkMznqZs?si=gURe0sVEsNo2-0Rt)
+            * [PIC16F887 4-wires cooler and lm35 (speed control)](https://youtu.be/tcfnGvOMjok?si=n8i5ELgjX5F_GZrF)
     * [LED RGB](./projects/06-LED_RGB/)
+        * Related Video
+            * [PIC16F628A, PWM, RGB LED and HC-S04 ULTRASONIC SENSOR](https://youtu.be/A1iy9zIMIXQ?si=tNqtIyOWzy94gfbC)        
     * [PIC microcontrollers and HC-S04 ultrasonic sensor](./projects/07-HC-S04-URTASONIC/)
+        * Related Videos
+            * [PIC16F876A with HC-S04 ultrasonic sensor and LCD 16x2](https://youtu.be/hNJfMpDH9Ns?si=e2Ak38YreOJkt6tY) 
+            * [PIC12F675 and HC-S04 Ultrasonic distance sensor](https://youtu.be/CYpL-8CyOFI?si=5nn-gpDaTmxXuX8u)
     * [PIC microcontrollers and LM35 and TMP36 temperature sensors](./projects/08-LM35_OR_TMP36/)
+        * Related Video
+            * [PIC12F675 and LM35 Sensor](https://youtu.be/ctCU5pVp1wQ?si=n6hu75jDcbTcV2lr)
     * [Controlling Servo with PIC microcontrollers](./projects/99-Servomotor/)
+        * Related Video
+            * [PIC16F887 and Servo (PWM)](https://youtu.be/YDyLSMGPXZI?si=9wzmTlIvT2DltXnA) 
 2. [PIC Microcontroller Programming Tools](https://github.com/pu2clr/PIC16F#pic-microcontroller-programming-tools)
 3. [PICKit3 and ICSP](https://github.com/pu2clr/PIC16F#pickit3-and-icsp)
 
