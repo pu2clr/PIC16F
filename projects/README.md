@@ -1,4 +1,4 @@
-# PIC16FXXX
+# PIC10F, PIC12F and PIC16F
 
 This folder contains a variety of projects programmed in both C and Assembly. Generally, where appropriate, there are versions in both C and Assembly for the same project. The microcontrollers used include the PIC10F200, PIC12F675, PIC16F268A, PIC16F877, and PIC18F.
 
