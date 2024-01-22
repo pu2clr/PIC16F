@@ -1,4 +1,6 @@
 ; BLINK
+; PIC12F675    
+; Single way to blink a LED using Assembly
 ; My PIC Journey   
 ; Author: Ricardo Lima Caratti
 ; Jan/2024

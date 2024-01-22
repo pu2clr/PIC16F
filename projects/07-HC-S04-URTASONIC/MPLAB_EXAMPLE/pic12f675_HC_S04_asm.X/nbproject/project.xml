@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>fever_indicator_lm35_3leds</name>
+            <name>distance_sensor_pic12f675_HC_s04_3leds</name>
             <creation-uuid>d4aebc24-9d82-4034-b411-a5f7a50c4f83</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>

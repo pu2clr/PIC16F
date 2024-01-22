@@ -1,6 +1,12 @@
+/**
+ * BLINK
+ * Simple way to blink a LED 
+ * 
+ * Author: Ricardo Lima Caratti
+ * Jan/2004
+ */
 #include <xc.h>
-
-// 
+ 
 #pragma config FOSC = INTOSCIO  // Internal oscillator.
 #pragma config WDTE = OFF       // Watchdog Timer disabled 
 #pragma config PWRTE = OFF      // Power-up Timer disable
