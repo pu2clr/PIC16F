@@ -1,3 +1,9 @@
+/**
+ * 4-wires Cooler controller with PIC16F887, ADC, PWM and LCD16x2
+ * 
+ * Author: Ricardo Lima Caratti
+ * Jan 2004
+ */
 #include <xc.h>
 #include <stdio.h>
 #include "pic16flcd.h"

@@ -1,3 +1,9 @@
+/**
+ * 4-Wires Cooler controller with PIC16F887
+ * 
+ * Author: Ricardo Lima Caratti
+ * Jan 2024
+ */
 #include <xc.h>
 
 // Configuration Bits

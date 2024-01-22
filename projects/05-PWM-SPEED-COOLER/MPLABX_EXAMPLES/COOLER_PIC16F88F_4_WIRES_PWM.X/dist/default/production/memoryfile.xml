@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production/PIC16F887_02_4_wires_cooler.X.production.hex">
+  <executable name="dist/default/production/COOLER_PIC16F88F_4_WIRES_PWM.X.production.hex">
     <memory name="program">
       <units>words</units>
       <length>8192</length>

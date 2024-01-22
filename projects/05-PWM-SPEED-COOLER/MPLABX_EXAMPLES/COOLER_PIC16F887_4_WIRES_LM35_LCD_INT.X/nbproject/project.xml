@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>PIC16F887_4_COOLER_LM35_LCD_INT</name>
+            <name>COOLER_PIC16F887_4_WIRES_LM35_LCD_INT</name>
             <creation-uuid>e588f9a8-e429-4c3c-9837-f3f1aa97e848</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>

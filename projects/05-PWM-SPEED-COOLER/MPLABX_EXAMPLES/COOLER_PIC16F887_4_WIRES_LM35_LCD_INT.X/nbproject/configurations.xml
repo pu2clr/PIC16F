@@ -18,9 +18,9 @@
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>teste.c</itemPath>
     <itemPath>../PIC16F887_04_4_COLLER_RPM.X/pic16flcd.c</itemPath>
     <itemPath>../PIC16F887_04_4_COLLER_RPM.X/pic16flcd.h</itemPath>
+    <itemPath>main.c</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>../..</Elem>
