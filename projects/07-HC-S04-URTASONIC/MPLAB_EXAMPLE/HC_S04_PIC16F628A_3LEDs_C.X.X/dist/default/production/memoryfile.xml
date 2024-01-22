@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production/pic16f628a_HC_S04_sensor2.X.production.hex">
+  <executable name="dist/default/production/HC_S04_PIC16F628A_3LEDs_C.X.X.production.hex">
     <memory name="program">
       <units>words</units>
       <length>2048</length>

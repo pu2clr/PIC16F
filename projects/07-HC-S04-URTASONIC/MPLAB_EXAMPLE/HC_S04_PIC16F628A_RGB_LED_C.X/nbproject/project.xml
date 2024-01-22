@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>pic16f628a_proximity_sensor</name>
+            <name>HC_S04_PIC16F628A_RGB_LED_C</name>
             <creation-uuid>42a10332-6006-4f92-a1dd-acb840627ef3</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>

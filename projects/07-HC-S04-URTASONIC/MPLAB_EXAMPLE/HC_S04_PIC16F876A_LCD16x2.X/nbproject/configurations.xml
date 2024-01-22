@@ -18,9 +18,9 @@
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>test.c</itemPath>
     <itemPath>pic16flcd.c</itemPath>
     <itemPath>pic16flcd.h</itemPath>
+    <itemPath>main.c</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

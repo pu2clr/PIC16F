@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production/pic16f876aa_hc_s04_ultrasonic_lcd.X.production.hex">
+  <executable name="dist/default/production/HC_S04_PIC16F876A_LCD16x2.X.production.hex">
     <memory name="program">
       <units>words</units>
       <length>8192</length>
