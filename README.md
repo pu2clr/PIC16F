@@ -24,10 +24,20 @@ Contact: pu2clr@gmail.com.
 1. [Projects](./projects/)
     * [Blink a LED](./projects/01-Blink/)
     * [Controlling multiple LEDs](./projects/02-LED_CONTROL/)
+        * Related Videos
+            * [My PIC Journey: PICKIT3 PIC16F628A ICSP SETUP](https://youtu.be/72zt0Jlcl2s?si=aHFGsasuW1k5SjCz)
+            * [My PIC Journey: K150 and PIC16F628A](https://youtu.be/hsI8I5PT9Bg?si=RzZ5WkM6D_NWXhy7)
     * [PIC microcontrollers with LCD 16x2](./projects/03-PIC16F_LCD16x2/)
+        * Related Videos
+            * [My PIC Journey: LCD 16x2 LIBRARY FOR PIC16F FAMILY](https://youtu.be/S3VwKLk5j5g?si=rLt0EnxHGkFDg-CM)
+            * [My PIC Journey: PIC16F887 4-wires cooler and lm35 (speed control)](https://youtu.be/tcfnGvOMjok?si=9dg7olx9ugBTKiJu)
     * [Developing a library for 16x2 LCD](./projects/03-PIC16F_LCD16x2/lcd_library/)
+        * Related Video
+            * [My PIC Journey: LCD 16x2 LIBRARY FOR PIC16F FAMILY](https://youtu.be/S3VwKLk5j5g?si=rLt0EnxHGkFDg-CM)
     * [OLED I2C Display (Under construction..)](./projects/04-PIC16F_OLED_I2C/)
     * [DC motor and Cooler and PWM with PIC microcontrollers](./projects/05-PWM-SPEED-COOLER/)
+         * Related Video
+            * [My PIC Journey: DC motor/Cooler Speed Control with PIC16F628A and PIC16F887 (PWM and ADC)](https://youtu.be/RM2rGSNFbnE?si=7IPWDkQ1TA2Rkbl3)       
     * [LED RGB](./projects/06-LED_RGB/)
     * [PIC microcontrollers and HC-S04 ultrasonic sensor](./projects/07-HC-S04-URTASONIC/)
     * [PIC microcontrollers and LM35 and TMP36 temperature sensors](./projects/08-LM35_OR_TMP36/)
