@@ -1,3 +1,10 @@
+/**
+ * Controlling multiple LEDs
+ * Sequentially turns off each LED at intervals of 7.5 seconds.
+ * 
+ * Author: Ricardo Lima Caratti
+ * Jan 2024
+ */
 #include <xc.h>
 
 #pragma config FOSC = INTOSCIO  // Internal Oscillator
