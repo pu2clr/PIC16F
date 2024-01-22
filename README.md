@@ -21,18 +21,17 @@ Contact: pu2clr@gmail.com.
 
 ## Content 
 
-
 1. [Projects](./projects/)
-    1.1. [Blink a LED](./projects/01-Blink/)
-    1.2. [Controlling multiple LEDs](./projects/02-LED_CONTROL/)
-    1.3. [PIC microcontrollers with LCD 16x2](./projects/03-PIC16F_LCD16x2/)
-    1.3.1. [Developing a library for 16x2 LCD](./projects/03-PIC16F_LCD16x2/lcd_library/)
-    1.4. [OLED I2C Display (Under construction..)](./projects/04-PIC16F_OLED_I2C/)
-    1.5. [DC motor and Cooler and PWM with PIC microcontrollers](./projects/05-PWM-SPEED-COOLER/)
-    1.6. [LED RGB](./projects/06-LED_RGB/)
-    1.7. [PIC microcontrollers and HC-S04 ultrasonic sensor](./projects/07-HC-S04-URTASONIC/)
-    1.8. [PIC microcontrollers and LM35 and TMP36 temperature sensors](./projects/08-LM35_OR_TMP36/)
-    1.9. [Controlling Servo with PIC microcontrollers](./projects/99-Servomotor/)
+    * [Blink a LED](./projects/01-Blink/)
+    * [Controlling multiple LEDs](./projects/02-LED_CONTROL/)
+    * [PIC microcontrollers with LCD 16x2](./projects/03-PIC16F_LCD16x2/)
+    * [Developing a library for 16x2 LCD](./projects/03-PIC16F_LCD16x2/lcd_library/)
+    * [OLED I2C Display (Under construction..)](./projects/04-PIC16F_OLED_I2C/)
+    * [DC motor and Cooler and PWM with PIC microcontrollers](./projects/05-PWM-SPEED-COOLER/)
+    * [LED RGB](./projects/06-LED_RGB/)
+    * [PIC microcontrollers and HC-S04 ultrasonic sensor](./projects/07-HC-S04-URTASONIC/)
+    * [PIC microcontrollers and LM35 and TMP36 temperature sensors](./projects/08-LM35_OR_TMP36/)
+    * [Controlling Servo with PIC microcontrollers](./projects/99-Servomotor/)
 2. [Tools to program the PIC microcontrollers](https://github.com/pu2clr/PIC16F#tools-to-program-the-pic-microcontrollers)
 3. [PICKit3 and ICSP](https://github.com/pu2clr/PIC16F#pickit3-and-icsp)
 
