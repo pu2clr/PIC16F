@@ -145,3 +145,46 @@ This folder contains various projects  with the PIC16F family that can provide i
 
 28. **VSS (Ground)**: Ground reference for the power supply.
 
+
+## PIC12F675 PINOUT
+
+
+
+
+The PIC12F series, particularly the PIC12F675, is a family of microcontrollers produced by Microchip Technology, known for their small size, low power consumption, and versatility, making them ideal for a wide range of applications. Below are the key features and pinout details of the PIC12F675, a popular model in the series.
+
+### Key Features of PIC12F675:
+
+1. **Core**: 8-bit PIC architecture.
+2. **Memory**:
+   - Flash Program Memory: Typically 1.75 KB.
+   - SRAM Data Memory: 64 Bytes.
+   - EEPROM Data Memory: 128 Bytes.
+3. **I/O Pins**: 6 GPIO pins.
+4. **Timers**: One 8-bit timer and one 16-bit timer.
+5. **ADC**: 10-bit, 4-channel Analog-to-Digital Converter.
+6. **Operating Voltage**: Typically 2.0-5.5V.
+7. **Internal Oscillator**: 4 MHz and 8 MHz options with calibration.
+8. **Power-Saving Modes**: Several, including sleep mode.
+9. **Communication**: Supports ICSP (In-Circuit Serial Programming).
+10. **Additional Features**: Watchdog Timer, Power-on Reset, Brown-out Reset.
+
+### Pinout of PIC12F675:
+
+The PIC12F675 comes in an 8-pin package with the following pin configuration:
+
+![PIC16F876A PINOUT](../images/PIC12F675_PINOUT.png)
+
+1. **GP0 to GP5 (General Purpose I/O Pins)**: These are multi-functional pins used for general I/O, but they also serve additional functions:
+   - GP0: Analog input AN0, external interrupt, ICSP data.
+   - GP1: Analog input AN1, voltage reference input, ICSP clock.
+   - GP2: Analog input AN2, Timer0 clock input.
+   - GP3: MCLR (Master Clear) reset input, or can be used as a general I/O pin if MCLR is disabled.
+   - GP4: General-purpose I/O.
+   - GP5: General-purpose I/O.
+
+2. **VDD and VSS Pins**: These are the power supply pins for the microcontroller. VDD is the positive supply voltage, and VSS is the ground.
+
+3. **ICSP (In-Circuit Serial Programming)**: Pins GP0 and GP1 are used for ICSP, allowing the microcontroller to be programmed while placed in a circuit.
+
+The PIC12F675 is a versatile microcontroller suitable for various applications, including simple automation, small gadgets, and hobbyist projects. Its small footprint and low power consumption, combined with its rich set of features, make it an ideal choice for projects where space and power are constrained.
