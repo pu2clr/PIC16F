@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>PIC16F887_ADC_READER</name>
+            <name>DC_MOTOR_PIC16F887_ADC_PWM_C</name>
             <creation-uuid>49ee22e1-8ac6-4e7e-afd0-2bc3a49522ad</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
