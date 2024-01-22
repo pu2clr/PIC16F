@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>example2</name>
+            <name>LED_CONTROL_PIC16F628A_2_C</name>
             <creation-uuid>e1d47c85-c995-4b39-9b3c-592735d0031d</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
