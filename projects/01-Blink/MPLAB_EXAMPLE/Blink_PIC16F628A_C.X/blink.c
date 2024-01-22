@@ -1,5 +1,5 @@
 /**
- * BLINK
+ * BLINK with PIC16F628A
  * Simple way to blink a LED 
  * 
  * Author: Ricardo Lima Caratti

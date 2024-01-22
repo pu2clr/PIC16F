@@ -1,3 +1,9 @@
+/**
+ * DC MOTOR controller using PWM and PIC628A
+ * 
+ * Author: Ricardo Lima Caratti
+ * Jan 2004
+ */
 #include <xc.h>
 
 #pragma config FOSC = INTOSCCLK // Oscilador interno, CLKOUT no RA6
