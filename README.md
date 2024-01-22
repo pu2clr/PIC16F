@@ -32,7 +32,7 @@ Contact: pu2clr@gmail.com.
     * [PIC microcontrollers and HC-S04 ultrasonic sensor](./projects/07-HC-S04-URTASONIC/)
     * [PIC microcontrollers and LM35 and TMP36 temperature sensors](./projects/08-LM35_OR_TMP36/)
     * [Controlling Servo with PIC microcontrollers](./projects/99-Servomotor/)
-2. [PIC Microcontroller Programming Tools](https://github.com/pu2clr/PIC16F#tools-to-program-the-pic-microcontrollers)
+2. [PIC Microcontroller Programming Tools](https://github.com/pu2clr/PIC16F#pic-microcontroller-programming-tools)
 3. [PICKit3 and ICSP](https://github.com/pu2clr/PIC16F#pickit3-and-icsp)
 
 
