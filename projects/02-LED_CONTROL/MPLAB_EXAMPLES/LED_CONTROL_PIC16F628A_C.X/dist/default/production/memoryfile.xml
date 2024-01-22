@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production/example1.X.production.hex">
+  <executable name="dist/default/production/LED_CONTROL_PIC16F628A_C.X.production.hex">
     <memory name="program">
       <units>words</units>
       <length>2048</length>
