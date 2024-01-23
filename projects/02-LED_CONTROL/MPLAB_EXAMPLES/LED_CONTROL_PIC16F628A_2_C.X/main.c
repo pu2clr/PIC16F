@@ -1,3 +1,10 @@
+/**
+ * @file main.c
+ * @author Ricardo Lima Caratti (pu2clr@gmail.com)
+ * @brief LED control with PIC16F628A
+ * @date 2024-01-22
+ */
+
 #include <xc.h>
 
 #pragma config FOSC = INTOSCIO  // Internal Oscillator

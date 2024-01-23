@@ -1,9 +1,8 @@
 
-; PIC16F628A Configuration Bit Settings
-; Assembly source line config statements
-;    
+; BLINK unsing PIC16F628A 
+; Assembly source 
 ; Author: Ricardo Lima Caratti - Jan/2024
-;    
+
 #include <xc.inc>
     
 ; CONFIG

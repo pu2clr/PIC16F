@@ -1,3 +1,9 @@
+/**
+ * @file main.c
+ * @author Ricardo Lima Caratti (pu2clr@gmail.com)
+ * @brief BLINK using PIC12F675
+ * @date 2024-01-22
+ */
 #include <xc.h>
 
 #pragma config FOSC = INTRCIO   // Oscillator Selection bits (INTOSC oscillator: I/O function on GP4/OSC2/CLKOUT pin, I/O function on GP5/OSC1/CLKIN)

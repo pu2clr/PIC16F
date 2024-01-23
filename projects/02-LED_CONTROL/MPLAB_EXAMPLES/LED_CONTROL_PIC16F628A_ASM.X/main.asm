@@ -1,6 +1,6 @@
 
-; PIC16F628A Configuration Bit Settings
-; Assembly source line config statements
+; PIC16F628A and LED control
+; Assembly source 
 ;    
 ; Author: Ricardo Lima Caratti - Jan/2024
 ;    
