@@ -45,4 +45,4 @@ Given these characteristics, this device can be used to develop various products
 ## Prototype
 
 
-
+![Emergency Light Prototype with LDR and PIC12F675](./prototype_emergency_light_ldr_pic12f765.jpg)
