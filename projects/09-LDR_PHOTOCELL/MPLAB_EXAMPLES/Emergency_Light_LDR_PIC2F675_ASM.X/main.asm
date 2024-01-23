@@ -46,16 +46,16 @@ main:
 MainLoopBegin:			; Endless loop
     call AdcRead		; read the temperature value
     ; Checks the value of the voltage coverted to digital number by the ADC (1024 is about 5V, 512 is 2.5V etc) 
-    movlw LOW(600)		; Constant value to be compared to the ADC value read from AN3
+    movlw LOW(200)		; Constant value to be compared to the ADC value read from AN3
     movwf value2L		; 
-    movlw HIGH(600)		;
+    movlw HIGH(200)		;
     movwf value2H		;     
     call  Compare16		; Compare value1 with the constant stored in value2 
-    btfsc STATUS, 0		; It is <= 600
-    goto  LightOff		; Skips this line (bsf GPIO, 0) if < 600
-    bsf GPIO, 0			; Turn the Light ON
+    btfsc STATUS, 0		; It is <= 200, then skip next line (bcf GPIO, 0) 
+    goto  LightOn		; 
+    bcf GPIO, 0			; Turn the Light ON
     goto MainLoopEnd
-LightOff: 
+LightOn: 
     bsf GPIO, 0
  MainLoopEnd: 
     call Delay

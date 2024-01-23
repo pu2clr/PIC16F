@@ -19,7 +19,7 @@ void inline initADC() {
 unsigned inline int readADC() {
     ADCON0bits.GO = 1;              // Start conversion
     while (ADCON0bits.GO_nDONE);    // Wait for conversion to finish
-    return ((unsigned int) ADRESL << 8) + (unsigned int) ADRESL;  // return the ADC 10 bit integer value 1024 ~= 5V, 512 ~= 2.5V, ... 0 = 0V
+    return ((unsigned int) ADRESH << 8) + (unsigned int) ADRESL;  // return the ADC 10 bit integer value 1024 ~= 5V, 512 ~= 2.5V, ... 0 = 0V
 }
 
 
@@ -44,7 +44,7 @@ void main() {
         unsigned int value = readADC();
          // To optimize accuracy, it might be necessary to perform calibration in order to 
         // determine a more precise value. the ADC vales 77 is near to 37 degree Celsius in my experiment
-        if ( value >= 600 ) 
+        if ( value <= 200 ) 
            EmergencyLightOn();
         else 
            EmergencyLightOff(); 
