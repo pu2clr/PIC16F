@@ -27,6 +27,8 @@ Given these characteristics, this device can be used to develop various products
 
 
 
+![PIC12F675 pinout](./../../images/PIC12F675_PINOUT.png)
+
 
 
 ## Source code in C lenguage 
