@@ -13,12 +13,17 @@
   CONFIG  BOREN = ON            ; Brown-out Detect Enable bit (BOD enabled)
   CONFIG  CP = OFF              ; Code Protection bit (Program Memory code protection is disabled)
   CONFIG  CPD = OFF             ; Data Code Protection bit (Data memory code protection is disabled) 
-  
+ 
+    
 ; declare your variables here
 dummy1	    equ 0x20 
 dummy2	    equ 0x21 
 delayParam  equ 0x22 
-temp	    equ 0x23  
+value1L	    equ 0x23		; Used by the subroutine to  
+value1H	    equ 0x24		; compare tow 16 bits    
+value2L	    equ 0x25		; values.
+value2H	    equ 0x26		; They will represent two 16 bits values to be compered (if valor1 is equal, less or greter than valor2)  
+	    
     
 PSECT resetVector, class=CODE, delta=2
 resetVect:
@@ -38,65 +43,29 @@ main:
     movlw   0b00011000		; AN3 as analog 
     movwf   ANSEL	 	; Sets GP4 as analog and Clock / 8
     bcf	    STATUS, 5		; Selects bank 0
-MainLoopBegin:		    ; Endless loop
-    call AdcRead	    ; read the temperature value
-    ; Checks if the temperature is lower, equal to, or higher than 37. Considering that 37 degrees Celsius is the threshold or transition value for fever.
-    movlw 77		    ; 77 is the equivalent ADC value to 37 degree Celsius  
-    subwf temp,w	    ; subtract W from the temp 
-    btfsc STATUS, 2	    ; if Z flag  = 0; temp == wreg ?  
-    goto  AlmostFever	    ; temp = wreg
-    btfss STATUS, 0	    ; if C flag = 1; temp < wreg?   
-    goto  Normal	    ; temp < wreg
-    btfsc STATUS, 0         ; if C flag = 0 
-    goto  Fever		    ; temp >= wreg  (iqual was tested before, so just > is available here)
+MainLoopBegin:			; Endless loop
+    call AdcRead		; read the temperature value
+    ; Checks the value of the voltage coverted to digital number by the ADC (1024 is about 5V, 512 is 2.5V etc) 
+    movlw LOW(600)		; Constant value to be compared to the ADC value read from AN3
+    movwf value2L		; 
+    movlw HIGH(600)		;
+    movwf value2H		;     
+    call  Compare16		; Compare value1 with the constant stored in value2 
+    btfsc STATUS, 0		; It is <= 600
+    goto  LightOff		; Skips this line (bsf GPIO, 0) if < 600
+    bsf GPIO, 0			; Turn the Light ON
     goto MainLoopEnd
-    
-AlmostFever:		    ; Temperature is 37
-    call YellowOn
-    goto MainLoopEnd
-Fever:			    ; Temperature is greater than 37
-    call RedOn
-    goto MainLoopEnd
-Normal: 
-    call GreenOn
-    goto MainLoopEnd
-  
-MainLoopEnd:    
+LightOff: 
+    bsf GPIO, 0
+ MainLoopEnd: 
     call Delay
     goto MainLoopBegin
 
-; ******************************      
-; Turn Green LED On
-GreenOn:
-    call AllOff
-    movlw 1	  ; 0B00000001  
-    movwf GPIO
-    return
-
-; ******************************    
-; Turn Yellow LED ON    
-YellowOn: 
-    call AllOff
-    movlw 2	   ; 0B00000010
-    movwf GPIO
-    return  
-    
-; ******************************    
-RedOn: 
-    call AllOff
-    movlw 4	   ; 0B00000100
-    movwf GPIO
-    return        
-
-; ******************************
-; Turn all LEDs off
-AllOff: 
-    clrw 
-    movwf GPIO
-    return
+   
     
 ; ******** ADC Read ************
-; Read the analog value from GP1
+; Read the analog value from GP4/AN3
+; Return the value in value1L and value1H    
 AdcRead: 
     bcf	  STATUS, 5		; Select bank 0 to deal with ADCON0 register
     bsf	  ADCON0, 1		; Start convertion  (set bit 1 to high)
@@ -107,10 +76,44 @@ WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1
     
     bsf	  STATUS, 5		; Select bank1 to deal with ADRESL register
     movf  ADRESL, w		
-    movwf temp			; If temp => 77 the temperature is about 37 degree Celsius
+    movwf value1L		; 
     bcf	  STATUS, 5		; Select to bank 0
-
+    movf  ADRESH, w		
+    movwf value1H       
     return
+    
+
+; ************************* Compare function ***********************************    
+; Signed and unsigned 16 bit comparison routine: by David Cary 2001-03-30 
+; This function was extracted from http://www.piclist.com/techref/microchip/compcon.htm#16_bit 
+; It was adapted by me to run in a PIC12F675 microcontroller    
+; Does not modify value2 or value2.
+; After calling this subroutine, you can use the STATUS flags (Z and C) like the 8 bit compares 
+; I would like to thank David Cary for sharing it.     
+Compare16: ; 7
+	; uses a "dummy1" register.
+	movf	value2H,w
+	xorlw	0x80
+	movwf	dummy1
+	movf	value1H,w
+	xorlw	0x80
+	subwf	dummy1,w	; subtract Y-X
+	goto	AreTheyEqual
+CompareUnsigned16: ; 7
+	movf	value1H,w
+	subwf	value2H,w ; subtract Y-X
+AreTheyEqual:
+	; Are they equal ?
+	btfss	STATUS, 2
+	goto	Results16
+	; yes, they are equal -- compare lo
+	movf	value1L,w
+	subwf	value2L,w	; subtract Y-X
+Results16:
+	; if X=Y then now Z=1.
+	; if Y<X then now C=0.
+	; if X<=Y then now C=1.
+	return
     
     
 ; ******************
@@ -120,7 +123,7 @@ WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1
 ; So, at 4MHz, this Delay subroutine takes about: (5 cycles) * 255 * 255 * delayParam * 0.000001 (second)  
 ; It is about 1s (0.975 s)  - One second  if delayParam is 3
 Delay:  
-    movlw   3
+    movlw   1
     movwf   delayParam
     movlw   255
     movwf   dummy1      ; 255 times

@@ -1,6 +1,5 @@
 #include <xc.h>
 
-// 
 #pragma config FOSC = INTRCIO   // Oscillator Selection bits (INTOSC oscillator: I/O function on GP4/OSC2/CLKOUT pin, I/O function on GP5/OSC1/CLKIN)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled)
 #pragma config PWRTE = OFF      // Power-Up Timer Enable bit (PWRT disabled)
@@ -17,59 +16,39 @@ void inline initADC() {
     ADCON0 = 0b10001101;          // Right justified; VDD;  01 = Channel 03 (AN3); A/D converter module is 
 }
 
-unsigned inline char readADC() {
-    ADCON0bits.GO = 1;           // Start conversion
-    while (ADCON0bits.GO_nDONE); // Wait for conversion to finish
-    // Assuming that the body's maximum temperature will not exceed 127 (about 62 degrees Celsius).
-    return ADRESL; // In this case, ADRESL was ignored.  
+unsigned inline int readADC() {
+    ADCON0bits.GO = 1;              // Start conversion
+    while (ADCON0bits.GO_nDONE);    // Wait for conversion to finish
+    return ((unsigned int) ADRESL << 8) + (unsigned int) ADRESL;  // return the ADC 10 bit integer value 1024 ~= 5V, 512 ~= 2.5V, ... 0 = 0V
+}
+
+
+/**
+ * Turns Emergency Light ON
+ */
+void inline EmergencyLightOn() {
+    GP0 =  1;
 }
 
 /**
- * Turns All LEDS Off 
+ * Turns Emergency Light OFF
  */
-void inline AllOff() {
-    GPIO =  0;
-}
-
-/**
- * Turns Green LED On
- */
-void inline GreenOn() {
-    AllOff();
-    GPIO =  1;
-}
-
-/**
- * Turns Yellow LED On
- */
-void inline YellowOn() {
-    AllOff();
-    GPIO =  2;
-}
-
-/**
- * Turns Red LED On
- */
-void RedOn() {
-    AllOff();
-    GPIO =  4;
+void inline EmergencyLightOff() {
+    GP0 =  0;
 }
 
 void main() {
     GPIO =  0x0;    // Turns all GPIO pins low
     initADC();
     while (1) {
-        unsigned char value = readADC();
+        unsigned int value = readADC();
          // To optimize accuracy, it might be necessary to perform calibration in order to 
         // determine a more precise value. the ADC vales 77 is near to 37 degree Celsius in my experiment
-        if ( value == 77)  { 
-            YellowOn();
-            __delay_ms(2000);
-        }
-        else if ( value > 77 )
-            RedOn();
-        else
-            GreenOn();
+        if ( value >= 600 ) 
+           EmergencyLightOn();
+        else 
+           EmergencyLightOff(); 
+
         __delay_ms(100); 
     }
 }
