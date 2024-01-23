@@ -37,7 +37,7 @@ Given these characteristics, this device can be used to develop various products
 
 
 
-## SOurce code in Assembly 
+## Source code in Assembly 
 
 
 
