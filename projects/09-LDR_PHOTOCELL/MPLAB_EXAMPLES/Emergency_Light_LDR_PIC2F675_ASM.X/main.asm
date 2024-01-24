@@ -53,10 +53,10 @@ MainLoopBegin:			; Endless loop
     call  Compare16		; Compare value1 with the constant stored in value2 
     btfsc STATUS, 0		; It is <= 200, then skip next line (bcf GPIO, 0) 
     goto  LightOn		; 
-    bcf GPIO, 0			; Turn the Light ON
+    bcf GPIO, 0			; Turn the Light OFF
     goto MainLoopEnd
 LightOn: 
-    bsf GPIO, 0
+    bsf GPIO, 0			; Turn the Light ON
  MainLoopEnd: 
     call Delay
     goto MainLoopBegin

@@ -87,7 +87,7 @@ void main() {
     while (1) {
         unsigned int value = readADC();
          // To optimize accuracy, it might be necessary to perform calibration in order to 
-        // determine a more precise value. the ADC vales 77 is near to 37 degree Celsius in my experiment
+        // determine a more precise value. 
         if ( value <= 200 ) 
            EmergencyLightOn();
         else 
@@ -141,30 +141,30 @@ PSECT code, delta=2
 main:
     ; Analog and Digital pins setup
     bcf	    STATUS, 5		; Selects Bank 0
-    clrf    GPIO		; Init GPIO
-    clrf    CMCON		; COMPARATOR Register setup
-    movlw   0b10001101 	; Right justified; VDD;  01 = Channel 3 (AN3); A/D converter module is 
-    movwf   ADCON0		; Enable ADC   
+    clrf    GPIO		    ; Init GPIO
+    clrf    CMCON		    ; COMPARATOR Register setup
+    movlw   0b10001101 	    ; Right justified; VDD;  01 = Channel 3 (AN3); A/D converter module is 
+    movwf   ADCON0		    ; Enable ADC   
     bsf	    STATUS, 5		; Selects Bank 1
     movlw   0b00010000		; GP4/AN3 as input
     movwf   TRISIO		 
     movlw   0b00011000		; AN3 as analog 
-    movwf   ANSEL	 	; Sets GP4 as analog and Clock / 8
+    movwf   ANSEL	 	    ; Sets GP4 as analog and Clock / 8
     bcf	    STATUS, 5		; Selects bank 0
-MainLoopBegin:			; Endless loop
-    call AdcRead		; read the temperature value
+MainLoopBegin:			    ; Endless loop
+    call AdcRead		    ; read the temperature value
     ; Checks the value of the voltage coverted to digital number by the ADC (1024 is about 5V, 512 is 2.5V etc) 
-    movlw LOW(200)		; Constant value to be compared to the ADC value read from AN3
-    movwf value2L		; 
-    movlw HIGH(200)		;
-    movwf value2H		;     
-    call  Compare16		; Compare value1 with the constant stored in value2 
-    btfsc STATUS, 0		; It is <= 200, then skip next line (bcf GPIO, 0) 
-    goto  LightOn		; 
-    bcf GPIO, 0			; Turn the Light ON
+    movlw LOW(200)		    ; Constant value to be compared to the ADC value read from AN3
+    movwf value2L		    ; 
+    movlw HIGH(200)		    ;
+    movwf value2H		    ;        
+    call  Compare16		    ; Compare value1 with the constant stored in value2 
+    btfsc STATUS, 0		    ; It is <= 200, then skip next line (bcf GPIO, 0) 
+    goto  LightOn		    ; 
+    bcf GPIO, 0			    ; Turn the Light OFF
     goto MainLoopEnd
 LightOn: 
-    bsf GPIO, 0
+    bsf GPIO, 0             ; Turn the Light ON
  MainLoopEnd: 
     call Delay
     goto MainLoopBegin

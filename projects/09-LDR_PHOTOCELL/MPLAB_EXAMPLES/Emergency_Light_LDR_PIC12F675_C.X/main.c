@@ -50,7 +50,7 @@ void main() {
     while (1) {
         unsigned int value = readADC();
          // To optimize accuracy, it might be necessary to perform calibration in order to 
-        // determine a more precise value. the ADC vales 77 is near to 37 degree Celsius in my experiment
+        // determine a more precise value.
         if ( value <= 200 ) 
            EmergencyLightOn();
         else 
