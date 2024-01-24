@@ -263,3 +263,9 @@ END resetVect
 
 
 ![Emergency Light Prototype with LDR and PIC12F675](./prototype_emergency_light_ldr_pic12f765.jpg)
+
+
+
+## Vídeo
+
+[My PIC Journey: Simple Emergency Light System with PIC12F675 and LDR](https://youtu.be/_9lFHrltPUI?si=JZHcgnU-lP213zYr)
