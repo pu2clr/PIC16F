@@ -3,9 +3,9 @@
 
 To emphasize the use of Analog-to-Digital Converters (ADC) found in some PIC microcontrollers, this small project introduces an emergency light system based on an LDR (also popularly known as a photoresistor or photocell).
 
-It's important to note that for a simple emergency light system like the one presented here, the use of a microcontroller and programming isn't strictly necessary. With just a few passive components, an LDR, and a transistor, it's possible to implement an emergency light system at a much lower cost. The schematic below shows a simple emergency light system using just a transistor, LDR and a resistor. 
+It's important to note that for a simple emergency light system like the one presented here, the use of a microcontroller and programming isn't strictly necessary. With just a few passive components, an LDR, and a transistor, it's possible to implement an emergency light system at a much lower cost. The schematic below shows a simple emergency light system using transistors, a LDR and resistors. 
 
-![A simple emergency light system using just a transistor, LDR and a resistor](./schematic_emergency_light_LDR_and_Transistor.jpg)
+![A simple emergency light system using transistors, LDR and resistors](./schematic_emergency_light_LDR_and_Transistor.jpg)
 
 
 However, this project with PIC microcontroller is educational in nature and serves as a foundation for developing more complex systems, which would be significantly more challenging without the use of microcontrollers. For instance, it could be used to log the times when the emergency system (emergency light) is activated for later analysis or to record the average light intensity over a specific period.
