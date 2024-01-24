@@ -1,3 +1,10 @@
+/**
+ * Emergency Light with LDR and PIC12F675
+ * My PIC Journey   
+ * Author: Ricardo Lima Caratti
+ * Jan/2024 
+ */
+
 #include <xc.h>
 
 #pragma config FOSC = INTRCIO   // Oscillator Selection bits (INTOSC oscillator: I/O function on GP4/OSC2/CLKOUT pin, I/O function on GP5/OSC1/CLKIN)

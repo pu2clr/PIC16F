@@ -1,4 +1,4 @@
-; BLINK three LEDS in sequency
+; Emergency Light with LDR and PIC12F675
 ; My PIC Journey   
 ; Author: Ricardo Lima Caratti
 ; Jan/2024
