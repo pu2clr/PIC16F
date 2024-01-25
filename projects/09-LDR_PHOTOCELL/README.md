@@ -8,9 +8,9 @@ It's important to note that for a simple emergency light system like the one pre
 ![A simple emergency light system using transistors, LDR and resistors](./schematic_emergency_light_LDR_and_Transistor.jpg)
 
 
-However, this project with PIC microcontroller is educational in nature and serves as a foundation for developing more complex systems, which would be significantly more challenging without the use of microcontrollers. For instance, it could be used to log the times when the emergency system (emergency light) is activated for later analysis or to record the average light intensity over a specific period.
+However, this project with PIC microcontroller shown below is educational in nature and serves as a foundation for developing more complex systems, which would be significantly more challenging without the use of microcontrollers. For instance, it could be used to log the times when the emergency system (emergency light) is activated for later analysis or to record the average light intensity over a specific period.
 
-In this project, a transistor is also used to assist in activating a strong light that could not be directly driven by the microcontroller (as is commonly done with LEDs). This approach allows for the activation of higher power systems.
+In this project, an aditional  transistor is also used to assist in activating a strong light that could not be directly driven by the microcontroller (as is commonly done with LEDs). This approach allows for the activation of higher power systems.
 
 Below is the circuit for our Emergency Light project with LDR and the PIC12F675.
 
