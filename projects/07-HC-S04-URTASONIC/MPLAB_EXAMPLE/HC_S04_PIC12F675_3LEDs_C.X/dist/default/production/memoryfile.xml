@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production/pic12f675_HC_S04_c.X.production.hex">
+  <executable name="dist/default/production/HC_S04_PIC12F675_3LEDs_C.X.production.hex">
     <memory name="program">
       <units>words</units>
       <length>1024</length>
-      <used>70</used>
-      <free>954</free>
+      <used>65</used>
+      <free>959</free>
     </memory>
     <memory name="data">
       <units>bytes</units>

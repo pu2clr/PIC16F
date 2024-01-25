@@ -25,17 +25,9 @@
 
 
 /**
- * Turns All LEDS Off
- */
-void AllOff() {
-    GPIO =  0;
-}
-
-/**
  * Turns Green LED On
  */
 void inline GreenOn() {
-    AllOff();
     GPIO =  1;
 }
 
@@ -43,7 +35,6 @@ void inline GreenOn() {
  * Turns Yellow LED On
  */
 void inline YellowOn() {
-    AllOff();
     GPIO =  2;
 }
 
@@ -51,7 +42,6 @@ void inline YellowOn() {
  * Turns Red LED On
  */
 void inline RedOn() {
-    AllOff();
     GPIO =  4;
 }
 
@@ -90,7 +80,7 @@ void main(void)
             YellowOn();
         else
             GreenOn();
-        __delay_ms(100); 
+        __delay_ms(10); 
     }
 
 }
