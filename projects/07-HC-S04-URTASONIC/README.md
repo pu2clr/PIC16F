@@ -287,17 +287,9 @@ The experiment below uses the PIC12F675 and the HC-S04 ultrasonic distance senso
 
 
 /**
- * Turns All LEDS Off
- */
-void AllOff() {
-    GPIO =  0;
-}
-
-/**
  * Turns Green LED On
  */
 void inline GreenOn() {
-    AllOff();
     GPIO =  1;
 }
 
@@ -305,7 +297,6 @@ void inline GreenOn() {
  * Turns Yellow LED On
  */
 void inline YellowOn() {
-    AllOff();
     GPIO =  2;
 }
 
@@ -313,7 +304,6 @@ void inline YellowOn() {
  * Turns Red LED On
  */
 void inline RedOn() {
-    AllOff();
     GPIO =  4;
 }
 
