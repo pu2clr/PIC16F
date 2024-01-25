@@ -18,6 +18,23 @@ The HC-SR04 is valued for its ease of use, affordability, and integration with m
 
 
 
+## Accuracy of this System
+
+In applications based on PIC microcontrollers configured with its internal oscillator for operations such as distance measurement with the HC-S04 ultrasonic sensor, achieving optimal accuracy often requires careful calibration and fine-tuning. The internal oscillator of the PIC12F675, for example, while convenient and cost-effective, may not offer the same level of stability and precision as external crystal oscillators. This variance can impact the timing accuracy critical for distance measurements with the HC-S04, which relies on precise timing to calculate distances based on ultrasonic wave reflections.
+
+Factors that can influence the precision of this system include:
+
+1. **Oscillator Stability**: The internal oscillator's frequency can vary with temperature and voltage fluctuations, affecting the timing measurements used for calculating distance.
+
+2. **Sensor Variations**: Individual HC-S04 sensors might exhibit slight differences in performance or sensitivity, necessitating calibration to ensure consistent readings.
+
+3. **Environmental Conditions**: Temperature, humidity, and air composition can affect the speed of sound, and consequently, the distance calculations based on ultrasonic waves.
+
+4. **Electrical Noise**: Other components in the circuit or external electromagnetic interference can introduce noise, impacting the sensor's ability to accurately detect ultrasonic signals.
+
+For these reasons, implementing a calibration routine in the software can significantly enhance measurement accuracy. This routine could involve comparing readings from the HC-S04 with known distance values under controlled conditions and adjusting the software algorithm accordingly. Additionally, using stable power supplies and incorporating noise-reduction techniques in the circuit design can further improve the system's reliability and precision."
+
+
 ## Distance measurement example 
 
 This application below utilizes the HC-SR04 sensor to measure the distance of an object and adjusts the color of an RGB LED based on the object's proximity. When an object is less than 10 cm away, the LED turns red, signaling close proximity. For distances between 10 and 30 cm, the LED changes to blue, indicating a medium range. At distances greater than 30 cm, the LED turns green, denoting a more distant object. This setup allows for an intuitive and visual representation of object distance.
