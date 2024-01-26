@@ -49,7 +49,7 @@ void main() {
     initADC();
     while (1) {
         unsigned int value = readADC();
-         // To optimize accuracy, it might be necessary to perform calibration in order to 
+        // To optimize accuracy, it might be necessary to perform calibration in order to 
         // determine a more precise value.
         if ( value <= 200 ) 
            EmergencyLightOn();
