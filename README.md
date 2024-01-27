@@ -22,8 +22,8 @@ Contact: pu2clr@gmail.com.
 ## Content 
 
 1. [Projects](./projects/)
-    * [Blink a LED](./projects/01-Blink/)
-    * [Controlling multiple LEDs](./projects/02-LED_CONTROL/)
+    * [Blink a LED - PIC10F200, PIC12F675 and PIC16F628A](./projects/01-Blink/)
+    * [Controlling multiple LEDs - PIC12F675 and PIC16F628A](./projects/02-LED_CONTROL/)
         * Related Videos
             * [PICKIT3 PIC16F628A ICSP SETUP](https://youtu.be/72zt0Jlcl2s?si=aHFGsasuW1k5SjCz)
             * [K150 and PIC16F628A](https://youtu.be/hsI8I5PT9Bg?si=RzZ5WkM6D_NWXhy7)
