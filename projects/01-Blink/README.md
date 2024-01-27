@@ -359,8 +359,10 @@ END resetVect
 dummy1 equ 0x10
 dummy2 equ 0x11
 dummy3 equ 0x12 
- 
-PSECT BlinkCode, class=CODE, delta=2
+
+; Do not forget the additional parameters: -Wl,-pBlinkCode=0h 
+; See instruction in comment above
+PSECT BlinkCode, class=CODE, delta=2 
 
 MAIN:
     clrf   GPIO		    ; Sets all GPIO pins as output
