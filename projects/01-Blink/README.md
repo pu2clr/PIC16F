@@ -323,6 +323,43 @@ END resetVect
 ![PIC10F200 pinout](../../images/PIC10F200_PINOUT.jpg)
 
 
+**Before assembling or generating the HEX file using MPLAB X, please follow these instructions:**
+
+1. **Access Project Properties:**
+   - In MPLAB X, navigate to **Project Properties**. This can typically be found under the **Project** menu.
+
+2. **Locate Global Options:**
+   - Within the Project Properties window, find the section for **Global Options**. This may be under a category related to the specific assembler/compiler you're using, such as **XC8 Linker** or **pic-as**.
+
+3. **Specify Additional Options:**
+   - Within the Global Options section, locate the box or field labeled **Additional Options**. This is where you'll enter the required parameters.
+
+4. **Enter the Parameter:**
+   - Carefully type the following parameter into the Additional Options box:
+
+     ```
+     -Wl,-pBlinkCode=0h
+     ```
+
+
+
+#### The image below shows that setup. 
+
+![MPLAB parameters to assemble or to generate HEX file](./../../images/PIC10F200_MPLAB_SETUP.png)
+
+
+**ATTENTION:** The identifier **BlinkCode** must be referenced in the PSECT directive in your Assembly code. Carefully analyze the following code.
+
+
+5. **Save Changes:**
+   - Ensure you save the changes made to the Project Properties before proceeding with the assembly or HEX file generation process.
+
+**Additional Notes:**
+
+- The exact location of the Global Options and Additional Options fields within the Project Properties window may vary slightly depending on the MPLAB X version and configuration.
+- If you encounter any difficulties, consult the help documentation or online resources for more specific guidance.
+- It's always a good practice to double-check the entered parameters to avoid any potential errors.
+
 
 ## PIC10F200 ASM Example
 
