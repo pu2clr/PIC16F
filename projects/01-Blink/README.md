@@ -341,6 +341,9 @@ END resetVect
      -Wl,-pBlinkCode=0h
      ```
 
+5. **Save Changes:**
+   - Ensure you save the changes made to the Project Properties before proceeding with the assembly or HEX file generation process.
+
 
 
 #### The image below shows that setup. 
@@ -349,16 +352,6 @@ END resetVect
 
 
 **ATTENTION:** The identifier **BlinkCode** must be referenced in the PSECT directive in your Assembly code. Carefully analyze the following code.
-
-
-5. **Save Changes:**
-   - Ensure you save the changes made to the Project Properties before proceeding with the assembly or HEX file generation process.
-
-**Additional Notes:**
-
-- The exact location of the Global Options and Additional Options fields within the Project Properties window may vary slightly depending on the MPLAB X version and configuration.
-- If you encounter any difficulties, consult the help documentation or online resources for more specific guidance.
-- It's always a good practice to double-check the entered parameters to avoid any potential errors.
 
 
 ## PIC10F200 ASM Example
