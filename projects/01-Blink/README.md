@@ -452,7 +452,6 @@ The first time I tried to program for the PIC10F200 I had problems with subrouti
 ; You will find good tips about the PIC10F200 here:
 ; https://www.circuitbread.com/tutorials/christmas-lights-special-microcontroller-basics-pic10f200
 
- 
     
 #include <xc.inc>
 
