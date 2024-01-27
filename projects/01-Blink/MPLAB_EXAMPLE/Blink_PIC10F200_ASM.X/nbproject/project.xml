@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>LED_CONTROL_PIC10F200_ASM</name>
+            <name>Blink_PIC10F200_ASM</name>
             <creation-uuid>f207b7b4-52c4-4443-b3f5-3d0c0f273373</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
