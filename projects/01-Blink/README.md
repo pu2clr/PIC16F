@@ -177,8 +177,27 @@ END resetVect
 ```
 
 
+## PIC12F675
 
-## PIC12F675 Schematic
+
+The PIC12F675 is a small, low-cost, and low-power microcontroller that is ideal for a variety of applications, including:
+
+* **Simple digital devices**
+* **Sensors**
+* **Wireless devices**
+* **IoT devices**
+
+### Features:
+
+* **Flash memory:** The PIC12F675 has 1.75KB of Flash memory, which is enough to store a small program.
+* **RAM:** The PIC12F675 has 64 bytes of RAM, which is enough to store a few variables.
+* **I/O pins:** The PIC12F675 has 6 I/O pins, which can be used to connect to sensors, actuators, and other devices.
+* **Internal oscillator:** The PIC12F675 has an internal oscillator, which eliminates the need for an external crystal or resonator.
+* **Low power consumption:** The PIC12F675 consumes very little power, making it ideal for battery-powered applications.
+
+
+
+### PIC12F675 Schematic
 
 ![Schematic PIC12F675 blink](./schematic_blink_pic12f675.jpg)
 
@@ -189,7 +208,7 @@ END resetVect
 
 
 
-## PIC12F675 C Example
+### PIC12F675 C Example
 
 
 ```cpp
@@ -219,7 +238,7 @@ void main() {
 
 ```
 
-## PIC12F675 ASM Example
+### PIC12F675 ASM Example
 
 ```asm
 
@@ -302,7 +321,7 @@ END resetVect
 
 
 
-## BLINK PIC12F675 Prototype
+### BLINK PIC12F675 Prototype
 
 
 ![BLINK PIC12F675 Prototype](./pic12f675_blink.jpg)
@@ -310,6 +329,26 @@ END resetVect
 
 <BR>
 <BR>
+
+
+
+## PIC10F200 
+
+
+The PIC10F200 is a small, low-cost, and low-power microcontroller that is ideal for a variety of applications, including:
+
+* **Simple digital devices**
+* **Sensors**
+* **Wireless devices**
+* **IoT devices**
+
+### Features:
+
+* **Flash memory:** The PIC10F200 has 384 bytes of Flash memory, which is enough to store a small program.
+* **RAM:** The PIC10F200 has 16 bytes of RAM, which is enough to store a few variables.
+* **I/O pins:** The PIC10F200 has 4 I/O pins, which can be used to connect to sensors, actuators, and other devices.
+* **Internal oscillator:** The PIC10F200 has an internal oscillator, which eliminates the need for an external crystal or resonator.
+* **Low power consumption:** The PIC10F200 consumes very little power, making it ideal for battery-powered applications.
 
 
 ## PIC10F200 Schematic 
@@ -354,7 +393,12 @@ END resetVect
 **ATTENTION:** The identifier **BlinkCode** must be referenced in the PSECT directive in your Assembly code. Carefully analyze the following code.
 
 
+
 ## PIC10F200 ASM Example
+
+The first time I tried to program for the PIC10F200 I had problems with subroutine calls. After the execution of the RETLW instruction, the program flow returned to the beginning (as if the system was restarted or as if a goto instruction led the program to the first instruction). After some searches on the internet, I managed to find the instructions to work around this problem. See [this link for more details](https://www.circuitbread.com/tutorials/christmas-lights-special-microcontroller-basics-pic10f200).
+
+
 
 ```asm
 
