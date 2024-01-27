@@ -320,11 +320,11 @@ END resetVect
 
 <BR>
 
-![PIC12F675 pinout](../../images/PIC10F200_PINOUT.jpg)
+![PIC10F200 pinout](../../images/PIC10F200_PINOUT.jpg)
 
 
 
-## PIC12F675 ASM Example
+## PIC10F200 ASM Example
 
 ```asm
 
