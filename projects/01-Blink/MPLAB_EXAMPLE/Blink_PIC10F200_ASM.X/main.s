@@ -1,20 +1,20 @@
-; BLINK  LEDS with PIC10F200
-; My PIC Journey   
+; BLINK LEDS with PIC10F200
+; My PIC Journey
 ; Author: Ricardo Lima Caratti
 ; Jan/2024
-; 
+;
 ; IMPORTANT: To assemble this code correctly, please follow the steps below:
-; 1. Go to the "Project Properties" in MPLAB X.
-; 2. Select "Global Options" for the pic-as compiler.
+; 1. Go to "Project Properties" in MPLAB X.
+; 2. Select "Global Options" for the pic-as assembler/compiler.
 ; 3. In the "Additional Options" box, enter the following parameters:
 ; -Wl,-pBlinkCode=0h
 ;
-; Please, check  the BlinkCode reference in the directive "PSECT" below 
+; Please check the BlinkCode reference in the "PSECT" directive below.
 ;
-; You will find good tips about PIC10F200 here: 
+; You will find good tips about the PIC10F200 here:
 ; https://www.circuitbread.com/tutorials/christmas-lights-special-microcontroller-basics-pic10f200
+
  
-  
     
 #include <xc.inc>
 
@@ -24,16 +24,13 @@
   CONFIG  MCLRE = ON	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
 
   
-; declare your variables here
+; Declare your variables here
 
 dummy1 equ 0x10
 dummy2 equ 0x11
 dummy3 equ 0x12 
  
-  
-    
 PSECT BlinkCode, class=CODE, delta=2
- 
 
 MAIN:
     clrf   GPIO		    ; Sets all GPIO pins as output
