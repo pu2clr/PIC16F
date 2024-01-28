@@ -232,5 +232,5 @@ Source: [Pickit 3 Programmer/Debugger](https://components101.com/misc/pickit3-pr
 * [PIC Microcontroller Programming - PIC AS Assembler using MPLAB X IDE, Blinking LED](https://youtu.be/b_SBranD1k4?si=3WbB18vzieU9XB75)
 * [GNL Project - Youtube Channel with many PIC10F200 project and Assembly programming](https://www.youtube.com/@GNLProject-yp8po/videos)
 * [How to Use a Simple Microcontroller Part 1 - An Introduction (PIC10F200)](https://youtu.be/TvsLWEJ4kNI?si=yGt3pLz6990fWD7K)
-* []()
+* [2Bit - PIC10F200 Programming](https://www.youtube.com/@2bit661/videos)
 
