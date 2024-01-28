@@ -214,6 +214,7 @@ Source: [Pickit 3 Programmer/Debugger](https://components101.com/misc/pickit3-pr
 * [Experiments with PIC16F628A](http://electronicexperiments.blogspot.com/p/pic16f628a_01.html)
 * [PIC®Microcontrollers with Enhanced Mid-Range Core Building Upon a Foundation of Success](https://ww1.microchip.com/downloads/en/DeviceDoc/41382a.pdf)
 * [PICmicroTM Mid-Range MCU Family Reference Manual](https://ww1.microchip.com/downloads/en/devicedoc/33023a.pdf)
+* [PIC Projects - Site with many nice projects using PIC microcontrollers](https://pic-microcontroller.com/pic-projects/)
 
 
 ## Assembly programming 
@@ -229,4 +230,7 @@ Source: [Pickit 3 Programmer/Debugger](https://components101.com/misc/pickit3-pr
 
 * [Introduction to the MPLAB® XC8 PIC® Assembler](https://youtu.be/milPwyw3RA8?si=9D5Cmk4DyH4ovw27)
 * [PIC Microcontroller Programming - PIC AS Assembler using MPLAB X IDE, Blinking LED](https://youtu.be/b_SBranD1k4?si=3WbB18vzieU9XB75)
+* [GNL Project - Youtube Channel with many PIC10F200 project and Assembly programming](https://www.youtube.com/@GNLProject-yp8po/videos)
+* [How to Use a Simple Microcontroller Part 1 - An Introduction (PIC10F200)](https://youtu.be/TvsLWEJ4kNI?si=yGt3pLz6990fWD7K)
+* []()
 

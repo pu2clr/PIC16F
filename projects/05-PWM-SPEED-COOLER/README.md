@@ -509,3 +509,11 @@ void main() {
 ```
 
 
+
+## References
+
+* [Introduction to Bipolar Junction Transistors (BJTs) | Basic Electronics](https://youtu.be/lMmJenzKYS8?si=ZfMs-jVsEGGM33go)
+* [How do PWMs work? A theoretical and practical overview](https://youtu.be/Il78FZweSFw?si=--nt46471nfmHWov)
+* [Using PWM for DC Motor Control](https://blog.upverter.com/2019/11/21/using-pwm-for-dc-motor-control/)
+* [What is a PWM signal?](https://www.circuitbread.com/ee-faq/what-is-a-pwm-signal)
+* [Oscilloscopes 101 - How to use an o-scope! | Basic Electronics](https://youtu.be/hKMCVdzuMXQ?si=7gQO-4m5PNUtripk)
