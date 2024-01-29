@@ -1,0 +1,47 @@
+/*
+ * This experiment uses the PIC10F200 and the HC-S04 ultrasonic distance sensor. 
+ * It utilizes one LEDs to indicate, a distance  * of less than 10 cm. 
+ * Author: Ricardo Lima Caratti
+ * Jan/2024
+ */
+
+// CONFIG
+#pragma config WDTE = OFF       // Watchdog Timer (WDT disabled)
+#pragma config CP = OFF         // Code Protect (Code protection off)
+#pragma config MCLRE = OFF      // Master Clear Enable (GP3/MCLR pin fuction is digital I/O, MCLR internally tied to VDD)
+
+#define _XTAL_FREQ  4000000
+
+#include <xc.h>
+
+
+void main(void)
+{   
+    TRIS = 0B00000100;          // GP0 -> LED/output; GP1 -> Trigger/output; and GP2 = Echo/input      
+    
+    while (1)
+    {
+        // Reset TMR1
+        TMR1H = 0;
+        TMR1L = 0;
+
+        // Send 10uS signal to the Trigger pin
+        GP1 = 1;
+        __delay_us(10);
+        GP1 = 0;
+
+        // Wait for echo
+        while (!GP2);
+        TMR1ON = 1;
+        while (GP2);
+        TMR1ON = 0;    
+        // Now you have the elapsed time stored in TMR1H and TMR1L
+        unsigned int duration = (unsigned int) (TMR1H << 8) | TMR1L;
+
+        if ( duration < 830)       // This time is about 10 cm
+            GP0 = 1;
+        else
+            GP0 = 0;
+        __delay_ms(100); 
+    }
+}

@@ -24,7 +24,7 @@
  */
 void myDelay() {
     for (unsigned char i = 0; i < 255; i++) {
-        for (unsigned char j; j < 255; j++ ) {
+        for (unsigned char j = 0; j < 255; j++ ) {
             asm("nop");
             asm("nop");
         }
