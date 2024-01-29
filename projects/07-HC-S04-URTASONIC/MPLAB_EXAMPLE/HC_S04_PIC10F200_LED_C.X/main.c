@@ -15,6 +15,7 @@
 
 #include <xc.h>
 
+
 void main(void) {
 
     // TIMER0 AND PRESCALER SETUP
@@ -41,11 +42,12 @@ void main(void) {
         do {
         } while (GP2);
         
-        // TRM0 has the number of cycles / 128. 
-        if (TMR0 < 3 ) //  
+        // TRM0 * 128 is the number of cycles. So, 1 means 128 cycles => 128/59 = 2 cm  
+        if (TMR0 < 2 ) //  
             GP0 = 1;
         else
             GP0 = 0;
-        __delay_ms(50);
+        __delay_ms(100);
+
     }
 }
