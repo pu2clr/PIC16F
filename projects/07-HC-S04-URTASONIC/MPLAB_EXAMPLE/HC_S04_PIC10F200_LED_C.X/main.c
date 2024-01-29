@@ -17,7 +17,7 @@
 
 void main(void) {
 
-    OPTION = 0B11000000;    // TOCS = 0
+    OPTION = 0B11011000;    // TOCS = 0
     TRIS = 0B00000100;      // GP0 -> LED/output; GP1 -> Trigger/output; and GP2 = Echo/input      
 
     while (1) {
