@@ -1,5 +1,4 @@
 /*
- * ATTENTION: UNDER CONSTRUCTION... it is not working  
  * This experiment uses the PIC10F200 and the HC-S04 ultrasonic distance sensor. 
  * It utilizes one LEDs to indicate, a distance  * of less than 10 cm. 
  * Author: Ricardo Lima Caratti
@@ -41,8 +40,11 @@ void main(void) {
         TMR0 = 0; // It will increment every 128 cycles (at 4MHz one cycle is 1us).
         do {
         } while (GP2);
-        
-        // TRM0 * 128 is the number of cycles. So, 1 means 128 cycles => 128/59 = 2 cm  
+    
+        // TRM0 * 128 represents the number of cycles. Therefore, a value of 1 
+        // equates to 128 cycles. Based on this, 128 cycles correspond to 2 cm. 
+        // However, calibration may be necessary for accurate measurements.
+        // See: https://www.circuitbread.com/tutorials/obstacle-avoidance-robot-part-14-microcontroller-basics-pic10f200
         if (TMR0 < 2 ) //  
             GP0 = 1;
         else
