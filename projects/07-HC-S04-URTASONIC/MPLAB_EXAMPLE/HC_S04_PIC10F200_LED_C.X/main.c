@@ -17,11 +17,19 @@
 
 void main(void) {
 
-    OPTION = 0B11011000;    // TOCS = 0
-    TRIS = 0B00000100;      // GP0 -> LED/output; GP1 -> Trigger/output; and GP2 = Echo/input      
+    // TIMER0 AND PRESCALER SETUP
+    // TOCS = 0 => INTERNAL INSTRUCTION CYCLE; 
+    // PSA = 0 => TIMER0; and
+    // PRESCALER (PS2,PS1 AND PS0 => 1:128)
+    OPTION = 0B11010110;     
+    //GPIO SETUP
+    // GP0 -> LED/output; 
+    // GP1 -> Trigger/output; and 
+    // GP2 = Echo/input 
+    TRIS = 0B00000100;           
 
     while (1) {
-        // Send 10uS signal to the Trigger pin
+        // Using the trigger pin to sen Send 10uS signal 
         GP1 = 1;
         __delay_us(10);
         GP1 = 0;
@@ -29,12 +37,12 @@ void main(void) {
         // Wait for echo
         do {
         } while (!GP2);
-        TMR0 = 0; // It will increment every cycle (each cycle takes 1us at 4MHz).
+        TMR0 = 0; // It will increment every 128 cycles (at 4MHz one cycle is 1us).
         do {
         } while (GP2);
-
-        // TRM0 has the number of cycles. Check here how many cycles to process echo.
-        if (TMR0 > 240) // 118 us is about 4 cm    
+        
+        // TRM0 has the number of cycles / 128. 
+        if (TMR0 < 3 ) //  
             GP0 = 1;
         else
             GP0 = 0;
