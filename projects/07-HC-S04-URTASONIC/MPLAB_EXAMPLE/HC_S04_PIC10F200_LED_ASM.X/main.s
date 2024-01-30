@@ -51,7 +51,24 @@ MainLoop:		    ; Endless loop
     call    Delay10us
     bcf	    GPIO,1
     
-
+    movlw   2
+    ; Wait for echo
+    btfss   GPIO, 2
+    goto $-1		    ; back to previous instruction  if GP2 is not high
+    clrf    TMR0 
+    btfsc   GPIO, 2
+    goto $-1		    ; back to previous instruction  if GP2 is high
+    
+    subwf   TMR0, w
+    btfss   STATUS, 0	    ; If grater than 1
+    goto    DistanceOk 
+    bcf	    GPIO,0	    ; Turn the LED off
+    goto    MainLoopEnd
+DistanceOk:   
+    bcf	    GPIO,0	    ; Turn the LED on    
+MainLoopEnd:
+    call    Delay2ms;
+    
     goto    MainLoop
      
 ; ******************
