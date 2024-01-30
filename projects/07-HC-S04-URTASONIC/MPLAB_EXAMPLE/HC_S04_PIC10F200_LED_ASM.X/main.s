@@ -61,11 +61,11 @@ MainLoop:		    ; Endless loop
     
     subwf   TMR0, w
     btfss   STATUS, 0	    ; If grater than 1
-    goto    DistanceOk 
+    goto    VeryClose 
     bcf	    GPIO,0	    ; Turn the LED off
     goto    MainLoopEnd
-DistanceOk:   
-    bcf	    GPIO,0	    ; Turn the LED on    
+VeryClose:   
+    bsf	    GPIO,0	    ; Turn the LED on    
 MainLoopEnd:
     call    Delay2ms;
     
@@ -79,15 +79,13 @@ MainLoopEnd:
 ; This time is used by the HC-S04 ultrasonic sensor 
 ; to determine the distance. 	
 Delay10us:
-    nop		; 8 cycle
-    nop
-    nop
+    nop		;  2 cycles (CALL) + 6 cycles (NOP)
     nop
     nop
     nop
     nop
     nop	    
-    retlw 0	; 2 cycles    
+    retlw 0	; + 2 cycles (retlw) => 10 cycles =~ 10us at 4MHz frequency clock    
 
 ; It takes about 2ms
 Delay2ms: 
@@ -100,9 +98,3 @@ LoopDelay2ms:
     retlw   0
     
 END MAIN
-
-
-
-
-
-
