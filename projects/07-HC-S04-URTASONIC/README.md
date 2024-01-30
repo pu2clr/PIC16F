@@ -18,6 +18,22 @@ The HC-SR04 is valued for its ease of use, affordability, and integration with m
 
 
 
+# Content
+
+* [Accuracy of this System](./#accuracy-of-this-system) 
+* [PIC16F628A and HC-S04 Ultrasonic Sensor](./#pic16f628a-and-hc-s04-ultrasonic-sensor-schematic)
+    * [PIC16F628 C code example](./#pic16f628-program)
+* [PIC16F876A with LCD and HC-S04 Ultrasonic sensor](./#pic16f876a-with-lcd-and-hc-s04-ultrasonic-sensor)
+    * [PIC16F876A C code example](./#pic16f876a-programming)
+* [PIC12F675 HC-S04 and  HC-S04 Ultrasonic sensor](./#pic12f675-hc-s04-version)
+    * [PIC12F675 and HC-S04 source code in C](./#pic12f675-and-hc-s04-source-code-in-c)
+    * [PIC12F675 and HC-S04 Assembly code](./#pic12f675-and-hc-s04-assembly-version)    
+* [PIC10F200 and HC-S04 Ultrasonic sensor](./C#pic10f200-and-hc-s04)
+    * [PIC10F200 with HC-S04 C code example](./#pic10f200-with-hc-s04-c-code-example)
+    * [PIC10F200 with HC-S04 ASM code example](./#pic10f200-with-hc-s04-asm-code-example)    
+
+
+
 ## Accuracy of this System
 
 In applications based on PIC microcontrollers configured with its internal oscillator for operations such as distance measurement with the HC-S04 ultrasonic sensor, achieving optimal accuracy often requires careful calibration and fine-tuning. The internal oscillator of the PIC12F675, for example, while convenient and cost-effective, may not offer the same level of stability and precision as external crystal oscillators. This variance can impact the timing accuracy critical for distance measurements with the HC-S04, which relies on precise timing to calculate distances based on ultrasonic wave reflections.
