@@ -48,3 +48,8 @@ The 74HC595 is appreciated for its ease of use, efficiency in saving microcontro
 
 ## UNDER CONSTRUCTRION... 
 
+
+
+## References
+
+* [74HC595 Serial Shift Register Interfacing with Pic Microcontroller](https://microcontrollerslab.com/74hc595-shift-register-interfacing-pic-microcontroller/)

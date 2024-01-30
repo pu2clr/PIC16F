@@ -26,8 +26,9 @@
   
 ; Declare your variables here
 
-dummy1 equ 0x10
-dummy2 equ 0x11 
+dummy1	equ 0x10
+dummy2	equ 0x11 
+value	equ 0x12	 
  
 PSECT AsmCode, class=CODE, delta=2
 
@@ -40,6 +41,38 @@ MAIN:
     tris    GPIO
 MainLoop:		    ; Endless loop
     ; Under construction
+    movlw   0B11111111
+    
+    movlw   255
+    
+Loop74HC595:
+    
+    andlw   0x01
+    subwf   1,w
+    
+    ; Under construction
+    
+    
+    
+    ; Prepere Data to send
+    
+    
+    ; Clock 
+    bsf	    GPIO, 1		    ; Turn GP1 HIGH
+    call    Delay100us		    ;
+    bcf	    GPIO, 1		    ; Turn GP1 LOW
+    call    Delay100us
+    
+    
+    ; Enable Output
+    bsf	    GPIO, 2		    ; Turn GP2 HIGH
+    call    Delay100us
+    bcf	    GPIO, 2		    ; Turn GP2 LOW
+    
+    
+    
+    
+    goto Loop74HC595
     
 MainLoopEnd:
     ; Delay about 1 second ( You can not use more than two stack levels )
