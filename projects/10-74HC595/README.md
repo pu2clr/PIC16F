@@ -25,5 +25,15 @@ The 74HC595 is a widely-used integrated circuit in digital electronics, known as
 The 74HC595 is appreciated for its ease of use, efficiency in saving microcontroller pins, and its ability to handle multiple outputs simultaneously. Its versatility makes it a staple component in many electronic projects and commercial products.
 
 
+## PIC10F200 and 74HC595 cotrolling 8 LEDs
+
+
+
+### PIC10F200 and 74HC595 schematic
+
+
+![PIC10F200 and 74HC595 schematic](./schematic_pic10f200_74hc595.jpg)
+
+
 ## UNDER CONSTRUCTRION... 
 
