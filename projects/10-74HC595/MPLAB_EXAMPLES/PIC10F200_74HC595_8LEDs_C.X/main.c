@@ -17,25 +17,33 @@
 #define _XTAL_FREQ  4000000
 
 
-/**
- * Due to the PIC10F200's limited memory, it may be more efficient to develop your 
- * own delay function instead of using the "__delay_ms()" function. 
- * This is an approach to consider if timing is not critical for your application.
- */
-void myDelay() {
-    for (unsigned char i = 0; i < 255; i++) {
-        for (unsigned char j = 0; j < 255; j++ ) {
-            asm("nop");
-            asm("nop");
-        }
-    }  
+
+void inline doClock() { 
+    GP1 = 1; 
+    __delay_ms(100);
+    GP1 = 0;
+    __delay_ms(100);
+}
+
+void inline doEnable() {
+    GP2 = 1;
+    __delay_ms(100); 
+    GP2 = 0;
+}
+
+void inline sendData(unsigned char data) {
+    do { 
+        GP0 = ( data & 0B00000001);
+        doClock();
+        data = data >> 1;
+    } while (data);
+    doEnable();
 }
 
 void main(void) {
     TRIS = 0B00000000;          // All GPIO (GP0:GP3) pins as output
        
-    do {
-        // Under construction....
-        myDelay();
-    } while(1);
+    sendData(0B01010101);
+    while(1);
+    
 }
