@@ -27,8 +27,6 @@
 ; Declare your variables here
 
 dummy1 equ 0x10
-; dummy2 equ 0x11
-; dummy3 equ 0x12 
  
 PSECT AsmCode, class=CODE, delta=2
 
