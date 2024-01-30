@@ -44,7 +44,7 @@ Contact: pu2clr@gmail.com.
     * [LED RGB PIC16F](./projects/06-LED_RGB/)
         * Related Video
             * [PIC16F628A, PWM, RGB LED and HC-S04 ULTRASONIC SENSOR](https://youtu.be/A1iy9zIMIXQ?si=tNqtIyOWzy94gfbC)        
-    * [PIC microcontrollers and HC-S04 ultrasonic sensor - PIC12F and PIC16F](./projects/07-HC-S04-URTASONIC/)
+    * [PIC microcontrollers and HC-S04 ultrasonic sensor - PIC10F200, PIC12F675 and PIC16FXXX](./projects/07-HC-S04-URTASONIC/)
         * Related Videos
             * [PIC16F876A with HC-S04 ultrasonic sensor and LCD 16x2](https://youtu.be/hNJfMpDH9Ns?si=e2Ak38YreOJkt6tY) 
             * [PIC12F675 and HC-S04 Ultrasonic distance sensor](https://youtu.be/CYpL-8CyOFI?si=5nn-gpDaTmxXuX8u)
