@@ -28,7 +28,8 @@
 
 dummy1	equ 0x10
 dummy2	equ 0x11 
-value	equ 0x12	 
+value	equ 0x12
+counter	equ 0x13	
  
 PSECT AsmCode, class=CODE, delta=2
 
@@ -40,23 +41,26 @@ MAIN:
     movlw   0B00000000	    ; All GPIO Pins as output		
     tris    GPIO
 MainLoop:		    ; Endless loop
-    ; Under construction
-    movlw   0B11111111
-    
-    movlw   255
-    
-Loop74HC595:
-    
+    movlw   7
+    movwf   counter
+    movlw   0B0101011
+    movwf   value
+
+    ; Send value 
+PrepereToSend:     
     andlw   0x01
     subwf   1,w
+    ; Compare if the current bit and set the GP0 
+    btfss   STATUS, 2		    ; If Z = 1; 
+    goto    Send1
+    goto    Send0
     
-    ; Under construction
-    
-    
-    
-    ; Prepere Data to send
-    
-    
+Send0:
+    bcf	    GPIO, 0		    ; if current bit is high send 1 else send 0
+    goto    Clock
+Send1:     
+    bsf	    GPIO, 0
+Clock:    
     ; Clock 
     bsf	    GPIO, 1		    ; Turn GP1 HIGH
     call    Delay100us		    ;
@@ -64,16 +68,18 @@ Loop74HC595:
     call    Delay100us
     
     
-    ; Enable Output
+    rrf	    value
+    movf    value, w
+    
+    decfsz counter, f
+    goto PrepereToSend
+    
+    ; Enable Output 
     bsf	    GPIO, 2		    ; Turn GP2 HIGH
     call    Delay100us
     bcf	    GPIO, 2		    ; Turn GP2 LOW
     
-    
-    
-    
-    goto Loop74HC595
-    
+      
 MainLoopEnd:
     ; Delay about 1 second ( You can not use more than two stack levels )
     movlw   255
