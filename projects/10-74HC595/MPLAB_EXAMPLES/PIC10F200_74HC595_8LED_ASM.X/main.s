@@ -29,7 +29,8 @@
 dummy1	equ 0x10
 dummy2	equ 0x11 
 value	equ 0x12
-counter	equ 0x13	
+counter	equ 0x13
+tmp	equ 0x14	
  
 PSECT AsmCode, class=CODE, delta=2
 
@@ -40,10 +41,12 @@ MAIN:
     ; GP2 -> Output Enable/OE	-> 74HC595 PIN 13
     movlw   0B00000000	    ; All GPIO Pins as output		
     tris    GPIO
+    movlw   0B10101010	    ; Value to be sent to the 74HC595
+    movwf   tmp
 MainLoop:		    ; Endless loop
     movlw   8
     movwf   counter
-    movlw   0B10101010	    ; Value to be sent to the 74HC595
+    movf    tmp, w
     movwf   value
     ; Start sending  
 PrepereToSend:  
@@ -84,6 +87,9 @@ Delay1s:
     decfsz  dummy2, f
     goto    Delay1s
     
+    decf    tmp
+    
+     
     goto    MainLoop
      
 ; ******************
@@ -104,7 +110,7 @@ Delay10us:
 
 ; It takes 100 us    
 Delay100us:
-    movlw   10
+    movlw   20
     movwf   dummy1    
 LoopDelay100us:   
     call    Delay10us    
