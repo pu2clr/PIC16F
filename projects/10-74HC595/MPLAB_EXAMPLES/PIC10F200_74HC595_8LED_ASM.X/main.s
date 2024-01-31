@@ -41,20 +41,15 @@ MAIN:
     movlw   0B00000000	    ; All GPIO Pins as output		
     tris    GPIO
 MainLoop:		    ; Endless loop
-    movlw   7
+    movlw   8
     movwf   counter
-    movlw   0B0101010
+    movlw   0B10101010	    ; Value to be sent to the 74HC595
     movwf   value
-
-    ; Send value 
-PrepereToSend:     
-    andlw   0x01
-    subwf   1,w
-    ; Compare if the current bit and set the GP0 
-    btfss   STATUS, 2		    ; If Z = 1; 
-    goto    Send1
-    goto    Send0
-    
+    ; Start sending  
+PrepereToSend:  
+    btfss   value, 0		    ; Check if less significant bit is 1
+    goto    Send0		    ; if 0 turn GP0 low	
+    goto    Send1		    ; if 1 turn GP0 high
 Send0:
     bcf	    GPIO, 0		    ; if current bit is high send 1 else send 0
     goto    Clock
@@ -64,22 +59,18 @@ Clock:
     ; Clock 
     bsf	    GPIO, 1		    ; Turn GP1 HIGH
     call    Delay100us		    ;
-    call    Delay100us	
     bcf	    GPIO, 1		    ; Turn GP1 LOW
     call    Delay100us
-    call    Delay100us	
+    ; Shift all bits of the value to the right and prepend a 0 to the most significant bit
+    bcf	    STATUS, 0		    ; Clear cary flag before rotating 
+    rrf	    value, f
     
-    
-    rrf	    value
-    movf    value, w
-    
-    decfsz counter, f
-    goto PrepereToSend
+    decfsz counter, f		    ; Decrement the counter and check if it becomes zero.
+    goto PrepereToSend		    ; if not, keep prepering to send
     
     ; Enable Output 
     bsf	    GPIO, 2		    ; Turn GP2 HIGH
     call    Delay100us
-    call    Delay100us	
     bcf	    GPIO, 2		    ; Turn GP2 LOW
     
       
