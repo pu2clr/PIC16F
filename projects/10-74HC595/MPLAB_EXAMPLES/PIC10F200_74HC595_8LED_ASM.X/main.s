@@ -1,4 +1,7 @@
 ; Controlling 8 LEDs with PIC10F200 and the Shift Register 74HC595
+; This example controls 8 LEDs using the 74HC595 device in such a way that, 
+; with each cycle of approximately 1 second, the LEDs alternate between being 
+; lit and turned off.    
 ; My PIC Journey
 ; Author: Ricardo Lima Caratti
 ; Jan/2024
