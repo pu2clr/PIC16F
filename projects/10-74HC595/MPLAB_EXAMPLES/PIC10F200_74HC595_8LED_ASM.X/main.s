@@ -43,7 +43,7 @@ MAIN:
 MainLoop:		    ; Endless loop
     movlw   7
     movwf   counter
-    movlw   0B0101011
+    movlw   0B0101010
     movwf   value
 
     ; Send value 
@@ -64,8 +64,10 @@ Clock:
     ; Clock 
     bsf	    GPIO, 1		    ; Turn GP1 HIGH
     call    Delay100us		    ;
+    call    Delay100us	
     bcf	    GPIO, 1		    ; Turn GP1 LOW
     call    Delay100us
+    call    Delay100us	
     
     
     rrf	    value
@@ -77,6 +79,7 @@ Clock:
     ; Enable Output 
     bsf	    GPIO, 2		    ; Turn GP2 HIGH
     call    Delay100us
+    call    Delay100us	
     bcf	    GPIO, 2		    ; Turn GP2 LOW
     
       
