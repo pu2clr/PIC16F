@@ -26,11 +26,12 @@
   
 ; Declare your variables here
 
-dummy1	equ 0x10
-dummy2	equ 0x11 
-value	equ 0x12
-counter	equ 0x13
-tmp	equ 0x14	
+dummy1	    equ 0x10
+dummy2	    equ 0x11 
+startValue  equ 0x12		; Initial value to be sent	
+valueToSend equ 0x13		; Current value to be sent
+counter	    equ 0x14		
+	
  
 PSECT AsmCode, class=CODE, delta=2
 
@@ -41,44 +42,39 @@ MAIN:
     ; GP2 -> Output Enable/OE	-> 74HC595 PIN 13
     movlw   0B00000000	    ; All GPIO Pins as output		
     tris    GPIO
-    movlw   0B10101010	    ; Value to be sent to the 74HC595
-    movwf   tmp
+    movlw   0B10101010	    ; An alternating sequence of lit LEDs 
+    movwf   startValue	    ; The initial value to be sent to the 74HC595
 MainLoop:		    ; Endless loop
     movlw   8
     movwf   counter
-    movf    tmp, w
-    movwf   value
+    movf    startValue, w
+    movwf   valueToSend	    ;  
     ; Start sending  
 PrepereToSend:  
-    btfss   value, 0		    ; Check if less significant bit is 1
-    goto    Send0		    ; if 0 turn GP0 low	
-    goto    Send1		    ; if 1 turn GP0 high
+    btfss   valueToSend, 0  ; Check if less significant bit is 1
+    goto    Send0	    ; if 0 turn GP0 low	
+    goto    Send1	    ; if 1 turn GP0 high
 Send0:
-    bcf	    GPIO, 0		    ; if current bit is high send 1 else send 0
+    bcf	    GPIO, 0	    ; turn the current 74HC595 pin off 
     goto    Clock
 Send1:     
-    bsf	    GPIO, 0
+    bsf	    GPIO, 0	    ; turn the current 74HC595 pin on
 Clock:    
     ; Clock 
-    bsf	    GPIO, 1		    ; Turn GP1 HIGH
-    call    Delay100us		    ;
-    bcf	    GPIO, 1		    ; Turn GP1 LOW
-    call    Delay100us
-    ; Shift all bits of the value to the right and prepend a 0 to the most significant bit
-    bcf	    STATUS, 0		    ; Clear cary flag before rotating 
-    rrf	    value, f
+    call doClock
+    ; Shift all bits of the valueToSend to the right and prepend a 0 to the most significant bit
     
-    decfsz counter, f		    ; Decrement the counter and check if it becomes zero.
-    goto PrepereToSend		    ; if not, keep prepering to send
+    bcf	    STATUS, 0	    ; Clear cary flag before rotating 
+    rrf	    valueToSend, f
     
-    ; Enable Output 
-    bsf	    GPIO, 2		    ; Turn GP2 HIGH
-    call    Delay100us
-    bcf	    GPIO, 2		    ; Turn GP2 LOW
+    decfsz counter, f	    ; Decrement the counter and check if it becomes zero.
+    goto PrepereToSend	    ; if not, keep prepering to send
     
+    ; The data has been queued and can now be sent to the 74HC595 port
+    call doEnableOutput	    
       
 MainLoopEnd:
-    ; Delay about 1 second ( You can not use more than two stack levels )
+    ; Delays about 1 second ( You can not use more than two stack levels )
     movlw   255
     movwf   dummy2
 Delay1s:
@@ -87,35 +83,49 @@ Delay1s:
     decfsz  dummy2, f
     goto    Delay1s
     
-    decf    tmp
+    comf    startValue, f   ; Inverts the startValue bits. Alternating its value with each iteration 
     
      
     goto    MainLoop
-     
+
+; 74HC595 Clock processing
+; ATTENTION: Due to the two-level stack limit of the PIC10F200, avoid calling this  
+;            subroutine from within another subroutine to prevent stack overflow issues.    
+doClock:
+    ; Clock 
+    bsf	    GPIO, 1	    ; Turn GP1 HIGH
+    call    Delay100us	    ;
+    bcf	    GPIO, 1	    ; Turn GP1 LOW
+    call    Delay100us
+    retlw   0
+
+; Tells to the 74HC595 that the data is ready
+; ATTENTION: Due to the two-level stack limit of the PIC10F200, avoid calling this  
+;            subroutine from within another subroutine to prevent stack overflow issues.     
+doEnableOutput: 
+    ; Enable Output 
+    bsf	    GPIO, 2	    ; Turn GP2 HIGH
+    call    Delay100us
+    bcf	    GPIO, 2	    ; Turn GP2 LOW
+    retlw   0
+    
 ; ******************
 ; Delay function
 
 ; At 4 MHz, one instruction takes 1us
-; So, this soubroutine should take about 10?s 
-; This time is used by the HC-S04 ultrasonic sensor 
-; to determine the distance. 	
-Delay10us:
-    nop		;  2 cycles (CALL) + 6 cycles (NOP)
-    nop
-    nop
-    nop
-    nop
-    nop	    
-    retlw 0	; + 2 cycles (retlw) => 10 cycles =~ 10us at 4MHz frequency clock    
+; So, this soubroutine should take about 10 x 10 us 
 
 ; It takes 100 us    
 Delay100us:
-    movlw   20
+    movlw   10
     movwf   dummy1    
 LoopDelay100us:   
-    call    Delay10us    
-    decfsz  dummy1, f
-    goto    LoopDelay100us
+    goto $+1		    ; 2 cycles
+    goto $+1		    ; 2 cycles
+    goto $+1		    ; 2 cycles
+    nop
+    decfsz  dummy1, f	    ; 1 cycles (2 if dummy = 0)
+    goto    LoopDelay100us  ; 2 cycles
     retlw   0
     
 ; It takes about 2ms
@@ -123,9 +133,12 @@ Delay2ms:
     movlw  200
     movwf  dummy1
 LoopDelay2ms: 
-    call Delay10us    
-    decfsz dummy1, f
-    goto LoopDelay2ms
+    goto $+1		    ; 2 cycles
+    goto $+1		    ; 2 cycles
+    goto $+1		    ; 2 cycles
+    nop			    ; 1 cycle
+    decfsz  dummy1, f	    ; 1 cycles (2 if dummy = 0)
+    goto LoopDelay2ms	    ; 2 cycles
     retlw   0
     
 END MAIN
