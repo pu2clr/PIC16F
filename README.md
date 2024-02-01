@@ -215,6 +215,8 @@ Source: [Pickit 3 Programmer/Debugger](https://components101.com/misc/pickit3-pr
 * [PIC®Microcontrollers with Enhanced Mid-Range Core Building Upon a Foundation of Success](https://ww1.microchip.com/downloads/en/DeviceDoc/41382a.pdf)
 * [PICmicroTM Mid-Range MCU Family Reference Manual](https://ww1.microchip.com/downloads/en/devicedoc/33023a.pdf)
 * [PIC Projects - Site with many nice projects using PIC microcontrollers](https://pic-microcontroller.com/pic-projects/)
+* [PIC10F200 - Smallest and cheapest microcontroller - tutorial](https://youtu.be/300HMv6gOs8?si=MKiTwYgLA295LC7H)
+
 
 
 ## Assembly programming 
