@@ -276,6 +276,12 @@ END MAIN
 ```
 
 
+## PIC10F200 and 74HC595 three wire interface schematic
+
+
+![PIC10F200 and 74HC595 three wire interface schematic](./schematic_pic10f200_74hc595_3wires.jpg)
+
+
 
 ## References
 
