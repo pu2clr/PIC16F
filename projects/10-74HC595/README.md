@@ -29,7 +29,7 @@ The 74HC595 is appreciated for its ease of use, efficiency in saving microcontro
 
 
 
-### PIC10F200 and 74HC595 schematic
+### PIC10F200 and 74HC595 two wires interface schematic
 
 
 ![PIC10F200 and 74HC595 schematic](./schematic_pic10f200_74hc595.jpg)
@@ -45,6 +45,19 @@ The 74HC595 is appreciated for its ease of use, efficiency in saving microcontro
 ![74HC595 PINOUT](./../../images/74HC595_PINOUT.png)
 
 
+| Pin Number | Name    | Description                                                   |
+|------------|---------|---------------------------------------------------------------|
+| 16         | Vcc     | Power supply pin, typically connected to +5V.                 |
+| 8          | GND     | Ground pin, connected to the circuit's ground.                |
+| 15, 1-7    | Q0 to Q7| Output pins. Data shifted into the register appears here.     |
+| 14         | DS/SER  | Serial data input pin for shifting data into the register.    |
+| 13         | OE/¯G   | **Output enable pin. Low activates outputs; high disables them.** |
+| 12         | ST_CP/RCLK | Latch pin to transfer data to the storage register.        |
+| 11         | SH_CP/SRCLK | Clock pin to shift data into the register.               |
+| 10         | MR/¯SRCLR | Master reset pin. Low clears the shift register.          |
+| 9          | Q7'/Q7S | Serial output from the last bit for cascading shift registers.|
+
+
 
 ## PIC10F200 and 74HC595 C Example
 
@@ -54,7 +67,7 @@ In this example, the LEDs are controlled according to the following sequence: fi
 ```cpp
 
 /*
- * PIC10F200 and 74HC595 with 8 LEDs
+ * PIC10F200 and two wires 74HC595 setup controlling 8 LEDs
  * File:   main.c
  * Author: Ricardo Lima Caratti
  *
@@ -80,18 +93,11 @@ void inline doClock() {
     __delay_us(100);
 }
 
-void inline doEnable() {
-    GP2 = 1;
-    __delay_us(100); 
-    GP2 = 0;
-}
-
 void inline sendData(unsigned char data) {
     for (unsigned char i = 0; i < 8; i++) { 
         GP0 = ( data >> i & 0B00000001);
         doClock();
     }
-    doEnable();
 }
 
 void main(void) {
@@ -129,6 +135,7 @@ This example controls 8 LEDs using the 74HC595 device in such a way that, with e
 ```asm
 
 ; Controlling 8 LEDs with PIC10F200 and the Shift Register 74HC595
+; The PIC10F200 and 74HC595 interface uses two wires     
 ; This example controls 8 LEDs using the 74HC595 device in such a way that, 
 ; with each cycle of approximately 1 second, the LEDs alternate between being 
 ; lit and turned off.    
@@ -194,7 +201,7 @@ Send1:
     bsf	    GPIO, 0	    ; turn the current 74HC595 pin on
 NextBit:    
     ; Clock 
-    call doClock
+    call doClock	    ; Process current data (bit)
     ; Shift all bits of the valueToSend to the right and prepend a 0 to the most significant bit
     
     bcf	    STATUS, 0	    ; Clear cary flag before rotating 
@@ -204,11 +211,10 @@ NextBit:
     goto PrepereToSend	    ; if not, keep prepering to send
     
     ; The data has been queued and can now be sent to the 74HC595 port
-    call doClock
-    call doEnableOutput
+    call doClock	    ; Process latest data (bit)
       
 MainLoopEnd:
-    ; Delays about 1 second ( You can not use more than two stack levels )
+    ; Delays about 1 second 
     movlw   255
     movwf   dummy2
 Delay1s:
@@ -230,16 +236,6 @@ doClock:
     call    Delay100us	    ;
     bcf	    GPIO, 1	    ; Turn GP1 LOW
     call    Delay100us
-    retlw   0
-
-; Tells to the 74HC595 that the data is ready
-; ATTENTION: Due to the two-level stack limit of the PIC10F200, avoid calling this  
-;            subroutine from within another subroutine to prevent stack overflow issues.     
-doEnableOutput: 
-    ; Enable Output 
-    bsf	    GPIO, 2	    ; Turn GP2 HIGH
-    call    Delay100us
-    bcf	    GPIO, 2	    ; Turn GP2 LOW
     retlw   0
     
 ; ******************
@@ -275,7 +271,6 @@ LoopDelay2ms:
     retlw   0
     
 END MAIN
-
 
 
 ```
