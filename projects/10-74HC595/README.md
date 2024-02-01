@@ -129,6 +129,9 @@ This example controls 8 LEDs using the 74HC595 device in such a way that, with e
 ```asm
 
 ; Controlling 8 LEDs with PIC10F200 and the Shift Register 74HC595
+; This example controls 8 LEDs using the 74HC595 device in such a way that, 
+; with each cycle of approximately 1 second, the LEDs alternate between being 
+; lit and turned off.    
 ; My PIC Journey
 ; Author: Ricardo Lima Caratti
 ; Jan/2024
@@ -175,7 +178,7 @@ MAIN:
     movlw   0B10101010	    ; An alternating sequence of lit LEDs 
     movwf   startValue	    ; The initial value to be sent to the 74HC595
 MainLoop:		    ; Endless loop
-    movlw   8
+    movlw   7
     movwf   counter
     movf    startValue, w
     movwf   valueToSend	    ;  
@@ -186,10 +189,10 @@ PrepereToSend:
     goto    Send1	    ; if 1 turn GP0 high
 Send0:
     bcf	    GPIO, 0	    ; turn the current 74HC595 pin off 
-    goto    Clock
+    goto    NextBit
 Send1:     
     bsf	    GPIO, 0	    ; turn the current 74HC595 pin on
-Clock:    
+NextBit:    
     ; Clock 
     call doClock
     ; Shift all bits of the valueToSend to the right and prepend a 0 to the most significant bit
@@ -201,7 +204,8 @@ Clock:
     goto PrepereToSend	    ; if not, keep prepering to send
     
     ; The data has been queued and can now be sent to the 74HC595 port
-    call doEnableOutput	    
+    call doClock
+    call doEnableOutput
       
 MainLoopEnd:
     ; Delays about 1 second ( You can not use more than two stack levels )
@@ -215,7 +219,6 @@ Delay1s:
     
     comf    startValue, f   ; Inverts the startValue bits. Alternating its value with each iteration 
     
-     
     goto    MainLoop
 
 ; 74HC595 Clock processing
@@ -272,6 +275,7 @@ LoopDelay2ms:
     retlw   0
     
 END MAIN
+
 
 
 ```
