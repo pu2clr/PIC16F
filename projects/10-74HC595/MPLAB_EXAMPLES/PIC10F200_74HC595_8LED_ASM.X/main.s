@@ -78,7 +78,7 @@ NextBit:
     call doEnableOutput	    ; Send all data (bits) to 74HC595 output pins.
       
 MainLoopEnd:
-    ; Delays about 1 second ( You can not use more than two stack levels )
+    ; Delays about 1 second 
     movlw   255
     movwf   dummy2
 Delay1s:
