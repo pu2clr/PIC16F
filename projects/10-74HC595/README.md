@@ -32,6 +32,9 @@ The 74HC595 is appreciated for its ease of use, efficiency in saving microcontro
 ### PIC10F200 and 74HC595 two wires interface schematic
 
 
+In this interface that utilizes only 2 pins of the microcontroller, it can be particularly advantageous in some scenarios. However, with each bit sent and the clock triggered, the pins (QA to QH and QH') are updated. Note that the OE/G pin is grounded, keeping the output constantly active. It's important to highlight that this configuration may not be suitable for some applications due to the continuous transition of the output status of the 74HC595 pins.
+
+
 ![PIC10F200 and 74HC595 schematic](./schematic_pic10f200_74hc595_2wires.jpg)
 
 
@@ -274,9 +277,6 @@ END MAIN
 
 
 ```
-
-
-## PIC10F200 and 74HC595 three wires interface schematic
 
 
 ![PIC10F200 and 74HC595 three wire interface schematic](./schematic_pic10f200_74hc595_3wires.jpg)
