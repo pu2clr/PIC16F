@@ -32,7 +32,7 @@ The 74HC595 is appreciated for its ease of use, efficiency in saving microcontro
 ### PIC10F200 and 74HC595 two wires interface schematic
 
 
-![PIC10F200 and 74HC595 schematic](./schematic_pic10f200_74hc595.jpg)
+![PIC10F200 and 74HC595 schematic](./schematic_pic10f200_74hc595_2wires.jpg)
 
 
 ### PIC10F200 PINOUT

@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>PIC10F200_74HC595_16LEDs_C</name>
+            <name>PIC10F200_74HC595_2WIRES_16LEDs_C</name>
             <creation-uuid>dc6ebbfc-ddf9-4378-8cf3-23c40626b5bb</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
