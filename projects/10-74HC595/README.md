@@ -49,13 +49,13 @@ The 74HC595 is appreciated for its ease of use, efficiency in saving microcontro
 |------------|---------|---------------------------------------------------------------|
 | 16         | Vcc     | Power supply pin, typically connected to +5V.                 |
 | 8          | GND     | Ground pin, connected to the circuit's ground.                |
-| 15, 1-7    | Q0 to Q7| Output pins. Data shifted into the register appears here.     |
+| 15, 1-7    | QA to QH| Output pins. Data shifted into the register appears here.     |
 | 14         | DS/SER  | Serial data input pin for shifting data into the register.    |
 | 13         | OE/¯G   | **Output enable pin. Low activates outputs; high disables them.** |
 | 12         | ST_CP/RCLK | Latch pin to transfer data to the storage register.        |
 | 11         | SH_CP/SRCLK | Clock pin to shift data into the register.               |
 | 10         | MR/¯SRCLR | Master reset pin. Low clears the shift register.          |
-| 9          | Q7'/Q7S | Serial output from the last bit for cascading shift registers.|
+| 9          | QH'/QHS | Serial output from the last bit for cascading shift registers.|
 
 
 
