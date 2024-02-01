@@ -64,7 +64,7 @@ Send1:
     bsf	    GPIO, 0	    ; turn the current 74HC595 pin on
 NextBit:    
     ; Clock 
-    call doClock
+    call doClock	    ; Process current data (bit)
     ; Shift all bits of the valueToSend to the right and prepend a 0 to the most significant bit
     
     bcf	    STATUS, 0	    ; Clear cary flag before rotating 
@@ -74,8 +74,8 @@ NextBit:
     goto PrepereToSend	    ; if not, keep prepering to send
     
     ; The data has been queued and can now be sent to the 74HC595 port
-    call doClock
-    call doEnableOutput
+    call doClock	    ; Process latest data (bit)
+    call doEnableOutput	    ; Send all data (bits) to 74HC595 output pins.
       
 MainLoopEnd:
     ; Delays about 1 second ( You can not use more than two stack levels )
