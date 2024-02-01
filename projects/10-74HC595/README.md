@@ -45,7 +45,7 @@ The 74HC595 is appreciated for its ease of use, efficiency in saving microcontro
 ![74HC595 PINOUT](./../../images/74HC595_PINOUT.png)
 
 
-| Pin Number | Name    | Description                                                   |
+| 74HC595 Pin | Name    | Description                                                   |
 |------------|---------|---------------------------------------------------------------|
 | 16         | Vcc     | Power supply pin, typically connected to +5V.                 |
 | 8          | GND     | Ground pin, connected to the circuit's ground.                |
