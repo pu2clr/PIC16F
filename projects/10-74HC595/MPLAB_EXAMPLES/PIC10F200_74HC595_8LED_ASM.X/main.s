@@ -1,4 +1,5 @@
 ; Controlling 8 LEDs with PIC10F200 and the Shift Register 74HC595
+; The PIC10F200 and 74HC595 interface uses two wires     
 ; This example controls 8 LEDs using the 74HC595 device in such a way that, 
 ; with each cycle of approximately 1 second, the LEDs alternate between being 
 ; lit and turned off.    
@@ -75,7 +76,6 @@ NextBit:
     
     ; The data has been queued and can now be sent to the 74HC595 port
     call doClock	    ; Process latest data (bit)
-    call doEnableOutput	    ; Send all data (bits) to 74HC595 output pins.
       
 MainLoopEnd:
     ; Delays about 1 second 
@@ -100,16 +100,6 @@ doClock:
     call    Delay100us	    ;
     bcf	    GPIO, 1	    ; Turn GP1 LOW
     call    Delay100us
-    retlw   0
-
-; Tells to the 74HC595 that the data is ready
-; ATTENTION: Due to the two-level stack limit of the PIC10F200, avoid calling this  
-;            subroutine from within another subroutine to prevent stack overflow issues.     
-doEnableOutput: 
-    ; Enable Output 
-    bsf	    GPIO, 2	    ; Turn GP2 HIGH
-    call    Delay100us
-    bcf	    GPIO, 2	    ; Turn GP2 LOW
     retlw   0
     
 ; ******************
