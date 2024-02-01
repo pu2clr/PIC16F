@@ -281,3 +281,7 @@ END MAIN
 ## References
 
 * [74HC595 Serial Shift Register Interfacing with Pic Microcontroller](https://microcontrollerslab.com/74hc595-shift-register-interfacing-pic-microcontroller/)
+* [Smallest and cheapest microcontroller - tutorial](https://youtu.be/300HMv6gOs8?si=MKiTwYgLA295LC7H)
+* [How 74HC595 Shift Register Works ? | 3D animated](https://youtu.be/Rftc7yEGfKU?si=b_ajpwzWRA0hUGYd)
+
+
