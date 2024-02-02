@@ -182,7 +182,6 @@ MAIN:
     ; 74HC595 and PIC10F200 GPIO SETUP 
     ; GP0 -> Data		-> 74HC595 PIN 14 (SER); 
     ; GP1 -> Clock		-> 74HC595 PINs 11 and 12 (SRCLR and RCLK);   
-    ; GP2 -> Output Enable/OE	-> 74HC595 PIN 13
     movlw   0B00000000	    ; All GPIO Pins as output		
     tris    GPIO
     movlw   0B10101010	    ; An alternating sequence of lit LEDs 
@@ -268,7 +267,7 @@ LoopDelay2ms:
     goto $+1		    ; 2 cycles
     goto $+1		    ; 2 cycles
     goto $+1		    ; 2 cycles
-    nop			    ; 1 cycle
+    nop			        ; 1 cycle
     decfsz  dummy1, f	    ; 1 cycles (2 if dummy = 0)
     goto LoopDelay2ms	    ; 2 cycles
     retlw   0
