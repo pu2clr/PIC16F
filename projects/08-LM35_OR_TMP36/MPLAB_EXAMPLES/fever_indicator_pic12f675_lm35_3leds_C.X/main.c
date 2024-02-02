@@ -36,7 +36,7 @@ void inline AllOff() {
  */
 void inline GreenOn() {
     AllOff();
-    GPIO =  1;
+    GPIO =  0;
 }
 
 /**
@@ -44,7 +44,7 @@ void inline GreenOn() {
  */
 void inline YellowOn() {
     AllOff();
-    GPIO =  2;
+    GPIO =  1;
 }
 
 /**
@@ -52,7 +52,7 @@ void inline YellowOn() {
  */
 void RedOn() {
     AllOff();
-    GPIO =  4;
+    GPIO =  2;
 }
 
 void main() {
