@@ -41,9 +41,8 @@ PSECT AsmCode, class=CODE, delta=2
 
 MAIN:   
     ; 74HC595 and PIC10F200 GPIO SETUP 
-    ; GP0 -> Data		-> 74HC595 PIN 14 (SER); 
-    ; GP1 -> Clock		-> 74HC595 PINs 11 and 12 (SRCLR and RCLK);   
-    ; GP2 -> Output Enable/OE	-> 74HC595 PIN 13
+    ; GP0 -> Data		    -> 74HC595 PIN 14 (SER); 
+    ; GP1 -> Clock		    -> 74HC595 PINs 11 and 12 (SRCLR and RCLK);   
     movlw   0B00000000	    ; All GPIO Pins as output		
     tris    GPIO
     movlw   0B10101010	    ; An alternating sequence of lit LEDs 
