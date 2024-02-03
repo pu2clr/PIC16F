@@ -16,47 +16,46 @@
 
 #define _XTAL_FREQ  4000000
 
-
-
-void inline doClock() { 
-    GP1 = 1; 
-    __delay_us(100);
+void inline doClock() {
+    GP1 = 1;
+    __delay_us(2);
     GP1 = 0;
-    __delay_us(100);
+    __delay_us(2);
+
 }
 
-void inline doEnable() {
-    GP2 = 1;
-    __delay_us(100); 
-    GP2 = 0;
-}
 
 void inline sendData(unsigned int data) {
-    for (unsigned char i = 0; i <= 16; i++) { 
-        GP0 = ( data >> i & 1);
-        doClock();
+    for (unsigned char i = 0; i <= 16; i++) {
+        GP0 = (data >> i & 1);
+        GP1 = 1;
+        __delay_us(2);
+        GP1 = 0;
+        __delay_us(2);
     }
-    doEnable();
 }
 
 void main(void) {
-    TRIS = 0B00000000;          // All GPIO (GP0:GP3) pins as output
-    GPIO = 0;
+    TRIS = 0B00000000; // All GPIO (GP0:GP3) pins as output
+    GPIO = 0;          // Data => GP0; Clock and Latch => GP1 
     
+    // Turn all LEDs on
     sendData(0B1111111111111111);
     __delay_ms(5000);
+    // Turn all LEDs off
     sendData(0);
-    __delay_ms(5000);   
-    
+    __delay_ms(5000);
+
+    // 
     unsigned int data = 1;
-    while(1) {
+    while (1) {
         __delay_ms(1000);
         sendData(data);
-        data = (unsigned int) (data <<  1);
+        data = (unsigned int) (data << 1);
         if (data == 0) {
             sendData(0);
             data = 1;
         }
     }
-    
+
 }

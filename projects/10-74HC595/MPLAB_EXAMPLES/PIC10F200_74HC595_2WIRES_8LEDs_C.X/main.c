@@ -17,39 +17,34 @@
 #define _XTAL_FREQ  4000000
 
 
-
-void inline doClock() { 
-    GP1 = 1; 
-    __delay_us(100);
-    GP1 = 0;
-    __delay_us(100);
-}
-
 void inline sendData(unsigned char data) {
-    for (unsigned char i = 0; i < 8; i++) { 
-        GP0 = ( data >> i & 0B00000001);
-        doClock();
+    for (unsigned char i = 0; i < 8; i++) {
+        GP0 = (data >> i & 0B00000001);
+        GP1 = 1;        // Clock and Latch (HIGH)
+        __delay_us(2);
+        GP1 = 0;
+        __delay_us(2);  // Clock and Latch (LOW)
     }
 }
 
 void main(void) {
-    TRIS = 0B00000000;          // All GPIO (GP0:GP3) pins as output
-    GPIO = 0;
-    
+    TRIS = 0B00000000; // All GPIO (GP0:GP3) pins as output
+    GPIO = 0;          // Data => GP0; Clock and Latch => GP1 
+
     sendData(0B11111111);
     __delay_ms(5000);
     sendData(0);
-    __delay_ms(5000);   
-    
+    __delay_ms(5000);
+
     unsigned char data = 1;
-    while(1) {
+    while (1) {
         __delay_ms(1000);
         sendData(data);
-        data = (unsigned char) (data <<  1);
+        data = (unsigned char) (data << 1);
         if (data == 0) {
             sendData(0);
             data = 1;
         }
     }
-    
+
 }
