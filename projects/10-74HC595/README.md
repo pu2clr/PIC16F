@@ -29,7 +29,7 @@ The 74HC595 is appreciated for its ease of use, efficiency in saving microcontro
 
 
 
-### PIC10F200 and 74HC595 two wires interface schematic
+### PIC10F200 and 74HC595 with two wires interface schematic
 
 
 In this interface that utilizes only 2 pins of the microcontroller, it can be particularly advantageous in some scenarios. However, with each bit sent and the clock triggered, the pins (QA to QH and QH') are updated. Note that the OE/G pin is grounded, keeping the output constantly active. It's important to highlight that this configuration may not be suitable for some applications due to the continuous transition of the output status of the 74HC595 pins.
@@ -88,41 +88,36 @@ In this example, the LEDs are controlled according to the following sequence: fi
 #define _XTAL_FREQ  4000000
 
 
-
-void inline doClock() { 
-    GP1 = 1; 
-    __delay_us(100);
-    GP1 = 0;
-    __delay_us(100);
-}
-
 void inline sendData(unsigned char data) {
-    for (unsigned char i = 0; i < 8; i++) { 
-        GP0 = ( data >> i & 0B00000001);
-        doClock();
+    for (unsigned char i = 0; i < 8; i++) {
+        GP0 = (data >> i & 0B00000001);
+        GP1 = 1;        // Clock and Latch (HIGH)
+        __delay_us(2);
+        GP1 = 0;
+        __delay_us(2);  // Clock and Latch (LOW)
     }
 }
 
 void main(void) {
-    TRIS = 0B00000000;          // All GPIO (GP0:GP3) pins as output
-    GPIO = 0;
-    
+    TRIS = 0B00000000; // All GPIO (GP0:GP3) pins as output
+    GPIO = 0;          // Data => GP0; Clock and Latch => GP1 
+
     sendData(0B11111111);
     __delay_ms(5000);
     sendData(0);
-    __delay_ms(5000);   
-    
+    __delay_ms(5000);
+
     unsigned char data = 1;
-    while(1) {
+    while (1) {
         __delay_ms(1000);
         sendData(data);
-        data = (unsigned char) (data <<  1);
+        data = (unsigned char) (data << 1);
         if (data == 0) {
             sendData(0);
             data = 1;
         }
     }
-    
+
 }
 
 
@@ -276,6 +271,87 @@ END MAIN
 
 
 ```
+
+
+## PIC10F200 and two 74HC595 devices with two wires interface controlling 16 LEDs 
+
+
+
+### PIC10F200 and two 74HC595 devices with two wires interface schematic
+
+
+![PIC10F200 and two 74HC595 devices with two wires interface controlling 16 LEDs ](./schematic_pic10f200_2x_74hc595_2wires.jpg)
+
+
+## PIC10F200 and two 74HC595  controlling 16 LEDs C Example
+
+In this example with 16 LEDs, the LEDs are controlled according to the following sequence: first, all of them are lit for a duration of 5 seconds, then they are all turned off for another 5 seconds. Finally, in an infinite cycle, each LED is lit one at a time, shifting from left to right.
+
+
+```cpp
+/*
+ * PIC10F200 and two 74HC595 controlling 16 LEDs
+ * File:   main.c
+ * Author: Ricardo Lima Caratti
+ *
+ * Created on January 30
+ */
+
+
+#include <xc.h>
+
+// CONFIG
+#pragma config WDTE = OFF       // Watchdog Timer (WDT disabled)
+#pragma config CP = OFF         // Code Protect (Code protection off)
+#pragma config MCLRE = ON      // Master Clear Enable (GP3/MCLR pin fuction is digital I/O, MCLR internally tied to VDD)
+
+#define _XTAL_FREQ  4000000
+
+
+void inline sendData(unsigned int data) {
+    for (unsigned char i = 0; i <= 16; i++) {
+        GP0 = (data >> i & 1);
+        GP1 = 1;
+        __delay_us(2);
+        GP1 = 0;
+        __delay_us(2);
+    }
+}
+
+void main(void) {
+    TRIS = 0B00000000; // All GPIO (GP0:GP3) pins as output
+    GPIO = 0;          // Data => GP0; Clock and Latch => GP1 
+    
+    // Turn all LEDs on
+    sendData(0B1111111111111111);
+    __delay_ms(5000);
+    // Turn all LEDs off
+    sendData(0);
+    __delay_ms(5000);
+
+    // 
+    unsigned int data = 1;
+    while (1) {
+        __delay_ms(1000);
+        sendData(data);
+        data = (unsigned int) (data << 1);
+        if (data == 0) {
+            sendData(0);
+            data = 1;
+        }
+    }
+
+}
+
+
+```
+
+
+### PIC10F200 and two 74HC595 devices with two wires interface prototype
+
+
+![PIC10F200 and two 74HC595 devices with two wires interface prototype](./prototype_pic10F200_2x_74HC595_16LEDs.jpg)
+
 
 
 

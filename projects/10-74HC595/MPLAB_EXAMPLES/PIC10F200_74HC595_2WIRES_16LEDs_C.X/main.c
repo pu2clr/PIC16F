@@ -16,14 +16,6 @@
 
 #define _XTAL_FREQ  4000000
 
-void inline doClock() {
-    GP1 = 1;
-    __delay_us(2);
-    GP1 = 0;
-    __delay_us(2);
-
-}
-
 
 void inline sendData(unsigned int data) {
     for (unsigned char i = 0; i <= 16; i++) {
