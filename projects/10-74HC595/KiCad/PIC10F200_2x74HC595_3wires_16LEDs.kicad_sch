@@ -5,7 +5,7 @@
   (paper "User" 299.999 240.995)
 
   (title_block
-    (title "PIC10F200 and 2 x74HC595 with  two wires interface setup")
+    (title "PIC10F200 and 2 x74HC595 with three wires interface setup")
     (company "Ricardo Lima Caratti")
   )
 
