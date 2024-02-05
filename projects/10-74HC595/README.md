@@ -355,6 +355,11 @@ void main(void) {
 
 
 
+
+
+
+
+
 ## References
 
 * [74HC595 Serial Shift Register Interfacing with Pic Microcontroller](https://microcontrollerslab.com/74hc595-shift-register-interfacing-pic-microcontroller/)
