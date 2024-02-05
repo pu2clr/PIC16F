@@ -29,7 +29,7 @@ The 74HC595 is appreciated for its ease of use, efficiency in saving microcontro
 
 Why choose the PIC10F200 as an example?
 
-The PIC10F200 is a microcontroller with very limited memory resources, requiring designers and programmers to have advanced optimization skills. Thus, it is believed that if one can develop significant and robust projects using the PIC10F200, tackling similar challenges with more advanced microcontrollers featuring greater resources will become more manageable. This approach encourages deep learning of the fundamentals of programming and embedded system design, establishing a solid understanding that will be beneficial when dealing with more complex devices
+The PIC10F200 is a microcontroller with very limited memory resources, requiring designers and programmers to have advanced optimization skills. Thus, it is believed that if one can develop significant and robust projects using the PIC10F200, tackling similar challenges with more advanced microcontrollers featuring greater resources will become more manageable. This approach encourages deep learning of the fundamentals of programming and embedded system design, establishing a solid understanding that will be beneficial when dealing with more complex devices.
 
 
 ### PIC10F200 and 74HC595 with two wires interface schematic
