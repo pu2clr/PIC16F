@@ -1,11 +1,17 @@
 /*
- * PIC10F200 and two 74HC595 with 16 LEDs
+ * PIC10F200 and two 74HC595 with 16 LEDs and three wires interface
  * File:   main.c
  * Author: Ricardo Lima Caratti
- *
  * Created on January 30
+ * 
+ * This example uses the PIC10F200 with two 74HC595 shift registers and a 3-pin
+ * (GPIO) interface. This interface appears to be the most commonly used with 
+ * the 74HC595.
+ * 
+ * GP0 => Data
+ * GP1 => Clock 
+ * GP2 => Latch
  */
-
 
 #include <xc.h>
 
