@@ -16,6 +16,13 @@
 ; https://www.circuitbread.com/tutorials/christmas-lights-special-microcontroller-basics-pic10f200
 
  
+; Delays 2us
+DELAY_2us MACRO
+    nop
+    nop
+ENDM    
+
+; Delays 10us    
 DELAY_10us MACRO
     goto $ + 1
     goto $ + 1
@@ -24,6 +31,20 @@ DELAY_10us MACRO
     goto $ + 1  
 ENDM
 
+; Delays 80us    
+DELAY_80us MACRO
+    movlw  10
+    movwf  dummy1
+    nop
+    goto $ + 1	    ; 2 cycles
+    goto $ + 1	    ; 2 cycles
+    goto $ + 1	    ; 2 cycles
+    goto $ + 1      ; 2 cycles
+    decfsz dummy1, f
+    goto $ - 6
+ ENDM     
+
+; Delays 100us 
 DELAY_100us MACRO
     movlw  10
     movwf  dummy1
@@ -35,9 +56,38 @@ DELAY_100us MACRO
     goto $ + 1      ; 2 cycles
     decfsz dummy1, f
     goto $ - 6
- ENDM    
-    
-    
+ ENDM 
+ 
+; Delays 500 us
+DELAY_500us MACRO
+    movlw  50
+    movwf  dummy1
+    nop
+    goto $ + 1	    ; 2 cycles
+    goto $ + 1	    ; 2 cycles
+    goto $ + 1	    ; 2 cycles
+    goto $ + 1	    ; 2 cycles
+    goto $ + 1      ; 2 cycles
+    decfsz dummy1, f
+    goto $ - 6
+ ENDM  
+ 
+  
+; Sets the GP0 as output 
+ SET_PIN_OUT MACRO
+    bcf	    GPIO, 0	
+    tris    GPIO
+ ENDM
+ 
+; Sets the GP0 as input  
+SET_PIN_IN MACRO
+    bsf	    GPIO, 0	
+    tris    GPIO
+ ENDM
+ 
+
+ 
+ 
     
 #include <xc.inc>
 
@@ -49,54 +99,147 @@ DELAY_100us MACRO
   
 ; Declare your variables here
 
-dummy1 equ 0x10
+dummy1	    equ 0x10
+value	    equ 0x11 
+counter	    equ 0x12
+aux	    equ 0x13
+tempL	    equ 0x15
+tempH	    equ 0x1A	    
+	    
  
 PSECT AsmCode, class=CODE, delta=2
 
 MAIN:
-    
-    movlw  0B11010110	    ;   
-    option
-    movlw   0B00000100
-    tris    GPIO
 
+    clrf    GPIO
+    tris    GPIO
 MainLoop:  
-    nop
-    nop
-    nop
+    call    OW_START
+    
+    movlw   0xCC	    ; send skip ROM command
+    movwf   value	    
+    call    OW_WRITE_BYTE
+    
+    movlw   0x44	    ; send start conversion command
+    movwf   value
+    call    OW_WRITE_BYTE
+    
+ LoopWaitForConvertion: 
+    call    OW_READ_BYTE 
+    clrw
+    subwf   value,w
+    btfsc   STATUS, 2	    ; if Z flag  = 0; temp == wreg ?  
+    goto    LoopWaitForConvertion
+    
+ 
+    call    OW_START
+    
+    movlw   0xCC	    ; send skip ROM command
+    movwf   value	    
+    call    OW_WRITE_BYTE
+    
+    movlw   0xBE	    ; send send read command
+    movwf   value
+    call    OW_WRITE_BYTE    
+
+    call    OW_READ_BYTE    ; LSB value of the temperature
+    movf    value, w
+    movwf   tempL
+    call    OW_READ_BYTE    ; MSB value of the temperature
+    movf    value, w
+    movwf   tempH    
+    
+    
     goto    MainLoop    
     
-    
-    
+; ******************************
+; START COMMUNICATION      
+; Initiates the 1-wire device communication  
+; GP0 is the pin connected to the device    
 OW_START: 
-    
-    retlw   0
+    SET_PIN_OUT		; Reset
+    DELAY_500us
+    SET_PIN_IN
+    DELAY_100us
+    btfss GPIO, 0	; if not 1 (set) no device is present
+    retlw 0		
+    DELAY_100us    
+    retlw   1
 
-    
+; ******************************
+; Writes a bit      
+; Sends one bit to the device   
 OW_WRITE_BIT:
+     SET_PIN_OUT
+     DELAY_2us
+     btfss value, 0
+     goto OW_WRITE_BIT_0
+     goto OW_WRITE_BIT_1
+OW_WRITE_BIT_0:
+    bcf GPIO, 0
+    goto  OW_WRITE_BIT_END
+OW_WRITE_BIT_1:    
+    bsf GPIO, 0  
+OW_WRITE_BIT_END:
+    DELAY_80us
+    
+    SET_PIN_IN
+    DELAY_2us
     
     retlw   0
 
-OW_WRITE_BYTE: 
     
+; ******************************
+; Writes a byte    
+; Sends a byte to the device
+; Parameter: value 
+OW_WRITE_BYTE: 
+    movlw   8
+    movwf   counter
+    call    OW_WRITE_BIT
+    bcf	    STATUS, 0
+    rrf	    value		; Right shift 
+    decfsz  counter, f
+    goto    $-4
     retlw   0
     
+    
+; ******************************
+; Reads a bit      
+; Receives one bit from the device      
 OW_READ_BIT: 
     
+    SET_PIN_OUT
+    DELAY_2us
+    SET_PIN_IN
+    DELAY_2us
+    DELAY_2us
+    nop
+    movlw   1		; Sets 1 or 0 to the first bit of the value
+    andwf   GPIO, w
+    movwf   aux
+    movf   value, w
+    iorwf  aux, w
+    movwf  value
+    DELAY_100us
+   
     retlw   0
 
+; ******************************
+; Reads a byte    
+; Receives a byte from the device        
+    
 OW_READ_BYTE:
     
-    retlw   0
+    movlw   8
+    movwf   counter
+
+    call    OW_WRITE_BIT
+    bcf	    STATUS, 0
+    rlf	    value
+    decfsz  counter, f
+    goto    $-4
+    retlw   0    
     
-; It takes 200 us    
-Delay_200us: 
-    movlw  20
-    movwf  dummy1
-LoopDelay200us: 
-    DELAY_10us    
-    decfsz dummy1, f
-    goto LoopDelay200us
-    retlw   0
     
 END MAIN    
