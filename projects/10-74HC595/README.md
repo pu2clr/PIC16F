@@ -411,7 +411,6 @@ void main(void) {
     sendData(0);
     __delay_ms(3000);
 
-    // 
     unsigned int data = 0B1010101010101010;
 
     while (1) {
