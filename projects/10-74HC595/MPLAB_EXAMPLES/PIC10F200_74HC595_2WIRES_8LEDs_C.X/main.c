@@ -17,7 +17,7 @@
 #define _XTAL_FREQ  4000000
 
 
-void inline sendData(unsigned char data) {
+void sendData(unsigned char data) {
     for (unsigned char i = 0; i < 8; i++) {
         GP0 = (data >> i & 0B00000001);
         GP1 = 1;        // Clock and Latch (HIGH)

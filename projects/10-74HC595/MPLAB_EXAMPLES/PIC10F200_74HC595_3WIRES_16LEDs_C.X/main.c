@@ -22,7 +22,7 @@
 
 #define _XTAL_FREQ  4000000
 
-void inline sendData(unsigned int data) {
+void sendData(unsigned int data) {
      GP2 = 0; // Latch low
     __delay_us(20);
     for (unsigned char i = 0; i < 16; i++) {

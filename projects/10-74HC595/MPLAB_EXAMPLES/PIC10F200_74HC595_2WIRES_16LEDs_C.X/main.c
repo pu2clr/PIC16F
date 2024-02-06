@@ -17,7 +17,7 @@
 #define _XTAL_FREQ  4000000
 
 
-void inline sendData(unsigned int data) {
+void  sendData(unsigned int data) {
     for (unsigned char i = 0; i <= 16; i++) {
         GP0 = (data >> i & 1);
         GP1 = 1;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production/PIC10F200_74HC595_2WIRES_16LEDs_C.X.production.hex">
+  <executable name="dist/default/production/PIC10F200_74HC595_3WIRES_16LEDs_C.X.production.hex">
     <memory name="program">
       <units>words</units>
       <length>256</length>
