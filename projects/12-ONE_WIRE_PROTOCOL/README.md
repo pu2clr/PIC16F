@@ -16,6 +16,10 @@
 ![PIC10F200 PINOUT](../../images/PIC10F200_PINOUT.jpg)
 
 
+### DS18B20 PINOUT
+
+![DS18B20 PINOUT](../../images/DS18B20_PINOUT.png)
+
 
 ## REFERENCES
 
