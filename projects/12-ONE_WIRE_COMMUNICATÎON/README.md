@@ -6,6 +6,14 @@
 
 
 
+### PIC10F200 and DS18B20 schematic
+
+Under construction...
+
+
+### PIC10F200 PINOUT
+
+![PIC10F200 PINOUT](../../images/PIC10F200_PINOUT.jpg)
 
 
 

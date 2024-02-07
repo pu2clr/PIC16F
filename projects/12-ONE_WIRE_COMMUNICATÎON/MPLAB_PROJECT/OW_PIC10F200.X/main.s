@@ -15,7 +15,17 @@
 ; You will find good tips about the PIC10F200 here:
 ; https://www.circuitbread.com/tutorials/christmas-lights-special-microcontroller-basics-pic10f200
 
- 
+     
+#include <xc.inc>
+
+; CONFIG
+  CONFIG  WDTE = OFF           ; Watchdog Timer (WDT disabled)
+  CONFIG  CP = OFF             ; Code Protect (Code protection off)
+  CONFIG  MCLRE = ON	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
+
+  
+; ******* MACROS **********
+  
 ; Delays 2us
 DELAY_2us MACRO
     nop
@@ -86,17 +96,6 @@ SET_PIN_IN MACRO
  ENDM
  
 
- 
- 
-    
-#include <xc.inc>
-
-; CONFIG
-  CONFIG  WDTE = OFF           ; Watchdog Timer (WDT disabled)
-  CONFIG  CP = OFF             ; Code Protect (Code protection off)
-  CONFIG  MCLRE = ON	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
-
-  
 ; Declare your variables here
 
 dummy1	    equ 0x10
