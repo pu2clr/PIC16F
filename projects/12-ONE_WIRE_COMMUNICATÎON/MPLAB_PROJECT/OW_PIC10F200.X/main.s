@@ -1,4 +1,4 @@
-; One Wire implementation
+; UNDER CONSTRUCTION... One Wire implementation
     
 ; My PIC Journey
 ; Author: Ricardo Lima Caratti
@@ -85,15 +85,17 @@ DELAY_500us MACRO
   
 ; Sets the GP0 as output 
  SET_PIN_OUT MACRO
-    bcf	    GPIO, 0	
+    bcf	    GPIO, 0
+    movf    GPIO, w
     tris    GPIO
  ENDM
  
 ; Sets the GP0 as input  
 SET_PIN_IN MACRO
-    bsf	    GPIO, 0	
+    bsf	    GPIO, 0
+    movf    GPIO, w
     tris    GPIO
- ENDM
+ENDM
  
 
 ; Declare your variables here
@@ -105,34 +107,31 @@ aux	    equ 0x13
 tempL	    equ 0x15
 tempH	    equ 0x1A	    
 	    
- 
+	    
 PSECT AsmCode, class=CODE, delta=2
 
 MAIN:
 
     clrf    GPIO
     tris    GPIO
+    bsf	    GPIO,1
 MainLoop:  
     call    OW_START
-    
     movlw   0xCC	    ; send skip ROM command
     movwf   value	    
     call    OW_WRITE_BYTE
-    
     movlw   0x44	    ; send start conversion command
     movwf   value
     call    OW_WRITE_BYTE
-    
  LoopWaitForConvertion: 
     call    OW_READ_BYTE 
     clrw
     subwf   value,w
-    btfsc   STATUS, 2	    ; if Z flag  = 0; temp == wreg ?  
+    btfsc   STATUS, 2	    ; if Z flag  = 0; temp == wreg ? 
     goto    LoopWaitForConvertion
-    
+    goto    MainLoopEnd
  
     call    OW_START
-    
     movlw   0xCC	    ; send skip ROM command
     movwf   value	    
     call    OW_WRITE_BYTE
@@ -148,7 +147,10 @@ MainLoop:
     movf    value, w
     movwf   tempH    
     
+
+MainLoopEnd: 
     
+    bsf	    GPIO,1
     goto    MainLoop    
     
 ; ******************************
@@ -161,7 +163,7 @@ OW_START:
     SET_PIN_IN
     DELAY_100us
     btfss GPIO, 0	; if not 1 (set) no device is present
-    retlw 0		
+    retlw   0		
     DELAY_100us    
     retlw   1
 
@@ -215,7 +217,7 @@ OW_READ_BIT:
     DELAY_2us
     nop
     movlw   1		; Sets 1 or 0 to the first bit of the value
-    andwf   GPIO, w
+    // andwf   GPIO, w
     movwf   aux
     movf   value, w
     iorwf  aux, w
@@ -238,6 +240,10 @@ OW_READ_BYTE:
     rlf	    value
     decfsz  counter, f
     goto    $-4
+    ;**** Begin Check
+    clrw
+    movf    value
+    ;**** End Check
     retlw   0    
     
     
