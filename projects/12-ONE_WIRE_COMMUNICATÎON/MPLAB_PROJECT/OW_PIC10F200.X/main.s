@@ -129,7 +129,7 @@ MainLoop:
     subwf   value,w
     btfsc   STATUS, 2	    ; if Z flag  = 0; temp == wreg ? 
     goto    LoopWaitForConvertion
-    goto    MainLoopEnd
+
  
     call    OW_START
     movlw   0xCC	    ; send skip ROM command
@@ -216,12 +216,13 @@ OW_READ_BIT:
     DELAY_2us
     DELAY_2us
     nop
-    movlw   1		; Sets 1 or 0 to the first bit of the value
-    // andwf   GPIO, w
+    ; Assigns 1 or 0 depending on the value of the first bit of the GPIO (GP0).
+    movlw   1		
+    andwf   GPIO, w
     movwf   aux
     movf   value, w
     iorwf  aux, w
-    movwf  value
+    movwf  value    ; The first bit of value now has the value of GP0
     DELAY_100us
    
     retlw   0
@@ -235,15 +236,12 @@ OW_READ_BYTE:
     movlw   8
     movwf   counter
 
-    call    OW_WRITE_BIT
+    call    OW_READ_BIT
     bcf	    STATUS, 0
     rlf	    value
     decfsz  counter, f
     goto    $-4
-    ;**** Begin Check
-    clrw
-    movf    value
-    ;**** End Check
+
     retlw   0    
     
     
