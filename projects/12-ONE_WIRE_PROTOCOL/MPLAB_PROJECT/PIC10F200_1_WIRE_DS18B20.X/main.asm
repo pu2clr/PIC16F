@@ -102,11 +102,13 @@ ENDM
 
 dummy1	    equ 0x10
 value	    equ 0x11 
-counter	    equ 0x12
-aux	    equ 0x13
-tempL	    equ 0x15	; LSB information of the temperature
-tempH	    equ 0x16	; MSB information of the temperature    
-frac	    equ 0x17	; fraction of the temperature	    
+counter1    equ 0x12
+counter2    equ	0x13  
+counter3    equ	0x14    
+aux	    equ 0x15
+tempL	    equ 0x16	; LSB information of the temperature
+tempH	    equ 0x17	; MSB information of the temperature    
+frac	    equ 0x18	; fraction of the temperature	    
 	    
 	    
 PSECT AsmCode, class=CODE, delta=2
@@ -121,13 +123,7 @@ MainLoop:
     call    OW_START
     subwf   1
     btfss   STATUS, 0	    
-    goto    XXX
-    bsf	    GPIO,0
-    goto    MainLoopEnd
-XXX: 
-    bcf	    GPIO,0
-    goto    MainLoopEnd
-    
+    goto    SYSTEM_ERROR    ; No DS18B20
     
     movlw   0xCC	    ; send skip ROM command
     movwf   value	    
@@ -207,10 +203,10 @@ TurnLedOn:
     bsf	    GPIO, 1
 MainLoopEnd: 
     movlw   255
-    movwf   counter 
+    movwf   counter1 
 LoopDelay:     
     DELAY_480us
-    decfsz  counter, f
+    decfsz  counter1, f
     goto    LoopDelay
     goto    MainLoop    
 
@@ -245,7 +241,7 @@ OW_START:
 ; Parameter: value 
 OW_WRITE_BYTE: 
     movlw   8
-    movwf   counter
+    movwf   counter1
     
 OW_WRITE_BIT:
     
@@ -267,7 +263,7 @@ OW_WRITE_BIT_END:
 
     bcf	    STATUS, 0
     rrf	    value		; Right shift - writes the next bit
-    decfsz  counter, f
+    decfsz  counter1, f
     goto    OW_WRITE_BIT
     
     retlw   0
@@ -281,7 +277,7 @@ OW_WRITE_BIT_END:
 OW_READ_BYTE:
     
     movlw   8
-    movwf   counter
+    movwf   counter1
 
 OW_READ_BIT: 
     
@@ -302,11 +298,35 @@ OW_READ_BIT:
     
     bcf	    STATUS, 0
     rlf	    value
-    decfsz  counter, f
+    decfsz  counter1, f
     goto    OW_READ_BIT
 
     retlw   0    
     
+ 
+DELAY_ERRO:
+  
+    movlw   255
+    movwf   counter1
+LOOP_ERROR_01:
+    movlw   255
+    movwf   counter2
+LOOP_ERROR_02: 
+    DELAY_10us
+    decfsz  counter2, f
+    goto    LOOP_ERROR_02
+    decfsz  counter1, f
+    goto    LOOP_ERROR_01
+    
+    retlw   0
+
+; Endless loop due to system error (1-wire device not detected) 
+SYSTEM_ERROR:
+    bsf	    GPIO,1
+    call    DELAY_ERRO
+    bcf	    GPIO,1
+    call    DELAY_ERRO
+    goto    SYSTEM_ERROR
     
 END MAIN    
 
