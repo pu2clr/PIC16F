@@ -102,8 +102,9 @@ dummy1	    equ 0x10
 value	    equ 0x11 
 counter	    equ 0x12
 aux	    equ 0x13
-tempL	    equ 0x15
-tempH	    equ 0x16	    
+tempL	    equ 0x15	; LSB information of the temperature
+tempH	    equ 0x16	; MSB information of the temperature    
+frac	    equ 0x17	; fraction of the temperature	    
 	    
 	    
 PSECT AsmCode, class=CODE, delta=2
@@ -135,18 +136,56 @@ MainLoop:
     call    OW_WRITE_BYTE
     movlw   0xBE	    ; send send read command
     movwf   value
-    call    OW_WRITE_BYTE    
+    call    OW_WRITE_BYTE  
+    
+    ; The first 4 bits (LSB) represent the fractional part of the temperature. The fraction 
+    ; is obtained by dividing this number by 16. Therefore, if the values are, 
+    ; for example, 2, 4, 8, or 12, the fractional part of the temperature will be 
+    ; respectively 0.125, 0.25, 0.5, and 0.75.
+    ; That being said, instead of obtaining the maximum precision (resolution) of the DS18B20,
+    ; this program will have a resolution of 0.25 degrees Celsius
+    
     call    OW_READ_BYTE    ; LSB value of the temperature
     movf    value, w
     movwf   tempL
+    
+    andlw   0B00001111	    ; Gets the firs 4 bits to know the fraction of the temperature
+    movwf   frac
+    ; Shift to right the MSB of the tempL   
+    bcf	    STATUS, 0
+    rrf	    tempL
+    rrf	    tempL
+    rrf	    tempL
+    rrf	    tempL
+    
     call    OW_READ_BYTE    ; MSB value of the temperature
     movf    value, w
-    movwf   tempH    
+    movwf   tempH
+   
+    ; Shift to right the MSB of the tempL   
+    bcf	    STATUS, 0
+    rlf	    tempH
+    rlf	    tempH
+    rlf	    tempH
+    rlf	    tempH    
     
-
+    movf    tempH, w
+    andwf   tempL, f	    ; tempL now has the temperature.
+   
+    ; Process the temperature value (turn on or off the LEDs 
+    
+    movlw   25
+    subwf   tempL
+    btfss   GPIO, 0	; if != 0
+    goto    TurnLedOff
+    goto    TurnLedOn
+TurnLedOff:
+    bcf	    GPIO,1
+    goto    MainLoopEnd
+TurnLedOn:
+    bsf	    GPIO, 1
 MainLoopEnd: 
-    
-    bsf	    GPIO,1
+
     DELAY_500us
     goto    MainLoop    
     
