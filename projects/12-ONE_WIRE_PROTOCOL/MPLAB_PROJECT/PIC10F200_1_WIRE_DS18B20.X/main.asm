@@ -69,8 +69,8 @@ DELAY_100us MACRO
  ENDM 
  
 ; Delays 500 us
-DELAY_500us MACRO
-    movlw  50
+DELAY_480us MACRO
+    movlw  48
     movwf  dummy1
     nop
     goto $ + 1	    ; 2 cycles
@@ -82,6 +82,8 @@ DELAY_500us MACRO
     goto $ - 6
  ENDM  
  
+ 
+
   
 ; Sets the GP0 as output 
  SET_PIN_OUT MACRO
@@ -117,6 +119,16 @@ MAIN:
 
 MainLoop:  
     call    OW_START
+    subwf   1
+    btfss   STATUS, 0	    
+    goto    XXX
+    bsf	    GPIO,0
+    goto    MainLoopEnd
+XXX: 
+    bcf	    GPIO,0
+    goto    MainLoopEnd
+    
+    
     movlw   0xCC	    ; send skip ROM command
     movwf   value	    
     call    OW_WRITE_BYTE
@@ -197,7 +209,7 @@ MainLoopEnd:
     movlw   255
     movwf   counter 
 LoopDelay:     
-    DELAY_500us
+    DELAY_480us
     decfsz  counter, f
     goto    LoopDelay
     goto    MainLoop    
@@ -211,13 +223,19 @@ LoopDelay:
 OW_START: 
 
     clrf    value
-    SET_PIN_OUT		; Reset
-    DELAY_500us
+    SET_PIN_OUT		
+    bcf	    GPIO,0	; make the GP0 LOW for 480 us
+    DELAY_480us
+    bsf	    GPIO,0
+    DELAY_80us
     SET_PIN_IN
     DELAY_100us
+    DELAY_100us
+    DELAY_100us
+    DELAY_100us
+    DELAY_10us
     btfss GPIO, 0	; if not 1 (set) no device is present
     retlw   0		
-    DELAY_100us    
     retlw   1
 
     
