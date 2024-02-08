@@ -34,6 +34,7 @@ PSECT BlinkCode, class=CODE, delta=2
 
 MAIN:
     clrf   GPIO		    ; Sets all GPIO pins as output
+    clrw
     TRIS   GPIO
     
 MainLoop:		    ; Endless loop

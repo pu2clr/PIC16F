@@ -21,7 +21,7 @@
 ; CONFIG
   CONFIG  WDTE = OFF           ; Watchdog Timer (WDT disabled)
   CONFIG  CP = OFF             ; Code Protect (Code protection off)
-  CONFIG  MCLRE = ON	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
+  CONFIG  MCLRE = OFF	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
 
   
 ; ******* MACROS **********
@@ -85,15 +85,13 @@ DELAY_500us MACRO
   
 ; Sets the GP0 as output 
  SET_PIN_OUT MACRO
-    bcf	    GPIO, 0
-    movf    GPIO, w
+    clrw
     tris    GPIO
  ENDM
  
 ; Sets the GP0 as input  
 SET_PIN_IN MACRO
-    bsf	    GPIO, 0
-    movf    GPIO, w
+    movlw   0x01
     tris    GPIO
 ENDM
  
@@ -113,8 +111,9 @@ PSECT AsmCode, class=CODE, delta=2
 MAIN:
 
     clrf    GPIO
-    tris    GPIO
-    bsf	    GPIO,1
+    clrw    
+    tris    GPIO	    ; Sets all GPIO as output
+
 MainLoop:  
     call    OW_START
     movlw   0xCC	    ; send skip ROM command
@@ -156,6 +155,8 @@ MainLoopEnd:
 ; Initiates the 1-wire device communication  
 ; GP0 is the pin connected to the device    
 OW_START: 
+
+    clrf    value
     SET_PIN_OUT		; Reset
     DELAY_500us
     SET_PIN_IN
@@ -165,28 +166,6 @@ OW_START:
     DELAY_100us    
     retlw   1
 
-; ******************************
-; Writes a bit      
-; Sends one bit to the device   
-OW_WRITE_BIT:
-     SET_PIN_OUT
-     DELAY_2us
-     btfss value, 0
-     goto OW_WRITE_BIT_0
-     goto OW_WRITE_BIT_1
-OW_WRITE_BIT_0:
-    bcf GPIO, 0
-    goto  OW_WRITE_BIT_END
-OW_WRITE_BIT_1:    
-    bsf GPIO, 0  
-OW_WRITE_BIT_END:
-    DELAY_80us
-    
-    SET_PIN_IN
-    DELAY_2us
-    
-    retlw   0
-
     
 ; ******************************
 ; Writes a byte    
@@ -195,17 +174,43 @@ OW_WRITE_BIT_END:
 OW_WRITE_BYTE: 
     movlw   8
     movwf   counter
-    call    OW_WRITE_BIT
+    
+OW_WRITE_BIT:
+    
+     SET_PIN_OUT		; GP0 output setup
+     DELAY_2us			
+     btfss value, 0		; Check if LSB of value is HIGH or LOW (Assigns valuer LSB to GP0)  
+     goto OW_WRITE_BIT_0
+     goto OW_WRITE_BIT_1
+OW_WRITE_BIT_0:
+    bcf GPIO, 0			; Assigns 0 to GP0
+    goto  OW_WRITE_BIT_END
+OW_WRITE_BIT_1:    
+    bsf GPIO, 0			; Assigns 1 to GP0
+OW_WRITE_BIT_END:
+    DELAY_80us
+    
+    SET_PIN_IN
+    DELAY_2us    
+
     bcf	    STATUS, 0
-    rrf	    value		; Right shift 
+    rrf	    value		; Right shift - writes the next bit
     decfsz  counter, f
-    goto    $-4
+    goto    OW_WRITE_BIT
+    
     retlw   0
     
-    
+   
+
 ; ******************************
-; Reads a bit      
-; Receives one bit from the device      
+; Reads a byte    
+; Receives a byte from the device        
+    
+OW_READ_BYTE:
+    
+    movlw   8
+    movwf   counter
+
 OW_READ_BIT: 
     
     SET_PIN_OUT
@@ -221,24 +226,12 @@ OW_READ_BIT:
     movf   value, w
     iorwf  aux, w
     movwf  value    ; The first bit of value now has the value of GP0
-    DELAY_100us
-   
-    retlw   0
-
-; ******************************
-; Reads a byte    
-; Receives a byte from the device        
+    DELAY_100us    
     
-OW_READ_BYTE:
-    
-    movlw   8
-    movwf   counter
-
-    call    OW_READ_BIT
     bcf	    STATUS, 0
     rlf	    value
     decfsz  counter, f
-    goto    $-4
+    goto    OW_READ_BIT
 
     retlw   0    
     
