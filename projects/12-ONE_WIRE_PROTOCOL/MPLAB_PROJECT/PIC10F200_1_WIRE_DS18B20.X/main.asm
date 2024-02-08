@@ -188,8 +188,10 @@ MainLoopEnd:
 
     DELAY_500us
     goto    MainLoop    
+
+; ************************ Subroutines ************************************     
     
-; ******************************
+; *******************************************
 ; START COMMUNICATION      
 ; Initiates the 1-wire device communication  
 ; GP0 is the pin connected to the device    
