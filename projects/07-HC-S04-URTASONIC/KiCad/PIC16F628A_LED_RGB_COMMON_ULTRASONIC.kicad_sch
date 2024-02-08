@@ -2,7 +2,7 @@
 
   (uuid 261f22d7-9959-48cd-bc20-0bbce393e6d1)
 
-  (paper "User" 203.2 152.4)
+  (paper "User" 180.01 129.997)
 
   (title_block
     (title "Distance Alert - PIC16F628A with HC-SR04 and RGB LED")
@@ -806,7 +806,7 @@
     (property "Reference" "R4" (at 135.89 48.26 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "12K" (at 135.89 50.8 90)
+    (property "Value" "10K" (at 135.89 50.8 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "" (at 135.89 56.388 90)
