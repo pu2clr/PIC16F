@@ -151,27 +151,31 @@ MainLoop:
     
     andlw   0B00001111	    ; Gets the firs 4 bits to know the fraction of the temperature
     movwf   frac
-    ; Shift to right the MSB of the tempL   
-    bcf	    STATUS, 0
+    ; Shift 4 bits to right the MSB of the tempL   
     rrf	    tempL
     rrf	    tempL
     rrf	    tempL
     rrf	    tempL
+    
+    movf    tempL, w
+    andlw   0B00001111	    ; clear the last 4 bits (4 MSB)
+    movwf   tempL
     
     call    OW_READ_BYTE    ; MSB value of the temperature
     movf    value, w
     movwf   tempH
    
     ; Shift to right the MSB of the tempL   
-    bcf	    STATUS, 0
     rlf	    tempH
     rlf	    tempH
     rlf	    tempH
     rlf	    tempH    
     
     movf    tempH, w
-    andwf   tempL, f	    ; tempL now has the temperature.
-   
+    andlw   0B11110000
+    iorwf   tempL,w	    ; tempL now has the temperature.
+    movwf   tempL
+       
     ; Process the temperature value (turn on or off the LEDs 
     
     movlw   25
