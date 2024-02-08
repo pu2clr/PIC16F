@@ -175,12 +175,17 @@ MainLoop:
     andlw   0B11110000
     iorwf   tempL,w	    ; tempL now has the temperature.
     movwf   tempL
-       
+    
+    ; Begin Check
+    ; movlw   27
+    ; movwf   tempL
+    ; End Check
+    
     ; Process the temperature value (turn on or off the LEDs 
     
-    movlw   25
+    movlw   200
     subwf   tempL
-    btfss   GPIO, 0	; if != 0
+    btfss   STATUS, 0
     goto    TurnLedOff
     goto    TurnLedOn
 TurnLedOff:
@@ -189,8 +194,12 @@ TurnLedOff:
 TurnLedOn:
     bsf	    GPIO, 1
 MainLoopEnd: 
-
+    movlw   255
+    movwf   counter 
+LoopDelay:     
     DELAY_500us
+    decfsz  counter, f
+    goto    LoopDelay
     goto    MainLoop    
 
 ; ************************ Subroutines ************************************     
