@@ -28,10 +28,10 @@
         <targetDevice>PIC10F200</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>Simulator</platformTool>
+        <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>pic-as</languageToolchain>
         <languageToolchainVersion>2.45</languageToolchainVersion>
-        <platform>4</platform>
+        <platform>2</platform>
       </toolsSet>
       <packs>
         <pack name="PIC10-12Fxxx_DFP" vendor="Microchip" version="1.7.178"/>

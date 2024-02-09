@@ -21,7 +21,7 @@
 ; CONFIG
   CONFIG  WDTE = OFF           ; Watchdog Timer (WDT disabled)
   CONFIG  CP = OFF             ; Code Protect (Code protection off)
-  CONFIG  MCLRE = OFF	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
+  CONFIG  MCLRE = ON	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
 
   
 ; ******* MACROS **********
@@ -191,7 +191,7 @@ OW_START:
     bsf	    GPIO,0
     DELAY_Xus 70 
     SET_PIN_IN
-    DELAY_Xus 10    
+    ; DELAY_Xus 10    
     movlw   125		; Waiting for device response by checking GP0 125 times
     movwf   counter1
 OW_START_DEVICE_RESPONSE:
