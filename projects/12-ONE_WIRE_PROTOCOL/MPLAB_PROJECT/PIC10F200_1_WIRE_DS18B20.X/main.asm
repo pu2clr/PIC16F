@@ -229,7 +229,7 @@ OW_START:
     movwf   counter1
 OW_START_DEVICE_RESPONSE:
     DELAY_2us
-    btfss GPIO, 0	; if not 1 (set) no device is present
+    btfsc GPIO, 0	; if not 0,  no device is present so far
     goto  OW_START_NO_DEVICE
     goto  OW_START_DEVICE_FOUND
 OW_START_NO_DEVICE:
