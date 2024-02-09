@@ -122,7 +122,7 @@ MAIN:
 MainLoop:  
     call    OW_START
     subwf   1
-    btfss   STATUS, 0	    
+    btfsc   STATUS, 2	    
     goto    SYSTEM_ERROR    ; No DS18B20
     
     movlw   0xCC	    ; send skip ROM command
@@ -225,14 +225,19 @@ OW_START:
     bsf	    GPIO,0
     DELAY_80us
     SET_PIN_IN
-    DELAY_100us
-    DELAY_100us
-    DELAY_100us
-    DELAY_100us
-    DELAY_10us
+    movlw   125		; Waiting for device response by checking GP0 125 times
+    movwf   counter1
+OW_START_DEVICE_RESPONSE:
+    DELAY_2us
     btfss GPIO, 0	; if not 1 (set) no device is present
-    retlw   0		
-    retlw   1
+    goto  OW_START_NO_DEVICE
+    goto  OW_START_DEVICE_FOUND
+OW_START_NO_DEVICE:
+    decfsz  counter1, f
+    goto   OW_START_DEVICE_RESPONSE 
+    retlw   0		; Device not found
+OW_START_DEVICE_FOUND:    
+    retlw   1		; Device found
 
     
 ; ******************************
