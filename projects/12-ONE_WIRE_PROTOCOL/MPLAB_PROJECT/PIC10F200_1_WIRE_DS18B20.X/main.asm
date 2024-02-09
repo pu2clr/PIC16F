@@ -173,12 +173,7 @@ TurnLedOff:
 TurnLedOn:
     bsf	    GPIO, 1
 MainLoopEnd: 
-    movlw   255
-    movwf   counter1 
-LoopDelay:     
-    DELAY_Xus 500
-    decfsz  counter1, f
-    goto    LoopDelay
+    call    DELAY_600ms
     goto    MainLoop    
 
 ; ************************ Subroutines ************************************     
@@ -281,7 +276,7 @@ OW_READ_BIT:
     iorwf  aux, w
     movwf  value    ; The first bit of value now has the value of GP0
     DELAY_Xus 50    ; about 55 us
-    DELAY_6uS
+    DELAY_6us
     
     bcf	    STATUS, 0
     rlf	    value
@@ -289,9 +284,10 @@ OW_READ_BIT:
     goto    OW_READ_BIT
 
     retlw   0    
-    
- 
-DELAY_ERRO:
+
+; ***********************    
+; It takes about 600ms 
+DELAY_600ms:
   
     movlw   255
     movwf   counter1
@@ -310,9 +306,9 @@ LOOP_ERROR_02:
 ; Endless loop due to system error (1-wire device not detected) 
 SYSTEM_ERROR:
     bsf	    GPIO,1
-    call    DELAY_ERRO
+    call    DELAY_600ms
     bcf	    GPIO,1
-    call    DELAY_ERRO
+    call    DELAY_600ms
     goto    SYSTEM_ERROR
     
 END MAIN    
