@@ -45,7 +45,16 @@ ENDM
 DELAY_2us MACRO
     nop
     nop
-ENDM    
+ENDM 
+
+; Delays 6us
+DELAY_6us MACRO
+    goto $ + 1	; 2 cycles
+    goto $ + 1	; 2 cycles
+    goto $ + 1	; 2 cycles
+ENDM     
+    
+    
  
 ; Sets the GP0 as output 
  SET_PIN_OUT MACRO
@@ -220,11 +229,19 @@ OW_WRITE_BIT:
      goto OW_WRITE_BIT_1
 OW_WRITE_BIT_0:
     bcf GPIO, 0			; Assigns 0 to GP0
+    DELAY_Xus 60
+    bsf GPIO, 0
+    DELAY_Xus 10	
     goto  OW_WRITE_BIT_END
 OW_WRITE_BIT_1:    
-    bsf GPIO, 0			; Assigns 1 to GP0
+    bcf GPIO, 0			; Assigns 1 to GP0
+    DELAY_6us
+    bsf GPIO, 0
+    DELAY_Xus 60		; 60 cycles 
+    goto $ + 1			; 2 cycles
+    goto $ + 1			; 2 cycles
+    nop
 OW_WRITE_BIT_END:
-    DELAY_Xus 80
     
     SET_PIN_IN
     DELAY_2us    
@@ -250,11 +267,12 @@ OW_READ_BYTE:
 OW_READ_BIT: 
     
     SET_PIN_OUT
-    DELAY_2us
+    DELAY_6us
     SET_PIN_IN
-    DELAY_2us
-    DELAY_2us
-    nop
+    DELAY_6us	    ; 6 +
+    goto $ + 1	    ; 2 +
+    nop		    ; 1 = 9 us
+
     ; Assigns 1 or 0 depending on the value of the first bit of the GPIO (GP0).
     movlw   1		
     andwf   GPIO, w
@@ -262,7 +280,8 @@ OW_READ_BIT:
     movf   value, w
     iorwf  aux, w
     movwf  value    ; The first bit of value now has the value of GP0
-    DELAY_Xus 100   
+    DELAY_Xus 50    ; about 55 us
+    DELAY_6uS
     
     bcf	    STATUS, 0
     rlf	    value
