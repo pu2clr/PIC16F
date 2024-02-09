@@ -25,66 +25,28 @@
 
   
 ; ******* MACROS **********
+
+; Delays X us  
+; usParam a multiple of 10 value in microseconds
+; it must be greater or equal to 10  and multiple of 10. 
+DELAY_Xus MACRO usParam
+    movlw  (usParam / 10)
+    movwf  dummy1
+    nop
+    goto $ + 1	    ; 2 cycles
+    goto $ + 1	    ; 2 cycles
+    goto $ + 1	    ; 2 cycles
+    goto $ + 1      ; 2 cycles
+    decfsz dummy1, f
+    goto $ - 6 
+ENDM 
   
 ; Delays 2us
 DELAY_2us MACRO
     nop
     nop
 ENDM    
-
-; Delays 10us    
-DELAY_10us MACRO
-    goto $ + 1
-    goto $ + 1
-    goto $ + 1
-    goto $ + 1
-    goto $ + 1  
-ENDM
-
-; Delays 80us    
-DELAY_80us MACRO
-    movlw  10
-    movwf  dummy1
-    nop
-    goto $ + 1	    ; 2 cycles
-    goto $ + 1	    ; 2 cycles
-    goto $ + 1	    ; 2 cycles
-    goto $ + 1      ; 2 cycles
-    decfsz dummy1, f
-    goto $ - 6
- ENDM     
-
-; Delays 100us 
-DELAY_100us MACRO
-    movlw  10
-    movwf  dummy1
-    nop
-    goto $ + 1	    ; 2 cycles
-    goto $ + 1	    ; 2 cycles
-    goto $ + 1	    ; 2 cycles
-    goto $ + 1	    ; 2 cycles
-    goto $ + 1      ; 2 cycles
-    decfsz dummy1, f
-    goto $ - 6
- ENDM 
  
-; Delays 500 us
-DELAY_480us MACRO
-    movlw  48
-    movwf  dummy1
-    nop
-    goto $ + 1	    ; 2 cycles
-    goto $ + 1	    ; 2 cycles
-    goto $ + 1	    ; 2 cycles
-    goto $ + 1	    ; 2 cycles
-    goto $ + 1      ; 2 cycles
-    decfsz dummy1, f
-    goto $ - 6
- ENDM  
- 
- 
-
-  
 ; Sets the GP0 as output 
  SET_PIN_OUT MACRO
     clrw
@@ -205,7 +167,7 @@ MainLoopEnd:
     movlw   255
     movwf   counter1 
 LoopDelay:     
-    DELAY_480us
+    DELAY_Xus 500
     decfsz  counter1, f
     goto    LoopDelay
     goto    MainLoop    
@@ -221,15 +183,15 @@ OW_START:
     clrf    value
     SET_PIN_OUT		
     bcf	    GPIO,0	; make the GP0 LOW for 480 us
-    DELAY_480us
+    DELAY_Xus 480
     bsf	    GPIO,0
-    DELAY_80us 
+    DELAY_Xus 70 
     SET_PIN_IN
-    DELAY_10us    
+    DELAY_Xus 10    
     movlw   125		; Waiting for device response by checking GP0 125 times
     movwf   counter1
 OW_START_DEVICE_RESPONSE:
-    DELAY_2us
+    DELAY_Xus 410
     btfsc GPIO, 0	; if not 0,  no device is present so far
     goto  OW_START_NO_DEVICE
     goto  OW_START_DEVICE_FOUND
@@ -262,7 +224,7 @@ OW_WRITE_BIT_0:
 OW_WRITE_BIT_1:    
     bsf GPIO, 0			; Assigns 1 to GP0
 OW_WRITE_BIT_END:
-    DELAY_80us
+    DELAY_Xus 80
     
     SET_PIN_IN
     DELAY_2us    
@@ -300,7 +262,7 @@ OW_READ_BIT:
     movf   value, w
     iorwf  aux, w
     movwf  value    ; The first bit of value now has the value of GP0
-    DELAY_100us    
+    DELAY_Xus 100   
     
     bcf	    STATUS, 0
     rlf	    value
@@ -318,7 +280,7 @@ LOOP_ERROR_01:
     movlw   255
     movwf   counter2
 LOOP_ERROR_02: 
-    DELAY_10us
+    DELAY_Xus 10
     decfsz  counter2, f
     goto    LOOP_ERROR_02
     decfsz  counter1, f
