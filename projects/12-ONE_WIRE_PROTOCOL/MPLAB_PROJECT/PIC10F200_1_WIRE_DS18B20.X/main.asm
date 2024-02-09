@@ -122,9 +122,9 @@ MAIN:
 MainLoop:  
     call    OW_START
     subwf   1
-    btfsc   STATUS, 2	    
+    btfsc   STATUS, 2
     goto    SYSTEM_ERROR    ; No DS18B20
-    
+   
     movlw   0xCC	    ; send skip ROM command
     movwf   value	    
     call    OW_WRITE_BYTE
@@ -191,7 +191,7 @@ MainLoop:
     
     ; Process the temperature value (turn on or off the LEDs 
     
-    movlw   200
+    movlw   29
     subwf   tempL
     btfss   STATUS, 0
     goto    TurnLedOff
@@ -223,8 +223,9 @@ OW_START:
     bcf	    GPIO,0	; make the GP0 LOW for 480 us
     DELAY_480us
     bsf	    GPIO,0
-    DELAY_80us
+    DELAY_80us 
     SET_PIN_IN
+    DELAY_10us    
     movlw   125		; Waiting for device response by checking GP0 125 times
     movwf   counter1
 OW_START_DEVICE_RESPONSE:
