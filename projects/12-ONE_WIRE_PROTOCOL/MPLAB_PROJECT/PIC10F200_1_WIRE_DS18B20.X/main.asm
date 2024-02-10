@@ -90,7 +90,9 @@ MAIN:
     clrw    
     tris    GPIO	    ; Sets all GPIO as output
 
+    bsf	    GPIO,1
     call    DELAY_600ms
+    bcf	    GPIO,1
 MainLoop:  
     ; SendS skip ROM command
     call    OW_START
@@ -165,7 +167,7 @@ WaitConvertion:	    ; do while value is 0
     
     ; Process the temperature value (turn on or off the LEDs 
     
-    movlw   200
+    movlw   26
     subwf   tempL
     btfss   STATUS, 0
     goto    TurnLedOn
