@@ -31,14 +31,14 @@
 ; it must be greater or equal to 10  and multiple of 10. 
 DELAY_Xus MACRO usParam
     movlw  (usParam / 10)
-    movwf  counter1
+    movwf  counterM
     nop
     goto $ + 1	    ; 2 cycles
     goto $ + 1	    ; 2 cycles
     goto $ + 1	    ; 2 cycles
     goto $ + 1      ; 2 cycles
     goto $ + 1      ; 2 cycles
-    decfsz counter1, f
+    decfsz counterM, f
     goto $ - 7
     nop
 ENDM 
@@ -82,7 +82,8 @@ counter3    equ	0x14
 aux	    equ 0x15
 tempL	    equ 0x16	; LSB information of the temperature
 tempH	    equ 0x17	; MSB information of the temperature    
-frac	    equ 0x18	; fraction of the temperature	    
+frac	    equ 0x18	; fraction of the temperature	
+counterM    equ 0x19	    
 	    
 	    
 PSECT AsmCode, class=CODE, delta=2
@@ -98,11 +99,9 @@ MainLoop:
     movlw   0xCC	    ; send skip ROM command
     movwf   value	    
     call    OW_WRITE_BYTE
-    goto    SYSTEM_OK
     movlw   0x44	    ; send start conversion command
     movwf   value
     call    OW_WRITE_BYTE
-    goto    SYSTEM_OK
     
  ;LoopWaitForConvertion: 
     call    OW_READ_BYTE 

@@ -28,7 +28,7 @@
         <targetDevice>PIC10F200</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PICkit3PlatformTool</platformTool>
+        <platformTool>Simulator</platformTool>
         <languageToolchain>pic-as</languageToolchain>
         <languageToolchainVersion>2.45</languageToolchainVersion>
         <platform>2</platform>
