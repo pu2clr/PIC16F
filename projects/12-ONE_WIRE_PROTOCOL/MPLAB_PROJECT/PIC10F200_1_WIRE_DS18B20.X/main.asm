@@ -220,9 +220,7 @@ OW_START_DEVICE_FOUND:
 OW_WRITE_BYTE: 
     movlw   8
     movwf   counter1
-    
-OW_WRITE_BIT:
-    
+OW_WRITE_BIT: 
      SET_PIN_OUT		; GP0 output setup
      DELAY_2us			
      btfss value, 0		; Check if LSB of value is HIGH or LOW (Assigns valuer LSB to GP0)  
