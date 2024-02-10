@@ -28,10 +28,10 @@
         <targetDevice>PIC10F200</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PICkit3PlatformTool</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>pic-as</languageToolchain>
-        <languageToolchainVersion>2.45</languageToolchainVersion>
-        <platform>2</platform>
+        <languageToolchainVersion>2.46</languageToolchainVersion>
+        <platform>4</platform>
       </toolsSet>
       <packs>
         <pack name="PIC10-12Fxxx_DFP" vendor="Microchip" version="1.7.178"/>
@@ -72,6 +72,7 @@
         <property key="debugoptions.debug-startup" value="Use system settings"/>
         <property key="debugoptions.reset-behaviour" value="Use system settings"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="event.recorder.debugger.behavior" value="Running"/>
         <property key="event.recorder.enabled" value="false"/>
         <property key="event.recorder.scvd.files" value=""/>
         <property key="hwtoolclock.frcindebug" value="false"/>
@@ -1105,19 +1106,20 @@
         <property key="list-define-symbols" value=""/>
         <property key="list-include-directories" value=""/>
         <property key="suppress-warnings" value="false"/>
-        <property key="verbose" value="false"/>
+        <property key="verbose" value="true"/>
         <property key="warning-level" value="0"/>
         <property key="xassembler-with-cpp" value="true"/>
+        <appendMe value="-l"/>
       </pic-as-assembler>
       <pic-as-global>
         <property key="custom-dfp" value=""/>
         <property key="dfp-override" value="1"/>
         <property key="instruction-set" value="std"/>
         <property key="summary-class" value="false"/>
-        <property key="summary-file" value="false"/>
+        <property key="summary-file" value="true"/>
         <property key="summary-hex" value="false"/>
         <property key="summary-mem" value="true"/>
-        <property key="summary-psect" value="false"/>
+        <property key="summary-psect" value="true"/>
         <property key="summary-sha1" value="false"/>
         <property key="summary-sha256" value="false"/>
         <property key="summary-xml" value="false"/>

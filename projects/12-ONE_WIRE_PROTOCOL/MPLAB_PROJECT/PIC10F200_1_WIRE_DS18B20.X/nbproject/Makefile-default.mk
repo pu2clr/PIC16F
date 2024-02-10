@@ -95,7 +95,7 @@ ${OBJECTDIR}/main.o: main.asm  nbproject/Makefile-${CND_CONF}.mk
 	${MP_AS} -mcpu=PIC10F200 -c \
 	-o ${OBJECTDIR}/main.o \
 	main.asm \
-	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp -Wl,-pAsmCode=0h
+	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,+psect,-class,-hex,+file,-sha1,-sha256,-xml,-xmlfull -v -fmax-errors=20 -mwarn=0 -xassembler-with-cpp -Wl,-pAsmCode=0h -l
 	
 else
 ${OBJECTDIR}/main.o: main.asm  nbproject/Makefile-${CND_CONF}.mk 
@@ -104,7 +104,7 @@ ${OBJECTDIR}/main.o: main.asm  nbproject/Makefile-${CND_CONF}.mk
 	${MP_AS} -mcpu=PIC10F200 -c \
 	-o ${OBJECTDIR}/main.o \
 	main.asm \
-	  -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp -Wl,-pAsmCode=0h
+	  -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,+psect,-class,-hex,+file,-sha1,-sha256,-xml,-xmlfull -v -fmax-errors=20 -mwarn=0 -xassembler-with-cpp -Wl,-pAsmCode=0h -l
 	
 endif
 
@@ -115,13 +115,13 @@ ${DISTDIR}/PIC10F200_1_WIRE_DS18B20.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFI
 	@${MKDIR} ${DISTDIR} 
 	${MP_LD} -mcpu=PIC10F200 ${OBJECTFILES_QUOTED_IF_SPACED} \
 	-o ${DISTDIR}/PIC10F200_1_WIRE_DS18B20.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} \
-	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -mcallgraph=std -Wl,-Map=${FINAL_IMAGE_NAME_MINUS_EXTENSION}.map -mno-download-hex -Wl,-pAsmCode=0h
+	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,+psect,-class,-hex,+file,-sha1,-sha256,-xml,-xmlfull -mcallgraph=std -Wl,-Map=${FINAL_IMAGE_NAME_MINUS_EXTENSION}.map -mno-download-hex -Wl,-pAsmCode=0h
 else
 ${DISTDIR}/PIC10F200_1_WIRE_DS18B20.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} ${DISTDIR} 
 	${MP_LD} -mcpu=PIC10F200 ${OBJECTFILES_QUOTED_IF_SPACED} \
 	-o ${DISTDIR}/PIC10F200_1_WIRE_DS18B20.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} \
-	  -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -mcallgraph=std -Wl,-Map=${FINAL_IMAGE_NAME_MINUS_EXTENSION}.map -mno-download-hex -Wl,-pAsmCode=0h
+	  -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,+psect,-class,-hex,+file,-sha1,-sha256,-xml,-xmlfull -mcallgraph=std -Wl,-Map=${FINAL_IMAGE_NAME_MINUS_EXTENSION}.map -mno-download-hex -Wl,-pAsmCode=0h
 endif
 
 

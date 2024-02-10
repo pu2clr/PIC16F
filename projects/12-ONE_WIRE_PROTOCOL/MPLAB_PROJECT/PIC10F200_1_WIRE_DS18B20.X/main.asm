@@ -26,24 +26,26 @@
   
 ; ******* MACROS **********
 
-; Delays X us  
+; Delays X (usParam) us  
 ; usParam a multiple of 10 value in microseconds
 ; it must be greater or equal to 10  and multiple of 10. 
 DELAY_Xus MACRO usParam
     movlw  (usParam / 10)
-    movwf  dummy1
+    movwf  counter1
     nop
     goto $ + 1	    ; 2 cycles
     goto $ + 1	    ; 2 cycles
     goto $ + 1	    ; 2 cycles
     goto $ + 1      ; 2 cycles
-    decfsz dummy1, f
-    goto $ - 6 
+    goto $ + 1      ; 2 cycles
+    decfsz counter1, f
+    goto $ - 7
+    nop
 ENDM 
   
-; Delays 2us
+; Delays about 2us
 DELAY_2us MACRO
-    nop
+    goto $+1
     nop
 ENDM 
 
@@ -52,6 +54,7 @@ DELAY_6us MACRO
     goto $ + 1	; 2 cycles
     goto $ + 1	; 2 cycles
     goto $ + 1	; 2 cycles
+    nop
 ENDM     
     
     
@@ -92,9 +95,6 @@ MAIN:
 
 MainLoop:  
     call    OW_START
-    subwf   1
-    btfsc   STATUS, 2
-    goto    SYSTEM_ERROR    ; No DS18B20
    
     movlw   0xCC	    ; send skip ROM command
     movwf   value	    
@@ -102,12 +102,13 @@ MainLoop:
     movlw   0x44	    ; send start conversion command
     movwf   value
     call    OW_WRITE_BYTE
- LoopWaitForConvertion: 
+    
+ ;LoopWaitForConvertion: 
     call    OW_READ_BYTE 
-    clrw
-    subwf   value,w
-    btfsc   STATUS, 2	    ; if Z flag  = 0; temp == wreg ? 
-    goto    LoopWaitForConvertion
+    ;clrw
+    ;subwf   value,w
+    ;btfsc   STATUS, 2	    ; if Z flag  = 0; temp == wreg ? 
+    ;goto    LoopWaitForConvertion
  
     call    OW_START
     movlw   0xCC	    ; send skip ROM command
@@ -186,25 +187,25 @@ OW_START:
 
     clrf    value
     SET_PIN_OUT		
-    bcf	    GPIO,0	; make the GP0 LOW for 480 us
+    bcf	    GPIO,0		; make the GP0 LOW for 480 us
     DELAY_Xus 480
     bsf	    GPIO,0
     DELAY_Xus 70 
     SET_PIN_IN
-    ; DELAY_Xus 10    
-    movlw   125		; Waiting for device response by checking GP0 125 times
+    DELAY_Xus 10    
+    movlw   125			; Waiting for device response by checking 125 times if GP0 is low
     movwf   counter1
 OW_START_DEVICE_RESPONSE:
-    DELAY_Xus 410
-    btfsc GPIO, 0	; if not 0,  no device is present so far
+    btfsc GPIO, 0		; if not 0,  no device is present so far
     goto  OW_START_NO_DEVICE
     goto  OW_START_DEVICE_FOUND
 OW_START_NO_DEVICE:
     decfsz  counter1, f
-    goto   OW_START_DEVICE_RESPONSE 
-    retlw   0		; Device not found
+    goto   OW_START_DEVICE_RESPONSE ; check once again 
+    goto   SYSTEM_ERROR		; Device not found - Exit/Halt
+    retlw   0			
 OW_START_DEVICE_FOUND:    
-    retlw   1		; Device found
+    retlw   1			; Device found
 
     
 ; ******************************
@@ -295,7 +296,10 @@ LOOP_ERROR_01:
     movlw   255
     movwf   counter2
 LOOP_ERROR_02: 
-    DELAY_Xus 10
+    goto $+1
+    goto $+1
+    goto $+1
+    goto $+1
     decfsz  counter2, f
     goto    LOOP_ERROR_02
     decfsz  counter1, f
