@@ -105,7 +105,7 @@ MainLoop:
     
  ;LoopWaitForConvertion: 
     call    OW_READ_BYTE 
-    goto    SYSTEM_OK
+
     ;clrw
     ;subwf   value,w
     ;btfsc   STATUS, 2	    ; if Z flag  = 0; temp == wreg ? 
@@ -158,13 +158,13 @@ MainLoop:
     movwf   tempL
     
     ; Begin Check
-    movlw   27
-    movwf   tempL
+    ; movlw   27
+    ; movwf   tempL
     ; End Check
     
     ; Process the temperature value (turn on or off the LEDs 
     
-    movlw   27
+    movlw   250
     subwf   tempL
     btfss   STATUS, 0
     goto    TurnLedOff
@@ -315,11 +315,7 @@ SYSTEM_ERROR:
     call    DELAY_600ms
     call    DELAY_600ms
     call    DELAY_600ms
-    call    DELAY_600ms
-    call    DELAY_600ms
-    call    DELAY_600ms
-    call    DELAY_600ms
-    call    DELAY_600ms    
+   
     bcf	    GPIO,1
     call    DELAY_600ms
 
