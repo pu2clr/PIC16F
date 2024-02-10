@@ -74,16 +74,14 @@ ENDM
 
 ; Declare your variables here
 
-dummy1	    equ 0x10
 value	    equ 0x11 
 counter1    equ 0x12
 counter2    equ	0x13  
-counter3    equ	0x14    
+counterM    equ	0x14    
 aux	    equ 0x15
 tempL	    equ 0x16	; LSB information of the temperature
 tempH	    equ 0x17	; MSB information of the temperature    
-frac	    equ 0x18	; fraction of the temperature	
-counterM    equ 0x19	    
+frac	    equ 0x18	; fraction of the temperature		    
 	    
 	    
 PSECT AsmCode, class=CODE, delta=2
@@ -95,27 +93,31 @@ MAIN:
     tris    GPIO	    ; Sets all GPIO as output
 
 MainLoop:  
+    ; SendS skip ROM command
     call    OW_START
-    movlw   0xCC	    ; send skip ROM command
+    movlw   0xCC	    
     movwf   value	    
     call    OW_WRITE_BYTE
-    movlw   0x44	    ; send start conversion command
+    ; SendS start conversion command
+    ; The default resolution at power-up is 12-bit. 
+    movlw   0x44	    
     movwf   value
     call    OW_WRITE_BYTE
     
- ;LoopWaitForConvertion: 
-    call    OW_READ_BYTE 
-
-    ;clrw
-    ;subwf   value,w
-    ;btfsc   STATUS, 2	    ; if Z flag  = 0; temp == wreg ? 
-    ;goto    LoopWaitForConvertion
+    clrf    value
+    ; Wait for Convertion 
+WaitConvertion:	    ; do while value is 0
+    call    OW_READ_BYTE    ; begin 
+    clrw
+    subwf   value,w
+    btfsc   STATUS, 2	    ; if Z flag  = 0; temp == wreg ? 
+    goto    WaitConvertion  ; end do
  
     call    OW_START
-    movlw   0xCC	    ; send skip ROM command
+    movlw   0xCC	    ; Sends skip ROM command
     movwf   value	    
     call    OW_WRITE_BYTE
-    movlw   0xBE	    ; send send read command
+    movlw   0xBE	    ; Sends read command
     movwf   value
     call    OW_WRITE_BYTE  
     
@@ -164,7 +166,7 @@ MainLoop:
     
     ; Process the temperature value (turn on or off the LEDs 
     
-    movlw   250
+    movlw   0
     subwf   tempL
     btfss   STATUS, 0
     goto    TurnLedOff
@@ -293,18 +295,18 @@ DELAY_600ms:
   
     movlw   255
     movwf   counter1
-LOOP_ERROR_01:
+DELAY_LOOP_01:
     movlw   255
     movwf   counter2
-LOOP_ERROR_02: 
+DELAY_LOOP_02: 
     goto $+1
     goto $+1
     goto $+1
     goto $+1
     decfsz  counter2, f
-    goto    LOOP_ERROR_02
+    goto    DELAY_LOOP_02
     decfsz  counter1, f
-    goto    LOOP_ERROR_01
+    goto    DELAY_LOOP_01
     
     retlw   0
 
