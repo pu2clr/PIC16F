@@ -132,7 +132,13 @@ WaitConvertion:	    ; do while value is 0
     call    OW_READ_BYTE    ; LSB value of the temperature
     movf    value, w
     movwf   tempL
+ 
+    call    OW_READ_BYTE    ; MSB value of the temperature
+    movf    value, w
+    movwf   tempH
     
+    
+    movf    tempL,w
     andlw   0B00001111	    ; Gets the firs 4 bits to know the fraction of the temperature
     movwf   frac
     ; Shift 4 bits to right the MSB of the tempL   
@@ -145,11 +151,9 @@ WaitConvertion:	    ; do while value is 0
     andlw   0B00001111	    ; clear the last 4 bits (4 MSB)
     movwf   tempL
     
-    call    OW_READ_BYTE    ; MSB value of the temperature
-    movf    value, w
-    movwf   tempH
+
    
-    ; Shift to right the MSB of the tempL   
+    ; Shift to right the MSB of the tempH   
     rlf	    tempH
     rlf	    tempH
     rlf	    tempH
