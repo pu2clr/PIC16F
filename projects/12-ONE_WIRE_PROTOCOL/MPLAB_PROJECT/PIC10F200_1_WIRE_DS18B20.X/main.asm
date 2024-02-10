@@ -32,15 +32,13 @@
 DELAY_Xus MACRO usParam
     movlw  (usParam / 10)
     movwf  counterM
-    nop
-    goto $ + 1	    ; 2 cycles
-    goto $ + 1	    ; 2 cycles
-    goto $ + 1	    ; 2 cycles
-    goto $ + 1      ; 2 cycles
-    goto $ + 1      ; 2 cycles
-    decfsz counterM, f
-    goto $ - 7
-    nop
+    ; do until counterM < (usParam / 10)
+    goto $ + 1		; 2 cycles +
+    goto $ + 1		; 2 cycles +
+    goto $ + 1		; 2 cycles +
+    goto $ + 1		; 2 cycles = 8 cycles +
+    decfsz counterM, f	; 1 cycle + 
+    goto $ - 5		; 2 cycle = 11 cycles
 ENDM 
   
 ; Delays about 2us
@@ -284,13 +282,20 @@ OW_READ_BIT:
     DELAY_Xus 50    ; about 55 us
     DELAY_6us
     
+    decfsz  counter1, f
+    goto    OW_READ_BIT_NEXT
+    goto    OW_READ_BIT_END
+OW_READ_BIT_NEXT: 
     bcf	    STATUS, 0
     rlf	    value
-    decfsz  counter1, f
     goto    OW_READ_BIT
-
+OW_READ_BIT_END:
+    nop   
     retlw   0    
 
+    
+        
+    
 ; ***********************    
 ; It takes about 600ms 
 DELAY_600ms:
