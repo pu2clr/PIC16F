@@ -26,20 +26,6 @@
   
 ; ******* MACROS **********
 
-; Delays X (usParam) us  
-; usParam a multiple of 10 value in microseconds
-; it must be greater or equal to 10  and multiple of 10. 
-DELAY_Xus MACRO usParam
-    movlw  (usParam / 10)
-    movwf  counterM
-    ; do until counterM < (usParam / 10)
-    goto $ + 1		; 2 cycles +
-    goto $ + 1		; 2 cycles +
-    goto $ + 1		; 2 cycles +
-    goto $ + 1		; 2 cycles = 8 cycles +
-    decfsz counterM, f	; 1 cycle + 
-    goto $ - 5		; 2 cycle = 11 cycles
-ENDM 
   
 ; Delays about 2us
 DELAY_2us MACRO
@@ -197,11 +183,18 @@ OW_START:
     clrf    value
     SET_PIN_OUT		
     bcf	    GPIO,0		; make the GP0 LOW for 480 us
-    DELAY_Xus 480
+    movlw   48
+    call DELAY_Nx10us 
     bsf	    GPIO,0
-    DELAY_Xus 70 
+    
+    movlw   7			; 70us
+    call DELAY_Nx10us 
+    
     SET_PIN_IN
-    DELAY_Xus 10    
+    
+    movlw   1			; 10us
+    call DELAY_Nx10us
+    
     movlw   125			; Waiting for device response by checking 125 times if GP0 is low
     movwf   counter1
 OW_START_DEVICE_RESPONSE:
@@ -232,15 +225,25 @@ OW_WRITE_BIT:
      goto OW_WRITE_BIT_1
 OW_WRITE_BIT_0:
     bcf GPIO, 0			; Assigns 0 to GP0
-    DELAY_Xus 60
+    
+    movlw   6			; 60us
+    call DELAY_Nx10us
+    
     bsf GPIO, 0
-    DELAY_Xus 10	
+    
+    movlw   1
+    call DELAY_Nx10us		; 10us
+    
+    
     goto  OW_WRITE_BIT_END
 OW_WRITE_BIT_1:    
     bcf GPIO, 0			; Assigns 1 to GP0
     DELAY_6us
     bsf GPIO, 0
-    DELAY_Xus 60		; 60 cycles 
+    
+    movlw   6			; 60us
+    call DELAY_Nx10us		 
+    
     goto $ + 1			; 2 cycles
     goto $ + 1			; 2 cycles
     nop
@@ -283,7 +286,8 @@ OW_READ_BIT:
     movf   value, w
     iorwf  aux, w
     movwf  value    ; The first bit of value now has the value of GP0
-    DELAY_Xus 50    ; about 55 us
+    movlw   5	    ; 50us
+    call DELAY_Nx10us ; 
     DELAY_6us
     
     decfsz  counter1, f
@@ -297,8 +301,21 @@ OW_READ_BIT_END:
     nop   
     retlw   0    
 
+
+; Delay function    
+; Takes (WREG * 10)us    
+; Examples: if WREG=1 => 10us; WREG=7 => 70us; WREG=48 => 480us; and so on     
+DELAY_Nx10us:
+    movwf  counterM
+    goto $ + 1		; 2 cycles +
+    goto $ + 1		; 2 cycles +
+    goto $ + 1		; 2 cycles +
+    goto $ + 1		; 2 cycles = 8 cycles +
+    decfsz counterM, f	; 1 cycle + 
+    goto $ - 5		; 2 cycle = 11 cycles
+    retlw   0
     
-        
+    
     
 ; ***********************    
 ; It takes about 600ms 
