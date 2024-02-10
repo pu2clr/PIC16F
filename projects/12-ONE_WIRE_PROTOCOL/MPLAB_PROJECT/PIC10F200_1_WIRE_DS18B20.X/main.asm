@@ -100,6 +100,8 @@ WaitConvertion:	    ; do while value is 0
     btfsc   STATUS, 2	    ; if Z flag  = 0; temp == wreg ? 
     goto    WaitConvertion  ; end do
  
+    call    BLINK_LED
+    
     call    OW_START
     movlw   0xCC	    ; Sends skip ROM command
     movwf   value	    
@@ -351,12 +353,17 @@ SYSTEM_ERROR:
 
     goto    SYSTEM_ERROR
 
-SYSTEM_OK:
+BLINK_LED:
+    movlw   5
+    movwf   counterM
+BLINK_LED_LOOP:    
     bsf	    GPIO,1
     call    DELAY_600ms
     bcf	    GPIO,1
     call    DELAY_600ms
-    goto    SYSTEM_OK    
+    decfsz  counterM, f
+    goto    BLINK_LED_LOOP  
+    retlw   0
     
 END MAIN    
 
