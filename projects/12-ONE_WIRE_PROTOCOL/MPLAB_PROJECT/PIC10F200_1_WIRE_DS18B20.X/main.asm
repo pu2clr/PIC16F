@@ -95,16 +95,18 @@ MAIN:
 
 MainLoop:  
     call    OW_START
-   
     movlw   0xCC	    ; send skip ROM command
     movwf   value	    
     call    OW_WRITE_BYTE
+    goto    SYSTEM_OK
     movlw   0x44	    ; send start conversion command
     movwf   value
     call    OW_WRITE_BYTE
+    goto    SYSTEM_OK
     
  ;LoopWaitForConvertion: 
     call    OW_READ_BYTE 
+    goto    SYSTEM_OK
     ;clrw
     ;subwf   value,w
     ;btfsc   STATUS, 2	    ; if Z flag  = 0; temp == wreg ? 
@@ -157,13 +159,13 @@ MainLoop:
     movwf   tempL
     
     ; Begin Check
-    ; movlw   27
-    ; movwf   tempL
+    movlw   27
+    movwf   tempL
     ; End Check
     
     ; Process the temperature value (turn on or off the LEDs 
     
-    movlw   29
+    movlw   27
     subwf   tempL
     btfss   STATUS, 0
     goto    TurnLedOff
@@ -311,9 +313,25 @@ LOOP_ERROR_02:
 SYSTEM_ERROR:
     bsf	    GPIO,1
     call    DELAY_600ms
+    call    DELAY_600ms
+    call    DELAY_600ms
+    call    DELAY_600ms
+    call    DELAY_600ms
+    call    DELAY_600ms
+    call    DELAY_600ms
+    call    DELAY_600ms
+    call    DELAY_600ms    
     bcf	    GPIO,1
     call    DELAY_600ms
+
     goto    SYSTEM_ERROR
+
+SYSTEM_OK:
+    bsf	    GPIO,1
+    call    DELAY_600ms
+    bcf	    GPIO,1
+    call    DELAY_600ms
+    goto    SYSTEM_OK    
     
 END MAIN    
 
