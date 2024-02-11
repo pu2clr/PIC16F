@@ -12,11 +12,12 @@
 ;
 ; Please check the AsmCode reference in the "PSECT" directive below.
 ;    
-; About this implementation: 
-; The PIC10F200 does not support the Open-Drain Output feature. 
-; Therefore, this application may not function correctly in certain scenarios.
+; *** About this implementation *** 
+; The PIC10F200 is a verry basic microcontroler and it does not support the Open-Drain Output feature. 
+; Therefore, this application may not function correctly in certain scenarios (circuit parts, board setup etc).
 ; Given this, carefully review your implementation before deploying it in 
-; critical applications.     
+; critical applications. Consider using another microcontroller for more critical 
+; applications.    
 ;    
 ; You will find good tips about the PIC10F200 here:
 ; https://www.circuitbread.com/tutorials/christmas-lights-special-microcontroller-basics-pic10f200
@@ -105,9 +106,7 @@ WaitConvertion:	    ; do while value is 0
     subwf   value,w
     btfsc   STATUS, 2	    ; if Z flag  = 0; temp == wreg ? 
     goto    WaitConvertion  ; end do
- 
-    call    BLINK_LED
-    
+   
     call    OW_START
     movlw   0xCC	    ; Sends skip ROM command
     movwf   value	    
@@ -165,7 +164,7 @@ WaitConvertion:	    ; do while value is 0
     
     ; Process the temperature value (turn on or off the LEDs 
     
-    movlw   26
+    movlw   27
     subwf   tempL
     btfss   STATUS, 0
     goto    TurnLedOn
