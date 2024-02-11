@@ -11,7 +11,13 @@
 ; -Wl,-pAsmCode=0h
 ;
 ; Please check the AsmCode reference in the "PSECT" directive below.
-;
+;    
+; About this implementation: 
+; The PIC10F200 does not support the Open-Drain Output feature. 
+; Therefore, this application may not function correctly in certain scenarios.
+; Given this, carefully review your implementation before deploying it in 
+; critical applications.     
+;    
 ; You will find good tips about the PIC10F200 here:
 ; https://www.circuitbread.com/tutorials/christmas-lights-special-microcontroller-basics-pic10f200
 
@@ -219,36 +225,27 @@ OW_START_DEVICE_FOUND:
 OW_WRITE_BYTE: 
     movlw   8
     movwf   counter1
-OW_WRITE_BIT: 
-     SET_PIN_OUT		; GP0 output setup
-     DELAY_2us			
+OW_WRITE_BIT: 	
      btfss value, 0		; Check if LSB of value is HIGH or LOW (Assigns valuer LSB to GP0)  
      goto OW_WRITE_BIT_0
      goto OW_WRITE_BIT_1
 OW_WRITE_BIT_0:
-    bcf GPIO, 0			; Assigns 0 to GP0
-    
-    movlw   6			; 60us
-    call DELAY_Nx10us
-    
-    bsf GPIO, 0
-    
-    movlw   1
-    call DELAY_Nx10us		; 10us
-    
-    
+    SET_PIN_OUT			; GP0 output setup
+    bcf GPIO, 0			; turn bus low for
+    movlw   9			; 90us
+    call DELAY_Nx10us 	
+    bsf GPIO, 0			; turn bus high for 
+    movlw   1			; 10us
+    call DELAY_Nx10us		
     goto  OW_WRITE_BIT_END
 OW_WRITE_BIT_1:    
-    bcf GPIO, 0			; Assigns 1 to GP0
-    DELAY_6us
-    bsf GPIO, 0
-    
-    movlw   6			; 60us
-    call DELAY_Nx10us		 
-    
-    goto $ + 1			; 2 cycles
-    goto $ + 1			; 2 cycles
-    nop
+    SET_PIN_OUT			; GP0 output setup
+    bcf GPIO, 0			; turn bus low for
+    goto $+1			; 4us
+    goto $+1			; 
+    bsf	GPIO, 0			; turn bus high
+    movlw   9			; wait for 90 us
+    call DELAY_Nx10us
 OW_WRITE_BIT_END:
     
     SET_PIN_IN
@@ -275,12 +272,12 @@ OW_READ_BYTE:
 OW_READ_BIT: 
     
     SET_PIN_OUT
-    DELAY_6us
+    bcf	GPIO,0
+    goto $+1	    ; Wait for 3us or a bit more
+    nop
     SET_PIN_IN
-    DELAY_6us	    ; 6 +
-    goto $ + 1	    ; 2 +
-    nop		    ; 1 = 9 us
-
+    goto $+1	    ; wait for 3us or a bit more
+    nop		    ; 
     ; Assigns 1 or 0 depending on the value of the first bit of the GPIO (GP0).
     movlw   1		
     andwf   GPIO, w
@@ -288,10 +285,9 @@ OW_READ_BIT:
     movf   value, w
     iorwf  aux, w
     movwf  value    ; The first bit of value now has the value of GP0
-    movlw   5	    ; 50us
+    movlw   9	    ; 90us
     call DELAY_Nx10us ; 
-    DELAY_6us
-    
+  
     decfsz  counter1, f
     goto    OW_READ_BIT_NEXT
     goto    OW_READ_BIT_END
