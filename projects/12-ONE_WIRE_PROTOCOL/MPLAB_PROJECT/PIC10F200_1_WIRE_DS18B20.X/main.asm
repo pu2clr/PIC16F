@@ -92,20 +92,13 @@ MainLoop:
     movlw   0xCC	    
     movwf   value	    
     call    OW_WRITE_BYTE
-    ; SendS start conversion command
+    ; Sends start conversion command
     ; The default resolution at power-up is 12-bit. 
     movlw   0x44	    
     movwf   value
     call    OW_WRITE_BYTE
     
-    clrf    value
-    ; Wait for Convertion 
-WaitConvertion:	    ; do while value is 0
-    call    OW_READ_BYTE    ; begin 
-    clrw
-    subwf   value,w
-    btfsc   STATUS, 2	    ; if Z flag  = 0; temp == wreg ? 
-    goto    WaitConvertion  ; end do
+    call    DELAY_600ms	    ; Wait  for convertion
    
     call    OW_START
     movlw   0xCC	    ; Sends skip ROM command
@@ -130,6 +123,7 @@ WaitConvertion:	    ; do while value is 0
     movf    value, w
     movwf   tempH
     
+    call    OW_START	    ; STOP reading 
     
     movf    tempL,w
     andlw   0B00001111	    ; Gets the firs 4 bits to know the fraction of the temperature
