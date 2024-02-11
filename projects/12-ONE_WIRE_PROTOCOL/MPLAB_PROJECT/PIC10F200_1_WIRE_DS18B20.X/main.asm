@@ -164,7 +164,7 @@ WaitConvertion:	    ; do while value is 0
     
     ; Process the temperature value (turn on or off the LEDs 
     
-    movlw   27
+    movlw   200
     subwf   tempL
     btfss   STATUS, 0
     goto    TurnLedOn
