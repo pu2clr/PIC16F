@@ -33,6 +33,7 @@
   
 ; ******* MACROS **********
 
+#define	  LIMIT	    27  
   
 ; Delays about 2us
 DELAY_2us MACRO
@@ -124,7 +125,7 @@ MainLoop:
     movwf   tempH
     
     call    OW_START	    ; STOP reading 
-    
+  
     movf    tempL,w
     andlw   0B00001111	    ; Gets the firs 4 bits to know the fraction of the temperature
     movwf   frac
@@ -151,24 +152,27 @@ MainLoop:
     iorwf   tempL,w	    ; tempL now has the temperature.
     movwf   tempL
     
+    
+   
     ; Begin Check
-    ; movlw   27
+    ; movlw   50
     ; movwf   tempL
     ; End Check
     
     ; Process the temperature value (turn on or off the LEDs 
     
-    movlw   200
+    movlw   27		; Limit  -> tempL > ?
     subwf   tempL
     btfss   STATUS, 0
-    goto    TurnLedOn
     goto    TurnLedOff
-
+    goto    TurnLedOn
 TurnLedOff:
     bcf	    GPIO,1
     goto    MainLoopEnd
 TurnLedOn:
     bsf	    GPIO, 1
+    ; call    BLINK_LED
+    ; goto    MainLoopEnd  
 MainLoopEnd: 
     call    DELAY_600ms
     goto    MainLoop    
@@ -259,6 +263,7 @@ OW_WRITE_BIT_END:
     
 OW_READ_BYTE:
     
+    clrf    value
     movlw   8
     movwf   counter1
 
@@ -289,7 +294,7 @@ OW_READ_BIT_NEXT:
     rlf	    value
     goto    OW_READ_BIT
 OW_READ_BIT_END:
-    nop   
+    nop  
     retlw   0    
 
 
