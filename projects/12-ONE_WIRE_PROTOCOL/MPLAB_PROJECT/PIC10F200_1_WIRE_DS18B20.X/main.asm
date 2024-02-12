@@ -271,7 +271,7 @@ OW_READ_BIT:
     bcf	GPIO,0
     goto $+1	    ; Wait for 2us or a bit more
     SET_PIN_IN
-    movlw   2
+    movlw   1
     call    DELAY_Nx10us
     ; Assigns 1 or 0 depending on the value of the first bit of the GPIO (GP0).
     call    CHECK_BUS	    ; Chekes the bus for about 60us
@@ -287,7 +287,7 @@ OW_READ_BIT_1:
     bsf	    STATUS, 0
     rrf	    value
 OW_READ_BIT_NEXT:  
-    movlw   9		; 90us - wait 90us to read the next bit
+    movlw   3		; 
     call DELAY_Nx10us	; 
     decfsz  counter1, f
     goto    OW_READ_BIT
