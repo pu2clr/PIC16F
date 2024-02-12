@@ -41,7 +41,7 @@
  
 ; Sets the GP0 as input  
 SET_PIN_IN MACRO
-    clrf    GPIO
+    bsf	    GPIO, 0
     movlw   0x01
     tris    GPIO
 ENDM
@@ -192,10 +192,10 @@ OW_START_DEVICE_RESPONSE:
 OW_START_NO_DEVICE:
     decfsz  counter1, f
     goto    OW_START_DEVICE_RESPONSE ; check once again 
-    goto    SYSTEM_ERROR		; Device not found - Exit/Halt
+    ; goto    SYSTEM_ERROR		; Device not found - Exit/Halt
     retlw   0			
 OW_START_DEVICE_FOUND:  
-    movlw   40
+    movlw   60
     call    DELAY_Nx10us
     retlw   1			; Device found
 
@@ -214,7 +214,7 @@ OW_WRITE_BIT:
 OW_WRITE_BIT_0:
     SET_PIN_OUT			; GP0 output setup
     bcf	    GPIO, 0		; turn bus low for
-    movlw   6			; 90us
+    movlw   9			; 90us
     call    DELAY_Nx10us 	
     ; bsf	    GPIO, 0	; turn bus high for 
     ; movlw   1			; 10us
@@ -222,16 +222,18 @@ OW_WRITE_BIT_0:
     goto    OW_WRITE_BIT_END
 OW_WRITE_BIT_1: 
     SET_PIN_OUT			; GP0 output setup
-    bcf	    GPIO, 0		; turn bus low for
-    goto    $+1			; 4us
+    goto    $+1			; 2us
+    goto    $+1			; 2us    
+    goto    $+1			; 2us
+    bsf	    GPIO, 0		; turn bus low for
     ; goto    $+1			; 
     ; bsf	    GPIO, 0		; turn bus high
-    ; movlw   6			; wait for 90 us
-    ; call    DELAY_Nx10us
+    movlw   9			; wait for 90 us
+    call    DELAY_Nx10us
 OW_WRITE_BIT_END:
     SET_PIN_IN
     goto    $+1 
-    nop
+    goto    $+1
     bcf	    STATUS, 0
     rrf	    value		; Right shift - writes the next bit
     decfsz  counter1, f

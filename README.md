@@ -226,6 +226,7 @@ Source: [Pickit 3 Programmer/Debugger](https://components101.com/misc/pickit3-pr
 * [MPLAB® XC8 PIC Assembler User's Guide for Embedded Engineers](https://ww1.microchip.com/downloads/en/DeviceDoc/50002994B.pdf)
 * [PIC16C5X / PIC16CXXX Math Utility Routines](https://ww1.microchip.com/downloads/en/AppNotes/00526e.pdf)
 * [Math Utility Routines](https://ww1.microchip.com/downloads/en/AppNotes/00544d.pdf)
+* [Microcontroller Basics - With PIC10F200](https://www.circuitbread.com/tutorials/series/microcontroller-basics)
 
 
 ### Assembly video and tutorial
