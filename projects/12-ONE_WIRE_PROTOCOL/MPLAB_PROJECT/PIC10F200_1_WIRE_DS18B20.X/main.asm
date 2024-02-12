@@ -216,7 +216,7 @@ OW_WRITE_BIT_0:
     bcf	    GPIO, 0		; turn bus low for
     movlw   6			; 90us
     call    DELAY_Nx10us 	
-    ; bsf	    GPIO, 0		; turn bus high for 
+    ; bsf	    GPIO, 0	; turn bus high for 
     ; movlw   1			; 10us
     ; call    DELAY_Nx10us
     goto    OW_WRITE_BIT_END
