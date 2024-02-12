@@ -32,35 +32,20 @@
 
   
 ; ******* MACROS **********
-
-#define	  LIMIT	    27  
-  
-; Delays about 2us
-DELAY_2us MACRO
-    goto $+1
-    nop
-ENDM 
-
-; Delays 6us
-DELAY_6us MACRO
-    goto $ + 1	; 2 cycles
-    goto $ + 1	; 2 cycles
-    goto $ + 1	; 2 cycles
-    nop
-ENDM     
-    
-    
- 
+   
 ; Sets the GP0 as output 
  SET_PIN_OUT MACRO
+    nop
     clrw
     tris    GPIO
     ENDM
  
 ; Sets the GP0 as input  
 SET_PIN_IN MACRO
+    nop
     movlw   0x01
     tris    GPIO
+    nop
 ENDM
  
 
@@ -161,7 +146,7 @@ MainLoop:
     
     ; Process the temperature value (turn on or off the LEDs 
     
-    movlw   255		; All bits is 1 (Whay?) - ????????
+    movlw   50		; All bits is 1 (Whay?) - ????????
     subwf   tempL
     btfss   STATUS, 0
     goto    TurnLedOff
@@ -173,7 +158,9 @@ TurnLedOn:
     bsf	    GPIO, 1
     goto    MainLoopEnd  
 MainLoopEnd: 
-    call    DELAY_600ms
+    ;call    DELAY_600ms
+    movlw   100
+    call    DELAY_Nx10us
     goto    MainLoop    
 
 ; ************************ Subroutines ************************************     
@@ -245,8 +232,9 @@ OW_WRITE_BIT_1:
 OW_WRITE_BIT_END:
     
     SET_PIN_IN
-    DELAY_2us    
-
+    goto    $+1    
+    nop
+    
     bcf	    STATUS, 0
     rrf	    value		; Right shift - writes the next bit
     decfsz  counter1, f
@@ -282,12 +270,13 @@ OW_READ_BIT:
 OW_READ_BIT_0:
     bcf	    STATUS, 0
     rrf	    value
+    call    BLINK_LED
     goto    OW_READ_BIT_NEXT
 OW_READ_BIT_1:
     bsf	    STATUS, 0
     rrf	    value
 OW_READ_BIT_NEXT:  
-    movlw   3		; 
+    movlw   50		; 
     call DELAY_Nx10us	; 
     decfsz  counter1, f
     goto    OW_READ_BIT
@@ -300,7 +289,7 @@ OW_READ_BIT_NEXT:
 ; If a low state occurrence is not detected, the subroutine will return 1. 
 ; Otherwise, it will return 0, indicating that the device has sent a 0 signal.  
 CHECK_BUS: 
-    movlw   16
+    movlw   50
     movwf   counterM
 CHECK_BUS_LOOP:
     btfss   GPIO, 0		; Check if LSB of GPIO (GP0) is HIGH or LOW   (1 cycle)
@@ -320,7 +309,7 @@ DELAY_Nx10us:
     goto $ + 1		; 2 cycles +
     goto $ + 1		; 2 cycles = 8 cycles +
     decfsz counterM, f	; 1 cycle + 
-    goto $ - 5		; 2 cycle = 11 cycles
+    goto $ - 5		; 2 cycle = 11 cycles **** Fix it later
     retlw   0
     
     
