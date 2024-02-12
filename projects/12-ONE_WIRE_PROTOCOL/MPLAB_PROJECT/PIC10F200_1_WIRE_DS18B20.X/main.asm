@@ -41,7 +41,6 @@
  
 ; Sets the GP0 as input  
 SET_PIN_IN MACRO
-    bsf	    GPIO, 0
     movlw   0x01
     tris    GPIO
 ENDM
@@ -208,36 +207,31 @@ OW_WRITE_BYTE:
     movlw   8
     movwf   counter1
 OW_WRITE_BIT: 	
+    SET_PIN_OUT			; GP0 output setup
     btfss   value, 0		; Check if LSB of value is HIGH or LOW (Assigns valuer LSB to GP0)  
     goto    OW_WRITE_BIT_0
     goto    OW_WRITE_BIT_1
 OW_WRITE_BIT_0:
-    SET_PIN_OUT			; GP0 output setup
     bcf	    GPIO, 0		; turn bus low for
     movlw   9			; 90us
     call    DELAY_Nx10us 	
-    ; bsf	    GPIO, 0	; turn bus high for 
-    ; movlw   1			; 10us
-    ; call    DELAY_Nx10us
     goto    OW_WRITE_BIT_END
 OW_WRITE_BIT_1: 
-    SET_PIN_OUT			; GP0 output setup
-    goto    $+1			; 2us
-    goto    $+1			; 2us    
-    goto    $+1			; 2us
-    bsf	    GPIO, 0		; turn bus low for
-    ; goto    $+1			; 
-    ; bsf	    GPIO, 0		; turn bus high
-    movlw   9			; wait for 90 us
-    call    DELAY_Nx10us
-OW_WRITE_BIT_END:
-    SET_PIN_IN
-    goto    $+1 
+    bcf	    GPIO, 0		; turn bus low for
     goto    $+1
+    goto    $+1
+    bsf	    GPIO, 0
+    movlw   5			; 50us
+    call    DELAY_Nx10us 	
+
+OW_WRITE_BIT_END:
+    goto    $+1 
     bcf	    STATUS, 0
     rrf	    value		; Right shift - writes the next bit
     decfsz  counter1, f
     goto    OW_WRITE_BIT
+        
+    SET_PIN_IN
     retlw   0
     
    
