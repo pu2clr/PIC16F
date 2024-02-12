@@ -55,7 +55,7 @@ ENDM
  SET_PIN_OUT MACRO
     clrw
     tris    GPIO
- ENDM
+    ENDM
  
 ; Sets the GP0 as input  
 SET_PIN_IN MACRO
@@ -222,9 +222,9 @@ OW_WRITE_BYTE:
     movlw   8
     movwf   counter1
 OW_WRITE_BIT: 	
-     btfss value, 0		; Check if LSB of value is HIGH or LOW (Assigns valuer LSB to GP0)  
-     goto OW_WRITE_BIT_0
-     goto OW_WRITE_BIT_1
+    btfss value, 0		; Check if LSB of value is HIGH or LOW (Assigns valuer LSB to GP0)  
+    goto OW_WRITE_BIT_0
+    goto OW_WRITE_BIT_1
 OW_WRITE_BIT_0:
     SET_PIN_OUT			; GP0 output setup
     bcf GPIO, 0			; turn bus low for
@@ -266,19 +266,19 @@ OW_READ_BYTE:
     movlw   8
     movwf   counter1
 
-OW_READ_BIT: 
-    
+OW_READ_BIT:  
     SET_PIN_OUT
     bcf	GPIO,0
-    goto $+1	    ; Wait for 3us or a bit more
+    goto $+1	    ; Wait for 2us or a bit more
     SET_PIN_IN
     movlw   2
     call    DELAY_Nx10us
-    
     ; Assigns 1 or 0 depending on the value of the first bit of the GPIO (GP0).
-     btfss GPIO, 0		; Check if LSB of value is HIGH or LOW (Assigns valuer LSB to GP0)  
-     goto OW_READ_BIT_0
-     goto OW_READ_BIT_1
+    call    CHECK_BUS	    ; Chekes the bus for about 60us
+    movwf   aux
+    btfss   aux, 0		 
+    goto    OW_READ_BIT_0
+    goto    OW_READ_BIT_1
 OW_READ_BIT_0:
     bcf	    STATUS, 0
     rrf	    value
@@ -295,6 +295,21 @@ OW_READ_BIT_NEXT:
     retlw   0    
 
 
+; ****************    
+; Samples the bus for the presence of a low state signal sent by the DS18B20. 
+; If a low state occurrence is not detected, the subroutine will return 1. 
+; Otherwise, it will return 0, indicating that the device has sent a 0 signal.  
+CHECK_BUS: 
+    movlw   16
+    movwf   counterM
+CHECK_BUS_LOOP:
+    btfss   GPIO, 0		; Check if LSB of GPIO (GP0) is HIGH or LOW   (1 cycle)
+    retlw   0			; The DS18B20 sent 0
+    decfsz  counterM, f		; 1 cycle    
+    goto    CHECK_BUS_LOOP	; 2 cycle    
+    retlw   1			; The DS18B20 sent 1
+    
+ 
 ; Delay function    
 ; Takes (WREG * 10)us    
 ; Examples: if WREG=1 => 10us; WREG=7 => 70us; WREG=48 => 480us; and so on     
