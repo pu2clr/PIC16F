@@ -155,13 +155,13 @@ MainLoop:
     
    
     ; Begin Check
-    ; movlw   50
+    ; movlw   255
     ; movwf   tempL
     ; End Check
     
     ; Process the temperature value (turn on or off the LEDs 
     
-    movlw   27		; Limit  -> tempL > ?
+    movlw   255		; All bits is 1 (Whay?) - ????????
     subwf   tempL
     btfss   STATUS, 0
     goto    TurnLedOff
@@ -171,8 +171,7 @@ TurnLedOff:
     goto    MainLoopEnd
 TurnLedOn:
     bsf	    GPIO, 1
-    ; call    BLINK_LED
-    ; goto    MainLoopEnd  
+    goto    MainLoopEnd  
 MainLoopEnd: 
     call    DELAY_600ms
     goto    MainLoop    
@@ -272,28 +271,26 @@ OW_READ_BIT:
     SET_PIN_OUT
     bcf	GPIO,0
     goto $+1	    ; Wait for 3us or a bit more
-    nop
     SET_PIN_IN
-    goto $+1	    ; wait for 3us or a bit more
-    nop		    ; 
+    movlw   2
+    call    DELAY_Nx10us
+    
     ; Assigns 1 or 0 depending on the value of the first bit of the GPIO (GP0).
-    movlw   1		
-    andwf   GPIO, w
-    movwf   aux
-    movf   value, w
-    iorwf  aux, w
-    movwf  value    ; The first bit of value now has the value of GP0
-    movlw   9	    ; 90us
-    call DELAY_Nx10us ; 
-  
-    decfsz  counter1, f
-    goto    OW_READ_BIT_NEXT
-    goto    OW_READ_BIT_END
-OW_READ_BIT_NEXT: 
+     btfss GPIO, 0		; Check if LSB of value is HIGH or LOW (Assigns valuer LSB to GP0)  
+     goto OW_READ_BIT_0
+     goto OW_READ_BIT_1
+OW_READ_BIT_0:
     bcf	    STATUS, 0
-    rlf	    value
+    rrf	    value
+    goto    OW_READ_BIT_NEXT
+OW_READ_BIT_1:
+    bsf	    STATUS, 0
+    rrf	    value
+OW_READ_BIT_NEXT:  
+    movlw   9		; 90us - wait 90us to read the next bit
+    call DELAY_Nx10us	; 
+    decfsz  counter1, f
     goto    OW_READ_BIT
-OW_READ_BIT_END:
     nop  
     retlw   0    
 
