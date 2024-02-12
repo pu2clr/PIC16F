@@ -34,12 +34,14 @@
    
 ; Sets the GP0 as output 
  SET_PIN_OUT MACRO
+    clrf    GPIO
     clrw
     tris    GPIO
     ENDM
  
 ; Sets the GP0 as input  
 SET_PIN_IN MACRO
+    clrf    GPIO
     movlw   0x01
     tris    GPIO
 ENDM
@@ -192,7 +194,9 @@ OW_START_NO_DEVICE:
     goto    OW_START_DEVICE_RESPONSE ; check once again 
     goto    SYSTEM_ERROR		; Device not found - Exit/Halt
     retlw   0			
-OW_START_DEVICE_FOUND:    
+OW_START_DEVICE_FOUND:  
+    movlw   40
+    call    DELAY_Nx10us
     retlw   1			; Device found
 
     
@@ -212,18 +216,18 @@ OW_WRITE_BIT_0:
     bcf	    GPIO, 0		; turn bus low for
     movlw   6			; 90us
     call    DELAY_Nx10us 	
-    bsf	    GPIO, 0		; turn bus high for 
-    movlw   1			; 10us
-    call    DELAY_Nx10us
+    ; bsf	    GPIO, 0		; turn bus high for 
+    ; movlw   1			; 10us
+    ; call    DELAY_Nx10us
     goto    OW_WRITE_BIT_END
-OW_WRITE_BIT_1:    
+OW_WRITE_BIT_1: 
     SET_PIN_OUT			; GP0 output setup
-    bsf	    GPIO, 0		; turn bus low for
+    bcf	    GPIO, 0		; turn bus low for
     goto    $+1			; 4us
-    goto    $+1			; 
-    bsf	    GPIO, 0		; turn bus high
-    movlw   6			; wait for 90 us
-    call    DELAY_Nx10us
+    ; goto    $+1			; 
+    ; bsf	    GPIO, 0		; turn bus high
+    ; movlw   6			; wait for 90 us
+    ; call    DELAY_Nx10us
 OW_WRITE_BIT_END:
     SET_PIN_IN
     goto    $+1 
@@ -262,7 +266,6 @@ OW_READ_BIT:
 OW_READ_BIT_0:
     bcf	    STATUS, 0
     rrf	    value
-    call    BLINK_LED
     goto    OW_READ_BIT_NEXT
 OW_READ_BIT_1:
     bsf	    STATUS, 0
@@ -281,7 +284,7 @@ OW_READ_BIT_NEXT:
 ; If a low state occurrence is not detected, the subroutine will return 1. 
 ; Otherwise, it will return 0, indicating that the device has sent a 0 signal.  
 CHECK_BUS: 
-    movlw   125
+    movlw   30
     movwf   counterM
 CHECK_BUS_LOOP:
     btfss   GPIO, 0		; Check if LSB of GPIO (GP0) is HIGH or LOW   (1 cycle)
