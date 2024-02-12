@@ -1,5 +1,4 @@
-; UNDER CONSTRUCTION... One Wire implementation
-    
+; UNDER CONSTRUCTION... One Wire implementation 
 ; My PIC Journey
 ; Author: Ricardo Lima Caratti
 ; Jan/2024
@@ -35,17 +34,14 @@
    
 ; Sets the GP0 as output 
  SET_PIN_OUT MACRO
-    nop
     clrw
     tris    GPIO
     ENDM
  
 ; Sets the GP0 as input  
 SET_PIN_IN MACRO
-    nop
     movlw   0x01
     tris    GPIO
-    nop
 ENDM
  
 
@@ -189,13 +185,13 @@ OW_START:
     movlw   125			; Waiting for device response by checking 125 times if GP0 is low
     movwf   counter1
 OW_START_DEVICE_RESPONSE:
-    btfsc GPIO, 0		; if not 0,  no device is present so far
-    goto  OW_START_NO_DEVICE
-    goto  OW_START_DEVICE_FOUND
+    btfsc   GPIO, 0		; if not 0,  no device is present so far
+    goto    OW_START_NO_DEVICE
+    goto    OW_START_DEVICE_FOUND
 OW_START_NO_DEVICE:
     decfsz  counter1, f
-    goto   OW_START_DEVICE_RESPONSE ; check once again 
-    goto   SYSTEM_ERROR		; Device not found - Exit/Halt
+    goto    OW_START_DEVICE_RESPONSE ; check once again 
+    goto    SYSTEM_ERROR		; Device not found - Exit/Halt
     retlw   0			
 OW_START_DEVICE_FOUND:    
     retlw   1			; Device found
@@ -209,37 +205,34 @@ OW_WRITE_BYTE:
     movlw   8
     movwf   counter1
 OW_WRITE_BIT: 	
-    btfss value, 0		; Check if LSB of value is HIGH or LOW (Assigns valuer LSB to GP0)  
-    goto OW_WRITE_BIT_0
-    goto OW_WRITE_BIT_1
+    btfss   value, 0		; Check if LSB of value is HIGH or LOW (Assigns valuer LSB to GP0)  
+    goto    OW_WRITE_BIT_0
+    goto    OW_WRITE_BIT_1
 OW_WRITE_BIT_0:
     SET_PIN_OUT			; GP0 output setup
-    bcf GPIO, 0			; turn bus low for
+    bcf	    GPIO, 0		; turn bus low for
     movlw   9			; 90us
-    call DELAY_Nx10us 	
-    bsf GPIO, 0			; turn bus high for 
-    movlw   1			; 10us
-    call DELAY_Nx10us		
-    goto  OW_WRITE_BIT_END
+    call    DELAY_Nx10us 	
+    ; bsf	    GPIO, 0		; turn bus high for 
+    ; movlw   1			; 10us
+    ; call    DELAY_Nx10us		
+    goto    OW_WRITE_BIT_END
 OW_WRITE_BIT_1:    
     SET_PIN_OUT			; GP0 output setup
-    bcf GPIO, 0			; turn bus low for
-    goto $+1			; 4us
-    goto $+1			; 
-    bsf	GPIO, 0			; turn bus high
-    movlw   9			; wait for 90 us
-    call DELAY_Nx10us
+    bsf	    GPIO, 0		; turn bus low for
+    goto    $+1			; 4us
+    goto    $+1			; 
+    ; bsf	    GPIO, 0		; turn bus high
+    ; movlw   9			; wait for 90 us
+    ; call    DELAY_Nx10us
 OW_WRITE_BIT_END:
-    
     SET_PIN_IN
     goto    $+1    
     nop
-    
     bcf	    STATUS, 0
     rrf	    value		; Right shift - writes the next bit
     decfsz  counter1, f
     goto    OW_WRITE_BIT
-    
     retlw   0
     
    
@@ -256,8 +249,8 @@ OW_READ_BYTE:
 
 OW_READ_BIT:  
     SET_PIN_OUT
-    bcf	GPIO,0
-    goto $+1	    ; Wait for 2us or a bit more
+    bcf	    GPIO,0
+    goto    $+1	    ; Wait for 2us or a bit more
     SET_PIN_IN
     movlw   1
     call    DELAY_Nx10us
@@ -276,8 +269,8 @@ OW_READ_BIT_1:
     bsf	    STATUS, 0
     rrf	    value
 OW_READ_BIT_NEXT:  
-    movlw   50		; 
-    call DELAY_Nx10us	; 
+    movlw   50		    ; 
+    call    DELAY_Nx10us    ; 
     decfsz  counter1, f
     goto    OW_READ_BIT
     nop  
