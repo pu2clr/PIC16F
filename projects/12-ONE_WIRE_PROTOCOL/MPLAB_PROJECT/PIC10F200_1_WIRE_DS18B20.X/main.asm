@@ -154,7 +154,6 @@ TurnLedOn:
     bsf	    GPIO, 1
     goto    MainLoopEnd  
 MainLoopEnd: 
-    ;call    DELAY_600ms
     movlw   100
     call    DELAY_Nx10us
     goto    MainLoop    
@@ -211,23 +210,23 @@ OW_WRITE_BIT:
 OW_WRITE_BIT_0:
     SET_PIN_OUT			; GP0 output setup
     bcf	    GPIO, 0		; turn bus low for
-    movlw   9			; 90us
+    movlw   6			; 90us
     call    DELAY_Nx10us 	
-    ; bsf	    GPIO, 0		; turn bus high for 
-    ; movlw   1			; 10us
-    ; call    DELAY_Nx10us		
+    bsf	    GPIO, 0		; turn bus high for 
+    movlw   1			; 10us
+    call    DELAY_Nx10us
     goto    OW_WRITE_BIT_END
 OW_WRITE_BIT_1:    
     SET_PIN_OUT			; GP0 output setup
     bsf	    GPIO, 0		; turn bus low for
     goto    $+1			; 4us
     goto    $+1			; 
-    ; bsf	    GPIO, 0		; turn bus high
-    ; movlw   9			; wait for 90 us
-    ; call    DELAY_Nx10us
+    bsf	    GPIO, 0		; turn bus high
+    movlw   6			; wait for 90 us
+    call    DELAY_Nx10us
 OW_WRITE_BIT_END:
     SET_PIN_IN
-    goto    $+1    
+    goto    $+1 
     nop
     bcf	    STATUS, 0
     rrf	    value		; Right shift - writes the next bit
@@ -282,7 +281,7 @@ OW_READ_BIT_NEXT:
 ; If a low state occurrence is not detected, the subroutine will return 1. 
 ; Otherwise, it will return 0, indicating that the device has sent a 0 signal.  
 CHECK_BUS: 
-    movlw   50
+    movlw   125
     movwf   counterM
 CHECK_BUS_LOOP:
     btfss   GPIO, 0		; Check if LSB of GPIO (GP0) is HIGH or LOW   (1 cycle)
