@@ -1,5 +1,17 @@
 # BLINK with PIC10F, PIC12F and PIC16F
 
+This folder contains a basic examples demonstrating how to blink a LED using [PIC10F200](./PIC10F200/), [PIC12F657](./PIC12F675/) and [PIC16F628A](./PIC16F628A/) microcontrollers. It's a minimalistic application designed to provide a foundation for developing a wide range of more complex projects. These simple yet instructive examples can be a starting point for various applications, offering insights into basic microcontroller programming and hardware interaction. See subfolders [PIC10F200](./PIC10F200/), [PIC12F657](./PIC12F675/) and [PIC16F628A](./PIC16F628A/). 
+
+
+## Content
+
+1. [BLINK a LED using the PIC10F200](./PIC10F200/)
+2. [BLINK a LED using the PIC12F675](./PIC12F675/)
+3. [BLINK a LED using the PIC16F628A](./PIC16F628A/)
+
+
+## About LED 
+
 LEDs, or Light Emitting Diodes, are efficient light sources that work by passing an electrical current through a semiconductor material. Key features include:
 
 1. **Energy Efficiency**: LEDs consume significantly less power compared to traditional incandescent bulbs.
@@ -46,8 +58,6 @@ The use of LEDs (Light Emitting Diodes) in learning to program PIC (Peripheral I
 In conclusion, incorporating LEDs into PIC microcontroller learning projects is an effective way to introduce foundational concepts, provide engaging feedback, and foster a deeper understanding of electronics and programming.
 
 
-This folder contains a basic example demonstrating how to blink a LED using a PIC16F628A microcontroller. It's a minimalistic application designed to provide a foundation for developing a wide range of more complex projects. This simple yet instructive example can be a starting point for various applications, offering insights into basic microcontroller programming and hardware interaction.
-
-
 ## REFERENCES
+
 
