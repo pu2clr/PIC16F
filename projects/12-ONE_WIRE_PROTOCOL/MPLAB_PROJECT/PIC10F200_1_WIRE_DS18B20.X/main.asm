@@ -61,7 +61,12 @@ frac	    equ 0x18	; fraction of the temperature
 PSECT AsmCode, class=CODE, delta=2
 
 MAIN:
-
+    
+    ; Wake-up on Pin Change bit  disabled
+    ; Weak Pull-ups bit (GP0, GP1, GP3) diabled
+    movlw   0B11000000 
+    OPTION
+    
     clrf    GPIO
     clrw    
     tris    GPIO	    ; Sets all GPIO as output

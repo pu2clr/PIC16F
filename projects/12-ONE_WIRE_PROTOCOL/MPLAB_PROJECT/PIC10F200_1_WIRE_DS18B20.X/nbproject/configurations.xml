@@ -30,7 +30,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>Simulator</platformTool>
         <languageToolchain>pic-as</languageToolchain>
-        <languageToolchainVersion>2.46</languageToolchainVersion>
+        <languageToolchainVersion>2.45</languageToolchainVersion>
         <platform>4</platform>
       </toolsSet>
       <packs>
@@ -122,10 +122,10 @@
         <property key="lastid" value=""/>
         <property key="oscillator.auxfrequency" value="120"/>
         <property key="oscillator.auxfrequencyunit" value="Mega"/>
-        <property key="oscillator.frequency" value="1"/>
+        <property key="oscillator.frequency" value="4"/>
         <property key="oscillator.frequencyunit" value="Mega"/>
-        <property key="oscillator.rcfrequency" value="250"/>
-        <property key="oscillator.rcfrequencyunit" value="Kilo"/>
+        <property key="oscillator.rcfrequency" value="4"/>
+        <property key="oscillator.rcfrequencyunit" value="Mega"/>
         <property key="periphADC1.altscl" value="false"/>
         <property key="periphADC1.minTacq" value=""/>
         <property key="periphADC1.tacqunits" value="microseconds"/>
@@ -145,7 +145,7 @@
         <property key="toolpack.updateoptions.packversion"
                   value="Press to select which tool pack to use"/>
         <property key="tracecontrol.include.timestamp" value="summarydataenabled"/>
-        <property key="tracecontrol.select" value="0"/>
+        <property key="tracecontrol.select" value="1"/>
         <property key="tracecontrol.stallontracebufferfull" value="false"/>
         <property key="tracecontrol.timestamp" value="0"/>
         <property key="tracecontrol.tracebufmax" value="546000"/>
@@ -617,10 +617,10 @@
         <property key="memories.programmemory.ranges" value="0-ff"/>
         <property key="oscillator.auxfrequency" value="120"/>
         <property key="oscillator.auxfrequencyunit" value="Mega"/>
-        <property key="oscillator.frequency" value="1"/>
+        <property key="oscillator.frequency" value="4"/>
         <property key="oscillator.frequencyunit" value="Mega"/>
-        <property key="oscillator.rcfrequency" value="250"/>
-        <property key="oscillator.rcfrequencyunit" value="Kilo"/>
+        <property key="oscillator.rcfrequency" value="4"/>
+        <property key="oscillator.rcfrequencyunit" value="Mega"/>
         <property key="periphADC1.altscl" value="false"/>
         <property key="periphADC1.minTacq" value=""/>
         <property key="periphADC1.tacqunits" value="microseconds"/>
@@ -658,7 +658,7 @@
         <property key="toolpack.updateoptions.packversion"
                   value="Press to select which tool pack to use"/>
         <property key="tracecontrol.include.timestamp" value="summarydataenabled"/>
-        <property key="tracecontrol.select" value="0"/>
+        <property key="tracecontrol.select" value="1"/>
         <property key="tracecontrol.stallontracebufferfull" value="false"/>
         <property key="tracecontrol.timestamp" value="0"/>
         <property key="tracecontrol.tracebufmax" value="546000"/>
