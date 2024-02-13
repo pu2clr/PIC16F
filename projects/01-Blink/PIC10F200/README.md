@@ -3,7 +3,6 @@
 
 ## About PIC10F200 
 
-
 The PIC10F200 is a small, low-cost, and low-power microcontroller that is ideal for a variety of applications, including:
 
 * **Simple digital devices**
@@ -20,7 +19,7 @@ The PIC10F200 is a small, low-cost, and low-power microcontroller that is ideal 
 * **Low power consumption:** The PIC10F200 consumes very little power, making it ideal for battery-powered applications.
 
 
-## PIC10F200 Schematic 
+## PIC10F200 and LED Schematic 
 
 
 ![PIC10F200 Schematic ](./schematic_blink_pic10f200.jpg)

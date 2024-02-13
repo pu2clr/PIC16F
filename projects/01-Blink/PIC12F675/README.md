@@ -29,7 +29,7 @@ The PIC12F675 is a small, low-cost, and low-power microcontroller that is ideal 
 
 <BR>
 
-![PIC12F675 pinout](../../images/PIC12F675_PINOUT.png)
+![PIC12F675 pinout](../../../images/PIC12F675_PINOUT.png)
 
 
 

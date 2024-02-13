@@ -8,6 +8,8 @@ This folder contains a basic examples demonstrating how to blink a LED using [PI
 1. [BLINK a LED using the PIC10F200](./PIC10F200/)
 2. [BLINK a LED using the PIC12F675](./PIC12F675/)
 3. [BLINK a LED using the PIC16F628A](./PIC16F628A/)
+4. [About LED](#about-led)
+5. [References](#references)
 
 
 ## About LED 
@@ -59,5 +61,10 @@ In conclusion, incorporating LEDs into PIC microcontroller learning projects is 
 
 
 ## REFERENCES
+
+1. [PIC16F87XA Data Sheet](https://ww1.microchip.com/downloads/en/devicedoc/39582b.pdf)
+2. [PIC16F87XA Data Sheet](https://ww1.microchip.com/downloads/en/devicedoc/39582b.pdf)
+3. [PIC16F627A/628A/648A Data Sheet](https://ww1.microchip.com/downloads/en/DeviceDoc/40044G.pdf)
+4. [LED - Light-emitting diode](https://en.wikipedia.org/wiki/Light-emitting_diode)
 
 
