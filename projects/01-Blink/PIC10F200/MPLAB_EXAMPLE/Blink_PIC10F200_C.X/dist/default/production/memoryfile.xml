@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/production/Blink_PIC10F200_C.X.production.hex">
+    <memory name="program">
+      <units>words</units>
+      <length>256</length>
+      <used>36</used>
+      <free>220</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>16</length>
+      <used>6</used>
+      <free>10</free>
+    </memory>
+  </executable>
+</project>
