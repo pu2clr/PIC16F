@@ -1,4 +1,4 @@
-# PIC10F200 BLINK example
+# PIC10F200 BLINK LED example
 
 
 ## About PIC10F200 

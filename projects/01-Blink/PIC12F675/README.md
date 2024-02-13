@@ -1,5 +1,5 @@
 
-# PIC12F675 
+# PIC12F675 BLINK LED example
 
 
 ## About PIC12F675
@@ -12,7 +12,7 @@ The PIC12F675 is a small, low-cost, and low-power microcontroller that is ideal 
 * **Wireless devices**
 * **IoT devices**
 
-### Features:
+## Features:
 
 * **Flash memory:** The PIC12F675 has 1.75KB of Flash memory, which is enough to store a small program.
 * **RAM:** The PIC12F675 has 64 bytes of RAM, which is enough to store a few variables.
@@ -22,15 +22,14 @@ The PIC12F675 is a small, low-cost, and low-power microcontroller that is ideal 
 
 
 
-### PIC12F675 Schematic
+## PIC12F675 and LED Schematic
 
 ![Schematic PIC12F675 blink](./schematic_blink_pic12f675.jpg)
 
 
-<BR>
+## PIC12F675 PINOUT
 
 ![PIC12F675 pinout](../../../images/PIC12F675_PINOUT.png)
-
 
 
 ### PIC12F675 C Example
@@ -63,7 +62,7 @@ void main() {
 
 ```
 
-### PIC12F675 ASM Example
+### PIC12F675 Assembly Example
 
 ```asm
 
@@ -145,9 +144,7 @@ END resetVect
 ```
 
 
-
 ### BLINK PIC12F675 Prototype
-
 
 ![BLINK PIC12F675 Prototype](./pic12f675_blink.jpg)
 
@@ -155,3 +152,8 @@ END resetVect
 
 # REFERENCES
 
+* [PIC12F629/675 Data Sheet](https://ww1.microchip.com/downloads/en/devicedoc/41190c.pdf)
+* [MPLAB® XC8 C Compiler User’s Guide](https://ww1.microchip.com/downloads/en/devicedoc/50002053g.pdf)
+* [MPASMTM Assembler, MPLINKTM Object Linker, MPLIBTM Object Librarian User’s Guide](https://ww1.microchip.com/downloads/en/DeviceDoc/33014L.pdf)
+* [MPLAB® XC8 PIC® Assembler User's Guide](https://ww1.microchip.com/downloads/en/DeviceDoc/MPLAB%20XC8%20PIC%20Assembler%20User%27s%20Guide%2050002974A.pdf)
+* [Simulator](https://onlinedocs.microchip.com/pr/GUID-240F27AA-C615-4705-B68C-6E434B126B47-en-US-1/index.html?GUID-95DA81C7-47DF-4C86-BC12-0D9D018909C3)

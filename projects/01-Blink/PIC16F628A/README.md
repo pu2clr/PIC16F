@@ -1,4 +1,4 @@
-# PIC16F628A
+# PIC16F628A BLINK LED example
 
 ## About PIC16F628A
 
@@ -35,14 +35,14 @@ The PIC16F628A, developed by Microchip Technology, is a versatile and widely use
 
 
 
-## PIC628A Schematic
+## PIC628A and LED Schematic
 
 ![Schematic PIC16F286A blink](./schematic_blink_pic16f28a.jpg)
 
 
-<BR>
+## PIC628A PINOUT
 
-![PIC16F628A pinout](../../images/PIC16F628A_PINOUT.png)
+![PIC16F628A pinout](../../../images/PIC16F628A_PINOUT.png)
 
 
 ## BLINK PIC16F628A Prototype
@@ -164,3 +164,8 @@ END resetVect
 
 ## REFERENCES
 
+* [PIC16F627A/628A/648A Data Sheet](https://ww1.microchip.com/downloads/en/DeviceDoc/40044G.pdf)
+* [MPLAB® XC8 C Compiler User’s Guide](https://ww1.microchip.com/downloads/en/devicedoc/50002053g.pdf)
+* [MPASMTM Assembler, MPLINKTM Object Linker, MPLIBTM Object Librarian User’s Guide](https://ww1.microchip.com/downloads/en/DeviceDoc/33014L.pdf)
+* [MPLAB® XC8 PIC® Assembler User's Guide](https://ww1.microchip.com/downloads/en/DeviceDoc/MPLAB%20XC8%20PIC%20Assembler%20User%27s%20Guide%2050002974A.pdf)
+* [Simulator](https://onlinedocs.microchip.com/pr/GUID-240F27AA-C615-4705-B68C-6E434B126B47-en-US-1/index.html?GUID-95DA81C7-47DF-4C86-BC12-0D9D018909C3)
