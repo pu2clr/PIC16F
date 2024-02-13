@@ -1,5 +1,15 @@
 # PIC10F200 BLINK LED example
 
+## Content
+
+1. [About PIC10F200](#about-pic10f200)
+2. [KiCad Schematic](./KiCad/)
+3. [PIC10F200 and LED Schematic](#pic10f200-and-led-schematic)
+4. [PIC10F200 PINOUT](#pic10f200-pinout)
+4. [Example in Assembly](#pic10f200-blink-asm-example) 
+5. [Example in C](#pic10f200-blink-c-example)
+6. [MPLAB X IDE projects](./MPLAB_EXAMPLE/)
+7. [References](#references)
 
 ## About PIC10F200 
 
@@ -25,7 +35,7 @@ The PIC10F200 is a small, low-cost, and low-power microcontroller that is ideal 
 ![PIC10F200 Schematic ](./schematic_blink_pic10f200.jpg)
 
 
-<BR>
+## PIC10F200 PINOUT
 
 ![PIC10F200 pinout](../../../images/PIC10F200_PINOUT.jpg)
 

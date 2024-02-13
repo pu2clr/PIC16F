@@ -1,5 +1,18 @@
 # PIC16F628A BLINK LED example
 
+## Content
+
+1. [About PIC16F628A](#about-pic16f628a)
+2. [KiCad Schematic](./KiCad/)
+3. [PIC628A and LED Schematic](#pic628a-and-led-schematic)
+4. [PIC16F628A PINOUT](#pic16f628a-pinout)
+5. [BLINK LED prototype](#blink-pic16f628a-prototype)
+4. [Example in Assembly](#pic16f628a-assembly-example) 
+5. [Example in C](#pic16f628a-c-example)
+6. [MPLAB X IDE projects](./MPLAB_EXAMPLE/)
+7. [References](#references)
+
+
 ## About PIC16F628A
 
 
@@ -40,7 +53,7 @@ The PIC16F628A, developed by Microchip Technology, is a versatile and widely use
 ![Schematic PIC16F286A blink](./schematic_blink_pic16f28a.jpg)
 
 
-## PIC628A PINOUT
+## PIC16F628A PINOUT
 
 ![PIC16F628A pinout](../../../images/PIC16F628A_PINOUT.png)
 

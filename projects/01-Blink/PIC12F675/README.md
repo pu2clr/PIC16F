@@ -2,6 +2,18 @@
 # PIC12F675 BLINK LED example
 
 
+## Content
+
+1. [About PIC12F675](#about-pic12f675)
+2. [PIC12F675 and LED Schematic](#pic12f675-and-led-schematic)
+3. [KiCad schematic](./KiCad/)
+4. [PIC12F675 PINOUT](#pic12f675-pinout)
+5. [Assembly example](#pic12f675-assembly-example)
+6. [C example](#pic12f675-c-example)
+7. [MPLAB X IDE examples](./MPLAB_EXAMPLE/)
+7. [References](#references)
+
+
 ## About PIC12F675
 
 
