@@ -7,7 +7,7 @@
 
 ### PIC16F877 and DS18B20 schematic
 
-![PIC16F877 and DS18B20 schematic](./schematic_PIC16F877_1_wire_ds18b20.jpg)
+![PIC16F877 and DS18B20 schematic]()
 
 
 ### PIC16F877 PINOUT
