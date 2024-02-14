@@ -20,8 +20,10 @@
 #define _XTAL_FREQ 4000000      // Frequency (Clock)
 
 
-#define DS18B20_PIN      RB1    // DS18B20 data pin interface    
-#define DS18B20_PIN_Dir  TRISB1 // 0 is output and 1 is input
+#define DS18B20_INTERFACE_PIN      RB1    // DS18B20 data pin interface    
+#define DS18B20_INTERFACE_PIN_IO  TRISB1 // 0 is output and 1 is input
+#define OUTPUT  0
+#define INPUT   1
 
 
 // Bitmap for Celsius degree symbol
@@ -36,70 +38,66 @@ unsigned char celsiusChar[8] = {
     0b01111 //  ****
 };
 
+/**
+ * Initialize the DS18B20 device and wait for presence information. 
+ * Returns 0 if the device is not present or not detected and 1 if the device is present. 
+ */
+unsigned char ds18b20_reset_and_presence() {
 
-
-// DS18B20 - Init dialog 
-
-__bit ds18b20_start() {
-    DS18B20_PIN = 0; // send reset pulse to the DS18B20 sensor
-    DS18B20_PIN_Dir = 0; // configure DS18B20_PIN pin as output
-    __delay_us(500); // wait 500 us
-
-    DS18B20_PIN_Dir = 1; // configure DS18B20_PIN pin as input
-    __delay_us(100); // wait 100 us to read the DS18B20 sensor response
-
-    if (!DS18B20_PIN) {
-        __delay_us(400); // wait 400 us
-        return 1; // DS18B20 sensor is present
+    DS18B20_INTERFACE_PIN = 0; // Sends reset pulse to the DS18B20 
+    DS18B20_INTERFACE_PIN_IO = OUTPUT; // Configures DS18B20_INTERFACE_PIN pin as output
+    __delay_us(480); // Waits for 48us
+    DS18B20_INTERFACE_PIN_IO = INPUT; // Configures DS18B20_INTERFACE_PIN pin as input
+    __delay_us(90); // Waits for 100us and than reads response in DS18B20_INTERFACE_PIN
+    if (!DS18B20_INTERFACE_PIN) {
+        __delay_us(390); //  
+        return 1; // DS18B20 was detected
     }
-
-    return 0; // connection error
+    return 0; // DS18B20 was not detected
 }
 
-void ds18b20_write_bit(uint8_t value) {
-    DS18B20_PIN = 0;
-    DS18B20_PIN_Dir = 0; // configure DS18B20_PIN pin as output
-    __delay_us(2); // wait 2 us
-
-    DS18B20_PIN = (__bit) value;
-    __delay_us(80); // wait 80 us
-
-    DS18B20_PIN_Dir = 1; // configure DS18B20_PIN pin as input
-    __delay_us(2); // wait 2 us
-}
 
 void ds18b20_write_byte(uint8_t value) {
-    for (uint8_t i = 0; i < 8; i++)
-        ds18b20_write_bit(value >> i);
+
+    for (uint8_t i = 0; i < 8; i++) {
+        uint8_t bitValue = value >> i;
+        
+        DS18B20_INTERFACE_PIN = 0;              
+        DS18B20_INTERFACE_PIN_IO = OUTPUT;
+        __delay_us(2); // Waits for 2us
+        DS18B20_INTERFACE_PIN = (uint8_t) bitValue;
+        __delay_us(70); // Waits 70us
+
+        DS18B20_INTERFACE_PIN_IO = INPUT;
+        __delay_us(2);
+    }
 }
 
-__bit ds18b20_read_bit(void) {
-    static __bit value;
 
-    DS18B20_PIN = 0;
-    DS18B20_PIN_Dir = 0; // configure DS18B20_PIN pin as output
-    __delay_us(2);
-
-    DS18B20_PIN_Dir = 1; // configure DS18B20_PIN pin as input
-    __delay_us(5); // wait 5 us
-
-    value = DS18B20_PIN; // read and store DS18B20 state
-    __delay_us(100); // wait 100 us
-
-    return value;
-}
-
+/**
+ * Reads a byte from DS18B20
+ * @return the read byte
+ */
 uint8_t ds18b20_read_byte(void) {
-    uint8_t value = 0;
+    
+    uint8_t byteValue = 0;
+    uint8_t bitValue;
 
-    for (uint8_t i = 0; i < 8; i++)
-        value |= ds18b20_read_bit() << i;
-
-    return value;
+    for (uint8_t i = 0; i < 8; i++) { 
+        DS18B20_INTERFACE_PIN = 0;
+        DS18B20_INTERFACE_PIN_IO = OUTPUT; 
+        __delay_us(2);
+        DS18B20_INTERFACE_PIN_IO = INPUT; 
+        __delay_us(6); 
+        bitValue = DS18B20_INTERFACE_PIN; 
+        __delay_us(90);             
+        byteValue |= bitValue << i;
+    }
+    return byteValue;
 }
 
-__bit ds18b20_read(uint16_t *raw_temp_value) {
-    if (!ds18b20_start()) // send start pulse
+unsigned char ds18b20_read(uint16_t *raw_temp_value) {
+    if (!ds18b20_reset_and_presence()) // send start pulse
         return 0; // return 0 if error
 
     ds18b20_write_byte(0xCC); // send skip ROM command
@@ -107,7 +105,7 @@ __bit ds18b20_read(uint16_t *raw_temp_value) {
 
     while (ds18b20_read_byte() == 0); // wait for conversion complete
 
-    if (!ds18b20_start()) // send start pulse
+    if (!ds18b20_reset_and_presence()) // send start pulse
         return 0; // return 0 if error
 
     ds18b20_write_byte(0xCC); // send skip ROM command
@@ -168,26 +166,24 @@ void main() {
 
 
     while (1) {
-        uint16_t temAux;
-
-        if (ds18b20_read(&ds18b20Temp)) {
+         if (ds18b20_read(&ds18b20Temp)) {
             if (ds18b20Temp & 0x8000) // check if the temperature is above 0
             {
-                strTempValue[0] = '-'; 
-                ds18b20Temp = (~ds18b20Temp) + 1; 
-            } else strTempValue[0] = '+';  
+                strTempValue[0] = '-';
+                ds18b20Temp = (~ds18b20Temp) + 1;
+            } else strTempValue[0] = '+';
         }
-        strTempValue[1] = ( (ds18b20Temp >> 4) / 10 ) % 10 + '0';  // put tens digit
-        strTempValue[2] =   (ds18b20Temp >> 4)        % 10 + '0';  // put ones digit
+        strTempValue[1] = ((ds18b20Temp >> 4) / 10) % 10 + '0'; // put tens digit
+        strTempValue[2] = (ds18b20Temp >> 4) % 10 + '0'; // put ones digit
         strTempValue[3] = '\0';
-        
+
         Lcd_SetCursor(&lcd, 1, 1);
         Lcd_WriteString(&lcd, "Temp: ");
         Lcd_SetCursor(&lcd, 1, 7);
-        Lcd_WriteString(&lcd,strTempValue);
+        Lcd_WriteString(&lcd, strTempValue);
         Lcd_SetCursor(&lcd, 1, 11);
         Lcd_WriteCustomChar(&lcd, 0);
 
-        __delay_ms(5000);
+        __delay_ms(2000);
     }
 }
