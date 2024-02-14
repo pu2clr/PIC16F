@@ -5,6 +5,19 @@ This project includes, in addition to basic information for controlling the 16x2
 The main goal here is to reduce the developer's effort in searching for or adapting an existing solution.
 
 
+## Content
+
+1. [The LCD 16X02 PINOUT](#lcd-16x2-pinout)
+2. [HD44780 LCD Controller Description](#hd44780-lcd-controller-description)
+3. [HD44780 Command Set Table](#hd44780-command-set-table)
+4. [LCD 16x02 library for PIC16F family](#lcd-16x02-library-for-pic16f-family)
+    * [LCD Library implamantation source code](./lcd_library/)
+    * [PIC16F628A example](./PIC16F628A/)
+    * [PIC16F876A example](./PIC16F876A/)
+    * [PIC16F887 example](./PIC16F887/)
+5. [References](#references)    
+
+
 ## LCD 16x2 PINOUT
 
 
@@ -65,43 +78,12 @@ The HD44780's command set allows for comprehensive control over the LCD's behavi
 
 ## LCD 16x02 library for PIC16F family
 
-This folder contains an implementation of a C library for controlling the 16x2 LCD. See the [lcd_library](./lcd_library) folder .
+This folder contains an implementation of a C library for controlling the 16x2 LCD. See the [lcd_library](./lcd_library) folder. See: 
 
-
-## LCD 16x2 and PIC16F628A Interface (schematic)
-
-
-![LCD 16x2 and ## LCD 16x2 and PIC16F628A Interface circuit](./schematic_pic16f628a_lcd_16_2.jpg)
-
-
-### PIC16F628A PINOUT
-
-![PIC16F628 PINOUT](../../images/PIC16F628A_PINOUT.png)
-
-
-## LCD 16x2 and PIC16F887 Interface (schematic)
-
-
-![LCD 16x2 and PIC16F887 Interface - schematic](./schematic_pic16f887_lcd_16_2.jpg)
-
-
-### PIC16F887 PINOUT
-
-
-![PIC16F628 PINOUT](../../images/PIC16F887_PINOUT.png)
-
-
-## LCD 16x2 and PIC16F876A Interface (schematic)
-
-
-![LCD 16x2 and PIC16F876A Interface (schematic)](./schematic_pic16f876A_lcd_16_2.jpg)
-
-
-### PIC16F876A PINOUT
-
-
-![PIC16F628 PINOUT](../../images/PIC16F876A_PINOUT.png)
-
+1. [LCD Library implamantation source code](./lcd_library/)
+2. [PIC16F628A example](./PIC16F628A/)
+3. [PIC16F876A example](./PIC16F876A/)
+4. [PIC16F887 example](./PIC16F887/)
 
 ## References
 
