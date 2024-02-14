@@ -1,6 +1,7 @@
-# Termometer with LM35 or TMP36 sensor and PIC12F and PIC16F with ADC support
+# Termometer with LM35 or TMP36 sensor and PIC with ADC support
 
-In this folder, you will find some projects with the PIC12F and PIC16F series for processing analog signals, particularly for reading voltage outputs produced by temperature sensors like the LM35 or TMP36
+In this folder, you will find some LM35 or TMP36 projects with the PIC10F and PIC12F with ADC support. You can find applications that use PIC16 and LM35 or TMP36 in [05-PWM-SPEED-COOLER](../05-PWM-SPEED-COOLER/) folder. 
+
 
 ## Fever indicator with the small PIC12F675
 
@@ -90,7 +91,7 @@ The LM35's straightforward and linear output, combined with its inherent accurac
 ## Schematic - Fiver Indicator with PIC12F675, LM35 and LED
 
 
-![Schematic - Fiver Indicator with PIC12F675, LM35 and LED](./schematic_pic12F765_lm35_led.jpg)
+![Schematic - Fiver Indicator with PIC12F675, LM35 and LED](./schematic_pic12F675_lm35_led.jpg)
 
 
 
@@ -334,7 +335,7 @@ END resetVect
 This version of the "Fever Indicator" uses multiple LEDs instead of one. The green LED indicates normal body temperature, the yellow LED indicates a warning or point of attention, and the red LED indicates fever. Note that the connections for the LM35 have changed. In this version, GP4 - (AN3) is used for analog reading.
 
 
-![Schematic - Fiver Indicator with PIC12F675, LM35 and Three LEDs](./schematic_pic12F765_lm35_3led.jpg)
+![Schematic - Fiver Indicator with PIC12F675, LM35 and Three LEDs](./schematic_pic12F675_lm35_3led.jpg)
 
 
 ## C code - Fiver Indicator with PIC12F675, LM35 and Three LEDs
