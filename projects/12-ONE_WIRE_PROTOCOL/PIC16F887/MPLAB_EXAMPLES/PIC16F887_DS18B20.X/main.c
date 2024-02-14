@@ -20,7 +20,7 @@
 #define _XTAL_FREQ 4000000      // Frequency (Clock)
 
 
-#define DS18B20_INTERFACE_PIN      RB1    // DS18B20 data pin interface    
+#define DS18B20_INTERFACE_PIN     RB1    // DS18B20 data pin interface    
 #define DS18B20_INTERFACE_PIN_IO  TRISB1 // 0 is output and 1 is input
 #define OUTPUT  0
 #define INPUT   1
@@ -60,12 +60,12 @@ unsigned char ds18b20_reset_and_presence() {
 void ds18b20_write_byte(uint8_t value) {
 
     for (uint8_t i = 0; i < 8; i++) {
-        uint8_t bitValue = value >> i;
+        uint8_t bitValue = (uint8_t) (value >> i);
         
         DS18B20_INTERFACE_PIN = 0;              
         DS18B20_INTERFACE_PIN_IO = OUTPUT;
         __delay_us(2); // Waits for 2us
-        DS18B20_INTERFACE_PIN = (uint8_t) bitValue;
+        DS18B20_INTERFACE_PIN = (__bit) bitValue;
         __delay_us(70); // Waits 70us
 
         DS18B20_INTERFACE_PIN_IO = INPUT;
@@ -119,6 +119,7 @@ unsigned char ds18b20_read(uint16_t *raw_temp_value) {
     return 1; // OK --> return 1
 }
 
+/*
 void convertToChar(uint16_t value, char *strValue, uint8_t len) {
     char d;
     for (int i = (len - 1); i >= 0; i--) {
@@ -128,6 +129,7 @@ void convertToChar(uint16_t value, char *strValue, uint8_t len) {
     }
     strValue[len] = '\0';
 }
+*/ 
 
 void main() {
     unsigned char i;
