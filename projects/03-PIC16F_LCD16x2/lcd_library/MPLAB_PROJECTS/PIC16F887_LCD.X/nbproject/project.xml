@@ -10,7 +10,6 @@
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library</sourceRootElem>
-                <sourceRootElem>../../../PIC16F628A/MPLAB_EXAMPLES/PIC16F628A_LCD.X</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

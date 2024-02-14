@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>pic16flcd.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -19,8 +20,7 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
     <itemPath>newmain.c</itemPath>
-    <itemPath>../../pic16flcd.c</itemPath>
-    <itemPath>../../pic16flcd.h</itemPath>
+    <itemPath>pic16flcd.c</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/03-PIC16F_LCD16x2/lcd_library</Elem>
@@ -36,7 +36,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>2.45</languageToolchainVersion>
+        <languageToolchainVersion>2.46</languageToolchainVersion>
         <platform>4</platform>
       </toolsSet>
       <packs>

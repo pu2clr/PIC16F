@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>../../../PIC16F628A/MPLAB_EXAMPLES/PIC16F628A_LCD.X/pic16flcd.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -19,8 +20,7 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
     <itemPath>newmain.c</itemPath>
-    <itemPath>../../pic16flcd.c</itemPath>
-    <itemPath>../../pic16flcd.h</itemPath>
+    <itemPath>../../../PIC16F628A/MPLAB_EXAMPLES/PIC16F628A_LCD.X/pic16flcd.c</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>../../..</Elem>
@@ -35,7 +35,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>Simulator</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>2.45</languageToolchainVersion>
+        <languageToolchainVersion>2.46</languageToolchainVersion>
         <platform>2</platform>
       </toolsSet>
       <packs>

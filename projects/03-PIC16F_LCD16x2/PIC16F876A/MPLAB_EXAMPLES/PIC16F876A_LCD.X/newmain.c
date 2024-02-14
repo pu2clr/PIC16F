@@ -1,5 +1,5 @@
 #include <xc.h>
-#include "../../pic16flcd.h"
+#include "pic16flcd.h"
 
 
 #pragma config FOSC = HS      // 
@@ -11,7 +11,9 @@
 #pragma config CP = OFF         // Flash Program Memory Code Protection disabled
 
 
+#ifndef _XTAL_FREQ
 #define _XTAL_FREQ 8000000      // internal clock
+#endif
 
 
 /**

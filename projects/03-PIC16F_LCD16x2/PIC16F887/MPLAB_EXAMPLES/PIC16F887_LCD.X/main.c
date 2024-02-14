@@ -1,5 +1,5 @@
 #include <xc.h>
-#include "../../pic16flcd.h"
+#include "pic16flcd.h"
 
 #pragma config FOSC = INTRC_NOCLKOUT
 #pragma config WDTE = OFF       // Watchdog Timer disabled 

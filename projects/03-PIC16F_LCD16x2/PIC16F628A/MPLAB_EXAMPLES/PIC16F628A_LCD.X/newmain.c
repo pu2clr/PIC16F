@@ -3,7 +3,7 @@
  */
 
 #include <xc.h>
-#include "../../pic16flcd.h"
+#include "pic16flcd.h"
 
 #pragma config FOSC = INTOSCIO  // Internal oscillator.
 #pragma config WDTE = OFF       // Watchdog Timer disabled 
