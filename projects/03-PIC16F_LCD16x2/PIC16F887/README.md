@@ -18,7 +18,7 @@
 ## PIC16F887 PINOUT
 
 
-![PIC16F887 PINOUT](../../images/PIC16F887_PINOUT.png)
+![PIC16F887 PINOUT](../../../images/PIC16F887_PINOUT.png)
 
 
 ## LCD 16x2 and PIC16F887 prototype
