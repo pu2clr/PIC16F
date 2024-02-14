@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/production/COOLER_PIC16F887_4_WIRES_LM35_LCD_INT.X.production.hex">
+    <memory name="program">
+      <units>words</units>
+      <length>8192</length>
+      <used>5087</used>
+      <free>3105</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>368</length>
+      <used>189</used>
+      <free>179</free>
+    </memory>
+  </executable>
+</project>
