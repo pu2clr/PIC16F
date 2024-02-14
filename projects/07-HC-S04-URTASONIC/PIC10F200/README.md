@@ -57,7 +57,7 @@ The PIC10F200 may be a good option for simple applications with the HC-SR04, but
 ### PIC10F200 PINOUT
 
 
-![PIC10F200 PINOUT](./../../images/PIC10F200_PINOUT.jpg)
+![PIC10F200 PINOUT](./../../../images/PIC10F200_PINOUT.jpg)
 
 
 
