@@ -18,13 +18,11 @@
 
 void main() {
     TRISIO = 0x00;  // Sets All GPIO as output 
+    GPIO =  0x0;    // Turns all GPIO pins low
     while (1) {
-        GPIO =  0x0;    // Turns all GPIO pins low
-        __delay_ms(3000);
-        for (char i = 0; i < 4; i++){
-            GPIO = i;
-            __delay_ms(1000); 
-        } 
+        __delay_ms(1000);
+        if (GPIO > 4 ) GPIO =  0x0;
+        GPIO = (unsigned char) (GPIO << 1);
     }
 }
 

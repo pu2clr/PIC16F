@@ -27,24 +27,25 @@ resetVect:
 PSECT code, delta=2
 main:
     ; INITIALIZING GPIO - See page 19 of the PIC12F675 Data Sheet
-    bcf STATUS,5	    ; Selects Bank 0
-    clrf GPIO		    ; Init GPIO  
-    clrf CMCON		    ; COMPARATOR Register setup
-    bsf STATUS,5	    ; Selects Bank 1  
-    clrf ANSEL		    ; Digital IO  
+    bcf STATUS,5	        ; Selects Bank 0
+    clrf GPIO		        ; Init GPIO  
+    clrf CMCON		        ; COMPARATOR Register setup
+    bsf STATUS,5	        ; Selects Bank 1  
+    clrf ANSEL		        ; Digital IO  
     clrw
-    movwf   TRISIO	    ; Sets all GPIO as output   
+    movwf   TRISIO	        ; Sets all GPIO as output   
     bcf	    STATUS,5	    ; Selects the Bank 0		
     clrf    ledNumber	    ; ledNumber = 0
-MainLoopBegin:		    ; Endless loop
+MainLoopBegin:		        ; Endless loop
     movf    ledNumber,w	    ; All LEDs off at first time
-    movwf   GPIO
-    call    Delay	
+    movwf   GPIO	    
+    call    Delay
+    bsf	    STATUS, 0	    ; Sets 1 to carry flag	
     rlf	    ledNumber	    ; Sets ledNumber to turn the next LED on    
     btfss   ledNumber,3	    ; Check if the end of LED cycle 
     goto    MainLoopBegin
     ; Restart the LED sequency
-    clrf ledNumber	    ;  
+    clrf ledNumber	        ;  
     bsf  ledNumber,0	    ; ledNumber = 1 (first LED again) 
     goto MainLoopBegin
      
