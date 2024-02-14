@@ -20,8 +20,8 @@
 #define _XTAL_FREQ 4000000      // Frequency (Clock)
 
 
-#define DS18B20_INTERFACE_PIN     RB1    // DS18B20 data pin interface    
-#define DS18B20_INTERFACE_PIN_IO  TRISB1 // 0 is output and 1 is input
+#define DS18B20_INTERFACE_PIN     RB0    // DS18B20 data pin interface    
+#define DS18B20_INTERFACE_PIN_IO  TRISB0 // 0 is output and 1 is input
 #define OUTPUT  0
 #define INPUT   1
 
@@ -42,7 +42,7 @@ unsigned char celsiusChar[8] = {
  * Initialize the DS18B20 device and wait for presence information. 
  * Returns 0 if the device is not present or not detected and 1 if the device is present. 
  */
-unsigned char ds18b20_reset_and_presence() {
+unsigned char ds18b20ResetPresence() {
 
     DS18B20_INTERFACE_PIN = 0; // Sends reset pulse to the DS18B20 
     DS18B20_INTERFACE_PIN_IO = OUTPUT; // Configures DS18B20_INTERFACE_PIN pin as output
@@ -57,7 +57,7 @@ unsigned char ds18b20_reset_and_presence() {
 }
 
 
-void ds18b20_write_byte(uint8_t value) {
+void ds18b20WriteByte(uint8_t value) {
 
     for (uint8_t i = 0; i < 8; i++) {
         uint8_t bitValue = (uint8_t) (value >> i);
@@ -78,7 +78,7 @@ void ds18b20_write_byte(uint8_t value) {
  * Reads a byte from DS18B20
  * @return the read byte
  */
-uint8_t ds18b20_read_byte(void) {
+uint8_t ds18b20ReadByte(void) {
     
     uint8_t byteValue = 0;
     uint8_t bitValue;
@@ -96,30 +96,40 @@ uint8_t ds18b20_read_byte(void) {
     return byteValue;
 }
 
-unsigned char ds18b20_read(uint16_t *raw_temp_value) {
-    if (!ds18b20_reset_and_presence()) // send start pulse
-        return 0; // return 0 if error
+/**
+ * Gets the current temperature from the DS18B20 device
+ * @param paramTemp
+ * @return 1 if success and 0 if error.
+ */
+unsigned char ds18b20GetTemperature(uint16_t *paramTemp) {
+    
+    if (!ds18b20ResetPresence())    // Sends start pulse and gets presence
+        return 0;                   // If 0, error (device is not detected)
 
-    ds18b20_write_byte(0xCC); // send skip ROM command
-    ds18b20_write_byte(0x44); // send start conversion command
+    ds18b20WriteByte(0xCC);         // Skips ROM command (just one device here))
+    ds18b20WriteByte(0x44);         // Sends start dialog command
 
-    while (ds18b20_read_byte() == 0); // wait for conversion complete
+    while (ds18b20ReadByte() == 0); // Waits for conversion process
 
-    if (!ds18b20_reset_and_presence()) // send start pulse
-        return 0; // return 0 if error
+    if (!ds18b20ResetPresence())    // Again..  sends start pulse and gets presence
+        return 0;                   // Returns 0 if error or device is not detected
 
-    ds18b20_write_byte(0xCC); // send skip ROM command
-    ds18b20_write_byte(0xBE); // send read command
+    ds18b20WriteByte(0xCC);         
+    ds18b20WriteByte(0xBE);         // Sends read current temperature command
 
-    // read temperature LSB byte and store it on raw_temp_value LSB byte
-    *raw_temp_value = ds18b20_read_byte();
-    // read temperature MSB byte and store it on raw_temp_value MSB byte
-    *raw_temp_value |= (uint16_t) (ds18b20_read_byte() << 8);
+    // Gets two bytes from the DS18B20 build the raw temperature information     
+    *paramTemp = ds18b20ReadByte();
+    *paramTemp |= (uint16_t) (ds18b20ReadByte() << 8);
 
-    return 1; // OK --> return 1
+    return 1; 
 }
 
-/*
+/**
+ * Converts a integer to an array of char
+ * @param value     Integer value to be converted
+ * @param strValue  point to char array
+ * @param len       number of digits to be converted    
+ */
 void convertToChar(uint16_t value, char *strValue, uint8_t len) {
     char d;
     for (int i = (len - 1); i >= 0; i--) {
@@ -129,7 +139,7 @@ void convertToChar(uint16_t value, char *strValue, uint8_t len) {
     }
     strValue[len] = '\0';
 }
-*/ 
+
 
 void main() {
     unsigned char i;
@@ -168,22 +178,26 @@ void main() {
 
 
     while (1) {
-         if (ds18b20_read(&ds18b20Temp)) {
+        
+        if (ds18b20GetTemperature(&ds18b20Temp)) {
             if (ds18b20Temp & 0x8000) // check if the temperature is above 0
             {
                 strTempValue[0] = '-';
                 ds18b20Temp = (~ds18b20Temp) + 1;
             } else strTempValue[0] = '+';
         }
-        strTempValue[1] = ((ds18b20Temp >> 4) / 10) % 10 + '0'; // put tens digit
-        strTempValue[2] = (ds18b20Temp >> 4) % 10 + '0'; // put ones digit
-        strTempValue[3] = '\0';
+        // Ignore the fractional part and convert the temperature to a string
+        convertToChar(ds18b20Temp >> 4, &strTempValue[1], 3);
+        strTempValue[4] = '.';
+        // Gets the fractional part (resolution: 0,5)        
+        strTempValue[5] =  ( (ds18b20Temp & 0B1111 ) > 8)? '5': '0'; 
+        strTempValue[6] = '\0';
 
         Lcd_SetCursor(&lcd, 1, 1);
         Lcd_WriteString(&lcd, "Temp: ");
         Lcd_SetCursor(&lcd, 1, 7);
         Lcd_WriteString(&lcd, strTempValue);
-        Lcd_SetCursor(&lcd, 1, 11);
+        Lcd_SetCursor(&lcd, 1, 13);
         Lcd_WriteCustomChar(&lcd, 0);
 
         __delay_ms(2000);

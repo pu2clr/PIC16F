@@ -1,25 +1,36 @@
 # DS18B20 and PIC16F877
 
 
-## UNDER CONSTRUCTION...
+## Content
+
+1. [PIC16F877 and DS18B20 schematic](#pic16f877-and-ds18b20-schematic) 
+    * [KiCad Schematic](./KiCad/)
+2. [PIC16F877 PINOUT](#pic16f877-pinout)
+3. [DS18B20 PINOUT](#ds18b20-pinout)
+4. [DS18B20 and PIC16F877 prototype](#ds18b20-and-pic16f877-prototype)
+5. [MPLAB X IDE project](./MPLAB_EXAMPLES/)
+6. [References](#references)
 
 
+## PIC16F877 and DS18B20 schematic
 
-### PIC16F877 and DS18B20 schematic
-
-![PIC16F877 and DS18B20 schematic]()
+![PIC16F877 and DS18B20 schematic](./schematic_pic16f887_ds18b20_lcd16x2.jpg)
 
 
-### PIC16F877 PINOUT
+## PIC16F877 PINOUT
 
 ![PIC16F877 PINOUT](../../../images/PIC16F887_PINOUT.png)
 
 
-### DS18B20 PINOUT
+## DS18B20 PINOUT
 
 ![DS18B20 PINOUT](../../../images/DS18B20_PINOUT.png)
 
 
+## DS18B20 and PIC16F877 prototype
+
+
+![DS18B20 and PIC16F877 prototype](./prototype_pic16f887_ds18b20_lcd16x2.jpg)
 
 
 ## REFERENCES
