@@ -5,6 +5,7 @@
 1. [LCD 16x2 and PIC16F876A Interface (schematic)](#lcd-16x2-and-pic16f876a-interface-schematic)
     * [KiCad Schematic](./KiCad/)
 2. [PIC16F876A PINOUT](#pic16f876a-pinout)
+3. [ LCD 16x2 and PIC16F876A Interface  prototype](#lcd-16x2-and-pic16f876a-interface-prototype)
 4. [LCD16x2 library implementation](../lcd_library/)
 5. [MPLAB X IDE examples](./MPLAB_EXAMPLES/)
 6. [References](#references)
@@ -20,6 +21,10 @@
 
 ![PIC16F628 PINOUT](../../../images/PIC16F876A_PINOUT.png)
 
+
+## LCD 16x2 and PIC16F876A Interface  prototype
+
+![LCD 16x2 and PIC16F876A Interface  prototype](./prototype_pic16f876a_LCD16x2.jpg)
 
 ## References
 
