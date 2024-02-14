@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/production/DC_MOTOR_PIC16F887_ADC_PWM_C.X.production.hex">
+    <memory name="program">
+      <units>words</units>
+      <length>8192</length>
+      <used>117</used>
+      <free>8075</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>368</length>
+      <used>9</used>
+      <free>359</free>
+    </memory>
+  </executable>
+</project>
