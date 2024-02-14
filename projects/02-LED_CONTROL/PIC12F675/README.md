@@ -4,7 +4,7 @@
 ## Content
 
 1. [PIC12F675 and Three LEDs Schematic](#pic12f675-and-three-leds-schematic)
-2. [](./KiCad/)
+2. [KiCad schematic](./KiCad/)
 3. [PIC12F675 PINOUT](#pic12f675-pinout)
 4. [PIC12F675 and Three LEDs prototype](#pic12f675-prototype)
 5. [PIC12F675 controlling three LEDs in C](#pic12f675-controlling-three-leds-in-c)
