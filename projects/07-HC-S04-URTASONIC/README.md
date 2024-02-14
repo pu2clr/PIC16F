@@ -17,6 +17,8 @@ This folder presents the [PIC10F200](./PIC10F200/), [PIC12F675](./PIC12F675/), [
 
 ## HC-S04 Ultrasonic Sensor
 
+![HC-S04 Ultrasonic Sensor](../../images/HC_S04_SENSOR.jpg)
+
 The HC-SR04 Ultrasonic Sensor is a popular sensor used for measuring distance with high accuracy and stable readings. It operates by emitting an ultrasonic sound pulse and then measuring the time it takes for the echo to return. Features include:
 
 - Range: Typically 2cm to 400cm.
