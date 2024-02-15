@@ -21,7 +21,8 @@ Contact: pu2clr@gmail.com.
 
 ## Content 
 1. [Contribution](#contribution)
-2. [Projects](./projects/)
+2. [About the author](#about-me)
+3. [Projects](./projects/)
     * [Blink a LED - PIC10F200, PIC12F675 and PIC16F628A](./projects/01-Blink/)
     * [Controlling multiple LEDs - PIC12F675 and PIC16F628A](./projects/02-LED_CONTROL/)
         * Related Videos
@@ -73,6 +74,11 @@ Contact: pu2clr@gmail.com.
 If you've found value in this repository, please consider contributing. Your support will assist me in acquiring new components and equipment, as well as maintaining the essential infrastructure for the development of future projects. [Click here](https://www.paypal.com/donate/?business=LLV4PHKTXC4JW&no_recurring=0&item_name=Your+support+will+assist+me+in++maintaining+the+essential+infrastructure+for+the+development+of+future+projects.+&currency_code=BRL) to make a donation or scan the QR code provided below. 
 
 ![Contributing QR Code](./images/PIC_JOURNEY_QR_CODE.png)
+
+
+## About Me
+
+I hold a Master's degree in Educational Technology from the Federal University of Ceará, where I delved into the ways technology can enhance learning experiences. My passion for computer science led me to specialize in it, focusing on Distributed Systems Development with an Object-Oriented approach, at the University of Brasília. My academic journey began with a Bachelor's degree in Information Systems from the União Pioneira de Integração Social, completed in 2004. Outside the classroom, my main hobbies are electronics and Amateur Radio. 
 
 
 
@@ -206,6 +212,8 @@ Source: [Pickit 3 Programmer/Debugger](https://components101.com/misc/pickit3-pr
 * [C Compiler Solution Suite](https://www.ccsinfo.com/compilers.php)
 * [SourceBoost IDE](http://www.sourceboost.com/CommonDownload.html)
 * [MikroElektronika MikroC](https://www.mikroe.com/mikroc-pic)
+
+
 
 
 ## Microchip references
