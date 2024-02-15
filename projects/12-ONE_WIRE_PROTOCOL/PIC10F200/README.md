@@ -55,7 +55,7 @@ Developing an application with the 1-Wire protocol and DS18B20 sensor using the 
 
 ## PIC10F200 and DS18B20 prototype
 
-![PIC10F200 and DS18B20 prototype]()
+![PIC10F200 and DS18B20 prototype](./prototype_pic10f200_ds18b20.jpg)
 
 
 ## PIC10F200 and DS18B20 source code (Assembly)
