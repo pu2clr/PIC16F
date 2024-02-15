@@ -54,6 +54,7 @@ Developing an application with the 1-Wire protocol and DS18B20 sensor using the 
 ![DS18B20 PINOUT](../../../images/DS18B20_PINOUT.png)
 
 
+
 ## PIC10F200 and DS18B20 prototype
 
 ![PIC10F200 and DS18B20 prototype](./prototype_pic10f200_ds18b20.jpg)
