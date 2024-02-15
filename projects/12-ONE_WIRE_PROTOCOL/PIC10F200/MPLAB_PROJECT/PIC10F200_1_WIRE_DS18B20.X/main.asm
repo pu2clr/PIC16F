@@ -90,7 +90,7 @@ WaitForConvertion:
     call    OW_READ_BYTE
     clrw    
     subwf   value, w
-    btfss   STATUS, 2		; Skip if value - wreg = 0
+    btfsc   STATUS, 2		; Skip if value - wreg = 0
     goto    WaitForConvertion	; else goto WaitForConvertion
     goto    $+1
     goto    $+1
@@ -156,7 +156,7 @@ WaitForConvertion:
     
     ; Process the temperature value (turn on or off the LEDs 
     
-    movlw   50		; All bits is 1 (Whay?) - ????????
+    movlw   90		; All bits is 1 (Whay?) - ????????
     subwf   tempL
     btfss   STATUS, 0
     goto    TurnLedOff
