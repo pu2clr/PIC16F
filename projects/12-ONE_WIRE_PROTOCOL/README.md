@@ -13,6 +13,7 @@ This folder presents some implementations with the DS18B20 temperature sensor us
     * [How the DS18B20 Measures Temperature](#how-the-ds18b20-maasures-temperature)
     * [Initializing the DS18B20 Dialog Process](#initialization-the-ds18b20-dialog-process)
     * [Reading data from DS18B20](#read-data-from-ds18b20)
+    * [Write data (command) to DS18B20](#write-data-command-to-ds18b20)
 6. [References](#references)
 
 
@@ -179,7 +180,7 @@ Key aspects of read time slots include:
 
 Illustrations in the documentation highlight that the total time for initiating the slot (TINIT), releasing the bus (TRC), and sampling the data (TSAMPLE) should not exceed 15μs. To optimize system timing, it's recommended to keep TINIT and TRC brief and perform data sampling towards the latter part of the 15μs window.
 
-### Write data (command) do DS18B20
+### Write data (command) to DS18B20
 
 For writing data to the DS18B20, the communication process involves two distinct types of write time slots: the "Write 1" time slots for sending a logic '1', and the "Write 0" time slots for sending a logic '0'. The bus master controls the transmission of these bits through specific actions:
 
