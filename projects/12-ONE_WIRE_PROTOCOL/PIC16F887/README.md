@@ -26,7 +26,10 @@
 
 ## DS18B20 PINOUT
 
+The commands below are used to control the DS18B20 and communicate with it via a 1-Wire interface. Each command has a specific purpose, such as initiating a temperature measurement, reading or writing to the sensor's scratchpad memory, and configuring device-specific settings.
+
 ![DS18B20 PINOUT](../../../images/DS18B20_PINOUT.png)
+
 
 
 ## DS18B20 and PIC16F877 prototype
