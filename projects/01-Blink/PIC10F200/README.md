@@ -128,6 +128,14 @@ void main(void) {
 The first time I tried to program for the PIC10F200 I had problems with subroutine calls. After the execution of the RETLW instruction, the program flow returned to the beginning (as if the system was restarted or as if a goto instruction led the program to the first instruction). After some searches on the internet, I managed to find the instructions to work around this problem. See [this link for more details](https://www.circuitbread.com/tutorials/christmas-lights-special-microcontroller-basics-pic10f200).
 
 
+**IMPORTANT:** 
+
+To assemble this code correctly, please follow the steps below:
+
+1. Go to "Project Properties" in MPLAB X.
+2. Select "Global Options" for the pic-as assembler/compiler.
+3. In the "Additional Options" box, enter the following parameters: **-Wl,-pAsmCode=0h**
+
 
 ```asm
 

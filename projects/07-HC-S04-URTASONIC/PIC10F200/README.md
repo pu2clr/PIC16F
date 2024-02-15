@@ -128,6 +128,16 @@ void main(void) {
 ### PIC10F200 with HC-S04 ASM code example
 
 
+**IMPORTANT:** 
+
+To assemble this code correctly, please follow the steps below:
+
+1. Go to "Project Properties" in MPLAB X.
+2. Select "Global Options" for the pic-as assembler/compiler.
+3. In the "Additional Options" box, enter the following parameters: **-Wl,-pAsmCode=0h**
+
+
+
 ```asm 
 
 ; HC-S04 with PIC10F200

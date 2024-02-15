@@ -12,11 +12,14 @@
 ; Please check the AsmCode reference in the "PSECT" directive below.
 ;    
 ; *** About this implementation *** 
-; The PIC10F200 is a verry basic microcontroler and it does not support the Open-Drain Output feature. 
-; Therefore, this application may not function correctly in certain scenarios (circuit parts, board setup etc).
-; Given this, carefully review your implementation before deploying it in 
-; critical applications. Consider using another microcontroller for more critical 
-; applications.    
+; 1. The PIC10F200 is a verry basic microcontroler and it does not support the Open-Drain Output feature. 
+;    Therefore, this application may not function correctly in certain scenarios (circuit parts, board setup etc).
+;    Given this, carefully review your implementation before deploying it in 
+;    critical applications. Consider using another microcontroller for more critical 
+;    applications. 
+; 2. This application is designed to work with temperatures above 0 degrees Celsius. 
+;    For temperatures below 0, you will need to modify the code. See the DS18B20 Data 
+;    Sheet for information on how to work with temperatures below 0.    
 ;    
 ; You will find good tips about the PIC10F200 here:
 ; https://www.circuitbread.com/tutorials/christmas-lights-special-microcontroller-basics-pic10f200
@@ -104,12 +107,14 @@ WaitForConvertion:
     movwf   value
     call    OW_WRITE_BYTE  
     
+    ; Suggestion:  
     ; The first 4 bits (LSB) represent the fractional part of the temperature. The fraction 
     ; is obtained by dividing this number by 16. Therefore, if the values are, 
     ; for example, 2, 4, 8, or 12, the fractional part of the temperature will be 
     ; respectively 0.125, 0.25, 0.5, and 0.75.
     ; That being said, instead of obtaining the maximum precision (resolution) of the DS18B20,
-    ; this program will have a resolution of 0.25 degrees Celsius
+    ; this program will have a resolution of 0.5 degrees Celsius
+    ; if the fractional part is greater than 8, 1 sould be added to the temperature 
     
     call    OW_READ_BYTE    ; LSB value of the temperature
     movf    value, w
@@ -148,15 +153,9 @@ WaitForConvertion:
     movwf   tempL
     
     
-   
-    ; Begin Check
-    ; movlw   255
-    ; movwf   tempL
-    ; End Check
-    
     ; Process the temperature value (turn on or off the LEDs 
     
-    movlw   90		; All bits is 1 (Whay?) - ????????
+    movlw   90		    ; Turn the LED on if the temperatura is equal or above this value
     subwf   tempL
     btfss   STATUS, 0
     goto    TurnLedOff
@@ -215,7 +214,7 @@ OW_START_DEVICE_FOUND:
 ; ******************************
 ; Writes a byte    
 ; Sends a byte to the device
-; Parameter: value 
+; Parameter: value (byte value to be send)
 OW_WRITE_BYTE: 
     movlw   8
     movwf   counter1

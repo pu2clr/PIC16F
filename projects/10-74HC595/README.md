@@ -132,6 +132,16 @@ void main(void) {
 
 This example controls 8 LEDs using the 74HC595 device in such a way that, with each cycle of approximately 1 second, the LEDs alternate between being lit and turned off.
 
+**IMPORTANT:** 
+
+To assemble this code correctly, please follow the steps below:
+
+1. Go to "Project Properties" in MPLAB X.
+2. Select "Global Options" for the pic-as assembler/compiler.
+3. In the "Additional Options" box, enter the following parameters: **-Wl,-pAsmCode=0h**
+
+
+
 
 ```asm
 
