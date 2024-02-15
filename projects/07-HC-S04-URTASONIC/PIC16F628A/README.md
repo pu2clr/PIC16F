@@ -108,6 +108,13 @@ void main() {
 ![PIC16F628A and HC-S04 Ultrasonic Sensor prototype](./prototype_pic16f628a_hc_s04_rgb_led.jpg)
 
 
+## Contribution
+
+If you've found value in this repository, please consider contributing. Your support will assist me in acquiring new components and equipment, as well as maintaining the essential infrastructure for the development of future projects. [Click here](https://www.paypal.com/donate/?business=LLV4PHKTXC4JW&no_recurring=0&item_name=Your+support+will+assist+me+in++maintaining+the+essential+infrastructure+for+the+development+of+future+projects.+&currency_code=BRL) to make a donation or scan the QR code provided below. 
+
+![Contributing QR Code](../../../images/PIC_JOURNEY_QR_CODE.png)
+
+
 
 ## References
 
