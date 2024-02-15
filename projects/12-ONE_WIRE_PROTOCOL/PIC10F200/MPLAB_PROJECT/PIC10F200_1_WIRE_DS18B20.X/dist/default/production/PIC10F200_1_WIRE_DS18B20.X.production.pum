@@ -3,7 +3,7 @@ Psect Usage Map:
 
  Psect   | Contents | Memory Range  | Size
 ---------|----------|---------------|-------------
- AsmCode |          | 0000h - 00CBh |  CC words  
+ AsmCode |          | 0000h - 00CCh |  CD words  
 ---------|----------|---------------|-------------
  config  |          | 0FFFh - 0FFFh |   1 word   
 ---------|----------|---------------|-------------

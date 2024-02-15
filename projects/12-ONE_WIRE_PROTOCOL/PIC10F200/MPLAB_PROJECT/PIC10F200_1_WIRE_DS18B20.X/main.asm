@@ -224,7 +224,7 @@ OW_START_DEVICE_RESPONSE:
 OW_START_NO_DEVICE:
     decfsz  counter1, f
     goto    OW_START_DEVICE_RESPONSE ; check once again 
-    ; goto    SYSTEM_ERROR		; Device not found - Exit/Halt
+    goto    SYSTEM_ERROR		; Device not found - Exit/Halt
     retlw   0			
 OW_START_DEVICE_FOUND:  
     movlw   60
