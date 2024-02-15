@@ -19,7 +19,9 @@
 ;    applications. 
 ; 2. This application is designed to work with temperatures above 0 degrees Celsius. 
 ;    For temperatures below 0, you will need to modify the code. See the DS18B20 Data 
-;    Sheet for information on how to work with temperatures below 0.    
+;    Sheet for information on how to work with temperatures below 0.
+; 3. This aplication round the temparature off if the fractional part is greater than or equal to 8 (0.5).
+; 4. This application uses only one LED to indicate whether the temperature is above or below a given value.	   
 ;    
 ; You will find good tips about the PIC10F200 here:
 ; https://www.circuitbread.com/tutorials/christmas-lights-special-microcontroller-basics-pic10f200
@@ -128,7 +130,22 @@ WaitForConvertion:
   
     movf    tempL,w
     andlw   0B00001111	    ; Gets the firs 4 bits to know the fraction of the temperature
+    movwf   frac	    ; if frac >= 8 then set it to 1 else set it to 0
+    ; Round off if the fractional part is greater than or equal to 8 (0.5).
+    movlw   8
+    subwf   frac
+    btfss   STATUS, 0
+    goto    SetFracToZero
+    goto    SetFracToOne
+SetFracToZero:
+    clrf    frac
+    goto    CalcTemp
+SetFracToOne:
+    movlw   1
     movwf   frac
+   
+CalcTemp: 
+    
     ; Shift 4 bits to right the MSB of the tempL   
     rrf	    tempL
     rrf	    tempL
@@ -152,10 +169,14 @@ WaitForConvertion:
     iorwf   tempL,w	    ; tempL now has the temperature.
     movwf   tempL
     
+    ; Round off the fractional part to final tempL value (add 0 or 1)
+    movf    frac, w
+    addwf   tempL	    ; tempL now has the temperature to be checked
+    
     
     ; Process the temperature value (turn on or off the LEDs 
     
-    movlw   90		    ; Turn the LED on if the temperatura is equal or above this value
+    movlw   28		    ; Turn the LED on if the temperatura is equal or above this value
     subwf   tempL
     btfss   STATUS, 0
     goto    TurnLedOff

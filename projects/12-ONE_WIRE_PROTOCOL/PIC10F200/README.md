@@ -11,7 +11,8 @@
 5. [PIC10F200 and DS18B20 prototype](#pic10f200-and-ds18b20-prototype)
 6. [PIC10F200 and DS18B20 source code (Assembly)](#pic10f200-and-ds18b20-source-code-assembly)
 7. [MPLAB X IDE project](./MPLAB_PROJECT/)
-8. [References](#references)
+8. [Video showing this application ](#video-showing-this-application)
+9. [References](#references)
 
 
 
@@ -68,6 +69,15 @@ To assemble this code correctly, please follow the steps below:
 2. Select "Global Options" for the pic-as assembler/compiler.
 3. In the "Additional Options" box, enter the following parameters: **-Wl,-pAsmCode=0h**
 
+*** About this implementation *** 
+
+1. The PIC10F200 is a verry basic microcontroler and it does not support the Open-Drain Output feature. Therefore, this application may not function with the desired precision in certain scenarios (circuit parts, board setup etc).
+2. Given this, carefully review your implementation before deploying it in critical applications. Consider using another microcontroller for more critical  applications. 
+3. This application is designed to work with temperatures above 0 degrees Celsius. For temperatures below 0, you will need to modify the code. See the DS18B20 Data Sheet for information on how to work with temperatures below 0.
+4. This implementation round the temparature off if the fractional part is greater than or equal to 8 (0.5).
+5. This implementation uses only one LED to indicate whether the temperature is above or below a given value.	
+
+
 ```asm
 
 ; UNDER CONSTRUCTION... One Wire implementation 
@@ -82,17 +92,7 @@ To assemble this code correctly, please follow the steps below:
 ; -Wl,-pAsmCode=0h
 ;
 ; Please check the AsmCode reference in the "PSECT" directive below.
-;    
-; *** About this implementation *** 
-; 1. The PIC10F200 is a verry basic microcontroler and it does not support the Open-Drain Output feature. 
-;    Therefore, this application may not function correctly in certain scenarios (circuit parts, board setup etc).
-;    Given this, carefully review your implementation before deploying it in 
-;    critical applications. Consider using another microcontroller for more critical 
-;    applications. 
-; 2. This application is designed to work with temperatures above 0 degrees Celsius. 
-;    For temperatures below 0, you will need to modify the code. See the DS18B20 Data 
-;    Sheet for information on how to work with temperatures below 0.    
-;    
+;          
 ; You will find good tips about the PIC10F200 here:
 ; https://www.circuitbread.com/tutorials/christmas-lights-special-microcontroller-basics-pic10f200
 
@@ -200,7 +200,22 @@ WaitForConvertion:
   
     movf    tempL,w
     andlw   0B00001111	    ; Gets the firs 4 bits to know the fraction of the temperature
+    movwf   frac	    ; if frac >= 8 then set it to 1 else set it to 0
+    ; Round off if the fractional part is greater than or equal to 8 (0.5).
+    movlw   8
+    subwf   frac
+    btfss   STATUS, 0
+    goto    SetFracToZero
+    goto    SetFracToOne
+SetFracToZero:
+    clrf    frac
+    goto    CalcTemp
+SetFracToOne:
+    movlw   1
     movwf   frac
+   
+CalcTemp: 
+    
     ; Shift 4 bits to right the MSB of the tempL   
     rrf	    tempL
     rrf	    tempL
@@ -224,10 +239,14 @@ WaitForConvertion:
     iorwf   tempL,w	    ; tempL now has the temperature.
     movwf   tempL
     
+    ; Round off the fractional part to final tempL value (add 0 or 1)
+    movf    frac, w
+    addwf   tempL	    ; tempL now has the temperature to be checked
+    
     
     ; Process the temperature value (turn on or off the LEDs 
     
-    movlw   90		    ; Turn the LED on if the temperatura is equal or above this value
+    movlw   28		    ; Turn the LED on if the temperatura is equal or above this value
     subwf   tempL
     btfss   STATUS, 0
     goto    TurnLedOff
@@ -434,6 +453,10 @@ END MAIN
 
 ```
 
+## Video showing this application 
+
+* [My PIC Journey: PIC10F200 and 1-wire protocol with DS18B20 - Assembly](https://youtu.be/mrNc1A-M_Pc?si=R6Dh4l-PH4szJY3d)
+
 
 
 ## REFERENCES
@@ -446,3 +469,12 @@ END MAIN
 * [PIC 1-Wire - Github](https://github.com/robvanbentem/pic-1wire/tree/master) 
 * [Interfacing DS18B20 sensor with PIC microcontroller | MPLAB Projects](https://simple-circuit.com/mplab-xc8-ds18b20-pic-microcontroller/)
 * [What is the 1-Wire protocol?](https://www.engineersgarage.com/what-is-the-1-wire-protocol/)
+
+
+### Videos
+
+* [1-Wire® Technology Overview](https://youtu.be/CjH-OztKe00?si=pAX-iU1oLr1Tuirv)
+* [1-Wire® Technology Overview - Part 1](https://youtu.be/lsikcaA7q-c?si=Wmx4GoRT0IICpKza)
+* [1-Wire® Technology Overview - Part 2](https://youtu.be/e6ORIDKA-QA?si=s8A--7CYRWxi0LlG)
+* [1-Wire® Technology Overview - Part 3](https://youtu.be/WtifDKtRFQ4?si=R7ElFn5N9K81oF3Z)
+
