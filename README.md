@@ -51,8 +51,15 @@ Contact: pu2clr@gmail.com.
     * [PIC microcontrollers and LM35 and TMP36 temperature sensors - PIC12F675 and PIC16F877](./projects/08-LM35_OR_TMP36/)
         * Related Video
             * [PIC12F675 and LM35 Sensor](https://youtu.be/ctCU5pVp1wQ?si=n6hu75jDcbTcV2lr)
-    * [PIC10F, PIC12F and PIC16F with 74HC595 device (under construction...)]() 
-    * [PIC10F, PIC12F and PIC16F with 74HC165 device (under construction...)]()        
+    * [PIC10F200 and 74HC595 Shift Register device](projects/10-74HC595) 
+        * Related Video
+            * [PIC10F200 and HC74595 device setup](https://youtu.be/quRumJupcdo?si=FNSA6wZ0tLC44LKt)
+            * [Two PINs of the PIC10F200 and two 74HC595 controlling 16 LEDs](https://youtu.be/2BrsyhduLC0?si=inql7uqsdXsxkR16)
+    * [PIC10F, PIC12F and PIC16F with 74HC165 device (under construction...)]()   
+    * [1-Wire protocol with PIC and DS18B20](projects/12-ONE_WIRE_PROTOCOL)
+        * Related Video
+            * [PIC10F200 and 1-wire protocol with DS18B20 - Assembly](https://youtu.be/mrNc1A-M_Pc?si=2ipKHCnbhbpdhCeN)
+            * [PIC16F887 and 1-wire protocol with DS18B20](https://youtu.be/3KqVuQNULYw?si=lQtvTkxsfg1SNSaV)     
     * [Controlling Servo with PIC microcontrollers](./projects/99-Servomotor/)
         * Related Video
             * [PIC16F887 and Servo (PWM)](https://youtu.be/YDyLSMGPXZI?si=9wzmTlIvT2DltXnA) 

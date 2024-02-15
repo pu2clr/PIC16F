@@ -1,4 +1,4 @@
-# PIC and 74HC595 Shift Register device
+# PIC10F200 and 74HC595 Shift Register device
 
 
 The 74HC595 is a widely-used integrated circuit in digital electronics, known as a Serial-in, Parallel-out Shift Register. This device is essential for expanding the output capabilities of microcontrollers while minimizing the number of required I/O pins. Here's a detailed description of the 74HC595:
