@@ -171,7 +171,7 @@ CalcTemp:
     
     ; Round off the fractional part to final tempL value (add 0 or 1)
     movf    frac, w
-    addwf   tempL	    ; tempL now has the temperature to be checked
+    addwf   tempL   	    ; tempL now has the temperature to be checked
     
     
     ; Process the temperature value (turn on or off the LEDs 

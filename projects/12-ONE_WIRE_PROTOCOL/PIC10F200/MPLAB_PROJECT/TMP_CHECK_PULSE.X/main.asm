@@ -47,17 +47,31 @@ MAIN:
     
 MainLoop: 
    
-    
-    movlw   0B11111100;
-    movwf   value
-    call    OW_WRITE_BYTE
-    
-      
-    ; bsf	    GPIO,   0
-    ; DELAY3us
-    ; bcf	    GPIO,   0
-    ; DELAY3us
-    
+   movlw    27
+   movwf    counterM
+   
+   movlw    7
+   movwf    value
+   
+   movlw    8
+   subwf    value
+   btfss    STATUS, 0
+   goto	    SetZero
+   goto	    SetOne 
+SetZero: 
+   clrf	    value
+   goto	    SetFinish
+SetOne: 
+   movlw    1
+   movwf    value
+SetFinish: 
+   clrw 
+   movf	    value, w
+   addwf    counterM
+   nop
+   nop
+   nop
+   
 
     
     
