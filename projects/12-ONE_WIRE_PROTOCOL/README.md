@@ -7,7 +7,7 @@ This folder presents some implementations with the DS18B20 temperature sensor us
 
 1. [About 1-wire protocol](#about-1-wire-protocol)
 2. [About DS18B20 device](#about-ds18b20-device)
-3. [PIC10F200 (UNDER CONSTRUCTION...)](./PIC10F200/)
+3. [PIC10F200](./PIC10F200/)
 4. [PIC16F877](./PIC16F887/)
 5. [References](#references)
 
