@@ -20,8 +20,8 @@ Contact: pu2clr@gmail.com.
 
 
 ## Content 
-
-1. [Projects](./projects/)
+1. [Contribution](#contribution)
+2. [Projects](./projects/)
     * [Blink a LED - PIC10F200, PIC12F675 and PIC16F628A](./projects/01-Blink/)
     * [Controlling multiple LEDs - PIC12F675 and PIC16F628A](./projects/02-LED_CONTROL/)
         * Related Videos
@@ -66,6 +66,13 @@ Contact: pu2clr@gmail.com.
 2. [PIC Microcontroller Programming Tools](https://github.com/pu2clr/PIC16F#pic-microcontroller-programming-tools)
 3. [PICKit3 and ICSP](https://github.com/pu2clr/PIC16F#pickit3-and-icsp)
 
+
+
+## Contribution
+
+If you've found value in this repository, please consider contributing. Your support will assist me in acquiring new components and equipment, as well as maintaining the essential infrastructure for the development of future projects. [Click here](https://www.paypal.com/donate/?business=LLV4PHKTXC4JW&no_recurring=0&item_name=Your+support+will+assist+me+in++maintaining+the+essential+infrastructure+for+the+development+of+future+projects.+&currency_code=BRL) to make a donation or scan the QR code provided below. Your generosity is greatly appreciated.
+
+![Contributing QR Code](./images/PIC_JOURNEY_QR_CODE.png)
 
 
 
