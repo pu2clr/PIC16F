@@ -360,8 +360,7 @@ SYSTEM_ERROR:
     call    DELAY_600ms
     call    DELAY_600ms
     call    DELAY_600ms
-    call    DELAY_600ms
-   
+  
     bcf	    GPIO,1
     call    DELAY_600ms
 
