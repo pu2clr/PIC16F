@@ -660,6 +660,9 @@
     )
   )
 
+  (junction (at 120.65 33.02) (diameter 0) (color 0 0 0 0)
+    (uuid 05118e77-7415-4cea-a66e-8f80142aa17e)
+  )
   (junction (at 132.08 33.02) (diameter 0) (color 0 0 0 0)
     (uuid 3b33a5fc-f862-455f-b84e-cd1506c41c8b)
   )
@@ -683,6 +686,9 @@
   )
   (junction (at 143.51 110.49) (diameter 0) (color 0 0 0 0)
     (uuid c6c9e7e0-388f-48de-8a34-972615963c42)
+  )
+  (junction (at 123.19 41.91) (diameter 0) (color 0 0 0 0)
+    (uuid f1283960-c391-4757-9669-bbcc5424cb54)
   )
   (junction (at 132.08 59.69) (diameter 0) (color 0 0 0 0)
     (uuid f23677f6-ef0e-48ff-87e1-f83f779b65a8)
@@ -732,6 +738,10 @@
     (stroke (width 0) (type default))
     (uuid 2a4fc8db-f5f2-4074-af72-df05692757b6)
   )
+  (wire (pts (xy 120.65 33.02) (xy 83.82 33.02))
+    (stroke (width 0) (type default))
+    (uuid 317f7328-1922-4471-acce-65292742e373)
+  )
   (wire (pts (xy 143.51 64.77) (xy 143.51 33.02))
     (stroke (width 0) (type default))
     (uuid 3560d645-83d5-49d9-ba99-3dba51306f3e)
@@ -739,6 +749,10 @@
   (wire (pts (xy 111.76 92.71) (xy 133.35 92.71))
     (stroke (width 0) (type default))
     (uuid 39bff8ab-e48f-4f55-84b9-9cf0d42a9938)
+  )
+  (wire (pts (xy 120.65 41.91) (xy 123.19 41.91))
+    (stroke (width 0) (type default))
+    (uuid 44d184cb-02ed-4a85-a70d-1f9931bf9626)
   )
   (wire (pts (xy 177.8 66.04) (xy 177.8 33.02))
     (stroke (width 0) (type default))
@@ -755,6 +769,10 @@
   (wire (pts (xy 111.76 87.63) (xy 128.27 87.63))
     (stroke (width 0) (type default))
     (uuid 64a53c56-2d35-46a2-9ac1-4def573c56d4)
+  )
+  (wire (pts (xy 120.65 33.02) (xy 120.65 34.29))
+    (stroke (width 0) (type default))
+    (uuid 66242b60-db68-4be2-bb70-2cbc0076a18c)
   )
   (wire (pts (xy 111.76 97.79) (xy 133.35 97.79))
     (stroke (width 0) (type default))
@@ -788,6 +806,10 @@
     (stroke (width 0) (type default))
     (uuid a485ad2b-29ae-4eda-a30f-f27376db49b0)
   )
+  (wire (pts (xy 111.76 59.69) (xy 123.19 59.69))
+    (stroke (width 0) (type default))
+    (uuid aff3ed1b-1b75-4cdf-a975-3d1e4529ba5e)
+  )
   (wire (pts (xy 153.67 77.47) (xy 163.83 77.47))
     (stroke (width 0) (type default))
     (uuid c1741836-0c81-4fa0-aff2-31a8b01d2f77)
@@ -795,10 +817,6 @@
   (wire (pts (xy 143.51 33.02) (xy 163.83 33.02))
     (stroke (width 0) (type default))
     (uuid c8bdd378-f085-4b52-8d11-9be1ce3ea8af)
-  )
-  (wire (pts (xy 111.76 59.69) (xy 123.19 59.69))
-    (stroke (width 0) (type default))
-    (uuid c9e4635c-9a2d-4054-9115-361ec8cc9b4e)
   )
   (wire (pts (xy 143.51 33.02) (xy 132.08 33.02))
     (stroke (width 0) (type default))
@@ -844,7 +862,7 @@
     (stroke (width 0) (type default))
     (uuid fc6961cc-0dbb-4910-b7a0-a70be3d835ed)
   )
-  (wire (pts (xy 132.08 33.02) (xy 83.82 33.02))
+  (wire (pts (xy 132.08 33.02) (xy 120.65 33.02))
     (stroke (width 0) (type default))
     (uuid fc907a0e-5712-4273-9807-3ed221846958)
   )
@@ -893,7 +911,7 @@
     (pin "K1" (uuid c4272591-a8f8-43de-9d79-00db60f61ba3))
     (pin "K2" (uuid f82293a2-a4cb-4dce-9b3e-be9c586433b6))
     (instances
-      (project "pic16F887_lcd16x2"
+      (project "pic16F887_ds18b20_lcd16x2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "U2") (unit 1)
         )
@@ -919,7 +937,7 @@
     (pin "1" (uuid 2ded75a6-b539-4631-ac6e-5e22443fb6b6))
     (pin "2" (uuid 94033d62-f89d-4c0d-9eff-66d2747fcc7c))
     (instances
-      (project "pic16F887_lcd16x2"
+      (project "pic16F887_ds18b20_lcd16x2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "R1") (unit 1)
         )
@@ -944,7 +962,7 @@
     )
     (pin "1" (uuid 8e18f20e-6850-4a56-9914-1c055c7938f8))
     (instances
-      (project "pic16F887_lcd16x2"
+      (project "pic16F887_ds18b20_lcd16x2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "#PWR03") (unit 1)
         )
@@ -1008,9 +1026,35 @@
     (pin "8" (uuid 7dc89bed-28e3-481f-ac80-58342a75211a))
     (pin "9" (uuid 3325a792-6fb0-406a-8f15-437e2d13653d))
     (instances
-      (project "pic16F887_lcd16x2"
+      (project "pic16F887_ds18b20_lcd16x2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "U1") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Device:R_US") (at 120.65 38.1 180) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 8df33c42-2b30-4d89-83c4-889b4e2f3d9b)
+    (property "Reference" "R2" (at 114.3 38.1 90)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "4.7K" (at 116.84 38.1 90)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 119.634 37.846 90)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 120.65 38.1 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 68be4252-8826-49e7-92db-5eea64b3ec90))
+    (pin "2" (uuid 49172849-d266-484f-84cf-d36c264f0a2a))
+    (instances
+      (project "pic16F887_ds18b20_lcd16x2"
+        (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
+          (reference "R2") (unit 1)
         )
       )
     )
@@ -1033,7 +1077,7 @@
     )
     (pin "1" (uuid ce674d9a-805f-4a13-957e-0ebf2cc2fe63))
     (instances
-      (project "pic16F887_lcd16x2"
+      (project "pic16F887_ds18b20_lcd16x2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "#PWR01") (unit 1)
         )
@@ -1044,10 +1088,10 @@
   (symbol (lib_id "Sensor_Temperature:DS18B20") (at 132.08 41.91 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c1f568df-298a-48a4-b683-8f399ef85714)
-    (property "Reference" "U3" (at 120.65 38.1 0)
+    (property "Reference" "U3" (at 127 34.29 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "DS18B20" (at 119.38 35.56 0)
+    (property "Value" "DS18B20" (at 133.35 34.29 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "Package_TO_SOT_THT:TO-92_Inline" (at 157.48 48.26 0)
@@ -1060,7 +1104,7 @@
     (pin "2" (uuid 37cfaf7c-affd-4ede-94b0-775f0e12ce15))
     (pin "3" (uuid ab682d52-8f9d-45d9-9799-5a86d271ba52))
     (instances
-      (project "pic16F887_lcd16x2"
+      (project "pic16F887_ds18b20_lcd16x2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "U3") (unit 1)
         )
@@ -1085,7 +1129,7 @@
     )
     (pin "1" (uuid 20b7744b-a312-4014-8862-f6846513074a))
     (instances
-      (project "pic16F887_lcd16x2"
+      (project "pic16F887_ds18b20_lcd16x2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "#PWR02") (unit 1)
         )
@@ -1112,7 +1156,7 @@
     (pin "2" (uuid f3f7b321-2432-4280-9be7-0e0cdfb3db73))
     (pin "3" (uuid 65f6dc52-5969-4cf6-aa11-57965ff3434e))
     (instances
-      (project "pic16F887_lcd16x2"
+      (project "pic16F887_ds18b20_lcd16x2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "RV1") (unit 1)
         )
