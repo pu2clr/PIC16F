@@ -34,7 +34,6 @@
    
 ; Sets the GP0 as output 
  SET_PIN_OUT MACRO
-    clrf    GPIO
     clrw
     tris    GPIO
     ENDM
@@ -86,8 +85,17 @@ MainLoop:
     movwf   value
     call    OW_WRITE_BYTE
     
-    call    DELAY_600ms	    ; Wait  for convertion
-   
+    clrf    value
+WaitForConvertion: 
+    call    OW_READ_BYTE
+    clrw    
+    subwf   value, w
+    btfss   STATUS, 2		; Skip if value - wreg = 0
+    goto    WaitForConvertion	; else goto WaitForConvertion
+    goto    $+1
+    goto    $+1
+    goto    $+1
+    
     call    OW_START
     movlw   0xCC	    ; Sends skip ROM command
     movwf   value	    
@@ -212,31 +220,38 @@ OW_WRITE_BYTE:
     movlw   8
     movwf   counter1
 OW_WRITE_BIT: 	
-    SET_PIN_OUT			; GP0 output setup
     btfss   value, 0		; Check if LSB of value is HIGH or LOW (Assigns valuer LSB to GP0)  
     goto    OW_WRITE_BIT_0
     goto    OW_WRITE_BIT_1
 OW_WRITE_BIT_0:
-    bcf	    GPIO, 0		; turn bus low for
-    movlw   9			; 90us
-    call    DELAY_Nx10us 	
+    bcf	    GPIO,0
+    SET_PIN_OUT			; GP0 output setup
+    goto    $+1			; Wait for a bit time
+    nop
+    bcf	    GPIO,0
+    movlw   8			; 80us
+    call    DELAY_Nx10us 
+    SET_PIN_IN
+    goto $+1
+    nop
     goto    OW_WRITE_BIT_END
 OW_WRITE_BIT_1: 
     bcf	    GPIO, 0		; turn bus low for
+    SET_PIN_OUT			; GP0 output setup
     goto    $+1
-    goto    $+1
+    nop
     bsf	    GPIO, 0
-    movlw   5			; 50us
+    movlw   8			; 80us
     call    DELAY_Nx10us 	
-
+    SET_PIN_IN
+    goto $+1
+    nop    
 OW_WRITE_BIT_END:
-    goto    $+1 
     bcf	    STATUS, 0
     rrf	    value		; Right shift - writes the next bit
     decfsz  counter1, f
     goto    OW_WRITE_BIT
         
-    SET_PIN_IN
     retlw   0
     
    
@@ -252,16 +267,18 @@ OW_READ_BYTE:
     movwf   counter1
 
 OW_READ_BIT:  
-    SET_PIN_OUT
     bcf	    GPIO,0
+    SET_PIN_OUT
     goto    $+1	    ; Wait for 2us or a bit more
+    nop
     SET_PIN_IN
-    movlw   1
-    call    DELAY_Nx10us
+    goto $+1
+    goto $+1
+    goto $+1
+    nop
+
     ; Assigns 1 or 0 depending on the value of the first bit of the GPIO (GP0).
-    call    CHECK_BUS	    ; Chekes the bus for about 60us
-    movwf   aux
-    btfss   aux, 0		 
+    btfss   GPIO, 0		 
     goto    OW_READ_BIT_0
     goto    OW_READ_BIT_1
 OW_READ_BIT_0:
@@ -272,7 +289,7 @@ OW_READ_BIT_1:
     bsf	    STATUS, 0
     rrf	    value
 OW_READ_BIT_NEXT:  
-    movlw   50		    ; 
+    movlw   9		    ; 
     call    DELAY_Nx10us    ; 
     decfsz  counter1, f
     goto    OW_READ_BIT
@@ -280,21 +297,7 @@ OW_READ_BIT_NEXT:
     retlw   0    
 
 
-; ****************    
-; Samples the bus for the presence of a low state signal sent by the DS18B20. 
-; If a low state occurrence is not detected, the subroutine will return 1. 
-; Otherwise, it will return 0, indicating that the device has sent a 0 signal.  
-CHECK_BUS: 
-    movlw   30
-    movwf   counterM
-CHECK_BUS_LOOP:
-    btfss   GPIO, 0		; Check if LSB of GPIO (GP0) is HIGH or LOW   (1 cycle)
-    retlw   0			; The DS18B20 sent 0
-    decfsz  counterM, f		; 1 cycle    
-    goto    CHECK_BUS_LOOP	; 2 cycle    
-    retlw   1			; The DS18B20 sent 1
-    
- 
+
 ; Delay function    
 ; Takes (WREG * 10)us    
 ; Examples: if WREG=1 => 10us; WREG=7 => 70us; WREG=48 => 480us; and so on     
