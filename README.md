@@ -9,7 +9,7 @@ The projects shared in this repository are educational in nature and aim to intr
 With that said, **if you find any errors or opportunities for improvement in the projects shared in this repository, please let me know**.
 
 
-The __projects__ folder contains several projects involving circuits with the PIC16F628A, PIC16F887, PIC12F675, LEDs and sesors that may help beginners.
+The __projects__ folder contains several projects involving circuits with the PIC16F628A, PIC16F887, PIC12F675, LEDs and sesors that may help beginners. Throughout my learning journey, I made a point of documenting every step of the development of each project, including the source codes. I believe that this detailed documentation can offer the target audience valuable shortcuts for developing more complex projects. The "Content" section below references each project, with links to the full documentation and source codes.
 
 
 All content (including code and schematic) of this repository can be freely distributed using the MIT Free Software model. By using or installing Library you are agreeing to the terms of the MIT licence (see license.txt file).
