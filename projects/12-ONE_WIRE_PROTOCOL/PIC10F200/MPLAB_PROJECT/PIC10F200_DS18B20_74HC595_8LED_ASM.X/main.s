@@ -93,6 +93,7 @@ MAIN:
     ; GP2 -> DS18B20_DATA
     movlw   0B00000000	    ; All GPIO Pins as output		
     tris    GPIO  
+    clrf    oldTemp
 MainLoop:		    ; Endless loop
     ; SendS skip ROM command
     call    OW_START
@@ -190,7 +191,13 @@ CalcTemp:
     subwf   tempL
     
     movf    tempL, w
+    
     ; TODO: Avoind LEDs refresh for the same value
+    subwf   oldTemp, w
+    btfss   STATUS, 2		; (Z == 1)? - if current value = oldValue dont refresh
+    goto    MainLoopEnd
+    movf    tempL, w
+    movwf   oldTemp		; save the new temperature value
     movwf   aux
     bcf	    STATUS, 0
     rrf	    aux			; aux / 2 => number of LEDs to be lit (from LSB to MSB)
