@@ -1,7 +1,7 @@
 ; UNDER CONSTRUCTION...  
 ; This project uses a DS18B20 sensor, a PIC10F200 microcontroller, and a 74HC595 
-; shift register to control 8 LEDs that indicate the ambient temperature according 
-; to the Gagge scale ("A psychophysical model of thermal comfort and discomfort"). 
+; shift register to control 8 LEDs that indicate the ambient temperature based  
+; on Gagge scale ("A psychophysical model of thermal comfort and discomfort"). 
 ; The goal is to visually represent the level of comfort or discomfort of the 
 ; temperature through the LEDs.   
 ;    
@@ -82,7 +82,6 @@ MAIN:
     ; GP2 -> DS18B20_DATA
     movlw   0B00000000	    ; All GPIO Pins as output		
     tris    GPIO  
-    
 MainLoop:		    ; Endless loop
     ; SendS skip ROM command
     call    OW_START
@@ -170,25 +169,25 @@ CalcTemp:
     ; tempL now has the temperature to be shown
     ; Gagge scale (degree Celsius)
     ; COLD....: < 13 
-    ; MODERATE: >= 13 and <= 26  => I will use 12 instead 13
+    ; MODERATE: >= 13 and <= 26  
     ; HOT.....: > 26
-    movlw   14			; 26 - 12
+    movlw   14			; 26 - 13
     subwf   tempL
     
     movf    tempL, w
     movwf   aux
     bcf	    STATUS, 0
-    rrf	    aux			; aux / 2
+    rrf	    aux			; aux / 2 => number of LEDs to be lit (from LSB to MSB)
     movf    aux, w
-    movwf   counterM		; number o bits to shif to left
+    movwf   counter1		; number o bits to shif to left
     clrf    aux 
 ShowTemp:    
-    bsf	    STATUS, 0
-    rlf	    aux
+    bsf	    STATUS, 0		; Sets carry flag 1
+    rlf	    aux			; Rotate bit to left
     movf    aux,w
     movwf   paramValue		; Value to be sent to the 74HC595
     call    SendTo74HC595 
-    decfsz  counterM, f
+    decfsz  counter1, f
     goto    ShowTemp
 MainLoopEnd:
     call DELAY_600ms
@@ -257,7 +256,7 @@ OW_START_DEVICE_RESPONSE:
     goto    OW_START_DEVICE_FOUND
 OW_START_NO_DEVICE:
     decfsz  counter1, f
-    goto    OW_START_DEVICE_RESPONSE ; check once again 
+    goto    OW_START_DEVICE_RESPONSE	; check once again 
     goto    SYSTEM_ERROR		; Device not found - Exit/Halt
     retlw   0			
 OW_START_DEVICE_FOUND:  
@@ -290,7 +289,7 @@ OW_WRITE_BIT_0:
     nop
     goto    OW_WRITE_BIT_END
 OW_WRITE_BIT_1: 
-    bcf	    GPIO, DS18B20_DATA		; turn bus low for
+    bcf	    GPIO, DS18B20_DATA	; turn bus low for
     SET_PIN_OUT			; GP0 output setup
     goto    $+1
     nop
