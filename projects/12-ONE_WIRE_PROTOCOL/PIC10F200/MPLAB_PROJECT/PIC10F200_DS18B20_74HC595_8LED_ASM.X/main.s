@@ -88,6 +88,8 @@ MAIN:
     call    SendTo74HC595
     clrf    paramValue	    ; Turns all LEDs OFF
     call    SendTo74HC595        
+    call DELAY_600ms
+    call DELAY_600ms
 MainLoop:		    ; Endless loop
     ; SendS skip ROM command
     call    OW_START
@@ -179,10 +181,10 @@ CalcTemp:
     ; HOT.....: > 26
     movlw   14			; 26 - 12
     subwf   tempL
-    bcf	    STATUS, 0
-    rlf	    tempL		; Divide ths result by 2
-    movf    tempL, w
-    movwf   paramValue
+    clrf    paramValue
+    call    SendTo74HC595 
+    movlw   0B11110001
+    
     movwf   paramValue		; Value to be sent to the 74HC595
     call    SendTo74HC595 
 MainLoopEnd:
