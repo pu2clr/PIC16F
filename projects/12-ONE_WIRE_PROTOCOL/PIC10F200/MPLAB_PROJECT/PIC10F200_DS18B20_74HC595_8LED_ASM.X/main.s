@@ -5,9 +5,9 @@
 ;    
 ; | Discomfort level | Celsius degree  |
 ; | ---------------- | --------------- |    
-; |      COLD	     | less than  13   | 
-; |    MODERATE      | >= 13 and <= 26 |  
-; |       HOT        | greater than 26 |    
+; |      COLD	     | less than  17   | 
+; |    MODERATE      | >= 17 and <= 30 |  
+; |       HOT        | greater than 30 |    
 ; 
 ; The eight LEDs utilized in this setup are organized into four pairs, each 
 ; representing different temperature perceptions: Blue for cold, Green for 
@@ -183,11 +183,10 @@ CalcTemp:
     movf    frac, w
     addwf   tempL   	    
     ; tempL now has the temperature to be shown
-    ; Gagge scale (degree Celsius)
-    ; COLD....: < 13 
-    ; MODERATE: >= 13 and <= 26  
-    ; HOT.....: > 26
-    movlw   13			; 26 - 13
+    ; COLD....: < 17 
+    ; MODERATE: >= 17 and <= 30  
+    ; HOT.....: > 30
+    movlw   17			; 30 - 13
     subwf   tempL
     
     movf    tempL, w
