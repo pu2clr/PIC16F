@@ -181,10 +181,15 @@ CalcTemp:
     ; HOT.....: > 26
     movlw   14			; 26 - 12
     subwf   tempL
-    clrf    paramValue
-    call    SendTo74HC595 
-    movlw   0B11110001
-    
+    bcf	    STATUS, 0	
+    rrf	    tempL		; divide by 2
+    movf    tempL, w
+    movwf   counterM
+    bcf	    STATUS, 0	
+    rlf	    tempL
+    decfsz counterM, f	; 1 cycle + 
+    goto $ - 3	
+    movf    tempL, w
     movwf   paramValue		; Value to be sent to the 74HC595
     call    SendTo74HC595 
 MainLoopEnd:
@@ -205,10 +210,10 @@ PrepereToSend:
     goto    Send0	    ; if 0 turn GP0 low	
     goto    Send1	    ; if 1 turn GP0 high
 Send0:
-    bcf	    GPIO, 0	    ; turn the current 74HC595 pin off 
+    bcf	    GPIO, SR_DATA   ; turn the current 74HC595 pin off 
     goto    NextBit
 Send1:     
-    bsf	    GPIO, 0	    ; turn the current 74HC595 pin on
+    bsf	    GPIO, SR_DATA   ; turn the current 74HC595 pin on
 NextBit:    
     ; Clock 
     DOCLOCK
@@ -233,10 +238,10 @@ OW_START:
 
     clrf    paramValue
     SET_PIN_OUT		
-    bcf	    GPIO,0		; make the GP0 LOW for 480 us
+    bcf	    GPIO, DS18B20_DATA		; make the GP0 LOW for 480 us
     movlw   48
     call DELAY_Nx10us 
-    bsf	    GPIO,0
+    bsf	    GPIO, DS18B20_DATA
     
     movlw   7			; 70us
     call DELAY_Nx10us 
@@ -249,7 +254,7 @@ OW_START:
     movlw   125			; Waiting for device response by checking 125 times if GP0 is low
     movwf   counter1
 OW_START_DEVICE_RESPONSE:
-    btfsc   GPIO, 0		; if not 0,  no device is present so far
+    btfsc   GPIO, DS18B20_DATA		; if not 0,  no device is present so far
     goto    OW_START_NO_DEVICE
     goto    OW_START_DEVICE_FOUND
 OW_START_NO_DEVICE:
@@ -275,11 +280,11 @@ OW_WRITE_BIT:
     goto    OW_WRITE_BIT_0
     goto    OW_WRITE_BIT_1
 OW_WRITE_BIT_0:
-    bcf	    GPIO,0
+    bcf	    GPIO, DS18B20_DATA
     SET_PIN_OUT			; GP0 output setup
     goto    $+1			; Wait for a bit time
     nop
-    bcf	    GPIO,0
+    bcf	    GPIO, DS18B20_DATA
     movlw   8			; 80us
     call    DELAY_Nx10us 
     SET_PIN_IN
@@ -287,11 +292,11 @@ OW_WRITE_BIT_0:
     nop
     goto    OW_WRITE_BIT_END
 OW_WRITE_BIT_1: 
-    bcf	    GPIO, 0		; turn bus low for
+    bcf	    GPIO, DS18B20_DATA		; turn bus low for
     SET_PIN_OUT			; GP0 output setup
     goto    $+1
     nop
-    bsf	    GPIO, 0
+    bsf	    GPIO, DS18B20_DATA
     movlw   8			; 80us
     call    DELAY_Nx10us 	
     SET_PIN_IN
@@ -318,7 +323,7 @@ OW_READ_BYTE:
     movwf   counter1
 
 OW_READ_BIT:  
-    bcf	    GPIO,0
+    bcf	    GPIO, DS18B20_DATA
     SET_PIN_OUT
     goto    $+1	    ; Wait for 2us or a bit more
     nop
@@ -329,7 +334,7 @@ OW_READ_BIT:
     nop
 
     ; Assigns 1 or 0 depending on the value of the first bit of the GPIO (GP0).
-    btfss   GPIO, 0		 
+    btfss   GPIO,  DS18B20_DATA		 
     goto    OW_READ_BIT_0
     goto    OW_READ_BIT_1
 OW_READ_BIT_0:
