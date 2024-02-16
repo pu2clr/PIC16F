@@ -192,10 +192,11 @@ CalcTemp:
     
     movf    tempL, w
     
-    ; TODO: Avoind LEDs refresh for the same value
+    ;  Avoind LEDs refresh for the same value
     subwf   oldTemp, w
-    btfss   STATUS, 2		; (Z == 1)? - if current value = oldValue dont refresh
+    btfsc   STATUS, 2		; (Z == 1)? - if current value = oldValue dont refresh
     goto    MainLoopEnd
+    
     movf    tempL, w
     movwf   oldTemp		; save the new temperature value
     movwf   aux
