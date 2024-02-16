@@ -65,7 +65,8 @@ ENDM
   
 ; Declare your variables here
 
-aux	    equ	0x10		  
+aux	    equ	0x10
+oldTemp	    equ	0x11	    
 paramValue  equ 0x12		; Initial value to be sent	
 srValue	    equ 0x13		; shift register Current value to be sent to 74HC595
 counter1    equ 0x14		
@@ -186,16 +187,19 @@ CalcTemp:
     ; COLD....: < 13 
     ; MODERATE: >= 13 and <= 26  
     ; HOT.....: > 26
-    movlw   14			; 26 - 13
+    movlw   13			; 26 - 13
     subwf   tempL
     
     movf    tempL, w
+    ; TODO: Avoind LEDs refresh for the same value
     movwf   aux
     bcf	    STATUS, 0
     rrf	    aux			; aux / 2 => number of LEDs to be lit (from LSB to MSB)
     movf    aux, w
     movwf   counter1		; number o bits to shif to left
     clrf    aux 
+    clrf    paramValue
+    call    SendTo74HC595
 ShowTemp:    
     bsf	    STATUS, 0		; Sets carry flag 1
     rlf	    aux			; Rotate bit to left
