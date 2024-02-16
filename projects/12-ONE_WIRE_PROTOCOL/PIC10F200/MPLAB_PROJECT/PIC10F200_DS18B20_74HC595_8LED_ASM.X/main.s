@@ -1,9 +1,19 @@
 ; UNDER CONSTRUCTION...  
 ; This project uses a DS18B20 sensor, a PIC10F200 microcontroller, and a 74HC595 
-; shift register to control 8 LEDs that indicate the ambient temperature according 
-; to the Gagge scale ("A psychophysical model of thermal comfort and discomfort"). 
-; The goal is to visually represent the level of comfort or discomfort of the 
-; temperature through the LEDs.   
+; shift register to control 8 LEDs that indicate the ambient temperature based on
+; the table below:
+;    
+; | Discomfort level | Celsius degree  |
+; | ---------------- | --------------- |    
+; |      COLD	     | less than  13   | 
+; |    MODERATE      | >= 13 and <= 26 |  
+; |       HOT        | greater than 26 |    
+; 
+; The eight LEDs utilized in this setup are organized into four pairs, each 
+; representing different temperature perceptions: Blue for cold, Green for 
+; comfortable, Yellow for mildly comfortable, and Red for hot. These LEDs will
+; activate based on the ambient temperature, without taking into account humidity 
+; or other factors that may affect thermal sensation.    
 ;    
 ; Author: Ricardo Lima Caratti
 ; Feb/2024
@@ -82,14 +92,6 @@ MAIN:
     ; GP2 -> DS18B20_DATA
     movlw   0B00000000	    ; All GPIO Pins as output		
     tris    GPIO  
-    ; Starting application BLINK all LEDs
-    movlw   0B11111111	    ; Turns all LEDs ON
-    movwf   paramValue	    ; Value to be sent to the 74HC595
-    call    SendTo74HC595
-    clrf    paramValue	    ; Turns all LEDs OFF
-    call    SendTo74HC595        
-    call DELAY_600ms
-    call DELAY_600ms
 MainLoop:		    ; Endless loop
     ; SendS skip ROM command
     call    OW_START
@@ -127,9 +129,14 @@ WaitForConvertion:
     call    OW_READ_BYTE    ; MSB value of the temperature
     movf    paramValue, w
     movwf   tempH
-    
+
     call    OW_START	    ; STOP reading 
   
+    btfss   tempH, 7	    ; Check if MSB  is 1
+    goto    AboveZero	    ; Above Zero
+    clrf    tempL	    ; Below Zero - Will show COLD
+    clrf    tempH
+AboveZero: 
     movf    tempL,w
     andlw   0B00001111	    ; Gets the firs 4 bits to know the fraction of the temperature
     movwf   frac	    ; if frac >= 8 then set it to 1 else set it to 0
@@ -177,21 +184,26 @@ CalcTemp:
     ; tempL now has the temperature to be shown
     ; Gagge scale (degree Celsius)
     ; COLD....: < 13 
-    ; MODERATE: >= 13 and <= 26  => I will use 12 instead 13
+    ; MODERATE: >= 13 and <= 26  
     ; HOT.....: > 26
-    movlw   14			; 26 - 12
+    movlw   14			; 26 - 13
     subwf   tempL
-    bcf	    STATUS, 0	
-    rrf	    tempL		; divide by 2
+    
     movf    tempL, w
-    movwf   counterM
-    bcf	    STATUS, 0	
-    rlf	    tempL
-    decfsz counterM, f	; 1 cycle + 
-    goto $ - 3	
-    movf    tempL, w
+    movwf   aux
+    bcf	    STATUS, 0
+    rrf	    aux			; aux / 2 => number of LEDs to be lit (from LSB to MSB)
+    movf    aux, w
+    movwf   counter1		; number o bits to shif to left
+    clrf    aux 
+ShowTemp:    
+    bsf	    STATUS, 0		; Sets carry flag 1
+    rlf	    aux			; Rotate bit to left
+    movf    aux,w
     movwf   paramValue		; Value to be sent to the 74HC595
     call    SendTo74HC595 
+    decfsz  counter1, f
+    goto    ShowTemp
 MainLoopEnd:
     call DELAY_600ms
     goto    MainLoop
@@ -210,10 +222,10 @@ PrepereToSend:
     goto    Send0	    ; if 0 turn GP0 low	
     goto    Send1	    ; if 1 turn GP0 high
 Send0:
-    bcf	    GPIO, SR_DATA   ; turn the current 74HC595 pin off 
+    bcf	    GPIO, SR_DATA	    ; turn the current 74HC595 pin off 
     goto    NextBit
 Send1:     
-    bsf	    GPIO, SR_DATA   ; turn the current 74HC595 pin on
+    bsf	    GPIO, SR_DATA	    ; turn the current 74HC595 pin on
 NextBit:    
     ; Clock 
     DOCLOCK
@@ -238,7 +250,7 @@ OW_START:
 
     clrf    paramValue
     SET_PIN_OUT		
-    bcf	    GPIO, DS18B20_DATA		; make the GP0 LOW for 480 us
+    bcf	    GPIO, DS18B20_DATA		; make the DS18B20_DATA LOW for 480 us
     movlw   48
     call DELAY_Nx10us 
     bsf	    GPIO, DS18B20_DATA
@@ -259,7 +271,7 @@ OW_START_DEVICE_RESPONSE:
     goto    OW_START_DEVICE_FOUND
 OW_START_NO_DEVICE:
     decfsz  counter1, f
-    goto    OW_START_DEVICE_RESPONSE ; check once again 
+    goto    OW_START_DEVICE_RESPONSE	; check once again 
     goto    SYSTEM_ERROR		; Device not found - Exit/Halt
     retlw   0			
 OW_START_DEVICE_FOUND:  
@@ -292,7 +304,7 @@ OW_WRITE_BIT_0:
     nop
     goto    OW_WRITE_BIT_END
 OW_WRITE_BIT_1: 
-    bcf	    GPIO, DS18B20_DATA		; turn bus low for
+    bcf	    GPIO, DS18B20_DATA	; turn bus low for
     SET_PIN_OUT			; GP0 output setup
     goto    $+1
     nop
@@ -334,7 +346,7 @@ OW_READ_BIT:
     nop
 
     ; Assigns 1 or 0 depending on the value of the first bit of the GPIO (GP0).
-    btfss   GPIO,  DS18B20_DATA		 
+    btfss   GPIO, DS18B20_DATA		 
     goto    OW_READ_BIT_0
     goto    OW_READ_BIT_1
 OW_READ_BIT_0:
