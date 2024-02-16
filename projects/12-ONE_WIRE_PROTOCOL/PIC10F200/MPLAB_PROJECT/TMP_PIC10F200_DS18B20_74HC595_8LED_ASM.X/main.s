@@ -1,9 +1,19 @@
 ; UNDER CONSTRUCTION...  
 ; This project uses a DS18B20 sensor, a PIC10F200 microcontroller, and a 74HC595 
-; shift register to control 8 LEDs that indicate the ambient temperature based  
-; on Gagge scale ("A psychophysical model of thermal comfort and discomfort"). 
-; The goal is to visually represent the level of comfort or discomfort of the 
-; temperature through the LEDs.   
+; shift register to control 8 LEDs that indicate the ambient temperature based on
+; the table below:
+;    
+; | Discomfort level | Celsius degree  |
+; | ---------------- | --------------- |    
+; |      COLD	     | less than  13   | 
+; |    MODERATE      | >= 13 and <= 26 |  
+; |       HOT        | greater than 26 |    
+; 
+; The eight LEDs utilized in this setup are organized into four pairs, each 
+; representing different temperature perceptions: Blue for cold, Green for 
+; comfortable, Yellow for mildly comfortable, and Red for hot. These LEDs will
+; activate based on the ambient temperature, without taking into account humidity 
+; or other factors that may affect thermal sensation.    
 ;    
 ; Author: Ricardo Lima Caratti
 ; Feb/2024
@@ -119,9 +129,14 @@ WaitForConvertion:
     call    OW_READ_BYTE    ; MSB value of the temperature
     movf    paramValue, w
     movwf   tempH
-    
+
     call    OW_START	    ; STOP reading 
   
+    btfss   tempH, 7	    ; Check if MSB  is 1
+    goto    AboveZero	    ; Above Zero
+    clrf    tempL	    ; Below Zero - Will show COLD
+    clrf    tempH
+AboveZero: 
     movf    tempL,w
     andlw   0B00001111	    ; Gets the firs 4 bits to know the fraction of the temperature
     movwf   frac	    ; if frac >= 8 then set it to 1 else set it to 0
