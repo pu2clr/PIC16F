@@ -25,41 +25,168 @@
   CONFIG  MCLRE = ON	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
 
 
+; ******* MACROS **********
+
+#define   SR_DATA	0
+#define   SR_CLOK	1
+#define   DS18B20_DATA	2  
+  
+; Sets all PIC10F200 pins as output 
+ SET_PIN_OUT MACRO
+    clrw
+    tris    GPIO
+ ENDM
+ 
+; Sets the PIC10F200 DS18B20_DATA pin as input  
+SET_PIN_IN MACRO
+    movlw  (0x01 << DS18B20_DATA)
+    tris    GPIO
+ENDM  
+  
+
 DOCLOCK MACRO
-  bsf	    GPIO, 1	    ; Turn GP1 HIGH
+  bsf	    GPIO, SR_CLOK 	    
   goto	    $+1
   goto	    $+1
-  bcf	    GPIO, 1	    ; Turn GP1 LOW
+  bcf	    GPIO, SR_CLOK	    
   goto	    $+1
   goto	    $+1
 ENDM  
   
 ; Declare your variables here
 
-
+aux	    equ	0x10		  
 paramValue  equ 0x12		; Initial value to be sent	
 srValue	    equ 0x13		; shift register Current value to be sent to 74HC595
 counter1    equ 0x14		
 counter2    equ 0x15	
-counterM    equ 0x16     
+counterM    equ 0x16 
+tempL	    equ	0x17
+tempH	    equ 0x18	
+frac	    equ	0x19	    
+	    
+	    
  
 PSECT AsmCode, class=CODE, delta=2
 
 MAIN:   
-    ; 74HC595 and PIC10F200 GPIO SETUP 
-    ; GP0 -> Data		    -> 74HC595 PIN 14 (SER); 
-    ; GP1 -> Clock		    -> 74HC595 PINs 11 and 12 (SRCLR and RCLK);   
-    movlw   0B00000000	    ; All GPIO Pins as output		
-    tris    GPIO
-
     
+    ; Wake-up on Pin Change bit  disabled
+    ; Weak Pull-ups bit (GP0, GP1, GP3) diabled
+    movlw   0B11000000 
+    OPTION    
+    ; 74HC595 and PIC10F200 GPIO SETUP 
+    ; GP0 -> Data   (SR_DATA)	    -> 74HC595 PIN 14 (SER); 
+    ; GP1 -> Clock  (SR_CLOCK)	    -> 74HC595 PINs 11 and 12 (SRCLR and RCLK);
+    ; DS18B20 and PIC10F200 GPIO setup
+    ; GP2 -> DS18B20_DATA
+    movlw   0B00000000	    ; All GPIO Pins as output		
+    tris    GPIO  
+    ; Starting application BLINK all LEDs
+    movlw   0B11111111	    ; Turns all LEDs ON
+    movwf   paramValue	    ; Value to be sent to the 74HC595
+    call    SendTo74HC595
+    clrf    paramValue	    ; Turns all LEDs OFF
+    call    SendTo74HC595        
 MainLoop:		    ; Endless loop
-    movlw   0B10010001
+    ; SendS skip ROM command
+    call    OW_START
+    movlw   0xCC	    
+    movwf   paramValue	    
+    call    OW_WRITE_BYTE
+    ; Sends start conversion command
+    ; The default resolution at power-up is 12-bit. 
+    movlw   0x44	    
     movwf   paramValue
+    call    OW_WRITE_BYTE
+    clrf    paramValue
+WaitForConvertion: 
+    call    OW_READ_BYTE
+    clrw    
+    subwf   paramValue, w
+    btfsc   STATUS, 2		; Skip if value - wreg = 0
+    goto    WaitForConvertion	; else goto WaitForConvertion
+    goto    $+1
+    goto    $+1
+    goto    $+1    
+    ; Start reading the temperature from the DS18B20
+    call    OW_START
+    movlw   0xCC	    ; Sends skip ROM command
+    movwf   paramValue	    
+    call    OW_WRITE_BYTE
+    movlw   0xBE	    ; Sends read command
+    movwf   paramValue
+    call    OW_WRITE_BYTE
+
+    call    OW_READ_BYTE    ; LSB value of the temperature
+    movf    paramValue, w
+    movwf   tempL
+ 
+    call    OW_READ_BYTE    ; MSB value of the temperature
+    movf    paramValue, w
+    movwf   tempH
+    
+    call    OW_START	    ; STOP reading 
+  
+    movf    tempL,w
+    andlw   0B00001111	    ; Gets the firs 4 bits to know the fraction of the temperature
+    movwf   frac	    ; if frac >= 8 then set it to 1 else set it to 0
+    ; Round off if the fractional part is greater than or equal to 8 (0.5).
+    movlw   8
+    subwf   frac
+    btfss   STATUS, 0
+    goto    SetFracToZero
+    goto    SetFracToOne
+SetFracToZero:
+    clrf    frac
+    goto    CalcTemp
+SetFracToOne:
+    movlw   1
+    movwf   frac
+   
+CalcTemp: 
+    
+    ; Shift 4 bits to right the MSB of the tempL   
+    rrf	    tempL
+    rrf	    tempL
+    rrf	    tempL
+    rrf	    tempL
+    
+    movf    tempL, w
+    andlw   0B00001111	    ; clear the last 4 bits (4 MSB)
+    movwf   tempL
+    
+
+   
+    ; Shift to right the MSB of the tempH   
+    rlf	    tempH
+    rlf	    tempH
+    rlf	    tempH
+    rlf	    tempH    
+    
+    movf    tempH, w
+    andlw   0B11110000
+    iorwf   tempL,w	    ; tempL now has the temperature.
+    movwf   tempL
+    
+    ; Round off the fractional part to final tempL value (add 0 or 1)
+    movf    frac, w
+    addwf   tempL   	    
+    ; tempL now has the temperature to be shown
+    ; Gagge scale (degree Celsius)
+    ; COLD....: < 13 
+    ; MODERATE: >= 13 and <= 26  => I will use 12 instead 13
+    ; HOT.....: > 26
+    movlw   14			; 26 - 12
+    subwf   tempL
+    bcf	    STATUS, 0
+    rlf	    tempL		; Divide ths result by 2
+    movf    tempL, w
+    movwf   paramValue
+    movwf   paramValue		; Value to be sent to the 74HC595
     call    SendTo74HC595 
 MainLoopEnd:
-    call    Delay100us
-    goto    MainLoopEnd
+    call DELAY_600ms
     goto    MainLoop
 
     
@@ -93,37 +220,182 @@ NextBit:
     
     retlw   0
     
-   
-; ******************
-; Delay function
+  
+; ******** DS18B20 **************************
+    
+; *******************************************
+; START COMMUNICATION      
+; Initiates the 1-wire device communication  
+; GP0 is the pin connected to the device    
+OW_START: 
 
-; At 4 MHz, one instruction takes 1us
-; So, this soubroutine should take about 10 x 10 us 
+    clrf    paramValue
+    SET_PIN_OUT		
+    bcf	    GPIO,0		; make the GP0 LOW for 480 us
+    movlw   48
+    call DELAY_Nx10us 
+    bsf	    GPIO,0
+    
+    movlw   7			; 70us
+    call DELAY_Nx10us 
+    
+    SET_PIN_IN
+    
+    movlw   1			; 10us
+    call DELAY_Nx10us
+    
+    movlw   125			; Waiting for device response by checking 125 times if GP0 is low
+    movwf   counter1
+OW_START_DEVICE_RESPONSE:
+    btfsc   GPIO, 0		; if not 0,  no device is present so far
+    goto    OW_START_NO_DEVICE
+    goto    OW_START_DEVICE_FOUND
+OW_START_NO_DEVICE:
+    decfsz  counter1, f
+    goto    OW_START_DEVICE_RESPONSE ; check once again 
+    goto    SYSTEM_ERROR		; Device not found - Exit/Halt
+    retlw   0			
+OW_START_DEVICE_FOUND:  
+    movlw   60
+    call    DELAY_Nx10us
+    retlw   1			; Device found
 
-; It takes 100 us    
-Delay100us:
-    movlw   10
-    movwf   counter2    
-LoopDelay100us:   
-    goto $+1		    ; 2 cycles
-    goto $+1		    ; 2 cycles
-    goto $+1		    ; 2 cycles
+    
+; ******************************
+; Writes a byte    
+; Sends a byte to the device
+; Parameter: value (byte value to be send)
+OW_WRITE_BYTE: 
+    movlw   8
+    movwf   counter1
+OW_WRITE_BIT: 	
+    btfss   paramValue, 0		; Check if LSB of value is HIGH or LOW (Assigns valuer LSB to GP0)  
+    goto    OW_WRITE_BIT_0
+    goto    OW_WRITE_BIT_1
+OW_WRITE_BIT_0:
+    bcf	    GPIO,0
+    SET_PIN_OUT			; GP0 output setup
+    goto    $+1			; Wait for a bit time
     nop
-    decfsz  counter2, f	    ; 1 cycles (2 if dummy = 0)
-    goto    LoopDelay100us  ; 2 cycles
+    bcf	    GPIO,0
+    movlw   8			; 80us
+    call    DELAY_Nx10us 
+    SET_PIN_IN
+    goto $+1
+    nop
+    goto    OW_WRITE_BIT_END
+OW_WRITE_BIT_1: 
+    bcf	    GPIO, 0		; turn bus low for
+    SET_PIN_OUT			; GP0 output setup
+    goto    $+1
+    nop
+    bsf	    GPIO, 0
+    movlw   8			; 80us
+    call    DELAY_Nx10us 	
+    SET_PIN_IN
+    goto $+1
+    nop    
+OW_WRITE_BIT_END:
+    bcf	    STATUS, 0
+    rrf	    paramValue		; Right shift - writes the next bit
+    decfsz  counter1, f
+    goto    OW_WRITE_BIT
+        
     retlw   0
     
-; It takes about 2ms
-Delay2ms: 
-    movlw  200
-    movwf  counter2
-LoopDelay2ms: 
-    goto $+1		    ; 2 cycles
-    goto $+1		    ; 2 cycles
-    goto $+1		    ; 2 cycles
-    nop			    ; 1 cycle
-    decfsz  counter2, f	    ; 1 cycles (2 if dummy = 0)
-    goto LoopDelay2ms	    ; 2 cycles
+   
+
+; ******************************
+; Reads a byte    
+; Receives a byte from the device        
+    
+OW_READ_BYTE:
+    
+    clrf    paramValue
+    movlw   8
+    movwf   counter1
+
+OW_READ_BIT:  
+    bcf	    GPIO,0
+    SET_PIN_OUT
+    goto    $+1	    ; Wait for 2us or a bit more
+    nop
+    SET_PIN_IN
+    goto $+1
+    goto $+1
+    goto $+1
+    nop
+
+    ; Assigns 1 or 0 depending on the value of the first bit of the GPIO (GP0).
+    btfss   GPIO, 0		 
+    goto    OW_READ_BIT_0
+    goto    OW_READ_BIT_1
+OW_READ_BIT_0:
+    bcf	    STATUS, 0
+    rrf	    paramValue
+    goto    OW_READ_BIT_NEXT
+OW_READ_BIT_1:
+    bsf	    STATUS, 0
+    rrf	    paramValue
+OW_READ_BIT_NEXT:  
+    movlw   9		    ; 
+    call    DELAY_Nx10us    ; 
+    decfsz  counter1, f
+    goto    OW_READ_BIT
+    nop  
+    retlw   0    
+
+
+; *********** DELAY ************
+; Delay function    
+; Takes (WREG * 10)us    
+; Examples: if WREG=1 => 10us; WREG=7 => 70us; WREG=48 => 480us; and so on     
+DELAY_Nx10us:
+    movwf  counterM
+    goto $ + 1		; 2 cycles +
+    goto $ + 1		; 2 cycles +
+    goto $ + 1		; 2 cycles +
+    goto $ + 1		; 2 cycles = 8 cycles +
+    decfsz counterM, f	; 1 cycle + 
+    goto $ - 5		; 2 cycle = 11 cycles **** Fix it later
     retlw   0
+    
+    
+    
+; ***********************    
+; It takes about 600ms 
+DELAY_600ms:
+  
+    movlw   255
+    movwf   counter1
+DELAY_LOOP_01:
+    movlw   255
+    movwf   counter2
+DELAY_LOOP_02: 
+    goto $+1
+    goto $+1
+    goto $+1
+    goto $+1
+    decfsz  counter2, f
+    goto    DELAY_LOOP_02
+    decfsz  counter1, f
+    goto    DELAY_LOOP_01
+    
+    retlw   0
+
+; Endless loop due to system error (1-wire device not detected) 
+SYSTEM_ERROR:
+    bsf	    GPIO,1
+    call    DELAY_600ms
+    call    DELAY_600ms
+    call    DELAY_600ms
+  
+    bcf	    GPIO,1
+    call    DELAY_600ms
+
+    goto    SYSTEM_ERROR
+
+    
+
     
 END MAIN
