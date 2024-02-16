@@ -387,12 +387,13 @@ DELAY_LOOP_02:
 
 ; Endless loop due to system error (1-wire device not detected) 
 SYSTEM_ERROR:
-    bsf	    GPIO,1
+    movlw   0B10101010
+    movwf   paramValue
+    call    SendTo74HC595
     call    DELAY_600ms
-    call    DELAY_600ms
-    call    DELAY_600ms
-  
-    bcf	    GPIO,1
+    movlw   0B01010101
+    movwf   paramValue
+    call    SendTo74HC595
     call    DELAY_600ms
 
     goto    SYSTEM_ERROR
