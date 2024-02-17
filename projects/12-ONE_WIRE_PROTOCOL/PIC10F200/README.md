@@ -84,6 +84,16 @@ To assemble this code correctly, please follow the steps below:
 5. This implementation uses only one LED to indicate whether the temperature is above or below a given value.	
 
 
+**IMPORTANT:** 
+
+To assemble this code correctly, please follow the steps below:
+
+1. Go to "Project Properties" in MPLAB X.
+2. Select "Global Options" for the pic-as assembler/compiler.
+3. In the "Additional Options" box, enter the following parameters: **-Wl,-pAsmCode=0h**
+
+
+
 ```asm
 
 ; UNDER CONSTRUCTION... One Wire implementation 
@@ -485,6 +495,16 @@ The eight LEDs utilized in this setup are organized into four pairs, each repres
 
 
 ## Confort sensor Assembly code
+
+**IMPORTANT:** 
+
+To assemble this code correctly, please follow the steps below:
+
+1. Go to "Project Properties" in MPLAB X.
+2. Select "Global Options" for the pic-as assembler/compiler.
+3. In the "Additional Options" box, enter the following parameters: **-Wl,-pAsmCode=0h**
+
+
 
 ```asm
 
