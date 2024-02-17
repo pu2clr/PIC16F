@@ -4,7 +4,7 @@ The DHT11 is a popular digital temperature and humidity sensor known for its sim
 
 ![DHT11](./images/DHT11_IMAGE.jpg)
 
-[Source: the data sheet](https://www.digikey.at/htmldatasheets/production/2071184/0/0/1/dht11-humidity-temp-sensor.html) 
+[Image source: the data sheet](https://www.digikey.at/htmldatasheets/production/2071184/0/0/1/dht11-humidity-temp-sensor.html) 
 
 
 ### Features:

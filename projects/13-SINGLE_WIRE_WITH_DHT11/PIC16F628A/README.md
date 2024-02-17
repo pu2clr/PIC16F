@@ -1,0 +1,3 @@
+# PIC16F628A and DHT11 example
+
+UNDER CONSTRUCTION...

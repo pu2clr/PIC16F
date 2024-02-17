@@ -1,0 +1,3 @@
+# PIC10F200 and DHT11 example
+
+UNDER CONSTRUCTION...
