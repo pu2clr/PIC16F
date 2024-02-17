@@ -1,4 +1,3 @@
-; UNDER CONSTRUCTION...  
 ; This project uses a DS18B20 sensor, a PIC10F200 microcontroller, and a 74HC595 
 ; shift register to control 8 LEDs that indicate the ambient temperature based on
 ; the table below:
@@ -430,3 +429,6 @@ SYSTEM_ERROR:
 
     
 END MAIN
+
+
+
