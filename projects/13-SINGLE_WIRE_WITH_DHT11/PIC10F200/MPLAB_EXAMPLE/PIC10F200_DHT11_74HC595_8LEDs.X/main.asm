@@ -1,5 +1,8 @@
+; Under construction
 ; This project uses a DHT11 sensor to  measure humidity and temperature. 
-; The shift register 74HC595 is used to control 8 LEDs that indicate the climate:
+; This application with the PIC10F100 uses eight LEDs to display temperature and humidity.
+; Four LEDs indicate temperature ranges: cold, cool to comfortable, comfortable, and hot. 
+; The other four LEDs indicate humidity levels: Low, Moderate, Desirable, and HIGH.    
 ;    
 ; IMPORTANT: To assemble this code correctly, please follow the steps below:
 ; 1. Go to "Project Properties" in MPLAB X.
