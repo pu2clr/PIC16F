@@ -14,9 +14,6 @@
 ; activate based on the ambient temperature, without taking into account humidity 
 ; or other factors that may affect thermal sensation.    
 ;    
-; Author: Ricardo Lima Caratti
-; Feb/2024
-;
 ; IMPORTANT: To assemble this code correctly, please follow the steps below:
 ; 1. Go to "Project Properties" in MPLAB X.
 ; 2. Select "Global Options" for the pic-as assembler/compiler.
@@ -25,6 +22,8 @@
 ;
 ; Please check the AsmCode reference in the "PSECT" directive below.
 ;
+; Author: Ricardo Lima Caratti
+; Feb/2024    
     
 #include <xc.inc>
 

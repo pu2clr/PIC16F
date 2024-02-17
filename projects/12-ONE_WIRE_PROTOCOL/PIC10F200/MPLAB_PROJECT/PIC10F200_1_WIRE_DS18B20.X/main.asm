@@ -1,7 +1,4 @@
-; UNDER CONSTRUCTION... One Wire implementation 
-; My PIC Journey
-; Author: Ricardo Lima Caratti
-; Jan/2024
+; My PIC Journey: PIC10F200 and PIC16F887 working 1-wire protocol with DS18B20
 ;
 ; IMPORTANT: To assemble this code correctly, please follow the steps below:
 ; 1. Go to "Project Properties" in MPLAB X.
@@ -25,6 +22,9 @@
 ;    
 ; You will find good tips about the PIC10F200 here:
 ; https://www.circuitbread.com/tutorials/christmas-lights-special-microcontroller-basics-pic10f200
+;    
+; Author: Ricardo Lima Caratti
+; Jan/2024    
 
      
 #include <xc.inc>

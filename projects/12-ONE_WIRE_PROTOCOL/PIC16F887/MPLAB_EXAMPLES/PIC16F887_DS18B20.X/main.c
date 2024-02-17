@@ -1,6 +1,8 @@
 /*
- * PIC16F887 and DS18B20 (1-wire protocol) 
+ * PIC16F887, DS18B20 (1-wire protocol) and LCD 16x2
  *
+ * This application shows the current Temperature in a LCD display. 
+ * 
  * Author: Ricardo Lima Caratti
  * Created on February 14, 2024
  */
@@ -185,6 +187,10 @@ void main() {
                 strTempValue[0] = '-';
                 ds18b20Temp = (~ds18b20Temp) + 1;
             } else strTempValue[0] = '+';
+        } else {
+            Lcd_SetCursor(&lcd, 1, 1);
+            Lcd_WriteString(&lcd, "No DS18B20 here");
+            while(1);
         }
         // Ignore the fractional part and convert the temperature to a string
         convertToChar(ds18b20Temp >> 4, &strTempValue[1], 3);
