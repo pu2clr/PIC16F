@@ -182,32 +182,39 @@ NextBit:
 ; humidity, fracHumid, temperature, fracTemp and checkSum    
 ;    
 DHT11_READ: 
+
     SET_PIN_OUT
-    bsf	    GPIO, DHT_DATA
-    movlw   1			; Wait 10us
-    call    DELAY_Nx10us
-    bcf	    GPIO, DHT_DATA
+    bcf	    GPIO, DHT_DATA	; DHT_DATA = HIGH
+    
     movlw   2			; Wait 20us
     call    DELAY_Nx10us
-    bsf	    GPIO, DHT_DATA
-    movlw   3			; Wait 30us
-    call    DELAY_Nx10us
-    bcf	    GPIO, DHT_DATA
     
+    bsf	    GPIO, DHT_DATA	; DHT_DATA = HIGH
+    
+    movlw   4			; Wait 30us
+    call    DELAY_Nx10us
+
+    bcf	    GPIO, DHT_DATA	; DHT_DATA = LOW
+      
     SET_PIN_IN 
+    
     movlw   1			; Wait 10us
     call    DELAY_Nx10us    
 
     ; Wait for response from DHT11 -  while DHT_DATA = 0
     btfss   GPIO, DHT_DATA
     goto    $-1
+    
     movlw   1			; Wait 10us
-    call    DELAY_Nx10us      
+    call    DELAY_Nx10us   
+    
     ; Wait for response from DHT11 -  while DHT_DATA = 1
     btfsc   GPIO, DHT_DATA
     goto    $-1  
+    
     movlw   1			; Wait 10us
-    call    DELAY_Nx10us    
+    call    DELAY_Nx10us  
+    
     ; TODO: Gets 5 bytes from DHT11
     call    DHT11_READ_BYTE	; Gets the first byte (humidity)
     movf    paramValue, w
