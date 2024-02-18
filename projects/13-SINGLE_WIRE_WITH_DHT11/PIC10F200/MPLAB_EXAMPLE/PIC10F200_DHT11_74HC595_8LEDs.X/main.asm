@@ -105,7 +105,6 @@ MAIN:
     call    DELAY_600ms	    ; 
 MainLoop:		    ; Endless loop
     call    DHT11_READ
-    
     ; Avoind LEDs refresh for the same value
     movf    checkSum, w
     subwf   oldValue, w
@@ -206,7 +205,7 @@ DHT11_READ:
     call    DELAY_Nx10us      
     ; Wait for response from DHT11 -  while DHT_DATA = 1
     btfsc   GPIO, DHT_DATA
-    goto    $-1    
+    goto    $-1  
     movlw   1			; Wait 10us
     call    DELAY_Nx10us    
     ; TODO: Gets 5 bytes from DHT11
@@ -325,8 +324,25 @@ SYSTEM_ERROR:
 
     goto    SYSTEM_ERROR
 
-    
 
+BLINK_LED:
+    
+    movlw   10
+    movwf   counterM
+    
+BLINK_LED_LOOP: 
+    
+    movlw   0B11111111
+    movwf   paramValue
+    call    SendTo74HC595   ; Turn all LEDs on
+    call    DELAY_600ms	    ; 
+    clrf    paramValue
+    call    SendTo74HC595   ; Turn all LEDs off    
+    call    DELAY_600ms	    ; 
+    decfsz  counterM, f
+    goto    BLINK_LED_LOOP
+    retlw   0
+    
     
 END MAIN
 
