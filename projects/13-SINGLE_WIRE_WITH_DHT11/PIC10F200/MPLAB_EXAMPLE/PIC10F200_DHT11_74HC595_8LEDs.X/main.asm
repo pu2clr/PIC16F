@@ -37,7 +37,7 @@
  
 ; Sets the PIC10F200 DS18B20_DATA pin as input  
 SET_PIN_IN MACRO
-    movlw  (0x01 << DS18B20_DATA)
+    movlw  (0x01 << DHT_DATA)
     tris    GPIO
 ENDM  
   
@@ -54,7 +54,7 @@ ENDM
 ; Declare your variables here
 
 aux	    equ	0x10
-oldTemp	    equ	0x11	    
+oldValue    equ	0x11	    
 paramValue  equ 0x12		; Initial value to be sent	
 srValue	    equ 0x13		; shift register Current value to be sent to 74HC595
 counter1    equ 0x14		
@@ -81,9 +81,9 @@ MAIN:
     ; GP2 -> DS18B20_DATA
     movlw   0B00000000	    ; All GPIO Pins as output		
     tris    GPIO  
-    clrf    oldTemp
+    clrf    oldValue
 MainLoop:		    ; Endless loop
-
+    call    DHT11_READ_BYTE
 MainLoopEnd:
     call DELAY_600ms
     goto    MainLoop
@@ -156,8 +156,8 @@ DHT11_READ:
 DHT11_READ_BYTE:
     clrf    paramValue
     movlw   8
-    movwl   counter1
-    
+    movwf   counter1
+    SET_PIN_IN 
 DHT11_READ_BYTE_LOOP: 
     goto $+1		; Delays 5us 
     goto $+1
@@ -165,8 +165,16 @@ DHT11_READ_BYTE_LOOP:
     ; Wait for response from DHT11 -  while DHT_DATA = 0
     btfss   GPIO, DHT_DATA
     goto    $-1
-    movlw   5		; Delays 50us
-    call    DELAY_Nx10us
+    
+    movlw   5		; Delays 50us (do not call DELAY_Nx10us due to stack limit)
+    movwf  counterM
+    goto $ + 1		; 2 cycles +
+    goto $ + 1		; 2 cycles +
+    goto $ + 1		; 2 cycles +
+    goto $ + 1		; 2 cycles = 8 cycles +
+    decfsz counterM, f	; 1 cycle + 
+    goto $ - 5		; 2 cycle = 11 cycles **** Fix it later
+    
     btfss   GPIO, DHT_DATA 
     goto    SET_BIT_0
     goto    SET_BIT_1
@@ -179,7 +187,8 @@ DHT11_READ_BYTE_LOOP:
     rlf	    paramValue    
 DHT11_READ_BYTE_CONT:     
     decfsz  counter1, f
-    goto    DHT11_READ_BYTE_LOOP    
+    goto    DHT11_READ_BYTE_LOOP  
+    nop
     
     retlw   0
     
