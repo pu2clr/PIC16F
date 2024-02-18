@@ -95,6 +95,14 @@ MAIN:
     movlw   0B00000000	    ; All GPIO Pins as output		
     tris    GPIO  
     clrf    oldValue
+    movlw   0B11111111
+    movwf   paramValue
+    call    SendTo74HC595   ; Turn all LEDs on
+    call    DELAY_600ms	    ; 
+    call    DELAY_600ms
+    clrf    paramValue
+    call    SendTo74HC595   ; Turn all LEDs off    
+    call    DELAY_600ms	    ; 
 MainLoop:		    ; Endless loop
     call    DHT11_READ
     
@@ -131,7 +139,7 @@ AdjustValuesLoop:
     movlw   0B00001111
     andwf   humidity, w	    ; the 4 LSB have the humidity
     iorwf   paramValue	    ; paramValue has now temperature and humidity
-    call    SendTo74HC595
+    call    SendTo74HC595   ; 4 MSB => temperature; 4 LSB humidity
 MainLoopEnd:
     call DELAY_600ms
     call DELAY_600ms
