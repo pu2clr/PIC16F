@@ -50,6 +50,17 @@ DOCLOCK MACRO
   goto	    $+1
   goto	    $+1
 ENDM  
+ 
+NOCALL_DELAYxN10us  MACRO
+    ; WREG is the parameter: 5 = 50us; 10 = 100us and so on..
+    movwf  counterM
+    goto $ + 1		; 2 cycles +
+    goto $ + 1		; 2 cycles +
+    goto $ + 1		; 2 cycles +
+    goto $ + 1		; 2 cycles = 8 cycles +
+    decfsz counterM, f	; 1 cycle + 
+    goto $ - 5		; 2 cycle = 11 cycles **** Fix it later  
+ENDM    
   
 ; Declare your variables here
 
@@ -60,9 +71,11 @@ srValue	    equ 0x13		; shift register Current value to be sent to 74HC595
 counter1    equ 0x14		
 counter2    equ 0x15	
 counterM    equ 0x16 
-tempetature equ	0x17
+temperature equ	0x17
 humidity    equ 0x18	
-frac	    equ	0x19	    
+fracTemp    equ	0x19
+fracHumid   equ	0x1A
+checkSum    equ	0x1B   
 	    
 	    
  
@@ -120,9 +133,10 @@ NextBit:
     retlw   0
     
   
-; ******** DHT11 **************************
-    
-
+; ******** DHT11 ****************************************
+; Reading 5 bytes and storing the values in: 
+; humidity, fracHumid, temperature, fracTemp and checkSum    
+;    
 DHT11_READ: 
     SET_PIN_OUT
     bsf	    GPIO, DHT_DATA
@@ -149,8 +163,30 @@ DHT11_READ:
     movlw   1			; Wait 10us
     call    DELAY_Nx10us    
     ; TODO: Gets 5 bytes from DHT11
-    
-    retlw   0			
+    call    DHT11_READ_BYTE	; Gets the first byte (humidity)
+    movf    paramValue, w
+    movwf   humidity
+    call    DHT11_READ_BYTE	; Gets the secound byte (humidity - decimal part)
+    movf    paramValue, w
+    movwf   fracHumid
+    call    DHT11_READ_BYTE	; Gets the third byte (temperature)
+    movf    paramValue, w
+    movwf   temperature
+    call    DHT11_READ_BYTE	; Gets the fourth  byte (temperature - decimal part)
+    movf    paramValue, w
+    movwf   fracTemp
+    call    DHT11_READ_BYTE	; Gets the last  byte (Checaluek sum v)
+    movf    paramValue, w
+    movwf   checkSum
+    clrw
+    addwf   humidity, w
+    addwf   fracHumid, w
+    addwf   temperature, w
+    addwf   fracTemp, w
+    subwf   checkSum, w
+    btfsc   STATUS, 2		; (Z == 1)? - Is checksum ok? 
+    retlw   1			; Checksum is not ok
+    retlw   0			; Checksum is ok
 
 ;     
 DHT11_READ_BYTE:
@@ -166,14 +202,8 @@ DHT11_READ_BYTE_LOOP:
     btfss   GPIO, DHT_DATA
     goto    $-1
     
-    movlw   5		; Delays 50us (do not call DELAY_Nx10us due to stack limit)
-    movwf  counterM
-    goto $ + 1		; 2 cycles +
-    goto $ + 1		; 2 cycles +
-    goto $ + 1		; 2 cycles +
-    goto $ + 1		; 2 cycles = 8 cycles +
-    decfsz counterM, f	; 1 cycle + 
-    goto $ - 5		; 2 cycle = 11 cycles **** Fix it later
+    movlw   5		; Delays 50us (did not "call DELAY_Nx10us" due to stack limit)
+    NOCALL_DELAYxN10us
     
     btfss   GPIO, DHT_DATA 
     goto    SET_BIT_0
@@ -188,7 +218,11 @@ DHT11_READ_BYTE_LOOP:
 DHT11_READ_BYTE_CONT:     
     decfsz  counter1, f
     goto    DHT11_READ_BYTE_LOOP  
-    nop
+    movlw   1		; Delays more 8us before reading next byte 
+    goto    $+1
+    goto    $+1
+    goto    $+1
+    goto    $+1
     
     retlw   0
     
