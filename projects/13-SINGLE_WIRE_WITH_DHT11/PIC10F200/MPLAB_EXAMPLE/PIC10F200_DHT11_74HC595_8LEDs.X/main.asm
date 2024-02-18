@@ -97,7 +97,44 @@ MAIN:
     clrf    oldValue
 MainLoop:		    ; Endless loop
     call    DHT11_READ
+    
+    ; Avoind LEDs refresh for the same value
+    movf    checkSum, w
+    subwf   oldValue, w
+    btfsc   STATUS, 2	    ; (Z == 1)? - if current value = oldValue dont refresh
+    goto    MainLoopEnd
+    ; Start preprering data to be shown 	    
+    ; 4 LEDs (4 bits) will represent the temperature and 4 LEDs the humidity
+    movlw   20
+    subwf   humidity	    ; Adjuste the scale (90-20)
+    
+    ; Adjust temperature and humidity to fit in 4 bits
+    
+    movlw   4
+    movwf   counter1
+AdjustValuesLoop:     
+    bcf	    STATUS, 0
+    rrf	    temperature	    ; divide temperature by 2 
+    bcf	    STATUS, 0
+    rrf	    humidity	    ; divide humidity by 2
+    decfsz  counter1, f	    ; 1 cycle + 
+    goto    AdjustValuesLoop 
+    
+    movf    temperature, w
+    movwf   paramValue
+    rlf	    paramValue
+    rlf	    paramValue
+    rlf	    paramValue
+    rlf	    paramValue
+    movlw   0B11110000
+    andwf   paramValue	    ; the 4 MSB have the temperature		
+    movlw   0B00001111
+    andwf   humidity, w	    ; the 4 LSB have the humidity
+    iorwf   paramValue	    ; paramValue has now temperature and humidity
+    call    SendTo74HC595
 MainLoopEnd:
+    call DELAY_600ms
+    call DELAY_600ms
     call DELAY_600ms
     goto    MainLoop
 

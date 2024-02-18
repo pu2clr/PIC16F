@@ -46,7 +46,7 @@ The DHT11 uses a proprietary one-wire protocol (not to be confused with the Dall
 - **Software Implementation**: Write or use existing libraries that implement the DHT11 protocol, managing the precise timing and data decoding.
 
 ### Technical Specifications
-- **Humidity Range**: 20-80% RH with 5% RH accuracy.
+- **Humidity Range**: 20-90% RH with 5% RH accuracy.
 - **Temperature Range**: 0-50°C with ±2°C accuracy.
 - **Sampling Rate**: Not more than 1 Hz (once every second).
 - **Power Supply**: 3 to 5.5V, making it compatible with most microcontrollers, including 3.3V and 5V systems.
