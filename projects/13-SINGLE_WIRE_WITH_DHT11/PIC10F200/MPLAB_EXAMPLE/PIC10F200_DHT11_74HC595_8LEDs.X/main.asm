@@ -27,7 +27,7 @@
 
 #define   SR_DATA	0
 #define   SR_CLOK	1
-#define   DS18B20_DATA	2  
+#define   DHT_DATA	2  
   
 ; Sets all PIC10F200 pins as output 
  SET_PIN_OUT MACRO
@@ -123,17 +123,32 @@ NextBit:
 ; ******** DHT11 **************************
     
 
-OW_START: 
-
-    retlw   1			
+DHT11_READ: 
+    SET_PIN_OUT
+    bsf	    GPIO, DHT_DATA
+    movlw   1			; Wait 10us
+    call    DELAY_Nx10us
+    bcf	    GPIO, DHT_DATA
+    movlw   2			; Wait 20us
+    call    DELAY_Nx10us
+    bsf	    GPIO, DHT_DATA
+    movlw   3			; Wait 30us
+    call    DELAY_Nx10us
+    bcf	    GPIO, DHT_DATA
+    bsf	    GPIO, DHT_DATA
+    movlw   1			; Wait 10us
+    call    DELAY_Nx10us    
+    ; TODO: while DHT_DATA = 0
+    nop
+    movlw   1			; Wait 10us
+    call    DELAY_Nx10us      
+    ; TODO: while DHT_DATA = 1
+    movlw   1			; Wait 10us
+    call    DELAY_Nx10us    
+    ; TODO: Gets 5 bytes from DHT11
     
-; ******************************
-; Reads a byte    
-; Receives a byte from the device        
-    
-OW_READ_BYTE:
-    
-    retlw   0    
+    retlw   0			
+      
 
 
 ; *********** DELAY ************
