@@ -1,4 +1,4 @@
-; Under construction
+; Under construction...
 ; This project uses a DHT11 sensor to  measure humidity and temperature. 
 ; This application with the PIC10F100 uses eight LEDs to display temperature and humidity.
 ; Four LEDs indicate temperature ranges: cold, cool to comfortable, comfortable, and hot. 
@@ -96,7 +96,7 @@ MAIN:
     tris    GPIO  
     clrf    oldValue
 MainLoop:		    ; Endless loop
-    call    DHT11_READ_BYTE
+    call    DHT11_READ
 MainLoopEnd:
     call DELAY_600ms
     goto    MainLoop
@@ -149,9 +149,11 @@ DHT11_READ:
     movlw   3			; Wait 30us
     call    DELAY_Nx10us
     bcf	    GPIO, DHT_DATA
-    bsf	    GPIO, DHT_DATA
+    
+    SET_PIN_IN 
     movlw   1			; Wait 10us
     call    DELAY_Nx10us    
+
     ; Wait for response from DHT11 -  while DHT_DATA = 0
     btfss   GPIO, DHT_DATA
     goto    $-1
@@ -188,12 +190,13 @@ DHT11_READ:
     retlw   1			; Checksum is not ok
     retlw   0			; Checksum is ok
 
-;     
+; ******* DHT11_READ_BYTE *********************************   
+; Reads next 8 bits (byte)    
+; GPIO  DHT_DATA must bin configured as input    
 DHT11_READ_BYTE:
     clrf    paramValue
     movlw   8
     movwf   counter1
-    SET_PIN_IN 
 DHT11_READ_BYTE_LOOP: 
     goto $+1		; Delays 5us 
     goto $+1
