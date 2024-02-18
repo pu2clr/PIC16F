@@ -60,8 +60,8 @@ srValue	    equ 0x13		; shift register Current value to be sent to 74HC595
 counter1    equ 0x14		
 counter2    equ 0x15	
 counterM    equ 0x16 
-tempL	    equ	0x17
-tempH	    equ 0x18	
+tempetature equ	0x17
+humidity    equ 0x18	
 frac	    equ	0x19	    
 	    
 	    
@@ -138,18 +138,51 @@ DHT11_READ:
     bsf	    GPIO, DHT_DATA
     movlw   1			; Wait 10us
     call    DELAY_Nx10us    
-    ; TODO: while DHT_DATA = 0
-    nop
+    ; Wait for response from DHT11 -  while DHT_DATA = 0
+    btfss   GPIO, DHT_DATA
+    goto    $-1
     movlw   1			; Wait 10us
     call    DELAY_Nx10us      
-    ; TODO: while DHT_DATA = 1
+    ; Wait for response from DHT11 -  while DHT_DATA = 1
+    btfsc   GPIO, DHT_DATA
+    goto    $-1    
     movlw   1			; Wait 10us
     call    DELAY_Nx10us    
     ; TODO: Gets 5 bytes from DHT11
     
     retlw   0			
-      
 
+;     
+DHT11_READ_BYTE:
+    clrf    paramValue
+    movlw   8
+    movwl   counter1
+    
+DHT11_READ_BYTE_LOOP: 
+    goto $+1		; Delays 5us 
+    goto $+1
+    nop
+    ; Wait for response from DHT11 -  while DHT_DATA = 0
+    btfss   GPIO, DHT_DATA
+    goto    $-1
+    movlw   5		; Delays 50us
+    call    DELAY_Nx10us
+    btfss   GPIO, DHT_DATA 
+    goto    SET_BIT_0
+    goto    SET_BIT_1
+ SET_BIT_0:   
+    bcf	    STATUS, 0
+    rlf	    paramValue
+    goto    DHT11_READ_BYTE_CONT
+ SET_BIT_1:   
+    bsf	    STATUS, 0
+    rlf	    paramValue    
+DHT11_READ_BYTE_CONT:     
+    decfsz  counter1, f
+    goto    DHT11_READ_BYTE_LOOP    
+    
+    retlw   0
+    
 
 ; *********** DELAY ************
 ; Delay function    
