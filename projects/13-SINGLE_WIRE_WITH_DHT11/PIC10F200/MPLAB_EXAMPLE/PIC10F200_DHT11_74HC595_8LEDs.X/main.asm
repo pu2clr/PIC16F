@@ -236,7 +236,7 @@ DHT11_READ:
     retlw   0			; Checksum is ok
 
 ; ******* DHT11_READ_BYTE *********************************   
-; Reads next 8 bits (byte)    
+; Reads the next 8 bits (one byte)  from DHT11  
 ; GPIO  DHT_DATA must bin configured as input    
 DHT11_READ_BYTE:
     clrf    paramValue
