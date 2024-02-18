@@ -194,8 +194,6 @@ DHT11_READ:
     movlw   4			; Wait 30us
     call    DELAY_Nx10us
 
-    bcf	    GPIO, DHT_DATA	; DHT_DATA = LOW
-      
     SET_PIN_IN 
     
     movlw   1			; Wait 10us
