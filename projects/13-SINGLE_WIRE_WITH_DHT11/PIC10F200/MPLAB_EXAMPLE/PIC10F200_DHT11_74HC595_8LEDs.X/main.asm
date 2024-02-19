@@ -312,8 +312,8 @@ DHT11_READ_BYTE_CONT:
     decfsz  counter1, f
     goto    DHT11_READ_BYTE_LOOP  
  
-    movlw   40			; When the last bit data is transmitted, DHT11 pulls down the voltage level and keeps it for 50us. 
-    NOCALL_DELAYxN10us          ; 
+    movlw   5			; When the last bit data is transmitted, DHT11 pulls down the voltage level and keeps it for 50us. 
+    NOCALL_DELAYxN10us          ; Then the Single-Bus voltage will be pulled up by the resistor to set it back to the free status.
     
     retlw   0
     
