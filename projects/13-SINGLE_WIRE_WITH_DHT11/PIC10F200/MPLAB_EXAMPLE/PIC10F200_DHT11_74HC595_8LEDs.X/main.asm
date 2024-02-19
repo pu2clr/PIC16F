@@ -197,36 +197,51 @@ NextBit:
 ;    20 to 40 microseconds for the DHT11's response    
 DHT11_READ: 
 
-
     SET_PIN_OUT
     bcf	    GPIO, DHT_DATA	; DHT_DATA = low
     
-    movlw   2			; Wait 20us ( 
-    call    DELAY_Nx10us
+    movlw   18			; Wait 20us ( 
+    call    DELAY_Nx1ms
     
     bsf	    GPIO, DHT_DATA	; DHT_DATA = HIGH
     
-    movlw   4			; Wait 30us
-    call    DELAY_Nx10us
+    movlw   30			; Wait 30us
+    call    DELAY_Nx1ms
 
     SET_PIN_IN 
     
-    movlw   1			; Wait 10us
-    call    DELAY_Nx10us    
-
-    ; Wait for response from DHT11 -  while DHT_DATA = 0
-    btfss   GPIO, DHT_DATA
-    goto    $-1
     
-    movlw   1			; Wait 10us
-    call    DELAY_Nx10us   
+    ; The DHT11 shoud send a low pulse during 80us
+    ; Wait for response from DHT11 
+    movlw   13
+    movwf   counterM 
+DHT11_WAIT_RESPONSE_0:    
+    btfsc   GPIO, DHT_DATA	    ; 1 cycle +
+    goto    $+2			    ; 2 cycle +
+    goto    DHT11_PRESENT		
+    decfsz  counterM, f		    ; 1 cycle  +
+    goto    DHT11_WAIT_RESPONSE_0   ; 2 cycles = 6 cycle (about 6us)
+    ; DHT11 was not present 
+    goto    SYSTEM_ERROR
+DHT11_PRESENT:  
     
-    ; Wait for response from DHT11 -  while DHT_DATA = 1
-    ; btfsc   GPIO, DHT_DATA
-    ; goto    $-1  
+    ; Whit the DHT1 release the bus
+    btfsc   GPIO, DHT_DATA	    
+    goto    $-1	
     
-    ; movlw   1			; Wait 10us
-    ; call    DELAY_Nx10us  
+    ; The DHT11 shoud send a HIGH pulse during 80us
+    ; Wait for response from DHT11 
+    movlw   13
+    movwf   counterM 
+DHT11_WAIT_RESPONSE_1:    
+    btfsc   GPIO, DHT_DATA	    ; 1 cycle +
+    goto    $+2			    ; 2 cycle +
+    goto    DHT11_READY_TO_TRANS		
+    decfsz  counterM, f		    ; 1 cycle  +
+    goto    DHT11_WAIT_RESPONSE_1	    ; 2 cycles = 6 cycle (about 6us)
+    ; DHT11 ERROR 
+    goto    SYSTEM_ERROR
+DHT11_READY_TO_TRANS:     
     
     ; TODO: Gets 5 bytes from DHT11
     
@@ -301,14 +316,32 @@ DHT11_READ_BYTE_CONT:
 ; Examples: if WREG=1 => 10us; WREG=7 => 70us; WREG=48 => 480us; and so on     
 DELAY_Nx10us:
     movwf  counterM
+    nop			; 1 cycle +
     goto $ + 1		; 2 cycles +
     goto $ + 1		; 2 cycles +
-    goto $ + 1		; 2 cycles +
-    goto $ + 1		; 2 cycles = 8 cycles +
-    decfsz counterM, f	; 1 cycle + 
-    goto $ - 5		; 2 cycle = 11 cycles **** Fix it later
+    goto $ + 1		; 2 cycles = 7 cycles +
+    decfsz counterM, f	; 1 cycle = 8 us 
+    goto $ - 5		; 2 cycle = 10 cycles 
     retlw   0
     
+
+; ****************** DELAY_Nx1ms *****************    
+; Delays about WREG ms where the WREG is the parameter
+; if WREG = 20 => 20us; if WREG = 100 => 100us and so on.      
+;     
+DELAY_Nx1ms:
+    movwf   counter1	    ; wreg is the parameter in ms. 
+DELAY_Nx1ms_01:			
+    movlw   200		    ; It is about 200 * 5us ( 5 cycles) = 1000us (1ms) 
+    movwf   counter2
+DELAY_Nx1ms_02:		    ; Delays about 5us        
+    goto    $+1		    ; 2 cycles (2us) +
+    decfsz  counter2, f	    ; 1 cycle [1]  +   |  1. most of time 1 cycle     
+    goto    DELAY_Nx1ms_02  ; 2 cycles (2us) = about 5us
+    decfsz  counter1, f
+    goto    DELAY_Nx1ms_01
+    
+    retlw   0    
     
     
 ; ***********************    
