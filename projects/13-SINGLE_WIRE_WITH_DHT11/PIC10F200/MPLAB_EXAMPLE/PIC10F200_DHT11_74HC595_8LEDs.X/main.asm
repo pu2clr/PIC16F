@@ -285,18 +285,17 @@ DHT11_READY_TO_TRANS:
 ; Reads the next 8 bits (one byte)  from DHT11  
 ; GPIO  DHT_DATA must bin configured as input    
 DHT11_READ_BYTE:
+    
+    
     clrf    paramValue
     movlw   8
     movwf   counter1
 DHT11_READ_BYTE_LOOP: 
-    goto $+1		; Delays 5us 
-    goto $+1
-    nop
-    ; Wait for response from DHT11 -  while DHT_DATA = 0
-    btfss   GPIO, DHT_DATA
+    ; while DHT_DATA == LOW 
+    btfss   GPIO, DHT_DATA	; skip next instruction if HIGH 
     goto    $-1
     
-    movlw   5		; Delays 50us (did not "call DELAY_Nx10us" due to stack limit)
+    movlw   3			; Delays 30us (did not "call DELAY_Nx10us" due to stack limit)
     NOCALL_DELAYxN10us
     
     btfss   GPIO, DHT_DATA 
@@ -312,11 +311,9 @@ DHT11_READ_BYTE_LOOP:
 DHT11_READ_BYTE_CONT:     
     decfsz  counter1, f
     goto    DHT11_READ_BYTE_LOOP  
-    movlw   1		; Delays more 8us before reading next byte 
-    goto    $+1
-    goto    $+1
-    goto    $+1
-    goto    $+1
+ 
+    movlw   40			; When the last bit data is transmitted, DHT11 pulls down the voltage level and keeps it for 50us. 
+    NOCALL_DELAYxN10us          ; 
     
     retlw   0
     
