@@ -186,13 +186,22 @@ NextBit:
 ; ******** DHT11 ****************************************
 ; Reading 5 bytes and storing the values in: 
 ; humidity, fracHumid, temperature, fracTemp and checkSum    
-;    
+; Steps: 
+; 1) MCU Sends out Start Signal to DHT  
+;    The Data Single-bus operates at a high voltage level under free status conditions (pull up). 
+;    When initiating communication between the Microcontroller Unit (MCU) and the DHT11 
+;    sensor, the MCU's programming transitions the Data Single-bus's voltage from high to 
+;    low. This transition must be maintained for a minimum of 18 milliseconds to guarantee 
+;    the DHT11 sensor's successful detection of the MCU's signal. 
+;    Following this, the MCU elevates the voltage level and enters a waiting period of 
+;    20 to 40 microseconds for the DHT11's response    
 DHT11_READ: 
 
+
     SET_PIN_OUT
-    bcf	    GPIO, DHT_DATA	; DHT_DATA = HIGH
+    bcf	    GPIO, DHT_DATA	; DHT_DATA = low
     
-    movlw   2			; Wait 20us
+    movlw   2			; Wait 20us ( 
     call    DELAY_Nx10us
     
     bsf	    GPIO, DHT_DATA	; DHT_DATA = HIGH
