@@ -314,7 +314,12 @@ DHT11_READ_BYTE_LOOP:
  SET_BIT_1:   
     bsf	    STATUS, 0
     rlf	    paramValue    
-DHT11_READ_BYTE_CONT:     
+DHT11_READ_BYTE_CONT: 
+    
+    ; while DHT_DATA == HIGH 
+    btfsc   GPIO, DHT_DATA	; skip next instruction if LOW 
+    goto    $-1
+    
     decfsz  counter1, f
     goto    DHT11_READ_BYTE_LOOP  
  
