@@ -104,7 +104,10 @@ MAIN:
     call    SendTo74HC595   ; Turn all LEDs off    
     call    DELAY_600ms	    ; 
 MainLoop:		    ; Endless loop
-    call    DHT11_READ
+    call    DHT11_READ	    ; Checksum: if wreg = 1 then chcksum error
+    movwf   aux
+    btfsc   aux, 0
+    call    BLINK_LED	    ; Indicate Checksum error
     ; Avoind LEDs refresh for the same value
     movf    checkSum, w
     subwf   oldValue, w
@@ -158,7 +161,7 @@ AdjustValuesLoop:
 MainLoopEnd:
     call DELAY_600ms
     call DELAY_600ms
-    call DELAY_600ms
+
     goto    MainLoop
 
     
@@ -210,7 +213,7 @@ DHT11_READ:
     SET_PIN_OUT
     bcf	    GPIO, DHT_DATA	; DHT_DATA = low
     
-    movlw   18			; Wait 20us ( 
+    movlw   20			; Wait 20ms 
     call    DELAY_Nx1ms
     
     bsf	    GPIO, DHT_DATA	; DHT_DATA = HIGH
@@ -259,12 +262,15 @@ DHT11_READY_TO_TRANS:
     call    DHT11_READ_BYTE	; Gets the first byte (humidity)
     movf    paramValue, w
     movwf   humidity
+    
     call    DHT11_READ_BYTE	; Gets the secound byte (humidity - decimal part)
     movf    paramValue, w
     movwf   fracHumid
+    
     call    DHT11_READ_BYTE	; Gets the third byte (temperature)
     movf    paramValue, w
     movwf   temperature
+    
     call    DHT11_READ_BYTE	; Gets the fourth  byte (temperature - decimal part)
     movf    paramValue, w
     movwf   fracTemp
@@ -312,7 +318,7 @@ DHT11_READ_BYTE_CONT:
     decfsz  counter1, f
     goto    DHT11_READ_BYTE_LOOP  
  
-    movlw   5			; When the last bit data is transmitted, DHT11 pulls down the voltage level and keeps it for 50us. 
+    movlw   2			; When the last bit data is transmitted, DHT11 pulls down the voltage level and keeps it for 50us. 
     NOCALL_DELAYxN10us          ; Then the Single-Bus voltage will be pulled up by the resistor to set it back to the free status.
     
     retlw   0
@@ -389,7 +395,7 @@ SYSTEM_ERROR:
 
 BLINK_LED:
     
-    movlw   10
+    movlw   2
     movwf   counterM
     
 BLINK_LED_LOOP: 
