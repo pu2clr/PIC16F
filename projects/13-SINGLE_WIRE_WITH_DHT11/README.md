@@ -28,6 +28,22 @@ The DHT11 is a popular digital temperature and humidity sensor known for its sim
 [Image source: the data sheet](https://www.digikey.at/htmldatasheets/production/2071184/0/0/1/dht11-humidity-temp-sensor.html) 
 
 
+### DHT11 PINOUT
+
+
+![DHT11 PINOUT V1](./images/DHT11_V01.jpg)
+
+![DHT11 PINOUT V2](./images/DHT11_V02.jpg)
+
+![DHT11 PINOUT V3](./images/DHT11_V03.png)
+
+| PIN # | DESCRIPTION | 
+| ----- | ----------- | 
+|   1   | GND (-)     | 
+|   2   | DATA / SIGNAL | 
+|   3   | VCC (+)     | 
+
+
 ### Features
 - **Integrated Temperature and Humidity Sensor**: Measures ambient temperature and humidity with a single device.
 - **Digital Output**: Provides temperature and humidity readings directly as digital data, eliminating the need for analog-to-digital conversion.
