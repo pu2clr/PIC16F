@@ -31,11 +31,12 @@ The DHT11 is a popular digital temperature and humidity sensor known for its sim
 ### DHT11 PINOUT
 
 
-![DHT11 PINOUT V1](./images/DHT11_V01.jpg)
+![DHT11 PINOUT V1](./images/DHT11_V1.jpg)
 
-![DHT11 PINOUT V2](./images/DHT11_V02.jpg)
+![DHT11 PINOUT V2](./images/DHT11_V2.jpg)
 
-![DHT11 PINOUT V3](./images/DHT11_V03.png)
+![DHT11 PINOUT V3](./images/DHT11_V3.jpg)
+
 
 | PIN # | DESCRIPTION | 
 | ----- | ----------- | 
