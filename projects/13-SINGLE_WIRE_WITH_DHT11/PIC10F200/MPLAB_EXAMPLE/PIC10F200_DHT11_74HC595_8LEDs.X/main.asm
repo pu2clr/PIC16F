@@ -95,20 +95,14 @@ MAIN:
     movlw   0B00000000	    ; All GPIO Pins as output		
     tris    GPIO  
     clrf    oldValue
+    ; Just BLINK all LEDs indicating start
     movlw   0B11111111
     movwf   paramValue
     call    SendTo74HC595   ; Turn all LEDs on
-    call    DELAY_600ms	    ; 
-    call    DELAY_600ms
-    call    DELAY_600ms	    ; 
-    call    DELAY_600ms	    ; 
-    call    DELAY_600ms	    ; 
-    call    DELAY_600ms	    ;     
+    call    DELAY_600ms	    ;   
     clrf    paramValue
     call    SendTo74HC595   ; Turn all LEDs off    
     call    DELAY_600ms	    ; 
-
-    call    DELAY_600ms	    ;     
 MainLoop:		    ; Endless loop
     call    DHT11_READ
     ; Avoind LEDs refresh for the same value
@@ -116,12 +110,28 @@ MainLoop:		    ; Endless loop
     subwf   oldValue, w
     btfsc   STATUS, 2	    ; (Z == 1)? - if current value = oldValue dont refresh
     goto    MainLoopEnd
+    
+    ; Begin check
+    movf    temperature, w
+    movwf   paramValue
+    call    SendTo74HC595   ; shoul show the temperature in bynary
+    nop
+    nop
+    nop
+    goto    MainLoopEnd
+    ; End check
+    
+    
+    
+    
     ; Start preprering data to be shown 	    
     ; 4 LEDs (4 bits) will represent the temperature and 4 LEDs the humidity
     movlw   20
     subwf   humidity	    ; Adjuste the scale (90-20)
     
     ; Adjust temperature and humidity to fit in 4 bits
+    
+    
     
     movlw   4
     movwf   counter1
