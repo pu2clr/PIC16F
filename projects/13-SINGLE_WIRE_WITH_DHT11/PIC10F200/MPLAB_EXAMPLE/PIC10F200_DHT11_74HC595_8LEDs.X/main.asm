@@ -205,8 +205,8 @@ DHT11_READ:
     
     bsf	    GPIO, DHT_DATA	; DHT_DATA = HIGH
     
-    movlw   30			; Wait 30us
-    call    DELAY_Nx1ms
+    movlw   3			; Wait 30us
+    call    DELAY_Nx10us
 
     SET_PIN_IN 
     
@@ -225,7 +225,7 @@ DHT11_WAIT_RESPONSE_0:
     goto    SYSTEM_ERROR
 DHT11_PRESENT:  
     
-    ; Whit the DHT1 release the bus
+    ; Wait the DHT11 release the bus
     btfsc   GPIO, DHT_DATA	    
     goto    $-1	
     
@@ -242,6 +242,7 @@ DHT11_WAIT_RESPONSE_1:
     ; DHT11 ERROR 
     goto    SYSTEM_ERROR
 DHT11_READY_TO_TRANS:     
+    
     
     ; TODO: Gets 5 bytes from DHT11
     
