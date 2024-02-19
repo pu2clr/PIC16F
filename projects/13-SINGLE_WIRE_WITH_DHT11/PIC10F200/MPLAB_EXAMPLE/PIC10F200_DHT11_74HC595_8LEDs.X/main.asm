@@ -207,11 +207,11 @@ DHT11_READ:
     call    DELAY_Nx10us   
     
     ; Wait for response from DHT11 -  while DHT_DATA = 1
-    btfsc   GPIO, DHT_DATA
-    goto    $-1  
+    ; btfsc   GPIO, DHT_DATA
+    ; goto    $-1  
     
-    movlw   1			; Wait 10us
-    call    DELAY_Nx10us  
+    ; movlw   1			; Wait 10us
+    ; call    DELAY_Nx10us  
     
     ; TODO: Gets 5 bytes from DHT11
     call    DHT11_READ_BYTE	; Gets the first byte (humidity)
