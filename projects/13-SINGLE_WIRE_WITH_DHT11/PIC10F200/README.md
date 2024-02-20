@@ -32,6 +32,9 @@ Developing the 'single-wire' protocol used by the DHT11 device on the PIC10F200 
 
 ## PIC10F200 with  DHT11 and 74HC595 Assembly code
 
+This project uses a DHT11 sensor to  measure humidity and temperature. This application with the PIC10F100 uses eight LEDs driven by the 74HC595 device to display temperature and humidity. Four LEDs indicate temperature ranges: cold, cool to comfortable, comfortable, and hot. The other four LEDs indicate humidity levels: Low, Moderate, Desirable, and HIGH.  
+
+
 ```asm
 
 ```
