@@ -170,7 +170,7 @@ MainLoopEnd:
     goto    MainLoop
 
     
-; *********************************************************    
+; **************************************************************    
 ; Send the content of the paramValue to the 74HC595 device
 ; parameter: paramValue - Value to be sent to the 74HC595 device    
 ;    
@@ -179,7 +179,7 @@ SendTo74HC595:
     movwf   counterM
     movf    paramValue, w
 PrepereToSend:  
-    btfss   paramValue, 0  ; Check if less significant bit is 1
+    btfss   paramValue, 0   ; Check if less significant bit is 1
     goto    Send0	    ; if 0 turn GP0 low	
     goto    Send1	    ; if 1 turn GP0 high
 Send0:
@@ -196,7 +196,7 @@ NextBit:
     decfsz counterM, f	    ; Decrement the counter1 and check if it becomes zero.
     goto PrepereToSend	    ; if not, keep prepering to send
     
-    ; DOCLOCK                 ; ===> CHECK IT!!!!!!!!!
+    ; DOCLOCK               ; ===> CHECK IT!!!!!!!!!
     
     retlw   0
     
@@ -204,15 +204,6 @@ NextBit:
 ; ******** DHT11 ****************************************
 ; Reading 5 bytes and storing the values in: 
 ; humidity, fracHumid, temperature, fracTemp and checkSum    
-; Steps: 
-; 1) MCU Sends out Start Signal to DHT  
-;    The Data Single-bus operates at a high voltage level under free status conditions (pull up). 
-;    When initiating communication between the Microcontroller Unit (MCU) and the DHT11 
-;    sensor, the MCU's programming transitions the Data Single-bus's voltage from high to 
-;    low. This transition must be maintained for a minimum of 18 milliseconds to guarantee 
-;    the DHT11 sensor's successful detection of the MCU's signal. 
-;    Following this, the MCU elevates the voltage level and enters a waiting period of 
-;    20 to 40 microseconds for the DHT11's response    
 DHT11_READ: 
 
     SET_PIN_OUT
@@ -227,7 +218,6 @@ DHT11_READ:
     call    DELAY_Nx10us
 
     SET_PIN_IN 
-    
     
     ; The DHT11 shoud send a low pulse during 80us
     ; Wait for response from DHT11 
@@ -256,7 +246,7 @@ DHT11_WAIT_RESPONSE_1:
     goto    $+2			    ; 2 cycle +
     goto    DHT11_READY_TO_TRANS		
     decfsz  counterM, f		    ; 1 cycle  +
-    goto    DHT11_WAIT_RESPONSE_1	    ; 2 cycles = 6 cycle (about 6us)
+    goto    DHT11_WAIT_RESPONSE_1   ; 2 cycles = 6 cycle (about 6us)
     ; DHT11 ERROR 
     goto    SYSTEM_ERROR
 DHT11_READY_TO_TRANS:     
