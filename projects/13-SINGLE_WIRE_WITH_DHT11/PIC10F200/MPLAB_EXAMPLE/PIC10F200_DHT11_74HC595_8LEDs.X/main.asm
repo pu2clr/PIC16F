@@ -129,41 +129,20 @@ MainLoop:		    ; Endless loop
     nop
     goto    MainLoopEnd
     ; End check
+
+   
+    ; TO BE CONTINUE.... 
+    ; Format temperature and humidity to fit in 8 LEDs
+    ; Temperature... 4 MSB
+    ; Humidity...... 4 LSB
+    clrf    paramValue
     
+
     
+ShowClimate:     
+    goto    FormatHumidity    
+    call    SendTo74HC595  
     
-    
-    ; Start preprering data to be shown 	    
-    ; 4 LEDs (4 bits) will represent the temperature and 4 LEDs the humidity
-    movlw   20
-    subwf   humidity	    ; Adjuste the scale (90-20)
-    
-    ; Adjust temperature and humidity to fit in 4 bits
-    
-    
-    
-    movlw   4
-    movwf   counter1
-AdjustValuesLoop:     
-    bcf	    STATUS, 0
-    rrf	    temperature	    ; divide temperature by 2 
-    bcf	    STATUS, 0
-    rrf	    humidity	    ; divide humidity by 2
-    decfsz  counter1, f	    ; 1 cycle + 
-    goto    AdjustValuesLoop 
-    
-    movf    temperature, w
-    movwf   paramValue
-    rlf	    paramValue
-    rlf	    paramValue
-    rlf	    paramValue
-    rlf	    paramValue
-    movlw   0B11110000
-    andwf   paramValue	    ; the 4 MSB have the temperature		
-    movlw   0B00001111
-    andwf   humidity, w	    ; the 4 LSB have the humidity
-    iorwf   paramValue,f	    ; paramValue has now temperature and humidity
-    call    SendTo74HC595   ; 4 MSB => temperature; 4 LSB humidity
 MainLoopEnd:
     call DELAY_600ms
     call DELAY_600ms
@@ -324,7 +303,7 @@ DHT11_READ_BYTE_CONT:
     
     retlw   0
     
-
+    
 ; *********** DELAY ************
 ; Delay function    
 ; Takes (WREG * 10)us    
