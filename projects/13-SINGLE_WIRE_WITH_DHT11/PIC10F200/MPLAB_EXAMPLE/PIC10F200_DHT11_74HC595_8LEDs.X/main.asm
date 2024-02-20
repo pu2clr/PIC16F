@@ -102,12 +102,17 @@ MAIN:
     call    DELAY_600ms	    ;   
     clrf    paramValue
     call    SendTo74HC595   ; Turn all LEDs off    
+    call    DELAY_600ms	    ; Time to the system become stable
+    call    DELAY_600ms	    ; 
+    call    DELAY_600ms	    ; 
+    call    DELAY_600ms	    ; 
     call    DELAY_600ms	    ; 
 MainLoop:		    ; Endless loop
     call    DHT11_READ	    ; Checksum: if wreg = 1 then chcksum error
     movwf   aux
     btfsc   aux, 0
-    call    BLINK_LED	    ; Indicate Checksum error
+    ; call    BLINK_LED	    ; Indicate Checksum error
+    goto    MainLoopEnd	    ; Checksum error: Skip reading / No result to be shown
     ; Avoind LEDs refresh for the same value
     movf    checkSum, w
     subwf   oldValue, w
@@ -400,11 +405,6 @@ SYSTEM_ERROR:
 
 BLINK_LED:
     
-    movlw   2
-    movwf   counterM
-    
-BLINK_LED_LOOP: 
-    
     movlw   0B11111111
     movwf   paramValue
     call    SendTo74HC595   ; Turn all LEDs on
@@ -412,8 +412,6 @@ BLINK_LED_LOOP:
     clrf    paramValue
     call    SendTo74HC595   ; Turn all LEDs off    
     call    DELAY_600ms	    ; 
-    decfsz  counterM, f
-    goto    BLINK_LED_LOOP
     retlw   0
     
     
