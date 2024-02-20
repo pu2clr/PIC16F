@@ -111,8 +111,11 @@ During the data transmission from DHT to MCU, each data bit is introduced by a 5
 ##### Troubleshooting Steps:
 
 1.  **Double-check connections:** Ensure proper connections between the DHT and the microcontroller, especially regarding power, ground, and the data line.
+
 2. **Verify pull-up resistor:** Make sure the pull-up resistor is correctly attached and its value matches the recommended range for your specific DHT model.
+
 3. **Check code implementation:** Review your code to ensure it correctly sends the start signal and waits for the DHT's response within the required timing constraints.
+
 4. **Consider sensor replacement:** If the issue persists after checking connections and code, consider replacing the DHT sensor as it might be faulty.
 
 
