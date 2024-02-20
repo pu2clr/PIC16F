@@ -116,6 +116,8 @@ Checksum Validation: The checksum, which is the last 8 bits of the data packet, 
 4. **Consider sensor replacement:** If the issue persists after checking connections and code, consider replacing the DHT sensor as it might be faulty.
 
 
+![Comunication process](./images/communication_process_02.jpg)
+
 
 ## About Humidity Levels and Their Effects on Humans
 
