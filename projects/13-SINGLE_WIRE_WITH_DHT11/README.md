@@ -121,6 +121,7 @@ Checksum Validation: The checksum, which is the last 8 bits of the data packet, 
 
 ### Regarding the figure above:
 
+* The blue line represents the actions of the MCU, and the yellow line represents the actions of the DHT11.
 * Pay attention to the units of measure (milliseconds/ms and microseconds/us).
 * The MCU sends a low signal for 80 ms (milliseconds).
 * Then, the MCU sends a high signal for between 20 and 40us (microseconds).
