@@ -121,14 +121,16 @@ Checksum Validation: The checksum, which is the last 8 bits of the data packet, 
 
 ### Regarding the figure above:
 
-- Pay attention to the units of measure (milliseconds/ms and microseconds/us).
-- The MCU sends a low signal for 80 ms (milliseconds).
-- Then, the MCU sends a high signal for between 20 and 40us (microseconds).
-- The DHT11 responds with a low signal for 80us (microseconds).
-- Following this, the DHT11 sends a high signal for 80us.
-- After the previous step, the DHT11 begins transmitting data bit by bit, with an interval of 50us between each bit.
-- The values of the bits, 0 or 1, are determined by the duration of the high level sent by the DHT11. Specifically, a '0' is represented by a high level lasting between 26 and 28us, and a '1' is represented by a high level lasting 70us.
-- It is important to note that between one bit and the next, the DHT11 sends a low signal for 50us.
+* Pay attention to the units of measure (milliseconds/ms and microseconds/us).
+* The MCU sends a low signal for 80 ms (milliseconds).
+* Then, the MCU sends a high signal for between 20 and 40us (microseconds).
+* The DHT11 responds with a low signal for 80us (microseconds).
+* Following this, the DHT11 sends a high signal for 80us.
+* After the previous step, the DHT11 begins transmitting data bit by bit, with an interval of 50us between each bit.
+* The values of the bits, 0 or 1, are determined by the duration of the high level sent by the DHT11. Specifically, a '0' is represented by a high level lasting between 26 and 28us, and a '1' is represented by a high level lasting 70us.
+* It is important to note that between one bit and the next, the DHT11 sends a low signal for 50us.
+
+**The figure does not show the transition curve between the high and low state or vice versa. However, it is important to be aware that this occurs and can vary depending on the circuit's capacitance and the pull-up resistor used.**
 
 
 ## About Humidity Levels and Their Effects on Humans
