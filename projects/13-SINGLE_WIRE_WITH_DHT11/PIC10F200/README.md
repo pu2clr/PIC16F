@@ -8,9 +8,10 @@ This project uses a DHT11 sensor to  measure humidity and temperature. This appl
 1. [Considerations to implement this single-wire protocol ](#considerations-to-implement-this-single-wire-protocol)
 2. [Schematic](#pic10f200-and-dht11-schematic)
     * [KiCad schematic](./KiCad/)
-3. [PIC10F200 with  DHT11 and 74HC595 Assembly code](#pic10f200-with-dht11-and-74hc595-assembly-code)    
-4. [MPLAB X IDE project](./MPLAB_EXAMPLE/)    
-5. [Referencesw](#references)
+3. [PIC10F200 PINOUT](#pic10f200-pinout)    
+4. [PIC10F200 with  DHT11 and 74HC595 Assembly code](#pic10f200-with-dht11-and-74hc595-assembly-code)    
+5. [MPLAB X IDE project](./MPLAB_EXAMPLE/)    
+6. [References](#references)
 
 
 ## Considerations to implement this single-wire protocol 
@@ -28,6 +29,16 @@ Developing the 'single-wire' protocol used by the DHT11 device on the PIC10F200 
 
 ![PIC10F200 and DHT11 Schematic](./schematic_pic10f200_DHT11_74HC595_LEDs.jpg)
 
+
+## PIC10F200 PINOUT
+
+### SMD (6-PIN SOT-23)
+
+![PIC10F200 SMD PINOUT](./../../../images/pic10f200_smd_pinout.png)
+
+### 8-PIN PDIP
+
+![PIC10F200 DIP PINOUT](../../../images/PIC10F200_PINOUT.jpg)
 
 
 ## PIC10F200 with  DHT11 and 74HC595 Assembly code
