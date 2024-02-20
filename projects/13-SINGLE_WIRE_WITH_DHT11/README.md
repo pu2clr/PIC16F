@@ -9,14 +9,15 @@ This folder presents some applications using PIC microcontrolers with DHT11 devi
     * [Protocol](#protocol)
     * [Interface with PIC Microcontrollers](#interface-with-pic-microcontrollers)
     * [Technical Specifications](#technical-specifications)
-2. [About Humidity Levels and Their Effects on Humans](#about-humidity-levels-and-their-effects-on-humans)
-3. [Heat Index and thermal Sensation](#heat-index-and-thermal-sensation)
+2. [Comunication process](#comunication-process)
+3. [About Humidity Levels and Their Effects on Humans](#about-humidity-levels-and-their-effects-on-humans)
+4. [Heat Index and thermal Sensation](#heat-index-and-thermal-sensation)
     * [Heat Index](#heat-index)
     * [Thermal Sensation](#thermal-sensation)
     * [Interrelation and Importance](#interrelation-and-importance)
-3. [PIC10F200 implementation](./PIC10F200/)
-4. [PIC16F628A implementation](./PIC16F628A/)
-9. [References](#references) 
+5. [PIC10F200 implementation](./PIC10F200/)
+6. [PIC16F628A implementation](./PIC16F628A/)
+7. [References](#references) 
 
 ## About DHT11 device
 
