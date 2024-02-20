@@ -41,6 +41,12 @@ Developing the 'single-wire' protocol used by the DHT11 device on the PIC10F200 
 ![PIC10F200 DIP PINOUT](../../../images/PIC10F200_PINOUT.jpg)
 
 
+### 74HC595 PINOUT
+
+![74HC595 PINOUT](./../../../images/74HC595_PINOUT.png)
+
+
+
 ## PIC10F200 with  DHT11 and 74HC595 Assembly code
 
 **IMPORTANT:** To assemble this code correctly, please follow the steps below:

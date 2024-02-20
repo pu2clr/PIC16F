@@ -176,6 +176,7 @@ MainLoopEnd:
 ; parameter: paramValue - Value to be sent to the 74HC595 device    
 ;    
 SendTo74HC595: 
+    DOCLOCK
     movlw   8
     movwf   counterM
     movf    paramValue, w
@@ -197,8 +198,7 @@ NextBit:
     decfsz counterM, f	    ; Decrement the counter1 and check if it becomes zero.
     goto PrepereToSend	    ; if not, keep prepering to send
     
-    ; DOCLOCK               ; ===> CHECK IT!!!!!!!!!
-    
+   
     retlw   0
     
   
