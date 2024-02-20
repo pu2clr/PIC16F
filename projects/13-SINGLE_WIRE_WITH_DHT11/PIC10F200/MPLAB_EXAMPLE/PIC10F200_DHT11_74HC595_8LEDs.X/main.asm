@@ -1,7 +1,8 @@
 ; Under construction...
 ; This project uses a DHT11 sensor to  measure humidity and temperature. 
-; This application with the PIC10F100 uses eight LEDs to display temperature and humidity.
-; Four LEDs indicate temperature ranges: cold, cool to comfortable, comfortable, and hot. 
+; This application with the PIC10F100 uses eight LEDs driven by the 74HC595 to display 
+; temperature and humidity. ; Four LEDs indicate temperature ranges: cold, cool to 
+; comfortable, comfortable, and hot. 
 ; The other four LEDs indicate humidity levels: Low, Moderate, Desirable, and HIGH.    
 ;    
 ; IMPORTANT: To assemble this code correctly, please follow the steps below:
