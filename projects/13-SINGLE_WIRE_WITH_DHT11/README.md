@@ -72,6 +72,50 @@ The DHT11 uses a proprietary one-wire protocol (not to be confused with the Dall
 Overall, the DHT11 is a suitable choice for applications where moderate accuracy and low cost are more critical than precision or advanced features. Its simple interface with PIC and other microcontrollers makes it a popular choice for educational purposes, DIY projects, and simple climate control systems.
 
 
+## Comunication process 
+
+
+The sequence initiates when the Microcontroller Unit (MCU) dispatches a start signal, prompting the DHT11 sensor to transition from its low-power-consumption state to an active running mode. In this phase, the DHT11 awaits the completion of the start signal from the MCU. Upon recognizing the completed signal, the DHT11 proceeds to transmit a 40-bit data response, encompassing both relative humidity and temperature readings, back to the MCU. This mechanism allows users the flexibility to selectively capture (read) specific data points of interest. Without an initiating start signal from the MCU, the DHT11 remains inactive, withholding any data response. After the data transmission concludes, the DHT11 reverts to its energy-efficient low-power mode, remaining in this state until a new start signal is received from the MCU.
+
+
+
+### Reading process
+
+The communication and synchronization between the Microcontroller Unit (MCU) and the DHT11 sensor utilize a single-bus data format. Each communication cycle completes within approximately 4 milliseconds.
+
+
+#### Serial Interface (Single-Wire, Two-Way)
+
+Data Structure: The data transmitted includes both integral and decimal parts, totaling 40 bits per data transmission. The order of transmission prioritizes the higher data bits first. 
+
+Data Format: The structure for a complete data packet is as follows - 8 bits of integral relative humidity (RH) data, followed by 8 bits of decimal RH data, 8 bits of integral temperature (T) data, 8 bits of decimal T data, and finally, an 8-bit checksum for data integrity verification.
+
+Checksum Validation: The checksum, which is the last 8 bits of the data packet, is calculated as the sum of the integral and decimal RH data, plus the integral and decimal T data. If the data transmission is accurate, the calculated checksum will match the transmitted checksum.
+
+
+### Reading 5 bytes and storing the values 
+
+#### Steps: 
+
+1) **MCU Sends out Start Signal to DHT** - The Data Single-bus operates at a high voltage level under free status conditions (pull up). When initiating communication between the Microcontroller Unit (MCU) and the DHT11      sensor, the MCU's programming transitions the Data Single-bus's voltage from high to low. This transition must be maintained for a minimum of 18 milliseconds to guarantee the DHT11 sensor's successful detection of the MCU's signal. Following this, the MCU elevates the voltage level and enters a waiting period of 20 to 40 microseconds for the DHT11's response;
+2) **DHT Responses to MCU** - Upon detecting the start signal, the DHT sensor immediately issues a response by transmitting a low-voltage signal for a duration of 80 microseconds. Subsequently, the DHT's internal program adjusts the Data Single-bus voltage from low to high, maintaining this level for another 80 microseconds to facilitate the sensor's preparation for data transmission.
+
+The presence of a low-voltage level on the DATA Single-Bus signifies that the DHT is in the process of delivering its response signal. Following the emission of this response, the DHT elevates the voltage to a high level, holding it there for 80 microseconds as it gears up for the data transfer phase.
+
+During the data transmission from DHT to MCU, each data bit is introduced by a 50-microsecond pulse of low voltage. The duration of the subsequent high-voltage pulse is critical, as it indicates the data bit's value, with the pulse length determining whether the bit represents a '0' or a '1'.
+3) **DHT Sensor Not Responding:** - If the response signal from the DHT sensor remains consistently at high voltage, it indicates the sensor is not functioning properly. Here's why:
+    * **Normal behavior:** During communication, the DHT briefly pulls the data line low after transmitting each data bit. If this final pull-down is absent, it suggests the sensor isn't sending data.
+    * **Expected pull-down:** After the last bit, the DHT should pull the data line low for 50 microseconds. This signals the end of transmission and allows the microcontroller to release the line.
+    * **Pull-up by resistor:** After the pull-down, a pull-up resistor connected to the line raises the voltage back to its idle state.
+
+##### Troubleshooting Steps:
+
+1.  **Double-check connections:** Ensure proper connections between the DHT and the microcontroller, especially regarding power, ground, and the data line.
+2. **Verify pull-up resistor:** Make sure the pull-up resistor is correctly attached and its value matches the recommended range for your specific DHT model.
+3. **Check code implementation:** Review your code to ensure it correctly sends the start signal and waits for the DHT's response within the required timing constraints.
+4. **Consider sensor replacement:** If the issue persists after checking connections and code, consider replacing the DHT sensor as it might be faulty.
+
+
 
 ## About Humidity Levels and Their Effects on Humans
 

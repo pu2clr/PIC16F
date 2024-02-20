@@ -195,8 +195,8 @@ NextBit:
     rrf	    paramValue, f
     decfsz counterM, f	    ; Decrement the counter1 and check if it becomes zero.
     goto PrepereToSend	    ; if not, keep prepering to send
-    ; The data has been queued and can now be sent to the 74HC595 port
-    DOCLOCK 
+    
+    ; DOCLOCK                 ; ===> CHECK IT!!!!!!!!!
     
     retlw   0
     
