@@ -172,7 +172,8 @@ HumidityFormat:
     bsf	    STATUS,0
     rlf	    humidity
     decfsz  counter1, f	
-    goto    HumidityFormat    
+    goto    HumidityFormat 
+
     movlw   0B00001111
     andwf   humidity, w   
     iorwf   temperature, w
@@ -191,7 +192,6 @@ MainLoopEnd:
 ; parameter: workValue1 - Value to be sent to the 74HC595 device    
 ;    
 SendTo74HC595: 
-    DOCLOCK
     movlw   8
     movwf   counterM
     movf    workValue1, w
