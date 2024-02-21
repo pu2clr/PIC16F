@@ -65,9 +65,9 @@ ENDM
   
 ; Declare your variables here
 
-aux	    equ	0x10
-oldValue    equ	0x11	    
-paramValue  equ 0x12		; Initial value to be sent	
+workValue1  equ	0x10    
+workValue2  equ 0x11		; Initial value to be sent
+oldValue    equ	0x12	 
 srValue	    equ 0x13		; shift register Current value to be sent to 74HC595
 counter1    equ 0x14		
 counter2    equ 0x15	
@@ -76,7 +76,8 @@ temperature equ	0x17
 humidity    equ 0x18	
 fracTemp    equ	0x19
 fracHumid   equ	0x1A
-checkSum    equ	0x1B   
+checkSum    equ	0x1B
+    
 	    
 	    
  
@@ -98,10 +99,10 @@ MAIN:
     clrf    oldValue
     ; Just BLINK all LEDs indicating start
     movlw   0B11111111
-    movwf   paramValue
+    movwf   workValue1
     call    SendTo74HC595   ; Turn all LEDs on
     call    DELAY_600ms	    ;   
-    clrf    paramValue
+    clrf    workValue1
     call    SendTo74HC595   ; Turn all LEDs off    
     call    DELAY_600ms	    ; Time to the system become stable
     call    DELAY_600ms	    ; 
@@ -110,8 +111,8 @@ MAIN:
     call    DELAY_600ms	    ; 
 MainLoop:		    ; Endless loop
     call    DHT11_READ	    ; Checksum: if wreg = 1 then chcksum error
-    movwf   aux
-    btfsc   aux, 0
+    movwf   workValue2
+    btfsc   workValue2, 0
     ; call    BLINK_LED	    ; Indicate Checksum error
     goto    MainLoopEnd	    ; Checksum error: Skip reading / No result to be shown
     ; Avoind LEDs refresh for the same value
@@ -122,7 +123,7 @@ MainLoop:		    ; Endless loop
     
     ; Begin check
     movf    temperature, w
-    movwf   paramValue
+    movwf   workValue1
     call    SendTo74HC595   ; shoul show the temperature in bynary
     nop
     nop
@@ -135,12 +136,51 @@ MainLoop:		    ; Endless loop
     ; Format temperature and humidity to fit in 8 LEDs
     ; Temperature... 4 MSB
     ; Humidity...... 4 LSB
-    clrf    paramValue
-    
+
+    ; Divide the current temperature value by 12
+    movf    temperature, w 
+    movwf   workValue1
+    movlw   12
+    movwf   workValue2
+    call    Divideg8
+
+    movf    workValue2, w
+    movwf   counter1 
+    clrf    temperature
+TempFormat: 
+    bsf	    STATUS,0
+    rlf	    temperature
+    decfsz  counter1, f	
+    goto    TempFormat
+    rlf	    temperature
+    rlf	    temperature
+    rlf	    temperature
+    rlf	    temperature
+    movlw   0B11110000
+    andwf   temperature, f
+    ; Divide the current humidity by 17
+    movf    humidity, w   
+    movwf   workValue1
+    movlw   17
+    movwf   workValue2
+    call    Divideg8    
+    movf    workValue2, w
+    movwf   counter1 
+    clrf    humidity
+HumidityFormat:
+    bsf	    STATUS,0
+    rlf	    humidity
+    decfsz  counter1, f	
+    goto    HumidityFormat    
+    movlw   0B00001111
+    andwf   humidity, f    
+    movf    humidity, w
+    iorwf   temperature, w
+    movwf   workValue1
 
     
-ShowClimate:     
-    goto    FormatHumidity    
+
+
     call    SendTo74HC595  
     
 MainLoopEnd:
@@ -151,16 +191,16 @@ MainLoopEnd:
 
     
 ; **************************************************************    
-; Send the content of the paramValue to the 74HC595 device
-; parameter: paramValue - Value to be sent to the 74HC595 device    
+; Send the content of the workValue1 to the 74HC595 device
+; parameter: workValue1 - Value to be sent to the 74HC595 device    
 ;    
 SendTo74HC595: 
     DOCLOCK
     movlw   8
     movwf   counterM
-    movf    paramValue, w
+    movf    workValue1, w
 PrepereToSend:  
-    btfss   paramValue, 0   ; Check if less significant bit is 1
+    btfss   workValue1, 0   ; Check if less significant bit is 1
     goto    Send0	    ; if 0 turn GP0 low	
     goto    Send1	    ; if 1 turn GP0 high
 Send0:
@@ -173,7 +213,7 @@ NextBit:
     DOCLOCK
     ; Shift all bits of the srValue to the right and prepend a 0 to the most significant bit
     bcf	    STATUS, 0	    ; Clear cary flag before rotating 
-    rrf	    paramValue, f
+    rrf	    workValue1, f
     decfsz counterM, f	    ; Decrement the counter1 and check if it becomes zero.
     goto PrepereToSend	    ; if not, keep prepering to send
     
@@ -235,22 +275,22 @@ DHT11_READY_TO_TRANS:
     ; TODO: Gets 5 bytes from DHT11
     
     call    DHT11_READ_BYTE	; Gets the first byte (humidity)
-    movf    paramValue, w
+    movf    workValue1, w
     movwf   humidity
     
     call    DHT11_READ_BYTE	; Gets the secound byte (humidity - decimal part)
-    movf    paramValue, w
+    movf    workValue1, w
     movwf   fracHumid
     
     call    DHT11_READ_BYTE	; Gets the third byte (temperature)
-    movf    paramValue, w
+    movf    workValue1, w
     movwf   temperature
     
     call    DHT11_READ_BYTE	; Gets the fourth  byte (temperature - decimal part)
-    movf    paramValue, w
+    movf    workValue1, w
     movwf   fracTemp
     call    DHT11_READ_BYTE	; Gets the last  byte (Checaluek sum v)
-    movf    paramValue, w
+    movf    workValue1, w
     movwf   checkSum
     clrw
     addwf   humidity, w
@@ -268,7 +308,7 @@ DHT11_READY_TO_TRANS:
 DHT11_READ_BYTE:
     
     
-    clrf    paramValue
+    clrf    workValue1
     movlw   8
     movwf   counter1
 DHT11_READ_BYTE_LOOP: 
@@ -284,11 +324,11 @@ DHT11_READ_BYTE_LOOP:
     goto    SET_BIT_1
  SET_BIT_0:   
     bcf	    STATUS, 0
-    rlf	    paramValue
+    rlf	    workValue1
     goto    DHT11_READ_BYTE_CONT
  SET_BIT_1:   
     bsf	    STATUS, 0
-    rlf	    paramValue    
+    rlf	    workValue1    
 DHT11_READ_BYTE_CONT: 
     
     ; while DHT_DATA == HIGH 
@@ -303,6 +343,27 @@ DHT11_READ_BYTE_CONT:
     
     retlw   0
     
+; *********** Divide ***************
+; Divides workValue1 by workValue2 
+; Returns the result in workValue2    
+;     
+Divideg8: 
+    clrf    counter1
+Divideg8Loop:    
+    movf    workValue2,w 
+    subwf   workValue1, f
+    btfsc   STATUS, 0
+    goto    Divideg8Contine
+    goto    Divideg8Finish
+Divideg8Contine: 
+    movlw   1
+    addwf   counter1
+    goto    Divideg8Loop
+Divideg8Finish:
+    movf    counter1, w
+    movwf   workValue2
+    
+    retlw   0
     
 ; *********** DELAY ************
 ; Delay function    
@@ -362,11 +423,11 @@ DELAY_LOOP_02:
 ; Endless loop due to system error (1-wire device not detected) 
 SYSTEM_ERROR:
     movlw   0B10101010
-    movwf   paramValue
+    movwf   workValue1
     call    SendTo74HC595
     call    DELAY_600ms
     movlw   0B01010101
-    movwf   paramValue
+    movwf   workValue1
     call    SendTo74HC595
     call    DELAY_600ms
 
@@ -376,10 +437,10 @@ SYSTEM_ERROR:
 BLINK_LED:
     
     movlw   0B11111111
-    movwf   paramValue
+    movwf   workValue1
     call    SendTo74HC595   ; Turn all LEDs on
     call    DELAY_600ms	    ; 
-    clrf    paramValue
+    clrf    workValue1
     call    SendTo74HC595   ; Turn all LEDs off    
     call    DELAY_600ms	    ; 
     retlw   0
