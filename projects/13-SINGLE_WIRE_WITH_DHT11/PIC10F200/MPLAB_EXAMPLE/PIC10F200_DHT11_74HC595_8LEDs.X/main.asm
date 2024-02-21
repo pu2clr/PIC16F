@@ -331,7 +331,7 @@ DHT11_READ_BYTE_LOOP:
     
     movlw   4			; Delays 30us (did not "call DELAY_Nx10us" due to stack limit)
     NOCALL_DELAYxN10us
-    
+
     btfss   GPIO, DHT_DATA 
     goto    SET_BIT_0
     goto    SET_BIT_1
@@ -347,12 +347,10 @@ DHT11_READ_BYTE_CONT:
     ; while DHT_DATA == HIGH 
     btfsc   GPIO, DHT_DATA	; skip next instruction if LOW 
     goto    $-1
-    
+
     decfsz  counter1, f
     goto    DHT11_READ_BYTE_LOOP  
- 
-    ; movlw   2			; When the last bit data is transmitted, DHT11 pulls down the voltage level and keeps it for 50us. 
-    ; NOCALL_DELAYxN10us          ; Then the Single-Bus voltage will be pulled up by the resistor to set it back to the free status.
+
     
     retlw   0
     
