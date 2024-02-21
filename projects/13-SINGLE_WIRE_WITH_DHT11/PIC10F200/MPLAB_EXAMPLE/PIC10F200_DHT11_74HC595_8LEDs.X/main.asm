@@ -247,7 +247,7 @@ DHT11_READ:
     
     bsf	    GPIO, DHT_DATA	; DHT_DATA = HIGH
     
-    movlw   3			; Wait 30us
+    movlw   40			; Wait 40us
     call    DELAY_Nx10us
 
     SET_PIN_IN 
@@ -275,7 +275,7 @@ DHT11_PRESENT:
     movlw   13
     movwf   counterM 
 DHT11_WAIT_RESPONSE_1:    
-    btfsc   GPIO, DHT_DATA	    ; 1 cycle +
+    btfss   GPIO, DHT_DATA	    ; 1 cycle +
     goto    $+2			    ; 2 cycle +
     goto    DHT11_READY_TO_TRANS		
     decfsz  counterM, f		    ; 1 cycle  +
