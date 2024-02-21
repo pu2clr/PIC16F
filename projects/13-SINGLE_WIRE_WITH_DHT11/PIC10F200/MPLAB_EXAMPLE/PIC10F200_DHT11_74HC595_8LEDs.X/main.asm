@@ -134,7 +134,7 @@ MainLoop:		    ; Endless loop
     
     ; Begin check
     ; movlw   0B00010001
-    movf    humidity, w
+    movf    temperature, w
     movwf   workValue1
     call    SendTo74HC595   ; shoul show the temperature in binary
     goto    MainLoopEnd
@@ -257,10 +257,11 @@ DHT11_READ:
     movlw   13
     movwf   counterM 
 DHT11_WAIT_RESPONSE_0:    
-    btfsc   GPIO, DHT_DATA	    ; 1 cycle +
-    goto    $+2			    ; 2 cycle +
-    goto    DHT11_PRESENT		
-    decfsz  counterM, f		    ; 1 cycle  +
+    btfsc   GPIO, DHT_DATA	        ; 1 cycle +
+    goto    $+2			            ; 2 cycle +
+    goto    DHT11_PRESENT	
+    goto    $+1	
+    decfsz  counterM, f		        ; 1 cycle  +
     goto    DHT11_WAIT_RESPONSE_0   ; 2 cycles = 6 cycle (about 6us)
     ; DHT11 was not present 
     goto    SYSTEM_ERROR
@@ -277,13 +278,20 @@ DHT11_PRESENT:
 DHT11_WAIT_RESPONSE_1:    
     btfss   GPIO, DHT_DATA	    ; 1 cycle +
     goto    $+2			        ; 2 cycle +
-    goto    DHT11_READY_TO_TRANS		
+    goto    DHT11_READY_TO_TRANS	
+    goto    $+1	
     decfsz  counterM, f		    ; 1 cycle  +
     goto    DHT11_WAIT_RESPONSE_1   ; 2 cycles = 6 cycle (about 6us)
     ; DHT11 ERROR 
     goto    SYSTEM_ERROR
 DHT11_READY_TO_TRANS:     
-    
+
+    ; Wait the DHT11 make the bus down
+    btfss   GPIO, DHT_DATA	    
+    goto    $-1	
+
+    ; movlw  5
+    ; call   DELAY_Nx10us
     
     ; TODO: Gets 5 bytes from DHT11
     
@@ -355,6 +363,8 @@ DHT11_READ_BYTE_CONT:
     goto    DHT11_READ_BYTE_LOOP  
 
     
+
+
     retlw   0
     
 ; *********** Divide ***************
