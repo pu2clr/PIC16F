@@ -177,10 +177,6 @@ HumidityFormat:
     movf    humidity, w
     iorwf   temperature, w
     movwf   workValue1
-
-    
-
-
     call    SendTo74HC595  
     
 MainLoopEnd:
