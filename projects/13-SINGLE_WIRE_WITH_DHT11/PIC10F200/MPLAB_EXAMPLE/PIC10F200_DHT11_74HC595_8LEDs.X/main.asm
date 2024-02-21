@@ -43,6 +43,14 @@ SET_PIN_IN MACRO
 ENDM  
   
 
+START_74HC595_TRANS MACRO
+   bsf	    GPIO, SR_CLOK
+   goto	    $+1
+   goto	    $+1
+   goto	    $+1
+   goto	    $+1
+ENDM   
+    
 DOCLOCK MACRO
   bsf	    GPIO, SR_CLOK 	    
   goto	    $+1
@@ -192,6 +200,9 @@ MainLoopEnd:
 ; parameter: workValue1 - Value to be sent to the 74HC595 device    
 ;    
 SendTo74HC595: 
+    
+    START_74HC595_TRANS
+    
     movlw   8
     movwf   counterM
     movf    workValue1, w
