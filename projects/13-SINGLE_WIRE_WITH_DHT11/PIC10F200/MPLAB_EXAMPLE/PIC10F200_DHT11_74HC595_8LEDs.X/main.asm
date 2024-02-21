@@ -122,13 +122,10 @@ MainLoop:		    ; Endless loop
     goto    MainLoopEnd
     
     ; Begin check
-    movf    temperature, w
-    movwf   workValue1
-    call    SendTo74HC595   ; shoul show the temperature in bynary
-    nop
-    nop
-    nop
-    goto    MainLoopEnd
+    ; movf    temperature, w
+    ; movwf   workValue1
+    ; call    SendTo74HC595   ; shoul show the temperature in binary
+    ; goto    MainLoopEnd
     ; End check
 
    

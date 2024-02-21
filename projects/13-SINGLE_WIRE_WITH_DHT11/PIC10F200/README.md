@@ -54,6 +54,9 @@ Developing the 'single-wire' protocol used by the DHT11 device on the PIC10F200 
 2. Select "Global Options" for the pic-as assembler/compiler.
 3. In the "Additional Options" box, enter the following parameters: **-Wl,-pAsmCode=0h**
 
+![PIC10F200 MPLAB X setup](../../../images/PIC10F200_MPLAB_SETUP.png)
+
+
 ```asm
 
 ```

@@ -172,6 +172,78 @@ END resetVect
     
 
 
+```
+
+
+## PIC10F200 basic Assmbly code
+
+**IMPORTANT:** To assemble this code correctly, please follow the steps below:
+
+1. Go to "Project Properties" in MPLAB X.
+2. Select "Global Options" for the pic-as assembler/compiler.
+3. In the "Additional Options" box, enter the following parameters: **-Wl,-pBlinkCode=0h**
+
+![PIC10F200 MPLAB X setup](../../images/PIC10F200_MPLAB_SETUP.png)
+
+```asm
+;
+; IMPORTANT: To assemble this code correctly, please follow the steps below:
+; 1. Go to "Project Properties" in MPLAB X.
+; 2. Select "Global Options" for the pic-as assembler/compiler.
+; 3. In the "Additional Options" box, enter the following parameters:
+; -Wl,-pBlinkCode=0h
+    
+#include <xc.inc>
+
+; CONFIG
+  CONFIG  WDTE = OFF           ; Watchdog Timer (WDT disabled)
+  CONFIG  CP = OFF             ; Code Protect (Code protection off)
+  CONFIG  MCLRE = ON	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
+
+  
+; Declare your variables here
+
+workValue1  equ	0x10    
+workValue2  equ 0x11		
+
+ 
+PSECT BlinkCode, class=CODE, delta=2
+
+MAIN:
+    ; GPIO and registers setup
+    clrf   GPIO		    ; Sets all GPIO pins as output
+    clrw
+    TRIS   GPIO
+    
+MainLoop:		    ; Endless loop
+ 
+    movlw   10
+    movwf   workValue1
+    call    funcX
+ 
+    goto    MainLoop
+    
+    
+; *********** Divide ***************
+; Divides workValue1 by workValue2 
+; Returns the result in workValue2    
+;     
+Func: 
+    movlw   5
+    addwf   workValue, f
+    retlw   0    
+    
+END MAIN
+
+
+
+
+
+
+
+
+
+
 
 ```
 
