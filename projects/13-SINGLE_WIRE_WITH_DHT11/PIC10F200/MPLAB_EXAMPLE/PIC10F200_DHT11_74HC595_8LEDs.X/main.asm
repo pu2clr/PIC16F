@@ -44,7 +44,7 @@ ENDM
   
 
 START_74HC595_TRANS MACRO
-   bsf	    GPIO, SR_CLOK
+   bcf	    GPIO, SR_CLOK
    goto	    $+1
    goto	    $+1
    goto	    $+1
