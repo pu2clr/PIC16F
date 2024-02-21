@@ -329,6 +329,8 @@ DHT11_READ_BYTE_CONT:
     decfsz  counter1, f
     goto    DHT11_READ_BYTE_LOOP  
     
+
+
     retlw   0
 
 
