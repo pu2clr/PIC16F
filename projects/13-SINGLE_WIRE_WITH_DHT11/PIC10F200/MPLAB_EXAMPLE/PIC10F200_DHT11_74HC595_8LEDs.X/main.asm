@@ -193,45 +193,12 @@ HumidityFormat:
     call    SendTo74HC595  
     
 MainLoopEnd:
-    call DELAY_600ms
-    call DELAY_600ms
-    call DELAY_600ms
-    call DELAY_600ms
+    call    DELAY_600ms
+    call    DELAY_600ms
+    call    DELAY_600ms
+    call    DELAY_600ms
     goto    MainLoop
 
-    
-; **************************************************************    
-; Send the content of the workValue1 to the 74HC595 device
-; parameter: workValue1 - Value to be sent to the 74HC595 device    
-;    
-SendTo74HC595: 
-    
-    BEGIN_74HC595_TRANS
-    
-    movlw   8
-    movwf   counterM
-    movf    workValue1, w
-PrepereToSend:  
-    btfss   workValue1, 0   ; Check if less significant bit is 1
-    goto    Send0	    ; if 0 turn GP0 low	
-    goto    Send1	    ; if 1 turn GP0 high
-Send0:
-    bcf	    GPIO, SR_DATA	    ; turn the current 74HC595 pin off 
-    goto    NextBit
-Send1:     
-    bsf	    GPIO, SR_DATA	    ; turn the current 74HC595 pin on
-NextBit:    
-    ; Clock 
-    DOCLOCK
-    ; Shift all bits of the srValue to the right and prepend a 0 to the most significant bit
-    bcf	    STATUS, 0	    ; Clear cary flag before rotating 
-    rrf	    workValue1, f
-    decfsz counterM, f	    ; Decrement the counter1 and check if it becomes zero.
-    goto PrepereToSend	    ; if not, keep prepering to send
-    
-    END_74HC595_TRANS
-   
-    retlw   0
     
   
 ; ******** DHT11 ****************************************
@@ -361,12 +328,46 @@ DHT11_READ_BYTE_CONT:
 
     decfsz  counter1, f
     goto    DHT11_READ_BYTE_LOOP  
-
     
-
-
     retlw   0
+
+
     
+; **************************************************************    
+; Send the content of the workValue1 to the 74HC595 device
+; parameter: workValue1 - Value to be sent to the 74HC595 device    
+;    
+SendTo74HC595: 
+    
+    BEGIN_74HC595_TRANS
+    
+    movlw   8
+    movwf   counterM
+    movf    workValue1, w
+PrepereToSend:  
+    btfss   workValue1, 0   ; Check if less significant bit is 1
+    goto    Send0	    ; if 0 turn GP0 low	
+    goto    Send1	    ; if 1 turn GP0 high
+Send0:
+    bcf	    GPIO, SR_DATA	    ; turn the current 74HC595 pin off 
+    goto    NextBit
+Send1:     
+    bsf	    GPIO, SR_DATA	    ; turn the current 74HC595 pin on
+NextBit:    
+    ; Clock 
+    DOCLOCK
+    ; Shift all bits of the srValue to the right and prepend a 0 to the most significant bit
+    bcf	    STATUS, 0	    ; Clear cary flag before rotating 
+    rrf	    workValue1, f
+    decfsz counterM, f	    ; Decrement the counter1 and check if it becomes zero.
+    goto PrepereToSend	    ; if not, keep prepering to send
+    
+    END_74HC595_TRANS
+   
+    retlw   0
+
+
+
 ; *********** Divide ***************
 ; Divides workValue1 by workValue2 
 ; Returns the result in workValue2    
