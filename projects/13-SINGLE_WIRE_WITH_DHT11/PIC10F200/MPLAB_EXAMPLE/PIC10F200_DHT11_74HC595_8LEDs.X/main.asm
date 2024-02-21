@@ -135,7 +135,10 @@ MainLoop:		    ; Endless loop
     ; Humidity...... 4 LSB
 
     ; Divide the current temperature value by 12
-    movf    temperature, w 
+
+    ; Adjust the minimum value for temperature
+    movlw   10
+    addwf   temperature, w
     movwf   workValue1
     movlw   12
     movwf   workValue2
@@ -155,8 +158,9 @@ TempFormat:
     rlf	    temperature
     movlw   0B11110000
     andwf   temperature, f
-    ; Divide the current humidity by 17
-    movf    humidity, w   
+    ; Divide the current humidity by 22
+    movlw   20
+    subwf   humidity, w   
     movwf   workValue1
     movlw   17
     movwf   workValue2
@@ -170,8 +174,7 @@ HumidityFormat:
     decfsz  counter1, f	
     goto    HumidityFormat    
     movlw   0B00001111
-    andwf   humidity, f    
-    movf    humidity, w
+    andwf   humidity, w   
     iorwf   temperature, w
     movwf   workValue1
     call    SendTo74HC595  
