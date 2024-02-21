@@ -329,7 +329,7 @@ DHT11_READ_BYTE_LOOP:
     btfss   GPIO, DHT_DATA	; skip next instruction if HIGH 
     goto    $-1
     
-    movlw   3			; Delays 30us (did not "call DELAY_Nx10us" due to stack limit)
+    movlw   4			; Delays 30us (did not "call DELAY_Nx10us" due to stack limit)
     NOCALL_DELAYxN10us
     
     btfss   GPIO, DHT_DATA 
