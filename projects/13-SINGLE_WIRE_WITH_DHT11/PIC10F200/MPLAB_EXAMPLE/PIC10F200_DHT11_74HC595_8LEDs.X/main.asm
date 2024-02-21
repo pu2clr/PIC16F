@@ -43,14 +43,16 @@ SET_PIN_IN MACRO
 ENDM  
   
 
-START_74HC595_TRANS MACRO
+BEGIN_74HC595_TRANS MACRO
    bcf	    GPIO, SR_CLOK
-   goto	    $+1
-   goto	    $+1
-   goto	    $+1
    goto	    $+1
 ENDM   
     
+END_74HC595_TRANS MACRO
+   bsf	    GPIO, SR_CLOK
+   goto	    $+1
+ENDM  
+
 DOCLOCK MACRO
   bsf	    GPIO, SR_CLOK 	    
   goto	    $+1
@@ -112,12 +114,13 @@ MAIN:
     call    DELAY_600ms	    ;   
     clrf    workValue1
     call    SendTo74HC595   ; Turn all LEDs off    
-    call    DELAY_600ms	    ; Time to the system become stable
-    call    DELAY_600ms	    ; 
-    call    DELAY_600ms	    ; 
-    call    DELAY_600ms	    ; 
-    call    DELAY_600ms	    ; 
 MainLoop:		    ; Endless loop
+    call    DELAY_600ms	    ; 
+    call    DELAY_600ms	    ; 
+    call    DELAY_600ms	    ; 
+    call    DELAY_600ms	    ; 
+    call    DELAY_600ms	    ; 
+
     call    DHT11_READ	    ; Checksum: if wreg = 1 then chcksum error
     movwf   workValue2
     btfsc   workValue2, 0
@@ -130,10 +133,11 @@ MainLoop:		    ; Endless loop
     goto    MainLoopEnd
     
     ; Begin check
-    ; movf    temperature, w
-    ; movwf   workValue1
-    ; call    SendTo74HC595   ; shoul show the temperature in binary
-    ; goto    MainLoopEnd
+    ; movlw   0B00010001
+    movf    temperature, w
+    movwf   workValue1
+    call    SendTo74HC595   ; shoul show the temperature in binary
+    goto    MainLoopEnd
     ; End check
 
    
@@ -191,7 +195,8 @@ HumidityFormat:
 MainLoopEnd:
     call DELAY_600ms
     call DELAY_600ms
-
+    call DELAY_600ms
+    call DELAY_600ms
     goto    MainLoop
 
     
@@ -201,7 +206,7 @@ MainLoopEnd:
 ;    
 SendTo74HC595: 
     
-    START_74HC595_TRANS
+    BEGIN_74HC595_TRANS
     
     movlw   8
     movwf   counterM
@@ -224,6 +229,7 @@ NextBit:
     decfsz counterM, f	    ; Decrement the counter1 and check if it becomes zero.
     goto PrepereToSend	    ; if not, keep prepering to send
     
+    END_74HC595_TRANS
    
     retlw   0
     
