@@ -134,7 +134,7 @@ MainLoop:		    ; Endless loop
     
     ; Begin check
     ; movlw   0B00010001
-    movf    humidity, w
+    movf    temperature, w
     movwf   workValue1
     call    SendTo74HC595   ; shoul show the temperature in binary
     goto    MainLoopEnd
