@@ -122,10 +122,10 @@ MainLoop:		    ; Endless loop
     call    DELAY_600ms	    ; 
 
     call    DHT11_READ	    ; Checksum: if wreg = 1 then chcksum error
-    movwf   workValue2
-    btfsc   workValue2, 0
+    ; movwf   workValue2
+    ; btfsc   workValue2, 0
     ; call    BLINK_LED	    ; Indicate Checksum error
-    goto    MainLoopEnd	    ; Checksum error: Skip reading / No result to be shown
+    ; goto    MainLoopEnd	    ; Checksum error: Skip reading / No result to be shown
     ; Avoind LEDs refresh for the same value
     movf    checkSum, w
     subwf   oldValue, w
@@ -133,11 +133,14 @@ MainLoop:		    ; Endless loop
     goto    MainLoopEnd
     
     ; Begin check
-    ; movlw   0B00010001
-    ; movf    temperature, w
-    ; movwf   workValue1
-    ; call    SendTo74HC595   ; shoul show the temperature in binary
-    ; goto    MainLoopEnd
+    ;   DEBUG
+    ;   This check shows the temperature or humidity in binary representation via 8 LEDs
+    ;    movlw   0B00010001
+    ;    ; movf    temperature, w
+    ;    movf    humidity, w
+    ;    movwf   workValue1
+    ;    call    SendTo74HC595   ; shoul show the temperature in binary
+    ;    goto    MainLoopEnd
     ; End check
 
 FormatTemp:
@@ -157,7 +160,7 @@ CheckTempCoolConfortable:
     movlw   0B00110000                  ; COOL to CONFORTABLE
     goto    FormatTempFinish
 CheckTempConfortable:                    
-    movlw   26
+    movlw   28
     subwf   temperature, w
     btfsc   STATUS, 0
     goto    CheckTempHot
@@ -167,7 +170,7 @@ CheckTempHot:
     movlw   0B11110000			        ; HOT
     goto    FormatTempFinish  
 FormatHumidity: 
-    movlw   30
+    movlw   32
     subwf   humidity, w
     btfsc   STATUS, 0
     goto    CheckHumidityModerate 
@@ -193,6 +196,8 @@ CheckHumidityHigh:
     movlw   0B00001111                  ; Humidity High 
     goto    FormatHumidityFinish    
 ShowTempHumidity:
+    movf    temperature, w
+    iorwf   humidity, w
     movwf   workValue1
     call    SendTo74HC595  
     
@@ -320,7 +325,7 @@ DHT11_READ_BYTE_LOOP:
     rlf	    workValue1    
 DHT11_READ_BYTE_CONT: 
     
-    ; if data bus is still HIGH, so wait for it becomes low => while DHT_DATA == HIGH 
+    ; if data bus is still HIGH, then wait for it becomes low => while DHT_DATA == HIGH 
     btfsc   GPIO, DHT_DATA	    ; skip next instruction if LOW 
     goto    $-1
 
