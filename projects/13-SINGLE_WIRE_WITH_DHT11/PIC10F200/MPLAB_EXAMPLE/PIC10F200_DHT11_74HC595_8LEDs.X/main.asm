@@ -256,11 +256,11 @@ DHT11_WAIT_RESPONSE_1:
 DHT11_READY_TO_TRANS:     
 
     ; **** CHECK IT ******
-    ; Wait the DHT11 make the bus down
+    ; Wait for DHT11 makes the bus down
     btfsc   GPIO, DHT_DATA	    
     goto    $-1	
   
-    ; TODO: Gets 5 bytes from DHT11
+    ; Gets 5 bytes from DHT11
     
     call    DHT11_READ_BYTE	; Gets the first byte (humidity)
     movf    workValue1, w
@@ -304,11 +304,9 @@ DHT11_READ_BYTE_LOOP:
     btfss   GPIO, DHT_DATA	; skip next instruction if HIGH 
     goto    $-1
     
-    movlw   2			; Delays 30us (did not "call DELAY_Nx10us" due to stack limit)
-    NOCALL_DELAYxN10us
-    goto    $+1
-    goto    $+1
-    goto    $+1
+    movlw   3			; Delays 30us (did not "call DELAY_Nx10us" due to stack limit)
+    NOCALL_DELAYxN10us		
+    ; At this point if the signal is high, so the sent value is 1, else, it is 0
 
     btfss   GPIO, DHT_DATA 
     goto    SET_BIT_0
@@ -322,14 +320,12 @@ DHT11_READ_BYTE_LOOP:
     rlf	    workValue1    
 DHT11_READ_BYTE_CONT: 
     
-    ; while DHT_DATA == HIGH 
-    btfsc   GPIO, DHT_DATA	; skip next instruction if LOW 
+    ; if data bus is still HIGH, so wait for it becomes low => while DHT_DATA == HIGH 
+    btfsc   GPIO, DHT_DATA	    ; skip next instruction if LOW 
     goto    $-1
 
     decfsz  counter1, f
-    goto    DHT11_READ_BYTE_LOOP  
-    
-
+    goto    DHT11_READ_BYTE_LOOP    ; Gets the next bit
 
     retlw   0
 
