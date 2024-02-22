@@ -134,61 +134,42 @@ MainLoop:		    ; Endless loop
     
     ; Begin check
     ; movlw   0B00010001
-    movf    temperature, w
-    movwf   workValue1
-    call    SendTo74HC595   ; shoul show the temperature in binary
-    goto    MainLoopEnd
+    ; movf    temperature, w
+    ; movwf   workValue1
+    ; call    SendTo74HC595   ; shoul show the temperature in binary
+    ; goto    MainLoopEnd
     ; End check
 
-   
-    ; TO BE CONTINUE.... 
-    ; Format temperature and humidity to fit in 8 LEDs
-    ; Temperature... 4 MSB
-    ; Humidity...... 4 LSB
-
-    ; Divide the current temperature value by 12
-
-    ; Adjust the minimum value for temperature
-    movlw   10
-    addwf   temperature, w
-    movwf   workValue1
-    movlw   12
-    movwf   workValue2
-    call    Divideg8
-
-    movf    workValue2, w
-    movwf   counter1 
-    clrf    temperature
-TempFormat: 
-    bsf	    STATUS,0
-    rlf	    temperature
-    decfsz  counter1, f	
-    goto    TempFormat
-    rlf	    temperature
-    rlf	    temperature
-    rlf	    temperature
-    rlf	    temperature
-    movlw   0B11110000
-    andwf   temperature, f
-    ; Divide the current humidity by 22
+FormatTemp:
+    movlw   13
+    subwf   temperature, w
+    btfsc   STATUS, 0
+    goto    CheckTempCoolConfortable
+    movlw   0B00010000                  ; COOL
+FormatTempFinish:  
+    movwf   temperature 
+    goto    FormatHumidity
+CheckTempCoolConfortable:
     movlw   20
-    subwf   humidity, w   
-    movwf   workValue1
-    movlw   17
-    movwf   workValue2
-    call    Divideg8    
-    movf    workValue2, w
-    movwf   counter1 
-    clrf    humidity
-HumidityFormat:
-    bsf	    STATUS,0
-    rlf	    humidity
-    decfsz  counter1, f	
-    goto    HumidityFormat 
+    subwf   temperature, w
+    btfsc   STATUS, 0
+    goto    CheckTempConfortable
+    movlw   0B00110000                  ; COOL to CONFORTABLE
+    goto    FormatTempFinish
+CheckTempConfortable:                    
+    movlw   26
+    subwf   temperature, w
+    btfsc   STATUS, 0
+    goto    CheckTempHot
+    movlw   0B01110000                  ; CONFORTABLE
+    goto    FormatTempFinish    
+CheckTempHot: 
+    movlw   0B11110000			; HOT
+    goto    FormatTempFinish  
 
-    movlw   0B00001111
-    andwf   humidity, w   
-    iorwf   temperature, w
+FormatHumidity: 
+    nop 
+
     movwf   workValue1
     call    SendTo74HC595  
     
@@ -256,10 +237,7 @@ DHT11_READY_TO_TRANS:
     ; Wait the DHT11 make the bus down
     btfss   GPIO, DHT_DATA	    
     goto    $-1	
-
-    ; movlw  5
-    ; call   DELAY_Nx10us
-    
+  
     ; TODO: Gets 5 bytes from DHT11
     
     call    DHT11_READ_BYTE	; Gets the first byte (humidity)
