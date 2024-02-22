@@ -5,6 +5,11 @@
 ; comfortable, comfortable, and hot. 
 ; The other four LEDs indicate humidity levels: Low, Moderate, Desirable, and HIGH.    
 ;    
+; The temperature values that define the "COOL", "COOL to COMFORTABLE", "COMFORTABLE", and "HOT" 
+; sensations were arbitrarily chosen by the author of this program based on their personal opinion 
+; and experience in the coastal city of Fortaleza, Ceará, Brazil. These values may not be suitable 
+; for other scenarios. So far, The lowest temperature recorded in the city of Fortaleza was 21º Celsius.
+;
 ; IMPORTANT: To assemble this code correctly, please follow the steps below:
 ; 1. Go to "Project Properties" in MPLAB X.
 ; 2. Select "Global Options" for the pic-as assembler/compiler.
@@ -119,7 +124,6 @@ MainLoop:		    ; Endless loop
     call    DELAY_600ms	    ; 
     call    DELAY_600ms	    ; 
     call    DELAY_600ms	    ; 
-    call    DELAY_600ms	    ; 
 
     call    DHT11_READ	    ; Checksum: if wreg = 1 then chcksum error
     ; movwf   workValue2
@@ -153,14 +157,14 @@ FormatTempFinish:
     movwf   temperature 
     goto    FormatHumidity
 CheckTempCoolConfortable:
-    movlw   20
+    movlw   22
     subwf   temperature, w
     btfsc   STATUS, 0
     goto    CheckTempConfortable
     movlw   0B00110000                  ; COOL to CONFORTABLE
     goto    FormatTempFinish
 CheckTempConfortable:                    
-    movlw   28
+    movlw   31
     subwf   temperature, w
     btfsc   STATUS, 0
     goto    CheckTempHot
