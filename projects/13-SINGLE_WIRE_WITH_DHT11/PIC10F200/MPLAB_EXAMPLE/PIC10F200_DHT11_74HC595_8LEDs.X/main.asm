@@ -170,6 +170,7 @@ CheckTempHot:
 FormatHumidity: 
     nop 
 
+
     movwf   workValue1
     call    SendTo74HC595  
     
