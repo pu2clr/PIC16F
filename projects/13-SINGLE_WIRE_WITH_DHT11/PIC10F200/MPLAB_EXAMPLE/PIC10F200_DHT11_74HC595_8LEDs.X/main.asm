@@ -164,13 +164,35 @@ CheckTempConfortable:
     movlw   0B01110000                  ; CONFORTABLE
     goto    FormatTempFinish    
 CheckTempHot: 
-    movlw   0B11110000			; HOT
+    movlw   0B11110000			        ; HOT
     goto    FormatTempFinish  
-
 FormatHumidity: 
-    nop 
-
-
+    movlw   30
+    subwf   humidity, w
+    btfsc   STATUS, 0
+    goto    CheckHumidityModerate 
+    movlw   0B00000001                  ; Humidity LOW 
+FormatHumidityFinish: 
+    movwf   humidity 
+    goto    ShowTempHumidity
+CheckHumidityModerate: 
+    movlw   60
+    subwf   humidity, w
+    btfsc   STATUS, 0
+    goto    CheckHumidityDesirable 
+    movlw   0B00000011                  ; Humidity Moderate 
+    goto    FormatHumidityFinish
+CheckHumidityDesirable:
+    movlw   60
+    subwf   humidity, w
+    btfsc   STATUS, 0
+    goto    CheckHumidityHigh 
+    movlw   0B00000111                  ; Humidity Desirable 
+    goto    FormatHumidityFinish
+CheckHumidityHigh: 
+    movlw   0B00001111                  ; Humidity High 
+    goto    FormatHumidityFinish    
+ShowTempHumidity:
     movwf   workValue1
     call    SendTo74HC595  
     
@@ -180,9 +202,7 @@ MainLoopEnd:
     call    DELAY_600ms
     call    DELAY_600ms
     goto    MainLoop
-
     
-  
 ; ******** DHT11 ****************************************
 ; Reading 5 bytes and storing the values in: 
 ; humidity, fracHumid, temperature, fracTemp and checkSum    
@@ -235,8 +255,9 @@ DHT11_WAIT_RESPONSE_1:
     goto    SYSTEM_ERROR
 DHT11_READY_TO_TRANS:     
 
+    ; **** CHECK IT ******
     ; Wait the DHT11 make the bus down
-    btfss   GPIO, DHT_DATA	    
+    btfsc   GPIO, DHT_DATA	    
     goto    $-1	
   
     ; TODO: Gets 5 bytes from DHT11
