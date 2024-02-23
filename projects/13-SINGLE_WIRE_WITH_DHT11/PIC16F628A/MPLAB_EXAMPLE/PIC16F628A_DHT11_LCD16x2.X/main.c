@@ -15,9 +15,9 @@
 #pragma config CP = OFF         // Flash Program Memory Code Protection disabled
 #define _XTAL_FREQ 4000000      // internal clock
 
-#define DHT11_PIN   RA0
-#define DHT11_PIN_INPUT     TRISA0 = 1
-#define DHT11_PIN_OUTPUT    TRISA0 = 0
+#define DHT11_PIN   RB0
+#define DHT11_PIN_INPUT     TRISB0 = 1
+#define DHT11_PIN_OUTPUT    TRISB0 = 0
 
 #define CHECK_SUM_ERROR     1
 #define DEVICE_NOT_PRESENT  2
@@ -74,7 +74,7 @@ int8_t readDataFromDHT11(uint8_t *humidity, uint8_t *fracHumidity, uint8_t *temp
     DHT11_PIN = 0; 
     __delay_ms(20);     // make the bus down for 18ms
     DHT11_PIN = 1;      // make the bus high for 40us    
-    __delay_us(40);
+    __delay_us(30);
     DHT11_PIN_INPUT;    // Set pin connected to DHT11 as input
 
     for (uint8_t i = 0; i < 13; i++) {
@@ -86,11 +86,14 @@ int8_t readDataFromDHT11(uint8_t *humidity, uint8_t *fracHumidity, uint8_t *temp
     }
     if (detected == 0) return DEVICE_NOT_PRESENT;
 
+    __delay_us(80);
+    
     //  Wait the DHT11 release the bus
     do {
         __delay_us(2);
-    } while (DHT11_PIN == 0);
+    } while (DHT11_PIN == 1);
 
+    
     // Now read data from DHT11 device
     *humidity = readByteFromDHT11();
     *fracHumidity = readByteFromDHT11();
@@ -125,7 +128,6 @@ void main() {
     char strOut[8];
     char i;
     TRISB = 0x00; // You need to set this register as output
-    TRISA = 0x00; // You need to set this register as output
 
     // Define the LCD pin configuration for PIC16F628A
     Lcd_PinConfig lcd = {
