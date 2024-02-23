@@ -15,6 +15,10 @@
 #pragma config CP = OFF         // Flash Program Memory Code Protection disabled
 #define _XTAL_FREQ 4000000      // internal clock
 
+#define DHT11_PIN   RA0
+#define DHT11_PIN_INPUT     TRISA0 = 1
+#define DHT11_PIN_OUTPUT    TRISA0 = 0
+
 
 // Bitmap for Celsius degree symbol
 unsigned char celsiusChar[8] = {
@@ -32,9 +36,20 @@ unsigned char celsiusChar[8] = {
  * @brief Gets the current byte available from DHT11 sensor 
  * @return  byte read or -1 if error 
  */
-char readByteFromDHT11() {
-
-    return 0;
+uint8_t readByteFromDHT11() {
+    uint8_t dht11Byte = 0;
+    for (uint8_t i = 0; i < 8; i++) {
+        do {
+            asm("nop");
+        } while (DHT11_PIN == 0);
+        __delay_us(35);
+        if (DHT11_PIN == 1)
+            dht11Byte |= (uint8_t) (1 << (7 - i));
+        do {
+            asm("nop");
+        } while (DHT11_PIN == 1);
+    }
+    return dht11Byte;
 }
 
 /**
@@ -45,9 +60,26 @@ char readByteFromDHT11() {
  * @param fracTemp     - Fractional part of the temperature 
  * @return 1 if success or 0 if error
  */
-uint8_t readDataFromDHT11(uint8_t *humidity, uint8_t *fracHumidity, uint8_t *temp, uint8_t *fracTemp) {
 
-    return 0;
+int8_t readDataFromDHT11(uint8_t *humidity, uint8_t *fracHumidity, uint8_t *temp, uint8_t *fracTemp) {
+    uint8_t checkSum;
+    
+    // Start communication process with DHT11 device
+    DHT11_PIN_OUTPUT;      // Set pin connected to DHT11 as output
+    DHT11_PIN = 0;        // make the bus down for 18ms
+    __delay_ms(18);
+    DHT11_PIN = 1;        // make the bus high for 40us    
+    __delay_us(40);
+    DHT11_PIN_INPUT;     // Set pin connected to DHT11 as input
+    
+    // Now read data from DHT11 device
+    *humidity = readByteFromDHT11();
+    *fracHumidity = readByteFromDHT11(); 
+    *temp = readByteFromDHT11();
+    *fracTemp = readByteFromDHT11();
+    checkSum = readByteFromDHT11();
+    
+    return checkSum == (*humidity + *fracHumidity + *temp + *fracTemp);
 }
 
 /**
@@ -71,6 +103,7 @@ void main() {
     char strOut[8];
     char i;
     TRISB = 0x00; // You need to set this register as output
+
     // Define the LCD pin configuration for PIC16F628A
     Lcd_PinConfig lcd = {
         .port = &PORTB, // Port to be used to control the LCD 
@@ -90,13 +123,12 @@ void main() {
     Lcd_CreateCustomChar(&lcd, 0, celsiusChar);
 
     while (1) {
-        if (readByteFromDHT11(&humidity, &fracHumidity, &temperature, &fracTemperature)) {
-            convertToChar(temperature, strOut, 2);
-            strOut[2] = '.';
-            convertToChar(fracTemperature, &strOut[3], 2);
-            Lcd_SetCursor(&lcd, 1, 5);
-            Lcd_WriteString(&lcd, strOut);
-        }
+        readDataFromDHT11(&humidity, &fracHumidity, &temperature, &fracTemperature);
+        convertToChar(temperature, strOut, 2);
+        strOut[2] = '.';
+        convertToChar(fracTemperature, &strOut[3], 2);
+        Lcd_SetCursor(&lcd, 1, 5);
+        Lcd_WriteString(&lcd, strOut);
     }
 }
 
