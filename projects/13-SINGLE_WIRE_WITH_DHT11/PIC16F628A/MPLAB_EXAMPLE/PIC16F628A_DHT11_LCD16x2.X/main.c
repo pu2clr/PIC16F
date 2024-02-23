@@ -149,7 +149,7 @@ void main() {
 
     while (1) {
         int8_t status;
-        __delay_ms(4000);
+        __delay_ms(5000);
         status = readDataFromDHT11(&humidity, &fracHumidity, &temperature, &fracTemperature);
         if (status == READOK) {
             convertToChar(temperature, strOut, 2);
