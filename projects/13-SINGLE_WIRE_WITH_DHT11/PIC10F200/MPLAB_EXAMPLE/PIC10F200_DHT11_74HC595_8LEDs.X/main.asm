@@ -157,7 +157,7 @@ FormatTempFinish:
     movwf   temperature 
     goto    FormatHumidity
 CheckTempCoolConfortable:
-    movlw   22
+    movlw   25
     subwf   temperature, w
     btfsc   STATUS, 0
     goto    CheckTempConfortable
@@ -174,7 +174,7 @@ CheckTempHot:
     movlw   0B11110000			        ; HOT
     goto    FormatTempFinish  
 FormatHumidity: 
-    movlw   32
+    movlw   30
     subwf   humidity, w
     btfsc   STATUS, 0
     goto    CheckHumidityModerate 
@@ -183,7 +183,7 @@ FormatHumidityFinish:
     movwf   humidity 
     goto    ShowTempHumidity
 CheckHumidityModerate: 
-    movlw   60
+    movlw   40
     subwf   humidity, w
     btfsc   STATUS, 0
     goto    CheckHumidityDesirable 
