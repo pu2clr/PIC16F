@@ -19,6 +19,10 @@
 #define DHT11_PIN_INPUT     TRISA0 = 1
 #define DHT11_PIN_OUTPUT    TRISA0 = 0
 
+#define CHECK_SUM_ERROR     1
+#define DEVICE_NOT_PRESENT  2
+#define READOK              0 
+
 
 // Bitmap for Celsius degree symbol
 unsigned char celsiusChar[8] = {
@@ -52,7 +56,6 @@ uint8_t readByteFromDHT11() {
     return dht11Byte;
 }
 
-
 /**
  * @brief Read all current data from DHT11 (humidity, temperature and checksum)
  * @param humidity     - Humidity 
@@ -65,36 +68,40 @@ uint8_t readByteFromDHT11() {
 int8_t readDataFromDHT11(uint8_t *humidity, uint8_t *fracHumidity, uint8_t *temp, uint8_t *fracTemp) {
     uint8_t checkSum;
     uint8_t detected = 0;
-    
+
     // Start communication process with DHT11 device
-    DHT11_PIN_OUTPUT;      // Set pin connected to DHT11 as output
-    DHT11_PIN = 0;        // make the bus down for 18ms
-    __delay_ms(18);
-    DHT11_PIN = 1;        // make the bus high for 40us    
+    DHT11_PIN_OUTPUT;   // Set pin connected to DHT11 as output
+    DHT11_PIN = 0; 
+    __delay_ms(20);     // make the bus down for 18ms
+    DHT11_PIN = 1;      // make the bus high for 40us    
     __delay_us(40);
-    DHT11_PIN_INPUT;     // Set pin connected to DHT11 as input
-    
-    for (uint8_t i = 0; i < 13; i++ ) {
-        if (DHT11_PIN == 1) { 
+    DHT11_PIN_INPUT;    // Set pin connected to DHT11 as input
+
+    for (uint8_t i = 0; i < 13; i++) {
+        if (DHT11_PIN == 0) {
             detected = 1;
             break;
         }
         __delay_us(2);
     }
-    if ( detected == 0 ) return 0;
-    
+    if (detected == 0) return DEVICE_NOT_PRESENT;
+
+    //  Wait the DHT11 release the bus
     do {
         __delay_us(2);
-    } while (DHT11_PIN == 1); 
-    
+    } while (DHT11_PIN == 0);
+
     // Now read data from DHT11 device
     *humidity = readByteFromDHT11();
-    *fracHumidity = readByteFromDHT11(); 
+    *fracHumidity = readByteFromDHT11();
     *temp = readByteFromDHT11();
     *fracTemp = readByteFromDHT11();
     checkSum = readByteFromDHT11();
-    
-    return checkSum == (*humidity + *fracHumidity + *temp + *fracTemp);
+
+    if (checkSum != (*humidity + *fracHumidity + *temp + *fracTemp))
+        return CHECK_SUM_ERROR;
+
+    return READOK;
 }
 
 /**
@@ -139,18 +146,24 @@ void main() {
     Lcd_CreateCustomChar(&lcd, 0, celsiusChar);
 
     while (1) {
+        int8_t status;
         __delay_ms(4000);
-        readDataFromDHT11(&humidity, &fracHumidity, &temperature, &fracTemperature);
-        convertToChar(temperature, strOut, 2);
-        strOut[2] = '.';
-        convertToChar(fracTemperature, &strOut[3], 2);
-        Lcd_SetCursor(&lcd, 1, 5);
-        Lcd_WriteString(&lcd, strOut);
-        Lcd_SetCursor(&lcd, 1, 10);
-        Lcd_WriteCustomChar(&lcd, 0);
-        Lcd_SetCursor(&lcd, 2, 1);
-        Lcd_WriteString(&lcd, "XXX");
-          
+        status = readDataFromDHT11(&humidity, &fracHumidity, &temperature, &fracTemperature);
+        if (status == READOK) {
+            convertToChar(temperature, strOut, 2);
+            strOut[2] = '.';
+            convertToChar(fracTemperature, &strOut[3], 2);
+            Lcd_SetCursor(&lcd, 1, 5);
+            Lcd_WriteString(&lcd, strOut);
+            Lcd_SetCursor(&lcd, 1, 10);
+            Lcd_WriteCustomChar(&lcd, 0);
+            Lcd_SetCursor(&lcd, 2, 1);
+            Lcd_WriteString(&lcd, "XXX");
+        } else {
+            Lcd_SetCursor(&lcd, 1, 5);
+            Lcd_WriteString(&lcd, "Error!");
+        }
+
     }
 }
 
