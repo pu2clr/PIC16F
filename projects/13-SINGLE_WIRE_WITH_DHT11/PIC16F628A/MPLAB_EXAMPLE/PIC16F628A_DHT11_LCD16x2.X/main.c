@@ -159,8 +159,13 @@ void main() {
             Lcd_WriteString(&lcd, strOut);
             Lcd_SetCursor(&lcd, 1, 10);
             Lcd_WriteCustomChar(&lcd, 0);
-            Lcd_SetCursor(&lcd, 2, 1);
-            Lcd_WriteString(&lcd, "XXX");
+            convertToChar(humidity, strOut, 2);
+            strOut[2] = '.';
+            convertToChar(fracHumidity, &strOut[3], 2);
+            strOut[3] = '%';
+            strOut[4] = '\0';
+            Lcd_SetCursor(&lcd, 2, 5);
+            Lcd_WriteString(&lcd, strOut);
         } else {
             Lcd_SetCursor(&lcd, 1, 5);
             Lcd_WriteString(&lcd, "Error!");
