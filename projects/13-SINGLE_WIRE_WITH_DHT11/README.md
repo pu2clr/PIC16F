@@ -187,6 +187,15 @@ The interplay between the Heat Index and Thermal Sensation is pivotal in environ
 Understanding both concepts is essential for developing strategies to mitigate heat-related health risks, enhance personal comfort, and inform public health advisories during heatwaves. Moreover, as global temperatures rise due to climate change, the significance of accurately assessing and responding to heat stress and thermal comfort becomes increasingly critical for sustaining human health and well-being in changing environments.
 
 
+
+## Contribution
+
+If you've found value in this repository, please consider contributing. Your support will assist me in acquiring new components and equipment, as well as maintaining the essential infrastructure for the development of future projects. [Click here](https://www.paypal.com/donate/?business=LLV4PHKTXC4JW&no_recurring=0&item_name=Your+support+will+assist+me+in++maintaining+the+essential+infrastructure+for+the+development+of+future+projects.+&currency_code=BRL) to make a donation or scan the QR code provided below. 
+
+![Contributing QR Code](./images/PIC_JOURNEY_QR_CODE.png)
+
+
+
 ## References
 
 1. [DHT11 Data Sheet](https://www.digikey.at/htmldatasheets/production/2071184/0/0/1/dht11-humidity-temp-sensor.html)
