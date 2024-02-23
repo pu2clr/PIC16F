@@ -52,6 +52,7 @@ uint8_t readByteFromDHT11() {
     return dht11Byte;
 }
 
+
 /**
  * @brief Read all current data from DHT11 (humidity, temperature and checksum)
  * @param humidity     - Humidity 
@@ -103,6 +104,7 @@ void main() {
     char strOut[8];
     char i;
     TRISB = 0x00; // You need to set this register as output
+    TRISA = 0x00; // You need to set this register as output
 
     // Define the LCD pin configuration for PIC16F628A
     Lcd_PinConfig lcd = {
@@ -129,6 +131,10 @@ void main() {
         convertToChar(fracTemperature, &strOut[3], 2);
         Lcd_SetCursor(&lcd, 1, 5);
         Lcd_WriteString(&lcd, strOut);
+        __delay_ms(4000);
+          Lcd_SetCursor(&lcd, 2, 1);
+          Lcd_WriteString(&lcd, "XXX");
+          
     }
 }
 
