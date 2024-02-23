@@ -40,13 +40,13 @@ uint8_t readByteFromDHT11() {
     uint8_t dht11Byte = 0;
     for (uint8_t i = 0; i < 8; i++) {
         do {
-            asm("nop");
+            __delay_us(2);
         } while (DHT11_PIN == 0);
         __delay_us(30);
         if (DHT11_PIN == 1)
             dht11Byte |= (uint8_t) (1 << (7 - i));
         do {
-            asm("nop");
+            __delay_us(2);
         } while (DHT11_PIN == 1);
     }
     return dht11Byte;
@@ -64,6 +64,7 @@ uint8_t readByteFromDHT11() {
 
 int8_t readDataFromDHT11(uint8_t *humidity, uint8_t *fracHumidity, uint8_t *temp, uint8_t *fracTemp) {
     uint8_t checkSum;
+    uint8_t detected = 0;
     
     // Start communication process with DHT11 device
     DHT11_PIN_OUTPUT;      // Set pin connected to DHT11 as output
@@ -72,6 +73,19 @@ int8_t readDataFromDHT11(uint8_t *humidity, uint8_t *fracHumidity, uint8_t *temp
     DHT11_PIN = 1;        // make the bus high for 40us    
     __delay_us(40);
     DHT11_PIN_INPUT;     // Set pin connected to DHT11 as input
+    
+    for (uint8_t i = 0; i < 13; i++ ) {
+        if (DHT11_PIN == 1) { 
+            detected = 1;
+            break;
+        }
+        __delay_us(2);
+    }
+    if ( detected == 0 ) return 0;
+    
+    do {
+        __delay_us(2);
+    } while (DHT11_PIN == 1); 
     
     // Now read data from DHT11 device
     *humidity = readByteFromDHT11();
@@ -125,8 +139,8 @@ void main() {
     Lcd_CreateCustomChar(&lcd, 0, celsiusChar);
 
     while (1) {
-        temperature = 32;    
-        // readDataFromDHT11(&humidity, &fracHumidity, &temperature, &fracTemperature);
+        __delay_ms(4000);
+        readDataFromDHT11(&humidity, &fracHumidity, &temperature, &fracTemperature);
         convertToChar(temperature, strOut, 2);
         strOut[2] = '.';
         convertToChar(fracTemperature, &strOut[3], 2);
@@ -134,7 +148,6 @@ void main() {
         Lcd_WriteString(&lcd, strOut);
         Lcd_SetCursor(&lcd, 1, 10);
         Lcd_WriteCustomChar(&lcd, 0);
-        __delay_ms(4000);
         Lcd_SetCursor(&lcd, 2, 1);
         Lcd_WriteString(&lcd, "XXX");
           
