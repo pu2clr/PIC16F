@@ -42,7 +42,7 @@ uint8_t readByteFromDHT11() {
         do {
             asm("nop");
         } while (DHT11_PIN == 0);
-        __delay_us(35);
+        __delay_us(30);
         if (DHT11_PIN == 1)
             dht11Byte |= (uint8_t) (1 << (7 - i));
         do {
@@ -125,15 +125,18 @@ void main() {
     Lcd_CreateCustomChar(&lcd, 0, celsiusChar);
 
     while (1) {
-        readDataFromDHT11(&humidity, &fracHumidity, &temperature, &fracTemperature);
+        temperature = 32;    
+        // readDataFromDHT11(&humidity, &fracHumidity, &temperature, &fracTemperature);
         convertToChar(temperature, strOut, 2);
         strOut[2] = '.';
         convertToChar(fracTemperature, &strOut[3], 2);
         Lcd_SetCursor(&lcd, 1, 5);
         Lcd_WriteString(&lcd, strOut);
+        Lcd_SetCursor(&lcd, 1, 10);
+        Lcd_WriteCustomChar(&lcd, 0);
         __delay_ms(4000);
-          Lcd_SetCursor(&lcd, 2, 1);
-          Lcd_WriteString(&lcd, "XXX");
+        Lcd_SetCursor(&lcd, 2, 1);
+        Lcd_WriteString(&lcd, "XXX");
           
     }
 }
