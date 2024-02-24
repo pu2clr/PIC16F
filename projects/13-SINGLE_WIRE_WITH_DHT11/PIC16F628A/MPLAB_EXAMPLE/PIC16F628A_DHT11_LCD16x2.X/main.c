@@ -166,10 +166,10 @@ void main() {
             strOut[4] = '\0';
             Lcd_SetCursor(&lcd, 2, 5);
             Lcd_WriteString(&lcd, strOut);
-        } else {
+        } /* else {
             Lcd_SetCursor(&lcd, 1, 5);
             Lcd_WriteString(&lcd, "Error!");
-        }
+        } */
 
     }
 }
