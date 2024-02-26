@@ -3,6 +3,18 @@
 
 The projects presented in this folder involve the use of MQ series gas sensors. Most of these sensors have a digital and analog interface with the microcontroller. For this reason, to get the most out of these sensors, it is recommended that the microcontroller have digital and analog pins.
 
+## Content
+
+1. [How MQ Series Gas Sensors Work](#how-mq-series-gas-sensors-work)
+    * [Main MQ series of sensors](#main-mq-series-of-sensors)
+    * [PINOUT and interface](#pinout-and-interface)
+    * [Interfacing](#interfacing)
+2. [PIC10F]()
+3. [PIC12F]()
+3. [PIC16F887]()     
+3. [References](#references)
+
+
 ## How MQ Series Gas Sensors Work
 
 MQ series gas sensors are a type of metal oxide semiconductor (MOS) gas sensor. They work by detecting changes in the conductivity of a metal oxide semiconductor layer when exposed to certain gases.
@@ -67,7 +79,7 @@ Additionally, some manufacturers might offer other sensors in the MQ series with
 
 ![PINOUT and interface](./images/MQ_PINOUT.jpeg)
 
-[source: https://components101.com/sensors/mq8-hydrogen-gas-sensor-pinout-features-datasheet-working-alternative-application](https://components101.com/sensors/mq8-hydrogen-gas-sensor-pinout-features-datasheet-working-alternative-application)
+[source: Components101](https://components101.com/sensors/mq8-hydrogen-gas-sensor-pinout-features-datasheet-working-alternative-application)
 
 
 The interface and pinout of the MQ series gas sensors are generally the same across all models. Here's a breakdown:
