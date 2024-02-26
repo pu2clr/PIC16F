@@ -79,7 +79,7 @@ Additionally, some manufacturers might offer other sensors in the MQ series with
 
 ![PINOUT and interface](./images/MQ_PINOUT.jpeg)
 
-[source: Components101](https://components101.com/sensors/mq8-hydrogen-gas-sensor-pinout-features-datasheet-working-alternative-application)
+[Image source: Components101](https://components101.com/sensors/mq8-hydrogen-gas-sensor-pinout-features-datasheet-working-alternative-application)
 
 
 The interface and pinout of the MQ series gas sensors are generally the same across all models. Here's a breakdown:
