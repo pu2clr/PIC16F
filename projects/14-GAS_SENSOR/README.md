@@ -83,7 +83,7 @@ Additionally, some manufacturers might offer other sensors in the MQ series with
 
 ### PINOUT and interface
 
-![PINOUT and interface](./images/MQ_PINOUT.jpeg)
+![PINOUT and interface](./images/MQ_PINOUT.jpg)
 
 [Image source: Components101](https://components101.com/sensors/mq8-hydrogen-gas-sensor-pinout-features-datasheet-working-alternative-application)
 
@@ -99,13 +99,12 @@ The interface and pinout of the MQ series gas sensors are generally the same acr
 
 ## Pinout Summarizing 
 
-| Pin | Description |
-|---|---|
-| VCC | Power supply (5V) |
-| GND | Ground |
-| Aout | Analog output |
-| Dout (optional) | Digital output (optional) |
-
+| # | Pin | Description |
+|---|---|---|
+| 1 | VCC | Power supply (5V) |
+| 2 | GND | Ground |
+| 3 | Dout (optional) | Digital output (optional) |
+| 4 | Aout | Analog output |
 
 
 ### Interfacing
