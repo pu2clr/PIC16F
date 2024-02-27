@@ -70,6 +70,8 @@ These sensors are commonly used in various applications, including:
 | MQ-9 | Carbon monoxide |
 | MQ-131 | Ozone |
 | MQ-135 | Ammonia, benzene, ethylenediamine |
+| MQ-137  | Ammonia |
+| MG-811  | Carbon Dioxide | 
 
 
 While these sensors are advertised for specific gases, they often have some cross-sensitivity to other gases. This means they might react to the presence of a gas other than their target gas as well, which can lead to inaccurate readings. It's crucial to consider this limitation when using these sensors and interpret the results with caution.
