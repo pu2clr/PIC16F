@@ -1,5 +1,7 @@
 # PIC interface with MQ series of gas sensor
 
+## UNDER CONSTRUCTION...
+
 
 The projects presented in this folder involve the use of MQ series gas sensors. Most of these sensors have a digital and analog interface with the microcontroller. For this reason, to get the most out of these sensors, it is recommended that the microcontroller have digital and analog pins.
 
