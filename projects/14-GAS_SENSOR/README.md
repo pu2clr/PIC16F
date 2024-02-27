@@ -104,6 +104,9 @@ The interface and pinout of the MQ series gas sensors are generally the same acr
 | 2 | GND | Ground |
 | 3 | Dout (optional) | Digital output (optional) |
 | 4 | Aout | Analog output |
+| 5 | LED  | Gas indicator | 
+| 6 | LED  | Power Supply | 
+| 7 | Trim-pot | Tune the sensitivity | 
 
 
 ### Interfacing
