@@ -98,7 +98,7 @@ The interface and pinout of the MQ series gas sensors are generally the same acr
 
 ## Pinout Summarizing 
 
-| # | Pin | Description |
+| # | Pin/Part | Description |
 |---|---|---|
 | 1 | VCC | Power supply (5V) |
 | 2 | GND | Ground |
