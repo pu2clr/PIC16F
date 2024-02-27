@@ -12,10 +12,12 @@
 
 #define _XTAL_FREQ 4000000      // Frequency (Clock)
 
+
+
 /**
  Custom Char (Smile / happy face)
  */
-unsigned char smiley[8] = {
+unsigned char smile[8] = {
     0b00000,    
     0b01010,    
     0b01010,    
@@ -41,11 +43,26 @@ unsigned char sad[8] = {
 };
 
 
+void initADC() {
+    ANSEL = 0x01; // RA0/AN0 is analog input
+    ADCON0 = 0x01; // Enable ADC, channel 0
+    ADCON1 = 0x80; // Right justified, Fosc/32
+}
+
+uint16_t readADC() {
+    ADCON0bits.GO = 1; // Start conversion
+    while (ADCON0bits.GO_nDONE); // Wait for conversion to finish
+    return (unsigned int) ((ADRESH << 8) + ADRESL); // Combine result into a single word
+}
+
 
 void main() {
-    unsigned char i;
+
+    TRISC = 0B00000001; // PORT C: RC0 as input and all other pins as output
+    
+
     // Define the LCD pin configuration for PIC16F887
-    TRISC = 0; // You need to set this register as output
+    
     Lcd_PinConfig lcd = {
         .port = &PORTC, // Assuming you're using PORTC for LCD on PIC16F887
         .rs_pin = 2, // RC2 for RS
@@ -67,11 +84,22 @@ void main() {
     Lcd_WriteString(&lcd, "Sensor");
 
     // Creating the character
-    Lcd_CreateCustomChar(&lcd, 0, smiley);
+    Lcd_CreateCustomChar(&lcd, 0, smile);
     Lcd_CreateCustomChar(&lcd, 1, sad);    
     
+    __delay_ms(3000);
+    
     while(1) {
-
+        Lcd_SetCursor(&lcd, 1, 1);
+        if ( RC0 == 1) { 
+           Lcd_WriteString(&lcd, "Gas detected"); 
+           Lcd_SetCursor(&lcd, 1, 14);
+           Lcd_WriteCustomChar(&lcd, 1);
+        } else {
+           Lcd_WriteString(&lcd, "Normal"); 
+           Lcd_SetCursor(&lcd, 1, 14);
+           Lcd_WriteCustomChar(&lcd, 0);            
+        }
         __delay_ms(2000);
     }
 }

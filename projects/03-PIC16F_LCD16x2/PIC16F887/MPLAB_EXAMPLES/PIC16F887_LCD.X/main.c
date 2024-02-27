@@ -15,7 +15,7 @@
 /**
  Custom Char (Smile / happy face)
  */
-unsigned char smiley[8] = {
+unsigned char smile[8] = {
     0b00000,
     0b01010,
     0b01010,
@@ -67,7 +67,7 @@ void main() {
     Lcd_WriteString(&lcd, "World");
 
         // Creating the character
-    Lcd_CreateCustomChar(&lcd, 0, smiley);
+    Lcd_CreateCustomChar(&lcd, 0, smile);
     Lcd_CreateCustomChar(&lcd, 1, sad);    
     __delay_ms(3000);
     while(1) {

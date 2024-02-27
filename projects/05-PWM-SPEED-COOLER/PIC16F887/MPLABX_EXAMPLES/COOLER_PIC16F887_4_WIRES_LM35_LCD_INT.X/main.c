@@ -72,6 +72,7 @@ unsigned int readADC() {
     return (unsigned int) ((ADRESH << 8) + ADRESL); // Combine result into a single word
 }
 
+
 double readTemperature() {
     unsigned int adcValue = readADC();
     double voltage = (float) ((float) adcValue / 1024.0) * 5.0; // Convert ADC value to voltage
