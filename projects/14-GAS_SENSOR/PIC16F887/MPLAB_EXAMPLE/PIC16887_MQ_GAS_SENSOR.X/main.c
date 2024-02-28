@@ -1,4 +1,5 @@
 #include <xc.h>
+#include <stdio.h>
 #include "pic16flcd.h"
 
 #pragma config FOSC = INTRC_NOCLKOUT
@@ -58,6 +59,9 @@ uint16_t readADC() {
 
 void main() {
 
+    char strAux[16];
+    initADC();
+    
     TRISC = 0B00000001; // PORT C: RC0 as input and all other pins as output
     
 
@@ -91,15 +95,19 @@ void main() {
     
     while(1) {
         Lcd_SetCursor(&lcd, 1, 1);
-        if ( RC0 == 1) { 
+        if ( RC0 == 0) { 
            Lcd_WriteString(&lcd, "Gas detected"); 
            Lcd_SetCursor(&lcd, 1, 14);
-           Lcd_WriteCustomChar(&lcd, 1);        // Show Sad face
+           Lcd_WriteCustomChar(&lcd, 1);        // Show Sad face 
         } else {
            Lcd_WriteString(&lcd, "Normal"); 
            Lcd_SetCursor(&lcd, 1, 14);
            Lcd_WriteCustomChar(&lcd, 0);        // Show Smile face         
         }
+        
+        Lcd_SetCursor(&lcd, 2, 1);
+        sprintf(strAux,"Gas level: %d", readADC());
+        Lcd_WriteString(&lcd, strAux); 
         __delay_ms(2000);
     }
 }
