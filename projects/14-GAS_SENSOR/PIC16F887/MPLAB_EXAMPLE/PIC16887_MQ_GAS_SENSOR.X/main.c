@@ -18,8 +18,8 @@
 #define _XTAL_FREQ 4000000      // internal clock
 
 void inline initADC() {
-    TRISIO = 0b00011000;          // input setup - GP4/AN3  
-    ANSEL =  0b00011000;          // AN3 as analog input
+    TRISIO = 0b00000001;          // input setup - GP0/AN0  
+    ANSEL =  0b00010001;          // AN0 as analog input
     ADCON0 = 0b10001101;          // Right justified; VDD;  01 = Channel 03 (AN3); A/D converter module is 
 }
 
@@ -35,9 +35,13 @@ void main() {
     GPIO =  0x0;    // Turns all GPIO pins low
     initADC();
     while (1) {
-        unsigned int value = readADC();
-
-        
+        unsigned int gasLevel = readADC();
+        if (gasLevel >= 300)                   // TODO: Check the right level
+            GPIO = 4;       // Red on
+        else if (gasLevel < 100) 
+            GPIO = 1;       // Gren on
+        else
+            GPIO = 2;       // Yellow on
 
         __delay_ms(2000); 
     }
