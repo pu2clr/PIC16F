@@ -3,16 +3,17 @@
 
 ## Content
 
-1. [PIC16F877 and DS18B20 schematic](#pic16f877-and-ds18b20-schematic) 
+1. [PIC16F877 and MQ-2 schematic](#pic16f877-and-mq-2-schematic) 
     * [KiCad Schematic](./KiCad/)
 2. [PIC16F877 PINOUT](#pic16f877-pinout)
+3. [Prototype](#prototype---pic16f887-mq-2-gas-sensor-and-lcd16x2)
 5. [MPLAB X IDE project](./MPLAB_EXAMPLE/)
 6. [References](#references)
 
 
-## PIC16F877 and DS18B20 schematic
+## PIC16F877 and MQ-2 schematic
 
-![PIC16F877 and DS18B20 schematic](./schematic_pic16F887_MQ_2_LCD16x2.jpg)
+![PIC16F877 and MQ-2 schematic](./schematic_pic16F887_MQ_2_LCD16x2.jpg)
 
 
 ## PIC16F877 PINOUT
@@ -36,7 +37,7 @@
 
 
 
-## PIC16F887, MQ-2 gas sensor and LCD16x2
+## Prototype - PIC16F887, MQ-2 gas sensor and LCD16x2
 
 
 ![PIC16F887, MQ-2 gas sensor and LCD16x2](./prototype_pic16F887_MQ_2_LCD16x2.jpg)
