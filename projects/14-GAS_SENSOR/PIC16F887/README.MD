@@ -36,5 +36,10 @@
 
 
 
+## PIC16F887, MQ-2 gas sensor and LCD16x2
+
+
+![PIC16F887, MQ-2 gas sensor and LCD16x2](./prototype_pic16F887_MQ_2_LCD16x2.jpg)
+
 
 ## References
