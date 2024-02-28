@@ -1,7 +1,19 @@
 # PIC12F675 GAS SENSOR EXAMPLE
 
-UNDER CONSTRUCTION...
+The utilization of the PIC12F675 microcontroller, designed by Microchip Technology, in conjunction with gas sensors from the MQ series, is a strategic choice for several reasons. This microcontroller is particularly well-suited for experiments and projects involving gas detection due to its integrated analog interfaces—specifically, its analog-to-digital converter (ADC) pins. These features make it an ideal candidate for interfacing with MQ gas sensors, which output analog signals correlating to gas concentrations.
 
+Additionally, the PIC12F675's low power consumption makes it an excellent choice for battery-operated or energy-efficient designs. This is a significant advantage in portable gas detection devices or in situations where power availability is limited. Its ability to operate in a power-saving mode extends the battery life of the device, making it more reliable and practical for long-term monitoring tasks.
+
+
+## Content
+
+1. [PIC12F675, MQ-2 gas sensor and LED schematic](#pic12f675-mq-2-gas-sensor-and-led-schematic)
+    * [KiCad Schematic](./KiCad/)
+2. [PIC12F675 PINOUT](#pic12f675-pinout)
+3. [Prototype](#pic12f675-mq-2-gas-sensor-and-led-prototype)
+4. [MQ-2 PINOUT](#mq-2-pinout)
+5. [MPLAB PROJECT](./MPLAB_EXAMPLES/)
+6. [References](#references)
 
 
 ## PIC12F675, MQ-2 gas sensor and LED schematic
@@ -27,4 +39,14 @@ UNDER CONSTRUCTION...
 | 5 | LED  | Gas indicator | 
 | 6 | LED  | Power Supply | 
 | 7 | Trim-pot | Tune the sensitivity | 
+
+
+
+## PIC12F675, MQ-2 gas sensor and LED prototype
+
+![Prototype](./prototype_pic12f675_MQ_2_LEDs.jpg)
+
+
+## References
+
 
