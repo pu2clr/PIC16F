@@ -15,7 +15,7 @@ The projects presented in this folder involve the use of MQ series gas sensors. 
     * [Interfacing](#interfacing)
 2. [PIC10F]()
 3. [PIC12F]()
-3. [PIC16F887]()     
+3. [PIC16F887](./PIC16F887/)     
 3. [References](#references)
 
 

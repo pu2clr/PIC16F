@@ -94,11 +94,11 @@ void main() {
         if ( RC0 == 1) { 
            Lcd_WriteString(&lcd, "Gas detected"); 
            Lcd_SetCursor(&lcd, 1, 14);
-           Lcd_WriteCustomChar(&lcd, 1);
+           Lcd_WriteCustomChar(&lcd, 1);        // Show Sad face
         } else {
            Lcd_WriteString(&lcd, "Normal"); 
            Lcd_SetCursor(&lcd, 1, 14);
-           Lcd_WriteCustomChar(&lcd, 0);            
+           Lcd_WriteCustomChar(&lcd, 0);        // Show Smile face         
         }
         __delay_ms(2000);
     }

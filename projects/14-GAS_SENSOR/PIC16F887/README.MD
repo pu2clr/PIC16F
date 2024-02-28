@@ -6,7 +6,7 @@
 1. [PIC16F877 and DS18B20 schematic](#pic16f877-and-ds18b20-schematic) 
     * [KiCad Schematic](./KiCad/)
 2. [PIC16F877 PINOUT](#pic16f877-pinout)
-5. [MPLAB X IDE project](./MPLAB_EXAMPLES/)
+5. [MPLAB X IDE project](./MPLAB_EXAMPLE/)
 6. [References](#references)
 
 
