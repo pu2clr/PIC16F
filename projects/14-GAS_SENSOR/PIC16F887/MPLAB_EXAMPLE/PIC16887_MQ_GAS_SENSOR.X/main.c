@@ -94,6 +94,7 @@ void main() {
     __delay_ms(3000);
     
     while(1) {
+        Lcd_Clear(&lcd);
         Lcd_SetCursor(&lcd, 1, 1);
         if ( RC0 == 0) { 
            Lcd_WriteString(&lcd, "Gas detected"); 
