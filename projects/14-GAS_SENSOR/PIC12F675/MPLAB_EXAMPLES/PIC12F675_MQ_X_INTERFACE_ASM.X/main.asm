@@ -1,4 +1,3 @@
-; UNDER Construction...
 ; My PIC Journey  - MQ-2 Gas sensor and PIC12F675
 ; 
 ; ATTENTION: This experiment is solely intended to demonstrate the interfacing of an MQ series gas sensor 
@@ -51,21 +50,31 @@ main:
     movwf   ANSEL	 	; Sets GP4 as analog and Clock / 8
     bcf	    STATUS, 5		; Selects bank 0
 MainLoopBegin:			; Endless loop
-    call AdcRead		; read the temperature value
+    call    AdcRead		; read the temperature value
     ; Checks the value of the voltage coverted to digital number by the ADC (1024 is about 5V, 512 is 2.5V etc) 
-    movlw LOW(800)		; Constant value to be compared to the ADC value read from AN3
-    movwf value2L		; 
-    movlw HIGH(800)		;
-    movwf value2H		;     
-    call  Compare16		; Compare value1 with the constant stored in value2 
-    btfsc STATUS, 0		; It is <= 200, then skip next line (bcf GPIO, 0) 
-    goto  LightOn		; 
-    bcf GPIO, 0			; Turn the Light OFF
-    goto MainLoopEnd
-LightOn: 
-    bsf GPIO, 0			; Turn the Light ON
- MainLoopEnd: 
-    call Delay
+    movlw   LOW(800)		; Constant value to be compared to the ADC value read from AN3
+    movwf   value2L		; 
+    movlw   HIGH(800)		;
+    movwf   value2H		;     
+    call    Compare16		; Compare value1 with the constant stored in value2 
+    btfsc   STATUS, 0		; It is <= 800, then skip next line (bcf GPIO, 0) 
+    goto    GasLevelYellow   ; 
+    bsf	    GPIO, 2			; Turn the RED LED on
+    goto    MainLoopEnd
+GasLevelYellow: 
+    movlw   LOW(400)		; Constant value to be compared to the ADC value read from AN3
+    movwf   value2L		; 
+    movlw   HIGH(400)		;
+    movwf   value2H		;     
+    call    Compare16		; Compare value1 with the constant stored in value2 
+    btfsc   STATUS, 0		; It is <= 800, then skip next line (bcf GPIO, 0) 
+    goto    GasLevelGreen    ; 
+    bsf	    GPIO, 1		; Turn the Yellow LED on  
+    goto    MainLoopEnd
+GasLevelGreen:
+    bsf	    GPIO, 0		; Turn the Green LED on  
+MainLoopEnd: 
+    call    Delay
     goto MainLoopBegin
 
    
@@ -139,12 +148,12 @@ Delay:
 DelayLoop:    
     nop                 ; One cycle
     nop                 ; One cycle
-    decfsz dummy1, f    ; One cycle* (dummy1 = dumm1 - 1) => if dummy1 is 0, after decfsz, it will be 255
-    goto DelayLoop      ; Two cycles
-    decfsz dummy2, f    ; dummy2 = dumm2 - 1; if dummy2 = 0, after decfsz, it will be 255
-    goto DelayLoop
-    decfsz delayParam,f ; Runs 3 times (255 * 255)		 
-    goto DelayLoop
+    decfsz  dummy1, f    ; One cycle* (dummy1 = dumm1 - 1) => if dummy1 is 0, after decfsz, it will be 255
+    goto    DelayLoop      ; Two cycles
+    decfsz  dummy2, f    ; dummy2 = dumm2 - 1; if dummy2 = 0, after decfsz, it will be 255
+    goto    DelayLoop
+    decfsz  delayParam,f ; Runs 3 times (255 * 255)		 
+    goto    DelayLoop
     
     return 
     
