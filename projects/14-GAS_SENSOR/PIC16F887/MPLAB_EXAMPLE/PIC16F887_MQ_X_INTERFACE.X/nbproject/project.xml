@@ -3,8 +3,8 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>PIC16887_MQ_GAS_SENSOR</name>
-            <creation-uuid>457e868c-5904-4ddc-976c-a01fc7c12c5d</creation-uuid>
+            <name>PIC16F887_MQ_X_INTERFACE</name>
+            <creation-uuid>60a8ed26-bb26-4347-adad-bdea34574cc1</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>

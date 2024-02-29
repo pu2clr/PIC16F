@@ -3,14 +3,12 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>PIC12F675_MQ_2_LEDs_C</name>
-            <creation-uuid>866dbd3f-bc85-44de-b969-4bb1fbbeb6d3</creation-uuid>
+            <name>PIC12F675_MQ_X_INTERFACE</name>
+            <creation-uuid>f6d914e0-9b48-4dc3-816b-9e36de6a09cc</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
-            <sourceRootList>
-                <sourceRootElem>../../../PIC16F887/MPLAB_EXAMPLE/PIC16887_MQ_GAS_SENSOR.X</sourceRootElem>
-            </sourceRootList>
+            <sourceRootList/>
             <confList>
                 <confElem>
                     <name>default</name>

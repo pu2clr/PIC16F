@@ -18,11 +18,8 @@
                    displayName="Source Files"
                    projectFiles="true">
     </logicalFolder>
-    <itemPath>../../../PIC16F887/MPLAB_EXAMPLE/PIC16887_MQ_GAS_SENSOR.X/main.c</itemPath>
+    <itemPath>main.c</itemPath>
   </logicalFolder>
-  <sourceRootList>
-    <Elem>../../../PIC16F887/MPLAB_EXAMPLE/PIC16887_MQ_GAS_SENSOR.X</Elem>
-  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">
