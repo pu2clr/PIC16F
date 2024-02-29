@@ -44,3 +44,7 @@
 
 
 ## References
+
+* [Introduction to Gas Sensors: Construction Types and Working ](https://components101.com/articles/introduction-to-gas-sensors-types-working-and-applications)
+* [What is a Gas Sensor: Working and Types](https://wiki.dfrobot.com/What_is_a_Gas_Sensor)
+* [Gas detector](https://en.wikipedia.org/wiki/Gas_detector)
