@@ -121,6 +121,12 @@ These sensors are generally easy to interface with microcontrollers like Arduino
 3. Connect the **Aout** pin of the sensor to an analog input pin.
 4. If your sensor has a **Dout** pin and you want to use it, connect it to a digital input pin.
 
+## Contribution
+
+If you've found value in this repository, please consider contributing. Your support will assist me in acquiring new components and equipment, as well as maintaining the essential infrastructure for the development of future projects. [Click here](https://www.paypal.com/donate/?business=LLV4PHKTXC4JW&no_recurring=0&item_name=Your+support+will+assist+me+in++maintaining+the+essential+infrastructure+for+the+development+of+future+projects.+&currency_code=BRL) to make a donation or scan the QR code provided below. 
+
+![Contributing QR Code](./images/PIC_JOURNEY_QR_CODE.png)
+
 
 
 ## References
