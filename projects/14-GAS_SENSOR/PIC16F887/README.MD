@@ -1,5 +1,8 @@
 # PIC16F887 GAS SENSOR
 
+The combination of accurate analog-to-digital conversion, sufficient I/O ports, serial communication capabilities, and cost-effectiveness makes the PIC16F887 an excellent choice for interfacing with MQ gas sensors. Whether for environmental monitoring, safety systems, or educational purposes, this microcontroller offers the flexibility and features necessary for a wide range of gas detection applications.
+
+
 
 ## Content
 
@@ -9,6 +12,10 @@
 3. [Prototype](#prototype---pic16f887-mq-2-gas-sensor-and-lcd16x2)
 5. [MPLAB X IDE project](./MPLAB_EXAMPLE/)
 6. [References](#references)
+
+
+
+**ATTENTION:** This experiment is solely intended to demonstrate the interfacing of an MQ series gas sensor with PIC microcontrollers. The gas concentration values and thresholds used in the example programs have been arbitrarily set to illustrate high, medium, or low gas concentration levels. However, it is crucial to emphasize that these values may not accurately reflect the real concentrations that pose a health risk. Therefore, if you plan to use the examples provided, it is strongly recommended to consult the gas sensor's Datasheet. This is essential to ascertain the exact values that define dangerous, tolerable, or low gas concentrations.
 
 
 ## PIC16F877 and MQ-2 schematic
