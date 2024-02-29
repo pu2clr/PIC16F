@@ -1,7 +1,14 @@
+; UNDER Construction...
+; My PIC Journey  - MQ-2 Gas sensor and PIC12F675
 ; 
-; My PIC Journey   
+; ATTENTION: This experiment is solely intended to demonstrate the interfacing of an MQ series gas sensor 
+; with PIC microcontrollers. The gas concentration values and thresholds used in the example programs have 
+; been arbitrarily set to illustrate high, medium, or low gas concentration levels. However, it is crucial 
+; to emphasize that these values may not accurately reflect the real concentrations that pose a health risk. 
+; Therefore, if you plan to use the examples provided, it is strongly recommended to consult the gas sensor's Datasheet. 
+; This is essential to ascertain the exact values that define dangerous, tolerable, or low gas concentrations.  
 ; Author: Ricardo Lima Caratti
-; Jan/2024
+; Feb/2024
     
 #include <xc.inc>
 
@@ -46,9 +53,9 @@ main:
 MainLoopBegin:			; Endless loop
     call AdcRead		; read the temperature value
     ; Checks the value of the voltage coverted to digital number by the ADC (1024 is about 5V, 512 is 2.5V etc) 
-    movlw LOW(200)		; Constant value to be compared to the ADC value read from AN3
+    movlw LOW(800)		; Constant value to be compared to the ADC value read from AN3
     movwf value2L		; 
-    movlw HIGH(200)		;
+    movlw HIGH(800)		;
     movwf value2H		;     
     call  Compare16		; Compare value1 with the constant stored in value2 
     btfsc STATUS, 0		; It is <= 200, then skip next line (bcf GPIO, 0) 
