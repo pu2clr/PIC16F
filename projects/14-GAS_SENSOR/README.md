@@ -13,8 +13,7 @@ The projects presented in this folder involve the use of MQ series gas sensors. 
     * [Main MQ series of sensors](#main-mq-series-of-sensors)
     * [PINOUT and interface](#pinout-and-interface)
     * [Interfacing](#interfacing)
-2. [PIC10F]()
-3. [PIC12F]()
+2. [PIC12F675](./PIC12F675/)
 3. [PIC16F887](./PIC16F887/)     
 3. [References](#references)
 
