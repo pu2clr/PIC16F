@@ -3,8 +3,8 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>PIC12F675_MQ_X_INTERFACE_C</name>
-            <creation-uuid>f6d914e0-9b48-4dc3-816b-9e36de6a09cc</creation-uuid>
+            <name>PIC12F675_MQ_X_INTERFACE_ASM</name>
+            <creation-uuid>13765217-fb83-4166-baca-966db8095ff8</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
