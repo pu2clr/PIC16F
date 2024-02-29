@@ -1,6 +1,20 @@
+/**
+ * My PIC Journey  - MQ-2 Gas sensor and PIC12F675
+ * 
+ * ATTENTION: This experiment is solely intended to demonstrate the interfacing of an MQ series gas sensor 
+ * with PIC microcontrollers. The gas concentration values and thresholds used in the example programs have 
+ * been arbitrarily set to illustrate high, medium, or low gas concentration levels. However, it is crucial 
+ * to emphasize that these values may not accurately reflect the real concentrations that pose a health risk. 
+ * Therefore, if you plan to use the examples provided, it is strongly recommended to consult the gas sensor's Datasheet. 
+ * This is essential to ascertain the exact values that define dangerous, tolerable, or low gas concentrations. 
+ * 
+ * Author: Ricardo Lima Caratti
+ * Feb/2024 
+ */
+
+
 #include <xc.h>
 
-// 
 #pragma config FOSC = INTRCIO   // Oscillator Selection bits (INTOSC oscillator: I/O function on GP4/OSC2/CLKOUT pin, I/O function on GP5/OSC1/CLKIN)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled)
 #pragma config PWRTE = OFF      // Power-Up Timer Enable bit (PWRT disabled)
@@ -12,68 +26,31 @@
 #define _XTAL_FREQ 4000000      // internal clock
 
 void inline initADC() {
-    TRISIO = 0b00011000;          // input setup - GP4/AN3  
-    ANSEL =  0b00011000;          // AN3 as analog input
+    TRISIO = 0b00011000;          // input setup - GP4/AN3   
+    ANSEL =  0b00011000;          // AN0 as analog input
     ADCON0 = 0b10001101;          // Right justified; VDD;  01 = Channel 03 (AN3); A/D converter module is 
 }
 
-unsigned inline char readADC() {
-    ADCON0bits.GO = 1;           // Start conversion
-    while (ADCON0bits.GO_nDONE); // Wait for conversion to finish
-    // Assuming that the body's maximum temperature will not exceed 127 (about 62 degrees Celsius).
-    return ADRESL; // In this case, ADRESL was ignored.  
+unsigned inline int readADC() {
+    ADCON0bits.GO = 1;              // Start conversion
+    while (ADCON0bits.GO_nDONE);    // Wait for conversion to finish
+    return ((unsigned int) ADRESH << 8) + (unsigned int) ADRESL;  // return the ADC 10 bit integer value 1024 ~= 5V, 512 ~= 2.5V, ... 0 = 0V
 }
 
-/**
- * Turns All LEDS Off 
- */
-void inline AllOff() {
-    GPIO =  0;
-}
 
-/**
- * Turns Green LED On
- */
-void inline GreenOn() {
-    AllOff();
-    GPIO =  0;
-}
-
-/**
- * Turns Yellow LED On
- */
-void inline YellowOn() {
-    AllOff();
-    GPIO =  1;
-}
-
-/**
- * Turns Red LED On
- */
-void RedOn() {
-    AllOff();
-    GPIO =  2;
-}
 
 void main() {
     GPIO =  0x0;    // Turns all GPIO pins low
     initADC();
     while (1) {
-        unsigned char value = readADC();
-         // To optimize accuracy, it might be necessary to perform calibration in order to 
-        // determine a more precise value. the ADC vales 77 is near to 37 degree Celsius in my experiment
-        if ( value == 77)  { 
-            YellowOn();
-            __delay_ms(2000);
-        }
-        else if ( value > 77 )
-            RedOn();
+        unsigned int gasLevel = readADC();
+        if (gasLevel > 800)                   // TODO: Check the right level
+            GPIO = 0B00000100;       // Red on
+        else if (gasLevel < 400) 
+            GPIO = 0B00000001;       // Gren on
         else
-            GreenOn();
-        __delay_ms(100); 
+            GPIO = 0B00000010;       // Yellow on
+
+        __delay_ms(2000); 
     }
 }
-
-
-
-

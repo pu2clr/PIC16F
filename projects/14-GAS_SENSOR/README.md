@@ -19,6 +19,10 @@ The projects presented in this folder involve the use of MQ series gas sensors. 
 3. [References](#references)
 
 
+**ATTENTION:** This experiment is solely intended to demonstrate the interfacing of an MQ series gas sensor with PIC microcontrollers. The gas concentration values and thresholds used in the example programs have been arbitrarily set to illustrate high, medium, or low gas concentration levels. However, it is crucial to emphasize that these values may not accurately reflect the real concentrations that pose a health risk. Therefore, if you plan to use the examples provided, it is strongly recommended to consult the gas sensor's Datasheet. This is essential to ascertain the exact values that define dangerous, tolerable, or low gas concentrations.
+
+
+
 ## How MQ Series Gas Sensors Work
 
 MQ series gas sensors are a type of metal oxide semiconductor (MOS) gas sensor. They work by detecting changes in the conductivity of a metal oxide semiconductor layer when exposed to certain gases.
