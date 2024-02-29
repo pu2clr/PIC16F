@@ -19,7 +19,6 @@
   CONFIG  BOREN = ON            ; Brown-out Detect Enable bit (BOD enabled)
   CONFIG  CP = OFF              ; Code Protection bit (Program Memory code protection is disabled)
   CONFIG  CPD = OFF             ; Data Code Protection bit (Data memory code protection is disabled) 
- 
     
 ; declare your variables here
 dummy1	    equ 0x20 
@@ -76,8 +75,7 @@ GasLevelGreen:
 MainLoopEnd: 
     call    Delay
     goto MainLoopBegin
-
-   
+  
     
 ; ******** ADC Read ************
 ; Read the analog value from GP4/AN3
