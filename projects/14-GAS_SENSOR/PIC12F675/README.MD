@@ -13,7 +13,8 @@ Additionally, the PIC12F675's low power consumption makes it an excellent choice
 3. [Prototype](#pic12f675-mq-2-gas-sensor-and-led-prototype)
 4. [MQ-2 PINOUT](#mq-2-pinout)
 5. [MPLAB PROJECT](./MPLAB_EXAMPLES/)
-6. [References](#references)
+6. [Video](https://youtu.be/x1buKJnA5Jw?si=tq8vAmBw3GzhiSSb)
+7. [References](#references)
 
 
 **ATTENTION:** This experiment is solely intended to demonstrate the interfacing of an MQ series gas sensor with PIC microcontrollers. The gas concentration values and thresholds used in the example programs have been arbitrarily set to illustrate high, medium, or low gas concentration levels. However, it is crucial to emphasize that these values may not accurately reflect the real concentrations that pose a health risk. Therefore, if you plan to use the examples provided, it is strongly recommended to consult the gas sensor's Datasheet. This is essential to ascertain the exact values that define dangerous, tolerable, or low gas concentrations.

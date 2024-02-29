@@ -11,7 +11,8 @@ The combination of accurate analog-to-digital conversion, sufficient I/O ports, 
 2. [PIC16F877 PINOUT](#pic16f877-pinout)
 3. [Prototype](#prototype---pic16f887-mq-2-gas-sensor-and-lcd16x2)
 5. [MPLAB X IDE project](./MPLAB_EXAMPLE/)
-6. [References](#references)
+6. [Video](https://youtu.be/x1buKJnA5Jw?si=tq8vAmBw3GzhiSSb)
+7. [References](#references)
 
 
 
