@@ -60,6 +60,11 @@ The use of LEDs (Light Emitting Diodes) in learning to program PIC (Peripheral I
 In conclusion, incorporating LEDs into PIC microcontroller learning projects is an effective way to introduce foundational concepts, provide engaging feedback, and foster a deeper understanding of electronics and programming.
 
 
+## Videos
+
+* [PICKIT3 PIC16F628A ICSP SETUP](https://youtu.be/72zt0Jlcl2s?si=aHFGsasuW1k5SjCz)
+* [K150 and PIC16F628A](https://youtu.be/hsI8I5PT9Bg?si=RzZ5WkM6D_NWXhy7)
+
 ## REFERENCES
 
 1. [PIC16F87XA Data Sheet](https://ww1.microchip.com/downloads/en/devicedoc/39582b.pdf)
