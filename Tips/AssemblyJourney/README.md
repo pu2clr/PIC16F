@@ -175,7 +175,46 @@ END resetVect
 ```
 
 
-## PIC10F200 - Basic Assmbly code
+## PIC10F200 - Basic Assembly code
+
+
+### Main PIC10F200 instructions set
+
+| Mnemonic | Description                                          | Operands | Affects |
+|----------|------------------------------------------------------|----------|---------|
+| `ADDWF`  | Add W and file register                              | f, d     | Z, C, DC|
+| `ANDWF`  | AND W with file register                             | f, d     | Z       |
+| `CLRF`   | Clear file register                                  | f        | Z       |
+| `CLRW`   | Clear W                                              | -        | Z       |
+| `COMF`   | Complement file register                             | f, d     | Z       |
+| `DECF`   | Decrement file register                              | f, d     | Z       |
+| `DECFSZ` | Decrement file register, skip if 0                   | f, d     | -       |
+| `INCF`   | Increment file register                              | f, d     | Z       |
+| `INCFSZ` | Increment file register, skip if 0                   | f, d     | -       |
+| `IORWF`  | Inclusive OR W with file register                    | f, d     | Z       |
+| `MOVF`   | Move file register                                   | f, d     | Z       |
+| `MOVWF`  | Move W to file register                              | f        | -       |
+| `NOP`    | No operation                                         | -        | -       |
+| `RLF`    | Rotate left file register through Carry              | f, d     | C       |
+| `RRF`    | Rotate right file register through Carry             | f, d     | C       |
+| `SUBWF`  | Subtract W from file register                        | f, d     | Z, C, DC|
+| `SWAPF`  | Swap nibbles in file register                        | f, d     | -       |
+| `XORWF`  | Exclusive OR W with file register                    | f, d     | Z       |
+| `BCF`    | Bit clear file register                              | f, b     | -       |
+| `BSF`    | Bit set file register                                | f, b     | -       |
+| `BTFSC`  | Bit test file register, skip if clear                | f, b     | -       |
+| `BTFSS`  | Bit test file register, skip if set                  | f, b     | -       |
+| `CALL`   | Call subroutine                                      | k        | -       |
+| `GOTO`   | Go to address                                        | k        | -       |
+| `RETLW`  | Return from subroutine with literal in W             | k        | -       |
+| `END`    | End of program marker                                | -        | -       |
+
+- **f** represents the file register address to which the operation is applied.
+- **d** is the destination of the operation result; can be 0 (the result is stored in W) or 1 (the result is stored back in f).
+- **b** is the bit number within the file register f to which the bit operation is applied.
+- **k** is a literal value or address used in jump and call operations.
+- **Affects** indicates which Status Register bits are affected: Z (Zero), C (Carry), DC (Digit Carry).
+
 
 **IMPORTANT:** To assemble this code correctly, please follow the steps below:
 
