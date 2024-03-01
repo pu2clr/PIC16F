@@ -43,7 +43,7 @@ You can compile an assembly program for PIC devices using MPLAB X. The steps bel
 
 
 
-```cpp
+```asm
 
 ; PIC16F628A Configuration Bit Settings
 ; Assembly source line config statements
@@ -234,6 +234,129 @@ Func:
     retlw   0    
     
 END MAIN
+
+
+
+
+
+##  Indirect Addressing with INDF and FSR Registers
+
+```asm
+; PIC10F200
+;
+; IMPORTANT: To assemble this code correctly, please follow the steps below:
+; 1. Go to "Project Properties" in MPLAB X.
+; 2. Select "Global Options" for the pic-as assembler/compiler.
+; 3. In the "Additional Options" box, enter the following parameters:
+; -Wl,-pBlinkCode=0h
+    
+#include <xc.inc>
+
+; CONFIG
+  CONFIG  WDTE = OFF           ; Watchdog Timer (WDT disabled)
+  CONFIG  CP = OFF             ; Code Protect (Code protection off)
+  CONFIG  MCLRE = ON	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
+
+  
+; Declare your variables here
+
+AA1 equ 0x10
+AA2 equ 0X11
+AA3 equ 0x12 
+AA4 equ	0x13
+i   equ	0x14 
+
+ 
+PSECT BlinkCode, class=CODE, delta=2
+
+MAIN:
+    clrf   GPIO		    ; Sets all GPIO pins as output
+    clrw
+    TRIS   GPIO
+    
+    clrf    AA1
+    clrf    AA2
+    clrf    AA3
+    movlw   90
+    movwf   AA3
+    
+MainLoop:		        ; Endless loop
+    movlw   4
+    movwf   i
+    movlw   AA1       
+    movwf   FSR         ; FSR register has now the point to AA1 (0x10) 
+    movlw   255         ; Will store 255 in AA1, AA2, AA3 and AA4
+INIT_ARRAY:
+    movwf   INDF        ; stores 255 in AAx where x is the current point stored in FSR    	    
+    incf    FSR         ; Points to the next memory position 
+    bcf	    STATUS, 0   ; 
+    decfsz  i,f
+    goto    INIT_ARRAY
+    nop                 ; Check AA1, AA2, AA3 and AA4 content here
+    goto    MainLoop
+ 
+   
+END MAIN
+
+```
+
+
+### Multiply two 8 bits integers.
+
+
+```asm 
+
+; PIC10F200
+; Very basic multiplication example
+; IMPORTANT: To assemble this code correctly, please follow the steps below:
+; 1. Go to "Project Properties" in MPLAB X.
+; 2. Select "Global Options" for the pic-as assembler/compiler.
+; 3. In the "Additional Options" box, enter the following parameters:
+; -Wl,-pBlinkCode=0h
+    
+#include <xc.inc>
+
+; CONFIG
+  CONFIG  WDTE = OFF           ; Watchdog Timer (WDT disabled)
+  CONFIG  CP = OFF             ; Code Protect (Code protection off)
+  CONFIG  MCLRE = ON	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
+
+  
+; Declare your variables here
+
+op1 equ	0x10
+op2 equ	0x11 
+ 
+PSECT BlinkCode, class=CODE, delta=2
+
+MAIN:
+    clrf   GPIO		    ; Sets all GPIO pins as output
+    clrw
+    TRIS   GPIO
+MainLoop:		    ; Endless loop
+  
+    movlw   3
+    movwf   op1
+    movlw   29
+    movwf   op2
+    call    MULTIPLAY8
+    nop                 ; Check the op2 value here. Shoud have 87. 
+    goto    MainLoop
+ 
+; Multiply op1 (8 bits) by op2 (8 bis)
+; The result is stored in op2.
+; It does not check overflow. So, it does not work when the result is greater than 255.     
+MULTIPLAY8:
+    movf    op2,w
+    decf    op1
+MULTIPLAY8_LOOP: 
+    addwf   op2,f
+    decfsz  op1,f 
+    goto    MULTIPLAY8_LOOP
+    retlw   0
+    
+END MAIN
+
 
 
 
