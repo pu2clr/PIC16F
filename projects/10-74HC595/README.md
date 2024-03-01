@@ -441,6 +441,11 @@ If you've found value in this repository, please consider contributing. Your sup
 ![Contributing QR Code](../../images/PIC_JOURNEY_QR_CODE.png)
 
 
+## Video
+
+* [PIC10F200 and HC74595 device setup](https://youtu.be/quRumJupcdo?si=FNSA6wZ0tLC44LKt)
+* [Two PINs of the PIC10F200 and two 74HC595 controlling 16 LEDs](https://youtu.be/2BrsyhduLC0?si=inql7uqsdXsxkR16)
+
 
 
 ## References

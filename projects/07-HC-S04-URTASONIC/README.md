@@ -53,6 +53,11 @@ Factors that can influence the precision of this system include:
 For these reasons, implementing a calibration routine in the software can significantly enhance measurement accuracy. This routine could involve comparing readings from the HC-S04 with known distance values under controlled conditions and adjusting the software algorithm accordingly. Additionally, using stable power supplies and incorporating noise-reduction techniques in the circuit design can further improve the system's reliability and precision."
 
 
+## Videos
+
+* [PIC16F876A with HC-S04 ultrasonic sensor and LCD 16x2](https://youtu.be/hNJfMpDH9Ns?si=e2Ak38YreOJkt6tY) 
+* [PIC12F675 and HC-S04 Ultrasonic distance sensor](https://youtu.be/CYpL-8CyOFI?si=5nn-gpDaTmxXuX8u)
+
 
 ## References
 

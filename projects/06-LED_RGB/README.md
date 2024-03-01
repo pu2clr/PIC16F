@@ -131,6 +131,10 @@ void main() {
 ![PIC16F628A PINOUT](./../../images/PIC16F628A_PINOUT.png)
 
 
+## Video
+
+* [PIC16F628A, PWM, RGB LED and HC-S04 ULTRASONIC SENSOR](https://youtu.be/A1iy9zIMIXQ?si=tNqtIyOWzy94gfbC)   
+
 ## References
 
 * [How an RGB LED works and how to use one! | Basic Electronics](https://youtu.be/wqzfbImsrPE?si=yCqwkObdSCyHY1Gn)

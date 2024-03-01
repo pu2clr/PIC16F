@@ -56,6 +56,10 @@
 
 
 
+## Videos
+
+* [PIC16F887 and Servo (PWM)](https://youtu.be/YDyLSMGPXZI?si=9wzmTlIvT2DltXnA) 
+
 
 ## References 
 

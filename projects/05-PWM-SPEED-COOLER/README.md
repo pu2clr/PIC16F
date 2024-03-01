@@ -47,6 +47,13 @@ The schematic below shows details about the motor driver setup
 ![PIC16F628A schematic](./PIC16F628A/schematic_pic16f628a_pwm.jpg)
 
 
+## Videos
+
+* [DC motor/Cooler Speed Control with PIC16F628A and PIC16F887 (PWM and ADC)](https://youtu.be/RM2rGSNFbnE?si=7IPWDkQ1TA2Rkbl3)  
+* [Controlling a 4-wire Cooler speed with PIC16F887 and LM35](https://youtu.be/syesvTctcGU?si=Fy1Pn-VaLknk3b1a)
+* [PIC16F887 and 4-wires Cooler (RPM and PWM)](https://youtu.be/wtlIkMznqZs?si=gURe0sVEsNo2-0Rt)
+* [PIC16F887 4-wires cooler and lm35 (speed control)](https://youtu.be/tcfnGvOMjok?si=n8i5ELgjX5F_GZrF)
+
 ## References
 
 * [How to Drive a DC Motor with a BJT Transistor](https://www.techzorro.com/en/blog/how-to-drive-a-dc-motor-with-a-bjt-transistor/)

@@ -572,6 +572,14 @@ If you've found value in this repository, please consider contributing. Your sup
 
 ![Contributing QR Code](../../images/PIC_JOURNEY_QR_CODE.png)
 
+
+
+## Videos
+
+* [PIC12F675 and LM35 Sensor](https://youtu.be/ctCU5pVp1wQ?si=n6hu75jDcbTcV2lr)
+
+
+
 ## References
 
 

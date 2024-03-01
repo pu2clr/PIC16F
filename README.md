@@ -27,39 +27,16 @@ Contact: pu2clr@gmail.com.
     * [Controlling multiple LEDs - PIC12F675 and PIC16F628A](./projects/02-LED_CONTROL/)
     * [PIC microcontrollers with LCD 16x2 - PIC16F](./projects/03-PIC16F_LCD16x2/)
     * [Developing a library for 16x2 LCD - PIC16F](./projects/03-PIC16F_LCD16x2/lcd_library/)
-        * Related Video
-            * [LCD 16x2 LIBRARY FOR PIC16F FAMILY](https://youtu.be/S3VwKLk5j5g?si=rLt0EnxHGkFDg-CM)
     * [OLED I2C Display (Under construction..)](./projects/04-PIC16F_OLED_I2C/)
     * [DC motor and Cooler and PWM with PIC microcontrollers - PIC16F](./projects/05-PWM-SPEED-COOLER/)
-        * Related Videos
-            * [DC motor/Cooler Speed Control with PIC16F628A and PIC16F887 (PWM and ADC)](https://youtu.be/RM2rGSNFbnE?si=7IPWDkQ1TA2Rkbl3)  
-            * [Controlling a 4-wire Cooler speed with PIC16F887 and LM35](https://youtu.be/syesvTctcGU?si=Fy1Pn-VaLknk3b1a)
-            * [PIC16F887 and 4-wires Cooler (RPM and PWM)](https://youtu.be/wtlIkMznqZs?si=gURe0sVEsNo2-0Rt)
-            * [PIC16F887 4-wires cooler and lm35 (speed control)](https://youtu.be/tcfnGvOMjok?si=n8i5ELgjX5F_GZrF)
-    * [LED RGB PIC16F](./projects/06-LED_RGB/)
-        * Related Video
-            * [PIC16F628A, PWM, RGB LED and HC-S04 ULTRASONIC SENSOR](https://youtu.be/A1iy9zIMIXQ?si=tNqtIyOWzy94gfbC)        
+    * [LED RGB PIC16F](./projects/06-LED_RGB/)     
     * [PIC microcontrollers and HC-S04 ultrasonic sensor - PIC10F200, PIC12F675 and PIC16FXXX](./projects/07-HC-S04-URTASONIC/)
-        * Related Videos
-            * [PIC16F876A with HC-S04 ultrasonic sensor and LCD 16x2](https://youtu.be/hNJfMpDH9Ns?si=e2Ak38YreOJkt6tY) 
-            * [PIC12F675 and HC-S04 Ultrasonic distance sensor](https://youtu.be/CYpL-8CyOFI?si=5nn-gpDaTmxXuX8u)
     * [PIC microcontrollers and LM35 and TMP36 temperature sensors - PIC12F675 and PIC16F877](./projects/08-LM35_OR_TMP36/)
-        * Related Video
-            * [PIC12F675 and LM35 Sensor](https://youtu.be/ctCU5pVp1wQ?si=n6hu75jDcbTcV2lr)
     * [PIC10F200 and 74HC595 Shift Register device](projects/10-74HC595) 
-        * Related Video
-            * [PIC10F200 and HC74595 device setup](https://youtu.be/quRumJupcdo?si=FNSA6wZ0tLC44LKt)
-            * [Two PINs of the PIC10F200 and two 74HC595 controlling 16 LEDs](https://youtu.be/2BrsyhduLC0?si=inql7uqsdXsxkR16)
-    * [PIC10F, PIC12F and PIC16F with 74HC165 device (under construction...)]()   
     * [1-Wire protocol with PIC and DS18B20](projects/12-ONE_WIRE_PROTOCOL)
-        * Related Video
-            * [PIC10F200 and 1-wire protocol with DS18B20 - Assembly](https://youtu.be/mrNc1A-M_Pc?si=2ipKHCnbhbpdhCeN)
-            * [PIC16F887 and 1-wire protocol with DS18B20](https://youtu.be/3KqVuQNULYw?si=lQtvTkxsfg1SNSaV)   
     * [Single wire protocol](https://github.com/pu2clr/PIC16F/tree/main/projects/13-SINGLE_WIRE_WITH_DHT11)
     * [MQ series gas sensor](https://github.com/pu2clr/PIC16F/tree/main/projects/14-GAS_SENSOR)  
     * [Controlling Servo with PIC microcontrollers](./projects/99-Servomotor/)
-        * Related Video
-            * [PIC16F887 and Servo (PWM)](https://youtu.be/YDyLSMGPXZI?si=9wzmTlIvT2DltXnA) 
 2. [PIC Microcontroller Programming Tools](https://github.com/pu2clr/PIC16F#pic-microcontroller-programming-tools)
 3. [PICKit3 and ICSP](https://github.com/pu2clr/PIC16F#pickit3-and-icsp)
 
