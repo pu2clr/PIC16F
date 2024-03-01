@@ -56,19 +56,19 @@ MainLoopBegin:			; Endless loop
     movlw   HIGH(700)		;
     movwf   value2H		;     
     call    Compare16		; Compare value1 with the constant stored in value2 
-    btfsc   STATUS, 0		; It is <= 800, then skip next line (bcf GPIO, 0) 
+    btfsc   STATUS, 0		; It is > 700, then skip next instruction 
     goto    GasLevelYellow	; 
     movlw   4
     movwf   GPIO		; Turn the RED LED on
     goto    MainLoopEnd
 GasLevelYellow: 
     movlw   LOW(300)		; Constant value to be compared to the ADC value read from AN3
-    movwf   value2L		; 
-    movlw   HIGH(300)		;
-    movwf   value2H		;     
-    call    Compare16		; Compare value1 with the constant stored in value2 
-    btfsc   STATUS, 0		; It is <= 800, then skip next line (bcf GPIO, 0) 
-    goto    GasLevelGreen    ; 
+    movwf   value2L		 
+    movlw   HIGH(300)		
+    movwf   value2H		     
+    call    Compare16		
+    btfsc   STATUS, 0		; I is < 300 the skip next instruction	 
+    goto    GasLevelGreen     
     movlw   2
     movwf   GPIO		; Turn the Yellow LED on  
     goto    MainLoopEnd
