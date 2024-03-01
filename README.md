@@ -25,13 +25,7 @@ Contact: pu2clr@gmail.com.
 3. [Projects](./projects/)
     * [Blink a LED - PIC10F200, PIC12F675 and PIC16F628A](./projects/01-Blink/)
     * [Controlling multiple LEDs - PIC12F675 and PIC16F628A](./projects/02-LED_CONTROL/)
-        * Related Videos
-            * [PICKIT3 PIC16F628A ICSP SETUP](https://youtu.be/72zt0Jlcl2s?si=aHFGsasuW1k5SjCz)
-            * [K150 and PIC16F628A](https://youtu.be/hsI8I5PT9Bg?si=RzZ5WkM6D_NWXhy7)
     * [PIC microcontrollers with LCD 16x2 - PIC16F](./projects/03-PIC16F_LCD16x2/)
-        * Related Videos
-            * [LCD 16x2 LIBRARY FOR PIC16F FAMILY](https://youtu.be/S3VwKLk5j5g?si=rLt0EnxHGkFDg-CM)
-            * [PIC16F887 4-wires cooler and lm35 (speed control)](https://youtu.be/tcfnGvOMjok?si=9dg7olx9ugBTKiJu)
     * [Developing a library for 16x2 LCD - PIC16F](./projects/03-PIC16F_LCD16x2/lcd_library/)
         * Related Video
             * [LCD 16x2 LIBRARY FOR PIC16F FAMILY](https://youtu.be/S3VwKLk5j5g?si=rLt0EnxHGkFDg-CM)
@@ -60,7 +54,9 @@ Contact: pu2clr@gmail.com.
     * [1-Wire protocol with PIC and DS18B20](projects/12-ONE_WIRE_PROTOCOL)
         * Related Video
             * [PIC10F200 and 1-wire protocol with DS18B20 - Assembly](https://youtu.be/mrNc1A-M_Pc?si=2ipKHCnbhbpdhCeN)
-            * [PIC16F887 and 1-wire protocol with DS18B20](https://youtu.be/3KqVuQNULYw?si=lQtvTkxsfg1SNSaV)     
+            * [PIC16F887 and 1-wire protocol with DS18B20](https://youtu.be/3KqVuQNULYw?si=lQtvTkxsfg1SNSaV)   
+    * [Single wire protocol](https://github.com/pu2clr/PIC16F/tree/main/projects/13-SINGLE_WIRE_WITH_DHT11)
+    * [MQ series gas sensor](https://github.com/pu2clr/PIC16F/tree/main/projects/14-GAS_SENSOR)  
     * [Controlling Servo with PIC microcontrollers](./projects/99-Servomotor/)
         * Related Video
             * [PIC16F887 and Servo (PWM)](https://youtu.be/YDyLSMGPXZI?si=9wzmTlIvT2DltXnA) 

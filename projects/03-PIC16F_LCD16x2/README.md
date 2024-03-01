@@ -85,6 +85,13 @@ This folder contains an implementation of a C library for controlling the 16x2 L
 3. [PIC16F876A example](./PIC16F876A/)
 4. [PIC16F887 example](./PIC16F887/)
 
+
+## Videos
+
+* [LCD 16x2 LIBRARY FOR PIC16F FAMILY](https://youtu.be/S3VwKLk5j5g?si=rLt0EnxHGkFDg-CM)
+* [PIC16F887 4-wires cooler and lm35 (speed control)](https://youtu.be/tcfnGvOMjok?si=9dg7olx9ugBTKiJu)
+
+
 ## References
 
 * [Hitachi HD44780 LCD controller](https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller)
