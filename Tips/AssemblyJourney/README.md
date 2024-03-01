@@ -207,7 +207,7 @@ END resetVect
 | `CALL`   | Call subroutine                                      | k        | -       |
 | `GOTO`   | Go to address                                        | k        | -       |
 | `RETLW`  | Return from subroutine with literal in W             | k        | -       |
-| `END`    | End of program marker                                | -        | -       |
+
 
 - **f** represents the file register address to which the operation is applied.
 - **d** is the destination of the operation result; can be 0 (the result is stored in W) or 1 (the result is stored back in f).
