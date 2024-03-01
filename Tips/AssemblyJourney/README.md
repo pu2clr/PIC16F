@@ -175,7 +175,7 @@ END resetVect
 ```
 
 
-## PIC10F200 basic Assmbly code
+## PIC10F200 - Basic Assmbly code
 
 **IMPORTANT:** To assemble this code correctly, please follow the steps below:
 
@@ -235,11 +235,12 @@ Func:
     
 END MAIN
 
+```
 
 
 
+##  PIC10F200 - Indirect Addressing with INDF and FSR Registers
 
-##  Indirect Addressing with INDF and FSR Registers
 
 ```asm
 ; PIC10F200
@@ -273,13 +274,7 @@ MAIN:
     clrf   GPIO		    ; Sets all GPIO pins as output
     clrw
     TRIS   GPIO
-    
-    clrf    AA1
-    clrf    AA2
-    clrf    AA3
-    movlw   90
-    movwf   AA3
-    
+   
 MainLoop:		        ; Endless loop
     movlw   4
     movwf   i
@@ -301,7 +296,7 @@ END MAIN
 ```
 
 
-### Multiply two 8 bits integers.
+### PICF10200 - Multiply two 8 bits integers.
 
 
 ```asm 
@@ -356,15 +351,6 @@ MULTIPLAY8_LOOP:
     retlw   0
     
 END MAIN
-
-
-
-
-
-
-
-
-
 
 
 
