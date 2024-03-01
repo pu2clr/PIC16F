@@ -184,6 +184,7 @@ END resetVect
 |----------|------------------------------------------------------|----------|---------|
 | `ADDWF`  | Add W and file register                              | f, d     | Z, C, DC|
 | `ANDWF`  | AND W with file register                             | f, d     | Z       |
+| `ANDLW`  | AND literal with W                                   | -        | Z       | 
 | `CLRF`   | Clear file register                                  | f        | Z       |
 | `CLRW`   | Clear W                                              | -        | Z       |
 | `COMF`   | Complement file register                             | f, d     | Z       |
@@ -207,6 +208,10 @@ END resetVect
 | `CALL`   | Call subroutine                                      | k        | -       |
 | `GOTO`   | Go to address                                        | k        | -       |
 | `RETLW`  | Return from subroutine with literal in W             | k        | -       |
+| `OPTION` | Load OPTION register                                 | -        | -       |
+| `SLEEP`  | Go into Standby mode                                 | -        | -       |  
+| `TRIS`   | Load TRIS register                                   | -        | -       |
+
 
 
 - **f** represents the file register address to which the operation is applied.
