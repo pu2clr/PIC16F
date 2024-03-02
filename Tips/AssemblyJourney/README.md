@@ -479,12 +479,12 @@ MAIN:
     
 MainLoop:		    ; Endless loop
  
-    movlw   99
+    movlw   35
     movwf   op1
     movlw   3
     movwf   op2
     call    DIVIDE8
-    nop        
+    nop     ; check result and op1 registers here 
  
     goto    MainLoop
     
@@ -492,7 +492,9 @@ MainLoop:		    ; Endless loop
 ; *********** Divide ***************
 ; Divides op1 by op2 (8 bits integers)
 ;     
-; Returns in result  
+; Returns 
+;     result  - integer part of op1 / op2 
+;     op1     - rest of division	  
 ;     
 DIVIDE8: 
     clrf    result
@@ -503,6 +505,7 @@ DIVIDE8_LOOP:
     btfsc   STATUS, 0 
     goto    DIVIDE8_LOOP
     decf    result
+    addwf   op1
     retlw   0
  
 END MAIN
