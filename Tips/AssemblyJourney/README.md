@@ -402,8 +402,6 @@ rrl     op1         ; op1 = op1 / 2
 
 
 
-
-
 ### PIC10F200 - Very basic multiplication of two 8 bits integers.
 
 
