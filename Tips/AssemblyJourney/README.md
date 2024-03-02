@@ -369,7 +369,7 @@ END MAIN
 ```
 
 
-### PIC10F200 - Multiply two 8 bits integers.
+### PIC10F200 - Very basic multiplication of two 8 bits integers.
 
 
 ```asm 
@@ -431,11 +431,73 @@ END MAIN
 
 
 
-### Divider example
-
-UNDER CONSTRUCTION...
+### PIC10F200 - Very basic division of two 8 bits integers.
 
 
+```asm 
+
+;
+; IMPORTANT: To assemble this code correctly, please follow the steps below:
+; 1. Go to "Project Properties" in MPLAB X.
+; 2. Select "Global Options" for the pic-as assembler/compiler.
+; 3. In the "Additional Options" box, enter the following parameters:
+; -Wl,-pBlinkCode=0h
+    
+#include <xc.inc>
+
+; CONFIG
+  CONFIG  WDTE = OFF           ; Watchdog Timer (WDT disabled)
+  CONFIG  CP = OFF             ; Code Protect (Code protection off)
+  CONFIG  MCLRE = ON	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
+
+  
+; Declare your variables here
+
+op1	equ    0x10    
+op2	equ    0x11
+result  equ    0x12	
+
+ 
+PSECT BlinkCode, class=CODE, delta=2
+
+MAIN:
+    ; GPIO and registers setup
+    clrf   GPIO		    ; Sets all GPIO pins as output
+    clrw
+    TRIS   GPIO
+    
+MainLoop:		    ; Endless loop
+ 
+    movlw   99
+    movwf   op1
+    movlw   3
+    movwf   op2
+    call    DIVIDE8
+    nop        
+ 
+    goto    MainLoop
+    
+    
+; *********** Divide ***************
+; Divides op1 by op2 (8 bits integers)
+;     
+; Returns in result  
+;     
+DIVIDE8: 
+    clrf    result
+    movf    op2, w
+DIVIDE8_LOOP: 
+    incf    result
+    subwf   op1,f
+    btfsc   STATUS, 0 
+    goto    DIVIDE8_LOOP
+    decf    result
+    retlw   0
+ 
+END MAIN
+
+
+```
 
 
 ## References
