@@ -379,7 +379,7 @@ END MAIN
 
 ```
 
-### Multiplication and Division 
+## Multiplication and Division 
 
 
 Multiplication and division by 2 can be solved very efficiently (with only one machine cycle) using the instructions RLF (multiplication by 2) and RRL (division by 2). Of course, multiplication and division operations with 4, 8, 16, etc., can be constructed using the same approach.
