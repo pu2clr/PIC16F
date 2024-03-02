@@ -42,6 +42,32 @@ You can compile an assembly program for PIC devices using MPLAB X. The steps bel
    - CLick in Make and Program Device 
 
 
+## Screenshots showing the Assembly Project Setup sequence for the PIC10F200 microcontroller.**
+
+
+![Screeenshot Assembly project setup  via MPLAB - 1](./images/MPLAB_01.png)
+
+![Screeenshot Assembly project setup  via MPLAB - 2](./images/MPLAB_02.png)
+
+![Screeenshot Assembly project setup  via MPLAB - 3](./images/MPLAB_03.png)
+
+![Screeenshot Assembly project setup  via MPLAB - 4](./images/MPLAB_04.png)
+
+![Screeenshot Assembly project setup  via MPLAB - 5](./images/MPLAB_05.png)
+
+![Screeenshot Assembly project setup  via MPLAB - 6](./images/MPLAB_06.png)
+
+![Screeenshot Assembly project setup  via MPLAB - 7](./images/MPLAB_07.png)
+
+![Screeenshot Assembly project setup  via MPLAB - 8](./images/MPLAB_08.png)
+
+![Screeenshot Assembly project setup  via MPLAB - 9](./images/MPLAB_09.png)
+
+
+
+## PIC16F628A Assembly Code template
+
+
 
 ```asm
 
@@ -175,7 +201,9 @@ END resetVect
 ```
 
 
-## PIC10F200 - Basic Assembly code
+## PIC10F200 - Basic Assembly 
+
+While seemingly outdated, learning Assembly for the PIC10F200 offers unique advantages. Its limited resources, with just 256 bytes of program memory, push you towards creative and efficient coding solutions. This fosters a deep understanding of how microcontrollers truly work, enabling you to craft optimized and efficient applications. Moreover, mastering Assembly empowers you to bypass higher-level language abstraction layers, granting complete control over the hardware, leading to potentially faster and more responsive code. This low-level control can be crucial in projects requiring maximum performance from the limited resources. Remember, strong Assembly skills can translate into valuable knowledge for higher-level programming as well, providing a solid foundation for understanding hardware interactions.
 
 
 ### Main PIC10F200 instructions set
@@ -221,7 +249,7 @@ END resetVect
 - **Affects** indicates which Status Register bits are affected: Z (Zero), C (Carry), DC (Digit Carry).
 
 
-**IMPORTANT:** To assemble this code correctly, please follow the steps below:
+**IMPORTANT:** To assemble code correctly using MPLAB-X, please follow the steps below:
 
 1. Go to "Project Properties" in MPLAB X.
 2. Select "Global Options" for the pic-as assembler/compiler.
@@ -263,7 +291,7 @@ MainLoop:		    ; Endless loop
  
     movlw   10
     movwf   workValue1
-    call    funcX
+    call    Func
  
     goto    MainLoop
     
@@ -274,10 +302,11 @@ MainLoop:		    ; Endless loop
 ;     
 Func: 
     movlw   5
-    addwf   workValue, f
+    addwf   workValue1, f
     retlw   0    
     
 END MAIN
+
 
 ```
 
