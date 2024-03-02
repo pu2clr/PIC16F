@@ -389,6 +389,21 @@ For multiplications and divisions involving a multiplier and denominator, respec
 
 
 
+#### Multiplication by 2
+
+bcf     STATUS, 0
+rlf     op1         ; op1 = op1 * 2
+
+
+#### division by 2 
+
+bcf     STATUS,0
+rrl     op1         ; op1 = op1 / 2     
+
+
+
+
+
 ### PIC10F200 - Very basic multiplication of two 8 bits integers.
 
 
@@ -456,7 +471,7 @@ END MAIN
 
 ### PIC10F200 - Very basic division of two 8 bits integers.
 
-Remember, if the division is by 2, 4, 8, 16, etc., use the RRF instruction instead of calling this or another function to divide.
+Remember, if the division is by 2, 4, 8, 16, etc., use the RRF instruction instead of calling this or another function to divide. 
 
 
 
