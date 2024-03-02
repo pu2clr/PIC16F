@@ -391,7 +391,7 @@ bcf     STATUS, 0
 rlf     op1         ; op1 = op1 * 2
 
 
-#### division by 2 
+#### Division by 2 
 
 bcf     STATUS,0
 rrl     op1         ; op1 = op1 / 2   
