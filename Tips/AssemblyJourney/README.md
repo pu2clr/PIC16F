@@ -415,7 +415,7 @@ MainLoop:		    ; Endless loop
     nop                 ; Check the op2 value here. Shoud have 87. 
     goto    MainLoop
  
-; Multiply op1 (8 bits) by op2 (8 bis)
+; Multiply op1 (8 bits) by op2 (8 bits)
 ; The result is stored in op2.
 ; It does not check overflow. So, it does not work when the result is greater than 255.     
 MULTIPLAY8:
