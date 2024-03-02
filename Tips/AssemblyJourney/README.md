@@ -379,6 +379,15 @@ END MAIN
 
 ```
 
+### Multiplication and Division 
+
+
+Multiplication and division by 2 can be solved very efficiently (with only one machine cycle) using the instructions RLF (multiplication by 2) and RRL (division by 2). Of course, multiplication and division operations with 4, 8, 16, etc., can be constructed using the same approach.
+
+
+For multiplications and divisions involving a multiplier and denominator, respectively, other than 2, 4, 8, 16, etc., it will be necessary to use other approaches. The following are very basic examples of multiplication and division.
+
+
 
 ### PIC10F200 - Very basic multiplication of two 8 bits integers.
 
@@ -512,6 +521,9 @@ END MAIN
 
 
 ```
+
+
+
 
 
 ## References
