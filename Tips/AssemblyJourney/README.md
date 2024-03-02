@@ -369,7 +369,7 @@ END MAIN
 ```
 
 
-### PICF10200 - Multiply two 8 bits integers.
+### PIC10F200 - Multiply two 8 bits integers.
 
 
 ```asm 
