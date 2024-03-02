@@ -392,6 +392,9 @@ For multiplications and divisions involving a multiplier and denominator, respec
 ### PIC10F200 - Very basic multiplication of two 8 bits integers.
 
 
+Remember, if the multiplication is by 2, 4, 8, 16, etc., use the RLF instruction instead of calling this or another function to divide.
+
+
 ```asm 
 
 ; PIC10F200
@@ -452,6 +455,9 @@ END MAIN
 
 
 ### PIC10F200 - Very basic division of two 8 bits integers.
+
+Remember, if the division is by 2, 4, 8, 16, etc., use the RRF instruction instead of calling this or another function to divide.
+
 
 
 ```asm 
