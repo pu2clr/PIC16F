@@ -257,6 +257,10 @@ While seemingly outdated, learning Assembly for the PIC10F200 offers unique adva
 
 ![PIC10F200 MPLAB X setup](../../images/PIC10F200_MPLAB_SETUP.png)
 
+
+### PIC10F200 Assembly code template
+
+
 ```asm
 ;
 ; IMPORTANT: To assemble this code correctly, please follow the steps below:
