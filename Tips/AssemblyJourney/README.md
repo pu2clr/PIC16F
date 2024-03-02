@@ -442,7 +442,7 @@ MainLoop:		    ; Endless loop
     movlw   29
     movwf   op2
     call    MULTIPLAY8
-    nop                 ; Check the op2 value here. Shoud have 87. 
+    nop                 ; Check the op2 value here. Should have 87. 
     goto    MainLoop
  
 ; Multiply op1 (8 bits) by op2 (8 bits)
