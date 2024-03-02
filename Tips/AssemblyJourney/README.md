@@ -42,7 +42,7 @@ You can compile an assembly program for PIC devices using MPLAB X. The steps bel
    - CLick in Make and Program Device 
 
 
-## Screenshots showing the Assembly Project Setup sequence for the PIC10F200 microcontroller.**
+## Screenshots showing the Assembly Project Setup sequence for the PIC10F200 microcontroller.
 
 
 ![Screeenshot Assembly project setup  via MPLAB - 1](./images/MPLAB_01.png)
