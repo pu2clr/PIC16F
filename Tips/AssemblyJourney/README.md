@@ -17,6 +17,18 @@ Although modern C compilers implement excellent optimization techniques (some of
 
 In summary, Assembly is beneficial for highly optimized, resource-constrained, or hardware-specific applications but poses challenges in complexity, maintenance, and portability. C offers a balance of efficiency and ease of use, making it suitable for a broader range of applications.
 
+
+## Content
+
+1. [Compilling assembly programs for PIC microcontrollers using MPLAB X](#compilling-assembly-programs-for-pic-microcontrollers-using-mplab-x)
+2. [Screenshots showing the Assembly Project Setup sequence for the PIC10F200 microcontroller.](#screenshots-showing-the-assembly-project-setup-sequence-for-the-pic10f200-microcontroller)
+3. [PIC10F200 - Basic Assembly](#pic10f200---basic-assembly)
+4. [Main PIC10F200 instructions set](#main-pic10f200-instructions-set)
+5. [PIC10F200 Assembly code template](#pic10f200-assembly-code-template)
+6. [PIC10F200 - Indirect Addressing with INDF and FSR Registers](#pic10f200---indirect-addressing-with-indf-and-fsr-registers)
+7. [Multiplication and Division](#multiplication-and-division)
+8. [References](#references)
+
 ## Compilling assembly programs for PIC microcontrollers using MPLAB X
 
 You can compile an assembly program for PIC devices using MPLAB X. The steps below show you the actions to do that
@@ -63,142 +75,6 @@ You can compile an assembly program for PIC devices using MPLAB X. The steps bel
 
 ![Screeenshot Assembly project setup  via MPLAB - 9](./images/MPLAB_09.png)
 
-
-
-## PIC16F628A Assembly Code template
-
-
-
-```asm
-
-; PIC16F628A Configuration Bit Settings
-; Assembly source line config statements
-;    
-; Author: Ricardo Lima Caratti - Jan/2024
-;    
-#include <xc.inc>
-    
-; CONFIG
-  CONFIG  FOSC = INTOSCIO       ; Internal oscilator
-  CONFIG  WDTE = OFF            ; Watchdog Timer Disable bit 
-  CONFIG  PWRTE = OFF           ; Power-up Timer Enable bit (PWRT disabled)
-  CONFIG  MCLRE = ON            ; RA5/MCLR/VPP Pin Function Select bit (RA5/MCLR/VPP pin function is MCLR)
-  CONFIG  BOREN = ON            ; Brown-out Detect Enable bit (BOD enabled)
-  CONFIG  LVP = OFF             ; Low-Voltage Programming Disable bit (RB4/PGM 
-  CONFIG  CPD = OFF             ; Data EE Memory Code Protection bit (Data memory code protection off)
-  CONFIG  CP = OFF              ; Flash Program Memory Code Protection bit (Code protection off)
-
-; declare your variables here
-var1 equ 0x20       ; Memory position (check the memory organization of your PIC device datasheet)
-var2 equ 0x21       ;
-    
-PSECT resetVector, class=CODE, delta=2
-resetVect:
-    PAGESEL main
-    goto main
-PSECT code, delta=2
-main:
-    bsf STATUS, 5	; Select the Bank 1 - See PIC16F627A/628A/648A Data Sheet, page 20 and 21 (MEMORY ORGANIZATION)
-    clrf PORTB		; Initialize PORTB by setting output data latches
-    bcf STATUS, 5	; Return to Bank 0  
-
-    ; example of using var 
-    movlw 10
-    movwf var1
-    movlw 250
-    movlw var2
-    ;
-
-loop:			    ; Endless loop
-    ;
-    ; Your application
-    ;
-    goto loop
-     
-    ;
-    ; Your subroutines
-    ;  
-
-END resetVect
-
-```
-
-## Example - BLINK a LED with the PIC16F628A
-
-```cpp
-
-
-; PIC16F628A Configuration Bit Settings
-; Assembly source line config statements
-;    
-; Author: Ricardo Lima Caratti - Jan/2024
-;    
-#include <xc.inc>
-    
-; CONFIG
-  CONFIG  FOSC = INTOSCIO       ; Oscillator Selection bits (INTOSC oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
-  CONFIG  WDTE = OFF            ; Watchdog Timer disable bit 
-  CONFIG  PWRTE = OFF           ; Power-up Timer Enable bit (PWRT disabled)
-  CONFIG  MCLRE = ON            ; RA5/MCLR/VPP Pin Function Select bit (RA5/MCLR/VPP pin function is MCLR)
-  CONFIG  BOREN = ON            ; Brown-out Detect Enable bit (BOD enabled)
-  CONFIG  LVP = OFF             ; Low-Voltage Programming disble
-  CONFIG  CPD = OFF             ; Data EE Memory Code Protection bit (Data memory code protection off)
-  CONFIG  CP = OFF              ; Flash Program Memory Code Protection bit (Code protection off)
-
-// config statements should precede project file includes.
-
-dummy1 equ 0x20
-dummy2 equ 0x21
-dummy3 equ 0x22 
-  
-PSECT resetVector, class=CODE, delta=2
-resetVect:
-    PAGESEL main
-    goto main
-PSECT code, delta=2
-main:
-    bsf STATUS, 5	; Select the Bank 1 - See PIC16F627A/628A/648A Data Sheet, page 20 and 21 (MEMORY ORGANIZATION)
-    clrf PORTB		; Initialize PORTB by setting output data latches
-    clrf TRISB
-    bcf STATUS, 5	; Return to Bank 0
-    CLRW		    ; Clear W register
-    movwf PORTB		; Turn all pins of the PORTB low    
-loop:			; Loop without a stopping condition - here is your application code
-    bsf PORTB, 3    ; Sets RB3 to high (turn the LED on)
-    call Delay
-    bcf PORTB, 3    ; Sets RB3 to low (turn the LED off) 
-    call Delay
-    goto loop
-
-
-; ******************
-; Delay function
-;
-; For an oscillator of 4MHz a regular instructions takes 1us (See pic16f628a Datasheet, page 117).      
-; So, at 4MHz, it takes about: (5 cycles) * 255 * 255 * 3 * 0.000001 (second)  
-; It is about 1s (0.975 s)    
-Delay:  
-    movlw   255
-    movwf   dummy1
-    movwf   dummy2
-    movlw   3
-    movwf   dummy3
-DelayLoop:    
-    nop
-    nop
-    decfsz dummy1, f		; dummy1 = dumm1 - 1; if dummy1 = 0 then dummy1 = 255
-    goto DelayLoop
-    decfsz dummy2, f		; dummy2 = dummy2 - 1; if dummy2 = 0 then dummy2 = 255
-    goto DelayLoop
-    decfsz dummy3, f        ; dummy3 = dummy3 - 1; if dummy3 = 0 return		 
-    goto DelayLoop
-    return 
-    
-END resetVect
-    
-
-
-```
 
 
 ## PIC10F200 - Basic Assembly 
