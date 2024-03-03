@@ -37,8 +37,11 @@ Contact: pu2clr@gmail.com.
     * [Single wire protocol](https://github.com/pu2clr/PIC16F/tree/main/projects/13-SINGLE_WIRE_WITH_DHT11)
     * [MQ series gas sensor](https://github.com/pu2clr/PIC16F/tree/main/projects/14-GAS_SENSOR)  
     * [Controlling Servo with PIC microcontrollers](./projects/99-Servomotor/)
-2. [PIC Microcontroller Programming Tools](https://github.com/pu2clr/PIC16F#pic-microcontroller-programming-tools)
-3. [PICKit3 and ICSP](https://github.com/pu2clr/PIC16F#pickit3-and-icsp)
+4. [PIC Microcontroller Programming Tools](https://github.com/pu2clr/PIC16F#pic-microcontroller-programming-tools)
+5. [PICKit3 and ICSP](https://github.com/pu2clr/PIC16F#pickit3-and-icsp)
+6. [Tips](./Tips/)
+7. [References](#general-references)
+
 
 
 
