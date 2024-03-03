@@ -132,7 +132,7 @@ In short, learning assembly language for the PIC10F200 is more than just learnin
 - **Affects** indicates which Status Register bits are affected: Z (Zero), C (Carry), DC (Digit Carry).
 
 
-**IMPORTANT:** To assemble code correctly using MPLAB-X, please follow the steps below:
+**IMPORTANT:** To assemble code correctly using MPLAB-X and the PIC10F200, please follow the steps below:
 
 1. Go to "Project Properties" in MPLAB X.
 2. Select "Global Options" for the pic-as assembler/compiler.
@@ -146,7 +146,7 @@ In short, learning assembly language for the PIC10F200 is more than just learnin
 
 ```asm
 ;
-; IMPORTANT: To assemble this code correctly, please follow the steps below:
+; IMPORTANT: If you are using the PIC10F200, to assemble this code correctly, please follow the steps below:
 ; 1. Go to "Project Properties" in MPLAB X.
 ; 2. Select "Global Options" for the pic-as assembler/compiler.
 ; 3. In the "Additional Options" box, enter the following parameters:
@@ -205,7 +205,7 @@ END MAIN
 ```asm
 ; PIC10F200
 ;
-; IMPORTANT: To assemble this code correctly, please follow the steps below:
+; IMPORTANT: If you are using the PIC10F200, to assemble this code correctly, please follow the steps below:
 ; 1. Go to "Project Properties" in MPLAB X.
 ; 2. Select "Global Options" for the pic-as assembler/compiler.
 ; 3. In the "Additional Options" box, enter the following parameters:
@@ -286,7 +286,7 @@ Remember, if the multiplication is by 2, 4, 8, 16, etc., use the RLF instruction
 
 ; PIC10F200
 ; Very basic multiplication example
-; IMPORTANT: To assemble this code correctly, please follow the steps below:
+; IMPORTANT: If you are using the PIC10F200, to assemble this code correctly, please follow the steps below:
 ; 1. Go to "Project Properties" in MPLAB X.
 ; 2. Select "Global Options" for the pic-as assembler/compiler.
 ; 3. In the "Additional Options" box, enter the following parameters:
@@ -350,7 +350,7 @@ Remember, if the division is by 2, 4, 8, 16, etc., use the RRF instruction inste
 ```asm 
 
 ;
-; IMPORTANT: To assemble this code correctly, please follow the steps below:
+; IMPORTANT: If you are using the PIC10F200, to assemble this code correctly, please follow the steps below:
 ; 1. Go to "Project Properties" in MPLAB X.
 ; 2. Select "Global Options" for the pic-as assembler/compiler.
 ; 3. In the "Additional Options" box, enter the following parameters:
