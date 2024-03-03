@@ -1,58 +1,25 @@
-# Exanples with Servomotor
+# PIC10F200, PIC16F628A and PIC16F887 with Servo 
 
-**This example with Servo and PWM is still not complete. The experiments worked partially due to the lower frequency that I managed to achieve in the PIC16F628A and PIC16F887 to operate the servos, which was 243 Hz (some Servos did not respond well to this operating frequency); The same experiment performed on the ATMEGA328, for example, worked better. In this microcontroller, the operating frequency is around 50 Hz. I intend to return to this experiment to correct this.**
-
-
-## Example 1 - Basic Servomotor controll 
- 
-
-### Description of how to connect a servomotor to the PIC16F628A microcontroller
-
-1. **Signal Connection (PWM):** Connect the signal wire of the servo (usually the colored wire, not black or red) to the CCP1 pin of the PIC16F628A. This is pin 9, labeled as RB3/CCP1.
-
-2. **Power Supply (5V) and Ground (GND):** Connect the power wire of the servo (usually red) to a 5V power source. Connect the ground wire of the servo (usually black or brown) to the ground (GND). Ensure that the PIC16F628A is also properly connected to a 5V power source and ground. **Use a separate power source to power the servo.**.
-
-### Additional Notes:
-
-- Ensure that the power supply for the servo can provide sufficient current without overloading the PIC's circuit.
-- Be careful with the power requirements of the servo as some can draw significant current that may exceed what the microcontroller circuit can provide safely. Consider using a separate power supply for the servo if necessary.
-- The CCP1 (Capture/Compare/PWM) module of the PIC16F628A is used for generating the PWM signal, which controls the position of the servo.
+UNDER CONSTRUCTION...
 
 
+## Content
 
-### Schematic PIC16F628A
-
-
-![Basic Servo and PIC16F628A schematic](./schematic_servo_pic16F628A.jpg)
-
-<BR>
-
-![Basic Servo and PIC16F628A schematic](../../images/PIC16F628A_PINOUT.png)
+1. [About Servo](#about-servo) 
+2. [PIC10F200](./PIC10F200/)
+3. [PIC16F628A](./PIC16F628A/)
+4. [PIC16F887](./PIC16F887/)
 
 
+## About Servo
 
-### Schematic PIC16F887
+A servo motor is a type of rotary actuator or linear actuator that allows for precise control of angular or linear position, velocity, and acceleration. It consists of a suitable motor coupled to a sensor for position feedback. Servo motors are controlled by sending an electrical signal, in the form of Pulse Width Modulation (PWM), to the motor. PWM is a technique used to encode a message into a pulsing signal. In the context of servo motors, it involves varying the width of the pulses to control the motor's rotation or position.
 
+### Introduction to Servo Motors and PWM
 
-![Basic Servo and PIC1887 schematic](./schematic_servo_pic16F887.jpg)
+**Servo Motor**: Servo motors are widely used in robotics, manufacturing, and automation. They are particularly prized for their ability to achieve precise control over motion. Servo motors work on the principle of negative feedback, where the control signal determines the position of the motor, but the actual position is fed back to ensure the correct position is maintained or adjusted as needed.
 
-<BR>
-
-![Basic Servo and PIC16F628A schematic](../../images/PIC16F887_PINOUT.png)
-
-
-![Prototype PIC16F628A](./pic16F887_00.jpg)
-
-
-
-![Prototype PIC16F628A 1](./pic16F887_01.jpg)
-
-
-![Prototype PIC16F628A 2](./pic16F887_02.jpg)
-
-
-
-### About the Servo
+**PWM (Pulse Width Modulation)**: PWM is a modulation technique used to control the amount of power delivered to an electrical device, in this case, a servo motor. It effectively controls the motor's speed and position by varying the width and frequency of the electrical pulses sent to the motor. The duty cycle of these pulses (the percentage of time the signal is on versus off) determines the motor's behavior.
 
 
 
