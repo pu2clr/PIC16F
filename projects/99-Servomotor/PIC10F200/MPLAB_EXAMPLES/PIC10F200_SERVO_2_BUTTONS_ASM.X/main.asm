@@ -45,8 +45,8 @@ MainLoop:		    ; Endless loop
     ; Move Servo
     movlw   1		    
     movwf   servo_duration  
-    ; call    MANIPULATE_SERVO
-    call    RotateServo
+    call    MANIPULATE_SERVO
+    ; call    RotateServo
     
     call    Delay600ms
     call    Delay600ms
@@ -56,8 +56,8 @@ MainLoop:		    ; Endless loop
     ; Move Servo
     movlw   4		    
     movwf   servo_duration  
-    ; call    MANIPULATE_SERVO
-    call    RotateServo
+    call    MANIPULATE_SERVO
+    ; call    RotateServo
     
     call    Delay600ms
     call    Delay600ms

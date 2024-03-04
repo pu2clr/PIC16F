@@ -19,7 +19,6 @@
                    projectFiles="true">
     </logicalFolder>
     <itemPath>main.asm</itemPath>
-    <itemPath>main.asm</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
