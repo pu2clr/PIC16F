@@ -4,7 +4,7 @@
 ; 1. Go to "Project Properties" in MPLAB X.
 ; 2. Select "Global Options" for the pic-as assembler/compiler.
 ; 3. In the "Additional Options" box, enter the following parameters:
-; -Wl,-pYourCode=0h
+; -Wl,-pAsmCode=0h
     
 #include <xc.inc>
 
@@ -18,12 +18,12 @@
 ; Declare your variables here
 
 servo_pulses	equ	0x10
-servo_dutation	equ	0x11	
+servo_duration	equ	0x11	
 counter1	equ	0x12
 counter2	equ	0x13
 	
  
-PSECT YourCode, class=CODE, delta=2
+PSECT AsmCode, class=CODE, delta=2
 
 MAIN:
     ; OPTION register setup 
