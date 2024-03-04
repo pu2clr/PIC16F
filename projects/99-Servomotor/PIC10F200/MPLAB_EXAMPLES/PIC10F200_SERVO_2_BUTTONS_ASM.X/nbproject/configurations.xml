@@ -19,6 +19,7 @@
                    projectFiles="true">
     </logicalFolder>
     <itemPath>main.asm</itemPath>
+    <itemPath>main.asm</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -28,7 +29,7 @@
         <targetDevice>PIC10F200</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool>Simulator</platformTool>
         <languageToolchain>pic-as</languageToolchain>
         <languageToolchainVersion>2.46</languageToolchainVersion>
         <platform>4</platform>

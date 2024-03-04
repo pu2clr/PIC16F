@@ -39,13 +39,12 @@ MAIN:
     clrf   GPIO		    ; Sets all GPIO pins as output
     movlw  0B00000011	    ; GP0 and GP1 are input and GP2 is output 
     TRIS   GPIO
-    
+    nop
 MainLoop:		    ; Endless loop
 
     ; Move Servo
-    movlw   2		    ; duration (1 * 2ms)
+    movlw   6		    ; duration (1 * 2ms)
     movwf   servo_duration  ; duration parameter 
-    movlw   20		    ; pulses parameter
     call    RotateServo
     
     call    Delay600ms
@@ -54,9 +53,8 @@ MainLoop:		    ; Endless loop
     call    Delay600ms
     
     ; Move Servo
-    movlw   3		    ; duration ( 12 * 2ms = 24ms)
+    movlw   12		    ; duration ( 12 * 2ms = 24ms)
     movwf   servo_duration  ; duration parameter
-    movlw   20		    ; pulses parameter
     call    RotateServo
     
     call    Delay600ms
@@ -71,6 +69,7 @@ MainLoop:		    ; Endless loop
 ; *********** Rotate the servo *********
 ; Parameter - WREG: number of pulses    
 RotateServo: 
+   movlw    20 
    movwf    servo_pulses
 RotateServoLoop:
     bsf	    GPIO, 2		
@@ -81,6 +80,7 @@ RotateServoLoop:
     call    DelayNx1ms	    ; it takes about 20ms (20 x 1ms)    
     decfsz  servo_pulses
     goto    RotateServoLoop
+    
     retlw   0
 
     
