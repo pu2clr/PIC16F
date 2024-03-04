@@ -92,9 +92,7 @@ humidity    equ 0x18
 fracTemp    equ	0x19
 fracHumid   equ	0x1A
 checkSum    equ	0x1B
-    
-	    
-	    
+      
  
 PSECT AsmCode, class=CODE, delta=2
 

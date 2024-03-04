@@ -14,7 +14,6 @@
 ; You will find good tips about the PIC10F200 here:
 ; https://www.circuitbread.com/tutorials/christmas-lights-special-microcontroller-basics-pic10f200
 
- 
     
 #include <xc.inc>
 
@@ -22,7 +21,6 @@
   CONFIG  WDTE = OFF           ; Watchdog Timer (WDT disabled)
   CONFIG  CP = OFF             ; Code Protect (Code protection off)
   CONFIG  MCLRE = ON	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
-
   
 ; Declare your variables here
 
