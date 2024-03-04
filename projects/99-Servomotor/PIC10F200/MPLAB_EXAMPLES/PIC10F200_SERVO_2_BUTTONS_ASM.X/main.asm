@@ -43,31 +43,27 @@ MAIN:
 MainLoop:		    ; Endless loop
 
     ; Move Servo
-    movlw   1		    ; duration (1 * 2ms)
+    movlw   2		    ; duration (1 * 2ms)
     movwf   servo_duration  ; duration parameter 
     movlw   20		    ; pulses parameter
     call    RotateServo
     
-    movlw   255		     
-    call    DelayNx2ms	    ; it takes about  500ms (255 * 200 * 10us)
-    movlw   255	
-    call    DelayNx2ms	    ; it takes about  500ms (255 * 200 * 10us)
+    call    Delay600ms
+    call    Delay600ms
+    call    Delay600ms
+    call    Delay600ms
     
     ; Move Servo
-    movlw   0		    ; duration ( 12 * 2ms = 24ms)
+    movlw   3		    ; duration ( 12 * 2ms = 24ms)
     movwf   servo_duration  ; duration parameter
     movlw   20		    ; pulses parameter
     call    RotateServo
     
+    call    Delay600ms
+    call    Delay600ms
+    call    Delay600ms
+    call    Delay600ms   
    
-    movlw   255		     
-    call    DelayNx2ms	    ; it takes about  500ms (255 * 200 * 10us)
-    movlw   255	
-    call    DelayNx2ms	    ; it takes about  500ms (255 * 200 * 10us)
-    movlw   255		     
-    call    DelayNx2ms	    ; it takes about  500ms (255 * 200 * 10us)
-    movlw   255	
-    call    DelayNx2ms	    ; it takes about  500ms (255 * 200 * 10us)    
     
     goto    MainLoop
     
@@ -79,35 +75,56 @@ RotateServo:
 RotateServoLoop:
     bsf	    GPIO, 2		
     movf    servo_duration, w		
-    call    DelayNx2ms	    ; it takes about 2ms (1 x 2ms)
+    call    DelayNx1ms	    ; servo_duration x 1ms
     bcf	    GPIO, 2
-    movlw   8
-    call    DelayNx2ms	    ; it takes about 18ms (9 x 2ms)    
+    movlw   20
+    call    DelayNx1ms	    ; it takes about 20ms (20 x 1ms)    
     decfsz  servo_pulses
     goto    RotateServoLoop
     retlw   0
 
     
 ; ***********************    
-; It takes about wreg * 2ms
+; It takes about wreg * 1ms
 ; Parameter: wreg   
-DelayNx2ms:    
+DelayNx1ms:    
     movwf   counter1
-DelayNx2ms01:
-    movlw   200
+DelayNx1ms01:
+    movlw   100
     movwf   counter2
-DelayNx2ms02: 
-    goto $+1
-    goto $+1
-    goto $+1
-    goto $+1
-    decfsz  counter2, f
-    goto    DelayNx2ms02
+DelayNx1ms02:		    ; this loop takes about 100us
+    goto $+1		    ; 2us
+    goto $+1		    ; 2us
+    goto $+1		    ; 2us		
+    nop			    ; 1us
+    decfsz  counter2, f	    ; 1us (last 2us) 
+    goto    DelayNx1ms02    ; 2us
     decfsz  counter1, f
-    goto    DelayNx2ms01
+    goto    DelayNx1ms01
     
     retlw   0    
        
+ 
+; ***********************    
+; It takes about 650ms 
+; 255 x 255 x 10us   
+Delay600ms:  
+    movlw   255
+    movwf   counter1
+Delay600ms01:
+    movlw   255
+    movwf   counter2
+Delay600ms02:		    ; 255 x 10us = 2.550us = 2,55ms
+    goto $+1		    ; 2us
+    goto $+1		    ; 2us
+    goto $+1		    ; 2us		
+    nop			    ; 1us
+    decfsz  counter2, f	    ; 1us (last 2us) 
+    goto    Delay600ms02    ; 2us
+    decfsz  counter1, f
+    goto    Delay600ms01
+    
+    retlw   0      
     
 END MAIN
 
