@@ -136,7 +136,7 @@ In short, learning assembly language for the PIC10F200 is more than just learnin
 
 1. Go to "Project Properties" in MPLAB X.
 2. Select "Global Options" for the pic-as assembler/compiler.
-3. In the "Additional Options" box, enter the following parameters: **-Wl,-pBlinkCode=0h**
+3. In the "Additional Options" box, enter the following parameters: **-Wl,-pAsmCode=0h**
 
 ![PIC10F200 MPLAB X setup](../../images/PIC10F200_MPLAB_SETUP.png)
 
@@ -150,7 +150,7 @@ In short, learning assembly language for the PIC10F200 is more than just learnin
 ; 1. Go to "Project Properties" in MPLAB X.
 ; 2. Select "Global Options" for the pic-as assembler/compiler.
 ; 3. In the "Additional Options" box, enter the following parameters:
-; -Wl,-pBlinkCode=0h
+; -Wl,-pAsmCode=0h
     
 #include <xc.inc>
 
@@ -166,7 +166,7 @@ workValue1  equ	0x10
 workValue2  equ 0x11		
 
  
-PSECT BlinkCode, class=CODE, delta=2
+PSECT AsmCode, class=CODE, delta=2
 
 MAIN:
     ; GPIO and registers setup
@@ -209,7 +209,7 @@ END MAIN
 ; 1. Go to "Project Properties" in MPLAB X.
 ; 2. Select "Global Options" for the pic-as assembler/compiler.
 ; 3. In the "Additional Options" box, enter the following parameters:
-; -Wl,-pBlinkCode=0h
+; -Wl,-pAsmCode=0h
     
 #include <xc.inc>
 
@@ -228,7 +228,7 @@ AA4 equ	0x13
 i   equ	0x14 
 
  
-PSECT BlinkCode, class=CODE, delta=2
+PSECT AsmCode, class=CODE, delta=2
 
 MAIN:
     clrf   GPIO		    ; Sets all GPIO pins as output
@@ -286,11 +286,11 @@ Remember, if the multiplication is by 2, 4, 8, 16, etc., use the RLF instruction
 
 ; PIC10F200
 ; Very basic multiplication example
-; IMPORTANT: If you are using the PIC10F200, to assemble this code correctly, please follow the steps below:
+; IMPORTANT: If you are using the PIC10F200, To assemble this code correctly, please follow the steps below:
 ; 1. Go to "Project Properties" in MPLAB X.
 ; 2. Select "Global Options" for the pic-as assembler/compiler.
 ; 3. In the "Additional Options" box, enter the following parameters:
-; -Wl,-pBlinkCode=0h
+; -Wl,-pAsmCode=0h
     
 #include <xc.inc>
 
@@ -305,7 +305,7 @@ Remember, if the multiplication is by 2, 4, 8, 16, etc., use the RLF instruction
 op1 equ	0x10
 op2 equ	0x11 
  
-PSECT BlinkCode, class=CODE, delta=2
+PSECT AsmCode, class=CODE, delta=2
 
 MAIN:
     clrf   GPIO		    ; Sets all GPIO pins as output
@@ -354,7 +354,7 @@ Remember, if the division is by 2, 4, 8, 16, etc., use the RRF instruction inste
 ; 1. Go to "Project Properties" in MPLAB X.
 ; 2. Select "Global Options" for the pic-as assembler/compiler.
 ; 3. In the "Additional Options" box, enter the following parameters:
-; -Wl,-pBlinkCode=0h
+; -Wl,-pAsmCode=0h
     
 #include <xc.inc>
 
@@ -371,7 +371,7 @@ op2	equ    0x11
 result  equ    0x12	
 
  
-PSECT BlinkCode, class=CODE, delta=2
+PSECT AsmCode, class=CODE, delta=2
 
 MAIN:
     ; GPIO and registers setup

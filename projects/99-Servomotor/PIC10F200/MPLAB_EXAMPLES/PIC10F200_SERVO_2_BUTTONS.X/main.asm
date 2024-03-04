@@ -18,8 +18,9 @@
 ; Declare your variables here
 
 servo_pulses	equ	0x10
-counter1	equ	0x11
-counter2	equ	0x12
+servo_dutation	equ	0x11	
+counter1	equ	0x12
+counter2	equ	0x13
 	
  
 PSECT YourCode, class=CODE, delta=2
@@ -42,7 +43,9 @@ MAIN:
 MainLoop:		    ; Endless loop
 
     ; Move Servo
-    movlw   3
+    movlw   1		    ; duration (1 * 2ms)
+    movwf   servo_duration  ; duration parameter 
+    movlw   20		    ; pulses parameter
     call    RotateServo
     
     movlw   255		     
@@ -51,9 +54,12 @@ MainLoop:		    ; Endless loop
     call    DelayNx2ms	    ; it takes about  500ms (255 * 200 * 10us)
     
     ; Move Servo
-    movlw   60
+    movlw   12		    ; duration ( 12 * 2ms = 24ms)
+    movwf   servo_duration  ; duration parameter
+    movlw   20		    ; pulses parameter
     call    RotateServo
     
+   
     movlw   255		     
     call    DelayNx2ms	    ; it takes about  500ms (255 * 200 * 10us)
     movlw   255	
@@ -72,7 +78,7 @@ RotateServo:
    movwf    servo_pulses
 RotateServoLoop:
     bsf	    GPIO, 2		
-    movlw   1		
+    movf    servo_duration, w		
     call    DelayNx2ms	    ; it takes about 2ms (1 x 2ms)
     bcf	    GPIO, 2
     movlw   9

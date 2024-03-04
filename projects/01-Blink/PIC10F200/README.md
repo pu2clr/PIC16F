@@ -55,7 +55,7 @@ The PIC10F200 is a small, low-cost, and low-power microcontroller that is ideal 
    - Carefully type the following parameter into the Additional Options box:
 
      ```
-     -Wl,-pBlinkCode=0h
+     -Wl,-pAsmCode=0h
      ```
 
 5. **Save Changes:**
@@ -68,7 +68,7 @@ The PIC10F200 is a small, low-cost, and low-power microcontroller that is ideal 
 ![MPLAB parameters to assemble or to generate HEX file](./../../images/PIC10F200_MPLAB_SETUP.png)
 
 
-**ATTENTION:** The identifier **BlinkCode** must be referenced in the PSECT directive in your Assembly code. Carefully analyze the following code.
+**ATTENTION:** The identifier **AsmCode** must be referenced in the PSECT directive in your Assembly code. Carefully analyze the following code.
 
 
 ### PIC10F200 Blink C Example
@@ -148,9 +148,9 @@ To assemble this code correctly, please follow the steps below:
 ; 1. Go to "Project Properties" in MPLAB X.
 ; 2. Select "Global Options" for the pic-as assembler/compiler.
 ; 3. In the "Additional Options" box, enter the following parameters:
-; -Wl,-pBlinkCode=0h
+; -Wl,-pAsmCode=0h
 ;
-; Please check the BlinkCode reference in the "PSECT" directive below.
+; Please check the AsmCode reference in the "PSECT" directive below.
 ;
 ; You will find good tips about the PIC10F200 here:
 ; https://www.circuitbread.com/tutorials/christmas-lights-special-microcontroller-basics-pic10f200
@@ -170,9 +170,9 @@ dummy1 equ 0x10
 dummy2 equ 0x11
 dummy3 equ 0x12 
 
-; Do not forget the additional parameters: -Wl,-pBlinkCode=0h 
+; Do not forget the additional parameters: -Wl,-pAsmCode=0h 
 ; See instruction in comment above
-PSECT BlinkCode, class=CODE, delta=2 
+PSECT AsmCode, class=CODE, delta=2 
 
 MAIN:
     clrf   GPIO		    ; Sets all GPIO pins as output
