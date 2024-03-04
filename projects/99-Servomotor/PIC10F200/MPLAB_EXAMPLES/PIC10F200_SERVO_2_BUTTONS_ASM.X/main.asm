@@ -43,9 +43,9 @@ MAIN:
 MainLoop:		    ; Endless loop
 
     ; Move Servo
-    movlw   2		    
-    movwf   servo_duration
-    movlw   20
+    movlw   2		    ; Patameter Duration   
+    movwf   servo_duration  
+    movlw   22		    ; Parameter Pulses
     call    RotateServo
     
     call    Delay600ms
@@ -54,9 +54,9 @@ MainLoop:		    ; Endless loop
     call    Delay600ms
     
     ; Move Servo
-    movlw   3	
+    movlw   3		    ; Parameter Duration
     movwf   servo_duration  
-    movlw   25
+    movlw   22		    ; Parameter Pulses
     call    RotateServo
     
     call    Delay600ms
