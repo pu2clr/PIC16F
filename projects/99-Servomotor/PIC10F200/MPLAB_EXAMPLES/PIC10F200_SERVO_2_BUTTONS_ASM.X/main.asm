@@ -45,7 +45,8 @@ MainLoop:		    ; Endless loop
     ; Move Servo
     movlw   1		    
     movwf   servo_duration  
-    call    MANIPULATE_SERVO
+    ; call    MANIPULATE_SERVO
+    call    RotateServo
     
     call    Delay600ms
     call    Delay600ms
@@ -55,7 +56,8 @@ MainLoop:		    ; Endless loop
     ; Move Servo
     movlw   4		    
     movwf   servo_duration  
-    call    MANIPULATE_SERVO
+    ; call    MANIPULATE_SERVO
+    call    RotateServo
     
     call    Delay600ms
     call    Delay600ms
@@ -74,31 +76,16 @@ RotateServo:
 RotateServoLoop:
     bsf	    GPIO, 2		
     movf    servo_duration, w		
-    call    DelayNus	    ; servo_duration x 1ms
+    call    DELAY	    ; 
     bcf	    GPIO, 2
     movlw   25
-    call    DelayNus	    ; it takes about 20ms (20 x 1ms)    
+    call    DELAY	    ;    
     decfsz  servo_pulses
     goto    RotateServoLoop
     
     retlw   0
 
-    
-; ***********************    
-; It takes about wreg * 1ms
-; Parameter: wreg   
-DelayNus:    
-    movwf   counter1
-DelayNus01:
-    movwf   counter2
-DelayNus02:		    	    	
-    nop			    
-    decfsz  counter2, f	    
-    goto    DelayNus02    
-    decfsz  counter1, f
-    goto    DelayNus01
-    
-    retlw   0    
+ 
        
  
 ; ***********************    
