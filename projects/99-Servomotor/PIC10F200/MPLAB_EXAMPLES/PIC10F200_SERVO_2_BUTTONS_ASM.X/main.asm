@@ -43,10 +43,10 @@ MAIN:
 MainLoop:		    ; Endless loop
 
     ; Move Servo
-    movlw   1		    
-    movwf   servo_duration  
-    call    MANIPULATE_SERVO
-    ; call    RotateServo
+    movlw   2		    
+    movwf   servo_duration
+    movlw   20
+    call    RotateServo
     
     call    Delay600ms
     call    Delay600ms
@@ -54,10 +54,10 @@ MainLoop:		    ; Endless loop
     call    Delay600ms
     
     ; Move Servo
-    movlw   4		    
+    movlw   3	
     movwf   servo_duration  
-    call    MANIPULATE_SERVO
-    ; call    RotateServo
+    movlw   25
+    call    RotateServo
     
     call    Delay600ms
     call    Delay600ms
@@ -71,15 +71,14 @@ MainLoop:		    ; Endless loop
 ; *********** Rotate the servo *********
 ; Parameter - WREG: number of pulses    
 RotateServo: 
-   movlw    20 
    movwf    servo_pulses
 RotateServoLoop:
     bsf	    GPIO, 2		
     movf    servo_duration, w		
-    call    DELAY	    ; 
+    call    DelayPulse	    ; 
     bcf	    GPIO, 2
     movlw   25
-    call    DELAY	    ;    
+    call    DelayPulse	    ;    
     decfsz  servo_pulses
     goto    RotateServoLoop
     
@@ -88,6 +87,21 @@ RotateServoLoop:
  
        
  
+   
+; Delay pulse - ms
+; Paremeter: WREG     
+DelayPulse:                     
+    movwf counter1  
+DelayPulseLoop1:    
+    movlw 200  
+    movwf counter2                
+DelayPulseLoop2: 
+    DECFSZ counter2, F         
+    GOTO DelayPulseLoop2        
+    DECFSZ counter1, F         
+    GOTO DelayPulseLoop1        
+    RETLW 0        
+
 ; ***********************    
 ; It takes about 650ms 
 ; 255 x 255 x 10us   
@@ -108,34 +122,8 @@ Delay600ms02:		    ; 255 x 10us = 2.550us = 2,55ms
     goto    Delay600ms01
     
     retlw   0      
-
     
-; **********
     
-MANIPULATE_SERVO:          ;Manipulate servo subroutine
-    MOVLW 20               ;Copy 20 to the servo_steps register
-    MOVWF servo_pulses      ;to repeat the servo move condition 20 times
-SERVO_MOVE:                ;Here servo move condition starts
-    BSF GPIO, 2		   ;Set the GP2 pin to apply voltage to the servo
-    MOVF servo_duration, W ;Load initial value for the delay
-    CALL DELAY             ;(2 to open the lock, 3 to close it)
-    BCF GPIO, 2		   ;Reset GP2 pin to remove voltage from the servo
-    MOVLW 25               ;Load initial value for the delay
-    CALL DELAY             ;(normal delay of about 20 ms)
-    DECFSZ servo_pulses, F  ;Decrease the servo steps counter, check if it is 0
-    GOTO SERVO_MOVE        ;If not, keep moving servo
-    RETLW 0       
-
-    
-DELAY:                     ;Start DELAY subroutine here    
-    MOVWF counter1                ;Copy the W value to the register i
-    MOVWF counter2                ;Copy the W value to the register j
-DELAY_LOOP:                ;Start delay loop
-    DECFSZ counter1, F            ;Decrement i and check if it is not zero
-    GOTO DELAY_LOOP        ;If not, then go to the DELAY_LOOP label
-    DECFSZ counter2, F            ;Decrement j and check if it is not zero
-    GOTO DELAY_LOOP        ;If not, then go to the DELAY_LOOP label
-    RETLW 0        
     
 END MAIN
 
