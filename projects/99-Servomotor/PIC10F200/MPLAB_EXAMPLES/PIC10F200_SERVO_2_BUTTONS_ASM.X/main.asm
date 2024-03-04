@@ -43,7 +43,7 @@ MAIN:
 MainLoop:		    ; Endless loop
 
     ; Move Servo
-    movlw   6		    ; duration (1 * 2ms)
+    movlw   1		    ; duration (1 * 2ms)
     movwf   servo_duration  ; duration parameter 
     movlw   20		    ; pulses parameter
     call    RotateServo
@@ -54,7 +54,7 @@ MainLoop:		    ; Endless loop
     call    DelayNx2ms	    ; it takes about  500ms (255 * 200 * 10us)
     
     ; Move Servo
-    movlw   3		    ; duration ( 12 * 2ms = 24ms)
+    movlw   0		    ; duration ( 12 * 2ms = 24ms)
     movwf   servo_duration  ; duration parameter
     movlw   20		    ; pulses parameter
     call    RotateServo
