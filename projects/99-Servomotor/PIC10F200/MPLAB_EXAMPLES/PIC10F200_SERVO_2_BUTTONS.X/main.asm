@@ -41,19 +41,30 @@ MAIN:
     
 MainLoop:		    ; Endless loop
 
+    ; Move Servo
     movlw   3
     call    RotateServo
-    call    Delay600ms
-    call    Delay600ms
+    
+    movlw   255		     
+    call    DelayNx2ms	    ; it takes about  500ms (255 * 200 * 10us)
+    movlw   255	
+    call    DelayNx2ms	    ; it takes about  500ms (255 * 200 * 10us)
+    
+    ; Move Servo
     movlw   60
     call    RotateServo
-    call    Delay600ms
-    call    Delay600ms    
-    call    Delay600ms
-    call    Delay600ms     
+    
+    movlw   255		     
+    call    DelayNx2ms	    ; it takes about  500ms (255 * 200 * 10us)
+    movlw   255	
+    call    DelayNx2ms	    ; it takes about  500ms (255 * 200 * 10us)
+    movlw   255		     
+    call    DelayNx2ms	    ; it takes about  500ms (255 * 200 * 10us)
+    movlw   255	
+    call    DelayNx2ms	    ; it takes about  500ms (255 * 200 * 10us)    
+    
     goto    MainLoop
     
-
     
 ; *********** Rotate the servo *********
 ; Parameter - WREG: number of pulses    
@@ -61,48 +72,36 @@ RotateServo:
    movwf    servo_pulses
 RotateServoLoop:
     bsf	    GPIO, 2		
-    movlw   3		
-    call    DelayNx10us	    ; it takes about 30us
+    movlw   1		
+    call    DelayNx2ms	    ; it takes about 2ms (1 x 2ms)
     bcf	    GPIO, 2
-    movlw   7
-    call    DelayNx10us	    ; It takes about 70us
+    movlw   9
+    call    DelayNx2ms	    ; it takes about 18ms (9 x 2ms)    
     decfsz  servo_pulses
     goto    RotateServoLoop
     retlw   0
 
-; Delay us
-; Takes (WREG * 10)us    
-; Examples: if WREG=1 => 10us; WREG=7 => 70us; WREG=48 => 480us; and so on      
- DelayNx10us:
-    movwf  counter1
-    goto $ + 1		; 2 cycles +
-    goto $ + 1		; 2 cycles +
-    goto $ + 1		; 2 cycles +
-    goto $ + 1		; 2 cycles = 8 cycles +
-    decfsz counter1, f	; 1 cycle + 
-    goto $ - 5		; 2 cycle = 11 cycles **** Fix it later
-    retlw   0    
     
 ; ***********************    
-; It takes about 600ms 
-Delay600ms:
-    movlw   255
+; It takes about wreg * 2ms
+; Parameter: wreg   
+DelayNx2ms:    
     movwf   counter1
-DELAY_LOOP_01:
-    movlw   255
+DelayNx2ms01:
+    movlw   200
     movwf   counter2
-DELAY_LOOP_02: 
+DelayNx2ms02: 
     goto $+1
     goto $+1
     goto $+1
     goto $+1
     decfsz  counter2, f
-    goto    DELAY_LOOP_02
+    goto    DelayNx2ms02
     decfsz  counter1, f
-    goto    DELAY_LOOP_01
+    goto    DelayNx2ms01
     
     retlw   0    
-        
+       
     
 END MAIN
 
