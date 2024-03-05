@@ -33,12 +33,10 @@ MAIN:
     OPTION
     ; GPIO and registers setup
     clrf   GPIO		    ; Sets all GPIO pins as output
-    movlw  0B00000011	    ; GP0 and GP1 are input and GP2 is output 
+    movlw  0B0001011	    ; GP0, GP1 and GP3 are input and GP2 is output 
     tris   GPIO
     nop
 MainLoop:		    ; Endless loop
-    movlw   50
-    call    DelayMS	    ; Try mitigate debounce delay
     ; Check Buttons
     btfss   GPIO, 3	    ; Check if GP3 is 0
     goto    CheckButton2   
@@ -67,7 +65,8 @@ CheckButton1:
     call    RotateServo
 MainLoopContinue: 
    
-    call    Delay600ms
+    movlw   10
+    call    DelayMS	    ; Try mitigate debounce via delay
      
     goto    MainLoop
     
