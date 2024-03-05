@@ -38,7 +38,7 @@ MAIN:
     nop
 MainLoop:		    ; Endless loop
     ; Check Buttons
-    btfsc   GPIO, 3	    ; Check if GP3 is 0
+    btfss   GPIO, 3	    ; Check if GP3 is 0
     goto    CheckButton2   
     ; Move Servo
     movlw   2		    ; Patameter Duration   
@@ -47,7 +47,7 @@ MainLoop:		    ; Endless loop
     call    RotateServo
     goto    MainLoopContinue
 CheckButton2: 
-    btfsc   GPIO, 1	    ; Check if GP1 is 0
+    btfss   GPIO, 1	    ; Check if GP1 is 0
     goto    CheckButton1   
     ; Move Servo
     movlw   3		    ; Patameter Duration   
@@ -56,19 +56,16 @@ CheckButton2:
     call    RotateServo  
     goto    MainLoopContinue
 CheckButton1:  
-    btfsc   GPIO, 0	    ; Check if GP0 is 0
+    btfss   GPIO, 0	    ; Check if GP0 is 0
     goto    MainLoop	    ; No button was pressed - keep monitoring	       
     ; Move Servo
-    movlw   1		    ; Parameter Duration
+    movlw   4		    ; Parameter Duration
     movwf   servo_duration  
     movlw   22		    ; Parameter Pulses
     call    RotateServo
 MainLoopContinue: 
    
     call    Delay600ms
-    call    Delay600ms
-    call    Delay600ms
-    call    Delay600ms   
      
     goto    MainLoop
     
