@@ -1,5 +1,4 @@
-; UNDER CONSTRUCTION...
-;    
+; Servo controll with PIC10F200
 ; IMPORTANT: If you are using the PIC10F200, to assemble this code correctly, please follow the steps below:
 ; 1. Go to "Project Properties" in MPLAB X.
 ; 2. Select "Global Options" for the pic-as assembler/compiler.
@@ -7,13 +6,11 @@
 ; -Wl,-pAsmCode=0h
     
 #include <xc.inc>
-
-    
+  
 ; CONFIG
   CONFIG  WDTE = OFF           ; Watchdog Timer (WDT disabled)
   CONFIG  CP = OFF             ; Code Protect (Code protection off)
   CONFIG  MCLRE = ON	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
-
 
 ; Declare your variables here
 
@@ -21,8 +18,7 @@ servo_pulses	equ	0x10
 servo_duration	equ	0x11	
 counter1	equ	0x12
 counter2	equ	0x13
-	
- 
+	 
 PSECT AsmCode, class=CODE, delta=2
 
 MAIN:
@@ -33,38 +29,47 @@ MAIN:
     ; Transition on internal instruction cycle clock, FOSC/4
     ; GPPU disbled 
     ; GPWU disabled
-    movlw   0B10011111	    ; 
+    movlw   0B10011111	    	 
     OPTION
     ; GPIO and registers setup
     clrf   GPIO		    ; Sets all GPIO pins as output
     movlw  0B00000011	    ; GP0 and GP1 are input and GP2 is output 
-    TRIS   GPIO
+    tris   GPIO
     nop
 MainLoop:		    ; Endless loop
-
+    ; Check Buttons
+    btfsc   GPIO, 3	    ; Check if GP3 is 0
+    goto    CheckButton2   
     ; Move Servo
     movlw   2		    ; Patameter Duration   
     movwf   servo_duration  
     movlw   22		    ; Parameter Pulses
     call    RotateServo
-    
-    call    Delay600ms
-    call    Delay600ms
-    call    Delay600ms
-    call    Delay600ms
-    
+    goto    MainLoopContinue
+CheckButton2: 
+    btfsc   GPIO, 1	    ; Check if GP1 is 0
+    goto    CheckButton1   
     ; Move Servo
-    movlw   3		    ; Parameter Duration
+    movlw   3		    ; Patameter Duration   
+    movwf   servo_duration  
+    movlw   22		    ; Parameter Pulses
+    call    RotateServo  
+    goto    MainLoopContinue
+CheckButton1:  
+    btfsc   GPIO, 0	    ; Check if GP0 is 0
+    goto    MainLoop	    ; No button was pressed - keep monitoring	       
+    ; Move Servo
+    movlw   1		    ; Parameter Duration
     movwf   servo_duration  
     movlw   22		    ; Parameter Pulses
     call    RotateServo
-    
+MainLoopContinue: 
+   
     call    Delay600ms
     call    Delay600ms
     call    Delay600ms
     call    Delay600ms   
-   
-    
+     
     goto    MainLoop
     
     
@@ -84,23 +89,19 @@ RotateServoLoop:
     
     retlw   0
 
- 
-       
- 
-   
 ; Delay pulse - ms
 ; Paremeter: WREG     
 DelayPulse:                     
-    movwf counter1  
+    movwf   counter1  
 DelayPulseLoop1:    
-    movlw 200  
-    movwf counter2                
+    movlw   200  
+    movwf   counter2                
 DelayPulseLoop2: 
-    DECFSZ counter2, F         
-    GOTO DelayPulseLoop2        
-    DECFSZ counter1, F         
-    GOTO DelayPulseLoop1        
-    RETLW 0        
+    decfsz  counter2, F         
+    goto    DelayPulseLoop2        
+    decfsz  counter1, F         
+    goto    DelayPulseLoop1        
+    retlw   0        
 
 ; ***********************    
 ; It takes about 650ms 
@@ -122,8 +123,7 @@ Delay600ms02:		    ; 255 x 10us = 2.550us = 2,55ms
     goto    Delay600ms01
     
     retlw   0      
-    
-    
+        
     
 END MAIN
 
