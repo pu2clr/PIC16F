@@ -10,7 +10,7 @@
 ; CONFIG
   CONFIG  WDTE = OFF           ; Watchdog Timer (WDT disabled)
   CONFIG  CP = OFF             ; Code Protect (Code protection off)
-  CONFIG  MCLRE = ON	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
+  CONFIG  MCLRE = OFF	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
 
 ; Declare your variables here
 
@@ -37,6 +37,8 @@ MAIN:
     tris   GPIO
     nop
 MainLoop:		    ; Endless loop
+    movlw   50
+    call    DelayMS	    ; Try mitigate debounce delay
     ; Check Buttons
     btfss   GPIO, 3	    ; Check if GP3 is 0
     goto    CheckButton2   
@@ -77,10 +79,10 @@ RotateServo:
 RotateServoLoop:
     bsf	    GPIO, 2		
     movf    servo_duration, w		
-    call    DelayPulse	    ; 
+    call    DelayMS	    ; 
     bcf	    GPIO, 2
     movlw   25
-    call    DelayPulse	    ;    
+    call    DelayMS	    ;    
     decfsz  servo_pulses
     goto    RotateServoLoop
     
@@ -88,16 +90,16 @@ RotateServoLoop:
 
 ; Delay pulse - ms
 ; Paremeter: WREG     
-DelayPulse:                     
+DelayMS:                     
     movwf   counter1  
-DelayPulseLoop1:    
+DelayMSLoop1:    
     movlw   200  
     movwf   counter2                
-DelayPulseLoop2: 
+DelayMSLoop2: 
     decfsz  counter2, F         
-    goto    DelayPulseLoop2        
+    goto    DelayMSLoop2        
     decfsz  counter1, F         
-    goto    DelayPulseLoop1        
+    goto    DelayMSLoop1        
     retlw   0        
 
 ; ***********************    
