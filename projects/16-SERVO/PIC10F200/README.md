@@ -2,8 +2,15 @@
 
 
 
+## Content
+
+1. [PIC10F200 with Servo and three buttons schematic](#pic10f200-with-servo-and-three-buttons-schematic)
 
 
+
+# PIC10F200 with Servo and three buttons schematic
+
+![PIC10F200 with Servo and three buttons schematic](./schematic_pic10F200_servo_3_buttons.jpg)
 
 
 
