@@ -38,28 +38,28 @@ MAIN:
     nop
 MainLoop:		    ; Endless loop
     ; Check Buttons
-    btfss   GPIO, 3	    ; Check if GP3 is 0
+    btfsc   GPIO, 3	    ; Check if GP3 is 0
     goto    CheckButton2   
     ; Move Servo
-    movlw   2		    ; Patameter Duration   
+    movlw   3		    ; Patameter Duration   
     movwf   servo_duration  
     movlw   22		    ; Parameter Pulses
     call    RotateServo
     goto    MainLoopContinue
 CheckButton2: 
-    btfss   GPIO, 1	    ; Check if GP1 is 0
+    btfsc   GPIO, 1	    ; Check if GP1 is 0
     goto    CheckButton1   
     ; Move Servo
-    movlw   3		    ; Patameter Duration   
+    movlw   4		    ; Patameter Duration   
     movwf   servo_duration  
     movlw   22		    ; Parameter Pulses
     call    RotateServo  
     goto    MainLoopContinue
 CheckButton1:  
-    btfss   GPIO, 0	    ; Check if GP0 is 0
+    btfsc   GPIO, 0	    ; Check if GP0 is 0
     goto    MainLoop	    ; No button was pressed - keep monitoring	       
     ; Move Servo
-    movlw   4		    ; Parameter Duration
+    movlw   2		    ; Parameter Duration
     movwf   servo_duration  
     movlw   22		    ; Parameter Pulses
     call    RotateServo
@@ -100,27 +100,6 @@ DelayMSLoop2:
     decfsz  counter1, F         
     goto    DelayMSLoop1        
     retlw   0        
-
-; ***********************    
-; It takes about 650ms 
-; 255 x 255 x 10us   
-Delay600ms:  
-    movlw   255
-    movwf   counter1
-Delay600ms01:
-    movlw   255
-    movwf   counter2
-Delay600ms02:		    ; 255 x 10us = 2.550us = 2,55ms
-    goto $+1		    ; 2us
-    goto $+1		    ; 2us
-    goto $+1		    ; 2us		
-    nop			    ; 1us
-    decfsz  counter2, f	    ; 1us (last 2us) 
-    goto    Delay600ms02    ; 2us
-    decfsz  counter1, f
-    goto    Delay600ms01
-    
-    retlw   0      
         
     
 END MAIN
