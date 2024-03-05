@@ -47,7 +47,6 @@ This folder shows an example of using Servo with PIC10F200.
 
 * Additional components like resistors, capacitors, and level shifters may be required to interface the PIC10F200 with the servo motor, increasing the overall system complexity and cost.
 
-### 7. Debugging and Testing Challenges:
 
 
 
