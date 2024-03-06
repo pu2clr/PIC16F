@@ -44,7 +44,6 @@ void main(void) {
     // GPPU disabled 
     // GPWU disabled
     OPTION = 0B10011111; 
-    GPIO = 0;
     TRISGPIO = 0B00001011;      // GP0, GP1 and GP3 as input and GP2 as output
 
     
