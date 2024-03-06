@@ -34,12 +34,10 @@ void main(void) {
     // Prescaler assigned to the WDT
     // Increment on high-to-low transition on the T0CKI pin
     // Transition on internal instruction cycle clock, FOSC/4
-    // GPPU disbled 
+    // GPPU disabled 
     // GPWU disabled
     OPTION = 0B10011111; 
-    GPIO = 0;
-    TRIS = 0B00001011;      // GP0, GP1 and GP3 as input and GP2 as output
-    GPIO = 0;
+    TRISGPIO = 0B00001011;      // GP0, GP1 and GP3 as input and GP2 as output
     RotateServo(3,22);
     __delay_ms(2000);
     RotateServo(2,22);
