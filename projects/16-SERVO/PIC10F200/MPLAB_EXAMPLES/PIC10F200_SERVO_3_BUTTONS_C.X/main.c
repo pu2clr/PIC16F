@@ -16,7 +16,7 @@
 
 
 // it takes about param x 255 us
-void delayMS(uint8_t param) {
+void inline delayMS(uint8_t param) {
     for (uint8_t i = 0; i < param; i++) {
         for (uint8_t j = 0; j < 200; j++) { 
         }
