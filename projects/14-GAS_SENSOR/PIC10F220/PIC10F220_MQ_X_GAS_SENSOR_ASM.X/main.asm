@@ -19,9 +19,11 @@
 #include <xc.inc>
   
 ; CONFIG
-  CONFIG  WDTE = OFF           ; Watchdog Timer (WDT disabled)
-  CONFIG  CP = OFF             ; Code Protect (Code protection off)
-  CONFIG  MCLRE = ON	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
+  CONFIG  IOSCFS = 4MHZ         ; Internal Oscillator Frequency Select bit (4 MHz)
+  CONFIG  MCPU = OFF            ; Master Clear Pull-up Enable bit (Pull-up disabled)
+  CONFIG  WDTE = OFF            ; Watchdog Timer Enable bit (WDT disabled)
+  CONFIG  CP = OFF              ; Code protection bit (Code protection off)
+  CONFIG  MCLRE = ON            ; GP3/MCLR Pin Function Select bit (GP3/MCLR pin function is MCLR)
 
 ; Declare your variables here
 
@@ -36,8 +38,8 @@ MAIN:
     ; GP0 is analog input
     ; ADC channel is GP0/AN0
     ; GO/DONE enabled
-    movlw   0B01000011
-    movwf   ADCON0
+    ; movlw   0B01000011
+    ; movwf   ADCON0
     ; GP0 is input, GP1, GP2 and GP3 are output
     movlw   0B00000001
     TRIS    GPIO
