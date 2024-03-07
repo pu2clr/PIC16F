@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/production/PIC10F220_MQ_X_GAS_SENSOR_C.X.production.hex">
+    <memory name="program">
+      <units>words</units>
+      <length>256</length>
+      <used>83</used>
+      <free>173</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>16</length>
+      <used>8</used>
+      <free>8</free>
+    </memory>
+  </executable>
+</project>
