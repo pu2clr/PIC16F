@@ -21,7 +21,7 @@
 ; CONFIG
   CONFIG  WDTE = OFF           ; Watchdog Timer (WDT disabled)
   CONFIG  CP = OFF             ; Code Protect (Code protection off)
-  CONFIG  MCLRE = OFF	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
+  CONFIG  MCLRE = ON	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
 
 ; Declare your variables here
 
