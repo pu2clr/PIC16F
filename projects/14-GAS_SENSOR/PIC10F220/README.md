@@ -29,7 +29,4 @@ When it comes to applications requiring analog input, the PIC10F220 emerges as a
 ![](../images/MQ_PINOUT.jpg)
 
 
-
-
-
 ## REFERENCES
