@@ -44,9 +44,9 @@ MAIN:
     movlw   0B00000001
     TRIS    GPIO
 MainLoop:		    ; Endless loop
-    bsf	    GPIO, 2
+    bsf	    GPIO, 1
     call    DELAY_600ms
-    bcf	    GPIO,   2
+    bcf	    GPIO,   1
     call    DELAY_600ms
 MainLoopContinue: 
      

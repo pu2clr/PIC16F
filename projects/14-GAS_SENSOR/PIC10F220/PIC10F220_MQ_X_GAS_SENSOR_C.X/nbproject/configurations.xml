@@ -19,6 +19,7 @@
                    projectFiles="true">
     </logicalFolder>
     <itemPath>main.c</itemPath>
+    <itemPath>main.c</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -28,7 +29,7 @@
         <targetDevice>PIC10F220</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool>Simulator</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.46</languageToolchainVersion>
         <platform>4</platform>
