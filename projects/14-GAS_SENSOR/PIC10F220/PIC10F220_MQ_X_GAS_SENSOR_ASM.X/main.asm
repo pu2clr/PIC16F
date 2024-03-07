@@ -38,8 +38,8 @@ MAIN:
     ; GP0 is analog input
     ; ADC channel is GP0/AN0
     ; GO/DONE enabled
-    ; movlw   0B01000011
-    ; movwf   ADCON0
+    movlw   0B01000011
+    movwf   ADCON0
     ; GP0 is input, GP1, GP2 and GP3 are output
     movlw   0B00000001
     TRIS    GPIO
