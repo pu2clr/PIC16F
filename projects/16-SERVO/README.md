@@ -1,7 +1,5 @@
 # PIC10F200, PIC16F628A and PIC16F887 with Servo 
 
-UNDER CONSTRUCTION...
-
 
 ## Content
 
