@@ -45,7 +45,7 @@ void main(void) {
     // GPPU disabled 
     // GPWU disabled
     OPTION = 0B10011111; 
-    TRISGPIO = 0B00001011;      // GP0, GP1 and GP3 as input and GP2 as output
+    TRIS = 0B00001011;      // GP0, GP1 and GP3 as input and GP2 as output
 
     RotateServo(3);
     
