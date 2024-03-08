@@ -23,7 +23,7 @@
 ### Schematic PIC16F628A
 
 
-![Basic Servo and PIC16F628A schematic](./schematic_servo_pic16F628A.jpg)
+![Basic Servo and PIC16F628A schematic](./schematic_servo_pic16F887.jpg)
 
 <BR>
 
