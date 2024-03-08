@@ -36,15 +36,17 @@ void RotateServo(uint8_t duration) {
 void main(void) {
     
 
-    OPTION = 0B10010000; 
-    TRIS = 0B00001011;      // GP0, GP1 and GP3 as input and GP2 as output
 
+
+    OPTION = 0B10011111;   
+    TRIS = 0B00001011;      // GP0, GP1 and GP3 as input and GP2 as output
+    
+    RotateServo(1);
+    delayMS(255);
+    delayMS(255);
+    delayMS(255);
+    delayMS(255);
     RotateServo(3);
-    delayMS(255);
-    delayMS(255);
-    delayMS(255);
-    delayMS(255);
-    RotateServo(2);
     
     while (1) {
         if (GP3 == 0) 
