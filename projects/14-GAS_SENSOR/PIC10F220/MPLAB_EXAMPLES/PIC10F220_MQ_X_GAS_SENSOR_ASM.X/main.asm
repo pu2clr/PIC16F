@@ -74,7 +74,7 @@ CheckAttention:
     movlw   127		    ; If > 127 and < 210, Attention
     subwf   adcValue, w
     btfss   STATUS, 0
-    goto    Safe
+    goto    Safe	    
     call    BlinkAttention  ; Blink green and red LEDs at the same time  
     goto    MainLoop
 Safe: 
