@@ -28,8 +28,18 @@ When it comes to applications requiring analog input, the PIC10F220 emerges as a
 
 ## MQ-X GAS SENSOR PINOUT
 
-![](../images/MQ_PINOUT.jpg)
+![MQ-X GAS SENSOR PINOUT](../images/MQ_PINOUT.jpg)
 
+
+| # | Pin/Part | Description |
+|---|---|---|
+| 1 | VCC | Power supply (5V) |
+| 2 | GND | Ground |
+| 3 | Dout (optional) | Digital output (optional) |
+| 4 | Aout | Analog output |
+| 5 | LED  | Gas indicator | 
+| 6 | LED  | Power Supply | 
+| 7 | Trim-pot | Tune the sensitivity | 
 
 
 ## Example in C
