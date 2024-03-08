@@ -25,23 +25,22 @@
 
 ![Basic Servo and PIC1887 schematic](./schematic_servo_pic16F887.jpg)
 
-<BR>
 
-![Basic Servo and PIC16F628A schematic](../../images/PIC16F887_PINOUT.png)
+### PIC16F887 PINOUT
+
+![PIC16F887 PINOUT](../../../images/PIC16F887_PINOUT.png)
+
+
+### Prototype
 
 
 ![Prototype pic16F887](./pic16F887_00.jpg)
-
 
 
 ![Prototype PIC16F887 1](./pic16F887_01.jpg)
 
 
 ![Prototype PIC16F887 2](./pic16F887_02.jpg)
-
-
-
-### About the Servo
 
 
 
