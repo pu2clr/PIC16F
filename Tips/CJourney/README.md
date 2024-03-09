@@ -19,7 +19,7 @@ In essence, while assembly offers precision control, the benefits of C—such as
 
 
 
-## C/XC8 optimization levels
+## XC8 - C optimization levels
 
 
 In the MPLAB X environment by Microchip, used for developing applications for PIC microcontrollers among others, the C compiler offers different optimization levels that adjust how code is compiled to enhance performance or reduce code size. These optimization levels are specified by numbers (0, 1, 2, 3) and a letter ('s'), each with its own characteristics and purposes. Here's a summary of each optimization level:
