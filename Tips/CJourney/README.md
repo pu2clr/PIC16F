@@ -80,3 +80,9 @@ In summary, the "Compiler Advisor" is a valuable tool for developers looking to 
 The image below shows how you can use this tool. 
 
 ![Compiler Advisor](../../images/c_compiler_advisor_analysis.png)
+
+
+**In the image above, notice that the C compiler option that produces a more optimized code is the PRO version (which is paid). Depending on the reliability and robustness of the project, as well as the need to use the C language, acquiring the PRO version can be an excellent alternative.**
+
+
+
