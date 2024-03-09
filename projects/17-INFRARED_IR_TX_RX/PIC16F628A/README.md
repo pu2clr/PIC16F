@@ -38,3 +38,10 @@ Implementing infrared (IR) protocols using the PIC16F628A presents several advan
 ### Conclusion
 
 Overall, the PIC16F628A offers a more robust and versatile platform for IR protocol implementation compared to the PIC10F200 and similar microcontrollers. Its enhanced interrupt capabilities, increased memory, advanced timer modules, and a richer set of peripherals enable more efficient, reliable, and complex applications. These features make the PIC16F628A a superior choice for developers looking to implement IR protocols with greater flexibility, efficiency, and scope.
+
+
+
+## PIC16F628A PINOUT 
+
+![PIC16F628A PINOUT](../../../images/PIC16F628A_PINOUT.png)
+

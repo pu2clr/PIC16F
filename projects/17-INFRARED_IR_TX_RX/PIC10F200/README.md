@@ -36,3 +36,9 @@ The PIC10F200 offers a very basic set of peripherals, lacking features like buil
 ### Conclusion
 
 While it's technically possible to implement an IR protocol on the PIC10F200, the microcontroller's limitations necessitate compromises in protocol complexity, efficiency, and reliability. Developers must carefully manage resources and may need to employ creative programming techniques to work within these constraints. For more sophisticated IR applications, choosing a microcontroller with more resources and hardware support for interrupts and timing functions would likely be more effective and less challenging.
+
+
+## PIC10F200 PINOUT 
+
+![PIC10F200 PINOUT](../../../images/PIC10F200_PINOUT.jpg)
+
