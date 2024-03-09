@@ -71,7 +71,7 @@ The "Compiler Advisor" in MPLAB X IDE is a tool designed to assist developers in
 
 5. **Learning and Code Improvement:** By providing specific recommendations, the tool serves as a learning medium, teaching best programming practices for microcontrollers.
 
-### How to Use It?
+#### How to Use It?
 
 To use the "Compiler Advisor," you typically need to have a project open in MPLAB X IDE. From there, you can access the tool through the menu or tool panel, select the section of code you wish to analyze, and then run the analysis. The IDE will then present a list of suggestions and insights on how to improve the code.
 
