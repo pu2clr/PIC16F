@@ -85,4 +85,183 @@ The image below shows how you can use this tool.
 **In the image above, notice that the C compiler option that produces a more optimized code is the PRO version (which is paid). Depending on the reliability and robustness of the project, as well as the need to use the C language, acquiring the PRO version can be an excellent alternative.**
 
 
+## Overview emphasizing keywords related to basic structures, decision making, and loops in C (C99):
 
+### Keywords for Basic Structures, Decision Making, and Loops
+
+- **auto**: Suggests automatic storage duration for variables.
+- **break**: Exits from a loop or switch statement.
+- **case**: Defines a branch in a switch statement.
+- **char**: Defines a character type variable.
+- **const**: Makes any variable or pointer unmodifiable.
+- **continue**: Skips the remaining loop body and proceeds with the next iteration.
+- **default**: Specifies the default branch in a switch statement.
+- **do**: Used with while to create a do-while loop.
+- **double**: Defines a variable with double precision floating-point type.
+- **else**: Specifies an alternative path in an if-else statement.
+- **enum**: Defines an enumeration, a way to group named integer constants.
+- **float**: Defines a variable with single precision floating-point type.
+- **for**: Initiates a for loop.
+- **goto**: Jumps to a labeled statement in the program.
+- **if**: Starts an if statement for decision making.
+- **int**: Declares an integer type variable.
+- **long**: Defines a long integer type variable.
+- **register**: Suggests that the variable be stored in a CPU register.
+- **return**: Exits a function and optionally returns a value.
+- **short**: Defines a short integer type variable.
+- **signed**: Specifies a variable can hold negative and positive values (default for integer types).
+- **sizeof**: Determines the size, in bytes, of a type or variable.
+- **static**: Preserves variable value even after the scope is exited.
+- **struct**: Defines a structure, a custom data type that groups variables.
+- **switch**: Initiates a switch statement for multi-path decision making.
+- **typedef**: Creates a new name (alias) for an existing type.
+- **union**: Defines a union, a special data type enabling you to store different data types in the same memory space.
+- **unsigned**: Specifies that a variable can only hold non-negative values.
+- **void**: Specifies that a function returns no value or to declare generic pointers.
+- **volatile**: Indicates that a variable may be changed in ways not explicitly specified by the program.
+- **while**: Starts a while loop.
+
+These keywords are fundamental to programming in C, enabling you to define variables, control flow with loops and decision-making structures, and more.
+
+
+### Brief examples of how each listed keyword can be used in C programming.
+
+```cpp 
+// auto
+void function() {
+    auto int localVar = 0; // localVar has automatic storage duration, typical for local variables.
+}
+
+// break
+for(int i = 0; i < 10; i++) {
+    if(i == 5) break; // Exits the loop when i equals 5.
+}
+
+// case, default, switch
+int num = 2;
+switch(num) {
+    case 1: 
+        // Code for case 1
+        break;
+    case 2: 
+        // Code for case 2
+        break;
+    default: 
+        // Code if no case matches
+        break;
+}
+
+// char
+char letter = 'A'; // Declares a character variable.
+
+// const
+const int MAX = 100; // MAX is a constant, its value cannot be changed.
+
+// continue
+for(int i = 0; i < 10; i++) {
+    if(i % 2 == 0) continue; // Skips the rest of the loop body for even numbers.
+    // Odd numbers code here
+}
+
+// do, while
+int count = 0;
+do {
+    // Code to execute
+    count++;
+} while(count < 5); // Loops until count is less than 5.
+
+// double
+double pi = 3.14159; // Declares a double-precision floating-point variable.
+
+// else, if
+int a = 5;
+if(a > 10) {
+    // Code if condition is true
+} else {
+    // Code if condition is false
+}
+
+// enum
+enum colors {red, green, blue};
+enum colors shirt = red; // Assigns the first value of enum colors to shirt.
+
+// float
+float temperature = 36.6f; // Declares a single-precision floating-point variable.
+
+// for
+for(int i = 0; i < 10; i++) {
+    // Loop code here
+}
+
+// goto
+label:
+    // Code to jump to
+goto label; // Jumps to the label.
+
+// int
+int age = 30; // Declares an integer variable.
+
+// long
+long distance = 1234567890L; // Declares a long integer variable.
+
+// register
+register int fastVar = 5; // Suggests that fastVar should be stored in a register for faster access.
+
+// return
+int add(int x, int y) {
+    return x + y; // Returns the sum of x and y.
+}
+
+// short
+short height = 170; // Declares a short integer variable.
+
+// signed
+signed int temperature = -20; // Explicitly declares a signed integer.
+
+// sizeof
+int size = sizeof(int); // Gets the size of int type in bytes.
+
+// static
+void counter() {
+    static int count = 0; // count retains its value between function calls.
+    count++;
+}
+
+// struct
+struct Person {
+    char name[50];
+    int age;
+};
+struct Person person1; // Declares a variable of type Person.
+
+// typedef
+typedef unsigned int uint;
+uint counter = 100; // Uses uint as an alias for unsigned int.
+
+// union
+union Data {
+    int i;
+    float f;
+    char str[20];
+};
+union Data data; // Declares a variable of type Data, which can hold an int, a float, or a char array.
+
+// unsigned
+unsigned int positive = 300; // Declares an unsigned integer, ensuring it's non-negative.
+
+// void
+void myFunction() {
+    // A function that returns no value.
+}
+
+// volatile
+volatile int shared = 0; // Tells the compiler that the value of shared can be changed unexpectedly.
+
+// while
+int i = 0;
+while(i < 5) {
+    // Code to execute while i is less than 5.
+    i++;
+}
+
+```
