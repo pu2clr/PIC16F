@@ -1,6 +1,6 @@
 /**
- * UNDER CONSTRUCTION...
- *  
+ * Servo controll with PIC10F200
+ * Compile options: -xassembler-with-cpp -mwarn=-3 -Wa,-a -Os -fasmfile -maddrqual=ignore 
  * @param param
  */
 
@@ -16,7 +16,7 @@
 // it takes about param x 255 us
 void inline delayMS(uint8_t param) {
     for (uint8_t i = 0; i < param; i++) {
-        for (uint8_t j = 0; j < 100; j++) { 
+        for (uint8_t j = 0; j < 80; j++) { 
             asm("nop");
         }
     }
@@ -37,23 +37,16 @@ void main(void) {
     
     OPTION = 0B10011111;   
     TRIS = 0B00001011;      // GP0, GP1 and GP3 as input and GP2 as output
-    
-    RotateServo(1);
-    delayMS(255);
-    delayMS(255);
-    delayMS(255);
-    delayMS(255);
-    RotateServo(3);
-    
+       
     while (1) {
         if (GP3 == 0) 
-            RotateServo(3);
-        else if (GP1 == 0) 
-            RotateServo(4);
-        else if (GP0 == 0) 
             RotateServo(2);
+        else if (GP1 == 0) 
+            RotateServo(1);
+        else if (GP0 == 0) 
+            RotateServo(3);
         
-        delayMS(10);
+        delayMS(7);
     }
 
 }

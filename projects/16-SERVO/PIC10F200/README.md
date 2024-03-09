@@ -9,10 +9,11 @@ This folder shows an example of using Servo with PIC10F200.
 1. [Challenges in Controlling a Servo using PIC10F200 Microcontroller](#challenges-in-controlling-a-servo-using-pic10f200-microcontroller)
 2. [PIC10F200 with Servo and three buttons schematic](#pic10f200-with-servo-and-three-buttons-schematic)
     * [Kicad schematic](./KiCad/)
-3. [PIC10F200 PINOUT](#pic10f200-pinout)    
-4. [MPLAB-X Project](./MPLAB_EXAMPLES/)
-5. [PIC10F200 with Servo and three buttons prototype](#pic10f200-with-servo-and-three-buttons-prototype)
-6. [References](#references)
+3. [PIC10F200 PINOUT](#pic10f200-pinout)   
+4. [Servo Wireup](#servo-wireup) 
+5. [MPLAB-X Project](./MPLAB_EXAMPLES/)
+6. [PIC10F200 with Servo and three buttons prototype](#pic10f200-with-servo-and-three-buttons-prototype)
+7. [References](#references)
 
 
 
@@ -58,6 +59,10 @@ This folder shows an example of using Servo with PIC10F200.
 
 ![PIC10F200 PINOUT](./../../../images/PIC10F200_PINOUT.jpg)
 
+
+## Servo wireup 
+
+![Servo wireup ](../images/servo01.jpg)
 
 
 ## PIC10F200 with Servo and three buttons prototype
