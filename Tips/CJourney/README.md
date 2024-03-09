@@ -51,7 +51,7 @@ Each optimization level serves a specific purpose, and the choice of the appropr
 
 In most of the C implementations carried out in this repository, the optimization option used was 's' (Os). The following figure illustrates how to configure this option in MPLAB X. It is important to note that, in rare situations, the optimization option may improperly alter the program's behavior, leading to an unexpected result. However, the 's' (Os)  option proved to be stable in all experiments in this repository.
 
-![C/XC8 compiler optimization setup](../../images/c_compiler_optimization.png)
+![XC8 compiler optimization setup](../../images/c_compiler_optimization.png)
 
 
 ### Compiler Advisor
