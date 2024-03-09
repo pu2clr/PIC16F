@@ -19,6 +19,10 @@ A servo motor is a type of rotary actuator or linear actuator that allows for pr
 
 **PWM (Pulse Width Modulation)**: PWM is a modulation technique used to control the amount of power delivered to an electrical device, in this case, a servo motor. It effectively controls the motor's speed and position by varying the width and frequency of the electrical pulses sent to the motor. The duty cycle of these pulses (the percentage of time the signal is on versus off) determines the motor's behavior.
 
+ 
+## Servo Image
+
+![Servo Image](./images/servo01.jpg)
 
 
 ## Videos
