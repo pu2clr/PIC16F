@@ -35,9 +35,6 @@ void RotateServo(uint8_t duration) {
 
 void main(void) {
     
-
-
-
     OPTION = 0B10011111;   
     TRIS = 0B00001011;      // GP0, GP1 and GP3 as input and GP2 as output
     
@@ -56,7 +53,7 @@ void main(void) {
         else if (GP0 == 0) 
             RotateServo(2);
         
-        delayMS(40);
+        delayMS(10);
     }
 
 }
