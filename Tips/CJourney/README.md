@@ -1,5 +1,16 @@
 # PIC C Journey
 
+## Content 
+
+1. [About C PIC for microcontroller projects](#about-c-pic-for-microcontroller-projects)
+2. [From C to final executable file (HEX) process](#from-c-to-final-executable-file-hex-process)
+3. [XC8 - C optimization levels](#xc8---c-optimization-levels)
+4. [Compiler Advisor](#compiler-advisor)
+5. [C Overview](#c-overview)
+
+
+## About C PIC for microcontroller projects
+
 Developing in C instead of assembly offers several compelling advantages for PIC microcontroller projects:
 
 1. **Ease of Use**: C is more straightforward to learn and use. Its higher-level abstractions make it easier to write, read, and maintain code.
@@ -113,7 +124,9 @@ The image below shows how you can use this tool.
 **In the image above, notice that the C compiler option that produces a more optimized code is the PRO version (which is paid). Depending on the reliability and robustness of the project, as well as the need to use the C language, acquiring the PRO version can be an excellent alternative.**
 
 
-## Overview emphasizing keywords related to basic structures, decision making, and loops in C (C99):
+## C Overview
+
+Overview emphasizing keywords related to basic structures, decision making, and loops in C (C99):
 
 ### Keywords for Basic Structures, Decision Making, and Loops
 
