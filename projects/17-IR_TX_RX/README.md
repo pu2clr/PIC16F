@@ -63,6 +63,7 @@ In conclusion, the choice of protocol largely depends on the application's speci
 
 ## References
 
+* [Understanding IR Sensors and IR LEDs: Functions, Differences, and Applications](https://www.electronicsforu.com/technology-trends/learn-electronics/ir-led-infrared-sensor-basics)
 * [NEC Infrared Transmission Protocol](https://techdocs.altium.com/display/FPGA/NEC+Infrared+Transmission+Protocol)
 * [Infrared Transmit and Receive on Circuit Playground Express in C++](https://www.digikey.com/en/maker/projects/infrared-transmit-and-receive-on-circuit-playground-express-in-c/0cdcbf1a087949adbb912f81fa1bcccc)
 * [NEC IR Remote Control Interface with 8051](https://exploreembedded.com/wiki/NEC_IR_Remote_Control_Interface_with_8051)
