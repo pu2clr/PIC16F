@@ -54,3 +54,29 @@ In most of the C implementations carried out in this repository, the optimizatio
 ![C/XC8 compiler optimization setup](../../images/c_compiler_optimization.png)
 
 
+### Compiler Advisor
+
+
+The "Compiler Advisor" in MPLAB X IDE is a tool designed to assist developers in optimizing code for Microchip's PIC and dsPIC microcontrollers. It provides recommendations on how to improve code efficiency in terms of speed and size by analyzing the source code and compilation settings. This is particularly useful in embedded systems where resources like memory and processing speed are limited.
+
+#### When can the "Compiler Advisor" be useful?
+
+1. **Performance Optimization:** If you're trying to speed up a critical section of the code, the "Compiler Advisor" can suggest changes in how you've written the code or in the compilation options to enhance execution speed.
+
+2. **Code Size Reduction:** For applications where memory is scarce, reducing the binary code size is crucial. The "Compiler Advisor" can recommend techniques and changes in code or compilation options to decrease the space your program occupies.
+
+3. **Identification of Potential Code Issues:** Beyond optimization, this tool can help identify coding practices that may lead to errors or undesired behavior, allowing for proactive correction.
+
+4. **Exploring Compiler Features:** The "Compiler Advisor" can introduce compilation options and compiler features that you might not be aware of but can significantly benefit your project.
+
+5. **Learning and Code Improvement:** By providing specific recommendations, the tool serves as a learning medium, teaching best programming practices for microcontrollers.
+
+### How to Use It?
+
+To use the "Compiler Advisor," you typically need to have a project open in MPLAB X IDE. From there, you can access the tool through the menu or tool panel, select the section of code you wish to analyze, and then run the analysis. The IDE will then present a list of suggestions and insights on how to improve the code.
+
+In summary, the "Compiler Advisor" is a valuable tool for developers looking to optimize their microcontroller projects in terms of both performance and memory efficiency while also improving the overall quality of the code.
+
+The image below shows how you can use this tool. 
+
+![Compiler Advisor](../../images/c_compiler_advisor_analysis.png)

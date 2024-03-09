@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name=".ca/dist/Config_1/production/PIC10F200_SERVO_3_BUTTONS_C.X.production.hex">
+    <memory name="program">
+      <units>words</units>
+      <length>256</length>
+      <used>61</used>
+      <free>195</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>16</length>
+      <used>9</used>
+      <free>7</free>
+    </memory>
+  </executable>
+</project>
