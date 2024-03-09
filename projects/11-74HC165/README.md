@@ -1,5 +1,8 @@
 # PIC and 74HC165 device
 
+
+![Under construction...](../../images/under_construction.png)
+
 The 74HC165 is an integrated circuit commonly used in digital electronics, known as a Parallel-in, Serial-out Shift Register. This device is particularly useful for expanding the input capabilities of a microcontroller, allowing it to read multiple input signals while using a minimal number of I/O pins. Here's a detailed description of the 74HC165:
 
 1. **Functionality**:
