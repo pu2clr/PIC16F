@@ -1,6 +1,9 @@
 # IR with PIC microcontrollers
 
 
+This folder contains several concepts about the main IR protocols and provides examples of implementations using the PIC10F200 and PIC16F628A with various approaches. I believe that these examples will enable you to easily port the source codes to other microcontrollers from Microchip's PIC line.
+
+
 ![UNDER CONSTRUCTION...](../../images/under_construction.png)
 
 
@@ -10,6 +13,7 @@
 2. [Implementing the NEC protocol](#implementing-the-nec-protocol)
 3. [Implementing the Sony SIRC protocol](#implementing-the-sony-sirc-protocol)
 4. [Implementing the RC5 IR protocol](#implementing-the-rc5-ir-protocol)
+5. [PIC10F200 implementation](./PIC10F200/)
 5. [PIC16F628A implematation](./PIC16F628A/)
 6. [References](#references)
 

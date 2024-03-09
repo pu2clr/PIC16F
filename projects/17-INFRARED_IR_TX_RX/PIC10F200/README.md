@@ -4,7 +4,9 @@
 ![Under construction...](../../../images/under_construction.png)
 
 
-The PIC10F200, being one of the simplest and smallest microcontrollers offered by Microchip, presents several challenges for implementing infrared (IR) communication protocols like NEC, Sony, or RC5. These difficulties stem primarily from its limited hardware resources, which include the absence of hardware interrupts, minimal program memory, and a restricted set of peripherals. 
+The PIC10F200, being one of the simplest and smallest microcontrollers offered by Microchip, presents several challenges for implementing infrared (IR) communication protocols like NEC, Sony, or RC5. These difficulties stem primarily from its limited hardware resources, which include the absence of hardware interrupts, minimal program memory, and a restricted set of peripherals.  
+
+In contrast, the PIC10F200 features a compact size and an extremely low cost. These characteristics might influence the selection of this microcontroller depending on the complexity of the application you wish to implement. Below, the challenges of implementing an IR protocol using the PIC10F200 are presented.
 
 ### Lack of Interrupt Capabilities
 
