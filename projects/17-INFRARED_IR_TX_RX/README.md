@@ -314,6 +314,8 @@ You would typically use an interrupt to detect changes on the IR receiver input 
 
 ## References
 
+* [AN-1184 - Remote Control IR Receiver / Decoder ](https://www.renesas.com/us/en/document/apn/1184-remote-control-ir-receiver-decoder)
+* [IR Remote Control Tool (NEC)](http://www.technoblogy.com/show?UVE)
 * [Understanding IR Sensors and IR LEDs: Functions, Differences, and Applications](https://www.electronicsforu.com/technology-trends/learn-electronics/ir-led-infrared-sensor-basics)
 * [NEC Infrared Transmission Protocol](https://techdocs.altium.com/display/FPGA/NEC+Infrared+Transmission+Protocol)
 * [Infrared Transmit and Receive on Circuit Playground Express in C++](https://www.digikey.com/en/maker/projects/infrared-transmit-and-receive-on-circuit-playground-express-in-c/0cdcbf1a087949adbb912f81fa1bcccc)

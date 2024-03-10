@@ -19,20 +19,55 @@ sendBit MACRO
  
 ENDM
 
+; pulses a signal during about 9ms    
 sendPulse9ms MACRO
-    nop
-ENDM
-    
-delay4dot5ms MACRO
-    nop
+    bsf		GPIO, 0		; Make the GP0 high
+    movlw	36		; takes 9ms
+    call	delayWx250us    
+    bcf		GPIO, 0		; Make the GP0 low
 ENDM
 
+; pulses a signal during about 560us
+sendPulse560us MACRO
+    bsf		GPIO, 0		; Make the GP0 high
+    movlw	2		; delays 500us
+    call	delayWx250us
+    movlw	6		; delays 60us
+    call	delayWx10us    
+    bcf		GPIO, 0		; Make the GP0 low    
+ENDM 
+    
+; delays about 4.5ms    
+delay4dot5ms MACRO
+    movlw	18		
+    call	delayWx250us  
+ENDM
+
+; delays about 560us    
+delay560us MACRO
+    movlw	2
+    call	delayWx250us
+    movlw	6
+    call	delayWx10us
+ENDM 
+    
     
   
 ; Declare your variables here
 
-workValue1  equ	0x10    
-workValue2  equ 0x11		
+    
+    
+; irData is an array and stores the 32 bits data to be sent
+irData		equ	    0x10    ; irData[0]
+irData1		equ	    0x11    ; irData[1]
+irData2		equ	    0x12    ; irData[2]
+irData3		equ	    0x13    ; irData[3]
+dummy		equ	    0x14	    
+clockI		equ	    0x15
+clockJ		equ	    0x16
+counterBit	equ	    0x17
+counterByte	equ	    0x18  
+    
 
  
 PSECT AsmCode, class=CODE, delta=2
@@ -45,26 +80,88 @@ MAIN:
     
 MainLoop:		    ; Endless loop
  
-    movlw   10
-    movwf   workValue1
-    call    CheckIR
+    ; In NEC protocol,  the Address and Command are transmitted twice.
+    ; The second time all bits are inverted and can be used for verification of the received message (redundancy)
+    ; LSB is transmitted first.
+    movlw   0B10101010	    ; Address 
+    movwf   irData
+    comf    irData, w	    ; ~Adress (Address inverted bits)   
+    movwf   irData1	     
+    movlw   0B00001111	    ; Command
+    movwf   irData2
+    comf    irData2, w	    ; ~Command	(Commend inverted bits
+    movwf   irData3	
+    call    sendNEC32
  
     goto    MainLoop
     
+
+; Send the 32 bits (4 bytes array) data (irData)    
+sendNEC32: 
+    sendPulse9ms	    ; pulse during 9ms
+    delay4dot5ms	    ; delays 4.5ms
     
-   
-CheckIR: 
-    nop
-    retlw   0    
-
-
-sendByte: 
-    nop
+    movlw	4	    ; index for irData[]	
+    movwf	counterByte
+    ; gets the point to irData array
+    movlw	irData	
+    movwf	FSR	
+sendNEC32NextByte: 
+    movlw	8
+    movwf	counterBit
+sendNEC32NextBit:    
+    btfss	INDF, 7
+    goto	sendZero
+sendOne: 
+    ; sends 1
+    sendPulse560us		    ; send pulse during 560us
+    movlw	6		    ; delay 1690us		    
+    call	delayWx250us	    ; delays about 1500us
+    movlw	16
+    call	delayWx10us	    ; delays about 160us
+    goto	sendNEC32Continue  
+sendZero:  
+    ; sends 0
+    sendPulse560us    
+    delay560us   
+sendNEC32Continue:
+    rlf		INDF 
+    decfsz	counterBit, f
+    goto	sendNEC32NextBit 
+    incf	FSR 
+    decfsz	counterByte
+    goto	sendNEC32NextByte
+    
+    ; Final pulse to end
+    sendPulse560us    
+    delay560us  
+    
     retlw   0
 
+;
+; Delay about WREG x 250us  
+; Parameter: W register    
+delayWx250us: 
+    movwf   clockI    
+    movlw   125
+    movwf   clockJ
+    decfsz  clockJ, f
+    goto    $-1		; 2 cycles = 2us
+    decfsz  clockI, f
+    goto    $-5		; while clockI > 0 do
+    retlw   0
 
-sendNEC: 
-    
+;
+; Delay about WREG x 10us  
+; Parameter: W register       
+delayWx10us:
+    movwf   clockJ
+    goto    $+1		; 2 cycles +    
+    goto    $+1		; 2 cycles +
+    goto    $+1		; 2 cycles +
+    goto    $+1		; 2 cycles +
+    decfsz  clockJ, f
+    goto    $-5		; 2 cycles = 10
     retlw   0
     
 END MAIN
