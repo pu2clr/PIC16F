@@ -326,3 +326,4 @@ You would typically use an interrupt to detect changes on the IR receiver input 
 * [Philips RC5 Infrared Transmission Protocol](https://techdocs.altium.com/display/FPGA/Philips+RC5+Infrared+Transmission+Protocol)
 * [The Philips RC5 IR Remote Control Protocol](http://www.pcbheaven.com/userpages/The_Philips_RC5_Protocol/)
 * [How does the remote control work? Explained](https://lookin-home.medium.com/how-does-the-remote-control-work-explained-564bc7cd0291)
+* [Codes for IR Remotes](https://tasmota.github.io/docs/Codes-for-IR-Remotes/)
