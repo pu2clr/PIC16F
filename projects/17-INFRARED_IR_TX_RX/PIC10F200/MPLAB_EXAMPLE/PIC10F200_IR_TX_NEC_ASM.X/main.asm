@@ -152,6 +152,7 @@ delayWx10us:
     goto    $+1		; 2 cycles +    
     goto    $+1		; 2 cycles +
     goto    $+1		; 2 cycles +
+    nop
     decfsz  clockJ, f	; 1 cycle  + 
     goto    $-5		; 2 cycles 
     retlw   0		; 
