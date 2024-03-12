@@ -7,6 +7,10 @@
     
 #include <xc.inc>
 
+#define KEY_ON_CMD	0B11100000
+#define KEY_ON_ADDR	0B10111111	    
+    
+    
 ; CONFIG
   CONFIG  WDTE = OFF           ; Watchdog Timer (WDT disabled)
   CONFIG  CP = OFF             ; Code Protect (Code protection off)
@@ -83,11 +87,11 @@ MainLoop:		    ; Endless loop
     ; In NEC protocol,  the Address and Command are transmitted twice.
     ; The second time all bits are inverted and can be used for verification of the received message (redundancy)
     ; LSB is transmitted first.
-    movlw   0B10111111	    ; Address 
+    movlw   KEY_ON_ADDR	    ; Address 
     movwf   irData
     comf    irData, w	    ; ~Adress (Address inverted bits)   
     movwf   irData1	     
-    movlw   0B11100000	    ; Command
+    movlw   KEY_ON_CMD	    ; Command
     movwf   irData2
     movwf   irData3	
     call    sendNEC32
@@ -112,7 +116,7 @@ sendNEC32NextByte:
     movlw	8
     movwf	counterBit
 sendNEC32NextBit:    
-    btfss	INDF, 7
+    btfss	INDF, 0
     goto	sendZero
 sendOne: 
     ; sends 1
@@ -127,7 +131,7 @@ sendZero:
     sendPulse560us    
     delay560us   
 sendNEC32Continue:
-    rlf		INDF 
+    rrf		INDF 
     decfsz	counterBit, f
     goto	sendNEC32NextBit 
     incf	FSR 
