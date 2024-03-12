@@ -14,14 +14,7 @@
 ; CONFIG
   CONFIG  WDTE = OFF           ; Watchdog Timer (WDT disabled)
   CONFIG  CP = OFF             ; Code Protect (Code protection off)
-  CONFIG  MCLRE = ON	       ; Master Clear Enable (GP3/MCLR pin function  is MCLR)
-
-
-; Macro - Send a single bit  
-sendBit MACRO
-    nop
- 
-ENDM
+  CONFIG  MCLRE = OFF	        
 
 ; pulses a signal during about 9ms    
 sendPulse9ms MACRO
@@ -54,13 +47,9 @@ delay560us MACRO
     movlw	6
     call	delayWx10us
 ENDM 
-    
-    
+       
   
 ; Declare your variables here
-
-    
-    
 ; irData is an array and stores the 32 bits data to be sent
 irData		equ	    0x10    ; irData[0]
 irData1		equ	    0x11    ; irData[1]
@@ -71,8 +60,6 @@ clockI		equ	    0x15
 clockJ		equ	    0x16
 counterBit	equ	    0x17
 counterByte	equ	    0x18  
-    
-
  
 PSECT AsmCode, class=CODE, delta=2
 
@@ -149,9 +136,9 @@ sendNEC32Continue:
 ; Parameter: W register    
 delayWx250us: 
     movwf   clockI    
-    movlw   125
+    movlw   85
     movwf   clockJ
-    decfsz  clockJ, f
+    decfsz  clockJ, f	; 1 cucle
     goto    $-1		; 2 cycles = 2us
     decfsz  clockI, f
     goto    $-5		; while clockI > 0 do
@@ -165,10 +152,9 @@ delayWx10us:
     goto    $+1		; 2 cycles +    
     goto    $+1		; 2 cycles +
     goto    $+1		; 2 cycles +
-    goto    $+1		; 2 cycles +
-    decfsz  clockJ, f
-    goto    $-5		; 2 cycles = 10
-    retlw   0
+    decfsz  clockJ, f	; 1 cycle  + 
+    goto    $-5		; 2 cycles 
+    retlw   0		; 
     
 END MAIN
 
