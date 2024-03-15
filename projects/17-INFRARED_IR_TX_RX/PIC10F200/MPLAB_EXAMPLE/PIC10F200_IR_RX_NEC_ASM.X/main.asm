@@ -1,5 +1,5 @@
-; UNDER CONSTRUCTION..    
-; Infraread Transmiter  TX TX TX TX TX TX TX      
+; UNDER CONSTRUCTION...
+; Infrared receiver    RX RX RX RX RX RX 
 ; IMPORTANT: If you are using the PIC10F200, to assemble this code correctly, please follow the steps below:
 ; 1. Go to "Project Properties" in MPLAB X.
 ; 2. Select "Global Options" for the pic-as assembler/compiler.
@@ -67,25 +67,17 @@ PSECT AsmCode, class=CODE, delta=2
 MAIN:
     ; GPIO and registers setup
     clrf   GPIO		    ; Sets all GPIO pins as output
-    clrw
+    movlw  0B00000001	    ; Set GP0 as input 
     TRIS   GPIO
     
 MainLoop:		    ; Endless loop
- 
-    ; In NEC protocol,  the Address and Command are transmitted twice.
-    ; The second time all bits are inverted and can be used for verification of the received message (redundancy)
-    ; LSB is transmitted first.
-    movlw   KEY_ON_ADDR	    ; Address 
-    movwf   irData
-    comf    irData, w	    ; ~Adress (Address inverted bits)   
-    movwf   irData1	     
-    movlw   KEY_ON_CMD	    ; Command
-    movwf   irData2
-    movwf   irData3	
-    call    sendNEC32
- 
-    movlw   255
-    call    delayWx250us
+    ; While GP0 is 0
+    btfsc   GPIO, 0
+    goto    $-1
+    btfss   GPIO, 0
+    goto    $-1
+    ; Wait for GP0 becomes low
+    ; Get data
     
     goto    MainLoop
     
@@ -159,6 +151,9 @@ delayWx10us:
     retlw   0		; 
     
 END MAIN
+
+
+
 
 
 
