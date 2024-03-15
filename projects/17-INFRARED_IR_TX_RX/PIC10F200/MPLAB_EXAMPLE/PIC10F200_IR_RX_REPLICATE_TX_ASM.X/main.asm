@@ -1,5 +1,6 @@
-; UNDER CONSTRUCTION...
-; Infrared receiver    RX RX RX RX RX RX 
+; This program just repicates the signal of the IR transmitter
+; A regular LED whil show the signal send by the transmitter.
+;    
 ; IMPORTANT: If you are using the PIC10F200, to assemble this code correctly, please follow the steps below:
 ; 1. Go to "Project Properties" in MPLAB X.
 ; 2. Select "Global Options" for the pic-as assembler/compiler.
