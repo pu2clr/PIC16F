@@ -3,8 +3,8 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>PIC10F200_IR_RX_NEC_ASM</name>
-            <creation-uuid>20953a36-a42d-4045-9b61-0783bd1e046c</creation-uuid>
+            <name>PIC10F200_IR_RX_REPLICATE_TX_ASM</name>
+            <creation-uuid>2398eb01-f2ab-4682-aa50-9312ce786c50</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
