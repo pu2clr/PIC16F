@@ -26,6 +26,7 @@ MAIN:
     movlw  0B00000001	    ; Set GP0 as input and GP1 as output
     TRIS   GPIO
     
+    clrf   GPIO
 MainLoop:		    ; Endless loop
     ; While GP0 is 0
     btfsc   GPIO, 0
