@@ -5,6 +5,7 @@
  * Author: rcaratti
  *
  * Created on March 15, 2024, 10:57 PM
+ * Reference: https://saeedsolutions.blogspot.com/2012/07/pic12f675-pwm-code-proteus-simulation.html
  */
 
 
@@ -30,12 +31,12 @@ void __interrupt() ISR(void)
 {
     if ( T0IF ) {
         
-        if (GP0 ) {
+        if (GP5 ) {
             TMR0 = PWM;
-            GP0 = 0;
+            GP5 = 0;
         } else {
             TMR0 = 255 - PWM;
-            GP0 = 1;
+            GP5 = 1;
         }
         
         T0IF = 0;
@@ -44,25 +45,24 @@ void __interrupt() ISR(void)
 }
 
 void main() {
-
+   
     // Interrupt and I/O setup      
     // set GP0 as input
     // set GP2 as interrupt
     // see data sheet (page 20)
-    TRISIO = 0B00000001;            // GP0 as input 
-    IOC    = 0B00000100;            // GP2 - Interrupt-on-change enabled
+    TRISIO = 0B00000001;            // GP0 as input (if you want use a push button)
     
-    // GIE: Enable Global Interrupt
-    // TMR0: Overflow Interrupt 
-    INTCON |= 0B10010000;           // see data sheet (page 13)      
+ 
     // INTEDG: Interrupt Edge Select bit -  Interrupt will be triggered on the rising edge
-    OPTION_REG |= 0B01000000;       // see  data sheet (page 12)
-    
-   
+    // Prescaler Rate: 1:64 - It generates about 73Hz 
+    OPTION_REG = 0B01000101;       // see  data sheet (page 12)    
+    T0IE = 1;   // TMR0: Overflow Interrupt 
+    GIE = 1;    // GIE: Enable Global Interrupt
+       
     PWM = 127;
     
     while (1) {
-        // SLEEP(); // Place the MCU in a low-power sleep mode where it can be awakened by any key press
+        // Now you can get an analogic or digital value and control de cooler by changing PWV value
     }
 }
 
