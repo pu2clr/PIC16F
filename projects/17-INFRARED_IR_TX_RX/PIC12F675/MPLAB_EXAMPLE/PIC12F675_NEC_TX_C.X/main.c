@@ -67,19 +67,24 @@ void __interrupt() ISR(void)
 
 void main() {
 
-    // Interrupt setup    
-    TRISIO2 = 1;            // set GP2 as interrupt
-    INTCON |= 0x90;         // Enable global interrupt 
-    OPTION_REG |= 0x40;     // Defines that the interrupt will be triggered on the rising edge (POSEDGE triggered) 
-
-    T0IE = 1; 
-    GIE = 1;
+    // Interrupt and I/O setup      
+    // set GP0 as input
+    // set GP2 as interrupt
+    // see data sheet (page 20)
+    TRISIO = 0B00000001;            // GP0 as input 
+    IOC    = 0B00000100;            // GP2 - Interrupt-on-change enabled
     
+    // GIE: Enable Global Interrupt
+    // TMR0: Overflow Interrupt 
+    INTCON |= 0B10010000;           // see data sheet (page 13)      
+    // INTEDG: Interrupt Edge Select bit -  Interrupt will be triggered on the rising edge
+    OPTION_REG |= 0B01000000;       // see  data sheet (page 12)
+    
+   
     PWM = 127;
     
     while (1) {
-        SLEEP(); //put the MCU into Sleep mode forever , will wake-up when ever any key press is detected. 
-        // the measured current consumption in this mode is ~ 29na ( much lower then the datasheet claim 50na)
+        // SLEEP(); // Place the MCU in a low-power sleep mode where it can be awakened by any key press
     }
 }
 
