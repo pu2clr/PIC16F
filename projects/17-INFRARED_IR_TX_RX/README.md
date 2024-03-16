@@ -327,3 +327,5 @@ You would typically use an interrupt to detect changes on the IR receiver input 
 * [The Philips RC5 IR Remote Control Protocol](http://www.pcbheaven.com/userpages/The_Philips_RC5_Protocol/)
 * [How does the remote control work? Explained](https://lookin-home.medium.com/how-does-the-remote-control-work-explained-564bc7cd0291)
 * [Codes for IR Remotes](https://tasmota.github.io/docs/Codes-for-IR-Remotes/)
+* [RC5 remote control with PIC12F629](https://www.picbasic.nl/frameload_uk.htm?https://www.picbasic.nl/rc5_remote_uk.htm)
+* [NEC Protocol IR (Infrared) Remote Control With a Microcontroller](https://pic-microcontroller.com/nec-protocol-ir-infrared-remote-control-with-a-microcontroller/)
