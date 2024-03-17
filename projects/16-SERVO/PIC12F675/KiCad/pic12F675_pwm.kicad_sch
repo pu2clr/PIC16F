@@ -1,0 +1,475 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid 73c37809-7617-4b9f-a70a-5c31575fa255)
+
+  (paper "User" 200 140.005)
+
+  (title_block
+    (title "Basic PWM with PIC12F675, ADC, Timer and Interrupt")
+    (company "Ricardo Lima Caratti")
+  )
+
+  (lib_symbols
+    (symbol "Device:R_Potentiometer" (pin_names (offset 1.016) hide) (in_bom yes) (on_board yes)
+      (property "Reference" "RV" (at -4.445 0 90)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Value" "R_Potentiometer" (at -2.54 0 90)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "~" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_keywords" "resistor variable" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "Potentiometer" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_fp_filters" "Potentiometer*" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "R_Potentiometer_0_1"
+        (polyline
+          (pts
+            (xy 2.54 0)
+            (xy 1.524 0)
+          )
+          (stroke (width 0) (type default))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 1.143 0)
+            (xy 2.286 0.508)
+            (xy 2.286 -0.508)
+            (xy 1.143 0)
+          )
+          (stroke (width 0) (type default))
+          (fill (type outline))
+        )
+        (rectangle (start 1.016 2.54) (end -1.016 -2.54)
+          (stroke (width 0.254) (type default))
+          (fill (type none))
+        )
+      )
+      (symbol "R_Potentiometer_1_1"
+        (pin passive line (at 0 3.81 270) (length 1.27)
+          (name "1" (effects (font (size 1.27 1.27))))
+          (number "1" (effects (font (size 1.27 1.27))))
+        )
+        (pin passive line (at 3.81 0 180) (length 1.27)
+          (name "2" (effects (font (size 1.27 1.27))))
+          (number "2" (effects (font (size 1.27 1.27))))
+        )
+        (pin passive line (at 0 -3.81 90) (length 1.27)
+          (name "3" (effects (font (size 1.27 1.27))))
+          (number "3" (effects (font (size 1.27 1.27))))
+        )
+      )
+    )
+    (symbol "MCU_Microchip_PIC12:PIC12F675-IP" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+      (property "Reference" "U" (at 1.27 13.97 0)
+        (effects (font (size 1.27 1.27)) (justify left))
+      )
+      (property "Value" "PIC12F675-IP" (at 1.27 11.43 0)
+        (effects (font (size 1.27 1.27)) (justify left))
+      )
+      (property "Footprint" "Package_DIP:DIP-8_W7.62mm" (at 15.24 16.51 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "http://ww1.microchip.com/downloads/en/DeviceDoc/41190G.pdf" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_keywords" "FLASH-Based 8-Bit CMOS Microcontroller" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "1024W Flash, 64B SRAM, 128B EEPROM, PDIP8" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_fp_filters" "DIP*W7.62mm*" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "PIC12F675-IP_0_1"
+        (rectangle (start 10.16 -10.16) (end -10.16 10.16)
+          (stroke (width 0.254) (type default))
+          (fill (type background))
+        )
+      )
+      (symbol "PIC12F675-IP_1_1"
+        (pin power_in line (at 0 15.24 270) (length 5.08)
+          (name "VDD" (effects (font (size 1.27 1.27))))
+          (number "1" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at 15.24 -2.54 180) (length 5.08)
+          (name "GP5" (effects (font (size 1.27 1.27))))
+          (number "2" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at 15.24 0 180) (length 5.08)
+          (name "GP4" (effects (font (size 1.27 1.27))))
+          (number "3" (effects (font (size 1.27 1.27))))
+        )
+        (pin input line (at 15.24 2.54 180) (length 5.08)
+          (name "GP3" (effects (font (size 1.27 1.27))))
+          (number "4" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at -15.24 -2.54 0) (length 5.08)
+          (name "GP2" (effects (font (size 1.27 1.27))))
+          (number "5" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at -15.24 0 0) (length 5.08)
+          (name "GP1" (effects (font (size 1.27 1.27))))
+          (number "6" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at -15.24 2.54 0) (length 5.08)
+          (name "GP0" (effects (font (size 1.27 1.27))))
+          (number "7" (effects (font (size 1.27 1.27))))
+        )
+        (pin power_in line (at 0 -15.24 90) (length 5.08)
+          (name "VSS" (effects (font (size 1.27 1.27))))
+          (number "8" (effects (font (size 1.27 1.27))))
+        )
+      )
+    )
+    (symbol "power:+5V" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
+      (property "Reference" "#PWR" (at 0 -3.81 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Value" "+5V" (at 0 3.556 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_keywords" "global power" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "Power symbol creates a global label with name \"+5V\"" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "+5V_0_1"
+        (polyline
+          (pts
+            (xy -0.762 1.27)
+            (xy 0 2.54)
+          )
+          (stroke (width 0) (type default))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 0 0)
+            (xy 0 2.54)
+          )
+          (stroke (width 0) (type default))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 0 2.54)
+            (xy 0.762 1.27)
+          )
+          (stroke (width 0) (type default))
+          (fill (type none))
+        )
+      )
+      (symbol "+5V_1_1"
+        (pin power_in line (at 0 0 90) (length 0) hide
+          (name "+5V" (effects (font (size 1.27 1.27))))
+          (number "1" (effects (font (size 1.27 1.27))))
+        )
+      )
+    )
+    (symbol "power:GND" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
+      (property "Reference" "#PWR" (at 0 -6.35 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Value" "GND" (at 0 -3.81 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_keywords" "global power" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "Power symbol creates a global label with name \"GND\" , ground" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "GND_0_1"
+        (polyline
+          (pts
+            (xy 0 0)
+            (xy 0 -1.27)
+            (xy 1.27 -1.27)
+            (xy 0 -2.54)
+            (xy -1.27 -1.27)
+            (xy 0 -1.27)
+          )
+          (stroke (width 0) (type default))
+          (fill (type none))
+        )
+      )
+      (symbol "GND_1_1"
+        (pin power_in line (at 0 0 270) (length 0) hide
+          (name "GND" (effects (font (size 1.27 1.27))))
+          (number "1" (effects (font (size 1.27 1.27))))
+        )
+      )
+    )
+  )
+
+  (junction (at 123.19 55.88) (diameter 0) (color 0 0 0 0)
+    (uuid 78a219f1-6aaa-4484-bb50-9962a4fd701c)
+  )
+  (junction (at 99.06 71.12) (diameter 0) (color 0 0 0 0)
+    (uuid 948db78d-3203-416b-b3ad-4f838261c811)
+  )
+  (junction (at 99.06 33.02) (diameter 0) (color 0 0 0 0)
+    (uuid f24aeeba-965e-4e46-b0cb-fa96b972c547)
+  )
+
+  (wire (pts (xy 114.3 55.88) (xy 123.19 55.88))
+    (stroke (width 0) (type default))
+    (uuid 117badf6-eba6-49f7-b11f-f79458c95e4c)
+  )
+  (wire (pts (xy 99.06 67.31) (xy 99.06 71.12))
+    (stroke (width 0) (type default))
+    (uuid 319aedc7-6008-49c4-95cf-002eaa37aa30)
+  )
+  (wire (pts (xy 99.06 71.12) (xy 99.06 76.2))
+    (stroke (width 0) (type default))
+    (uuid 4d42fa85-fbbd-4341-9ed9-a05494486b5e)
+  )
+  (wire (pts (xy 114.3 54.61) (xy 114.3 55.88))
+    (stroke (width 0) (type default))
+    (uuid 6285b6a3-b235-478a-8346-ee41e6af48fa)
+  )
+  (wire (pts (xy 99.06 30.48) (xy 99.06 33.02))
+    (stroke (width 0) (type default))
+    (uuid 69b50c0f-8244-43e1-a147-5a7326874c42)
+  )
+  (wire (pts (xy 60.96 49.53) (xy 83.82 49.53))
+    (stroke (width 0) (type default))
+    (uuid aa43ff3b-0e80-494d-8b43-e7a54e68c9c4)
+  )
+  (wire (pts (xy 127 52.07) (xy 127 33.02))
+    (stroke (width 0) (type default))
+    (uuid caaa1cf3-15a5-4148-b987-d976a5d05d5c)
+  )
+  (wire (pts (xy 123.19 55.88) (xy 124.46 55.88))
+    (stroke (width 0) (type default))
+    (uuid d7e51504-f0b1-489c-8bdc-d0d9a3f19a3e)
+  )
+  (wire (pts (xy 127 59.69) (xy 127 71.12))
+    (stroke (width 0) (type default))
+    (uuid d9bbe3d7-2d81-4410-a497-8e29d2a6b19c)
+  )
+  (wire (pts (xy 99.06 33.02) (xy 99.06 36.83))
+    (stroke (width 0) (type default))
+    (uuid da83b07c-d43b-4fca-8bfc-4982a92a700c)
+  )
+  (wire (pts (xy 127 33.02) (xy 99.06 33.02))
+    (stroke (width 0) (type default))
+    (uuid e4c88a54-d23a-4771-b0e9-b97c3220c705)
+  )
+  (wire (pts (xy 127 71.12) (xy 99.06 71.12))
+    (stroke (width 0) (type default))
+    (uuid ea1a2f7e-4ce1-4c10-b6d7-4520f1a85012)
+  )
+
+  (image (at 45.72 49.53)
+    (uuid 7cbd4d86-d933-46ad-85eb-ca7ee2a67993)
+    (data
+      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
+      CvwfjJeaN2KPZaUAAAAASUVORK5CYII=
+    )
+  )
+
+  (symbol (lib_id "MCU_Microchip_PIC12:PIC12F675-IP") (at 99.06 52.07 180) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 5b32d3a0-c8f4-4811-a508-263560bd46ba)
+    (property "Reference" "U1" (at 111.76 40.64 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "PIC12F675-IP" (at 116.84 38.1 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "Package_DIP:DIP-8_W7.62mm" (at 83.82 68.58 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "http://ww1.microchip.com/downloads/en/DeviceDoc/41190G.pdf" (at 99.06 52.07 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid bd571b10-b07c-4f06-9fa8-4c4f86092f80))
+    (pin "2" (uuid c26a0ff0-4c88-4cdf-ac34-6cc290f36e6d))
+    (pin "3" (uuid 6abf4bda-dd81-4873-9334-2b68519563d6))
+    (pin "4" (uuid 4d0fb5bf-28c3-494a-af69-a986f3db3070))
+    (pin "5" (uuid 9f920801-a04a-4e10-b244-2ec372ad62da))
+    (pin "6" (uuid 8d5debc0-18cb-416a-9c2e-c4244d34a70a))
+    (pin "7" (uuid aa3943c6-b8d2-4a0d-942d-61e25bd89f81))
+    (pin "8" (uuid 70ff19d4-b79e-4e2d-8cfd-efdf29a072b0))
+    (instances
+      (project "pic12F675_pwm"
+        (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
+          (reference "U1") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:GND") (at 99.06 30.48 180) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 7931e052-7e69-40eb-83b0-d5a03f2b7616)
+    (property "Reference" "#PWR02" (at 99.06 24.13 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "GND" (at 99.06 25.4 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 99.06 30.48 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 99.06 30.48 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 9f8911ea-1e63-47d3-8872-0afb466bb5c2))
+    (instances
+      (project "pic12F675_pwm"
+        (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
+          (reference "#PWR02") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Device:R_Potentiometer") (at 127 55.88 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid e04ce0f3-b1f4-4ebe-9219-08c6ab7b8d19)
+    (property "Reference" "RV1" (at 129.54 54.61 0)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Value" "10K" (at 129.54 57.15 0)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Footprint" "" (at 127 55.88 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 127 55.88 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid f1dc18ae-1c9d-4021-be2d-7111ae8d8fbf))
+    (pin "2" (uuid 1048fcde-6432-4feb-8dcf-c0042fa3760a))
+    (pin "3" (uuid 074a95ec-0b71-44e2-a498-2b3bb9340545))
+    (instances
+      (project "pic12F675_pwm"
+        (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
+          (reference "RV1") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:+5V") (at 99.06 76.2 180) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid ef5fd2fe-d95e-4172-9a63-dd4dc82feea2)
+    (property "Reference" "#PWR01" (at 99.06 83.82 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "+5V" (at 99.06 81.28 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 99.06 76.2 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 99.06 76.2 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 55cb9ca8-31d1-4444-95af-b0b67132c9ab))
+    (instances
+      (project "pic12F675_pwm"
+        (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
+          (reference "#PWR01") (unit 1)
+        )
+      )
+    )
+  )
+
+  (sheet_instances
+    (path "/" (page "1"))
+  )
+)

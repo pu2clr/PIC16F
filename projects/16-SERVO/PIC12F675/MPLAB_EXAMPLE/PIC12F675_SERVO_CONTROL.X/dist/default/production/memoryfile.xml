@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/production/PIC12F675_SERVO_CONTROL.X.production.hex">
+    <memory name="program">
+      <units>words</units>
+      <length>1024</length>
+      <used>87</used>
+      <free>937</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>64</length>
+      <used>11</used>
+      <free>53</free>
+    </memory>
+  </executable>
+</project>
