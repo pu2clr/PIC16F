@@ -29,6 +29,7 @@ The pulse width (PWM) will vary according to the voltage input value, enabling r
 
 ## Schematic 
 
+![PWM and PIC12F675 schematic](./schematic_pwm_with_pic12F675.jpg)
 
 
 ### About the PIC12675
