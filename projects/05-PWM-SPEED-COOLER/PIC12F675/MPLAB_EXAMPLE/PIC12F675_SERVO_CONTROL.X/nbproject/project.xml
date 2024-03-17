@@ -3,10 +3,9 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>PIC12F675_PWM_COOLER</name>
-            <creation-uuid>c2fa2c66-fe22-4eac-9850-c6a751fce237</creation-uuid>
+            <name>PIC12F675_SERVO_CONTROL</name>
+            <creation-uuid>32f41961-fd20-44ba-b654-40eceaa1407b</creation-uuid>
             <make-project-type>0</make-project-type>
-            <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList/>
             <confList>
@@ -15,6 +14,7 @@
                     <type>2</type>
                 </confElem>
             </confList>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
             <formatting>
                 <project-formatting-style>false</project-formatting-style>
             </formatting>
