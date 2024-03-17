@@ -18,6 +18,7 @@
                    displayName="Source Files"
                    projectFiles="true">
     </logicalFolder>
+    <itemPath>main.c</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
