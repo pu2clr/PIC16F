@@ -22,7 +22,7 @@ In this experiment, a fan speed (or PWM signal) will be controlled by the analog
 The key aspect of this experiment is that regardless of what is connected to the analog input of the microcontroller, the generated PWM signal will be able to vary in real time according to the value of the received analog signal.
 Again, if you use a temperature sensor, you can configure it for temperatures below 20°C, the cooler will not run and for temperatures above 60°C, the cooler will reach its maximum speed.
 
-To control the fan speed (or PWM signal) effectively, the interrupt feature of the PIC12F675 microcontroller can be utilized in conjunction with the internal timer function. In this setup, whenever the internal counter (Timer0) overflows, a function responsible for controlling the signal level of a digital output pin on the PIC12F675 will be executed.
+To control the fan speed (or PWM signal) effectively, the interrupt feature of the PIC12F675 microcontroller can be utilized in conjunction with the internal timer function. In this setup, whenever the internal counter (Timer0) overflows, a function responsible for controlling the signal level of a digital output pin on the PIC12F675 will be executed. This method allows for a more accurate simulation of a PWM output on a digital output pin of the PIC12F675.
 
 The pulse width (PWM) will vary according to the voltage input value, enabling real-time adjustment of the fan speed.
 
@@ -46,5 +46,6 @@ The PIC12F675 is a compact and versatile 8-bit microcontroller from Microchip Te
 
 ## References
 
+* [PWM pulse generation using PIC12F675 micro-controller](https://labprojectsbd.com/2021/03/31/pwm-pulse-generation-using-pic12f675-micro-controller/)
 * [PIC12F675 PWM Code + Proteus Simulation](https://saeedsolutions.blogspot.com/2012/07/pic12f675-pwm-code-proteus-simulation.html)
 
