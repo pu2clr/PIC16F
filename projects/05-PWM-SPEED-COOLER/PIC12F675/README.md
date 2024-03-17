@@ -7,7 +7,7 @@ Generating PWM with PIC12F675 and interrupt resource.
 ## Content
 
 - [About this experiment](#about-this-experiment)
-- [Schematic](#schematic)
+- [Schematic](#schematics)
   * [KiCad schematic](./KiCad/)
 - [About the PIC12675](#about-the-pic12675)
 - [Prototype](#prototype)
@@ -27,9 +27,22 @@ To control the fan speed (or PWM signal) effectively, the interrupt feature of t
 The pulse width (PWM) will vary according to the voltage input value, enabling real-time adjustment of the fan speed.
 
 
-## Schematic 
+## Schematics 
 
-![PWM and PIC12F675 schematic](./schematic_pwm_with_pic12F675.jpg)
+### PWM General exsample schematic
+
+![PWM General exsample schematic](./schematic_pwm_with_pic12F675.jpg)
+
+
+### PWM Servo and PIC12F675 schematic
+
+
+![PWM Servo and PIC12F675 schematic](./schematic_servo_pwm_pic12F675.jpg)
+
+### PWM and 4-wires Cooler and PIC12F675 schematic
+
+![PWM and 4-wires Cooler and PIC12F675 schematic](./schematic_4_wire_cooler_pwm_pic12F675.jpg)
+
 
 
 ### About the PIC12675
