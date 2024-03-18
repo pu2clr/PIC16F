@@ -56,6 +56,7 @@ The PIC12F675 is a compact and versatile 8-bit microcontroller from Microchip Te
 ## Prototype
 
 
+![PIC12F675 PWM SERVO Prototype](./protype_pic12f675_pwm_servo.jpg)
 
 
 ## References
