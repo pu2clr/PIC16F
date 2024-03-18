@@ -1,8 +1,6 @@
 # PWM with PIC12F675
 
-![UNDER CONSTRUCTION...](./../../../images/under_construction.png)
-
-Generating PWM with PIC12F675 and interrupt resource.
+Generating PWM with PIC12F675 and  interrupt resource.
 
 ## Content
 
@@ -38,11 +36,6 @@ The pulse width (PWM) will vary according to the voltage input value, enabling r
 
 
 ![PWM Servo and PIC12F675 schematic](./schematic_servo_pwm_pic12F675.jpg)
-
-### PWM and 4-wires Cooler and PIC12F675 schematic
-
-![PWM and 4-wires Cooler and PIC12F675 schematic](./schematic_4_wire_cooler_pwm_pic12F675.jpg)
-
 
 
 ### About the PIC12675
