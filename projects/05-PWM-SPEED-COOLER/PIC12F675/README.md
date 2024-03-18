@@ -25,7 +25,7 @@ The pulse width (PWM) will vary according to the voltage input value, enabling r
 
 ## Schematics 
 
-### PWM General exsample schematic
+### PWM General example schematic
 
 ![PWM General exsample schematic](./schematic_pwm_with_pic12F675.jpg)
 
