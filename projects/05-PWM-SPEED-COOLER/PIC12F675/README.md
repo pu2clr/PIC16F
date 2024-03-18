@@ -1,8 +1,4 @@
-# PWM with PIC12F675
-
-![UNDER CONSTRUCTION...](./../../../images/under_construction.png)
-
-Generating PWM with PIC12F675 and interrupt resource.
+# Generating PWM with PIC12F675 and interrupt resource.
 
 ## Content
 
@@ -56,6 +52,7 @@ The PIC12F675 is a compact and versatile 8-bit microcontroller from Microchip Te
 ## Prototype
 
 
+![Prototype](./protype_pic12f675_pwm_servo.jpg)
 
 
 ## References
