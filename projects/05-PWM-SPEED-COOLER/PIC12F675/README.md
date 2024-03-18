@@ -30,10 +30,12 @@ The pulse width (PWM) will vary according to the voltage input value, enabling r
 ![PWM General exsample schematic](./schematic_pwm_with_pic12F675.jpg)
 
 
-### PWM Servo and PIC12F675 schematic
+### Schematic - L293D H-bridge with DC MOTOR controlled by PIC12F675 via PWM
 
 
-![PWM Servo and PIC12F675 schematic](./schematic_servo_pwm_pic12F675.jpg)
+![Schematic - L293D H-bridge with DC MOTOR controlled by PIC12F675 via PWM](././schematic_pic12F675_L293D_DC_MOTOR_ADC_PWM.jpg)
+
+
 
 ### PWM and 4-wires Cooler and PIC12F675 schematic
 
