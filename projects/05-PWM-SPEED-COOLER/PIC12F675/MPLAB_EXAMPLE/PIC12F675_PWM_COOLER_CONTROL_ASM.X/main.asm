@@ -1,4 +1,4 @@
-;
+; UNDER CONSTRUCTION... 
 ; Author: Ricardo Lima Caratti
 ; Jan/2024
     
@@ -39,47 +39,11 @@ main:
     movlw   0b00000010		; AN1 as analog 
     movwf   ANSEL	 	; Sets GP1 as analog and Clock / 8
     bcf	    STATUS, 5		; Selects bank 0
-    
-;  See PIC Assembler Tips: http://picprojects.org.uk/projects/pictips.htm 
-    
+       
 MainLoopBegin:		    ; Endless loop
-    call AdcRead	    ; read the temperature value
-    ; Checks if the temperature is lower, equal to, or higher than 37. Considering that 37 degrees Celsius is the threshold or transition value for fever.
-    movlw 77		    ; 77 is the equivalent ADC value to 37 degree Celsius  
-    subwf temp,w	    ; subtract W from the temp 
-    btfsc STATUS, 2	    ; if Z flag  = 0; temp == wreg ?  
-    goto  AlmostFever	    ; temp = wreg
-    btfss STATUS, 0	    ; if C flag = 1; temp < wreg?   
-    goto  Normal	    ; temp < wreg
-    btfsc STATUS, 0         ; if C flag = 0 
-    goto  Fever		    ; temp >= wreg  (iqual was tested before, so just > is available here)
-    goto MainLoopEnd
-    
-AlmostFever:		    ; Temperature is 37
-    ; BlinkLED
-    call Delay
-    bsf GPIO,0
-    call Delay
-    bcf GPIO,0        
-    goto MainLoopEnd
-Fever:			    ; Temperature is greater than 37
-    ; Turn the  LED ON
-    bsf GPIO,0
-    goto MainLoopEnd
+    call AdcRead	    ; read ADC value
 
-Normal: 
-    ; Turn the LED off
-    bcf GPIO,0  
-    goto MainLoopEnd
-    
-ReadError: 
-    ; BlinkLED faster
-    movlw 1
-    movwf delayParam
-    call Delay
-    bsf GPIO,0
-    call Delay
-    bcf GPIO,0        
+     
   
 MainLoopEnd:     
   
@@ -118,7 +82,7 @@ Delay:
     movlw   255
     movwf   dummy1      ; 255 times
     movwf   dummy2      ; 255 times (255 * 255)
-			; 255 * 255 * delayParam loaded before calling Delay    
+		; 255 * 255 * delayParam loaded before calling Delay    
 DelayLoop:    
     nop                 ; One cycle
     nop                 ; One cycle
@@ -132,5 +96,8 @@ DelayLoop:
     return 
    
 END resetVect
+
+
+
 
 
