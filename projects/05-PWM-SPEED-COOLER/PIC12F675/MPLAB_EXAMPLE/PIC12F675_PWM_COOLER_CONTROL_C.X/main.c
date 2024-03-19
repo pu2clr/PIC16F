@@ -1,5 +1,4 @@
 /*
- * UNDER CONSTRUCTON...
  * 
  * File:   main.c
  * Author: rcaratti
@@ -12,7 +11,7 @@
 #pragma config FOSC = INTRCIO   // Oscillator Selection bits (INTOSC oscillator: I/O function on GP4/OSC2/CLKOUT pin, I/O function on GP5/OSC1/CLKIN)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled)
 #pragma config PWRTE = OFF      // Power-Up Timer Enable bit (PWRT disabled)
-#pragma config MCLRE = ON       // GP3/MCLR pin function select (GP3/MCLR pin function is MCLR)
+#pragma config MCLRE = OFF       // GP3/MCLR pin function select (GP3/MCLR pin function is MCLR)
 #pragma config BOREN = ON       // Brown-out Detect Enable bit (BOD enabled)
 #pragma config CP = OFF         // Code Protection bit (Program Memory code protection is disabled)
 #pragma config CPD = OFF        // Data Code Protection bit (Data memory code protection is disabled)
@@ -22,7 +21,24 @@
 
 #include <xc.h>
 
-uint8_t PWM;
+uint8_t PWM = 50;
+
+
+
+void  initADC() {
+    TRISIO = 0B00000001;          // GP0 as input and GP1, GP2, GP4 and GP5 as digital output
+    ANSEL =  0b00010001;          // AN0 as analog input
+    ADCON0 = 0b10000001;          // Right justified; VDD;  01 = Channel 00 (AN0); A/D converter module is 
+}
+
+void  initInterrupt() {
+    // INTEDG: Interrupt Edge Select bit -  Interrupt will be triggered on the rising edge
+    // Prescaler Rate: 1:64 - It generates about 73Hz (assigned to the TIMER0 module)
+    OPTION_REG = 0B01000101;       // see  data sheet (page 12)    
+    T0IE = 1;                      // TMR0: Overflow Interrupt 
+    GIE = 1;                       // GIE: Enable Global Interrupt
+}
+
 
 /**
  * Handle timer overflow
@@ -44,25 +60,22 @@ void __interrupt() ISR(void)
     
 }
 
+unsigned int readADC() {
+    ADCON0bits.GO = 1;              // Start conversion
+    while (ADCON0bits.GO_nDONE);    // Wait for conversion to finish
+    return ((unsigned int) ADRESH << 8) + (unsigned int) ADRESL;  // return the ADC 10 bit integer value 1024 ~= 5V, 512 ~= 2.5V, ... 0 = 0V
+}
+
+
+
 void main() {
    
-    // Interrupt and I/O setup      
-    // set GP0 as input
-    // set GP2 as interrupt
-    // see data sheet (page 20)
-    TRISIO = 0B00000001;            // GP0 as input (if you want use a push button)
-    
- 
-    // INTEDG: Interrupt Edge Select bit -  Interrupt will be triggered on the rising edge
-    // Prescaler Rate: 1:64 - It generates about 73Hz 
-    OPTION_REG = 0B01000101;       // see  data sheet (page 12)    
-    T0IE = 1;   // TMR0: Overflow Interrupt 
-    GIE = 1;    // GIE: Enable Global Interrupt
-       
-    PWM = 127;
+    initADC();
+    initInterrupt();
     
     while (1) {
-        // Now you can get an analogic or digital value and control de cooler by changing PWV value
+        unsigned int value = readADC();
+        PWM = (uint8_t) (value >> 2);
     }
 }
 

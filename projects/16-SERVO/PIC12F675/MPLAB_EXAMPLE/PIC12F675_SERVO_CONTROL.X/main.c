@@ -1,6 +1,4 @@
 /*
- * UNDER CONSTRUCTON...
- * 
  * File:   main.c
  * Author: rcaratti
  *
