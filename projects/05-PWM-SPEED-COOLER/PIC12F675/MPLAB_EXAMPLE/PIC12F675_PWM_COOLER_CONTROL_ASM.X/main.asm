@@ -14,11 +14,13 @@
   CONFIG  CPD = OFF             ; Data Code Protection bit (Data memory code protection is disabled) 
   
 ; declare your variables here
+
 dummy1	    equ 0x20 
 dummy2	    equ 0x21 
 delayParam  equ 0x22 
-temp	    equ 0x23
-
+adcValueL   equ 0x23
+adcValueH   equ 0x24
+pwm	    equ	0x25   
     
 PSECT resetVector, class=CODE, delta=2
 resetVect:
@@ -26,24 +28,45 @@ resetVect:
     goto main
 PSECT code, delta=2
 main:
-    ; Analog and Digital pins setup
+    ; Interrupt, Analog and Digital pins setup
     bcf	    STATUS, 5		; Selects Bank 0
     clrf    GPIO		; Init GPIO	
     clrf    CMCON		; COMPARATOR Register Setup
-    movlw   0b10000101 		; Right justified; VDD;  01 = Channel 01 (AN1); A/D converter module is 
+    movlw   0b10000001 		; Right justified; VDD;  01 = Channel 00 (AN0); A/D converter module is 
     movwf   ADCON0		; Enable ADC   
-    bsf	    STATUS, 5		; Selects Bank 1
+    ; INTERRUPT SETUP
+    movlw   0B10100000		; ******>>> CHECK IT   
+    iorwf   INTCON, f		; GIE and T0IE enable
+
     
-    movlw   0b00000010		
+    bsf	    STATUS, 5		; Selects Bank 1   
+    movlw   0b00010001		
     movwf   TRISIO		; AN1 - input
-    movlw   0b00000010		; AN1 as analog 
+    movlw   0b00010001		; AN1 as analog 
     movwf   ANSEL	 	; Sets GP1 as analog and Clock / 8
+    movlw   0B01000101
+    movwf   OPTION_REG 
     bcf	    STATUS, 5		; Selects bank 0
+
        
 MainLoopBegin:		    ; Endless loop
-    call AdcRead	    ; read ADC value
-
-     
+    ; call    AdcRead	    ; reads ADC value and returns in adcValueL and adcValueH
+    ; divides 16 bits (actually 10 integer) by 4  
+    nop
+    nop
+    rrf	    adcValueL
+    rrf	    adcValueL
+    movf    adcValueL, w
+    andlw   0B00111111
+    movwf   adcValueL
+    swapf   adcValueH
+    rlf	    adcValueH	
+    rlf	    adcValueH	     
+    movf    adcValueH, w
+    andlw   0B11000000
+    iorwf   adcValueL, w    
+    movwf   pwm		    ;  adcValueL has now the 10 adc bit value divided by 4.  
+    ; TO BE CONTINUE...
   
 MainLoopEnd:     
   
@@ -66,10 +89,12 @@ WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1
     
     bsf	  STATUS, 5		; Select bank1 to deal with ADRESL register
     movf  ADRESL, w		
-    movwf temp			; If temp => 77 the temperature is about 37 degree Celsius
+    movwf adcValueL			; 
     bcf	  STATUS, 5		; Select to bank 0
+    movf  ADRESH, w		
+    movwf adcValueH   
+    
     return
-   
 ; ******************
 ; Delay function
 ;
