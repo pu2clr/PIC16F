@@ -29,8 +29,10 @@ resetVect:
 ;
 ; INTERRUPT - FUNCTION SETUP  
 ; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow 
-PSECT isrVec,class=CODE,delta=2   
-isr:     
+PSECT isrVector,class=CODE,delta=2   
+isrVec:  
+    PAGESEL isr
+isr:    
     ; check if the interrupt was trigged by Timer0	
     btfss   INTCON, 2	; T0IF: TMR0 Overflow Interrupt Flag 
     goto    PWM_FINISH
@@ -49,9 +51,6 @@ PWM_HIGH:
     movf    pwm,w
     subwf   TMR0 
     bsf	    GPIO, 5
-    
-    bcf INTCON, 2	; clear the T0IF Interrupt flag
-    
 PWM_FINISH:
     retfie
 
@@ -60,25 +59,27 @@ PWM_FINISH:
 PSECT code, delta=2
 main:
     ; Interrupt, Analog and Digital pins setup
-    bcf	    STATUS, 5		; Selects Bank 0
-    clrf    GPIO		; Init GPIO	
-    clrf    CMCON		; COMPARATOR Register Setup
-    movlw   0b10000001 		; Right justified; VDD;  01 = Channel 00 (AN0); A/D converter module is 
-    movwf   ADCON0		; Enable ADC   
-    ; INTERRUPT SETUP
-    movlw   0B10100000		; ******>>> CHECK IT   
-    iorwf   INTCON, f		; GIE and T0IE enable
-
     
-    bsf	    STATUS, 5		; Selects Bank 1   
+    ; BANK 1
+    bsf	    STATUS, 5		; Selects Bank 1  
+    ; INTERRUPT SETUP
+    movlw   0B10100100		; GIE and T0IE enable
+    movwf   0x8B		; INTCON address in BANK 1	    
+    
     movlw   0b00010001		
     movwf   TRISIO		; AN1 - input
     movlw   0b00010001		; AN1 as analog 
     movwf   ANSEL	 	; Sets GP1 as analog and Clock / 8
-    movlw   0B01000101
-    movwf   OPTION_REG 
-    bcf	    STATUS, 5		; Selects bank 0
-
+    movlw   0B00000101		; TMR0 prescaler = 64 
+    movwf   
+    
+    ; BANK 0
+    bcf	    STATUS, 5		; Selects Bank 0
+    clrf    GPIO		; Init GPIO	
+    clrf    CMCON		; COMPARATOR Register Setup
+    movlw   0b10000001 		; Right justified; VDD;  01 = Channel 00 (AN0); A/D converter module is 
+    movwf   ADCON0		; Enable ADC
+    clrf    TMR0
        
 MainLoopBegin:		    ; Endless loop
     call    AdcRead	    ; reads ADC value and returns in adcValueL and adcValueH
@@ -97,7 +98,7 @@ MainLoopBegin:		    ; Endless loop
     movwf   pwm		    ;  adcValueL has now the 10 adc bit value divided by 4.  
   
 MainLoopEnd:     
-  
+    
     
     goto MainLoopBegin
      
