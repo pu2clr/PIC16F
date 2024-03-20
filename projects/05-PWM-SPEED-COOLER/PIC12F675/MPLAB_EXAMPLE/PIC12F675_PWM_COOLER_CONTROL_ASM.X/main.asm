@@ -28,6 +28,8 @@ resetVect:
     goto main
 ;    
 ORG 0x04
+    ; check if the interrupt was trigged by Timer0	
+    
     btfss   GPIO, 5
     goto    PWM_LOW 
     goto    PWM_HIGH
