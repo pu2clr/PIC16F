@@ -36,8 +36,9 @@ isrVector:
     goto    isr
 PSECT code, delta=2    
 isr:  
+    bcf	    STATUS, 5
     ; check if the interrupt was trigged by Timer0	
-    btfss   INTCON, 2	; T0IF: TMR0 Overflow Interrupt Flag 
+    btfss   INTCON, 2	; INTCON - T0IF: TMR0 Overflow Interrupt Flag 
     goto    PWM_FINISH
     btfss   GPIO, 5	; 
     goto    PWM_LOW 
@@ -55,6 +56,7 @@ PWM_HIGH:
     subwf   TMR0 
     bsf	    GPIO, 5
 PWM_FINISH:
+    
     retfie
 
     
@@ -65,18 +67,16 @@ main:
     
     ; BANK 1
     bsf	    STATUS, 5		; Selects Bank 1  
-    ; INTERRUPT SETUP
-    movlw   0B10100100		; GIE and T0IE enable
-    movwf   0x8B		; INTCON address in BANK 1	    
-    
-    movlw   0b00010001		
-    movwf   TRISIO		; AN1 - input
-    movlw   0b00010001		; AN1 as analog 
+    movlw   0B00000001		
+    movwf   TRISIO		; AN0 - input
+    movlw   0b00010001		; AN0 as analog 
     movwf   ANSEL	 	; Sets GP1 as analog and Clock / 8
     movlw   0B00000101		; TMR0 prescaler = 64 
     movwf   OPTION_REG
     
     ; BANK 0
+    movlw   0B10100100		; GIE and T0IE enable
+    movwf   INTCON		; INTCON address in BANK 0	
     bcf	    STATUS, 5		; Selects Bank 0
     clrf    GPIO		; Init GPIO	
     clrf    CMCON		; COMPARATOR Register Setup
