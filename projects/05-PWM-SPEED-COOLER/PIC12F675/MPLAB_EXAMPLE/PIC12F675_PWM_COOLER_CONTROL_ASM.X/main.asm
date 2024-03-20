@@ -37,7 +37,7 @@ PSECT isrVec, class=CODE, delta=2
 isrVec:  
     bcf	    STATUS, 5
     ; check if the interrupt was trigged by Timer0	
-    btfss   INTCON, 2	; INTCON - T0IF: TMR0 Overflow Interrupt Flag 
+    btfsc   INTCON, 2	; INTCON - T0IF: TMR0 Overflow Interrupt Flag 
     goto    PWM_FINISH
     btfss   GPIO, 5	; 
     goto    PWM_LOW 
@@ -54,6 +54,7 @@ PWM_HIGH:
     movf    pwm,w
     subwf   TMR0 
     bsf	    GPIO, 5
+    bcf	    INTCON, 2
 PWM_FINISH:
     
     retfie
