@@ -31,6 +31,8 @@ resetVect:
 ; INTERRUPT - FUNCTION SETUP  
 ; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow 
 PSECT isrVec, class=CODE, delta=2
+    PAGESEL isrVec
+    goto isrVec    
 isrVec:  
     bcf	    STATUS, 5
     ; check if the interrupt was trigged by Timer0	
