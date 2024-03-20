@@ -3,6 +3,7 @@
 ; Jan/2024
     
 #include <xc.inc>
+ 
 
 ; CONFIG
   CONFIG  FOSC = INTRCIO        ; Oscillator Selection bits (INTOSC oscillator: I/O function on GP4/OSC2/CLKOUT pin, I/O function on GP5/OSC1/CLKIN)
