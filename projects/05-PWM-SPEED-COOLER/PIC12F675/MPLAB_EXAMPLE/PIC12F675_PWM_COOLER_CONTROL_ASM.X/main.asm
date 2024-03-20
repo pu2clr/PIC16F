@@ -26,6 +26,26 @@ PSECT resetVector, class=CODE, delta=2
 resetVect:
     PAGESEL main
     goto main
+;    
+ORG 0x04
+    btfss   GPIO, 5
+    goto    PWM_LOW 
+    goto    PWM_HIGH
+PWM_LOW: 
+    bcf	    GPIO, 5
+    movlw   255
+    movwf   dummy1
+    movf    pwm, w
+    subwf   dummy1, w
+    movwf   TMR0
+    goto    PWM_FINISH
+PWM_HIGH: 
+    movf    pwm,w
+    subwf   TMR0 
+    bsf	    GPIO, 5
+PWM_FINISH:
+    retfie
+    
 PSECT code, delta=2
 main:
     ; Interrupt, Analog and Digital pins setup
