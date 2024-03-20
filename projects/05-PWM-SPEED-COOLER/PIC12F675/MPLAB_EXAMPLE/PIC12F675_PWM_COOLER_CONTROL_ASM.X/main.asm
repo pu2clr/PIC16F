@@ -29,13 +29,8 @@ resetVect:
 ;
 ; INTERRUPT - FUNCTION SETUP  
 ; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow 
-PSECT isrVector,class=CODE,delta=2,space=0,abs,ovrld
-ORG 4
-isrVector:  
-    PAGESEL isrVector
-    goto    isr
-PSECT code, delta=2    
-isr:  
+PSECT isrVec, class=CODE, delta=2
+isrVec:  
     bcf	    STATUS, 5
     ; check if the interrupt was trigged by Timer0	
     btfss   INTCON, 2	; INTCON - T0IF: TMR0 Overflow Interrupt Flag 
@@ -80,7 +75,7 @@ main:
     bcf	    STATUS, 5		; Selects Bank 0
     clrf    GPIO		; Init GPIO	
     clrf    CMCON		; COMPARATOR Register Setup
-    movlw   0b10000001 		; Right justified; VDD;  01 = Channel 00 (AN0); A/D converter module is 
+    movlw   0B10000001 		; Right justified; VDD;  01 = Channel 00 (AN0); A/D converter module is 
     movwf   ADCON0		; Enable ADC
     clrf    TMR0
        
@@ -118,15 +113,16 @@ AdcRead:
 WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1 
     btfsc  ADCON0, 1		; Bit Test, Skip if Clear - If bit 1 in ADCON0 is '1', the next instruction is executed.
     goto   WaitConvertionFinish 
-    
-    bsf	  STATUS, 5		; Select bank1 to deal with ADRESL register
-    movf  ADRESL, w		
-    movwf adcValueL			; 
-    bcf	  STATUS, 5		; Select to bank 0
-    movf  ADRESH, w		
+
     movwf adcValueH   
+    movf  ADRESH, w		; BANK 0
     
+    bsf	  STATUS, 5		; Select BANK 1 to access ADRESL register
+    movf  ADRESL, w		
+    movwf adcValueL		; 
+
     return
+
 ; ******************
 ; Delay function
 ;
