@@ -61,4 +61,5 @@ The PIC12F675 is a compact and versatile 8-bit microcontroller from Microchip Te
 
 * [PWM pulse generation using PIC12F675 micro-controller](https://labprojectsbd.com/2021/03/31/pwm-pulse-generation-using-pic12f675-micro-controller/)
 * [PIC12F675 PWM Code + Proteus Simulation](https://saeedsolutions.blogspot.com/2012/07/pic12f675-pwm-code-proteus-simulation.html)
+* [PIC Microcontroller Assembly PIC16F877A](https://github.com/Devilbinder/PIC_Microcontroller_Assembly_PIC16F877A/tree/main)
 

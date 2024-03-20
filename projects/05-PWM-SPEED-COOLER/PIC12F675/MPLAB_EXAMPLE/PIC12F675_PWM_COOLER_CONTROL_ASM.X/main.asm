@@ -26,11 +26,15 @@ PSECT resetVector, class=CODE, delta=2
 resetVect:
     PAGESEL main
     goto main
-;    
-ORG 0x04
+;
+; INTERRUPT - FUNCTION SETUP  
+; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow 
+PSECT isrVec,class=CODE,delta=2   
+isr:     
     ; check if the interrupt was trigged by Timer0	
-    
-    btfss   GPIO, 5
+    btfss   INTCON, 2	; T0IF: TMR0 Overflow Interrupt Flag 
+    goto    PWM_FINISH
+    btfss   GPIO, 5	; 
     goto    PWM_LOW 
     goto    PWM_HIGH
 PWM_LOW: 
@@ -45,8 +49,13 @@ PWM_HIGH:
     movf    pwm,w
     subwf   TMR0 
     bsf	    GPIO, 5
+    
+    bcf INTCON, 2	; clear the T0IF Interrupt flag
+    
 PWM_FINISH:
     retfie
+
+    
     
 PSECT code, delta=2
 main:
@@ -72,10 +81,8 @@ main:
 
        
 MainLoopBegin:		    ; Endless loop
-    ; call    AdcRead	    ; reads ADC value and returns in adcValueL and adcValueH
+    call    AdcRead	    ; reads ADC value and returns in adcValueL and adcValueH
     ; divides 16 bits (actually 10 integer) by 4  
-    nop
-    nop
     rrf	    adcValueL
     rrf	    adcValueL
     movf    adcValueL, w
@@ -88,7 +95,6 @@ MainLoopBegin:		    ; Endless loop
     andlw   0B11000000
     iorwf   adcValueL, w    
     movwf   pwm		    ;  adcValueL has now the 10 adc bit value divided by 4.  
-    ; TO BE CONTINUE...
   
 MainLoopEnd:     
   
