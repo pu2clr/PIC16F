@@ -29,7 +29,8 @@ resetVect:
     goto main
 ;
 ; INTERRUPT - FUNCTION SETUP  
-; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow 
+; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow
+; -Wl,-pisrVec=4h    
 PSECT isrVec, class=CODE, delta=2
     PAGESEL isrVec
     goto isrVec    
