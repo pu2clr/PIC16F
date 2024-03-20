@@ -22,17 +22,20 @@ adcValueL   equ 0x23
 adcValueH   equ 0x24
 pwm	    equ	0x25   
     
-PSECT resetVector, class=CODE, delta=2
+PSECT resetVector, class=CODE, delta=2 
 resetVect:
     PAGESEL main
     goto main
 ;
 ; INTERRUPT - FUNCTION SETUP  
 ; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow 
-PSECT isrVector,class=CODE,delta=2   
+PSECT isrVector,class=CODE,delta=2,space=0,abs,ovrld
+ORG 4
 isrVec:  
-    PAGESEL isr
-isr:    
+    PAGESEL isrVector
+    goto    isr
+PSECT code, delta=2    
+isr:  
     ; check if the interrupt was trigged by Timer0	
     btfss   INTCON, 2	; T0IF: TMR0 Overflow Interrupt Flag 
     goto    PWM_FINISH
@@ -71,7 +74,7 @@ main:
     movlw   0b00010001		; AN1 as analog 
     movwf   ANSEL	 	; Sets GP1 as analog and Clock / 8
     movlw   0B00000101		; TMR0 prescaler = 64 
-    movwf   
+    movwf   OPTION_REG
     
     ; BANK 0
     bcf	    STATUS, 5		; Selects Bank 0
