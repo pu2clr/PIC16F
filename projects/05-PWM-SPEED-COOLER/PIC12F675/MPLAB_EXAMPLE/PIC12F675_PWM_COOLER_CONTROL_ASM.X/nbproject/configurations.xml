@@ -1055,7 +1055,6 @@
         <property key="linker-reserve" value=""/>
         <property key="linker-rom" value=""/>
         <property key="linker-serial" value=""/>
-        <appendMe value="-PisrVect=4"/>
       </pic-as-linker>
     </conf>
   </confs>

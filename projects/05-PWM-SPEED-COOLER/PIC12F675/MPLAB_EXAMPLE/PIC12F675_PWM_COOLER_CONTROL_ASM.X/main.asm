@@ -31,7 +31,7 @@ resetVect:
 ; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow 
 PSECT isrVector,class=CODE,delta=2,space=0,abs,ovrld
 ORG 4
-isrVec:  
+isrVector:  
     PAGESEL isrVector
     goto    isr
 PSECT code, delta=2    
