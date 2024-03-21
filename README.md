@@ -235,4 +235,8 @@ Source: [Pickit 3 Programmer/Debugger](https://components101.com/misc/pickit3-pr
 * [GNL Project - Youtube Channel with many PIC10F200 project and Assembly programming](https://www.youtube.com/@GNLProject-yp8po/videos)
 * [How to Use a Simple Microcontroller Part 1 - An Introduction (PIC10F200)](https://youtu.be/TvsLWEJ4kNI?si=yGt3pLz6990fWD7K)
 * [2Bit - PIC10F200 Programming](https://www.youtube.com/@2bit661/videos)
+* [PIC assembly programming](https://www.youtube.com/playlist?list=PLJNF9dsTnBxkY6_qYvAMNt5ylCJCMyamE)
+
+
+
 

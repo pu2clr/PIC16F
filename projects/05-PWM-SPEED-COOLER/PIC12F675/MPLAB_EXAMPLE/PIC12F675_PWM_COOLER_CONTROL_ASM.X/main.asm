@@ -32,8 +32,7 @@ resetVect:
 ; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow
 ; -Wl,-pisrVec=4h    
 PSECT isrVec, class=CODE, delta=2
-    PAGESEL isrVec
-    goto isrVec    
+ORG 0x04    
 isrVec:  
     bcf	    STATUS, 5
     ; check if the interrupt was trigged by Timer0	
