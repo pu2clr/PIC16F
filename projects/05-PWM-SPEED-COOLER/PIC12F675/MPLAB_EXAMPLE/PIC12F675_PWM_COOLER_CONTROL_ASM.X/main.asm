@@ -27,38 +27,6 @@ PSECT resetVector, class=CODE, delta=2
 resetVect:
     PAGESEL main
     goto main
-;
-; INTERRUPT - FUNCTION SETUP  
-; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow
-; -Wl,-pisrVec=4h    
-PSECT isrVec, class=CODE, delta=2
-ORG 0x04    
-isrVec:  
-    bcf	    STATUS, 5
-    ; check if the interrupt was trigged by Timer0	
-    btfsc   INTCON, 2	; INTCON - T0IF: TMR0 Overflow Interrupt Flag 
-    goto    PWM_FINISH
-    btfss   GPIO, 5	; 
-    goto    PWM_LOW 
-    goto    PWM_HIGH
-PWM_LOW: 
-    bcf	    GPIO, 5
-    movlw   255
-    movwf   dummy1
-    movf    pwm, w
-    subwf   dummy1, w
-    movwf   TMR0
-    goto    PWM_FINISH
-PWM_HIGH: 
-    movf    pwm,w
-    subwf   TMR0 
-    bsf	    GPIO, 5
-    bcf	    INTCON, 2
-PWM_FINISH:
-    
-    retfie
-
-    
     
 PSECT code, delta=2
 main:
@@ -75,7 +43,7 @@ main:
     
     ; BANK 0
     movlw   0B10100100		; GIE and T0IE enable
-    movwf   INTCON		; INTCON address in BANK 0	
+    ; movwf   INTCON		; INTCON address in BANK 0	
     bcf	    STATUS, 5		; Selects Bank 0
     clrf    GPIO		; Init GPIO	
     clrf    CMCON		; COMPARATOR Register Setup
@@ -151,7 +119,39 @@ DelayLoop:
     goto DelayLoop
     
     return 
-   
+
+;
+; INTERRUPT - FUNCTION SETUP  
+; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow
+; -Wl,-pisrVec=4h    
+PSECT isrVec, class=CODE, delta=2   
+isrVec:  
+ORG 0x04      
+    bcf	    STATUS, 5
+    ; check if the interrupt was trigged by Timer0	
+    btfsc   INTCON, 2	; INTCON - T0IF: TMR0 Overflow Interrupt Flag 
+    goto    PWM_FINISH
+    btfss   GPIO, 5	; 
+    goto    PWM_LOW 
+    goto    PWM_HIGH
+PWM_LOW: 
+    bcf	    GPIO, 5
+    movlw   255
+    movwf   dummy1
+    movf    pwm, w
+    subwf   dummy1, w
+    movwf   TMR0
+    goto    PWM_FINISH
+PWM_HIGH: 
+    movf    pwm,w
+    subwf   TMR0 
+    bsf	    GPIO, 5
+    bcf	    INTCON, 2
+PWM_FINISH:
+    
+    retfie
+    
+    
 END resetVect
 
 
