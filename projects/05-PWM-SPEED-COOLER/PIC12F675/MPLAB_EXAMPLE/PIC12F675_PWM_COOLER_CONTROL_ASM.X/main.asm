@@ -42,7 +42,7 @@ PSECT code, delta=2
 interrupt_process:    
     bcf	    STATUS, 5
     ; check if the interrupt was trigged by Timer0	
-    btfsc   INTCON, 2	; INTCON - T0IF: TMR0 Overflow Interrupt Flag 
+    btfss   INTCON, 2	; INTCON - T0IF: TMR0 Overflow Interrupt Flag 
     goto    PWM_FINISH
     btfss   GPIO, 5	; 
     goto    PWM_LOW 
@@ -73,8 +73,12 @@ main:
     movwf   ANSEL	    ; Sets GP0 as analog and Clock / 8    
     clrw
     movwf   TRISIO	    ; Sets all GPIO as output
-    movlw   0B00000101	    ; TMR0 prescaler = 64 
-    movwf   OPTION_REG    
+    ; OPTION_REG setup
+    ; bit 5 = 0 -> Internal instruction cycle clock;
+    ; bit 3 =  0 -> Prescaler is assigned to the TIMER0 module
+    ; bits 0,1,2 = 101 -> TMR0 prescaler = 64 
+    movlw   0B00000101	     
+    movwf   OPTION_REG	    
     ; Bank 0
     bcf	    STATUS,5 
     clrf    GPIO	; Turn all GPIO pins low
@@ -83,8 +87,14 @@ main:
     movlw   0B10000001	; Right justified; VDD;  01 = Channel 00 (AN0); A/D converter module is 
     movwf   ADCON0	; Enable ADC   
     
+    ; INTCON setup
+    ; bit 7 (GIE) = 1 => Enables all unmasked interrupts
+    ; bit 5 (T0IE) =  1 => Enables the TMR0 interrupt
+    movlw   0B10100000
+    movwf   INTCON
+    
     movlw   100
-    movwf   TMR0
+    movwf   pwm
 MainLoopBegin:		; Endless loop
     call    AdcRead
     
