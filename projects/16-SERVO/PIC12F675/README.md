@@ -48,6 +48,12 @@ The PIC12F675 is a compact and versatile 8-bit microcontroller from Microchip Te
 ![PIC12F675 PWM SERVO Prototype](./protype_pic12f675_pwm_servo.jpg)
 
 
+## Contribution
+
+If you've found value in this repository, please consider contributing. Your support will assist me in acquiring new components and equipment, as well as maintaining the essential infrastructure for the development of future projects. [Click here](https://www.paypal.com/donate/?business=LLV4PHKTXC4JW&no_recurring=0&item_name=Your+support+will+assist+me+in++maintaining+the+essential+infrastructure+for+the+development+of+future+projects.+&currency_code=BRL) to make a donation or scan the QR code provided below. 
+
+
+
 ## References
 
 * [PWM pulse generation using PIC12F675 micro-controller](https://labprojectsbd.com/2021/03/31/pwm-pulse-generation-using-pic12f675-micro-controller/)

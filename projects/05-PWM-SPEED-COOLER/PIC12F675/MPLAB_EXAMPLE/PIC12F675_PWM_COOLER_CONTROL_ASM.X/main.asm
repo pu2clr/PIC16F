@@ -37,8 +37,7 @@ ORG 0x04
 isrVector:  
     PAGESEL interrupt_process 
     goto interrupt_process
-
-PSECT code, delta=2    
+  
 interrupt_process:    
     bcf	    STATUS, 5
     ; check if the interrupt was trigged by Timer0	
@@ -61,6 +60,8 @@ PWM_HIGH:
     bsf	    GPIO, 5
 PWM_FINISH:
     bcf	    INTCON, 2
+    bsf	    INTCON, 7
+    bsf	    INTCON, 5
     
     retfie    
     

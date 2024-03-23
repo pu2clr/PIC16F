@@ -309,6 +309,9 @@ You would typically use an interrupt to detect changes on the IR receiver input 
 * **Practice and Patience**: Debugging IR communication can be challenging. Start with simple commands and use tools like an oscilloscope or logic analyzer to help debug issues.
 
 
+## Contribution
+
+If you've found value in this repository, please consider contributing. Your support will assist me in acquiring new components and equipment, as well as maintaining the essential infrastructure for the development of future projects. [Click here](https://www.paypal.com/donate/?business=LLV4PHKTXC4JW&no_recurring=0&item_name=Your+support+will+assist+me+in++maintaining+the+essential+infrastructure+for+the+development+of+future+projects.+&currency_code=BRL) to make a donation or scan the QR code provided below. 
 
 
 
