@@ -15,11 +15,11 @@
   
 ; declare your variables here
 
-dummy1	    equ 0x20 
-dummy2	    equ 0x21 
+idxI	    equ 0x20		; counter 1
+idxJ	    equ 0x21		; counter 2
 delayParam  equ 0x22 
-adcValueL   equ 0x23
-adcValueH   equ 0x24
+adcValueL   equ 0x23		; 8 bits less significant value of the adc
+adcValueH   equ 0x24		; 8 bits most significant value of the adc
 pwm	    equ	0x25   
    	    
 PSECT resetVector, class=CODE, delta=2 
@@ -35,7 +35,7 @@ resetVect:
 PSECT isrVector, class=CODE, delta=2
 ORG 0x04     
 isrVector:  
-    PAGESEL interrupt_process
+    PAGESEL interrupt_process 
     goto interrupt_process
 
 PSECT code, delta=2    
@@ -50,17 +50,17 @@ interrupt_process:
 PWM_LOW: 
     bcf	    GPIO, 5
     movlw   255
-    movwf   dummy1
+    movwf   idxI
     movf    pwm, w
-    subwf   dummy1, w
+    subwf   idxI, w
     movwf   TMR0
     goto    PWM_FINISH
 PWM_HIGH: 
-    movf    pwm,w
+    movf    pwm, w
     subwf   TMR0 
     bsf	    GPIO, 5
-    bcf	    INTCON, 2
 PWM_FINISH:
+    bcf	    INTCON, 2
     
     retfie    
     
@@ -77,7 +77,7 @@ main:
     ; bit 5 = 0 -> Internal instruction cycle clock;
     ; bit 3 =  0 -> Prescaler is assigned to the TIMER0 module
     ; bits 0,1,2 = 101 -> TMR0 prescaler = 64 
-    movlw   0B00000101	     
+    movlw   0B01000101	     
     movwf   OPTION_REG	    
     ; Bank 0
     bcf	    STATUS,5 
@@ -144,15 +144,15 @@ WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1
 Delay:  
     movwf   delayParam    
     movlw   255
-    movwf   dummy1      ; 255 times
-    movwf   dummy2      ; 255 times (255 * 255)
-		; 255 * 255 * delayParam loaded before calling Delay    
+    movwf   idxI	; 255 times
+    movwf   idxJ	; 255 times (255 * 255)
+			; 255 * 255 * delayParam loaded before calling Delay    
 DelayLoop:    
     nop                 ; One cycle
     nop                 ; One cycle
-    decfsz dummy1, f    ; One cycle* (dummy1 = dumm1 - 1) => if dummy1 is 0, after decfsz, it will be 255
+    decfsz idxI, f	; One cycle* (idxI = dumm1 - 1) => if idxI is 0, after decfsz, it will be 255
     goto DelayLoop      ; Two cycles
-    decfsz dummy2, f    ; dummy2 = dumm2 - 1; if dummy2 = 0, after decfsz, it will be 255
+    decfsz idxJ, f	; idxJ = dumm2 - 1; if idxJ = 0, after decfsz, it will be 255
     goto DelayLoop
     decfsz delayParam,f ; Runs 3 times (255 * 255)		 
     goto DelayLoop
