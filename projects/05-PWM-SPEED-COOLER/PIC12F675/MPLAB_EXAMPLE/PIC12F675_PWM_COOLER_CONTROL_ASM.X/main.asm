@@ -124,9 +124,13 @@ DelayLoop:
 ; INTERRUPT - FUNCTION SETUP  
 ; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow
 ; pic-as Additiontal Options: -Wl,-pisrVec=4h    
-PSECT isrVec, class=CODE, delta=2  
+PSECT isrVec, class=CODE, delta=2
 ORG 0x04     
-isrVec:       
+isrVec:  
+    PAGESEL main
+    goto interrupt_process
+    
+interrupt_process:    
     bcf	    STATUS, 5
     ; check if the interrupt was trigged by Timer0	
     btfsc   INTCON, 2	; INTCON - T0IF: TMR0 Overflow Interrupt Flag 

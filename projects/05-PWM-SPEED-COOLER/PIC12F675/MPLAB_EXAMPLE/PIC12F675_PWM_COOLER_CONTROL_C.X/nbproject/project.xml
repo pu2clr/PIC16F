@@ -4,9 +4,7 @@
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
             <name>PIC12F675_PWM_COOLER_CONTROL_C</name>
-            <name>PIC12F675_PWM_COOLER_CONTROL</name>
-            <name>PIC12F675_PWM_COOLER</name>
-            <creation-uuid>c2fa2c66-fe22-4eac-9850-c6a751fce237</creation-uuid>
+            <creation-uuid>20f8c8d9-1f27-4677-aac4-b95cf4095aac</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>

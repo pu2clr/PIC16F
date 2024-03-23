@@ -1,5 +1,4 @@
 /*
- * 
  * File:   main.c
  * Author: rcaratti
  *
