@@ -11,4 +11,4 @@
 * [How a UART works and how to make one in software - Part 11 Microcontroller Basics (PIC10F200)](https://youtu.be/UgqzI5gihuQ?si=HdvtjXfXZe_zB8dS)
 * [Bluetooth Controlled Robot - Part 12 Microcontroller Basics (PIC10F200)](https://youtu.be/ScYz3TlaECs?si=Dk0fkoF2DzrhYh1I)
 * [UART Example with PIC microcontroller | MPLAB Projects](https://simple-circuit.com/mplab-xc8-uart-example-pic-mcu/)
-
+* [PIC12F675 interrupt based software UART code + Proteus simulation](https://saeedsolutions.blogspot.com/2012/10/pic12f675-interrupt-based-software-uart.html)

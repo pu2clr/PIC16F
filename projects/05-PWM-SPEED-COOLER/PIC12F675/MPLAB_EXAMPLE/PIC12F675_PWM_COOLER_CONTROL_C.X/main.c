@@ -54,7 +54,7 @@ void __interrupt() ISR(void)
             GP5 = 1;
         }
         
-        T0IF = 0;
+        x = 0;
     }
     
 }
