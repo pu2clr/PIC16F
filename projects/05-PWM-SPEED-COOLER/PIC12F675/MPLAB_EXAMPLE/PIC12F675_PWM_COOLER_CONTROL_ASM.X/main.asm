@@ -35,7 +35,7 @@ resetVect:
 PSECT isrVec, class=CODE, delta=2
 ORG 0x04     
 isrVec:  
-    PAGESEL main
+    PAGESEL isrVec
     goto interrupt_process
 
 PSECT code, delta=2    
@@ -83,28 +83,11 @@ main:
     movlw   0B10000001	; Right justified; VDD;  01 = Channel 00 (AN0); A/D converter module is 
     movwf   ADCON0	; Enable ADC   
     
+    movlw   100
+    movwf   TMR0
 MainLoopBegin:		; Endless loop
-
-    bsf	    GPIO, 5
-    
-    ; movlw   100
-    ; movwf   TMR0
-    
-    movlw   20
-    call    Delay
-   
-    ; movlw   200
-    ; movwf   TMR0  
-    
-    bcf	    GPIO, 5 
- 
-    movlw   20
-    call    Delay 
-    
-    
+    call    AdcRead
 MainLoopEnd:     
-
-    
     goto MainLoopBegin
      
 
