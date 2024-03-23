@@ -33,8 +33,8 @@ PSECT code, delta=2
 main:
     ; Analog and Digital pins setup
     bcf	    STATUS, 5		; Selects Bank 0
-    clrf    GPIO		; Init GPIO
-    clrf    CMCON		; COMPARATOR Register setup
+    clrf    GPIO		    ; Init GPIO
+    clrf    CMCON		    ; COMPARATOR Register setup
     movlw   0b10001101 	; Right justified; VDD;  01 = Channel 3 (AN3); A/D converter module is 
     movwf   ADCON0		; Enable ADC   
     bsf	    STATUS, 5		; Selects Bank 1
