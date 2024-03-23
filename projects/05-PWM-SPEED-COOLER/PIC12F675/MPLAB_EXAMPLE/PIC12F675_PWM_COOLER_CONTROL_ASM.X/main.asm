@@ -23,6 +23,7 @@ adcValueH   equ 0x24		; 8 bits most significant value of the adc
 pwm	    equ	0x25   
    	    
 PSECT resetVector, class=CODE, delta=2 
+ORG 0x0000	    
 resetVect:
     PAGESEL main
     goto main
@@ -33,12 +34,12 @@ resetVect:
 ; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow
 ; pic-as Additiontal Options: -Wl,-pisrVec=4h    
 PSECT isrVector, class=CODE, delta=2
-; ORG 0x04     
+ORG 0x0004     
 isrVector:  
     PAGESEL interrupt
     goto interrupt
   
-interrupt:    
+interrupt: 
     bcf	    STATUS, 5
     ; check if the interrupt was trigged by Timer0	
     btfss   INTCON, 2	; INTCON - T0IF: TMR0 Overflow Interrupt Flag 
@@ -60,13 +61,13 @@ PWM_HIGH:
     bsf	    GPIO, 5
 PWM_FINISH:
     bcf	    INTCON, 2
-    bsf	    INTCON, 7
-    bsf	    INTCON, 5
+    ; bsf	    INTCON, 7
+    ; bsf	    INTCON, 5
     
     retfie    
     
     
-PSECT code, delta=2
+; PSECT code, delta=2
 main: 
     ; Bank 1
     bsf	    STATUS,5	    ; Selects Bank 1  
@@ -91,11 +92,12 @@ main:
     ; INTCON setup
     ; bit 7 (GIE) = 1 => Enables all unmasked interrupts
     ; bit 5 (T0IE) =  1 => Enables the TMR0 interrupt
-    movlw   0B10100000
-    movwf   INTCON
+    movlw   0B11100000
+    iorwf   INTCON
     
-    movlw   100
+    movlw   128
     movwf   pwm
+    movwf   TMR0
 MainLoopBegin:		; Endless loop
     call    AdcRead
     
@@ -121,7 +123,13 @@ MainLoopBegin:		; Endless loop
 ;
 ; Read the analog value from GP1
 AdcRead: 
-        
+      
+    movlw   LOW(600)
+    movwf   adcValueL
+    movlw   HIGH(600)
+    movwf   adcValueH
+    return 
+    
     bcf	  STATUS, 5		; Select bank 0 to deal with ADCON0 register
     bsf	  ADCON0, 1		; Start convertion  (set bit 1 to high)
 
