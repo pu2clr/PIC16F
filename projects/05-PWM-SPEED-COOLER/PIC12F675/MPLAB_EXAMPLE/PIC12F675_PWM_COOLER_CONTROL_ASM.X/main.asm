@@ -139,7 +139,7 @@ WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1
     
 ; ******************
 ; Delay function
-; Deleys about  WREG * 255 us
+; Deleys about  WREG * 255us
 
 Delay:  
     movwf   delayParam    
