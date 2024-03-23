@@ -34,9 +34,9 @@ main:
     ; BANK 1
     bsf	    STATUS, 5		; Selects Bank 1  
     movlw   0B00000001		
-    movwf   TRISIO		; AN0 - input
+    movwf   TRISIO		    ;   AN0 - input
     movlw   0b00010001		; AN0 as analog 
-    movwf   ANSEL	 	; Sets GP1 as analog and Clock / 8
+    movwf   ANSEL	 	    ; Sets GP0 as analog and Clock / 8
     movlw   0B00000101		; TMR0 prescaler = 64 
     movwf   OPTION_REG
     

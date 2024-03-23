@@ -21,44 +21,84 @@ delayParam  equ 0x22
 adcValueL   equ 0x23
 adcValueH   equ 0x24
 pwm	    equ	0x25   
-    
+   	    
 PSECT resetVector, class=CODE, delta=2 
 resetVect:
     PAGESEL main
     goto main
+
+
+;
+; INTERRUPT - FUNCTION SETUP  
+; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow
+; pic-as Additiontal Options: -Wl,-pisrVec=4h    
+PSECT isrVec, class=CODE, delta=2
+ORG 0x04     
+isrVec:  
+    PAGESEL main
+    goto interrupt_process
+
+PSECT code, delta=2    
+interrupt_process:    
+    bcf	    STATUS, 5
+    ; check if the interrupt was trigged by Timer0	
+    btfsc   INTCON, 2	; INTCON - T0IF: TMR0 Overflow Interrupt Flag 
+    goto    PWM_FINISH
+    btfss   GPIO, 5	; 
+    goto    PWM_LOW 
+    goto    PWM_HIGH
+PWM_LOW: 
+    bcf	    GPIO, 5
+    movlw   255
+    movwf   dummy1
+    movf    pwm, w
+    subwf   dummy1, w
+    movwf   TMR0
+    goto    PWM_FINISH
+PWM_HIGH: 
+    movf    pwm,w
+    subwf   TMR0 
+    bsf	    GPIO, 5
+    bcf	    INTCON, 2
+PWM_FINISH:
+    
+    retfie    
+    
     
 PSECT code, delta=2
-main:
-
-    ; Under construction... 
-    
-    bcf	    STATUS,5	; Selects Bank 0
-    ; BANKSEL(0)
-    
-    clrf    GPIO	; Init GPIO  
-    movlw   0x07	;   
-    movwf   CMCON	; digital IO  
-    
-    ; BANKSEL(1)
-    bsf	    STATUS,5	; Selects Bank 1  
-    clrf    ANSEL	; Digital IO  
+main: 
+    ; Bank 1
+    bsf	    STATUS,5	    ; Selects Bank 1  
+    movlw   0b00010001	    ; AN0 as analog 
+    movwf   ANSEL	    ; Sets GP0 as analog and Clock / 8    
     clrw
-    movwf   TRISIO	; Sets all GPIO as output
-    ; BANKSEL(0)
+    movwf   TRISIO	    ; Sets all GPIO as output
+    movlw   0B00000101	    ; TMR0 prescaler = 64 
+    movwf   OPTION_REG    
+    ; Bank 0
     bcf	    STATUS,5 
     clrf    GPIO	; Turn all GPIO pins low
-    nop
-    nop
+    movlw   0x07	;   
+    movwf   CMCON	; digital IO  
+    movlw   0B10000001	; Right justified; VDD;  01 = Channel 00 (AN0); A/D converter module is 
+    movwf   ADCON0	; Enable ADC   
+    
 MainLoopBegin:		; Endless loop
 
     bsf	    GPIO, 5
-      
-    movlw   50
+    
+    ; movlw   100
+    ; movwf   TMR0
+    
+    movlw   20
     call    Delay
    
+    ; movlw   200
+    ; movwf   TMR0  
+    
     bcf	    GPIO, 5 
  
-    movlw   50
+    movlw   20
     call    Delay 
     
     
@@ -68,6 +108,25 @@ MainLoopEnd:
     goto MainLoopBegin
      
 
+;
+; Read the analog value from GP1
+AdcRead: 
+    bcf	  STATUS, 5		; Select bank 0 to deal with ADCON0 register
+    bsf	  ADCON0, 1		; Start convertion  (set bit 1 to high)
+
+WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1 
+    btfsc  ADCON0, 1		; Bit Test, Skip if Clear - If bit 1 in ADCON0 is '1', the next instruction is executed.
+    goto   WaitConvertionFinish 
+
+    movwf adcValueH   
+    movf  ADRESH, w		; BANK 0
+    
+    bsf	  STATUS, 5		; Select BANK 1 to access ADRESL register
+    movf  ADRESL, w		
+    movwf adcValueL		; 
+
+    return    
+    
 ; ******************
 ; Delay function
 ; Deleys about  WREG * 255 us
