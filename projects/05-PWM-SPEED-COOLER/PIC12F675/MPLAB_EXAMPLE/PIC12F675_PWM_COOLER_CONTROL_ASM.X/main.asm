@@ -32,10 +32,10 @@ resetVect:
 ; INTERRUPT - FUNCTION SETUP  
 ; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow
 ; pic-as Additiontal Options: -Wl,-pisrVec=4h    
-PSECT isrVec, class=CODE, delta=2
+PSECT isrVector, class=CODE, delta=2
 ORG 0x04     
-isrVec:  
-    PAGESEL isrVec
+isrVector:  
+    PAGESEL interrupt_process
     goto interrupt_process
 
 PSECT code, delta=2    
@@ -88,6 +88,7 @@ main:
 MainLoopBegin:		; Endless loop
     call    AdcRead
     
+    ; Divide 10 bits integer value  by 4 and stores the resul in pwm
     rrf	    adcValueL
     rrf	    adcValueL
     movf    adcValueL, w
@@ -99,17 +100,9 @@ MainLoopBegin:		; Endless loop
     movf    adcValueH, w
     andlw   0B11000000
     iorwf   adcValueL, w    
-    movwf   adcValueL	    ; to be removed later
     movwf   pwm		    ;  adcValueL has now the 10 adc bit value divided by 4.      
-    
-    movlw   128
-    subwf   adcValueL, w
-    btfsc   STATUS, 0
-    goto    $+2
-    goto    $+3
-    bsf	    GPIO, 5
-    goto    $+2
-    bcf	    GPIO,5    
+  
+   
   MainLoopEnd:     
     goto MainLoopBegin
      
@@ -117,16 +110,7 @@ MainLoopBegin:		; Endless loop
 ;
 ; Read the analog value from GP1
 AdcRead: 
-    
-    ; Debug
-    ; Set adcValur to 500
-    movlw   LOW(120)
-    movwf   adcValueL
-    movlw   HIGH(120)
-    movwf   adcValueH
-    return
-    ; Ende debug
-    
+        
     bcf	  STATUS, 5		; Select bank 0 to deal with ADCON0 register
     bsf	  ADCON0, 1		; Start convertion  (set bit 1 to high)
 
