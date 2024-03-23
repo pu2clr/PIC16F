@@ -103,11 +103,13 @@ MainLoopBegin:		; Endless loop
     movwf   pwm		    ;  adcValueL has now the 10 adc bit value divided by 4.      
     
     movlw   128
-    subwf   adcValueL
+    subwf   adcValueL, w
     btfsc   STATUS, 0
-    bcf	    GPIO,5
-    goto    MainLoopEnd
-    bsf	    GPIO,5    
+    goto    $+2
+    goto    $+3
+    bsf	    GPIO, 5
+    goto    $+2
+    bcf	    GPIO,5    
   MainLoopEnd:     
     goto MainLoopBegin
      
@@ -115,6 +117,16 @@ MainLoopBegin:		; Endless loop
 ;
 ; Read the analog value from GP1
 AdcRead: 
+    
+    ; Debug
+    ; Set adcValur to 500
+    movlw   LOW(120)
+    movwf   adcValueL
+    movlw   HIGH(120)
+    movwf   adcValueH
+    return
+    ; Ende debug
+    
     bcf	  STATUS, 5		; Select bank 0 to deal with ADCON0 register
     bsf	  ADCON0, 1		; Start convertion  (set bit 1 to high)
 
