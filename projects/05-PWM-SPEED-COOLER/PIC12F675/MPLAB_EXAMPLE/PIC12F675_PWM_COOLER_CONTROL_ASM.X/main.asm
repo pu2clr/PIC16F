@@ -33,12 +33,12 @@ resetVect:
 ; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow
 ; pic-as Additiontal Options: -Wl,-pisrVec=4h    
 PSECT isrVector, class=CODE, delta=2
-ORG 0x04     
+; ORG 0x04     
 isrVector:  
-    PAGESEL interrupt_process 
-    goto interrupt_process
+    PAGESEL interrupt
+    goto interrupt
   
-interrupt_process:    
+interrupt:    
     bcf	    STATUS, 5
     ; check if the interrupt was trigged by Timer0	
     btfss   INTCON, 2	; INTCON - T0IF: TMR0 Overflow Interrupt Flag 
