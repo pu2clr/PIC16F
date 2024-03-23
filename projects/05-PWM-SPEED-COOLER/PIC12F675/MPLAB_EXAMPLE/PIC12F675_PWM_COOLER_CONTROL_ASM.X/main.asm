@@ -8,11 +8,11 @@
   CONFIG  FOSC = INTRCIO        ; Oscillator Selection bits (INTOSC oscillator: I/O function on GP4/OSC2/CLKOUT pin, I/O function on GP5/OSC1/CLKIN)
   CONFIG  WDTE = OFF            ; Watchdog Timer Enable bit (WDT disabled)
   CONFIG  PWRTE = OFF           ; Power-Up Timer Enable bit (PWRT disabled)
-  CONFIG  MCLRE = OFF           ; GP3/MCLR pin function select (GP3/MCLR pin function is digital I/O, MCLR internally tied to VDD)
-  CONFIG  BOREN = OFF           ; Brown-out Detect Enable bit (BOD disabled)
+  CONFIG  MCLRE = ON            ; GP3/MCLR pin function select (GP3/MCLR pin function is MCLR)
+  CONFIG  BOREN = ON            ; Brown-out Detect Enable bit (BOD enabled)
   CONFIG  CP = OFF              ; Code Protection bit (Program Memory code protection is disabled)
-  CONFIG  CPD = OFF             ; Data Code Protection bit (Data memory code protection is disabled)
-
+  CONFIG  CPD = OFF             ; Data Code Protection bit (Data memory code protection is disabled) 
+  
 ; declare your variables here
 
 dummy1	    equ 0x20 
@@ -29,25 +29,41 @@ resetVect:
     
 PSECT code, delta=2
 main:
-    ; Interrupt, Analog and Digital pins setup
-    
-    ; BANK 1
-    bsf	    STATUS, 5		; Selects Bank 1
-    clrw   	
-    clrf    GPIO
-    movwf   TRISIO		; AN0 - input
-    
-    ; BANK 0
-    bcf	    STATUS, 5		; Selects Bank 0
-    movlw   0B10100100		; GIE and T0IE enable
 
-    bsf     GPIO,5
+    ; Under construction... 
+    
+    bcf	    STATUS,5	; Selects Bank 0
+    ; BANKSEL(0)
+    
+    clrf    GPIO	; Init GPIO  
+    movlw   0x07	;   
+    movwf   CMCON	; digital IO  
+    
+    ; BANKSEL(1)
+    bsf	    STATUS,5	; Selects Bank 1  
+    clrf    ANSEL	; Digital IO  
+    clrw
+    movwf   TRISIO	; Sets all GPIO as output
+    ; BANKSEL(0)
+    bcf	    STATUS,5 
+    clrf    GPIO	; Turn all GPIO pins low
+    nop
+    nop
+MainLoopBegin:		; Endless loop
 
-MainLoopBegin:		    ; Endless loop
-  
-MainLoopEnd:     
-    movlw   255
+    bsf	    GPIO, 5
+      
+    movlw   50
     call    Delay
+   
+    bcf	    GPIO, 5 
+ 
+    movlw   50
+    call    Delay 
+    
+    
+MainLoopEnd:     
+
     
     goto MainLoopBegin
      
