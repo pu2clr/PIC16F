@@ -87,7 +87,28 @@ main:
     movwf   TMR0
 MainLoopBegin:		; Endless loop
     call    AdcRead
-MainLoopEnd:     
+    
+    rrf	    adcValueL
+    rrf	    adcValueL
+    movf    adcValueL, w
+    andlw   0B00111111
+    movwf   adcValueL
+    swapf   adcValueH
+    rlf	    adcValueH	
+    rlf	    adcValueH	     
+    movf    adcValueH, w
+    andlw   0B11000000
+    iorwf   adcValueL, w    
+    movwf   adcValueL	    ; to be removed later
+    movwf   pwm		    ;  adcValueL has now the 10 adc bit value divided by 4.      
+    
+    movlw   128
+    subwf   adcValueL
+    btfsc   STATUS, 0
+    bcf	    GPIO,5
+    goto    MainLoopEnd
+    bsf	    GPIO,5    
+  MainLoopEnd:     
     goto MainLoopBegin
      
 
