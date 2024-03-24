@@ -6,6 +6,8 @@
 - [Schematic](#schematics)
   * [KiCad schematic](./KiCad/)
 - [About the PIC12675](#about-the-pic12675)
+- [Example in C](#example-in-c)
+- [Example in Assembly and interrupt setup](#example-in-assembly-and-interrupt-setup)
 - [Prototype](#prototype)
 - [MPLAB X Example](./MPLAB_EXAMPLE/)      
 - [References](#references)
