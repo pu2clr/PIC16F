@@ -26,8 +26,8 @@ uint8_t PWM = 50;
 
 void  initADC() {
     TRISIO = 0B00000001;          // GP0 as input and GP1, GP2, GP4 and GP5 as digital output
-    ANSEL =  0b00010001;          // AN0 as analog input
-    ADCON0 = 0b10000001;          // Right justified; VDD;  01 = Channel 00 (AN0); A/D converter module is 
+    ANSEL =  0B00010001;          // AN0 as analog input
+    ADCON0 = 0B10000001;          // Right justified; VDD;  01 = Channel 00 (AN0); A/D converter module is 
 }
 
 void  initInterrupt() {

@@ -78,9 +78,9 @@ PWM_FINISH:
 main: 
     ; Bank 1
     bsf	    STATUS,5	    ; Selects Bank 1  
-    movlw   0b00010001	    ; AN0 as analog 
+    movlw   0B00010001	    ; AN0 as analog 
     movwf   ANSEL	    ; Sets GP0 as analog and Clock / 8    
-    clrw
+    movlw   0B00000001	    ; GP0 as input and GP1, GP2, GP4 and GP5 as digital output
     movwf   TRISIO	    ; Sets all GPIO as output
     ; OPTION_REG setup
     ; bit 5 = 0 -> Internal instruction cycle clock;
