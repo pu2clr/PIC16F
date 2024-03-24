@@ -11,9 +11,10 @@ This page demonstrates how to control a DC Motor using both [PIC16F628A](./PIC16
 1. [Circuit setting up](#circuit-setting-up)
 2. [NPN Transistor Configuration as Motor Driver](#npn-transistor-configuration-as-motor-driver)
 3. [Example schematic using PIC16F628A](#example-schematic-using-pic16f628a)
-3. [PIC16F628A project](./PIC16F628A/)
-4. [PIC16F887 project](./PIC16F887/)
-5. [References](#references)
+4. [PIC12F675 project](./PIC12F675/)
+5. [PIC16F628A project](./PIC16F628A/)
+6. [PIC16F887 project](./PIC16F887/)
+7. [References](#references)
 
 
 ## Circuit setting up
