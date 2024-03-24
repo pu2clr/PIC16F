@@ -22,7 +22,7 @@ adcValueL   equ 0x23		; 8 bits less significant value of the adc
 adcValueH   equ 0x24		; 8 bits most significant value of the adc
 pwm	    equ	0x25   
    	    
-PSECT resetVector, class=CODE, delta=2 
+PSECT resetVec, class=CODE, delta=2 
 ORG 0x0000	    
 resetVect:
     PAGESEL main
@@ -32,14 +32,15 @@ resetVect:
 ;
 ; INTERRUPT - FUNCTION SETUP  
 ; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow
-; pic-as Additiontal Options: -Wl,-pisrVec=4h    
-PSECT isrVector, class=CODE, delta=2
+; pic-as Additiontal Options: -Wl,-PresetVec=0x0,-PisrVec=0x04    
+PSECT isrVec, class=CODE, delta=2
 ORG 0x0004     
-isrVector:  
+isrVec:  
     PAGESEL interrupt
     goto interrupt
   
 interrupt: 
+
     bcf	    STATUS, 5
     ; check if the interrupt was trigged by Timer0	
     btfss   INTCON, 2	; INTCON - T0IF: TMR0 Overflow Interrupt Flag 
@@ -48,17 +49,19 @@ interrupt:
     goto    PWM_LOW 
     goto    PWM_HIGH
 PWM_LOW: 
-    bcf	    GPIO, 5
+    bsf	    GPIO, 5
     movlw   255
     movwf   idxI
     movf    pwm, w
     subwf   idxI, w
     movwf   TMR0
+    bcf	    GPIO,2
     goto    PWM_FINISH
 PWM_HIGH: 
     movf    pwm, w
     subwf   TMR0 
-    bsf	    GPIO, 5
+    bcf	    GPIO, 5
+    bsf	    GPIO,2
 PWM_FINISH:
     bcf	    INTCON, 2
     ; bsf	    INTCON, 7
@@ -98,6 +101,7 @@ main:
     movlw   128
     movwf   pwm
     movwf   TMR0
+    bcf	    GPIO,2
 MainLoopBegin:		; Endless loop
     call    AdcRead
     
@@ -124,11 +128,11 @@ MainLoopBegin:		; Endless loop
 ; Read the analog value from GP1
 AdcRead: 
       
-    movlw   LOW(600)
-    movwf   adcValueL
-    movlw   HIGH(600)
-    movwf   adcValueH
-    return 
+    ; movlw   LOW(600)
+    ; movwf   adcValueL
+    ; movlw   HIGH(600)
+    ; movwf   adcValueH
+    ; return 
     
     bcf	  STATUS, 5		; Select bank 0 to deal with ADCON0 register
     bsf	  ADCON0, 1		; Start convertion  (set bit 1 to high)

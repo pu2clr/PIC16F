@@ -1038,6 +1038,7 @@
         <property key="summary-sha256" value="false"/>
         <property key="summary-xml" value="false"/>
         <property key="summary-xmlfull" value="false"/>
+        <appendMe value="-Wl,-PresetVec=0x0,-PisrVec=0x04"/>
       </pic-as-global>
       <pic-as-linker>
         <property key="linker-callgraph" value="std"/>
