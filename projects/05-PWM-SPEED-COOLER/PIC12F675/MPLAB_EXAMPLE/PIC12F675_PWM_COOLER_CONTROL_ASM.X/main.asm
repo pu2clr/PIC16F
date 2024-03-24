@@ -118,13 +118,15 @@ MainLoopBegin:		; Endless loop
     movf    adcValueL, w
     andlw   0B00111111
     movwf   adcValueL
+    
     swapf   adcValueH
     rlf	    adcValueH	
     rlf	    adcValueH	     
     movf    adcValueH, w
     andlw   0B11000000
-    iorwf   adcValueL, w    
-    movwf   pwm		    ;  adcValueL has now the 10 adc bit value divided by 4.      
+    iorwf   adcValueL, w  
+
+    movwf   pwm		    ;  pwm has now the 10 bits integer adc value divided by 4.      
       
     goto    MainLoopBegin
      
@@ -154,6 +156,8 @@ WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1
     movf  ADRESL, w		
     movwf adcValueL		; 
 
+    bcf	  STATUS, 5		; Select bank 0 
+    
     return    
         
     
