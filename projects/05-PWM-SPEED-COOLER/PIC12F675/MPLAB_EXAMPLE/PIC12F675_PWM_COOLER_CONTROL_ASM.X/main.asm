@@ -2,7 +2,8 @@
 ; I couldn't find clear documentation on how to configure the interrupt service using "pic-as". 
 ; Therefore, I tried some configurations so that the occurrence of a desired interrupt would 
 ; divert the program flow to address 4h. This was possible by adding special parameters as shown below.
-; Go to properties and set pic-as Additiontal Options: -Wl,-PresetVec=0x0,-PisrVec=0x04      
+; Go to properties and set pic-as Additiontal Options: -Wl,-PresetVec=0x0,-PisrVec=0x04   
+;    
 ; Author: Ricardo Lima Caratti
 ; Jan/2024
     
@@ -54,13 +55,13 @@ PWM_LOW:
     movf    pwm, w
     subwf   auxValue, w
     movwf   TMR0
-    bsf	    GPIO, 5
+    bsf	    GPIO, 5	    ; GP5 = 1
     bcf	    GPIO,2	    ; For Debugging 
     goto    PWM_FINISH
 PWM_HIGH: 
     movf    pwm, w
     subwf   TMR0 
-    bcf	    GPIO, 5
+    bcf	    GPIO, 5	    ; GP5 = 0
     bsf	    GPIO,2	    ; For Debugging 
 PWM_FINISH:
     bcf	    INTCON, 2
@@ -106,7 +107,7 @@ main:
 MainLoopBegin:		; Endless loop
     call    AdcRead
     
-    ; Divide 10 bits integer value  by 4 and stores the resul in pwm
+    ; Divide 10 bits integer adc value  by 4 and stores the resul in pwm
     rrf	    adcValueL
     rrf	    adcValueL
     movf    adcValueL, w
@@ -119,10 +120,8 @@ MainLoopBegin:		; Endless loop
     andlw   0B11000000
     iorwf   adcValueL, w    
     movwf   pwm		    ;  adcValueL has now the 10 adc bit value divided by 4.      
-  
-   
-  MainLoopEnd:     
-    goto MainLoopBegin
+      
+    goto    MainLoopBegin
      
 
 ;
