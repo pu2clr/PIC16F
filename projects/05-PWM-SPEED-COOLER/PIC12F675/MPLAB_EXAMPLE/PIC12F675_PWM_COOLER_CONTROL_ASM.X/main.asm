@@ -41,8 +41,11 @@ isrVec:
     goto interrupt
   
 interrupt: 
-
+    
     bcf	    STATUS, 5
+    
+    ; bcf	    INTCON, 7
+    
     ; check if the interrupt was trigged by Timer0	
     btfss   INTCON, 2	; INTCON - T0IF: TMR0 Overflow Interrupt Flag 
     goto    PWM_FINISH
@@ -50,21 +53,25 @@ interrupt:
     goto    PWM_LOW 
     goto    PWM_HIGH
 PWM_LOW: 
+
     movlw   255
     movwf   auxValue
     movf    pwm, w
     subwf   auxValue, w
     movwf   TMR0
+    
     bsf	    GPIO, 5	    ; GP5 = 1
-    bcf	    GPIO,2	    ; For Debugging 
     goto    PWM_FINISH
 PWM_HIGH: 
+
     movf    pwm, w
     subwf   TMR0 
+       
     bcf	    GPIO, 5	    ; GP5 = 0
-    bsf	    GPIO,2	    ; For Debugging 
+
 PWM_FINISH:
     bcf	    INTCON, 2
+    ; bsf	    INTCON, 7
     
     retfie    
     
@@ -97,13 +104,7 @@ main:
     ; bit 5 (T0IE) =  1 => Enables the TMR0 interrupt
     movlw   0B11100000
     iorwf   INTCON
-    
-    movlw   128
-    movwf   pwm
-    movwf   TMR0
-    
-    bcf	    GPIO,2	; For Debugging 
-    
+         
 MainLoopBegin:		; Endless loop
     call    AdcRead
     
@@ -119,8 +120,8 @@ MainLoopBegin:		; Endless loop
     movf    adcValueH, w
     andlw   0B11000000
     iorwf   adcValueL, w    
-    movwf   pwm		    ;  adcValueL has now the 10 adc bit value divided by 4.      
-      
+    movwf   pwm		    ;  adcValueL has now the 10 adc bit value divided by 4.  
+
     goto    MainLoopBegin
      
 
@@ -142,13 +143,15 @@ WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1
     btfsc  ADCON0, 1		; Bit Test, Skip if Clear - If bit 1 in ADCON0 is '1', the next instruction is executed.
     goto   WaitConvertionFinish 
 
-    movwf adcValueH   
     movf  ADRESH, w		; BANK 0
+    movwf adcValueH   
     
     bsf	  STATUS, 5		; Select BANK 1 to access ADRESL register
     movf  ADRESL, w		
     movwf adcValueL		; 
 
+    bcf	  STATUS, 5		; Select bank 0
+     
     return    
         
     
