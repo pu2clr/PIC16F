@@ -1,4 +1,4 @@
-; UNDER ADJUST AND IMPROVEMENTS...
+; UNDER  IMPROVEMENTS...
 ; I couldn't find clear documentation on how to configure the interrupt service using "pic-as". 
 ; Therefore, I tried some configurations so that the occurrence of a desired interrupt would 
 ; divert the program flow to address 4h. This was possible by adding special parameters as shown below.
@@ -41,8 +41,11 @@ isrVec:
     goto interrupt
   
 interrupt: 
-
+   
     bcf	    STATUS, 5
+    
+    bcf	    INTCON, 7	; Disables GIE
+    
     ; check if the interrupt was trigged by Timer0	
     btfss   INTCON, 2	; INTCON - T0IF: TMR0 Overflow Interrupt Flag 
     goto    PWM_FINISH
@@ -57,15 +60,17 @@ PWM_LOW:
     movwf   TMR0
     bsf	    GPIO, 5	    ; GP5 = 1
     ; bcf	    GPIO,2	    ; For Debugging 
-    goto    PWM_FINISH
+    goto    PWM_T0IF_CLR
 PWM_HIGH: 
     movf    pwm, w
     movwf   TMR0 
     bcf	    GPIO, 5	    ; GP5 = 0
-    ; bsf	    GPIO,2	    ; For Debugging 
+    ; bsf	    GPIO,2	    ; For Debugging    
+PWM_T0IF_CLR:
+    bcf	    INTCON, 2  
 PWM_FINISH:
-    bcf	    INTCON, 2
-    
+    bsf	    INTCON, 7		    ; Enables GIE
+   
     retfie    
     
     
@@ -81,7 +86,7 @@ main:
     ; bit 5 = 0 -> Internal instruction cycle clock;
     ; bit 3 =  0 -> Prescaler is assigned to the TIMER0 module
     ; bits 0,1,2 = 101 -> TMR0 prescaler = 64 
-    movlw   0B01000101	
+    movlw   0B00000101	
     ; movlw   0B01000001	    ; For debugging
     movwf   OPTION_REG	    
     ; Bank 0
