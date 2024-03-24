@@ -74,7 +74,7 @@ void main() {
     
     while (1) {
         unsigned int value = readADC();
-        PWM = (uint8_t) (value >> 2);
+        PWM = (uint8_t) (value >> 2);       // 10-bit adc interger divided by 4.
     }
 }
 

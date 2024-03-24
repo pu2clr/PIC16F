@@ -78,41 +78,40 @@ PWM_FINISH:
 main: 
     ; Bank 1
     bsf	    STATUS,5	    ; Selects Bank 1  
+    movlw   0B00000001	    ; GP0 as input and GP1, GP2, GP4 and GP5 as digital output
+    movwf   TRISIO	    ; Sets all GPIO as output    
     movlw   0B00010001	    ; AN0 as analog 
     movwf   ANSEL	    ; Sets GP0 as analog and Clock / 8    
-    movlw   0B00000001	    ; GP0 as input and GP1, GP2, GP4 and GP5 as digital output
-    movwf   TRISIO	    ; Sets all GPIO as output
+
     ; OPTION_REG setup
     ; bit 5 = 0 -> Internal instruction cycle clock;
     ; bit 3 =  0 -> Prescaler is assigned to the TIMER0 module
     ; bits 0,1,2 = 101 -> TMR0 prescaler = 64 
-    movlw   0B00000101	
-    ; movlw   0B01000001	    ; For debugging
+    movlw   0B01000101	
     movwf   OPTION_REG	    
     ; Bank 0
     bcf	    STATUS,5 
     clrf    GPIO	; Turn all GPIO pins low
-    movlw   0x07	;   
-    movwf   CMCON	; digital IO  
+    ; movlw   0x07	;   
+    ; movwf   CMCON	; digital IO  
     movlw   0B10000001	; Right justified; VDD;  01 = Channel 00 (AN0); A/D converter module is 
     movwf   ADCON0	; Enable ADC   
     
     ; INTCON setup
     ; bit 7 (GIE) = 1 => Enables all unmasked interrupts
     ; bit 5 (T0IE) =  1 => Enables the TMR0 interrupt
-    movlw   0B11100000
+    movlw   0B10100000
     iorwf   INTCON
     
-    movlw   128
+    movlw   50
     movwf   pwm
-    movwf   TMR0
     
     ; bcf	    GPIO,2	; For Debugging 
     
 MainLoopBegin:		; Endless loop
     call    AdcRead
     
-    ; Divide 10 bits integer adc value  by 4 and stores the resul in pwm
+    ; Divide 10-bit integer adc value  by 4 and stores the resul in pwm
     rrf	    adcValueL
     rrf	    adcValueL
     movf    adcValueL, w
@@ -126,7 +125,7 @@ MainLoopBegin:		; Endless loop
     andlw   0B11000000
     iorwf   adcValueL, w  
 
-    movwf   pwm		    ;  pwm has now the 10 bits integer adc value divided by 4.      
+    movwf   pwm		    ;  pwm has now the 10-bit integer adc value divided by 4.      
       
     goto    MainLoopBegin
      
