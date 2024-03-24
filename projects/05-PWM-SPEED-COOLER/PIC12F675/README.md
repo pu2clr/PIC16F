@@ -197,13 +197,11 @@ PWM_LOW:
     subwf   auxValue, w
     movwf   TMR0
     bsf	    GPIO, 5	    ; GP5 = 1
-    ; bcf	    GPIO,2	    ; For Debugging 
     goto    PWM_T0IF_CLR
 PWM_HIGH: 
     movf    pwm, w
     movwf   TMR0 
-    bcf	    GPIO, 5	    ; GP5 = 0
-    ; bsf	    GPIO,2	    ; For Debugging    
+    bcf	    GPIO, 5	    ; GP5 = 0 
 PWM_T0IF_CLR:
     bcf	    INTCON, 2  
 PWM_FINISH:
@@ -243,9 +241,7 @@ main:
     
     movlw   50
     movwf   pwm
-    
-    ; bcf	    GPIO,2	; For Debugging 
-    
+       
 MainLoopBegin:		; Endless loop
     call    AdcRead
     
@@ -271,14 +267,7 @@ MainLoopBegin:		; Endless loop
 ;
 ; Read the analog value from GP0 (PIN 7 OF THE PIC12F675)
 AdcRead: 
-      
-    ; For debugging
-    ; movlw   LOW(100)
-    ; movwf   adcValueL
-    ; movlw   HIGH(100)
-    ; movwf   adcValueH
-    ; return 
-    
+         
     bcf	  STATUS, 5		; Select bank 0 to deal with ADCON0 register
     bsf	  ADCON0, 1		; Start convertion  (set bit 1 to high)
 
