@@ -136,9 +136,9 @@ MainLoopBegin:		; Endless loop
 AdcRead: 
       
     ; For debugging
-    ; movlw   LOW(800)
+    ; movlw   LOW(100)
     ; movwf   adcValueL
-    ; movlw   HIGH(800)
+    ; movlw   HIGH(100)
     ; movwf   adcValueH
     ; return 
     
