@@ -51,10 +51,262 @@ The PIC12F675 is a compact and versatile 8-bit microcontroller from Microchip Te
 ![PIC12F675 PINOUT](../../../images/PIC12F675_PINOUT.png)
 
 
+## Example in C 
+
+```c
+
+#pragma config FOSC = INTRCIO   // Oscillator Selection bits (INTOSC oscillator: I/O function on GP4/OSC2/CLKOUT pin, I/O function on GP5/OSC1/CLKIN)
+#pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled)
+#pragma config PWRTE = OFF      // Power-Up Timer Enable bit (PWRT disabled)
+#pragma config MCLRE = OFF       // GP3/MCLR pin function select (GP3/MCLR pin function is MCLR)
+#pragma config BOREN = ON       // Brown-out Detect Enable bit (BOD enabled)
+#pragma config CP = OFF         // Code Protection bit (Program Memory code protection is disabled)
+#pragma config CPD = OFF        // Data Code Protection bit (Data memory code protection is disabled)
+
+
+#define _XTAL_FREQ 8000000			// required for delay Routines. 
+
+#include <xc.h>
+
+uint8_t PWM = 50;
+
+
+
+void  initADC() {
+    TRISIO = 0B00000001;          // GP0 as input and GP1, GP2, GP4 and GP5 as digital output
+    ANSEL =  0B00010001;          // AN0 as analog input
+    ADCON0 = 0B10000001;          // Right justified; VDD;  01 = Channel 00 (AN0); A/D converter module is 
+}
+
+void  initInterrupt() {
+    // INTEDG: Interrupt Edge Select bit -  Interrupt will be triggered on the rising edge
+    // Prescaler Rate: 1:64 - It generates about 73Hz (assigned to the TIMER0 module)
+    OPTION_REG = 0B01000101;       // see  data sheet (page 12)    
+    T0IE = 1;                      // TMR0: Overflow Interrupt 
+    GIE = 1;                       // GIE: Enable Global Interrupt
+}
+
+
+/**
+ * Handle timer overflow
+ */
+void __interrupt() ISR(void)
+{
+    if ( T0IF ) {
+        
+        if (GP5 ) {
+            TMR0 = PWM;
+            GP5 = 0;
+        } else {
+            TMR0 = 255 - PWM;
+            GP5 = 1;
+        }
+        
+        T0IF = 0;
+    }
+    
+}
+
+unsigned int readADC() {
+    ADCON0bits.GO = 1;              // Start conversion
+    while (ADCON0bits.GO_nDONE);    // Wait for conversion to finish
+    return ((unsigned int) ADRESH << 8) + (unsigned int) ADRESL;  // return the ADC 10 bit integer value 1024 ~= 5V, 512 ~= 2.5V, ... 0 = 0V
+}
+
+
+
+void main() {
+   
+    initADC();
+    initInterrupt();
+    
+    while (1) {
+        unsigned int value = readADC();
+        PWM = (uint8_t) (value >> 2);       // 10-bit adc interger divided by 4.
+    }
+}
+
+```
+
+
+
+## Example in Assembly and interrupt setup
+
+I couldn't find clear documentation on how to configure the interrupt service using "pic-as". Therefore, I attempted various configurations so that the occurrence of a desired interrupt would redirect the program flow to address 4h (as described in the PIC12F675 Data Sheet). I didn't find an Assembly directive that would instruct the assembler to start the interrupt code at address 4h (the ORG directive didn't seem to work). However, this was made possible by adding special parameters in the project settings/properties, as shown below. Go to properties and set the pic-as Additional Options: -Wl,-PresetVec=0x0,-PisrVec=0x04.  The image below shows that setup.
+
+![Assembly and interrupt setup](../../../images/pic12f675_interrupt_setup.png)
+
+
+```asm
+
+; UNDER  IMPROVEMENTS...
+; Author: Ricardo Lima Caratti
+; Jan/2024
+    
+#include <xc.inc>
+ 
+; CONFIG
+  CONFIG  FOSC = INTRCIO        ; Oscillator Selection bits (INTOSC oscillator: I/O function on GP4/OSC2/CLKOUT pin, I/O function on GP5/OSC1/CLKIN)
+  CONFIG  WDTE = OFF            ; Watchdog Timer Enable bit (WDT disabled)
+  CONFIG  PWRTE = OFF           ; Power-Up Timer Enable bit (PWRT disabled)
+  CONFIG  MCLRE = ON            ; GP3/MCLR pin function select (GP3/MCLR pin function is MCLR)
+  CONFIG  BOREN = ON            ; Brown-out Detect Enable bit (BOD enabled)
+  CONFIG  CP = OFF              ; Code Protection bit (Program Memory code protection is disabled)
+  CONFIG  CPD = OFF             ; Data Code Protection bit (Data memory code protection is disabled) 
+  
+; declare your variables here
+
+auxValue    equ 0x20		; counter 1
+adcValueL   equ 0x21		; 8 bits less significant value of the adc
+adcValueH   equ 0x22		; 8 bits most significant value of the adc
+pwm	    equ	0x23   
+   	    
+PSECT resetVec, class=CODE, delta=2 
+ORG 0x0000	    
+resetVect:
+    PAGESEL main
+    goto main
+;
+; INTERRUPT IMPLEMENTATION 
+; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow
+; pic-as Additiontal Options: -Wl,-PresetVec=0x0,-PisrVec=0x04    
+PSECT isrVec, class=CODE, delta=2
+ORG 0x0004     
+isrVec:  
+    PAGESEL interrupt
+    goto interrupt
+  
+interrupt: 
+   
+    bcf	    STATUS, 5
+    
+    bcf	    INTCON, 7	; Disables GIE
+    
+    ; check if the interrupt was trigged by Timer0	
+    btfss   INTCON, 2	; INTCON - T0IF: TMR0 Overflow Interrupt Flag 
+    goto    PWM_FINISH
+    btfss   GPIO, 5	; 
+    goto    PWM_LOW 
+    goto    PWM_HIGH
+PWM_LOW: 
+    movlw   255
+    movwf   auxValue
+    movf    pwm, w
+    subwf   auxValue, w
+    movwf   TMR0
+    bsf	    GPIO, 5	    ; GP5 = 1
+    ; bcf	    GPIO,2	    ; For Debugging 
+    goto    PWM_T0IF_CLR
+PWM_HIGH: 
+    movf    pwm, w
+    movwf   TMR0 
+    bcf	    GPIO, 5	    ; GP5 = 0
+    ; bsf	    GPIO,2	    ; For Debugging    
+PWM_T0IF_CLR:
+    bcf	    INTCON, 2  
+PWM_FINISH:
+    bsf	    INTCON, 7		    ; Enables GIE
+   
+    retfie    
+    
+    
+; PSECT code, delta=2
+main: 
+    ; Bank 1
+    bsf	    STATUS,5	    ; Selects Bank 1  
+    movlw   0B00000001	    ; GP0 as input and GP1, GP2, GP4 and GP5 as digital output
+    movwf   TRISIO	    ; Sets all GPIO as output    
+    movlw   0B00010001	    ; AN0 as analog 
+    movwf   ANSEL	    ; Sets GP0 as analog and Clock / 8    
+
+    ; OPTION_REG setup
+    ; bit 5 = 0 -> Internal instruction cycle clock;
+    ; bit 3 =  0 -> Prescaler is assigned to the TIMER0 module
+    ; bits 0,1,2 = 101 -> TMR0 prescaler = 64 
+    movlw   0B01000101	
+    movwf   OPTION_REG	    
+    ; Bank 0
+    bcf	    STATUS,5 
+    clrf    GPIO	; Turn all GPIO pins low
+    ; movlw   0x07	;   
+    ; movwf   CMCON	; digital IO  
+    movlw   0B10000001	; Right justified; VDD;  01 = Channel 00 (AN0); A/D converter module is 
+    movwf   ADCON0	; Enable ADC   
+    
+    ; INTCON setup
+    ; bit 7 (GIE) = 1 => Enables all unmasked interrupts
+    ; bit 5 (T0IE) =  1 => Enables the TMR0 interrupt
+    movlw   0B10100000
+    iorwf   INTCON
+    
+    movlw   50
+    movwf   pwm
+    
+    ; bcf	    GPIO,2	; For Debugging 
+    
+MainLoopBegin:		; Endless loop
+    call    AdcRead
+    
+    ; Divide 10-bit integer adc value  by 4 and stores the resul in pwm
+    rrf	    adcValueL
+    rrf	    adcValueL
+    movf    adcValueL, w
+    andlw   0B00111111
+    movwf   adcValueL
+    
+    swapf   adcValueH
+    rlf	    adcValueH	
+    rlf	    adcValueH	     
+    movf    adcValueH, w
+    andlw   0B11000000
+    iorwf   adcValueL, w  
+
+    movwf   pwm		    ;  pwm has now the 10-bit integer adc value divided by 4.      
+      
+    goto    MainLoopBegin
+     
+
+;
+; Read the analog value from GP0 (PIN 7 OF THE PIC12F675)
+AdcRead: 
+      
+    ; For debugging
+    ; movlw   LOW(100)
+    ; movwf   adcValueL
+    ; movlw   HIGH(100)
+    ; movwf   adcValueH
+    ; return 
+    
+    bcf	  STATUS, 5		; Select bank 0 to deal with ADCON0 register
+    bsf	  ADCON0, 1		; Start convertion  (set bit 1 to high)
+
+WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1 
+    btfsc  ADCON0, 1		; Bit Test, Skip if Clear - If bit 1 in ADCON0 is '1', the next instruction is executed.
+    goto   WaitConvertionFinish 
+
+    movf  ADRESH, w		; BANK 0
+    movwf adcValueH   
+    
+    bsf	  STATUS, 5		; Select BANK 1 to access ADRESL register
+    movf  ADRESL, w		
+    movwf adcValueL		; 
+
+    bcf	  STATUS, 5		; Select bank 0 
+    
+    return    
+        
+    
+END resetVect
+
+
+```
+
+
 ## Prototype
 
 
 ![Prototype](./protype_pic12f675_pwm_servo.jpg)
+
 
 
 ## Contribution
