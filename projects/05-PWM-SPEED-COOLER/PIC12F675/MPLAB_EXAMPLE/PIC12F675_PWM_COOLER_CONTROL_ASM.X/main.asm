@@ -147,8 +147,8 @@ WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1
     btfsc  ADCON0, 1		; Bit Test, Skip if Clear - If bit 1 in ADCON0 is '1', the next instruction is executed.
     goto   WaitConvertionFinish 
 
-    movwf adcValueH   
     movf  ADRESH, w		; BANK 0
+    movwf adcValueH   
     
     bsf	  STATUS, 5		; Select BANK 1 to access ADRESL register
     movf  ADRESL, w		
