@@ -1,4 +1,8 @@
-; UNDER CONSTRUCTION... 
+; UNDER ADJUST AND IMPROVEMENTS...
+; I couldn't find clear documentation on how to configure the interrupt service using "pic-as". 
+; Therefore, I tried some configurations so that the occurrence of a desired interrupt would 
+; divert the program flow to address 4h. This was possible by adding special parameters as shown below.
+; Go to properties and set pic-as Additiontal Options: -Wl,-PresetVec=0x0,-PisrVec=0x04      
 ; Author: Ricardo Lima Caratti
 ; Jan/2024
     
@@ -15,22 +19,18 @@
   
 ; declare your variables here
 
-idxI	    equ 0x20		; counter 1
-idxJ	    equ 0x21		; counter 2
-delayParam  equ 0x22 
-adcValueL   equ 0x23		; 8 bits less significant value of the adc
-adcValueH   equ 0x24		; 8 bits most significant value of the adc
-pwm	    equ	0x25   
+auxValue    equ 0x20		; counter 1
+adcValueL   equ 0x21		; 8 bits less significant value of the adc
+adcValueH   equ 0x22		; 8 bits most significant value of the adc
+pwm	    equ	0x23   
    	    
 PSECT resetVec, class=CODE, delta=2 
 ORG 0x0000	    
 resetVect:
     PAGESEL main
     goto main
-
-
 ;
-; INTERRUPT - FUNCTION SETUP  
+; INTERRUPT IMPLEMENTATION 
 ; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow
 ; pic-as Additiontal Options: -Wl,-PresetVec=0x0,-PisrVec=0x04    
 PSECT isrVec, class=CODE, delta=2
@@ -49,23 +49,21 @@ interrupt:
     goto    PWM_LOW 
     goto    PWM_HIGH
 PWM_LOW: 
-    bsf	    GPIO, 5
     movlw   255
-    movwf   idxI
+    movwf   auxValue
     movf    pwm, w
-    subwf   idxI, w
+    subwf   auxValue, w
     movwf   TMR0
-    bcf	    GPIO,2
+    bsf	    GPIO, 5
+    bcf	    GPIO,2	    ; For Debugging 
     goto    PWM_FINISH
 PWM_HIGH: 
     movf    pwm, w
     subwf   TMR0 
     bcf	    GPIO, 5
-    bsf	    GPIO,2
+    bsf	    GPIO,2	    ; For Debugging 
 PWM_FINISH:
     bcf	    INTCON, 2
-    ; bsf	    INTCON, 7
-    ; bsf	    INTCON, 5
     
     retfie    
     
@@ -82,7 +80,8 @@ main:
     ; bit 5 = 0 -> Internal instruction cycle clock;
     ; bit 3 =  0 -> Prescaler is assigned to the TIMER0 module
     ; bits 0,1,2 = 101 -> TMR0 prescaler = 64 
-    movlw   0B01000101	     
+    movlw   0B01000101	
+    ; movlw   0B01000001	    ; For debugging
     movwf   OPTION_REG	    
     ; Bank 0
     bcf	    STATUS,5 
@@ -101,7 +100,9 @@ main:
     movlw   128
     movwf   pwm
     movwf   TMR0
-    bcf	    GPIO,2
+    
+    bcf	    GPIO,2	; For Debugging 
+    
 MainLoopBegin:		; Endless loop
     call    AdcRead
     
@@ -125,12 +126,13 @@ MainLoopBegin:		; Endless loop
      
 
 ;
-; Read the analog value from GP1
+; Read the analog value from GP0 (PIN 7 OF THE PIC12F675)
 AdcRead: 
       
-    ; movlw   LOW(600)
+    ; For debugging
+    ; movlw   LOW(800)
     ; movwf   adcValueL
-    ; movlw   HIGH(600)
+    ; movlw   HIGH(800)
     ; movwf   adcValueH
     ; return 
     
@@ -149,29 +151,7 @@ WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1
     movwf adcValueL		; 
 
     return    
-    
-; ******************
-; Delay function
-; Deleys about  WREG * 255us
-
-Delay:  
-    movwf   delayParam    
-    movlw   255
-    movwf   idxI	; 255 times
-    movwf   idxJ	; 255 times (255 * 255)
-			; 255 * 255 * delayParam loaded before calling Delay    
-DelayLoop:    
-    nop                 ; One cycle
-    nop                 ; One cycle
-    decfsz idxI, f	; One cycle* (idxI = dumm1 - 1) => if idxI is 0, after decfsz, it will be 255
-    goto DelayLoop      ; Two cycles
-    decfsz idxJ, f	; idxJ = dumm2 - 1; if idxJ = 0, after decfsz, it will be 255
-    goto DelayLoop
-    decfsz delayParam,f ; Runs 3 times (255 * 255)		 
-    goto DelayLoop
-    
-    return 
-    
+        
     
 END resetVect
 

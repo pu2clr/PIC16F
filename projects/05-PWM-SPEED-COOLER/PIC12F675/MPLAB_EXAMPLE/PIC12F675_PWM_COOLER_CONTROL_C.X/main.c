@@ -53,8 +53,6 @@ void __interrupt() ISR(void)
             TMR0 = 255 - PWM;
             GP5 = 1;
         }
-        
-        x = 0;
     }
     
 }

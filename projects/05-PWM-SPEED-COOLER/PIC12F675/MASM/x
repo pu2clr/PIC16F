@@ -1,5 +1,0 @@
-main.asm:75:Error[1102]   Parser error: syntax error
-main.asm:131:Message[1302] RAM Bank undefined in this chunk of code. Ensure that bank bits are correct. Assuming bank 0 from now on.
-main.asm:140:Message[1302] RAM Bank undefined in this chunk of code. Ensure that bank bits are correct. Assuming bank 0 from now on.
-main.asm:140:Message[305] Using default destination of 1 (file).
-Error[181]   Error generating hex file.
