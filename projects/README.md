@@ -154,8 +154,6 @@ The following are the main characteristics of the microcontrollers used in this 
 ## PIC12F675 PINOUT
 
 
-
-
 The PIC12F series, particularly the PIC12F675, is a family of microcontrollers produced by Microchip Technology, known for their small size, low power consumption, and versatility, making them ideal for a wide range of applications. Below are the key features and pinout details of the PIC12F675, a popular model in the series.
 
 ### Key Features of PIC12F675:
@@ -193,3 +191,49 @@ The PIC12F675 comes in an 8-pin package with the following pin configuration:
 3. **ICSP (In-Circuit Serial Programming)**: Pins GP0 and GP1 are used for ICSP, allowing the microcontroller to be programmed while placed in a circuit.
 
 The PIC12F675 is a versatile microcontroller suitable for various applications, including simple automation, small gadgets, and hobbyist projects. Its small footprint and low power consumption, combined with its rich set of features, make it an ideal choice for projects where space and power are constrained.
+
+
+## PIC10F200 
+
+The PIC10F200 is a small, low-cost, and low-power microcontroller that is ideal for a variety of applications, including:
+
+* **Simple digital devices**
+* **Sensors**
+* **Wireless devices**
+* **IoT devices**
+
+### Features:
+
+* **Flash memory:** The PIC10F200 has 384 bytes of Flash memory, which is enough to store a small program.
+* **RAM:** The PIC10F200 has 16 bytes of RAM, which is enough to store a few variables.
+* **I/O pins:** The PIC10F200 has 4 I/O pins, which can be used to connect to sensors, actuators, and other devices.
+* **Internal oscillator:** The PIC10F200 has an internal oscillator, which eliminates the need for an external crystal or resonator.
+* **Low power consumption:** The PIC10F200 consumes very little power, making it ideal for battery-powered applications.
+
+
+### PIC10F200 PINOUT
+
+
+![PIC10F200 pinout](../images/PIC10F200_PINOUT.jpg)
+
+
+
+
+## PIC10F220 
+
+When it comes to applications requiring analog input, the PIC10F220 emerges as a superior alternative to the PIC10F200. While inheriting the core features of the PIC10F200, the PIC10F220 distinguishes itself with the inclusion of an Analog-to-Digital Converter (ADC) interface. This addition significantly enhances the PIC10F220's functionality, enabling it to directly read analog signals. Such a capability is crucial for applications where monitoring or measuring analog parameters is essential. 
+
+
+### PIC10F220 PINOUT
+
+
+![PIC10F220 PINOUT](../images/PIC10F220_PINOUT.png)
+
+
+
+## References 
+
+1. [PIC16F87XA Data Sheet](https://ww1.microchip.com/downloads/en/devicedoc/39582b.pdf)
+3. [PIC16F627A/628A/648A Data Sheet](https://ww1.microchip.com/downloads/en/DeviceDoc/40044G.pdf)
+
+
