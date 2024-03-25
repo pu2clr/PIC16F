@@ -233,7 +233,11 @@ When it comes to applications requiring analog input, the PIC10F220 emerges as a
 
 ## References 
 
-1. [PIC16F87XA Data Sheet](https://ww1.microchip.com/downloads/en/devicedoc/39582b.pdf)
-3. [PIC16F627A/628A/648A Data Sheet](https://ww1.microchip.com/downloads/en/DeviceDoc/40044G.pdf)
+* [PIC16F887 Data Sheet](http://ww1.microchip.com/downloads/en/devicedoc/41291d.pdf)
+* [PIC16F87XA Data Sheet](https://ww1.microchip.com/downloads/en/devicedoc/39582b.pdf)
+* [PIC16F627A/628A/648A Data Sheet](https://ww1.microchip.com/downloads/en/DeviceDoc/40044G.pdf)
+* [PIC10F200 Data Sheet](https://ww1.microchip.com/downloads/en/DeviceDoc/40001239F.pdf) 
+* [PIC12F675 Data Sheet](https://ww1.microchip.com/downloads/en/devicedoc/41190c.pdf)
+* [PIC10F220/222 Data Sheet](https://ww1.microchip.com/downloads/en/DeviceDoc/41270E.pdf)
 
 
