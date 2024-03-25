@@ -8,6 +8,8 @@ Generating PWM with PIC12F675 and  interrupt resource.
 - [Schematic](#schematics)
   * [KiCad schematic](./KiCad/)
 - [About the PIC12675](#about-the-pic12675)
+- [Example in C](#example-in-c)
+- [Example in Assembly and Interrupt Setup](#example-in-assembly-and-interrupt-setup)
 - [Prototype](#prototype)
 - [MPLAB X Example](./MPLAB_EXAMPLE/)      
 - [References](#references)
