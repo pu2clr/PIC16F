@@ -27,6 +27,7 @@ In summary, Assembly is beneficial for highly optimized, resource-constrained, o
 5. [PIC10F200 Assembly code template](#pic10f200-assembly-code-template)
 6. [PIC10F200 - Indirect Addressing with INDF and FSR Registers](#pic10f200---indirect-addressing-with-indf-and-fsr-registers)
 7. [Multiplication and Division](#multiplication-and-division)
+8. [Interrupt - PIC12F675 and interrupt setup ](#pic12f675-and-interrupt-setup)
 8. [References](#references)
 
 ## Compilling assembly programs for PIC microcontrollers using MPLAB X
