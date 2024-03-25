@@ -1,10 +1,12 @@
 # IR with PIC microcontrollers
 
+UNDER CONSTRUCTION...
+
+![UNDER CONSTRUCTION...](../../images/under_construction.png)
+
 
 This folder contains several concepts about the main IR protocols and provides examples of implementations using the PIC10F200 and PIC16F628A with various approaches. I believe that these examples will enable you to easily port the source codes to other microcontrollers from Microchip's PIC line.
 
-
-![UNDER CONSTRUCTION...](../../images/under_construction.png)
 
 
 ## Content
