@@ -3,8 +3,8 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>PIC12F675_SERVO_CONTROL</name>
-            <creation-uuid>32f41961-fd20-44ba-b654-40eceaa1407b</creation-uuid>
+            <name>PIC12F675_PWM_SERVO_CONTROL_ASM</name>
+            <creation-uuid>e6546706-8a78-44eb-a510-4167334a55f3</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
