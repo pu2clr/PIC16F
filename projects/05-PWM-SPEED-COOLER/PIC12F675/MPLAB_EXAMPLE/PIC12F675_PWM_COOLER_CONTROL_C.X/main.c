@@ -1,6 +1,5 @@
 /*
- * File:   main.c
- * Author: rcaratti
+ * This program generates a PWM signal based on the value read from the analog input.
  *
  * Created on March 15, 2024, 10:57 PM
  * Reference: https://saeedsolutions.blogspot.com/2012/07/pic12f675-pwm-code-proteus-simulation.html
@@ -23,13 +22,18 @@
 uint8_t PWM = 50;
 
 
-
+/**
+ * Configures the PIC12F675's analog input.
+ */ 
 void  initADC() {
     TRISIO = 0B00000001;          // GP0 as input and GP1, GP2, GP4 and GP5 as digital output
     ANSEL =  0B00010001;          // AN0 as analog input
     ADCON0 = 0B10000001;          // Right justified; VDD;  01 = Channel 00 (AN0); A/D converter module is 
 }
 
+/**
+ * Configures the PIC12F675 to trigger a function call as a result of a Timer0 interrupt (during "Overflow").
+ */
 void  initInterrupt() {
     // INTEDG: Interrupt Edge Select bit -  Interrupt will be triggered on the rising edge
     // Prescaler Rate: 1:64 - It generates about 73Hz (assigned to the TIMER0 module)
@@ -59,6 +63,9 @@ void __interrupt() ISR(void)
     
 }
 
+/**
+* Reads the value at the analog input.
+*/
 unsigned int readADC() {
     ADCON0bits.GO = 1;              // Start conversion
     while (ADCON0bits.GO_nDONE);    // Wait for conversion to finish

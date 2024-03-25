@@ -1,4 +1,5 @@
 ; UNDER  IMPROVEMENTS...
+; This program generates a PWM signal based on the value read from the analog input.
 ; I couldn't find clear documentation on how to configure the interrupt service using "pic-as". 
 ; Therefore, I tried some configurations so that the occurrence of a desired interrupt would 
 ; divert the program flow to address 4h. This was possible by adding special parameters as shown below.
