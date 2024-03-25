@@ -264,14 +264,21 @@ Multiplication and division by 2 can be solved very efficiently (with only one m
 
 #### Multiplication by 2
 
+```asm
+
 bcf     STATUS, 0
 rlf     op1         ; op1 = op1 * 2
 
+```
 
 #### Division by 2 
 
+```asm
+
 bcf     STATUS,0
 rrl     op1         ; op1 = op1 / 2   
+
+```
 
 
 For multiplications and divisions involving a multiplier and denominator, respectively, other than 2, 4, 8, 16, etc., it will be necessary to use other approaches. The following are very basic examples of multiplication and division.
