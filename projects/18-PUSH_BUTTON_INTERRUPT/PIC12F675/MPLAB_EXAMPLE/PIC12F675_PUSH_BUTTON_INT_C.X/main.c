@@ -36,11 +36,11 @@ void  initInterrupt() {
  */
 void __interrupt() ISR(void)
 {
-    if ( INTE ) {
+    if ( INTF ) {
         
         GP5 = !GP5;              // LED
         
-        INTE = 0;
+        INTF = 0;
     }
     
 }

@@ -20,40 +20,40 @@
 #define _XTAL_FREQ 4000000      // internal clock
 
 
-
-/**
- * Configures the PIC16F628A to trigger a function call as a result of RB0 level changes
- * See  Data Sheet (page 25 and 26)  
- */
-void  initInterrupt() {
-    OPTION_REG = 0B01000000;          
-    INTE = 1;                      // RB0/INT External Interrupt Enable bit
-    GIE = 1;                       // GIE: Enable Global Interrupt
-}
-
-
 /**
  * Handle PUSH BUTTON
  */
 void __interrupt() ISR(void)
 {
-    if ( INTE ) {
-        
-        // TODO
-        
-        INTE = 0 ;
+    GIE = 0;
+    //  checks RB0/INT External Interrupt 
+    if ( INTF ) {   
+        RA0 = !RA0;                 // Toggle the LED (on/off) 
+        INTF = 0 ;
     }
-    
+    GIE =  1;
 }
 
 
 void main() {
-
+ 
     // Digital Input and Output pins
-
-    initInterrupt();
+    TRISB = 0B00000001; // RB0 as digital input and all other pins as digital output
+  
+    // Configures the PIC16F628A to trigger a function call as a result of RB0 level changes
+    // See  Data Sheet (page 25 and 26)      
+    OPTION_REG = 0B01000000;          
+    INTE = 1;                      // RB0/INT External Interrupt Enable bit
+    GIE = 1;                       // GIE: Enable Global Interrupt
+ 
     
     while (1) {
-
+      // Puts the system to sleep.  
+      // It will wake-up if:  
+      // 1. External Reset input on MCLR pin
+      // 2. Watchdog Timer wake-up (if WDT was enabled) - NOT USED IN THIS PROJECT
+      // 3. Interrupt from RB0/INT pin, RB port change, or any peripheral interrupt.
+      // See page 113 of the PIC16F627A/628A/648A DATA SHEET 
+      SLEEP();   
     }
 }
