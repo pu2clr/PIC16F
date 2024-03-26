@@ -18,48 +18,43 @@
 
 #include <xc.h>
 
-
 /**
  * Handle timer overflow
  */
-void __interrupt() ISR(void)
-{
+void __interrupt() ISR(void) {
     GIE = 0;
-    if ( INTF ) {
-        
-        GP5 = !GP5;              // LED
-        __delay_us(100);         // 
+    if (INTF) {
+        GP5 = !GP5; // LED
+        __delay_us(100); // 
         INTF = 0;
     }
-    GIE =  1;
+    GIE = 1;
 }
 
-
 void main() {
-   
-    TRISIO = 0B00000001;        // GP0 as digital input / GP5 as digital output 
-    
-    
+
+    TRISIO = 0B00000100; // GP2 as digital input / GP5 as digital output 
+
+
     // Configures the PIC12F675 to trigger a function call as GP0 / PUSH BUTTON ACTION.
-    
+
     // INTEDG: Interrupt Edge Select bit -  Interrupt will be triggered on the rising edge
-    OPTION_REG = 0B01000000;       // see  data sheet (page 12)    
-    INTE = 1;                      // GP2/INT External Interrupt Enable bit
-    GIE = 1;                       // GIE: Enable Global Interrupt
+    OPTION_REG = 0B01000000; // see  data sheet (page 12)    
+    INTE = 1; // GP2/INT External Interrupt Enable bit
+    GIE = 1; // GIE: Enable Global Interrupt
 
     GP5 = 1;
-    __delay_ms(3000);
-    GP5 = 0;  
-    
-    while (1) {
-      // Puts the system to sleep.  
-      // It will wake-up if:  
-      // 1. External Reset input on MCLR pin
-      // 2. Watchdog Timer wake-up (if WDT was enabled) - NOT USED IN THIS PROJECT
-      // 3. Interrupt from RB0/INT pin, RB port change, or any peripheral interrupt.
-      // See page 113 of the PIC16F627A/628A/648A DATA SHEET 
-      SLEEP();         
+    __delay_ms(2000);
+    GP5 = 0;
 
+    while (1) {
+        // Puts the system to sleep.  
+        // It will wake-up if:  
+        // 1. External Reset input on MCLR pin
+        // 2. Watchdog Timer wake-up (if WDT was enabled) - NOT USED IN THIS PROJECT
+        // 3. Interrupt from RB0/INT pin, RB port change, or any peripheral interrupt.
+        // See page 113 of the PIC16F627A/628A/648A DATA SHEET 
+        SLEEP();
     }
 }
 
