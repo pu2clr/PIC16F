@@ -34,7 +34,7 @@ void __interrupt() ISR(void) {
 void main() {
 
     TRISIO = 0B00000100; // GP2 as digital input / GP5 as digital output 
-
+    ANSEL  = 0;
 
     // Configures the PIC12F675 to trigger a function call as GP0 / PUSH BUTTON ACTION.
 
