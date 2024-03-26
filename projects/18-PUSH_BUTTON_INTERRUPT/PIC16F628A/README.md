@@ -16,6 +16,10 @@ Additionally, this project aims to provide examples in C (XC8) and Assembly (pic
 
 
 
+## PIC628A and LED PROTOTYPE
+
+![Schematic PIC16F286A blink](./PROTOTYPE_PIC16F628A_PUSH_BUTTON_INTERRUPT.jpg)
+
 
 ## References 
 
