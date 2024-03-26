@@ -1,6 +1,8 @@
 # PIC16F628A and Push Button with Interrupt
 
+This project, while simple in terms of its functionalities, can assist you in setting up more robust projects. The goal here is to present shortcuts for configuring the MPLAB development environment, setting up the microcontroller's registers, the feature of power saving, as well as the use of the interrupt feature, whereby a specific code can be executed in response to the press of a button.
 
+Additionally, this project aims to provide examples in C (XC8) and Assembly (pic-as) as starting points for your own code.
 
 
 ## PIC628A and LED Schematic
