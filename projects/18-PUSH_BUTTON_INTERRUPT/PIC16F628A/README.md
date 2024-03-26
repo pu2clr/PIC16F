@@ -5,7 +5,7 @@ This project, while simple in terms of its functionalities, can assist you in se
 Additionally, this project aims to provide examples in C (XC8) and Assembly (pic-as) as starting points for your own code.
 
 
-## PIC628A and LED Schematic
+## PIC16F28A and LED Schematic
 
 ![Schematic PIC16F286A blink](./SCHEMATIC_PIC16F628A_PUSH_BUTTON_INTERRUPT.jpg)
 
@@ -16,7 +16,7 @@ Additionally, this project aims to provide examples in C (XC8) and Assembly (pic
 
 
 
-## PIC628A and LED PROTOTYPE
+## PIC16F28A and LED PROTOTYPE
 
 ![Schematic PIC16F286A blink](./PROTOTYPE_PIC16F628A_PUSH_BUTTON_INTERRUPT.jpg)
 
