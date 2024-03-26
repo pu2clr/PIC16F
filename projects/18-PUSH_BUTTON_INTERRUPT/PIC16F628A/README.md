@@ -3,6 +3,14 @@
 
 
 
+## PIC628A and LED Schematic
+
+![Schematic PIC16F286A blink](./SCHEMATIC_PIC16F628A_PUSH_BUTTON_INTERRUPT.jpg)
+
+
+## PIC16F628A PINOUT
+
+![PIC16F628A pinout](../../../images/PIC16F628A_PINOUT.png)
 
 
 
