@@ -14,7 +14,7 @@
 #pragma config CPD = OFF        // Data Code Protection bit (Data memory code protection is disabled)
 
 
-#define _XTAL_FREQ 8000000			// required for delay Routines. 
+#define _XTAL_FREQ 4000000			// required for delay Routines. 
 
 #include <xc.h>
 
@@ -24,8 +24,8 @@
 void __interrupt() ISR(void) {
     GIE = 0;
     if (INTF) {
-        GP5 = !GP5; // LED
-        __delay_us(100); // 
+        GP5 = !GP5;     // Toggle the LED (ON/OFF)
+        __delay_ms(100);  // Debounce
         INTF = 0;
     }
     GIE = 1;
@@ -43,8 +43,9 @@ void main() {
     INTE = 1; // GP2/INT External Interrupt Enable bit
     GIE = 1; // GIE: Enable Global Interrupt
 
+    // Status    
     GP5 = 1;
-    __delay_ms(2000);
+    __delay_ms(1500);
     GP5 = 0;
 
     while (1) {

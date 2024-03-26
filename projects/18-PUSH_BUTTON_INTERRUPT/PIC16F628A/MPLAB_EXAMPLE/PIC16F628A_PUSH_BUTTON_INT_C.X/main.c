@@ -29,7 +29,7 @@ void __interrupt() ISR(void)
     //  checks RB0/INT External Interrupt 
     if ( INTF ) {   
         RB3 = !RB3;                 // Toggle the LED (on/off) 
-        __delay_us(100);            // Debounce - avoid false reading (noise)    
+        __delay_ms(100);            // Debounce - avoid false reading (noise)    
         INTF = 0 ;
     }
     GIE =  1;
