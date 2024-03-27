@@ -89,6 +89,8 @@ main:
     movlw   0B10010000
     movwf   INTCON
     
+    movlw   50      ; Wait for the LED circuit become stable (if you are using debounce capacitor)
+    call    Delay
     ; Start Blinking
     bsf	    GPIO, 5
     movlw   6
