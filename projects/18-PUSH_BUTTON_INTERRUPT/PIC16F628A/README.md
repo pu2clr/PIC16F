@@ -10,7 +10,7 @@ Additionally, this project aims to provide examples in C (XC8) and Assembly (pic
 1. [Schematic](#pic16f28a-with-push-button-and-led-schematic)
     * [About debounce capacitor](#about-debounce-capacitor)
     * [Kicad Schematic](./KiCad/)
-2. [IC16F628A PINOUT](#pic12f675-pinout)
+2. [IC16F628A PINOUT](#pic16f628a-pinout)
 3. [Prototype](#pic16f28a-with-push-button-and-led-prototype)
 4. [Example in C](#example-in-c)
 5. [Example in Assembly ](#example-in-assembly)
