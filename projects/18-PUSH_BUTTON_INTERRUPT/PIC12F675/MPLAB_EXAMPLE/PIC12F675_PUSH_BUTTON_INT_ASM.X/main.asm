@@ -69,6 +69,8 @@ INT_FINISH:
       
 ; PSECT code, delta=2
 main: 
+
+    
     ; Bank 1
     bsf	    STATUS,5	    ; Selects Bank 1  
     movlw   0B00000100	    ; GP1 as input and GP1, GP2, GP4 and GP5 as digital output
@@ -81,22 +83,25 @@ main:
     movwf   OPTION_REG	    
     ; Bank 0
     bcf	    STATUS,5 
+   
     clrf    GPIO	; Turn all GPIO pins low
     
-    ; INTCON setup
-    ; bit 7 (GIE) = 1 => Enables all unmasked interrupts
+    ; ---- if you are using debounce capacitor ---
+    movlw   1		; Wait for the debounce capacitor becomes stable 
+    call    Delay
+    ; ----
+    
+    ; INTCON setup / enable interrupt 
+    ; bit 7 (GIE) = 1 => Enables all unmasked interrupts / Global Interrupt Enable bit
     ; bit 4 (INTE) =  1 => GP2/INT External Interrupt Flag bit
     movlw   0B10010000
-    movwf   INTCON
-    
-    movlw   50      ; Wait for the LED circuit become stable (if you are using debounce capacitor)
-    call    Delay
-    ; Start Blinking
-    bsf	    GPIO, 5
+    movwf   INTCON   
+    ; Blink LED to indicate that the system is alive
+    bsf	    GPIO, 5	; LED ON
     movlw   6
     call    Delay
-    bcf	    GPIO, 5
-    
+    bcf	    GPIO, 5	; LED OFF
+	
 MainLoopBegin:		; Endless loop
     sleep      
     goto    MainLoopBegin
