@@ -20,15 +20,81 @@ ind_I		equ 0x20
 ind_J		equ 0x21
 delayParam	equ 0x22 
   
-PSECT resetVector, class=CODE, delta=2
+
+PSECT resetVect, class=CODE, delta=2 
+ORG 0x0000	    
 resetVect:
     PAGESEL main
     goto main
-PSECT code, delta=2
-main:
- 
-loop:			; Loop without a stopping condition - here is your application code
+;
+; INTERRUPT IMPLEMENTATION 
+; THIS FUNCTION WILL BE CALLED EVERY TMR0 Overflow
+; pic-as Additiontal Options: -Wl,-PresetVec=0x0,-PisrVec=0x04    
+PSECT isrVec, class=CODE, delta=2
+ORG 0x0004     
+isrVec:  
+    PAGESEL interrupt
+    goto interrupt
+  
+interrupt: 
+   
+    bcf	    STATUS, 5
+    
+    bcf	    INTCON, 7	; Disables GIE
+    
+    ; check if the interrupt was trigged by Timer0	
+    btfss   INTCON, 1		; INTCON - INTF: RB0/INT External Interrupt Flag bit
+    goto    INT_FINISH
+    btfss   PORTB, 3		; Toggle LED (ON/OFF)
+    goto    INT_SWITCH_ON
+    goto    INT_SWITCH_OFF
+INT_SWITCH_ON:    
+    bsf	    PORTB, 3
+    goto    INT_CONTINUE
+INT_SWITCH_OFF:    
+    bcf	    PORTB, 3
+INT_CONTINUE:    
+    movlw   1
+    call    Delay
+    bcf	    INTCON, 1  
+INT_FINISH:
+    bsf	    INTCON, 7		; Enables GIE
+    
+    retfie   
+    
+    
+    
 
+main:
+
+    ; Bank 1
+    bsf	    STATUS, 5	    ; Selects Bank 1  
+    movlw   0B00000001	    ; RB1 as input and RB3 as output
+    movwf   TRISB 	    ; Sets all GPIO as output    
+
+    movlw   0B01000000	    ; INTEDG: Interrupt Edge Select bit
+    movwf   OPTION_REG	      
+
+    ; Bank 0
+    bcf	    STATUS, 5 
+    
+    clrf    PORTB	    ; Turn all GPIO pins low
+    
+    ; INTCON setup
+    ; bit 7 (GIE) = 1 => Enables all unmasked interrupts
+    ; bit 4 (INTE) =  1 => RB0/INT External Interrupt Flag bit
+    movlw   0B10010000
+    movwf   INTCON
+    
+    ; Start Blinking
+    bsf	    PORTB, 3
+    movlw   6
+    call    Delay
+    bcf	    PORTB, 3    
+    
+    
+loop:			; Loop without a stopping condition - here is your application code
+    sleep
     goto loop
 
 
