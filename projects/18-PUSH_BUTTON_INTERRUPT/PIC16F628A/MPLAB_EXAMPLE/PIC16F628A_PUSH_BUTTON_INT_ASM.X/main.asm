@@ -21,9 +21,9 @@ ind_J		equ 0x21
 delayParam	equ 0x22 
   
 
-PSECT resetVect, class=CODE, delta=2 
+PSECT resetVec, class=CODE, delta=2 
 ORG 0x0000	    
-resetVect:
+resetVec:
     PAGESEL main
     goto main
 ;
@@ -62,9 +62,6 @@ INT_FINISH:
     
     retfie   
     
-    
-    
-
 main:
 
     ; Bank 1
@@ -80,17 +77,22 @@ main:
     
     clrf    PORTB	    ; Turn all GPIO pins low
     
+    ; ---- if you are using debounce capacitor ---
+    movlw   1		; Wait for the debounce capacitor becomes stable 
+    call    Delay
+    ; ----  
+    
     ; INTCON setup
     ; bit 7 (GIE) = 1 => Enables all unmasked interrupts
     ; bit 4 (INTE) =  1 => RB0/INT External Interrupt Flag bit
     movlw   0B10010000
     movwf   INTCON
     
-    ; Start Blinking
-    bsf	    PORTB, 3
-    movlw   6
-    call    Delay
-    bcf	    PORTB, 3    
+    ; Debug - Blink LED indicating that the system is alive
+    ; bsf   PORTB, 3
+    ; movlw 6
+    ; call  Delay
+    ; bcf   PORTB, 3    
     
     
 loop:			; Loop without a stopping condition - here is your application code
@@ -120,7 +122,7 @@ DelayLoop:
     goto    DelayLoop
     return 
     
-END resetVect
+END resetVec
     
 
 

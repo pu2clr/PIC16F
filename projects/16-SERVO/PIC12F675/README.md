@@ -279,7 +279,7 @@ WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1
     return    
         
     
-END resetVect
+END resetVec
 
 
 ```

@@ -28,7 +28,7 @@ ind_J	    equ 0x24
    	    
 PSECT resetVec, class=CODE, delta=2 
 ORG 0x0000	    
-resetVect:
+resetVec:
     PAGESEL main
     goto main
 ;
@@ -96,11 +96,12 @@ main:
     ; bit 4 (INTE) =  1 => GP2/INT External Interrupt Flag bit
     movlw   0B10010000
     movwf   INTCON   
-    ; Blink LED to indicate that the system is alive
-    bsf	    GPIO, 5	; LED ON
-    movlw   6
-    call    Delay
-    bcf	    GPIO, 5	; LED OFF
+
+    ; Debug - Blink LED to indicate that the system is alive
+    ; bsf	    GPIO, 5	; LED ON
+    ; movlw   6
+    ; call    Delay
+    ; bcf	    GPIO, 5	; LED OFF
 	
 MainLoopBegin:		; Endless loop
     sleep      
@@ -130,7 +131,7 @@ DelayLoop:
     return     
     
     
-END resetVect
+END resetVec
 
 
 

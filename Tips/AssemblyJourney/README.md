@@ -459,7 +459,7 @@ pwm	    equ	0x23
    	    
 PSECT resetVec, class=CODE, delta=2 
 ORG 0x0000	    
-resetVect:
+resetVec:
     PAGESEL main
     goto main
 ;
@@ -578,7 +578,7 @@ WaitConvertionFinish:		; do while the bit 1 of ADCON0 is 1
     
     return          
     
-END resetVect
+END resetVec
 
 
 ```
