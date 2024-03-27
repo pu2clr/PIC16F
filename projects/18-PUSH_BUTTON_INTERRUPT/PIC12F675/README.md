@@ -4,8 +4,20 @@ This project, while simple in terms of its functionalities, can assist you in se
 
 Additionally, this project aims to provide examples in C (XC8) and Assembly (pic-as) as starting points for your own code.
 
+## Content
 
-## PIC12F675 and LED Schematic
+1. [Schematic](#pic12f675-push-button-and-led-schematic)
+    * [About debounce capacitor](#about-debounce-capacitor)
+    * [Kicad Schematic](./KiCad/)
+2. [PIC12F675 PINOUT](#pic12f675-pinout)
+3. [Prototype](#pic12f675-push-button-and-led-prototype)
+4. [Example in C](#example-in-c)
+5. [Example in Assembly ](#example-in-assembly)
+6. [MPLAB projects](./MPLAB_EXAMPLE/)
+6. [References](#references)
+
+
+## PIC12F675, push button and LED schematic
 
 ![Schematic PIC16F286A blink](./SCHEMATIC_PIC12F675_PUSH_BUTTON_INTERRUPT.jpg)
 
@@ -32,7 +44,7 @@ The inclusion of a 22 nF (nanofarad) capacitor in parallel with the button (conn
 ![PIC16F628A pinout](../../../images/PIC12F675_PINOUT.png)
 
 
-## PIC12F675 and LED PROTOTYPE
+## PIC12F675, push button and LED prototype
 
 ![Schematic PIC16F286A blink](./PROTOTYPE_PIC12F675_PUSH_BUTTON_INTERRUPT.jpg)
 
