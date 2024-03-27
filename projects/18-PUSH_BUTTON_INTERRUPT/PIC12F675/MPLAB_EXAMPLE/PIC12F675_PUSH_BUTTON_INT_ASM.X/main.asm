@@ -54,17 +54,17 @@ interrupt:
     goto    INT_SWITCH_ON
     goto    INT_SWITCH_OFF
 INT_SWITCH_ON:    
-    bcf	    GPIO,5
+    bsf	    GPIO,5
     goto    INT_CONTINUE
 INT_SWITCH_OFF:    
-    bsf	    GPIO,5
+    bcf	    GPIO,5
 INT_CONTINUE:    
     movlw   1
     call    Delay
     bcf	    INTCON, 1  
 INT_FINISH:
     bsf	    INTCON, 7		; Enables GIE
-   
+    
     retfie    
       
 ; PSECT code, delta=2
@@ -85,10 +85,16 @@ main:
     
     ; INTCON setup
     ; bit 7 (GIE) = 1 => Enables all unmasked interrupts
-    ; bit 5 (T0IE) =  1 => Enables the TMR0 interrupt
-    movlw   0B11000000
-    iorwf   INTCON
-       
+    ; bit 4 (INTE) =  1 => GP2/INT External Interrupt Flag bit
+    movlw   0B10010000
+    movwf   INTCON
+    
+    ; Start Blinking
+    bsf	    GPIO, 5
+    movlw   6
+    call    Delay
+    bcf	    GPIO, 5
+    
 MainLoopBegin:		; Endless loop
     sleep      
     goto    MainLoopBegin
