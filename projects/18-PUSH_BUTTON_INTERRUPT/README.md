@@ -1,5 +1,14 @@
 # Using PUSH BUTTONS with interrupt
 
+This folder contains examples in C and Assembly for the PIC12F675 and PIC16F628A microcontrollers, which demonstrate how to execute an action upon the press of a button (push button) by using interrupt setup.
+
+## Content 
+
+1. [PIC12F675 examples in Assembly and C](./PIC12F675/)
+2. [PIC16F628A examples in Assembly and C](./PIC16F628A/)
+
+
+
 Using interrupts instead of polling (active querying) in applications with microcontrollers offers several advantages, especially in terms of system efficiency and performance.
 
 -  __Energy Efficiency__: Interrupts allow the microcontroller to enter a low-power mode and only wake up in response to a specific event. This is particularly useful in battery-powered applications, as it extends battery life. In contrast, polling requires the microcontroller to be constantly active and checking the status of a device or condition, consuming more energy.
@@ -14,4 +23,7 @@ Using interrupts instead of polling (active querying) in applications with micro
 
 
 However, it is necessary for the microcontroller to offer the feature of interrupts in its architecture for this approach to be used. The PIC16F628A, the PIC16F887, and the PIC12F675 are examples of microcontrollers that allow the use of this approach. Refer to the microcontroller's Data Sheet for more information.
+
+
+
 
