@@ -30,8 +30,8 @@ value1H	    equ 0x24		; compare tow 16 bits
 value2L	    equ 0x25		; values.
 value2H	    equ 0x26		; They will represent two 16 bits values to be compered (if valor1 is equal, less or greter than valor2)  
    
-PSECT resetVector, class=CODE, delta=2
-resetVect:
+PSECT resetVec, class=CODE, delta=2
+resetVec:
     PAGESEL main
     goto main
 PSECT code, delta=2
@@ -203,4 +203,4 @@ LoopDelay2ms:
     return
 
         
-END resetVect
+END resetVec

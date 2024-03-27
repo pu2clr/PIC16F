@@ -20,8 +20,8 @@ dummy2	    equ 0x21
 delayParam  equ 0x22 
 temp	    equ 0x23  
     
-PSECT resetVector, class=CODE, delta=2
-resetVect:
+PSECT resetVec, class=CODE, delta=2
+resetVec:
     PAGESEL main
     goto main
 PSECT code, delta=2
@@ -138,4 +138,4 @@ DelayLoop:
     
     return 
     
-END resetVect
+END resetVec
