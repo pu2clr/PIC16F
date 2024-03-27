@@ -5,6 +5,20 @@ This project, while simple in terms of its functionalities, can assist you in se
 Additionally, this project aims to provide examples in C (XC8) and Assembly (pic-as) as starting points for your own code.
 
 
+## Content
+
+1. [Schematic](#pic16f28a-with-push-button-and-led-schematic)
+    * [About debounce capacitor](#about-debounce-capacitor)
+    * [Kicad Schematic](./KiCad/)
+2. [IC16F628A PINOUT](#pic12f675-pinout)
+3. [Prototype](#pic16f28a-with-push-button-and-led-prototype)
+4. [Example in C](#example-in-c)
+5. [Example in Assembly ](#example-in-assembly)
+6. [MPLAB projects](./MPLAB_EXAMPLE/)
+6. [References](#references)
+
+
+
 ## PIC16F28A with PUSH BUTTON and LED Schematic
 
 ![Schematic PIC16F286A blink](./SCHEMATIC_PIC16F628A_PUSH_BUTTON_INTERRUPT.jpg)
@@ -251,9 +265,9 @@ END resetVec
 ```
 
 
-## PIC16F28A with PUSH BUTTON and LED
+## PIC16F28A with PUSH BUTTON and LED prototype
 
-![Schematic PIC16F286A blink](./PROTOTYPE_PIC16F628A_PUSH_BUTTON_INTERRUPT.jpg)
+![Prototype](./PROTOTYPE_PIC16F628A_PUSH_BUTTON_INTERRUPT.jpg)
 
 
 ## References 
