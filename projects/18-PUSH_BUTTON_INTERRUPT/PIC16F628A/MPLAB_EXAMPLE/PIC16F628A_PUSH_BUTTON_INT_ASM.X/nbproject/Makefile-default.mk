@@ -51,7 +51,7 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.s
+SOURCEFILES_QUOTED_IF_SPACED=main.asm
 
 # Object Files Quoted if spaced
 OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o
@@ -61,7 +61,7 @@ POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d
 OBJECTFILES=${OBJECTDIR}/main.o
 
 # Source Files
-SOURCEFILES=main.s
+SOURCEFILES=main.asm
 
 
 
@@ -89,21 +89,21 @@ FINAL_IMAGE_NAME_MINUS_EXTENSION=${DISTDIR}/PIC16F628A_PUSH_BUTTON_INT_ASM.X.${I
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: pic-as-assembler
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/main.o: main.s  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/main.o: main.asm  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o 
 	${MP_AS} -mcpu=PIC16F628A -c \
 	-o ${OBJECTDIR}/main.o \
-	main.s \
+	main.asm \
 	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
 	
 else
-${OBJECTDIR}/main.o: main.s  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/main.o: main.asm  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o 
 	${MP_AS} -mcpu=PIC16F628A -c \
 	-o ${OBJECTDIR}/main.o \
-	main.s \
+	main.asm \
 	  -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
 	
 endif

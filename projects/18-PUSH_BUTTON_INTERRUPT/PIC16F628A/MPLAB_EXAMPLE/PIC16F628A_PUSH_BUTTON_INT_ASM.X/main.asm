@@ -46,12 +46,12 @@ Delay:
 DelayLoop:    
     nop
     nop
-    decfsz ind_I, f		
-    goto DelayLoop
-    decfsz ind_J, f	
-    goto DelayLoop
-    decfsz delayParam, f		 
-    goto DelayLoop
+    decfsz  ind_I, f		
+    goto    DelayLoop
+    decfsz  ind_J, f	
+    goto    DelayLoop
+    decfsz  delayParam, f		 
+    goto    DelayLoop
     return 
     
 END resetVect
