@@ -20,9 +20,10 @@ When exploring applications that necessitate analog input, the PIC10F220 stands 
 
 
 
-## Schematic 
+## PIC10F220 and 74HC151 monitoring 4 sensors] 
 
 
+![PIC10F220 and 74HC151 monitoring 4 sensors](./SCHEMATIC_pic10f220_74hc151_4_sensors.jpg)
 
 
 
