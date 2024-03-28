@@ -1,5 +1,6 @@
 # PIC10F200 and 74HC595 Shift Register device
 
+The decision to use only the PIC10F200 in this project, alongside the Shift Register 74HC595, was due to this microcontroller's limited resources and the availability of only 4 GPIO pins. I believe these constraints underscore the significance of a component like the 74HC595 in many projects.
 
 The 74HC595 is a widely-used integrated circuit in digital electronics, known as a Serial-in, Parallel-out Shift Register. This device is essential for expanding the output capabilities of microcontrollers while minimizing the number of required I/O pins. Here's a detailed description of the 74HC595:
 
@@ -29,7 +30,7 @@ The 74HC595 is appreciated for its ease of use, efficiency in saving microcontro
 
 Why choose the PIC10F200 as an example?
 
-The PIC10F200 is a microcontroller with very limited memory resources, requiring designers and programmers to have advanced optimization skills. Thus, it is believed that if one can develop significant and robust projects using the PIC10F200, with similar challenges and more advanced microcontrollers features, it can  become easier. This approach encourages deep learning of the fundamentals of programming and embedded system design, establishing a solid understanding that will be beneficial when dealing with more complex devices.
+As I mentioned before, the PIC10F200 is a microcontroller with very limited memory resources, requiring designers and programmers to have advanced optimization skills. Thus, it is believed that if one can develop significant and robust projects using the PIC10F200, with similar challenges and more advanced microcontrollers features, it can  become easier. This approach encourages deep learning of the fundamentals of programming and embedded system design, establishing a solid understanding that will be beneficial when dealing with more complex devices.
 
 
 ### PIC10F200 and 74HC595 with two wires interface schematic
@@ -141,6 +142,7 @@ To assemble this code correctly, please follow the steps below:
 3. In the "Additional Options" box, enter the following parameters: **-Wl,-pAsmCode=0h**
 
 
+[PIC10F200 MPLAB setup](../../images/PIC10F200_MPLAB_SETUP.png)
 
 
 ```asm
