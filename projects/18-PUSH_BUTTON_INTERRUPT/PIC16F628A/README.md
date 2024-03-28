@@ -60,8 +60,6 @@ The inclusion of a 22 nF (nanofarad) capacitor in parallel with the button (conn
 /**
  * PUSH BUTTON DETECTING USING INTERRUPT
  * 
- * Simple way to blink a LED 
- * 
  * Author: Ricardo Lima Caratti
  * Mar/2004
  */

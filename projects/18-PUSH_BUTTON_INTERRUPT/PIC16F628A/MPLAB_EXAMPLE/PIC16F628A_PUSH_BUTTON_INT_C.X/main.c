@@ -1,8 +1,6 @@
 /**
  * PUSH BUTTON DETECTING USING INTERRUPT
  * 
- * Simple way to blink a LED 
- * 
  * Author: Ricardo Lima Caratti
  * Mar/2004
  */
