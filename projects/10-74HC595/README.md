@@ -142,7 +142,11 @@ To assemble this code correctly, please follow the steps below:
 3. In the "Additional Options" box, enter the following parameters: **-Wl,-pAsmCode=0h**
 
 
-[PIC10F200 MPLAB setup](../../images/PIC10F200_MPLAB_SETUP.png)
+![PIC10F200 MPLAB setup](./Images/pic10f200_mplab_setup.png)
+
+
+![PIC10F200 MPLAB setup assembly code](./Images/pic10f200_mplab_setup_asm.png) 
+
 
 
 ```asm
