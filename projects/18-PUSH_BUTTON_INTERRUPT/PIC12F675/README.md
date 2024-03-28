@@ -14,7 +14,7 @@ Additionally, this project aims to provide examples in C (XC8) and Assembly (pic
 4. [Example in C](#example-in-c)
 5. [Example in Assembly ](#example-in-assembly)
 6. [MPLAB projects](./MPLAB_EXAMPLE/)
-6. [References](#references)
+7. [References](#references)
 
 
 ## PIC12F675, push button and LED schematic
