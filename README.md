@@ -38,6 +38,7 @@ Contact: pu2clr@gmail.com.
     * [MQ series gas sensor](https://github.com/pu2clr/PIC16F/tree/main/projects/14-GAS_SENSOR)  
     * [UART and BLUETOOTH](./projects/15-BLUETOOTH_UART/)
     * [Controlling Servo with PIC microcontrollers (PWM)](./projects/16-SERVO/)
+    * [Using PUSH BUTTONS with interrupt](./projects/18-PUSH_BUTTON_INTERRUPT/)
 4. [PIC Microcontroller Programming Tools](https://github.com/pu2clr/PIC16F#pic-microcontroller-programming-tools)
 5. [PICKit3 and ICSP](https://github.com/pu2clr/PIC16F#pickit3-and-icsp)
 6. [Tips](./Tips/)
