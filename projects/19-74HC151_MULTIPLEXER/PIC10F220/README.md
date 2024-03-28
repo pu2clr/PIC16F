@@ -25,6 +25,10 @@ When exploring applications that necessitate analog input, the PIC10F220 stands 
 
 ![PIC10F220 and 74HC151 monitoring 4 sensors](./SCHEMATIC_pic10f220_74hc151_4_sensors.jpg)
 
+- Sensor 1 - Temperature sensor
+- Sensor 2 - Sound sensor 
+- Sensor 3 - LDR
+- Sensor 4 - Currente Sensor
 
 
 ## PIC10F220 PINOUT
