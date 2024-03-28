@@ -19,9 +19,16 @@ Additionally, this project aims to provide examples in C (XC8) and Assembly (pic
 
 
 
-## PIC16F28A with PUSH BUTTON and LED Schematic
+## PIC16F628A with PUSH BUTTON and LED Schematic
 
-![Schematic PIC16F286A blink](./SCHEMATIC_PIC16F628A_PUSH_BUTTON_INTERRUPT.jpg)
+
+![PIC16F628A with PUSH BUTTON and LED Schematic](./SCHEMATIC_PIC16F628A_PUSH_BUTTON_INTERRUPT.jpg)
+
+The previous diagram illustrates a simple application to turn on an LED. However, it is possible to add a few components to make the same system drive a high-power DC motor using a MOSFET like the IRF640. The following diagram illustrates this configuration.
+
+
+![PIC16F628A with PUSH BUTTON and LED Schematic with MOSFET](./SCHEMATIC_PIC16F628A_PUSH_BUTTON_INTERRUPT_MOSFET.jpg)
+
 
 ### About debounce capacitor
 
