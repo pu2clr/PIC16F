@@ -18,5 +18,14 @@ When exploring applications that necessitate analog input, the PIC10F220 stands 
 
 
 
+
+## PIC10F220 PINOUT
+
+
+![PIC10F220 PINOUT](../../../images/PIC10F220_PINOUT.png)
+
+
+
+
 ## References
 
