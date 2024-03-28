@@ -41,4 +41,3 @@ In conclusion, the incorporation of a 74HC151 multiplexer in projects utilizing 
 - [74HC151D - 8-input multiplexer](https://www.nexperia.com/products/analog-logic-ics/logic/decoders-and-demultiplexers-digital-multiplexers/digital-multiplexers/74HC151D.html)
 - [CDx4HC151, CDx4HCT151 High-Speed CMOS Logic 8-Input Multiplexer](https://www.ti.com/lit/ds/symlink/cd74hc151.pdf?ts=1711636700921&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FCD74HC151%253Futm_source%253Dgoogle%2526utm_medium%253Dcpc%2526utm_campaign%253Dti-null-null-xref-cpc-pf-google-wwe%2526utm_content%253Dxref%2526ds_k%253D%257B_dssearchterm%257D%2526DCM%253Dyes%2526gad_source%253D1%2526gclid%253DCj0KCQjwqpSwBhClARIsADlZ_TmNOKNoL5Z-gwBCGFitnyW3xb67t-_GtalhQziXmGbsaD1JjsJ7u9AaApfREALw_wcB%2526gclsrc%253Daw.ds)
 - [M74HC151 - 8-channel multiplexer](https://www.st.com/resource/en/datasheet/m74hc151.pdf)
-- []()
