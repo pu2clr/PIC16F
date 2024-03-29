@@ -29,14 +29,14 @@ It's important to highlight that since these are analog sensors, which typically
 ![PIC10F220 and 74HC151 monitoring 4 sensors](./SCHEMATIC_pic10f220_74hc151_4_sensors.jpg)
 
 
-The table below shows the values of GP1 and GP2 and the respective sensor 
+The table below shows the values of GP1 (connected to S0) and GP2 (connected to S1) and the respective sensor (S2 is connected to the GND).  
 
-|          ANALOG SENSOR                |  GP1   |  GP2   |  
-| --------------------------------------| ------ | ------ |
-| Sensor 1 - Temperature sensor (LM35)  |   0    |   0    |
-| Sensor 2 - Current Sensor             |   0    |   1    |
-| Sensor 3 - Temperature sensor (LM35)  |   1    |   0    |
-| Sensor 4 - Current Sensor             |   1    |   1    |
+|          ANALOG SENSOR                |  GP1 / S0  |  GP2 / S1   |  
+| --------------------------------------| ---------  | ------      |
+| Sensor 1 - Temperature sensor (LM35)  |   0        |   0         |
+| Sensor 2 - Current Sensor             |   0        |   1         |
+| Sensor 3 - Temperature sensor (LM35)  |   1        |   0         |
+| Sensor 4 - Current Sensor             |   1        |   1         |
 
 
 
@@ -51,9 +51,9 @@ The table below shows the values of GP1 and GP2 and the respective sensor
 ![74HC151 PINOUT](../../../images/74hc151_pinout.png)
 
 
-The 74HC151 is an 8-input multiplexer with three select inputs (S0, S1, S2), eight data inputs (D0 to D7), one output (Y) or (Q), one complementary output Y' or  Q', one enable input (E), and two power supply pins (Vcc and GND). Here's a description of each pin:
+The 74HC151 is an 8-input multiplexer with three select inputs (S0, S1, S2), eight data inputs (I0 to I7), one output (Y) or (Q), one complementary output Y' or  Q', one enable input (E), and two power supply pins (Vcc and GND). Here's a description of each pin:
 
-1. **D0 to D7 (Data Inputs)**: These are the eight inputs of the multiplexer. Depending on the state of the select inputs (S0, S1, S2), one of these data inputs is passed through to the output.
+1. **I0 to I7 (Data Inputs)**: These are the eight inputs of the multiplexer. Depending on the state of the select inputs (S0, S1, S2), one of these data inputs is passed through to the output.
 
 2. **S0, S1, S2 (Select Inputs)**: These three pins are used to select one of the eight data inputs to be passed to the output. The combination of these inputs, being either high (1) or low (0), determines which data input (D0 to D7) is connected to the output.
 
