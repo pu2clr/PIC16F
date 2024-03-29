@@ -28,10 +28,16 @@ It's important to highlight that since these are analog sensors, which typically
 
 ![PIC10F220 and 74HC151 monitoring 4 sensors](./SCHEMATIC_pic10f220_74hc151_4_sensors.jpg)
 
-- Sensor 1 - Temperature sensor (LM35)
-- Sensor 2 - Current Sensor
-- Sensor 3 - Temperature sensor (LM35)
-- Sensor 4 - Current Sensor
+
+The table below shows the values of GP1 and GP2 and the respective sensor 
+
+|          ANALOG SENSOR                |  GP1   |  GP2   |  
+| --------------------------------------| ------ | ------ |
+| Sensor 1 - Temperature sensor (LM35)  |   0    |   0    |
+| Sensor 2 - Current Sensor             |   0    |   1    |
+| Sensor 3 - Temperature sensor (LM35)  |   1    |   0    |
+| Sensor 4 - Current Sensor             |   1    |   1    |
+
 
 
 ## PIC10F220 PINOUT
