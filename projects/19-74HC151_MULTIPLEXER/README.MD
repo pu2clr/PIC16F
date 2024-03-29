@@ -1,6 +1,6 @@
 # PIC AND 74HC151 MULTIPLEXER
 
-This folder contains several elements that will serve as a foundation for more robust projects involving the 74HC151 multiplexer and the PIC10F and PIC12F series.
+This folder contains several elements that will serve as a foundation for more robust projects involving the 74HC151 multiplexer and the PIC12F and PIC16 series.
 
 
 UNDER CONSTRUCTION... 
@@ -17,9 +17,9 @@ UNDER CONSTRUCTION...
 
 ## Overview
 
-In projects involving the PIC10F and 12F microcontroller series, utilizing a multiplexer like the 74HC151 offers several key advantages that significantly enhance the efficiency and capability of the system. The 74HC151 is an 8-input, 1-output multiplexer, which enables one to select one of eight different inputs to pass through to a single output line. This functionality is particularly valuable in microcontroller applications for several reasons:
+In projects involving the PIC12F microcontroller series, utilizing a multiplexer like the 74HC151 offers several key advantages that significantly enhance the efficiency and capability of the system. The 74HC151 is an 8-input, 1-output multiplexer, which enables one to select one of eight different inputs to pass through to a single output line. This functionality is particularly valuable in microcontroller applications for several reasons:
 
-1. **Pin Limitation**: Microcontrollers in the PIC10F and 12F series are known for their limited number of General Purpose Input/Output (GPIO) pins. The 74HC151 multiplexer allows for the expansion of input capabilities without the need for a larger, more pin-abundant microcontroller. This is particularly useful in compact or cost-sensitive projects where minimizing the footprint and cost of the microcontroller is a priority.
+1. **Pin Limitation**: Microcontrollers in the PIC12F  series are known for their limited number of General Purpose Input/Output (GPIO) pins. The 74HC151 multiplexer allows for the expansion of input capabilities without the need for a larger, more pin-abundant microcontroller. This is particularly useful in compact or cost-sensitive projects where minimizing the footprint and cost of the microcontroller is a priority.
 
 2. **Simplifying Circuit Design**: By allowing multiple signals to be routed through a single pin on the microcontroller, the 74HC151 can simplify circuit complexity. This reduction in wiring not only makes the design more straightforward but also reduces the chances of errors during assembly and debugging.
 
@@ -31,7 +31,7 @@ In projects involving the PIC10F and 12F microcontroller series, utilizing a mul
 
 6. **Improved Signal Management**: In complex systems where multiple sensors or input devices are used, a multiplexer can facilitate better signal management and prioritization. By controlling which signals are read at any given time, designers can optimize the processing capabilities of the microcontroller for critical tasks.
 
-In conclusion, the incorporation of a 74HC151 multiplexer in projects utilizing PIC10F and 12F series microcontrollers offers significant advantages in terms of expanding input capabilities, simplifying design, reducing costs, improving energy efficiency, and enhancing overall system flexibility and signal management. These benefits make it an essential component in the development of efficient and effective microcontroller-based projects.
+In conclusion, the incorporation of a 74HC151 multiplexer in projects utilizing PIC12F series microcontrollers offers significant advantages in terms of expanding input capabilities, simplifying design, reducing costs, improving energy efficiency, and enhancing overall system flexibility and signal management. These benefits make it an essential component in the development of efficient and effective microcontroller-based projects.
 
 
 
