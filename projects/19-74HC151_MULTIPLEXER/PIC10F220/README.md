@@ -28,10 +28,10 @@ It's important to highlight that since these are analog sensors, which typically
 
 ![PIC10F220 and 74HC151 monitoring 4 sensors](./SCHEMATIC_pic10f220_74hc151_4_sensors.jpg)
 
-- Sensor 1 - Temperature sensor
-- Sensor 2 - Sound sensor 
-- Sensor 3 - LDR
-- Sensor 4 - Currente Sensor
+- Sensor 1 - Temperature sensor (LM35)
+- Sensor 2 - Current Sensor
+- Sensor 3 - Temperature sensor (LM35)
+- Sensor 4 - Current Sensor
 
 
 ## PIC10F220 PINOUT
