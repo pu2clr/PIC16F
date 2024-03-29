@@ -48,7 +48,27 @@ The table below shows the values of the PIC12F220 pins, detailing the combinatio
 ![PIC10F220 PINOUT](../../../images/PIC10F220_PINOUT.png)
 
 
+The PIC12F220 is a part of Microchip's PIC12F series of microcontrollers, which are known for their compact size and efficiency in simple applications. Here's a breakdown of each pin's function on the PIC12F220:
 
+1. **GP0/AN0 (Pin 7)**: This pin serves as a general-purpose input/output (GPIO) pin and can also function as an analog input (AN0). It's often used for reading analog values when the microcontroller's analog-to-digital converter (ADC) is utilized. **In this application, this pin is used as analog input**.
+
+2. **GP1/AN1 (Pin 6)**: Similar to GP0, this pin can be used as either a GPIO or an analog input (AN1). This versatility allows for flexibility in connecting various sensors or input devices. **In this application this pin is used as digital output (LSB) of sensor selection**. 
+
+3. **GP2/AN2/INT/COUT/VREF (Pin 5)**: This multi-functional pin can act as a GPIO, an analog input (AN2), an external interrupt input (INT), a comparator output (COUT), or a voltage reference (VREF). Its diverse functions enable it to support a wide range of applications.
+
+4. **GP3/MCLR/VPP (Pin 4)**: This pin is used as the Master Clear (Reset) input (MCLR) when configured as an input. It can also function as the programming voltage input (VPP) during In-Circuit Serial Programming (ICSP). Note that GP3 is input-only and has an internal weak pull-up.
+
+5. **GP4/AN3/T0CKI/CIN+ (Pin 3)**: This pin offers functionalities such as GPIO, analog input (AN3), timer0 clock input (T0CKI), and positive input to the comparator (CIN+). It's useful for timing applications and analog signal processing.
+
+6. **GP5/CIN-/OSC1/CLKIN (Pin 2)**: GP5 serves multiple roles, including GPIO, negative input to the comparator (CIN-), and oscillator input (OSC1/CLKIN) for external clock sources.
+
+7. **OSC2/CLKOUT (Pin 8)**: This pin can be used as an oscillator output (OSC2/CLKOUT) for clocking external devices or for feedback in resonator configurations. It's also involved in the microcontroller's internal clock generation system.
+
+8. **VDD (Pin 1)**: This is the positive power supply pin. The PIC12F220 typically operates at a voltage range of 2.0V to 5.5V.
+
+9. **VSS (Pin 8)**: This pin is the ground (GND) connection for the microcontroller.
+
+The PIC12F220's pin configuration supports a wide range of functionalities in a small package, making it ideal for applications requiring minimal space and power consumption, such as wearable devices, simple sensors, and small actuators.
 
 ## 74HC151 PINOUT 
 
