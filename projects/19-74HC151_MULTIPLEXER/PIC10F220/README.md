@@ -71,3 +71,6 @@ This configuration allows the 74HC151 to select one of eight signals to be passe
 
 ## References
 
+* [74HC151 8-input multiplexer](https://assets.nexperia.com/documents/data-sheet/74HC_HCT151.pdf)
+* [CDx4HC151, CDx4HCT151 High-Speed CMOS Logic 8-Input Multiplexer](https://www.ti.com/lit/ds/symlink/cd74hct151.pdf?ts=1711584749742)
+
