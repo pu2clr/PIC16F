@@ -26,7 +26,7 @@ It's important to highlight that since these are analog sensors, which typically
 ## PIC12F675 and 74HC151 monitoring 4 sensors
 
 
-![PIC12F675 and 74HC151 monitoring 4 sensors](./SCHEMATIC_PIC12F675_74hc151_4_sensors.jpg)
+![PIC12F675 and 74HC151 monitoring 4 sensors](./SCHEMATIC_pic12f675_74hc151_4_sensors.jpg)
 
 Please note in the previous diagram that pin S2 is not used and is set to a logical level 0 (GND). This is because only four sensors are being utilized, and all combinations required to select one of the four sensors can be achieved through the combination of S0 and S1 (00, 01, 10, and 11). **It's important to note that in this case, S0 serves as the least significant bit (LSB), while S1 acts as the most significant bit (MSB).**
 
