@@ -44,7 +44,6 @@ The table below shows the values of the PIC12F220 pins, detailing the combinatio
 
 ## PIC12F675 PINOUT
 
-
 ![PIC12F675 PINOUT](../../../images/PIC12F675_PINOUT.png)
 
 
