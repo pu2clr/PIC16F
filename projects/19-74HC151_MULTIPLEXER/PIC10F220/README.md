@@ -20,7 +20,7 @@ When exploring applications that necessitate analog input, the PIC10F220 stands 
 
 This project collects data from four analog sensors, including two LM35 temperature sensors and two current sensors. Based on the analog values read by the PIC10F220 through the 74HC151 multiplexer, one or two cooling fans will be activated.
 
-It's important to highlight that since these are analog sensors, which typically produce a voltage between 0 and 5V depending on the magnitude they are designed to measure, it is easily feasible to replace them with other types of analog sensors as required by the application.
+It's important to highlight that since these are analog sensors, which typically produce a voltage between 0 and 5V depending on the magnitude they are designed to measure, it is easily feasible to replace them with other types of analog sensors as required by your application.
 
 
 ## PIC10F220 and 74HC151 monitoring 4 sensors
@@ -28,16 +28,17 @@ It's important to highlight that since these are analog sensors, which typically
 
 ![PIC10F220 and 74HC151 monitoring 4 sensors](./SCHEMATIC_pic10f220_74hc151_4_sensors.jpg)
 
-Please note in the previous diagram that pin S2 is not used and is set to a logical level 0 (GND). This is because only four sensors are being utilized, and all combinations required to select one of the four sensors can be achieved through the combination of S0 and S1 (00, 01, 10, and 11). 
+Please note in the previous diagram that pin S2 is not used and is set to a logical level 0 (GND). This is because only four sensors are being utilized, and all combinations required to select one of the four sensors can be achieved through the combination of S0 and S1 (00, 01, 10, and 11). **It's important to note that in this case, S0 serves as the least significant bit (LSB), while S1 acts as the most significant bit (MSB).**
 
-The table below shows the values of GP1 (connected to S0) and GP2 (connected to S1) and the respective sensor (S2 is connected to the GND).  
+The table below shows the values of the PIC12F220 pins, detailing the combination of GP1 (connected to S0) and GP2 (connected to S1), along with the corresponding sensor selection. 
 
-|          ANALOG SENSOR                |  GP1 / S0  |  GP2 / S1 |  
-| --------------------------------------| ---------  | --------- |
-| Sensor 1 - Temperature sensor (LM35)  |     0      |    0      |
-| Sensor 2 - Current Sensor             |     0      |    1      |
-| Sensor 3 - Temperature sensor (LM35)  |     1      |    0      |
-| Sensor 4 - Current Sensor             |     1      |    1      |
+
+|          ANALOG SENSOR                |  GP1 / S0  |  GP2 / S1 | S3/GND   |   
+| --------------------------------------| ---------  | --------- | -------- |
+| Sensor 1 - Temperature sensor (LM35)  |     0      |    0      |     0    |
+| Sensor 2 - Current Sensor             |     0      |    1      |     0    |
+| Sensor 3 - Temperature sensor (LM35)  |     1      |    0      |     0    |
+| Sensor 4 - Current Sensor             |     1      |    1      |     0    |
 
 
 
