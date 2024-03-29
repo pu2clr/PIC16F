@@ -51,7 +51,7 @@ The table below shows the values of GP1 and GP2 and the respective sensor
 ![74HC151 PINOUT](../../../images/74hc151_pinout.png)
 
 
-The 74HC151 is an 8-input multiplexer with three select inputs (S0, S1, S2), eight data inputs (D0 to D7), one output (Y) or (Q), one complementary output (\( \overline{Y} \)) or  (\( \overline{Q} \)), one enable input (E), and two power supply pins (Vcc and GND). Here's a description of each pin:
+The 74HC151 is an 8-input multiplexer with three select inputs (S0, S1, S2), eight data inputs (D0 to D7), one output (Y) or (Q), one complementary output Y' or  Q', one enable input (E), and two power supply pins (Vcc and GND). Here's a description of each pin:
 
 1. **D0 to D7 (Data Inputs)**: These are the eight inputs of the multiplexer. Depending on the state of the select inputs (S0, S1, S2), one of these data inputs is passed through to the output.
 
@@ -59,9 +59,9 @@ The 74HC151 is an 8-input multiplexer with three select inputs (S0, S1, S2), eig
 
 3. **Y (Output)**: This is the multiplexer’s main output. It carries the signal from the selected data input (D0 to D7), depending on the configuration of the select inputs (S0, S1, S2).
 
-4. **\( \overline{Q} \) (Complementary Output)**: This output is the inverse of the Q output. If Q is high, \( \overline{Q} \) will be low, and vice versa.
+4. **Q' (Complementary Output)**: This output is the inverse of the Q output. If Q is high, Q' will be low, and vice versa.
 
-5. **E (Enable Input)**: This active low input enables the multiplexer’s operation. When E is low, the multiplexer functions normally, and the selected input is passed to the output. When E is high, both outputs (Q and \( \overline{Q} \)) are disabled, typically resulting in a high impedance state at the outputs, effectively disconnecting the output from the circuit.
+5. **E (Enable Input)**: This active low input enables the multiplexer’s operation. When E is low, the multiplexer functions normally, and the selected input is passed to the output. When E is high, both outputs Q and Q' are disabled, typically resulting in a high impedance state at the outputs, effectively disconnecting the output from the circuit.
 
 6. **Vcc (Power Supply)**: This pin connects to the positive supply voltage. For the 74HC151, this is typically +5V.
 
