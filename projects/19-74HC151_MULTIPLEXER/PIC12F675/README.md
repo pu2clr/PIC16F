@@ -1,6 +1,6 @@
-# PIC10F220 and 74HC151 MULTIPLEXER 
+# PIC12F675 and 74HC151 MULTIPLEXER 
 
-This folder showcases the processing of analog readings from various sensors using the PIC10F220 and the 74HC151 multiplexer.
+This folder showcases the processing of analog readings from various sensors using the PIC12F675 and the 74HC151 multiplexer.
 
 
 ## Content
@@ -13,20 +13,20 @@ This folder showcases the processing of analog readings from various sensors usi
 
 ## Overview
 
-When exploring applications that necessitate analog input, the PIC10F220 stands out as a preferable choice over the PIC10F200. Retaining the foundational attributes of the PIC10F200, the PIC10F220 sets itself apart with the integration of an Analog-to-Digital Converter (ADC) interface. This feature substantially elevates the functionality of the PIC10F220, granting it the ability to directly process analog signals. This functionality is pivotal for projects that demand the monitoring or measuring of analog values. Adding to this, when combined with the 74HC151 multiplexer, the PIC10F220's analog input capabilities can be expanded even further. This synergy allows for the efficient management of multiple analog signals, enhancing the microcontroller's utility in complex environments where space and pin limitations are a concern, yet precise analog data acquisition is required.
+The PIC12F675 is a compact, versatile microcontroller from Microchip's PIC12F series, offering a mix of analog and digital functionalities in a small 8-pin package. This microcontroller stands out for its integrated 10-bit Analog-to-Digital Converter (ADC), which supports up to four analog inputs, allowing for direct interfacing with various sensors and analog signals. These analog channels make the PIC12F675 particularly suitable for applications requiring the measurement of physical parameters such as temperature, light intensity, or other analog sensor data.
 
 
 ## About this project 
 
-This project collects data from four analog sensors, including two LM35 temperature sensors and two current sensors. Based on the analog values read by the PIC10F220 through the 74HC151 multiplexer, one or two cooling fans will be activated.
+This project collects data from four analog sensors, including two LM35 temperature sensors and two current sensors. Based on the analog values read by the PIC12F675 through the 74HC151 multiplexer, one or two cooling fans will be activated.
 
 It's important to highlight that since these are analog sensors, which typically produce a voltage between 0 and 5V depending on the magnitude they are designed to measure, it is easily feasible to replace them with other types of analog sensors as required by your application.
 
 
-## PIC10F220 and 74HC151 monitoring 4 sensors
+## PIC12F675 and 74HC151 monitoring 4 sensors
 
 
-![PIC10F220 and 74HC151 monitoring 4 sensors](./SCHEMATIC_pic10f220_74hc151_4_sensors.jpg)
+![PIC12F675 and 74HC151 monitoring 4 sensors](./SCHEMATIC_PIC12F675_74hc151_4_sensors.jpg)
 
 Please note in the previous diagram that pin S2 is not used and is set to a logical level 0 (GND). This is because only four sensors are being utilized, and all combinations required to select one of the four sensors can be achieved through the combination of S0 and S1 (00, 01, 10, and 11). **It's important to note that in this case, S0 serves as the least significant bit (LSB), while S1 acts as the most significant bit (MSB).**
 
@@ -42,13 +42,13 @@ The table below shows the values of the PIC12F220 pins, detailing the combinatio
 
 
 
-## PIC10F220 PINOUT
+## PIC12F675 PINOUT
 
 
-![PIC10F220 PINOUT](../../../images/PIC10F220_PINOUT.png)
+![PIC12F675 PINOUT](../../../images/PIC12F675_PINOUT.png)
 
 
-The PIC12F220 is a part of Microchip's PIC12F series of microcontrollers, which are known for their compact size and efficiency in simple applications. Here's a breakdown of each pin's function on the PIC12F220:
+The PIC12F675 is a part of Microchip's PIC12F series of microcontrollers, which are known for their compact size and efficiency in simple applications. Here's a breakdown of each pin's function on the PIC12F675:
 
 1. **GP0/AN0 (Pin 7)**: This pin serves as a general-purpose input/output (GPIO) pin and can also function as an analog input (AN0). It's often used for reading analog values when the microcontroller's analog-to-digital converter (ADC) is utilized. **In this application, this pin is used as analog input**.
 
