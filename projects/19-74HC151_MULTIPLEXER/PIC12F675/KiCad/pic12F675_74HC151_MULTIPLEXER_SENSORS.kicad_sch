@@ -5,7 +5,7 @@
   (paper "User" 229.997 170.002)
 
   (title_block
-    (title "PIC10F220 and 74HC151 monitoring 4 sensors")
+    (title "PIC12F675 and 74HC151 monitoring 4 sensors")
     (company "Ricardo Lima Caratti")
   )
 
