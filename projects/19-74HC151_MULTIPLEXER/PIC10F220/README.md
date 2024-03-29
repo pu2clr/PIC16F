@@ -6,7 +6,7 @@ This folder showcases the processing of analog readings from various sensors usi
 ## Content
 
 1. [Overview](#overview)
-
+2. [About this project](#about-this-project)
 8. [References](#references)
 
 
@@ -18,9 +18,12 @@ When exploring applications that necessitate analog input, the PIC10F220 stands 
 
 ## About this project 
 
+This project collects data from four analog sensors, including two LM35 temperature sensors and two current sensors. Based on the analog values read by the PIC10F220 through the 74HC151 multiplexer, one or two cooling fans will be activated.
+
+It's important to highlight that since these are analog sensors, which typically produce a voltage between 0 and 5V depending on the magnitude they are designed to measure, it is easily feasible to replace them with other types of analog sensors as required by the application.
 
 
-## PIC10F220 and 74HC151 monitoring 4 sensors] 
+## PIC10F220 and 74HC151 monitoring 4 sensors
 
 
 ![PIC10F220 and 74HC151 monitoring 4 sensors](./SCHEMATIC_pic10f220_74hc151_4_sensors.jpg)
