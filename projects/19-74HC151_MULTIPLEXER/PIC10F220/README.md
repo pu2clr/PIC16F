@@ -46,6 +46,9 @@ The table below shows the values of GP1 and GP2 and the respective sensor
 ![PIC10F220 PINOUT](../../../images/PIC10F220_PINOUT.png)
 
 
+## 74HC151 PINOUT 
+
+![74HC151 PINOUT](../../../images/74hc151_pinout.png)
 
 
 ## References
