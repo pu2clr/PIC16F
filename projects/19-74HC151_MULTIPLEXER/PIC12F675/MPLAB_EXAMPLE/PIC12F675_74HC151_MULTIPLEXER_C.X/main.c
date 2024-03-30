@@ -39,7 +39,6 @@ void initInterrupt() {
  */
 void __interrupt() ISR(void) {
     if (T0IF) {
-
         if (GP5) {
             TMR0 = PWM;
             GP5 = 0;
@@ -47,7 +46,6 @@ void __interrupt() ISR(void) {
             TMR0 = 255 - PWM;
             GP5 = 1;
         }
-
         T0IF = 0;
     }
 }
@@ -64,7 +62,10 @@ uint16_t getSensorData(uint8_t sensorNumber) {
     return readADC();
 }
 
+
 void alert(uint8_t sensorNumber) {
+    GIE = 1;    // Enable interrupt
+    __delay_ms(100);
     for (uint8_t count = 0; count < 5; count++) {
         for (uint8_t led = 1; led <= sensorNumber; led++) {
             GP4 = 1;
@@ -73,6 +74,7 @@ void alert(uint8_t sensorNumber) {
         }
         __delay_ms(10000);
     }
+    GIE = 0;    // Disable interrupt
 }
 
 
@@ -84,7 +86,7 @@ void main() {
 
     while (1) {
         for (uint8_t i = 0; i < 4; i++) {
-            unsigned int sensorValue = getSensorData(i);
+            uint16_t sensorValue = getSensorData(i);
             if (sensorValue > 0) {
                 alert(i);
             }
