@@ -37,12 +37,12 @@ Please note in the previous diagram that pin S2 is not used and is set to a logi
 The table below shows the values of the PIC12F220 pins, detailing the combination of GP1 (connected to S0) and GP2 (connected to S1), along with the corresponding sensor selection. 
 
 
-|          ANALOG SENSOR                |  GP1 / S0  |  GP2 / S1 | S3/GND   |   
-| --------------------------------------| ---------  | --------- | -------- |
-| Sensor 1 - Temperature sensor (LM35)  |     0      |    0      |     0    |
-| Sensor 2 - Current Sensor             |     0      |    1      |     0    |
-| Sensor 3 - Temperature sensor (LM35)  |     1      |    0      |     0    |
-| Sensor 4 - Current Sensor             |     1      |    1      |     0    |
+| ANALOG SENSOR |  GP1 / S0  |  GP2 / S1 | S3/GND   |   
+| --------------| ---------  | --------- | -------- |
+| Sensor 1      |     0      |    0      |     0    |
+| Sensor 2      |     0      |    1      |     0    |
+| Sensor 3      |     1      |    0      |     0    |
+| Sensor 4      |     1      |    1      |     0    |
 
 
 
