@@ -21,9 +21,9 @@
 uint8_t PWM = 50;
 
 void inline initADC() {
-    TRISIO = 0b00010001; // input setup - GP4/AN0   
-    ANSEL = 0b00011000; // AN0 as analog input
-    ADCON0 = 0b10001101; // Right justified; VDD;  01 = Channel 03 (AN0); A/D converter module is 
+    TRISIO = 0b00000001;    // input setup - GP4/AN0   
+    ANSEL = 0b00000001;     // AN0 as analog input
+    ADCON0 = 0b10001101;    // Right justified; VDD;  01 = Channel 03 (AN0); A/D converter module is 
 }
 
 void initInterrupt() {
@@ -84,6 +84,9 @@ void main() {
     initADC();
     initInterrupt();
 
+    GP4 = 1;
+    __delay_ms(2000);
+    GP4 = 0;
     while (1) {
         for (uint8_t i = 0; i < 4; i++) {
             uint16_t sensorValue = getSensorData(i);
