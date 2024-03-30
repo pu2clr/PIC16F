@@ -59,21 +59,20 @@ uint16_t readADC() {
 uint16_t getSensorData(uint8_t sensorNumber) {
     sensorNumber = (uint8_t) (sensorNumber << 1);
     GPIO = (GPIO & 0B11111001) | sensorNumber;
+    __delay_ms(2);
     return readADC();
 }
 
 
 void alert(uint8_t sensorNumber) {
     // GIE = 1;    // Enable interrupt
-    __delay_ms(100);
-    for (uint8_t count = 0; count < 5; count++) {
-        for (uint8_t led = 1; led <= sensorNumber; led++) {
+        for (uint8_t led = 0; led <= sensorNumber; led++) {
             GP4 = 1;
-            __delay_ms(500);
+            __delay_ms(200);
             GP4 = 0;
+            __delay_ms(200);
         }
-        __delay_ms(10000);
-    }
+        __delay_ms(1500);
     // GIE = 0;    // Disable interrupt
 }
 
@@ -93,8 +92,9 @@ void main() {
             uint16_t sensorValue = getSensorData(i);
             if (sensorValue < 512 ) {   // Less about than 2.5v
                 alert(i);
-                __delay_ms(100);
+                __delay_ms(10);
             }
+            __delay_ms(100);
         }
     }
 }
