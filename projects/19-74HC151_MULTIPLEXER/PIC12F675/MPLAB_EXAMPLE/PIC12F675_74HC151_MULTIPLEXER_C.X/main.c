@@ -30,8 +30,8 @@ void initInterrupt() {
     // INTEDG: Interrupt Edge Select bit -  Interrupt will be triggered on the rising edge
     // Prescaler Rate: 1:64 - It generates about 73Hz (assigned to the TIMER0 module)
     OPTION_REG = 0B01000101; // see  data sheet (page 12)    
-    T0IE = 1; // TMR0: Overflow Interrupt 
-    GIE = 1; // GIE: Enable Global Interrupt
+    // T0IE = 1; // TMR0: Overflow Interrupt 
+    // GIE = 1; // GIE: Enable Global Interrupt
 }
 
 /**
@@ -64,7 +64,7 @@ uint16_t getSensorData(uint8_t sensorNumber) {
 
 
 void alert(uint8_t sensorNumber) {
-    GIE = 1;    // Enable interrupt
+    // GIE = 1;    // Enable interrupt
     __delay_ms(100);
     for (uint8_t count = 0; count < 5; count++) {
         for (uint8_t led = 1; led <= sensorNumber; led++) {
@@ -74,7 +74,7 @@ void alert(uint8_t sensorNumber) {
         }
         __delay_ms(10000);
     }
-    GIE = 0;    // Disable interrupt
+    // GIE = 0;    // Disable interrupt
 }
 
 
@@ -87,10 +87,11 @@ void main() {
     GP4 = 1;
     __delay_ms(2000);
     GP4 = 0;
+    
     while (1) {
         for (uint8_t i = 0; i < 4; i++) {
             uint16_t sensorValue = getSensorData(i);
-            if (sensorValue > 0) {
+            if (sensorValue < 100 ) {
                 alert(i);
             }
         }
