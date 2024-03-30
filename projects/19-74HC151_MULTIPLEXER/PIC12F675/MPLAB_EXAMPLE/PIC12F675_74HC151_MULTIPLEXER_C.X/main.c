@@ -91,10 +91,10 @@ void main() {
     while (1) {
         for (uint8_t i = 0; i < 4; i++) {
             uint16_t sensorValue = getSensorData(i);
-            if (sensorValue < 100 ) {
+            if (sensorValue < 512 ) {   // Less about than 2.5v
                 alert(i);
+                __delay_ms(100);
             }
         }
-        __delay_ms(100);
     }
 }
