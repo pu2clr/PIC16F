@@ -18,7 +18,7 @@ PATH_TO_IDE_BIN=/Applications/microchip/mplabx/v6.20/MPLAB X IDE v6.20.app/Conte
 # Adding MPLAB X bin directory to path.
 PATH:=/Applications/microchip/mplabx/v6.20/MPLAB X IDE v6.20.app/Contents/Resources/mplab_ide/platform/../mplab_ide/modules/../../bin/:$(PATH)
 # Path to java used to run MPLAB X when this makefile was created
-MP_JAVA_PATH="/Applications/microchip/mplabx/v6.20/sys/java/zulu8.64.0.19-ca-fx-jre8.0.345-macosx_x64/zulu-8.jre/Contents/Home/bin/"
+MP_JAVA_PATH="/Applications/microchip/mplabx/v6.20/sys/java/zulu8.64.0.19-ca-fx-jre8.0.345-macosx_aarch64/zulu-8.jre/Contents/Home/bin/"
 OS_CURRENT="$(shell uname -s)"
 MP_CC="/Applications/microchip/xc8/v2.46/bin/xc8-cc"
 # MP_CPPC is not defined

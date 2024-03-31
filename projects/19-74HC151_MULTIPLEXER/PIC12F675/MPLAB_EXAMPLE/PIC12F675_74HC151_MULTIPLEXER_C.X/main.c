@@ -17,37 +17,10 @@
 
 #define _XTAL_FREQ 4000000      // internal clock
 
-
-uint8_t PWM = 50;
-
 void inline initADC() {
     TRISIO = 0b00000001; // input setup - GP4/AN0   
     ANSEL = 0b00000001; // AN0 as analog input
     ADCON0 = 0b10000001; // Right justified; VDD;  01 = Channel 03 (AN0); A/D converter module is 
-}
-
-void initInterrupt() {
-    // INTEDG: Interrupt Edge Select bit -  Interrupt will be triggered on the rising edge
-    // Prescaler Rate: 1:64 - It generates about 73Hz (assigned to the TIMER0 module)
-    OPTION_REG = 0B01000101; // see  data sheet (page 12)    
-    // T0IE = 1; // TMR0: Overflow Interrupt 
-    // GIE = 1; // GIE: Enable Global Interrupt
-}
-
-/**
- * Handle timer overflow
- */
-void __interrupt() ISR(void) {
-    if (T0IF) {
-        if (GP5) {
-            TMR0 = PWM;
-            GP5 = 0;
-        } else {
-            TMR0 = 255 - PWM;
-            GP5 = 1;
-        }
-        T0IF = 0;
-    }
 }
 
 /**
@@ -66,7 +39,6 @@ uint16_t readADC() {
  * @param sensorNumber - Sensor number to be read
  * @return 
  */
-
 uint16_t getSensorData(uint8_t sensorNumber) {
     // Selects the sensor 
     sensorNumber = (uint8_t) (sensorNumber << 1);
@@ -77,21 +49,14 @@ uint16_t getSensorData(uint8_t sensorNumber) {
 }
 
 /**
- * 
  * Alert Regarding Power Interruption in One of the Monitored Loads.
  * A LED (connected to GP4) will blink a number of times corresponding to the sensor 
  * number that detected the fault. That is, if the first sensor detects a failure, the 
  * LED will blink once; if the second sensor detects a failure, the LED will blink twice, 
- * and so on. In addition to the LED, an auditory signal with a unique frequency for 
- * each sensor will be emitted.
- * 
+ * and so on. 
  * @param sensorNumber -  number of sensor to be alerted. 
- * 
  */
-void alert(uint8_t sensorNumber) {
-    GIE = 1;    // Enable interrupt
-    __delay_ms(1);
-    PWM = 50 * (sensorNumber + 1);      
+void alert(uint8_t sensorNumber) {  
     for (uint8_t led = 0; led <= sensorNumber; led++) {
         GP4 = 1;
         __delay_ms(200);
@@ -99,8 +64,6 @@ void alert(uint8_t sensorNumber) {
         __delay_ms(200);
     }
     __delay_ms(1500);
-    GIE = 0; // Disable interrupt
-
 }
 
 void main() {
@@ -111,14 +74,12 @@ void main() {
     GPIO = 0x0; // Turns all GPIO pins low
 
     initADC();
-    initInterrupt();
 
     GP4 = 1;
     __delay_ms(2000);
     GP4 = 0;
 
-    while (1) {
-       
+    while (1) {    
         for (uint8_t i = 0; i < 4; i++) {
              maxValue = 0;
             for ( uint8_t j = 0; j < 6; j++ ) {
