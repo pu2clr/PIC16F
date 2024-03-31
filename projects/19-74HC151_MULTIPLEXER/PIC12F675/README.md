@@ -30,6 +30,7 @@ As the previously suggested, the concepts used in this experiment can be applied
 It's important to highlight that since these are analog sensors, which typically produce a voltage between 0 and 5V depending on the magnitude they are designed to measure, it is easily feasible to replace them with other types of analog sensors as required by your application.
 
 
+
 ## PIC12F675 and 74HC151 monitoring 4 sensors
 
 
