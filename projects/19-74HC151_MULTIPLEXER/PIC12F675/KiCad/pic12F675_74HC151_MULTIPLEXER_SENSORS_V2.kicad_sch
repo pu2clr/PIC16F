@@ -2,7 +2,7 @@
 
   (uuid 73c37809-7617-4b9f-a70a-5c31575fa255)
 
-  (paper "User" 229.997 170.002)
+  (paper "User" 229.997 200)
 
   (title_block
     (title "PIC12F675 and 74HC151 monitoring 4 sensors")
@@ -494,21 +494,33 @@
     (stroke (width 0) (type default))
     (uuid 13954ec7-61e0-4b79-9160-64752fd307de)
   )
+  (wire (pts (xy 81.28 96.52) (xy 76.2 96.52))
+    (stroke (width 0) (type default))
+    (uuid 1e2dc236-7b49-4aa8-a55c-8d3a3b6effcc)
+  )
   (wire (pts (xy 40.64 40.64) (xy 40.64 43.18))
     (stroke (width 0) (type default))
     (uuid 1e78b074-1799-4a9f-bbeb-10aea66424df)
-  )
-  (wire (pts (xy 166.37 58.42) (xy 172.72 58.42))
-    (stroke (width 0) (type default))
-    (uuid 229af573-1c36-4ff3-8192-54af969fd277)
   )
   (wire (pts (xy 20.32 120.65) (xy 40.64 120.65))
     (stroke (width 0) (type default))
     (uuid 2308ae86-4858-4e36-b237-ed0503ff3608)
   )
+  (wire (pts (xy 77.47 156.21) (xy 78.74 156.21))
+    (stroke (width 0) (type default))
+    (uuid 283232a6-1e6d-4e7f-b595-70c409358a09)
+  )
+  (wire (pts (xy 19.05 132.08) (xy 40.64 132.08))
+    (stroke (width 0) (type default))
+    (uuid 2868fd29-4d42-4943-a01b-f043214cf4bc)
+  )
   (wire (pts (xy 40.64 102.87) (xy 40.64 104.14))
     (stroke (width 0) (type default))
     (uuid 28d7e759-545a-4214-8b38-803d37e238fd)
+  )
+  (wire (pts (xy 121.92 83.82) (xy 166.37 83.82))
+    (stroke (width 0) (type default))
+    (uuid 2904bd5e-8380-42af-aae5-e7c9d48e6c72)
   )
   (wire (pts (xy 74.93 53.34) (xy 81.28 53.34))
     (stroke (width 0) (type default))
@@ -530,6 +542,14 @@
     (stroke (width 0) (type default))
     (uuid 31be3cdd-8e72-4804-baa4-3efff7844961)
   )
+  (wire (pts (xy 50.8 170.18) (xy 72.39 170.18))
+    (stroke (width 0) (type default))
+    (uuid 37f263b4-806f-40bc-a1b6-e163d5758b4d)
+  )
+  (wire (pts (xy 76.2 96.52) (xy 76.2 146.05))
+    (stroke (width 0) (type default))
+    (uuid 3c5b4239-fe1d-40d1-ad3e-995945978e53)
+  )
   (wire (pts (xy 72.39 58.42) (xy 81.28 58.42))
     (stroke (width 0) (type default))
     (uuid 40fde463-d8ee-4130-b275-2ba2ec015c78)
@@ -537,6 +557,10 @@
   (wire (pts (xy 135.89 58.42) (xy 129.54 58.42))
     (stroke (width 0) (type default))
     (uuid 418fbde4-7421-4acc-8bb6-76028db21a07)
+  )
+  (wire (pts (xy 121.92 53.34) (xy 121.92 83.82))
+    (stroke (width 0) (type default))
+    (uuid 43973564-a9ef-4002-8e1c-865020e674d9)
   )
   (wire (pts (xy 135.89 53.34) (xy 135.89 25.4))
     (stroke (width 0) (type default))
@@ -546,6 +570,10 @@
     (stroke (width 0) (type default))
     (uuid 4dbeb909-f801-4cd8-81ed-defddf8ed15f)
   )
+  (wire (pts (xy 19.05 161.29) (xy 40.64 161.29))
+    (stroke (width 0) (type default))
+    (uuid 524b1927-5aa9-41d7-8ed8-e0fe9c62215a)
+  )
   (wire (pts (xy 191.77 34.29) (xy 151.13 34.29))
     (stroke (width 0) (type default))
     (uuid 5406f82a-7a38-4a63-b56d-ad71aa4c3c15)
@@ -554,13 +582,25 @@
     (stroke (width 0) (type default))
     (uuid 547b9703-3b5d-4574-993f-88411901c6a4)
   )
+  (wire (pts (xy 76.2 146.05) (xy 86.36 146.05))
+    (stroke (width 0) (type default))
+    (uuid 54bd3782-07d9-4277-a529-0b6109a783cd)
+  )
+  (wire (pts (xy 95.25 156.21) (xy 93.98 156.21))
+    (stroke (width 0) (type default))
+    (uuid 59925bef-beab-4c95-bceb-d23318140142)
+  )
+  (wire (pts (xy 72.39 91.44) (xy 81.28 91.44))
+    (stroke (width 0) (type default))
+    (uuid 5dec8b35-1952-4900-b657-fbe079968e67)
+  )
   (wire (pts (xy 135.89 55.88) (xy 133.35 55.88))
     (stroke (width 0) (type default))
     (uuid 5e6bdd01-4a3a-4105-a6b7-66fb24800bb7)
   )
-  (wire (pts (xy 64.77 72.39) (xy 64.77 71.12))
+  (wire (pts (xy 67.31 86.36) (xy 81.28 86.36))
     (stroke (width 0) (type default))
-    (uuid 5f1b4ac5-bdd0-4481-8b54-03a58e396adf)
+    (uuid 61ba70b8-aa37-472c-8aa3-88d2dd2e809f)
   )
   (wire (pts (xy 72.39 20.32) (xy 72.39 58.42))
     (stroke (width 0) (type default))
@@ -574,21 +614,45 @@
     (stroke (width 0) (type default))
     (uuid 69319e16-3941-4c21-91ba-1f95e2d2bcf8)
   )
+  (wire (pts (xy 40.64 161.29) (xy 40.64 162.56))
+    (stroke (width 0) (type default))
+    (uuid 6bed9cb7-cd29-4f78-901b-e2131ba78dc5)
+  )
+  (wire (pts (xy 40.64 132.08) (xy 40.64 133.35))
+    (stroke (width 0) (type default))
+    (uuid 75434a08-e457-48fd-b6d8-666d4d4454a8)
+  )
   (wire (pts (xy 62.23 111.76) (xy 62.23 81.28))
     (stroke (width 0) (type default))
     (uuid 7560f9dd-86de-4c83-b5f6-e5ad7ffea663)
+  )
+  (wire (pts (xy 40.64 179.07) (xy 40.64 177.8))
+    (stroke (width 0) (type default))
+    (uuid 7cf49418-3ea2-4415-a565-1f55759c0303)
   )
   (wire (pts (xy 40.64 120.65) (xy 40.64 119.38))
     (stroke (width 0) (type default))
     (uuid 7d454600-5e09-4c30-b573-7c49bd60b65d)
   )
+  (wire (pts (xy 52.07 58.42) (xy 52.07 71.12))
+    (stroke (width 0) (type default))
+    (uuid 7eae8565-94cd-44eb-ac21-d6cc79b7e9f9)
+  )
   (wire (pts (xy 50.8 33.02) (xy 64.77 33.02))
     (stroke (width 0) (type default))
     (uuid 8129483b-489b-4593-afdc-39072f686171)
   )
+  (wire (pts (xy 95.25 176.53) (xy 95.25 156.21))
+    (stroke (width 0) (type default))
+    (uuid 82b33f26-72b5-4d54-bb41-5024ee9661b8)
+  )
   (wire (pts (xy 151.13 31.75) (xy 151.13 34.29))
     (stroke (width 0) (type default))
     (uuid 842f2753-e7b1-4eaf-b41b-95d5089730df)
+  )
+  (wire (pts (xy 77.47 177.8) (xy 77.47 156.21))
+    (stroke (width 0) (type default))
+    (uuid 85fdad9d-0074-43bc-90c8-05eb5539ff29)
   )
   (wire (pts (xy 62.23 81.28) (xy 81.28 81.28))
     (stroke (width 0) (type default))
@@ -598,21 +662,29 @@
     (stroke (width 0) (type default))
     (uuid 87fe741a-e003-4f88-9522-01c9e908682b)
   )
-  (wire (pts (xy 172.72 88.9) (xy 172.72 58.42))
-    (stroke (width 0) (type default))
-    (uuid 99b8e99e-4149-4934-8550-8d64b8c2b924)
-  )
   (wire (pts (xy 151.13 71.12) (xy 151.13 76.2))
     (stroke (width 0) (type default))
     (uuid 9da135d4-e907-4b3b-ad31-fa7db634b813)
+  )
+  (wire (pts (xy 72.39 170.18) (xy 72.39 91.44))
+    (stroke (width 0) (type default))
+    (uuid 9f7d3556-972a-477f-b418-9c3896eb9f9e)
   )
   (wire (pts (xy 101.6 111.76) (xy 101.6 114.3))
     (stroke (width 0) (type default))
     (uuid a5abac5f-4de8-4c93-9018-a65df81dca7d)
   )
+  (wire (pts (xy 50.8 140.97) (xy 67.31 140.97))
+    (stroke (width 0) (type default))
+    (uuid aa42d52b-ed25-4f38-b67e-7bdb2cd237c7)
+  )
   (wire (pts (xy 166.37 53.34) (xy 177.8 53.34))
     (stroke (width 0) (type default))
     (uuid b0014c28-29d4-4a09-a5b7-7e31455ee196)
+  )
+  (wire (pts (xy 20.32 179.07) (xy 40.64 179.07))
+    (stroke (width 0) (type default))
+    (uuid b4b1c76c-9b75-4c3d-a758-c8bb4cca1386)
   )
   (wire (pts (xy 58.42 86.36) (xy 58.42 76.2))
     (stroke (width 0) (type default))
@@ -621,6 +693,14 @@
   (wire (pts (xy 21.59 50.8) (xy 41.91 50.8))
     (stroke (width 0) (type default))
     (uuid c77169b5-59fb-4ac3-9c0f-716d387a4405)
+  )
+  (wire (pts (xy 67.31 140.97) (xy 67.31 86.36))
+    (stroke (width 0) (type default))
+    (uuid c860b0b6-a8b5-4667-ab15-8e87dbc2fb9c)
+  )
+  (wire (pts (xy 20.32 149.86) (xy 40.64 149.86))
+    (stroke (width 0) (type default))
+    (uuid cb768b73-1022-450f-8f6d-2ef1de6073bc)
   )
   (wire (pts (xy 64.77 66.04) (xy 81.28 66.04))
     (stroke (width 0) (type default))
@@ -638,10 +718,6 @@
     (stroke (width 0) (type default))
     (uuid d508de2e-b7f4-42f3-8f9f-33ca1c31d869)
   )
-  (wire (pts (xy 121.92 88.9) (xy 172.72 88.9))
-    (stroke (width 0) (type default))
-    (uuid d6e27a7a-0181-402d-8da1-b88dc3dd5fd4)
-  )
   (wire (pts (xy 50.8 111.76) (xy 62.23 111.76))
     (stroke (width 0) (type default))
     (uuid dc814c6e-ff95-42e2-8f90-907b7e01b43d)
@@ -649,6 +725,10 @@
   (wire (pts (xy 74.93 22.86) (xy 74.93 53.34))
     (stroke (width 0) (type default))
     (uuid dc87a98e-3c2a-4c8c-83ce-619765716bfc)
+  )
+  (wire (pts (xy 40.64 149.86) (xy 40.64 148.59))
+    (stroke (width 0) (type default))
+    (uuid dd9e444f-79ec-45de-9456-17b517c29a52)
   )
   (wire (pts (xy 129.54 58.42) (xy 129.54 20.32))
     (stroke (width 0) (type default))
@@ -674,9 +754,17 @@
     (stroke (width 0) (type default))
     (uuid eaa9b295-51df-4d85-8e8c-4704ae8f0095)
   )
+  (wire (pts (xy 52.07 71.12) (xy 81.28 71.12))
+    (stroke (width 0) (type default))
+    (uuid f0f8e7ff-0460-49cb-af18-03e0fc6a5dd9)
+  )
   (wire (pts (xy 133.35 22.86) (xy 74.93 22.86))
     (stroke (width 0) (type default))
     (uuid f25ce6fb-edde-4f7d-883c-9a2fd5e9671b)
+  )
+  (wire (pts (xy 166.37 83.82) (xy 166.37 58.42))
+    (stroke (width 0) (type default))
+    (uuid f3190a60-b95b-4959-96af-ec938660c18f)
   )
   (wire (pts (xy 21.59 25.4) (xy 40.64 25.4))
     (stroke (width 0) (type default))
@@ -691,9 +779,17 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 1482f615-d8a1-4603-bedd-fefabba31f69)
   )
+  (text "Sensor 5" (at 45.72 133.35 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid a0aef33b-18f5-4f5a-ae9d-77b2c9656d51)
+  )
   (text "__" (at 110.49 87.63 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid a55879cc-d41c-479f-bd3f-110f84c34dd4)
+  )
+  (text "Sensor 7" (at 93.98 152.4 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid c110bea3-a9f3-464a-98c9-af16e2e0df22)
   )
   (text "Sensor 1" (at 43.18 25.4 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
@@ -702,6 +798,10 @@
   (text "Y" (at 110.49 54.61 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid d0609f1e-7344-4455-8e74-312cf22a7e5b)
+  )
+  (text "Sensor 6" (at 45.72 162.56 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid f9c63939-bf19-441b-b068-99aea3c8c18e)
   )
   (text "Sensor 4" (at 45.72 104.14 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
@@ -729,7 +829,7 @@
     )
     (pin "1" (uuid 17b726e2-3e30-4930-88f4-7fcd43d5e904))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "#PWR016") (unit 1)
         )
@@ -757,7 +857,7 @@
     (pin "3" (uuid a2442fc2-c802-41f6-bf6c-99641f1c22db))
     (pin "4" (uuid 0b7a1bae-7ec5-4e12-aa82-624931f9c218))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "U6") (unit 1)
         )
@@ -782,7 +882,7 @@
     )
     (pin "1" (uuid 4aa7af0d-e795-4eb1-ba0a-23c7bd895203))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "#PWR02") (unit 1)
         )
@@ -807,7 +907,7 @@
     )
     (pin "1" (uuid 6684e156-f9b7-464d-815c-c08ae88c0b01))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "#PWR013") (unit 1)
         )
@@ -833,9 +933,59 @@
     (pin "1" (uuid 2ded75a6-b539-4631-ac6e-5e22443fb6b6))
     (pin "2" (uuid 94033d62-f89d-4c0d-9eff-66d2747fcc7c))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "R1") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:GND") (at 20.32 149.86 270) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 2cc894e7-064f-4d40-a114-4abf04de34bb)
+    (property "Reference" "#PWR014" (at 13.97 149.86 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "GND" (at 15.24 149.86 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 20.32 149.86 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 20.32 149.86 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 798eaa8c-977b-45b6-9ae2-391b12e264b1))
+    (instances
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
+        (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
+          (reference "#PWR014") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:+5P") (at 19.05 132.08 90) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 34bbc8ba-e184-4010-aad7-2be940a447e4)
+    (property "Reference" "#PWR05" (at 22.86 132.08 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "+5P" (at 16.51 129.54 90)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Footprint" "" (at 19.05 132.08 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 19.05 132.08 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid ecd8eda0-b61c-4f84-9099-c3e347df6b1e))
+    (instances
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
+        (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
+          (reference "#PWR05") (unit 1)
         )
       )
     )
@@ -858,7 +1008,7 @@
     )
     (pin "1" (uuid 692f97b9-3cf4-4f82-a8c0-aadb1acc0c32))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "#PWR08") (unit 1)
         )
@@ -883,7 +1033,7 @@
     )
     (pin "1" (uuid 7e129f55-8f28-4a78-9ebb-dada489281d5))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "#PWR011") (unit 1)
         )
@@ -911,9 +1061,59 @@
     (pin "3" (uuid 4f92a04a-842e-4f2e-a19a-57d825c60002))
     (pin "4" (uuid b61db186-6723-429f-9ba5-d9b660c7282a))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "U5") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:GND") (at 20.32 179.07 270) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 511011c3-87fd-43ad-a34d-8a750a0b76be)
+    (property "Reference" "#PWR018" (at 13.97 179.07 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "GND" (at 15.24 179.07 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 20.32 179.07 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 20.32 179.07 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 4d847dae-b370-44cf-a60e-90ac8c12527f))
+    (instances
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
+        (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
+          (reference "#PWR018") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:GND") (at 95.25 176.53 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 517457db-76f6-44aa-a2c9-b2ff005f8986)
+    (property "Reference" "#PWR020" (at 95.25 182.88 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "GND" (at 95.25 181.61 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 95.25 176.53 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 95.25 176.53 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 7b63bc22-8392-4da5-8418-70c100b8b58a))
+    (instances
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
+        (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
+          (reference "#PWR020") (unit 1)
         )
       )
     )
@@ -936,7 +1136,7 @@
     )
     (pin "1" (uuid 61427b99-42f9-4273-abae-c1093288ff3f))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "#PWR09") (unit 1)
         )
@@ -964,7 +1164,7 @@
     (pin "3" (uuid 0865aa9e-7be5-4a6c-9f94-98fdf8ec263b))
     (pin "4" (uuid abac53ab-4cc3-4ca0-bfaa-246f6c0cacfd))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "U4") (unit 1)
         )
@@ -989,9 +1189,37 @@
     )
     (pin "1" (uuid be594a12-8a48-433d-a258-5d269d0e6623))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "#PWR01") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Sensor_Current:A1363xKTTN-1") (at 86.36 156.21 90) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 633cb836-ef3c-4e53-be0d-b6ff84235e58)
+    (property "Reference" "U9" (at 85.09 162.56 0)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Value" "ZMCT103C" (at 87.63 162.56 0)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Footprint" "Sensor_Current:Allegro_SIP-4" (at 88.9 147.32 0)
+      (effects (font (size 1.27 1.27) italic) (justify left) hide)
+    )
+    (property "Datasheet" "http://www.allegromicro.com/~/media/Files/Datasheets/A1363-Datasheet.ashx?la=en" (at 86.36 156.21 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 1c4be2b8-bf8a-4c37-8d83-d54dcbdb1bb8))
+    (pin "2" (uuid 3738bab8-e6c0-4254-8370-10f3cedc2b34))
+    (pin "3" (uuid 1ebc17bd-544f-4762-a2c4-d9b88a8bea59))
+    (pin "4" (uuid 174abe97-196c-4969-82d4-270b551f496b))
+    (instances
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
+        (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
+          (reference "U9") (unit 1)
         )
       )
     )
@@ -1014,7 +1242,7 @@
     )
     (pin "1" (uuid 0d4f0946-e5eb-45ac-b181-c73f94ee207e))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "#PWR04") (unit 1)
         )
@@ -1054,7 +1282,7 @@
     (pin "7" (uuid bdcec212-36ad-4ca0-ab94-60b8e5ee5b46))
     (pin "9" (uuid 22d58c8d-9595-48bf-8b3a-928627e2f5a8))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "U2") (unit 1)
         )
@@ -1086,9 +1314,62 @@
     (pin "7" (uuid 3d7af358-daf0-4c2b-b6a9-ae35ec06efca))
     (pin "8" (uuid 334ac5fa-bb64-46f8-a36f-8e2942c564b3))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "U1") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Sensor_Current:A1363xKTTN-1") (at 40.64 140.97 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid a51554a6-ec55-4ab3-b193-b83aa56bcc27)
+    (property "Reference" "U7" (at 34.29 139.7 0)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Value" "ZMCT103C" (at 34.29 142.24 0)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Footprint" "Sensor_Current:Allegro_SIP-4" (at 49.53 143.51 0)
+      (effects (font (size 1.27 1.27) italic) (justify left) hide)
+    )
+    (property "Datasheet" "http://www.allegromicro.com/~/media/Files/Datasheets/A1363-Datasheet.ashx?la=en" (at 40.64 140.97 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 45bb1b32-faf1-43f2-b7ca-7237b8c3069b))
+    (pin "2" (uuid 0a1a6287-2ecb-418f-9817-c76562767182))
+    (pin "3" (uuid 83ee00df-2fe8-47e2-8955-7135b24d1da5))
+    (pin "4" (uuid 40dd79e7-8118-4469-aa31-10ccf3d4f062))
+    (instances
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
+        (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
+          (reference "U7") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:+5P") (at 19.05 161.29 90) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid a6041e32-5e11-41f3-8159-91f7d6be7941)
+    (property "Reference" "#PWR017" (at 22.86 161.29 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "+5P" (at 16.51 158.75 90)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Footprint" "" (at 19.05 161.29 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 19.05 161.29 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 2ab66bae-2f27-486a-869e-44854bffd18b))
+    (instances
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
+        (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
+          (reference "#PWR017") (unit 1)
         )
       )
     )
@@ -1111,7 +1392,7 @@
     )
     (pin "1" (uuid c664490e-4083-4b99-a71a-dbe0149113da))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "#PWR07") (unit 1)
         )
@@ -1136,9 +1417,34 @@
     )
     (pin "1" (uuid 23f4eaa4-caf8-417f-abe1-c1eda72d5c0d))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "#PWR012") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:+5P") (at 77.47 177.8 180) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid c00dd20c-6988-494b-9d21-f4ef6deb5491)
+    (property "Reference" "#PWR019" (at 77.47 173.99 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "+5P" (at 74.93 180.34 90)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Footprint" "" (at 77.47 177.8 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 77.47 177.8 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 5cd5c9d8-4f39-4e56-bb31-a504296d0691))
+    (instances
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
+        (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
+          (reference "#PWR019") (unit 1)
         )
       )
     )
@@ -1161,9 +1467,37 @@
     )
     (pin "1" (uuid 09a867fd-946f-4815-b77e-a7aed167aae8))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "#PWR06") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Sensor_Current:A1363xKTTN-1") (at 40.64 170.18 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid de3b29d2-b4b5-4b62-85ee-586c25daff86)
+    (property "Reference" "U8" (at 34.29 168.91 0)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Value" "ZMCT103C" (at 34.29 171.45 0)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Footprint" "Sensor_Current:Allegro_SIP-4" (at 49.53 172.72 0)
+      (effects (font (size 1.27 1.27) italic) (justify left) hide)
+    )
+    (property "Datasheet" "http://www.allegromicro.com/~/media/Files/Datasheets/A1363-Datasheet.ashx?la=en" (at 40.64 170.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 853fffcd-8ce2-4af1-b8ae-72be04e57a53))
+    (pin "2" (uuid 440baeff-e73a-42e6-ac90-c91d50053ef2))
+    (pin "3" (uuid ec962ca0-ef68-4027-b742-7320f31f76ff))
+    (pin "4" (uuid 7574842a-d4db-4b68-b939-0d1cfbf2ffd3))
+    (instances
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
+        (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
+          (reference "U8") (unit 1)
         )
       )
     )
@@ -1186,7 +1520,7 @@
     )
     (pin "1" (uuid 2ba780b3-15c9-4c1c-8a59-2426a4e58541))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "#PWR015") (unit 1)
         )
@@ -1212,7 +1546,7 @@
     (pin "1" (uuid c480f763-1427-45c1-aba4-81424a554d4f))
     (pin "2" (uuid 9b7b7256-f76c-4bdc-b6e6-b26043699255))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "D1") (unit 1)
         )
@@ -1238,7 +1572,7 @@
     (pin "1" (uuid 9a989503-1610-4304-975f-250f1ff2c363))
     (pin "2" (uuid 236160a4-aa30-430e-a9ef-e30729df5b2e))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "R3") (unit 1)
         )
@@ -1263,7 +1597,7 @@
     )
     (pin "1" (uuid fefe6fbe-5ae9-4e21-86af-0b2b950ceefc))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "#PWR03") (unit 1)
         )
@@ -1291,7 +1625,7 @@
     (pin "3" (uuid 6c045d25-8d4c-44d1-8fe3-df01a1064ae3))
     (pin "4" (uuid bc19ba6a-e693-4db0-8739-5753a79664b2))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "U3") (unit 1)
         )
@@ -1316,7 +1650,7 @@
     )
     (pin "1" (uuid 75cd321c-ab89-47fc-b338-d00b51851f2b))
     (instances
-      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS"
+      (project "pic12F675_74HC151_MULTIPLEXER_SENSORS_V2"
         (path "/73c37809-7617-4b9f-a70a-5c31575fa255"
           (reference "#PWR010") (unit 1)
         )
