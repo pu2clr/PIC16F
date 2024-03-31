@@ -25,9 +25,9 @@ In projects involving the PIC microcontroller series, utilizing a multiplexer li
 
 6. **Improved Signal Management**: In complex systems where multiple sensors or input devices are used, a multiplexer can facilitate better signal management and prioritization. By controlling which signals are read at any given time, designers can optimize the processing capabilities of the microcontroller for critical tasks.
 
-**7. Wiring simplification: By using a multiplexer, you reduce the number of wires needed to connect the sensors to the microcontroller. This simplifies the installation and maintenance of the system**.
+7. Wiring simplification: **By using a multiplexer, you reduce the number of wires needed to connect the sensors to the microcontroller. This simplifies the installation and maintenance of the system**.
 
-**8. Ease of Scalability: If you anticipate that your project might scale up, incorporating a multiplexer from the start makes it easier to add more input channels in the future without significant redesign. It’s a forward-looking approach that accommodates growth**.
+8. Ease of Scalability: **If you anticipate that your project might scale up, incorporating a multiplexer from the start makes it easier to add more input channels in the future without significant redesign. It’s a forward-looking approach that accommodates growth**.
 
 
 
