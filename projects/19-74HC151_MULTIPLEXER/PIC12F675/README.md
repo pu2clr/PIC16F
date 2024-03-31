@@ -17,6 +17,7 @@ This folder showcases the processing of analog readings from various sensors usi
 
 The PIC12F675 is a compact, versatile microcontroller from Microchip's PIC12F series, offering a mix of analog and digital functionalities in a small 8-pin package. This microcontroller stands out for its integrated 10-bit Analog-to-Digital Converter (ADC), which supports up to four analog inputs, allowing for direct interfacing with various sensors and analog signals. These analog channels make the PIC12F675 particularly suitable for applications requiring the measurement of physical parameters such as temperature, light intensity, or other analog sensor data.
 
+Although the PIC12F675 features four analog inputs (AN0, AN1, AN2, and AN3), dedicating all of these for analog readings can render it impractical due to the limited number of pins remaining for other crucial functionalities, such as triggering alerts for external modules. For applications necessitating the analog monitoring of multiple sensors, leveraging a multiplexer such as the 74HC151 offers a practical solution. This approach enables the efficient connection of up to eight sensors to the system, optimizing resource use while maintaining functionality. Once again, the purpose of this experiment is merely to demonstrate the interfacing of the 74HC151 multiplexer with the microcontroller, without necessarily making a judgment on the strategy employed to address a potential problem.
 
 ## About this project 
 
@@ -72,11 +73,6 @@ The PIC12F675 is a part of Microchip's PIC12F series of microcontrollers, which 
 8. **VDD (Pin 1)**: This is the positive power supply pin. The PIC12F220 typically operates at a voltage range of 2.0V to 5.5V.
 
 9. **VSS (Pin 8)**: This pin is the ground (GND) connection for the microcontroller.
-
-
-**Note: Although the PIC12F675 features four analog inputs (AN0, AN1, AN2, and AN3), dedicating all of these for analog readings can render it impractical due to the limited number of pins remaining for other crucial functionalities, such as triggering alerts for external modules. For applications necessitating the analog monitoring of multiple sensors, leveraging a multiplexer such as the 74HC151 offers a practical solution. This approach enables the efficient connection of up to eight sensors to the system, optimizing resource use while maintaining functionality. Once again, the purpose of this experiment is merely to demonstrate the interfacing of the 74HC151 multiplexer with the microcontroller, without necessarily making a judgment on the strategy employed to address a potential problem**.
-
-
 
 
 ## 74HC151 PINOUT 
