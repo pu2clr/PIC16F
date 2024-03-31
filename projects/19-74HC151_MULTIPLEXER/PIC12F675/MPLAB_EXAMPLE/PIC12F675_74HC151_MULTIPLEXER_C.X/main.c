@@ -90,6 +90,7 @@ uint16_t getSensorData(uint8_t sensorNumber) {
  */
 void alert(uint8_t sensorNumber) {
     GIE = 1;    // Enable interrupt
+    __delay_ms(1);
     PWM = 50 * (sensorNumber + 1);      
     for (uint8_t led = 0; led <= sensorNumber; led++) {
         GP4 = 1;
@@ -120,14 +121,13 @@ void main() {
        
         for (uint8_t i = 0; i < 4; i++) {
              maxValue = 0;
-            for ( uint8_t j = 0; j < 5; j++ ) {
+            for ( uint8_t j = 0; j < 6; j++ ) {
                 sensorValue = getSensorData(i);
                 if ( sensorValue > maxValue ) maxValue = sensorValue;
             }
             
-            if (maxValue < 190) { // Less about than 2.5v
+            if (maxValue < 150) { // Less than about 0,75V 
                 alert(i);
-                __delay_ms(10);
             }
             __delay_ms(100);
         }
