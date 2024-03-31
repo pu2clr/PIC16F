@@ -24,6 +24,8 @@ This project is designed to gather data from four ZMCT103C analog current sensor
 
 The concept of this system is to monitor four loads powered by alternating current (household electricity). If for any reason any load is turned off, the system triggers an alert. To achieve this, it employs the ZMCT103C current sensor.
 
+As the previously suggested, the concepts used in this experiment can be applied to a wide range of applications, from simply recording or notifying of a power failure to activating a power contingency system via a generator set.
+
 It's important to highlight that since these are analog sensors, which typically produce a voltage between 0 and 5V depending on the magnitude they are designed to measure, it is easily feasible to replace them with other types of analog sensors as required by your application.
 
 
