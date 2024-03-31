@@ -74,7 +74,7 @@ The PIC12F675 is a part of Microchip's PIC12F series of microcontrollers, which 
 9. **VSS (Pin 8)**: This pin is the ground (GND) connection for the microcontroller.
 
 
-Although the PIC12F675 features four analog inputs (AN0, AN1, AN2, and AN3), dedicating all of these for analog readings can render it impractical due to the limited number of pins remaining for other crucial functionalities, such as triggering alerts for external modules. For applications necessitating the analog monitoring of multiple sensors, leveraging a multiplexer such as the 74HC151 offers a practical solution. This approach enables the efficient connection of up to eight sensors to the system, optimizing resource use while maintaining functionality.
+**Note: Although the PIC12F675 features four analog inputs (AN0, AN1, AN2, and AN3), dedicating all of these for analog readings can render it impractical due to the limited number of pins remaining for other crucial functionalities, such as triggering alerts for external modules. For applications necessitating the analog monitoring of multiple sensors, leveraging a multiplexer such as the 74HC151 offers a practical solution. This approach enables the efficient connection of up to eight sensors to the system, optimizing resource use while maintaining functionality. Once again, the purpose of this experiment is merely to demonstrate the interfacing of the 74HC151 multiplexer with the microcontroller, without necessarily making a judgment on the strategy employed to address a potential problem**.
 
 
 
