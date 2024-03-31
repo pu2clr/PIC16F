@@ -2,12 +2,6 @@
 
 This folder contains several elements that will serve as a foundation for more robust projects involving the 74HC151 multiplexer and the PIC12F and PIC16 series.
 
-
-UNDER CONSTRUCTION... 
-
-![UNDER CONSTRUCTION...](../../images/under_construction.png)
-
-
 ## Contente
 
 * [Overview](#overview)

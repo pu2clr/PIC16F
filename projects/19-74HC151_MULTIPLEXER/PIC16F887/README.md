@@ -24,6 +24,6 @@ Although the PIC16F887 has 13 pins configurable as analog inputs and 21 as digit
 
 **4. Optimization of pin usage:** The multiplexer allows you to use pins for other functions, such as communication, LED control, or other devices, even if the pins are also configurable as analog or digital inputs.
 
-
+**5. Ease of Scalability: If you anticipate that your project might scale up, incorporating a multiplexer from the start makes it easier to add more input channels in the future without significant redesign. It’s a forward-looking approach that accommodates growth**.
 
 
