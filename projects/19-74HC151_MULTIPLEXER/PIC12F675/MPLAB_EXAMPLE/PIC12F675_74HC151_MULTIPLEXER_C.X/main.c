@@ -103,6 +103,10 @@ void alert(uint8_t sensorNumber) {
 }
 
 void main() {
+    
+    uint16_t sensorValue;
+    uint16_t maxValue;   
+    
     GPIO = 0x0; // Turns all GPIO pins low
 
     initADC();
@@ -113,9 +117,15 @@ void main() {
     GP4 = 0;
 
     while (1) {
+       
         for (uint8_t i = 0; i < 4; i++) {
-            uint16_t sensorValue = getSensorData(i);
-            if (sensorValue < 512) { // Less about than 2.5v
+             maxValue = 0;
+            for ( uint8_t j = 0; j < 5; j++ ) {
+                sensorValue = getSensorData(i);
+                if ( sensorValue > maxValue ) maxValue = sensorValue;
+            }
+            
+            if (maxValue < 190) { // Less about than 2.5v
                 alert(i);
                 __delay_ms(10);
             }
