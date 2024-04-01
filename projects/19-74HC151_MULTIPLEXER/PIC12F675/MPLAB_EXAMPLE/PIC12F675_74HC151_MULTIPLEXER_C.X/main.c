@@ -69,7 +69,8 @@ void alert(uint8_t sensorNumber) {
 void main() {
     
     uint16_t sensorValue;
-    uint16_t maxValue;   
+    uint16_t sumValue;
+    uint8_t  n;
     
     OPTION_REG = 0B01000000;
     
@@ -83,13 +84,19 @@ void main() {
 
     while (1) {    
         for (uint8_t i = 0; i < 4; i++) {
-             maxValue = 0;
-            for ( uint8_t j = 0; j < 6; j++ ) {
+             sumValue = n = 0;
+            for ( uint8_t j = 0; j < 10; j++ ) {
                 sensorValue = getSensorData(i);
-                if ( sensorValue > maxValue ) maxValue = sensorValue;
+                // Computes of valid readings
+                if ( sensorValue > 50 && sensorValue < 900 ) { 
+                    sumValue += sensorValue;
+                    n++;
+                }
             }
-            
-            if (maxValue < 100) { // 
+            // Gets the average of valid readings 
+            sumValue = (uint16_t) sumValue / n ; 
+                    
+            if (sumValue < 100) { // 
                 alert(i);
             }
             __delay_ms(100);
