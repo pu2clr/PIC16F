@@ -71,6 +71,8 @@ void main() {
     uint16_t sensorValue;
     uint16_t maxValue;   
     
+    OPTION_REG = 0B01000000;
+    
     GPIO = 0x0; // Turns all GPIO pins low
 
     initADC();
@@ -87,7 +89,7 @@ void main() {
                 if ( sensorValue > maxValue ) maxValue = sensorValue;
             }
             
-            if (maxValue < 200) { // 
+            if (maxValue < 100) { // 
                 alert(i);
             }
             __delay_ms(100);
