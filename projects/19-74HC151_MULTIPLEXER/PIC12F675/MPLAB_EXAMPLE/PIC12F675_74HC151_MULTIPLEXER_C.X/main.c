@@ -36,16 +36,21 @@ uint16_t readADC() {
 
 /**
  * Selects the sensor and performs the reading.
- * @param sensorNumber - Sensor number to be read
- * @return 
+ * @param  - ensorNumber - Sensor number to be read
+ * @return - Average of values from a sample 
  */
 uint16_t getSensorData(uint8_t sensorNumber) {
+    uint16_t sumValue = 0;
+    uint8_t const sample = 10;   
     // Selects the sensor 
     sensorNumber = (uint8_t) (sensorNumber << 1);
     GPIO = (GPIO & 0B11111001) | sensorNumber; // Sets sensor Number to GP1 and GP2 (0, 1, 2 or 3)
-    __delay_ms(2);
+    for (uint8_t i = 0; i < sample; i++ ) { 
+        sumValue += readADC();
+        __delay_us(10);
+    }
     // Performs the reading ` 
-    return readADC();
+    return sumValue / sample ;
 }
 
 /**
