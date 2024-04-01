@@ -87,7 +87,7 @@ void main() {
                 if ( sensorValue > maxValue ) maxValue = sensorValue;
             }
             
-            if (maxValue < 100) { // Less than about 0,5V 
+            if (maxValue < 200) { // 
                 alert(i);
             }
             __delay_ms(100);
