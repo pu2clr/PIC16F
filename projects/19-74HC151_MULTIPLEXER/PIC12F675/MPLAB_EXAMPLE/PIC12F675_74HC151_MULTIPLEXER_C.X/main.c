@@ -20,7 +20,7 @@
 void inline initADC() {
     TRISIO = 0b00000001; // input setup - GP4/AN0   
     ANSEL = 0b00000001; // AN0 as analog input
-    ADCON0 = 0b10000001; // Right justified; VDD;  01 = Channel 03 (AN0); A/D converter module is 
+    ADCON0 = 0b10000001; // Right 1= justified; 0 = VDD;  00 = Channel 03 (AN0); A/D converter module is on
 }
 
 /**
@@ -42,7 +42,7 @@ uint16_t readADC() {
 uint16_t getSensorData(uint8_t sensorNumber) {
     // Selects the sensor 
     sensorNumber = (uint8_t) (sensorNumber << 1);
-    GPIO = (GPIO & 0B11111001) | sensorNumber;
+    GPIO = (GPIO & 0B11111001) | sensorNumber; // Sets sensor Number to GP1 and GP2 (0, 1, 2 or 3)
     __delay_ms(2);
     // Performs the reading ` 
     return readADC();
@@ -56,7 +56,7 @@ uint16_t getSensorData(uint8_t sensorNumber) {
  * and so on. 
  * @param sensorNumber -  number of sensor to be alerted. 
  */
-void alert(uint8_t sensorNumber) {  
+void alert(uint8_t sensorNumber) {
     for (uint8_t led = 0; led <= sensorNumber; led++) {
         GP4 = 1;
         __delay_ms(200);
@@ -67,12 +67,10 @@ void alert(uint8_t sensorNumber) {
 }
 
 void main() {
-    
+
     uint16_t sensorValue;
-    uint16_t calcValue;
-    
     OPTION_REG = 0B01000000;
-    
+
     GPIO = 0x0; // Turns all GPIO pins low
 
     initADC();
@@ -81,23 +79,13 @@ void main() {
     __delay_ms(2000);
     GP4 = 0;
 
-    while (1) {    
+    while (1) {
         for (uint8_t i = 0; i < 4; i++) {
-             calcValue = 0;
-            for ( uint8_t j = 0; j < 5; j++ ) {
-                sensorValue = getSensorData(i);
-                // Computes of valid readings
-                if ( sensorValue > calcValue ) { 
-                    calcValue = sensorValue;
-                }
-                __delay_ms(10);
-            }
-
-                    
+            sensorValue = getSensorData(i);
             if (sensorValue < 150) { // 
                 alert(i);
             }
-            __delay_ms(100);
+            __delay_ms(10);
         }
     }
 }
