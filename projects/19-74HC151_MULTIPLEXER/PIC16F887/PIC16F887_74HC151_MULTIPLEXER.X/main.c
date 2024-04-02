@@ -3,7 +3,6 @@
  * Author: Ricardo Lima Caratti
  * Feb/2024 
  */
-
 #include <xc.h>
 #include <stdio.h>
 #include <math.h>
@@ -19,7 +18,6 @@
 #pragma config CP = OFF         // Flash Program Memory Code Protection disabled
 
 #define _XTAL_FREQ 4000000      // Frequency (Clock)
-
 #define NUM_SAMPLE 10
 
 /**
