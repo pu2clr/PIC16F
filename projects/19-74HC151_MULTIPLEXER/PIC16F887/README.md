@@ -4,6 +4,9 @@ Under construction...
 
 ![Under construction...](../../../images/under_construction.png)
 
+**Waiting for the arrival of components for completion.**
+
+
 This folder showcases the processing of analog readings from various sensors using the PIC16F887 and the 74HC151 multiplexer.
 
 

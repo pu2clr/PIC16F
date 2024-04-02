@@ -50,7 +50,7 @@ unsigned char sad[8] = {
 
 
 void initADC() {
-    ANSEL = 0x01; // RA0/AN0 is analog input
+    ANSEL = 0B00000001; // RA0/AN0 is analog input
     ADCON0 = 0x01; // Enable ADC, channel 0
     ADCON1 = 0x80; // Right justified, Fosc/32
 }
