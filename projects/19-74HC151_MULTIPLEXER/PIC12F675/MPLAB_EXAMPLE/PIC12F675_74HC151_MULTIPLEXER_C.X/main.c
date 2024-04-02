@@ -49,7 +49,7 @@ uint16_t getSensorData(uint8_t sensorNumber) {
         sumValue += readADC();
         __delay_us(10);
     }
-    // Performs the reading ` 
+    // Returns the average of values get from adcRead
     return sumValue / sample ;
 }
 
@@ -72,18 +72,14 @@ void alert(uint8_t sensorNumber) {
 }
 
 void main() {
-
     uint16_t sensorValue;
     OPTION_REG = 0B01000000;
 
     GPIO = 0x0; // Turns all GPIO pins low
-
     initADC();
-
     GP4 = 1;
     __delay_ms(2000);
     GP4 = 0;
-
     while (1) {
         for (uint8_t i = 0; i < 4; i++) {
             sensorValue = getSensorData(i);

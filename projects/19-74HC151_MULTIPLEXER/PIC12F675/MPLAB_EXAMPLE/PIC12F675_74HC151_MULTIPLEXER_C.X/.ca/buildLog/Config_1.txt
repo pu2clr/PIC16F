@@ -1,0 +1,25 @@
+make -f nbproject/Makefile-Config_1.mk SUBPROJECTS= .clean-conf
+make[1]: Entering directory '/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/19-74HC151_MULTIPLEXER/PIC12F675/MPLAB_EXAMPLE/PIC12F675_74HC151_MULTIPLEXER_C.X'
+rm -f  -r .ca/build/Config_1/production
+rm -f  -r .ca/dist/Config_1/production
+make[1]: Leaving directory '/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/19-74HC151_MULTIPLEXER/PIC12F675/MPLAB_EXAMPLE/PIC12F675_74HC151_MULTIPLEXER_C.X'
+[32mCLEAN SUCCESSFUL (total time: 56ms)[0m
+make -f nbproject/Makefile-Config_1.mk SUBPROJECTS= .build-conf
+make  -f nbproject/Makefile-Config_1.mk .ca/dist/Config_1/production/PIC12F675_74HC151_MULTIPLEXER_C.X.production.hex
+make[2]: Entering directory '/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/19-74HC151_MULTIPLEXER/PIC12F675/MPLAB_EXAMPLE/PIC12F675_74HC151_MULTIPLEXER_C.X'
+"/Applications/microchip/xc8/v2.46/bin/xc8-cc"  -mcpu=12F675 -c   -mdfp="/Applications/microchip/mplabx/v6.20/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8"  -fno-short-double -fno-short-float -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_Config_1=Config_1  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits   -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o .ca/build/Config_1/production/main.p1 main.c 
+::: advisory: (2100) using the C99 standard library with the selected device may result in larger code and data usage
+make[2]: Leaving directory '/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/19-74HC151_MULTIPLEXER/PIC12F675/MPLAB_EXAMPLE/PIC12F675_74HC151_MULTIPLEXER_C.X'
+make[2]: Entering directory '/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/19-74HC151_MULTIPLEXER/PIC12F675/MPLAB_EXAMPLE/PIC12F675_74HC151_MULTIPLEXER_C.X'
+"/Applications/microchip/xc8/v2.46/bin/xc8-cc"  -mcpu=12F675 -Wl,-Map=.ca/dist/Config_1/production/PIC12F675_74HC151_MULTIPLEXER_C.X.production.map  -DXPRJ_Config_1=Config_1  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="/Applications/microchip/mplabx/v6.20/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8"  -fno-short-double -fno-short-float -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits -std=c99 -gdwarf-3 -mstack=compiled:auto:auto      -Wl,--memorysummary,.ca/dist/Config_1/production/memoryfile.xml -o .ca/dist/Config_1/production/PIC12F675_74HC151_MULTIPLEXER_C.X.production.elf  .ca/build/Config_1/production/main.p1     
+::: advisory: (2100) using the C99 standard library with the selected device may result in larger code and data usage
+
+Memory Summary:
+    Program space        used   100h (   256) of   400h words   ( 25.0%)
+    Data space           used    17h (    23) of    40h bytes   ( 35.9%)
+    EEPROM space         used     0h (     0) of    80h bytes   (  0.0%)
+    Configuration bits   used     1h (     1) of     1h word    (100.0%)
+    ID Location space    used     0h (     0) of     4h bytes   (  0.0%)
+
+make[2]: Leaving directory '/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/19-74HC151_MULTIPLEXER/PIC12F675/MPLAB_EXAMPLE/PIC12F675_74HC151_MULTIPLEXER_C.X'
+[32mBUILD SUCCESSFUL (total time: 597ms)[0m
