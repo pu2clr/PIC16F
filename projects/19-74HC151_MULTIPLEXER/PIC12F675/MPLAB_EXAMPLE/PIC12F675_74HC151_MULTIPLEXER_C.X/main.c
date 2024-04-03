@@ -83,7 +83,7 @@ void main() {
     while (1) {
         for (uint8_t i = 0; i < 4; i++) {
             sensorValue = getSensorData(i);
-            if (sensorValue < 100) { // 
+            if (sensorValue > 77) { // 
                 alert(i);
             }
             __delay_ms(10);
