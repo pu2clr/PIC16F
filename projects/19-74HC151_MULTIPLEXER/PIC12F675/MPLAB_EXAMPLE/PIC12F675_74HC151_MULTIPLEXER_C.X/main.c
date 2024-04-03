@@ -31,7 +31,8 @@ void inline initADC() {
 uint16_t readADC() {
     ADCON0bits.GO = 1; // Start conversion
     while (ADCON0bits.GO_nDONE); // Wait for conversion to finish
-    return ((unsigned int) ADRESH << 8) + (unsigned int) ADRESL; // return the ADC 10 bit integer value 1024 ~= 5V, 512 ~= 2.5V, ... 0 = 0V
+    // return ((unsigned int) ADRESH << 8) + (unsigned int) ADRESL; // return the ADC 10 bit integer value 1024 ~= 5V, 512 ~= 2.5V, ... 0 = 0V
+    return (uint16_t) ADRESL;
 }
 
 /**
@@ -45,6 +46,7 @@ uint16_t getSensorData(uint8_t sensorNumber) {
     // Selects the sensor 
     sensorNumber = (uint8_t) (sensorNumber << 1);
     GPIO = (GPIO & 0B11111001) | sensorNumber; // Sets sensor Number to GP1 and GP2 (0, 1, 2 or 3)
+    __delay_us(10);
     for (uint8_t i = 0; i < sample; i++ ) { 
         sumValue += readADC();
         __delay_us(10);
