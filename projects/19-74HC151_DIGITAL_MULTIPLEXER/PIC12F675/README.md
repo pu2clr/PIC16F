@@ -32,10 +32,13 @@ It's important to highlight that since these are analog sensors, which typically
 
 
 
-## PIC12F675 and 74HC151 monitoring 4 sensors
+## PIC12F675 and 74HC151 monitoring 8 sensors
 
 
-![PIC12F675 and 74HC151 monitoring 4 sensors](./SCHEMATIC_pic12f675_74hc151_8_sensors.jpg)
+![PIC12F675 and 74HC151 monitoring 8 sensors](./SCHEMATIC_pic12f675_74hc151_8_sensors.jpg)
+
+
+The configuration of the LDR with a 1M ohm resistor favors low power consumption for the circuit. However, it is possible to use values lower than 1M without significantly altering the outcome of the experiment.
 
 
 
