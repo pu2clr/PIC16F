@@ -1,7 +1,9 @@
 /**
+ * Dark Detector: This program utilizes the PIC12F675 microcontroller and a 74HC151 multiplexer to read eight 
+ *                light sensors (LDRs) and indicate which sensor is receiving insufficient or no light.
  * 
  * Author: Ricardo Lima Caratti
- * Feb/2024 
+ * April/2024 
  */
 
 
