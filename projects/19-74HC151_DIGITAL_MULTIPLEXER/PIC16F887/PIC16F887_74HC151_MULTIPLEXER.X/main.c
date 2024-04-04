@@ -82,17 +82,6 @@ uint16_t getSensorData(uint8_t sensorNumber) {
 }
 
 
-float getIrms() {
-    
-  uint16_t sumValue = 0;  
-  for ( uint8_t i = 0; i < NUM_SAMPLE; i++ ) { 
-      sumValue += readADC();
-  } 
-
-  
-  return sqrt(sumValue / NUM_SAMPLE);    
-}
-
 void main() {
 
     char strAux[16];
@@ -119,9 +108,9 @@ void main() {
 
     // Display message
     Lcd_SetCursor(&lcd, 1, 1);
-    Lcd_WriteString(&lcd, "MQ-2 Gas");
+    Lcd_WriteString(&lcd, "PIC16F887 AND");
     Lcd_SetCursor(&lcd, 2, 1);
-    Lcd_WriteString(&lcd, "Sensor");
+    Lcd_WriteString(&lcd, "74HC151");
 
     // Creating the character
     Lcd_CreateCustomChar(&lcd, 0, smile);

@@ -5,6 +5,8 @@ This folder contains several elements that will serve as a foundation for more r
 ## Contente
 
 * [Overview](#overview)
+* [PIC12F675](./PIC12F675/)
+* [PIC16F887](./PIC16F887/)
 * [References](#references)
 
 
