@@ -77,7 +77,7 @@ The PIC12F675 is a part of Microchip's PIC12F series of microcontrollers, which 
 
 7. **OSC2/CLKOUT (Pin 8)**: This pin can be used as an oscillator output (OSC2/CLKOUT) for clocking external devices or for feedback in resonator configurations. It's also involved in the microcontroller's internal clock generation system.
 
-8. **VDD (Pin 1)**: This is the positive power supply pin. The PIC12F220 typically operates at a voltage range of 2.0V to 5.5V.
+8. **VDD (Pin 1)**: This is the positive power supply pin. The PIC12F675 typically operates at a voltage range of 2.0V to 5.5V.
 
 9. **VSS (Pin 8)**: This pin is the ground (GND) connection for the microcontroller.
 
