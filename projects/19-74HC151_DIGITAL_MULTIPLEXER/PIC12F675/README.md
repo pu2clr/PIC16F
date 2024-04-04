@@ -41,8 +41,7 @@ It's important to highlight that since these are analog sensors, which typically
 The configuration of the LDR with a 1M ohm resistor favors low power consumption for the circuit. However, it is possible to use values lower than 1M without significantly altering the outcome of the experiment.
 
 
-
-The table below shows the values of the PIC12F675 pins, detailing the combination of GP0, GP1 and GP2, along with the corresponding sensor selection by the 74HC151 via S0, S1 and S2 pins. 
+The table below showcases the combinations for sensor selection based on the high and low values of the GP0, GP1, and GP2 pins of the PIC12F675, which are connected to the S0, S1, and S2 pins of the 74HC151 device, respectively.
 
 
 | ANALOG SENSOR |  S2 / GP2  |  S1 / GP1 | S0 / GP0 |   
