@@ -1,8 +1,6 @@
 # PIC12F675 and 74HC151 MULTIPLEXER 
 
-**UNDER  IMPROVEMENTS...**
-
-This folder showcases the processing of analog readings from various sensors using the PIC12F675 and the 74HC151 multiplexer.
+This folder showcases the processing of analog or digital readings from various sensors using the PIC12F675 and the 74HC151 multiplexer.
 
 
 ## Content
@@ -11,6 +9,8 @@ This folder showcases the processing of analog readings from various sensors usi
 2. [About this project](#about-this-project)
 3. [Schematic - PIC12F675 and 74HC151 monitoring 4 sensors](#pic12f675-and-74hc151-monitoring-4-sensors)
     * [KiCad Schematic](./KiCad/)
+4. [MPLAB EXAMPLES](./MPLAB_EXAMPLE/)
+5. [Prototype]()    
 8. [References](#references)
 
 
@@ -104,6 +104,16 @@ The 74HC151 is an 8-input multiplexer with three select inputs (S0, S1, S2), eig
 7. **GND (Ground)**: This is the ground pin, which should be connected to the system’s ground.
 
 This configuration allows the 74HC151 to select one of eight signals to be passed to its output, controlled by the select inputs and enabled by the E pin, making it highly useful in digital circuits for signal routing and data selection.
+
+
+# Prototype 
+
+![Prototype](./PROTOTYPE_pic12f675_74hc151_8_sensors.jpg)
+
+
+[Click here to see the video](https://youtu.be/7ZKe1AUOCyM?si=aRP-EVJyRZUpQNNq)
+
+
 
 ## References
 
