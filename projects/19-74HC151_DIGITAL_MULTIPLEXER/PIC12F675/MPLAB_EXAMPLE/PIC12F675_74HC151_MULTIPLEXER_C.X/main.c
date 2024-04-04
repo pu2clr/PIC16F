@@ -17,7 +17,8 @@
 
 #define _XTAL_FREQ 4000000      // internal clock
 
-#define MAX_SAMPLE 5            // Number of reads      
+#define MAX_SAMPLE 5            // Number of reads    
+#define MAX_SENSORS 8
 
 void inline initADC() {
     TRISIO = 0b00011000;          // input setup - GP4/AN3   
@@ -46,7 +47,6 @@ uint16_t getSensorData(uint8_t sensorNumber) {
     uint16_t sumValue = 0;
 
     // Selects the sensor 
-    sensorNumber = (uint8_t) (sensorNumber << 1);
     GPIO = (GPIO & 0B11111000) | sensorNumber; // Sets sensor Number to GP0, GP1 and GP2 (0 to 7)
     __delay_us(10);
     for (uint8_t i = 0; i < MAX_SAMPLE; i++ ) { 
@@ -88,9 +88,9 @@ void main() {
     GP5 = 0;
     
     while (1) {
-        for (uint8_t i = 0; i < 8; i++) {
+        for (uint8_t i = 0; i < MAX_SENSORS; i++) {
             sensorValue = getSensorData(i);
-            if (sensorValue < 200) {    // 
+            if (sensorValue < 100) {    // 
                 alert(i);
             }
             __delay_ms(10);
