@@ -18,9 +18,9 @@
 #define _XTAL_FREQ 4000000      // internal clock
 
 void inline initADC() {
-    TRISIO = 0b00000001; // input setup - GP4/AN0   
-    ANSEL = 0b00000001; // AN0 as analog input
-    ADCON0 = 0b10000001; // Right 1= justified; 0 = VDD;  00 = Channel 03 (AN0); A/D converter module is on
+    TRISIO = 0b00010000;    // input setup - GP4/AN3   
+    ANSEL  = 0b00001000;     // AN0 as analog input
+    ADCON0 = 0b10000011;    // Right 1= justified; 0 = VDD;  00 = Channel 03 (AN3); A/D converter module is on
 }
 
 /**
@@ -65,9 +65,9 @@ uint16_t getSensorData(uint8_t sensorNumber) {
  */
 void alert(uint8_t sensorNumber) {
     for (uint8_t led = 0; led <= sensorNumber; led++) {
-        GP4 = 1;
+        GP5 = 1;
         __delay_ms(200);
-        GP4 = 0;
+        GP5 = 0;
         __delay_ms(200);
     }
     __delay_ms(1500);
