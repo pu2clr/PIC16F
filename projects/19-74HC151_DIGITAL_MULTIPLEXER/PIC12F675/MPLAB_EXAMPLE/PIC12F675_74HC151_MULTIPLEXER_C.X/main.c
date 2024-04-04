@@ -17,10 +17,12 @@
 
 #define _XTAL_FREQ 4000000      // internal clock
 
+#define MAX_SAMPLE 5            // Number of reads      
+
 void inline initADC() {
-    TRISIO = 0b00000001; // input setup - GP4/AN0   
-    ANSEL = 0b00000001; // AN0 as analog input
-    ADCON0 = 0b10000001; // Right 1= justified; 0 = VDD;  00 = Channel 03 (AN0); A/D converter module is on
+    TRISIO = 0b00011000;          // input setup - GP4/AN3   
+    ANSEL =  0b00011000;          // AN0 as analog input
+    ADCON0 = 0b10001101;          // Right justified; VDD;  01 = Channel 03 (AN3); A/D converter module is 
 }
 
 /**
@@ -42,22 +44,22 @@ uint16_t readADC() {
  */
 uint16_t getSensorData(uint8_t sensorNumber) {
     uint16_t sumValue = 0;
-    uint8_t const sample = 10;   
+
     // Selects the sensor 
     sensorNumber = (uint8_t) (sensorNumber << 1);
-    GPIO = (GPIO & 0B11111001) | sensorNumber; // Sets sensor Number to GP1 and GP2 (0, 1, 2 or 3)
+    GPIO = (GPIO & 0B11111000) | sensorNumber; // Sets sensor Number to GP0, GP1 and GP2 (0 to 7)
     __delay_us(10);
-    for (uint8_t i = 0; i < sample; i++ ) { 
+    for (uint8_t i = 0; i < MAX_SAMPLE; i++ ) { 
         sumValue += readADC();
         __delay_us(10);
     }
     // Returns the average of values get from adcRead
-    return sumValue / sample ;
+    return sumValue / MAX_SAMPLE ;
 }
 
 /**
  * Alert Regarding Power Interruption in One of the Monitored Loads.
- * A LED (connected to GP4) will blink a number of times corresponding to the sensor 
+ * A LED (connected to GP5) will blink a number of times corresponding to the sensor 
  * number that detected the fault. That is, if the first sensor detects a failure, the 
  * LED will blink once; if the second sensor detects a failure, the LED will blink twice, 
  * and so on. 
@@ -65,9 +67,9 @@ uint16_t getSensorData(uint8_t sensorNumber) {
  */
 void alert(uint8_t sensorNumber) {
     for (uint8_t led = 0; led <= sensorNumber; led++) {
-        GP4 = 1;
+        GP5 = 1;
         __delay_ms(200);
-        GP4 = 0;
+        GP5 = 0;
         __delay_ms(200);
     }
     __delay_ms(1500);
@@ -79,13 +81,16 @@ void main() {
 
     GPIO = 0x0; // Turns all GPIO pins low
     initADC();
-    GP4 = 1;
+    
+    // Start indicator
+    GP5 = 1;
     __delay_ms(2000);
-    GP4 = 0;
+    GP5 = 0;
+    
     while (1) {
-        for (uint8_t i = 0; i < 4; i++) {
+        for (uint8_t i = 0; i < 8; i++) {
             sensorValue = getSensorData(i);
-            if (sensorValue > 77) { // 
+            if (sensorValue < 200) {    // 
                 alert(i);
             }
             __delay_ms(10);
