@@ -42,7 +42,7 @@ The configuration of the LDR with a 1M ohm resistor favors low power consumption
 
 
 
-The table below shows the values of the PIC12F220 pins, detailing the combination of GP1 (connected to S0) and GP2 (connected to S1), along with the corresponding sensor selection. 
+The table below shows the values of the PIC12F675 pins, detailing the combination of GP0, GP1 and GP2, along with the corresponding sensor selection by the 74HC151 via S0, S1 and S2 pins. 
 
 
 | ANALOG SENSOR |  S2 / GP2  |  S1 / GP1 | S0 / GP0 |   

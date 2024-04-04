@@ -17,10 +17,11 @@
 #pragma config CP = OFF         // Code Protection bit (Program Memory code protection is disabled)
 #pragma config CPD = OFF        // Data Code Protection bit (Data memory code protection is disabled)
 
-#define _XTAL_FREQ 4000000      // internal clock
+#define _XTAL_FREQ      4000000 // internal clock
 
-#define MAX_SAMPLE 5            // Number of reads    
-#define MAX_SENSORS 8
+#define MAX_SAMPLE      5       // Number of reads    
+#define MAX_SENSORS     8
+#define MAX_THRESHOLD   100
 
 void inline initADC() {
     TRISIO = 0b00011000;          // input setup - GP4/AN3   
@@ -90,9 +91,10 @@ void main() {
     GP5 = 0;
     
     while (1) {
+        // Scan all sensors
         for (uint8_t i = 0; i < MAX_SENSORS; i++) {
             sensorValue = getSensorData(i);
-            if (sensorValue < 100) {    // 
+            if (sensorValue < MAX_THRESHOLD) {    // Consider adjusting the threshold value that defines what is clear or what is dark for your application.
                 alert(i);
             }
             __delay_ms(10);
