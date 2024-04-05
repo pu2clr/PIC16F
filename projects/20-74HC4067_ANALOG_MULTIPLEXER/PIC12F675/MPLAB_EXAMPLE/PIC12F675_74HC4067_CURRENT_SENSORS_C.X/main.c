@@ -18,8 +18,10 @@
 #define _XTAL_FREQ      4000000 // internal clock
 
 #define MAX_SAMPLE      6       // Number of reads    
-#define MAX_SENSORS     3
+#define MAX_SENSORS     6
 #define MAX_THRESHOLD   60      // 60/1024 * 5 * 100 = 29,29 
+
+uint8_t thresholdCalibrate[] = { MAX_THRESHOLD, MAX_THRESHOLD, MAX_THRESHOLD, MAX_THRESHOLD + 85, MAX_THRESHOLD + 80, MAX_THRESHOLD + 80, 0, 0};
 
 void inline initADC() {
     TRISIO = 0b00011000;          // input setup - GP4/AN3   
@@ -91,7 +93,7 @@ void main() {
         // Scan all sensors
         for (uint8_t i = 0; i < MAX_SENSORS; i++) {
             sensorValue = getSensorData(i);
-            if (sensorValue > MAX_THRESHOLD) {    // Consider adjusting the threshold value that defines what is clear or what is dark for your application.
+            if (sensorValue > thresholdCalibrate[i]) {    // Consider adjusting the threshold value that defines what is clear or what is dark for your application.
                 alert(i);
             }
             __delay_ms(10);
