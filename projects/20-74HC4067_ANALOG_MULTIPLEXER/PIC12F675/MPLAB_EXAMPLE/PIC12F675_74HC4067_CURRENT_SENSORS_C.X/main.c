@@ -1,7 +1,5 @@
 /**
- * Dark Detector: This program utilizes the PIC12F675 microcontroller and a 74HC151 multiplexer to read eight 
- *                light sensors (LDRs) and indicate which sensor is receiving insufficient or no light.
- * 
+ * Current Sensor with PIC12F675 and 74HC4067 analog multiplexer 
  * Author: Ricardo Lima Caratti
  * April/2024 
  */
@@ -20,8 +18,8 @@
 #define _XTAL_FREQ      4000000 // internal clock
 
 #define MAX_SAMPLE      5       // Number of reads    
-#define MAX_SENSORS     8
-#define MAX_THRESHOLD   100
+#define MAX_SENSORS     2
+#define MAX_THRESHOLD   256
 
 void inline initADC() {
     TRISIO = 0b00011000;          // input setup - GP4/AN3   
