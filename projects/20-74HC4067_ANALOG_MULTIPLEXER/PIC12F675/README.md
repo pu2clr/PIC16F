@@ -86,11 +86,10 @@ The PIC12F675 is a part of Microchip's PIC12F series of microcontrollers, which 
 The 74HC4067 is a 16-channel analog multiplexer/demultiplexer integrated circuit, featuring multiple pins for various functions. 
 
 - **Vcc (24)**: This is the power supply pin, which powers the device. It typically operates at a voltage range from 2V to 6V.
--  **Vee**: Ground (0V) pin, used to establish a common ground for the circuit.
 -  **S0 to S3**: These are the select pins used to choose one of the 16 available channels. By applying a combination of HIGH and LOW signals to these four pins, a specific channel is selected for communication.
 -  **COMMON INPUT/OUTPU (1)**: The common input/output pin. In multiplexer mode, it serves as the output through which the selected channel's signal is sent. In demultiplexer mode, it serves as the common input that is routed to the selected output channel.
 -  **E (15)**: Enable pin. When this pin is LOW, the device operates normally. If set HIGH, all channels are disconnected from the common Z pin, effectively disabling the device.
--  **I0 to I15 **: These are the input/output pins for each of the 16 channels. In multiplexer mode, signals from any of these pins can be sent to the "COMMON INPUT/OUTPU" pin when the corresponding channel is selected. In demultiplexer mode, the signal from the "COMMON INPUT/OUTPU" pin can be routed to any of these pins, depending on which channel is selected.
+-  **I0 to I15**: These are the input/output pins for each of the 16 channels. In multiplexer mode, signals from any of these pins can be sent to the "COMMON INPUT/OUTPU" pin when the corresponding channel is selected. In demultiplexer mode, the signal from the "COMMON INPUT/OUTPU" pin can be routed to any of these pins, depending on which channel is selected.
 -  **GND (12)**: Ground pin, which is connected to the circuit's ground.
 
 The image below shows the 74HC4067 pinout.
@@ -101,4 +100,5 @@ The image below shows the 74HC4067 pinout.
 
 ## References
 
+- [74HC4067; 74HCT4067 Data Sheet](https://www.mouser.com/datasheet/2/302/74HC_HCT4067-224948.pdf)
 - [74HC4067 Data Sheet](https://www.ti.com/lit/ds/symlink/cd74hc4067.pdf?ts=1712408119726&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FCD74HC4067%253Futm_source%253Dgoogle%2526utm_medium%253Dcpc%2526utm_campaign%253Dasc-int-null-44700045336317248_prodfolderdynamic-cpc-pf-google-wwe_int%2526utm_content%253Dprodfolddynamic%2526ds_k%253DDYNAMIC+SEARCH+ADS%2526DCM%253Dyes%2526gad_source%253D1%2526gclid%253DCj0KCQjw5cOwBhCiARIsAJ5njua--idu3oMmmJlBPdJG1XiHKPkUcuo6TcF6jwI5wmPTOeduiskG2oAaAoujEALw_wcB%2526gclsrc%253Daw.ds)
