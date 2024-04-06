@@ -87,4 +87,4 @@ The PIC12F675 is a part of Microchip's PIC12F series of microcontrollers, which 
 
 ## References
 
-
+- [74HC4067 Data Sheet](https://www.ti.com/lit/ds/symlink/cd74hc4067.pdf?ts=1712408119726&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FCD74HC4067%253Futm_source%253Dgoogle%2526utm_medium%253Dcpc%2526utm_campaign%253Dasc-int-null-44700045336317248_prodfolderdynamic-cpc-pf-google-wwe_int%2526utm_content%253Dprodfolddynamic%2526ds_k%253DDYNAMIC+SEARCH+ADS%2526DCM%253Dyes%2526gad_source%253D1%2526gclid%253DCj0KCQjw5cOwBhCiARIsAJ5njua--idu3oMmmJlBPdJG1XiHKPkUcuo6TcF6jwI5wmPTOeduiskG2oAaAoujEALw_wcB%2526gclsrc%253Daw.ds)
