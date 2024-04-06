@@ -44,16 +44,16 @@ The configuration of the LDR with a 1M ohm resistor favors low power consumption
 The table below showcases the combinations for sensor selection based on the high and low values of the GP0, GP1, and GP2 pins of the PIC12F675, which are connected to the S0, S1, and S2 pins of the 74HC151 device, respectively.
 
 
-| ANALOG SENSOR |  S2 / GP2  |  S1 / GP1 | S0 / GP0 |   
-| --------------| ---------  | --------- | -------- |
-| Sensor 0      |     0      |    0      |     0    |
-| Sensor 1      |     0      |    0      |     1    |
-| Sensor 2      |     0      |    1      |     0    |
-| Sensor 3      |     0      |    1      |     1    |
-| Sensor 4      |     1      |    0      |     0    |
-| Sensor 5      |     1      |    0      |     1    |
-| Sensor 6      |     1      |    1      |     0    |
-| Sensor 7      |     1      |    1      |     1    |
+| ANALOG SENSOR |  S3 / GND  |  S2 / GP2  |  S1 / GP1 | S0 / GP0 |   
+| --------------| -----------| ---------  | --------- | -------- |
+| Sensor 0      |     0      |     0      |    0      |     0    |
+| Sensor 1      |     0      |     0      |    0      |     1    |
+| Sensor 2      |     0      |     0      |    1      |     0    |
+| Sensor 3      |     0      |     0      |    1      |     1    |
+| Sensor 4      |     0      |     1      |    0      |     0    |
+| Sensor 5      |     0      |     1      |    0      |     1    |
+| Sensor 6      |     0      |     1      |    1      |     0    |
+| Sensor 7      |     0      |     1      |    1      |     1    |
 
 
 ## PIC12F675 PINOUT
