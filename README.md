@@ -34,7 +34,7 @@ Contact: pu2clr@gmail.com.
     * [PIC microcontrollers and LM35 and TMP36 temperature sensors - PIC12F675 and PIC16F877](./projects/08-LM35_OR_TMP36/)
     * [PIC10F200 and 74HC595 Shift Register device](projects/10-74HC595) 
     * [1-Wire protocol with PIC and DS18B20](projects/12-ONE_WIRE_PROTOCOL)
-    * [Single wire protocol](https://github.com/pu2clr/PIC16F/tree/main/projects/13-SINGLE_WIRE_WITH_DHT11)
+    * [Single wire protocol with DHT11](https://github.com/pu2clr/PIC16F/tree/main/projects/13-SINGLE_WIRE_WITH_DHT11)
     * [MQ series gas sensor](https://github.com/pu2clr/PIC16F/tree/main/projects/14-GAS_SENSOR)  
     * [UART and BLUETOOTH](./projects/15-BLUETOOTH_UART/)
     * [Controlling Servo with PIC microcontrollers (PWM)](./projects/16-SERVO/)

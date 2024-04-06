@@ -91,6 +91,13 @@ The image below shows the 74HC4067 pinout.
 ![74HC4067 PINOUT](../../../images/74HC4067_PINOUT.png)
 
 
+## Contribution
+
+If you've found value in this repository, please consider contributing. Your support will assist me in acquiring new components and equipment, as well as maintaining the essential infrastructure for the development of future projects. [Click here](https://www.paypal.com/donate/?business=LLV4PHKTXC4JW&no_recurring=0&item_name=Your+support+will+assist+me+in++maintaining+the+essential+infrastructure+for+the+development+of+future+projects.+&currency_code=BRL) to make a donation or scan the QR code provided below. 
+
+![Contributing QR Code](../../../images/under_construction.png)
+
+
 
 ## References
 
