@@ -1,11 +1,5 @@
 # PIC12F675 and 74HC4067 MULTIPLEXER 
 
-**UNDER  CONSTRUCTION...**
-
-
-![UNDER  CONSTRUCTION](../../../images/under_construction.png)
-
-
 This folder showcases the processing of analog readings from various sensors using the PIC12F675 and the 74HC4067 analog multiplexer.
 
 
