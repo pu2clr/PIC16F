@@ -35,6 +35,5 @@ In conclusion, the incorporation of a 74HC4067 analog multiplexer in projects ut
 
 
 
-
 ## References
 

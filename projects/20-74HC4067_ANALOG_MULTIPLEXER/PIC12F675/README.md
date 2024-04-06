@@ -7,8 +7,10 @@ This folder showcases the processing of analog readings from various sensors usi
 
 1. [Overview](#overview)
 2. [About this project](#about-this-project)
-3. [Schematic - PIC12F675 and 74HC4067 monitoring 4 sensors](#pic12f675-and-74HC4067-monitoring-4-sensors)
+3. [Schematic - PIC12F675 and 74HC4067 monitoring 8 sensors](#pic12f675-and-74hc4067-monitoring-up-to-8-analog-sensors)
     * [KiCad Schematic](./KiCad/)
+4. [PIC12F675 PINOUT](#pic12f675-pinout)  
+5. [74HC4067 PINOUT](#74hc4067-pinout)  
 8. [References](#references)
 
 
