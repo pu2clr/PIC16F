@@ -10,7 +10,9 @@ This folder showcases the processing of analog or digital readings from various 
 3. [Schematic - PIC12F675 and 74HC151 monitoring 4 sensors](#pic12f675-and-74hc151-monitoring-4-sensors)
     * [KiCad Schematic](./KiCad/)
 4. [MPLAB EXAMPLES](./MPLAB_EXAMPLE/)
-5. [Prototype]()    
+5. [PIC12F675 PINOUT](#pic12f675-pinout)
+6. [74HC151 PINOUT](#74hc151-pinout)
+7. [Prototype](#prototype)    
 8. [References](#references)
 
 

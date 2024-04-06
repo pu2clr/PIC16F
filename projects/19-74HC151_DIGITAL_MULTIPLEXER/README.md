@@ -6,7 +6,6 @@ This folder contains several elements that will serve as a foundation for more r
 
 * [Overview](#overview)
 * [PIC12F675](./PIC12F675/)
-* [PIC16F887](./PIC16F887/)
 * [References](#references)
 
 
@@ -34,7 +33,6 @@ In projects involving the PIC microcontroller series, utilizing a multiplexer li
 
 
 In conclusion, the incorporation of a 74HC151 multiplexer in projects utilizing PIC series microcontrollers offers significant advantages in terms of expanding input capabilities, simplifying design, reducing costs, improving energy efficiency, and enhancing overall system flexibility and signal management. These benefits make it an essential component in the development of efficient and effective microcontroller-based projects.
-
 
 
 
