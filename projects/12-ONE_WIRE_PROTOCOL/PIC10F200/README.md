@@ -949,6 +949,31 @@ END MAIN
 * [My PIC Journey: PIC10F200 and 1-wire protocol with DS18B20 - Assembly](https://youtu.be/mrNc1A-M_Pc?si=R6Dh4l-PH4szJY3d)
 
 
+## About the Unique 64-Bit Serial Code Stored in On-Board ROM
+
+The DS18B20 temperature sensor's unique 64-bit code, often referred to as the ROM code, is structured as follows:
+
+1. **Family Code (8 bits):** This is the first byte of the ROM code. For the DS18B20, the family code is always 0x28. It identifies the type of device.
+
+2. **Serial Number (48 bits):** The next six bytes (48 bits) are the serial number, which is unique to each DS18B20 sensor. This ensures that each sensor can be individually identified on a 1-Wire bus system.
+
+3. **CRC Checksum (8 bits):** The last byte of the ROM code is the CRC (Cyclic Redundancy Check) checksum. This is used to verify the integrity of the data transmitted over the 1-Wire bus. The CRC byte ensures that the family code and serial number are read correctly, providing error checking capability.
+
+The structure of the 64-bit ROM code can be visualized as follows:
+
+- **Byte 0:** Family Code (0x28 for DS18B20)
+- **Bytes 1-6:** Serial Number (Unique to each device)
+- **Byte 7:** CRC Checksum (Used for data integrity verification)
+
+This unique 64-bit ROM code allows for the direct addressing of each sensor, enabling multiple DS18B20s to coexist on the same 1-Wire bus without address conflicts.
+
+Using just one byte to uniquely identify each of your six DS18B20 devices is a feasible approach, especially considering the memory limitations of a microcontroller like the PIC10F200. In the 64-bit unique code of the DS18B20, the serial number portion occupies bytes 1 through 6 (48 bits total), offering a wide range of unique identifiers for each device.
+
+For your application, focusing on the least significant byte (LSB) of the serial number could serve as a simple and effective method to distinguish between your six sensors or more. The LSB is the final byte of the serial number before the CRC byte in the 64-bit structure. Given the vast production numbers of these sensors and their random serial number allocation during manufacturing, the chance of having two sensors with the same LSB in a small batch is relatively low.
+
+However, it's important to note that while the likelihood of a conflict is minimal within a small group of sensors, it's not impossible. When you're only using the LSB for identification, make sure to verify the uniqueness of this byte for each DS18B20 sensor in your specific application. If by any chance you encounter two sensors with the same LSB, you might need to select another byte from the serial number as the unique identifier for one of those sensors, or use a combination of two bytes to ensure uniqueness if your application can afford the extra memory usage.
+
+
 ## Contribution
 
 If you've found value in this repository, please consider contributing. Your support will assist me in acquiring new components and equipment, as well as maintaining the essential infrastructure for the development of future projects. [Click here](https://www.paypal.com/donate/?business=LLV4PHKTXC4JW&no_recurring=0&item_name=Your+support+will+assist+me+in++maintaining+the+essential+infrastructure+for+the+development+of+future+projects.+&currency_code=BRL) to make a donation or scan the QR code provided below. 
