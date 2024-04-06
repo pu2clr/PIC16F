@@ -43,16 +43,16 @@ It's important to highlight that since these are analog sensors, which typically
 The table below showcases the combinations for sensor selection based on the high and low values of the GP0, GP1, and GP2 pins of the PIC12F675, which are connected to the S0, S1, and S2 pins of the 74HC4067 device, respectively. It's important to note that the S3 pin of the 74HC4067 will not be used due to pin limitations on the PIC12F675. This way, S3 must be connected to GND.
 
 
-| ANALOG SENSOR |  S2 / GP2  |  S1 / GP1 | S0 / GP0 |   
-| --------------| ---------  | --------- | -------- |
-|   Sensor 0    |     0      |    0      |     0    |
-|   Sensor 1    |     0      |    0      |     1    |
-|   Sensor 2    |     0      |    1      |     0    |
-|   Sensor 3    |     0      |    1      |     1    |
-|   Sensor 4    |     1      |    0      |     0    |
-|   Sensor 5    |     1      |    0      |     1    |
-|   Sensor 6    |     1      |    1      |     0    |
-|   Sensor 7    |     1      |    1      |     1    |
+| ANALOG SENSOR |  S3 / GND  |  S2 / GP2  |  S1 / GP1 | S0 / GP0 |   
+| --------------| -----------| ---------  | --------- | -------- |
+| Sensor 0      |     0      |     0      |    0      |     0    |
+| Sensor 1      |     0      |     0      |    0      |     1    |
+| Sensor 2      |     0      |     0      |    1      |     0    |
+| Sensor 3      |     0      |     0      |    1      |     1    |
+| Sensor 4      |     0      |     1      |    0      |     0    |
+| Sensor 5      |     0      |     1      |    0      |     1    |
+| Sensor 6      |     0      |     1      |    1      |     0    |
+| Sensor 7      |     0      |     1      |    1      |     1    |
 
 
 ## PIC12F675 PINOUT
@@ -82,6 +82,20 @@ The PIC12F675 is a part of Microchip's PIC12F series of microcontrollers, which 
 
 
 ## 74HC4067 PINOUT 
+
+The 74HC4067 is a 16-channel analog multiplexer/demultiplexer integrated circuit, featuring multiple pins for various functions. 
+
+- **Vcc (24)**: This is the power supply pin, which powers the device. It typically operates at a voltage range from 2V to 6V.
+-  **Vee**: Ground (0V) pin, used to establish a common ground for the circuit.
+-  **S0 to S3**: These are the select pins used to choose one of the 16 available channels. By applying a combination of HIGH and LOW signals to these four pins, a specific channel is selected for communication.
+-  **COMMON INPUT/OUTPU (1)**: The common input/output pin. In multiplexer mode, it serves as the output through which the selected channel's signal is sent. In demultiplexer mode, it serves as the common input that is routed to the selected output channel.
+-  **E (15)**: Enable pin. When this pin is LOW, the device operates normally. If set HIGH, all channels are disconnected from the common Z pin, effectively disabling the device.
+-  **I0 to I15 **: These are the input/output pins for each of the 16 channels. In multiplexer mode, signals from any of these pins can be sent to the "COMMON INPUT/OUTPU" pin when the corresponding channel is selected. In demultiplexer mode, the signal from the "COMMON INPUT/OUTPU" pin can be routed to any of these pins, depending on which channel is selected.
+-  **GND (12)**: Ground pin, which is connected to the circuit's ground.
+
+The image below shows the 74HC4067 pinout.
+
+![74HC4067 PINOUT](../../../images/74HC4067_PINOUT.png)
 
 
 

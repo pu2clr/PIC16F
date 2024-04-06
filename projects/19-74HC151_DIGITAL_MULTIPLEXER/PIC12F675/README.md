@@ -44,16 +44,16 @@ The configuration of the LDR with a 1M ohm resistor favors low power consumption
 The table below showcases the combinations for sensor selection based on the high and low values of the GP0, GP1, and GP2 pins of the PIC12F675, which are connected to the S0, S1, and S2 pins of the 74HC151 device, respectively.
 
 
-| ANALOG SENSOR |  S3 / GND  |  S2 / GP2  |  S1 / GP1 | S0 / GP0 |   
-| --------------| -----------| ---------  | --------- | -------- |
-| Sensor 0      |     0      |     0      |    0      |     0    |
-| Sensor 1      |     0      |     0      |    0      |     1    |
-| Sensor 2      |     0      |     0      |    1      |     0    |
-| Sensor 3      |     0      |     0      |    1      |     1    |
-| Sensor 4      |     0      |     1      |    0      |     0    |
-| Sensor 5      |     0      |     1      |    0      |     1    |
-| Sensor 6      |     0      |     1      |    1      |     0    |
-| Sensor 7      |     0      |     1      |    1      |     1    |
+| ANALOG SENSOR |  S2 / GP2  |  S1 / GP1 | S0 / GP0 |   
+| --------------| ---------  | --------- | -------- |
+| Sensor 0      |     0      |    0      |     0    |
+| Sensor 1      |     0      |    0      |     1    |
+| Sensor 2      |     0      |    1      |     0    |
+| Sensor 3      |     0      |    1      |     1    |
+| Sensor 4      |     1      |    0      |     0    |
+| Sensor 5      |     1      |    0      |     1    |
+| Sensor 6      |     1      |    1      |     0    |
+| Sensor 7      |     1      |    1      |     1    |
 
 
 ## PIC12F675 PINOUT
@@ -77,7 +77,7 @@ The PIC12F675 is a part of Microchip's PIC12F series of microcontrollers, which 
 
 7. **OSC2/CLKOUT (Pin 8)**: This pin can be used as an oscillator output (OSC2/CLKOUT) for clocking external devices or for feedback in resonator configurations. It's also involved in the microcontroller's internal clock generation system.
 
-8. **VDD (Pin 1)**: This is the positive power supply pin. The PIC12F675 typically operates at a voltage range of 2.0V to 5.5V.
+8. **VDD (Pin 1)**: This is the positive power supply pin. The PIC12F220 typically operates at a voltage range of 2.0V to 5.5V.
 
 9. **VSS (Pin 8)**: This pin is the ground (GND) connection for the microcontroller.
 
@@ -110,9 +110,7 @@ This configuration allows the 74HC151 to select one of eight signals to be passe
 
 ![Prototype](./PROTOTYPE_pic12f675_74hc151_8_sensors.jpg)
 
-
-[Click here to see the video](https://youtu.be/7ZKe1AUOCyM?si=aRP-EVJyRZUpQNNq)
-
+ [Click here to see the video](https://youtu.be/7ZKe1AUOCyM?si=aRP-EVJyRZUpQNNq)
 
 
 ## References
