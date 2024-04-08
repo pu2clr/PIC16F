@@ -5,6 +5,7 @@ This folder contains several elements that will serve as a foundation for more r
 ## Content
 
 * [Overview](#overview)
+* [PIC12C675 Example](./PIC12F675/)
 * [References](#references)
 
 
@@ -31,9 +32,33 @@ In projects involving the PIC microcontroller series, utilizing a multiplexer li
 
 
 
+## About the 74HC4067 device 
+
+
+The 74HC4067 is a high-speed analog multiplexer/demultiplexer, part of the 74HC family, which operates with CMOS technology. The main features are described below:
+
+- **Type**: 16-channel analog multiplexer/demultiplexer.
+- **Operating Voltage**: Typically operates within a range of 2 V to 6 V.
+- **Low Power Consumption**: Characterized by low quiescent current, making it suitable for battery-operated devices.
+- **High Speed**: Possesses a high-speed switching capability typical of CMOS devices.
+- **Bidirectional Switches**: Can be used to route signals in both directions, making it versatile for various signal routing applications.
+- **Low On-Resistance**: Features low "on" resistance between the switch and the common output/input, facilitating efficient signal transmission without significant loss.
+- **Break-before-make switching**: Ensures that a new channel is connected only after the previous connection has been broken, preventing short circuits between channels.
+- **Wide Analog Input Voltage Range**: The analog input voltage range is from VEE (which can be as low as GND) up to VCC, providing flexibility in various applications.
+- **Digital Control**: Controlled by 4 digital select inputs (S0 to S3), allowing for the selection of any one of the 16 channels to connect to the common output/input.
+- **Chip Enable Pin**: Includes an enable pin that, when low, activates the device and, when high, disconnects all channels, effectively isolating the common port.
+- **Compatibility**: Compatible with TTL levels, allowing it to be used in systems that incorporate both CMOS and TTL logic.
+- **Applications**: Widely used in signal routing, data acquisition systems, analog-to-digital conversion, communication systems, and anywhere multiple analog signals need to be processed by a single device.
+
+This IC provides a highly flexible and efficient solution for managing multiple analog signals in a wide array of electronic systems.
+
+
+
 In conclusion, the incorporation of a 74HC4067 analog multiplexer in projects utilizing PIC series microcontrollers offers significant advantages in terms of expanding input capabilities, simplifying design, reducing costs, improving energy efficiency, and enhancing overall system flexibility and signal management. These benefits make it an essential component in the development of efficient and effective microcontroller-based projects.
 
 
 
 ## References
+
+
 
