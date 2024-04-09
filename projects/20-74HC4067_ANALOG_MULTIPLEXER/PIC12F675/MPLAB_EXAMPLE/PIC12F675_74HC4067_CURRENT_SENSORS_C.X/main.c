@@ -31,12 +31,12 @@
 */
 
 uint8_t thresholdCalibrate[] = 
-        { MAX_THRESHOLD, 
-          MAX_THRESHOLD, 
-          MAX_THRESHOLD, 
-          MAX_THRESHOLD + 85, 
-          MAX_THRESHOLD + 80, 
-          MAX_THRESHOLD + 80, 
+        { MAX_THRESHOLD -5, 
+          MAX_THRESHOLD -5, 
+          MAX_THRESHOLD -5, 
+          MAX_THRESHOLD + 60, 
+          MAX_THRESHOLD + 60, 
+          MAX_THRESHOLD + 64, 
           0, 
           0};
 
