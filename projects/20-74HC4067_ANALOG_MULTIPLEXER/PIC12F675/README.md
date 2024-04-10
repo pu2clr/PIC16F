@@ -12,6 +12,7 @@ This folder showcases the processing of analog readings from various sensors usi
 4. [PIC12F675 PINOUT](#pic12f675-pinout)  
 5. [74HC4067 PINOUT](#74hc4067-pinout)  
 6. [Prototype](#prototype---pic12f675-and-74hc4067-monitoring-with-3-lm35-and-3-tmp36-temperature-analog-sensors)
+7. [MPLABX EXAMPLE](./MPLAB_EXAMPLE/)
 8. [References](#references)
 
 
