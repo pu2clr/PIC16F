@@ -95,6 +95,12 @@ The image below shows the 74HC4067 pinout.
 ![74HC4067 PINOUT](../../../images/74HC4067_PINOUT.png)
 
 
+## Prototype - PIC12F675 and 74HC4067 monitoring WITH 3 LM35 and 3 TMP36 temperature analog sensors
+
+![PIC12F675 and 74HC4067 monitoring WITH 3 LM35 and 3 TMP36 temperature analog sensors](./PROTOTYPE_pic12f675_74hc4067_4_sensors.jpg)
+
+
+
 ## Contribution
 
 If you've found value in this repository, please consider contributing. Your support will assist me in acquiring new components and equipment, as well as maintaining the essential infrastructure for the development of future projects. [Click here](https://www.paypal.com/donate/?business=LLV4PHKTXC4JW&no_recurring=0&item_name=Your+support+will+assist+me+in++maintaining+the+essential+infrastructure+for+the+development+of+future+projects.+&currency_code=BRL) to make a donation or scan the QR code provided below. 
@@ -102,9 +108,6 @@ If you've found value in this repository, please consider contributing. Your sup
 ![Contributing QR Code](../../../images/PIC_JOURNEY_QR_CODE.png)
 
 
-## Prototype - PIC12F675 and 74HC4067 monitoring WITH 3 LM35 and 3 TMP36 temperature analog sensors
-
-![PIC12F675 and 74HC4067 monitoring WITH 3 LM35 and 3 TMP36 temperature analog sensors](./PROTOTYPE_pic12f675_74hc4067_4_sensors.jpg)
 
 
 ## References
