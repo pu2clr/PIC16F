@@ -11,6 +11,7 @@ This folder showcases the processing of analog readings from various sensors usi
     * [KiCad Schematic](./KiCad/)
 4. [PIC12F675 PINOUT](#pic12f675-pinout)  
 5. [74HC4067 PINOUT](#74hc4067-pinout)  
+6. [Prototype](#prototype---pic12f675-and-74hc4067-monitoring-with-3-lm35-and-3-tmp36-temperature-analog-sensors)
 8. [References](#references)
 
 
@@ -98,6 +99,11 @@ The image below shows the 74HC4067 pinout.
 If you've found value in this repository, please consider contributing. Your support will assist me in acquiring new components and equipment, as well as maintaining the essential infrastructure for the development of future projects. [Click here](https://www.paypal.com/donate/?business=LLV4PHKTXC4JW&no_recurring=0&item_name=Your+support+will+assist+me+in++maintaining+the+essential+infrastructure+for+the+development+of+future+projects.+&currency_code=BRL) to make a donation or scan the QR code provided below. 
 
 ![Contributing QR Code](../../../images/PIC_JOURNEY_QR_CODE.png)
+
+
+## Prototype - PIC12F675 and 74HC4067 monitoring WITH 3 LM35 and 3 TMP36 temperature analog sensors
+
+![PIC12F675 and 74HC4067 monitoring WITH 3 LM35 and 3 TMP36 temperature analog sensors](./PROTOTYPE_pic12f675_74hc4067_4_sensors.jpg)
 
 
 ## References
