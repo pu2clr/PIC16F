@@ -13,7 +13,6 @@ This folder contains several concepts about the main IR protocols and provides e
 
 1. [About Infrared protocol](#about-infrared-protocol)
 2. [PIC10F200 implementation](./PIC10F200/)
-3. [PIC16F628A implematation](./PIC16F628A/)
 4. [References](#references)
 
 ## About Infrared protocol
