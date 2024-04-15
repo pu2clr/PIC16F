@@ -76,6 +76,8 @@ In conclusion, the choice of protocol largely depends on the application's speci
 
 ## References
 
+* [Infrared RGB LED controller - Part 19 Microcontroller Basics (PIC10F200)](https://www.circuitbread.com/tutorials/infrared-rgb-led-controller-part-19-microcontroller-basics-pic10f200)
+* [IR Controlled Car with Servo Motors | Embedded C Programming - Part 32](https://www.circuitbread.com/tutorials/ir-controlled-car-with-servo-motors-embedded-c-programming-part-32)
 * [AN-1184 - Remote Control IR Receiver / Decoder ](https://www.renesas.com/us/en/document/apn/1184-remote-control-ir-receiver-decoder)
 * [IR Remote Control Tool (NEC)](http://www.technoblogy.com/show?UVE)
 * [Understanding IR Sensors and IR LEDs: Functions, Differences, and Applications](https://www.electronicsforu.com/technology-trends/learn-electronics/ir-led-infrared-sensor-basics)
