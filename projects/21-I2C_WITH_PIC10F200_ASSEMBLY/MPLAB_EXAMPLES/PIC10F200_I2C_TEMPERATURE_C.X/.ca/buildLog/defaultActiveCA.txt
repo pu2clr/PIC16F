@@ -1,0 +1,37 @@
+make -f nbproject/Makefile-defaultActiveCA.mk SUBPROJECTS= .clean-conf
+make[1]: Entering directory '/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/21-I2C_WITH_PIC10F200_ASSEMBLY/MPLAB_EXAMPLES/PIC10F200_I2C_TEMPERATURE_C.X'
+rm -f  -r .ca/build/defaultActiveCA/production
+rm -f  -r .ca/dist/defaultActiveCA/production
+make[1]: Leaving directory '/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/21-I2C_WITH_PIC10F200_ASSEMBLY/MPLAB_EXAMPLES/PIC10F200_I2C_TEMPERATURE_C.X'
+[32mCLEAN SUCCESSFUL (total time: 55ms)[0m
+make -f nbproject/Makefile-defaultActiveCA.mk SUBPROJECTS= .build-conf
+make  -f nbproject/Makefile-defaultActiveCA.mk .ca/dist/defaultActiveCA/production/PIC10F200_I2C_TEMPERATURE_C.X.production.hex
+make[2]: Entering directory '/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/21-I2C_WITH_PIC10F200_ASSEMBLY/MPLAB_EXAMPLES/PIC10F200_I2C_TEMPERATURE_C.X'
+"/Applications/microchip/xc8/v2.46/bin/xc8-cc"  -mcpu=10F200 -c   -mdfp="/Applications/microchip/mplabx/v6.20/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_defaultActiveCA=defaultActiveCA  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits   -std=c99 -gdwarf-3 -mstack=compiled:auto     -o .ca/build/defaultActiveCA/production/main.p1 main.c 
+::: advisory: (2100) using the C99 standard library with the selected device may result in larger code and data usage
+main.c:70:22: warning: implicit conversion loses integer precision: 'int' to 'unsigned char' [-Wconversion]
+       value = value << 1;          // prepare the next bit to be written 
+             ~ ~~~~~~^~~~
+main.c:86:22: warning: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [-Wconversion]
+       value = value << 1;          // prepare the next bit to be written 
+             ~ ~~~~~~^~~~
+2 warnings generated.
+make[2]: Leaving directory '/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/21-I2C_WITH_PIC10F200_ASSEMBLY/MPLAB_EXAMPLES/PIC10F200_I2C_TEMPERATURE_C.X'
+make[2]: Entering directory '/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/21-I2C_WITH_PIC10F200_ASSEMBLY/MPLAB_EXAMPLES/PIC10F200_I2C_TEMPERATURE_C.X'
+"/Applications/microchip/xc8/v2.46/bin/xc8-cc"  -mcpu=10F200 -Wl,-Map=.ca/dist/defaultActiveCA/production/PIC10F200_I2C_TEMPERATURE_C.X.production.map  -DXPRJ_defaultActiveCA=defaultActiveCA  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="/Applications/microchip/mplabx/v6.20/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits -std=c99 -gdwarf-3 -mstack=compiled:auto      -Wl,--memorysummary,.ca/dist/defaultActiveCA/production/memoryfile.xml -o .ca/dist/defaultActiveCA/production/PIC10F200_I2C_TEMPERATURE_C.X.production.elf  .ca/build/defaultActiveCA/production/main.p1     
+::: advisory: (2100) using the C99 standard library with the selected device may result in larger code and data usage
+main.c:25:: warning: (520) function "_i2cSetSclLow" is never called
+main.c:35:: warning: (520) function "_i2cBegin" is never called
+main.c:40:: warning: (520) function "_i2cStop" is never called
+main.c:46:: warning: (520) function "_i2cSendAKC" is never called
+main.c:53:: warning: (520) function "_i2cSendNAKC" is never called
+
+Memory Summary:
+    Program space        used    54h (    84) of   100h words   ( 32.8%)
+    Data space           used     8h (     8) of    10h bytes   ( 50.0%)
+    EEPROM space         None available
+    Configuration bits   used     0h (     0) of     1h word    (  0.0%)
+    ID Location space    used     0h (     0) of     4h bytes   (  0.0%)
+
+make[2]: Leaving directory '/Users/rcaratti/Desenvolvimento/eu/PIC/PIC16F/projects/21-I2C_WITH_PIC10F200_ASSEMBLY/MPLAB_EXAMPLES/PIC10F200_I2C_TEMPERATURE_C.X'
+[32mBUILD SUCCESSFUL (total time: 605ms)[0m
