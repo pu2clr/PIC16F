@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production/PIC10F200_I2C_TEMPERATURE_C.X.production.hex">
+  <executable name="dist/default/production/PIC10F222_I2C_TEMPERATURE_C.X.production.hex">
     <memory name="program">
       <units>words</units>
-      <length>256</length>
-      <used>148</used>
-      <free>108</free>
+      <length>512</length>
+      <used>82</used>
+      <free>430</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
-      <length>16</length>
-      <used>12</used>
-      <free>4</free>
+      <length>23</length>
+      <used>11</used>
+      <free>12</free>
     </memory>
   </executable>
 </project>
