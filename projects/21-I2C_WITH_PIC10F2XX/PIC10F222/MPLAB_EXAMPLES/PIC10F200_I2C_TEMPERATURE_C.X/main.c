@@ -126,7 +126,7 @@ unsigned char i2cReadByte() {
 void i2cSendCommand(uint8_t deviceAddress, uint8_t value ) {
     
     i2cBeginTransaction();
-    i2cWriteByte(deviceAddress);
+    i2cWriteByte(deviceAddress << 1);
     i2cReceiveAck();
     i2cWriteByte(value);
     i2cReceiveAck();
@@ -140,7 +140,7 @@ uint8_t i2cGetData(uint8_t deviceAddress) {
     
     i2cBeginTransaction();
     
-    i2cWriteByte(deviceAddress);
+    i2cWriteByte(deviceAddress << 1);
     i2cReceiveAck();
     
     data = i2cReadByte();
@@ -164,9 +164,7 @@ void main(void) {
     TRIS = 0B0000111;        
 
     while (1) {
-        i2cSendCommand(0x0F, 1);
-        uint8_t value = i2cGetData(0x0F);
-        i2cSendCommand(0x0F, value);
+        i2cSendCommand(0x40, 0);
     }
     
     return;
