@@ -20,3 +20,4 @@ This protocol is particularly famous for its simplicity and effectiveness in env
 
 
 * [Adafruit PCA9685 16-Channel Servo Driver](https://learn.adafruit.com/16-channel-pwm-servo-driver?view=all)
+* [PCA9685 - Arduino Library Information](https://github.com/janelia-arduino/PCA9685)
