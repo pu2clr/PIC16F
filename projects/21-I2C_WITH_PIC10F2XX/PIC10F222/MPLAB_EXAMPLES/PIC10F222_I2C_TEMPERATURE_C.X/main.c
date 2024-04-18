@@ -123,7 +123,7 @@ unsigned char i2cReadByte() {
     return value;
 }
 
-void i2cSendCommand(uint8_t deviceAddress, uint8_t value ) {
+void i2cSendData(uint8_t deviceAddress, uint8_t value ) {
     
     i2cBeginTransaction();
     i2cWriteByte( (uint8_t) (deviceAddress << 1));
@@ -134,7 +134,31 @@ void i2cSendCommand(uint8_t deviceAddress, uint8_t value ) {
 
 }
 
-uint8_t i2cGetData(uint8_t deviceAddress) {
+void i2cSendRegister(uint8_t deviceAddress, uint8_t registerNumber, uint16_t word) {
+    
+    uint8_t value;
+    
+    i2cBeginTransaction();
+    i2cWriteByte( (uint8_t) (deviceAddress << 1));
+    i2cReceiveAck();
+    
+    i2cWriteByte( (uint8_t) (registerNumber << 1) );
+    i2cReceiveAck();
+    
+    value = (uint8_t) (word >> 8);      // HIGH SIGNIFICANT BYTE FIRST
+    i2cWriteByte(value);
+    i2cReceiveAck();
+    
+    value = (uint8_t) (word & 0xFF);    // LOW SIGNIFICANT BYTE LAST
+    i2cWriteByte(value);
+    i2cReceiveAck();
+    
+    i2cEndTransaction();
+    
+    
+}
+
+uint8_t i2cRequestData(uint8_t deviceAddress) {
     
     uint8_t data;
     
@@ -152,8 +176,14 @@ uint8_t i2cGetData(uint8_t deviceAddress) {
     return data;
 }
 
-
+// RDA5807 - PowerUp: 1010000010001011 = 0xA08B
 void main(void) {
+    
+    uint8_t data;
+    
+    
+    ADCON0 = 0;     // Analog setup disabled.
+    
     // GPWU: Disable (Enable Wake-up on Pin Change bit)
     // GPPU: Enable (Enable Weak Pull-ups bit)
     // T0CS: Transition on internal instruction cycle clock, FOSC/4
@@ -164,7 +194,9 @@ void main(void) {
     TRIS = 0B0000111;        
 
     while (1) {
-        i2cSendCommand(0x40, 0);
+        i2cSendData(0x40, 0);
+        data = i2cRequestData(0x40);
+        i2cSendRegister(0x11,0x02, 0xA08B);
     }
     
     return;
