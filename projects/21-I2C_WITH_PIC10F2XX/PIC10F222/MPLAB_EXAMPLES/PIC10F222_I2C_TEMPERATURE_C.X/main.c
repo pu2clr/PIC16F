@@ -134,6 +134,7 @@ void i2cSendData(uint8_t deviceAddress, uint8_t value ) {
 
 }
 
+
 void i2cSendRegister(uint8_t deviceAddress, uint8_t registerNumber, uint16_t word) {
     
     uint8_t value;
@@ -164,11 +165,31 @@ uint8_t i2cRequestData(uint8_t deviceAddress) {
     
     i2cBeginTransaction();
     
-    i2cWriteByte((uint8_t) (deviceAddress << 1));
+    i2cWriteByte( ((uint8_t) (deviceAddress << 1)) | 1 ); // Converts address and sets to read operation
     i2cReceiveAck();
     
     data = i2cReadByte();
     i2cSendAck();
+    i2cSendNAck();
+    
+    i2cEndTransaction();
+    
+    return data;
+}
+
+// Under construction...
+uint16_t i2cRequestRegister(uint8_t deviceAddress) {
+    
+    uint16_t data;
+    
+    i2cBeginTransaction();
+    
+    i2cWriteByte((uint8_t) (deviceAddress << 1));
+    i2cReceiveAck();
+    
+    data = (uint16_t)i2cReadByte() << 8;   
+    i2cSendAck();
+    data = data | i2cReadByte();
     i2cSendNAck();
     
     i2cEndTransaction();
@@ -196,7 +217,8 @@ void main(void) {
     while (1) {
         i2cSendData(0x40, 0);
         data = i2cRequestData(0x40);
-        i2cSendRegister(0x11,0x02, 0xA08B);
+        i2cSendRegister(0x11,0x02, 0xA08B); // Start the radio (power up)
+        i2cRequestRegister(0x40);
     }
     
     return;

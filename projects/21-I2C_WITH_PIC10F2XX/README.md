@@ -4,6 +4,9 @@
 
 ![UNDER CONSTRUCTION...](../../images/under_construction.png)
 
+**Content in the study, test and analysis phase.**
+
+
 ## Overview
 
 This project's main objective is to implement the I2C protocol on the PIC10F2XX series of microcontrollers in Assembly. This will enable the development of various interfaces with numerous modules that utilize this protocol.
