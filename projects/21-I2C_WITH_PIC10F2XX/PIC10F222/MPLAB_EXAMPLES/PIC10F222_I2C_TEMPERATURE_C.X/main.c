@@ -1,6 +1,6 @@
 /*
  * UNDER CONSTRUCTION...
- * I2C protocol implementation
+ * I2C protocol implementation. 
  * 
  * Created on April 15, 2024, 12:04 PM
  * Ricardo Lima Caratti
