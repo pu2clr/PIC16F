@@ -1,0 +1,4 @@
+Update symbol #PWR01 from 'power:GND' to 'power:GND': OK
+Update symbol U1 from 'MCU_Microchip_PIC10:PIC10F222-IP' to 'MCU_Microchip_PIC10:PIC10F222-IP': OK
+Update symbol #PWR05 from 'power:+5V' to 'power:+5V': OK
+Update symbol #PWR03 from 'power:GND' to 'power:GND': OK

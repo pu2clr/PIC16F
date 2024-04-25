@@ -11,7 +11,7 @@
 
 // Sets the SDA and SCL pins of PIC10F200
 // Change this if you have another setup. 
-#define SDA_PIN     GP2         // Data  pin
+#define SDA_PIN     GP0         // Data  pin
 #define SCL_PIN     GP1         // Clock pin
 
 
